@@ -1,0 +1,32 @@
+\documentclass[a4paper,12pt,titlepage]{article}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\usepackage{float}
+
+\DeclareGraphicsExtensions{.png}
+
+\begin{document}
+%\title and intnro
+\input{./FRTitlePage.tex}
+
+%\table of content
+\tableofcontents
+\newpage
+
+%\Intro
+\input{./introduction.tex}
+
+%Problem Scope
+\input{./ProblemScope.tex}
+
+%Architectural Requirements
+\input{./ArchRequirements.tex}
+
+%\UserDynamics - Maria
+\input{./userHandeling.tex}
+
+%Technology
+\input{./Technologies.tex}
+
+\end{document}
