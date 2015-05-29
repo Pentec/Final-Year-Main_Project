@@ -1,0 +1,26 @@
+\documentclass[a4paper,12pt,titlepage]{article}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\usepackage{float}
+
+
+\begin{document}
+%\title and intnro
+\input{./ManualTitlePage.tex}
+
+\maketitle
+% No page number to cover page
+\pagenumbering{gobble}
+\newpage
+% start page numbering
+\pagenumbering{arabic}
+
+% Generate Table of Contents
+
+\tableofcontents
+\newpage
+
+\input{./chapters.tex}
+
+\end{document}
