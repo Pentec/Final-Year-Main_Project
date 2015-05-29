@@ -1,0 +1,34 @@
+\documentclass[a4paper,12pt,titlepage]{article}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\usepackage{float}
+\DeclareGraphicsExtensions{.png}
+
+\begin{document}
+%\title and intnro
+\input{./ARTitlePage.tex}
+
+%\table of content
+\tableofcontents
+\newpage
+
+%\Intro
+\input{./ArchIntroduction.tex}
+
+\section{Critical Architectural Requirements}
+%Lindelo - Scalabilty
+\input{./Scalability.tex}
+
+%Lindelo - Usability
+\input{./Usability.tex}
+
+
+%Ruth - Scalability
+\input{./Scalability.tex}
+
+%Lindelo - MVC
+\input{./MVC.tex}
+
+
+\end{document}

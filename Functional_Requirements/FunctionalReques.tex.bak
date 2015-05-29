@@ -1,0 +1,56 @@
+\documentclass[a4paper,12pt,titlepage]{article}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{epstopdf}
+\usepackage[margin=2in]{geometry}
+
+\DeclareGraphicsExtensions{.png,.eps,.jpg}
+
+\begin{document}
+%\title and intro
+\input{./FRTitlePage.tex}
+
+%\table of content
+\tableofcontents
+\newpage
+
+
+\begin{center}
+\section{Use Case Diagram}
+\end{center}
+\includegraphics[width=\linewidth]{./Graphics/PIMSUseCase}
+\pagebreak
+
+\begin{landscape}
+
+\begin{center}
+\section{Domain Model}
+\end{center}
+\includegraphics[width=\linewidth]{./Graphics/ClassDiagram}
+\end{landscape}
+\pagebreak
+
+%\Intro
+\input{./introduction.tex}
+
+%\UserDynamics - Maria
+\input{./userHandeling.tex}
+
+%Form Use case - Ruth
+\input{./FormUsecase.tex}
+
+%Patient Details (Admin use cases) - Lindelo
+\input{./PatientDetails.tex}
+
+% CRUDUser - Lindelo
+\input{./CRUDUser.tex}
+
+%Authorization - Trevor
+\input{./Authorization.tex}
+
+
+
+\end{document}

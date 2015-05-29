@@ -1,0 +1,99 @@
+\BOOKMARK [1][-]{section.1}{Use Case Diagram}{}% 1
+\BOOKMARK [1][-]{section.2}{Domain Model}{}% 2
+\BOOKMARK [1][-]{section.3}{Introduction}{}% 3
+\BOOKMARK [1][-]{section.4}{User Handling}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{User login}{section.4}% 5
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Prioritization:}{subsection.4.1}% 6
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Conditions and Data Structures:}{subsection.4.1}% 7
+\BOOKMARK [3][-]{subsubsection.4.1.3}{Process Specifications:}{subsection.4.1}% 8
+\BOOKMARK [2][-]{subsection.4.2}{Logout}{section.4}% 9
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Prioritization:}{subsection.4.2}% 10
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Conditions and Data Structures:}{subsection.4.2}% 11
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Process Specifications:}{subsection.4.2}% 12
+\BOOKMARK [1][-]{section.5}{Form}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{addNewForm}{section.5}% 14
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Prioritization:}{subsection.5.1}% 15
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Conditions and Data Structures:}{subsection.5.1}% 16
+\BOOKMARK [3][-]{subsubsection.5.1.3}{Service Contract:}{subsection.5.1}% 17
+\BOOKMARK [2][-]{subsection.5.2}{viewForm}{section.5}% 18
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Prioritization:}{subsection.5.2}% 19
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Conditions and Data Structures:}{subsection.5.2}% 20
+\BOOKMARK [3][-]{subsubsection.5.2.3}{Service Contract:}{subsection.5.2}% 21
+\BOOKMARK [2][-]{subsection.5.3}{removeForm}{section.5}% 22
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Prioritization:}{subsection.5.3}% 23
+\BOOKMARK [3][-]{subsubsection.5.3.2}{Conditions and Data Structures:}{subsection.5.3}% 24
+\BOOKMARK [3][-]{subsubsection.5.3.3}{Service Contract:}{subsection.5.3}% 25
+\BOOKMARK [2][-]{subsection.5.4}{addFormField}{section.5}% 26
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Prioritization:}{subsection.5.4}% 27
+\BOOKMARK [3][-]{subsubsection.5.4.2}{Conditions and Data Structures:}{subsection.5.4}% 28
+\BOOKMARK [3][-]{subsubsection.5.4.3}{Service Contract:}{subsection.5.4}% 29
+\BOOKMARK [2][-]{subsection.5.5}{editFormField}{section.5}% 30
+\BOOKMARK [3][-]{subsubsection.5.5.1}{Prioritization:}{subsection.5.5}% 31
+\BOOKMARK [3][-]{subsubsection.5.5.2}{Conditions and Data Structures:}{subsection.5.5}% 32
+\BOOKMARK [3][-]{subsubsection.5.5.3}{Service Contract:}{subsection.5.5}% 33
+\BOOKMARK [2][-]{subsection.5.6}{removeFormField}{section.5}% 34
+\BOOKMARK [3][-]{subsubsection.5.6.1}{Prioritization:}{subsection.5.6}% 35
+\BOOKMARK [3][-]{subsubsection.5.6.2}{Conditions and Data Structures:}{subsection.5.6}% 36
+\BOOKMARK [3][-]{subsubsection.5.6.3}{Service Contract:}{subsection.5.6}% 37
+\BOOKMARK [2][-]{subsection.5.7}{downloadPatientForm}{section.5}% 38
+\BOOKMARK [3][-]{subsubsection.5.7.1}{Prioritization:}{subsection.5.7}% 39
+\BOOKMARK [3][-]{subsubsection.5.7.2}{Conditions and Data Structures:}{subsection.5.7}% 40
+\BOOKMARK [3][-]{subsubsection.5.7.3}{Service Contract:}{subsection.5.7}% 41
+\BOOKMARK [2][-]{subsection.5.8}{downloadPatientForms}{section.5}% 42
+\BOOKMARK [3][-]{subsubsection.5.8.1}{Prioritization:}{subsection.5.8}% 43
+\BOOKMARK [3][-]{subsubsection.5.8.2}{Conditions and Data Structures:}{subsection.5.8}% 44
+\BOOKMARK [3][-]{subsubsection.5.8.3}{Service Contract:}{subsection.5.8}% 45
+\BOOKMARK [1][-]{section.6}{Patient Details}{}% 46
+\BOOKMARK [2][-]{subsection.6.1}{View patient details}{section.6}% 47
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Prioritization:}{subsection.6.1}% 48
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Conditions and Data Structures:}{subsection.6.1}% 49
+\BOOKMARK [3][-]{subsubsection.6.1.3}{Service contract:}{subsection.6.1}% 50
+\BOOKMARK [2][-]{subsection.6.2}{Update patient details}{section.6}% 51
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Prioritization:}{subsection.6.2}% 52
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Conditions and Data Structures:}{subsection.6.2}% 53
+\BOOKMARK [3][-]{subsubsection.6.2.3}{Service contract:}{subsection.6.2}% 54
+\BOOKMARK [2][-]{subsection.6.3}{Query All Patient Details}{section.6}% 55
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Prioritization:}{subsection.6.3}% 56
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Conditions and Data Structures:}{subsection.6.3}% 57
+\BOOKMARK [3][-]{subsubsection.6.3.3}{Service contract:}{subsection.6.3}% 58
+\BOOKMARK [1][-]{section.7}{CRUDUser}{}% 59
+\BOOKMARK [2][-]{subsection.7.1}{Add new user}{section.7}% 60
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Prioritization:}{subsection.7.1}% 61
+\BOOKMARK [3][-]{subsubsection.7.1.2}{Conditions and Data Structures:}{subsection.7.1}% 62
+\BOOKMARK [3][-]{subsubsection.7.1.3}{Required Functionality:}{subsection.7.1}% 63
+\BOOKMARK [3][-]{subsubsection.7.1.4}{Process Specifications:}{subsection.7.1}% 64
+\BOOKMARK [3][-]{subsubsection.7.1.5}{Service contract:}{subsection.7.1}% 65
+\BOOKMARK [2][-]{subsection.7.2}{Change user permissions}{section.7}% 66
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Prioritization:}{subsection.7.2}% 67
+\BOOKMARK [3][-]{subsubsection.7.2.2}{Conditions and Data Structures:}{subsection.7.2}% 68
+\BOOKMARK [3][-]{subsubsection.7.2.3}{Required Functionality:}{subsection.7.2}% 69
+\BOOKMARK [3][-]{subsubsection.7.2.4}{Process Specifications:}{subsection.7.2}% 70
+\BOOKMARK [3][-]{subsubsection.7.2.5}{Service contract:}{subsection.7.2}% 71
+\BOOKMARK [2][-]{subsection.7.3}{Query All Patient Details}{section.7}% 72
+\BOOKMARK [3][-]{subsubsection.7.3.1}{Prioritization:}{subsection.7.3}% 73
+\BOOKMARK [3][-]{subsubsection.7.3.2}{Conditions and Data Structures:}{subsection.7.3}% 74
+\BOOKMARK [3][-]{subsubsection.7.3.3}{Required Functionality:}{subsection.7.3}% 75
+\BOOKMARK [3][-]{subsubsection.7.3.4}{Process Specifications:}{subsection.7.3}% 76
+\BOOKMARK [3][-]{subsubsection.7.3.5}{Service contract:}{subsection.7.3}% 77
+\BOOKMARK [1][-]{section.8}{Authorization}{}% 78
+\BOOKMARK [2][-]{subsection.8.1}{Scope}{section.8}% 79
+\BOOKMARK [2][-]{subsection.8.2}{addAuthorized}{section.8}% 80
+\BOOKMARK [3][-]{subsubsection.8.2.1}{Prioritization:}{subsection.8.2}% 81
+\BOOKMARK [3][-]{subsubsection.8.2.2}{Conditions and Data Structures:}{subsection.8.2}% 82
+\BOOKMARK [3][-]{subsubsection.8.2.3}{Service Contract:}{subsection.8.2}% 83
+\BOOKMARK [2][-]{subsection.8.3}{getAuthorised}{section.8}% 84
+\BOOKMARK [3][-]{subsubsection.8.3.1}{Prioritization:}{subsection.8.3}% 85
+\BOOKMARK [3][-]{subsubsection.8.3.2}{Conditions and Data Structures:}{subsection.8.3}% 86
+\BOOKMARK [3][-]{subsubsection.8.3.3}{Service Contract:}{subsection.8.3}% 87
+\BOOKMARK [2][-]{subsection.8.4}{removeAuthorized}{section.8}% 88
+\BOOKMARK [3][-]{subsubsection.8.4.1}{Prioritization:}{subsection.8.4}% 89
+\BOOKMARK [3][-]{subsubsection.8.4.2}{Conditions and Data Structures:}{subsection.8.4}% 90
+\BOOKMARK [3][-]{subsubsection.8.4.3}{Service Contract:}{subsection.8.4}% 91
+\BOOKMARK [2][-]{subsection.8.5}{editAuthorized}{section.8}% 92
+\BOOKMARK [3][-]{subsubsection.8.5.1}{Prioritization:}{subsection.8.5}% 93
+\BOOKMARK [3][-]{subsubsection.8.5.2}{Conditions and Data Structures:}{subsection.8.5}% 94
+\BOOKMARK [3][-]{subsubsection.8.5.3}{Service Contract:}{subsection.8.5}% 95
+\BOOKMARK [2][-]{subsection.8.6}{isAuthorized}{section.8}% 96
+\BOOKMARK [3][-]{subsubsection.8.6.1}{Prioritization:}{subsection.8.6}% 97
+\BOOKMARK [3][-]{subsubsection.8.6.2}{Conditions and Data Structures:}{subsection.8.6}% 98
+\BOOKMARK [3][-]{subsubsection.8.6.3}{Service Contract:}{subsection.8.6}% 99
