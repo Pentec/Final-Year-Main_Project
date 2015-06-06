@@ -1,13 +1,21 @@
-\documentclass[a4paper,12pt,titlepage]{article}
-\usepackage{graphicx}
-\usepackage[hidelinks]{hyperref}
-\usepackage{listings}
-\usepackage{float}
+\documentclass[a4paper]{article}
 
+\title{User Manual
+\\COS 301 Main Project
+\\Gynaecological Patient Information Management System
+\\Team :Pentec
+\\Version 1.0}
+
+\author{Ruth Ojo 12042804
+\\Liz Joseph 10075268
+\\Trevor Austin 11310856
+\\Maria Qumayo 29461775
+\\Lindelo Mapumulo 12002862
+\\ University of Pretoria}
+
+\date{1 June 2015}
 
 \begin{document}
-%\title and intnro
-\input{./ManualTitlePage.tex}
 
 \maketitle
 % No page number to cover page
@@ -21,6 +29,124 @@
 \tableofcontents
 \newpage
 
-\input{./chapters.tex}
+
+\section{Abstract}
+This document is the Software User Manual (SUM) for the Patient Information Management System project and was made according to the software engineering standard described in the tender proposal provided by Professor Snyman. The Software User Manual (SUM) instructs how to install and use the
+Patient Information Management System software. This project is part of the Software Engineering Project course (COS301) at the University of Pretoria.\\
+
+\newpage
+
+\section{Chapter 1}
+
+
+
+\subsection{Change Log}
+Document Title: Software User Manual\\
+Version: 0.1.0\\
+Document Status: conditionally approved\\
+Version Date Author(s) Summary\\
+0.0.1 29-05-2015 LN. Joseph Document creation\\
+
+
+\subsection{Intended readership}
+This document covers the use for the following users of the PIMS system:\\
+\begin{description}
+\item the system administrator
+\item the project administrators
+\item the medical staff
+\item the usability test subjects
+\end{description}
+
+\subsection{Applicability}
+This Software User Manual (SUM) applies to the PIMS software, version 0.1.\\
+
+
+\subsection{Purpose}
+The purpose of the SUM is to assist the user in installing and using the PIMS software.\\
+
+	
+\subsection{How to use this document}
+\begin{description}
+\item How it is to be used:
+\item[$\bullet$]  Chapter 2 - Overview of PIMS Software
+\item[$\bullet$] Chapter 3 - tutorials
+\item[$\bullet$] references of the complete PIMS software
+\end{description}
+
+	
+\subsubsection{Problem Reporting}
+Since the Pentec team will be dissolved after completion of the PIMS project, the
+issue of problem reporting is left to the Administrator, Professor Snyman.\\
+	
+
+\section{Chapter 2}
+\subsubsection{Overview}
+The software is used by doctors and medical staff to create patient forms and document patient information and to query the forms for statistical information. 
+\\
+
+\section{Chapter 3}
+\subsection{Tutorial}
+\subsubsection{Running the Software}
+\begin{enumerate}
+  \item Website page
+  \begin{enumerate}
+  \item Establish an internet connection
+    \item Search for website in web browser
+    \item Log into PIMS system with given authentication codes
+  \end{enumerate}
+  \item Mobile Application
+   \begin{enumerate}
+   \item Establish an internet connection
+    \item Search for website in web browser
+    \item Log into PIMS system with given authentication codes
+  \end{enumerate}
+  \item Tablet or other
+   \begin{enumerate}
+\item Establish an internet connection  
+    \item Search for website in web browser
+    \item Log into PIMS system with given authentication codes
+  \end{enumerate} \ldots
+\end{enumerate}
+
+\begin{description}
+\item[$\bullet$]Client\\
+90 file options\\
+proxy address= the proxy address when used \\
+password= your password \\
+http port= the port of the dispatcher to which to connect to (this would normally be port
+80) \\
+95 dispatcher address= the address of the dispatcher \\
+username= your username in the system \\
+
+
+\item[$\bullet$]Agent\\
+file options\\
+100 proxy address= the proxy address when used \\
+http port= the port of the dispatcher to which to connect to (this would normally be port
+80) \\
+proxy port= the port that used by the proxy \\
+dispatcher address= the address of the dispatcher \\
+agent id= this must be 105 a unique identifier in the PIMS system \\
+
+\item[$\bullet$]Dispatcher\\
+file options\\
+database name= name of the user that has full privileges over the database \\
+database pass= password of the user \\
+125 database address= address to the database e.g. jdbc:mysql://pcwin509.softeng.tue.nl/pentec \\
+http port= port on which HTTP runs \\
+max connections= maximum number of simultaneous connections allowed \\
+
+\end{description}
+
+\subsubsection{Shutting down the website}
+Contact your service provider(hosting site) to pull down the software
+
+
+\section{References}
+\begin{description}
+\item[$\bullet$] Department Obstetrics and Gynaecology Gynaecologic Oncology Unit Kalafong Hospital.
+\end{description}
+
+
 
 \end{document}
