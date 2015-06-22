@@ -7,6 +7,14 @@
 *.bak
 ~$*
 *.tmp
+Functional_Requirements/*.synctex.gz
+Functional_Requirements/*.aux
+Functional_Requirements/*.log
+Functional_Requirements/*.out
+Functional_Requirements/*.bak
+Functional_Requirements/*.toc
+Functional_Requirements/*.tmp
+Functional_Requirements/Graphics/Thumbs.db
 
 
 # Windows image file caches
@@ -52,5 +60,4 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-Functional_Requirements/Graphics/Thumbs.db
 *.db
