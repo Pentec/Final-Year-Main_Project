@@ -1,0 +1,61 @@
+\subsubsection*{Scalability and Performance}
+	\begin{itemize}
+		\item Optimize repeated processes.
+		\item Reuse resources and results.
+		\item Reduce contention by replicating frequently used resources.
+		\item Clustering.
+		\item Efficient use of storage.
+		\item Load Balancing.
+		\item Caching.
+		\item Use REST (Representational State Transfer) to make BuzzSpace into a scalable web service.
+	\end{itemize}	
+\subsubsection*{Security}
+	\begin{itemize}
+		\item Authenticate users by requesting username and password when interaction with the system begins.
+		\item Authorize users checking if a user has the rights to access and modify either data or services.
+		\item Encryption to maintain confidentiality of data.
+		\item Input Validation to detect malicious attacks.
+		\item Auditing and logging for identifying and recovering from attacks.
+	\end{itemize}	
+\subsubsection*{Usability}
+	\begin{itemize}
+		\item Usability is enhanced by giving the user feedback as to what the system is doing.
+		\item Descriptive Error messages must be provide along with the necessary steps to address the errors.
+		\item System must respond to actions performed by the user.
+		\item Separate the user interface from the rest of the application using Model-View-Controller.
+	\end{itemize}
+\subsubsection*{Integrability}
+	\begin{itemize}
+		\item Use modular programming to modularize the system. 
+		\item Use REST (Representational State Transfer) to decouple BuzzSpace from other software that may need its services.
+	\end{itemize}
+\subsubsection*{Maintainability}
+	\begin{itemize}
+		\item Use modular programming to modularize the system.
+		\item Use object-oriented programming to sub divide the sub-system features.
+	\end{itemize}
+\subsubsection*{Monitor-ability}
+	\begin{itemize}
+		\item Monitor-ability can be enhanced by using fault detection tactics:
+		\begin{enumerate}
+			\item Ping/echo: One component issues a ping and expects to receive back an echo, within a predefined time, from the component under scrutiny.
+			\item Heartbeat: One component emits a message periodically and another component listens for it. If the heartbeat fails, the originating component is assumed to have failed and a fault correction component is notified.
+			\item Exceptions: These are raised when an anomaly in a component occurs, encounter an exception when a fault is detected.
+		\end{enumerate}
+	\end{itemize}
+\subsubsection*{Reliability}
+	\begin{itemize}
+		\item Reliability can be enhanced by using fault recovery and preventions tactics:
+		\begin{enumerate}
+			\item Active redundancy: All redundant components respond to events concurrently. All redundant components will have the same state. When a fault occurs in the responding component, the system will switch to the next redundant component, minimizing downtime.
+			\item Checkpoint/rollback: the states of the components will be recorded periodically or in response to certain events. When a fault occurs, the system should be restored to the previously consistent state or checkpoint.
+			\item Transactions: The system should bundle several sequential steps in such a way that the entire bundle can be undone at once. 
+		\end{enumerate}
+	\end{itemize}
+\subsubsection*{Testability}
+	\begin{itemize}
+		\item Enhanced testability by recording the information that enters the system and using it as input into the test harness, and recording the output of the system components.
+		\item Separating the interface from the implementation to enable substitution of implementations for various testing purposes.
+		\item Creating a specialized testing interfaces to capture variable values to a system component and also seeing the output of the component in order to detect faults.
+		\item The components can maintain useful information regarding its execution internally and then be viewed in the testing interface.
+	\end{itemize}
