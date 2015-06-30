@@ -1,0 +1,47 @@
+\documentclass[a4paper,12pt,titlepage]{article}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\usepackage{float}
+\DeclareGraphicsExtensions{.png}
+
+\begin{document}
+%\title and intnro
+\input{./ARTitlePage.tex}
+
+%\table of content
+\tableofcontents
+\newpage
+
+%\Intro
+\input{./ArchIntroduction.tex}
+
+\section{Critical Architectural Requirements}
+%Lindelo - Security
+\input{./Security.tex}
+
+%Lindelo - Usability
+\input{./Usability.tex}
+
+\subsection{Scalability}
+%Ruth - Scalability
+\input{./Scalability}
+
+\subsection{Reliability and Availability}
+%Ruth - Reliability and Availability
+\input{./Reliability}
+=======
+%Maria - INtegrability
+\input{./Integrability_Quality_Requirement.tex}
+
+%Lindelo - MVC
+\input{./MVC.tex}
+
+%Maria - Arch tactics and strategies
+\input{./Tactics_or_Strategies.tex}
+
+%Maria - Technologies
+\input{./Technologies.tex}
+
+
+\end{document}

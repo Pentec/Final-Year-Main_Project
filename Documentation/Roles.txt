@@ -1,0 +1,14 @@
+RUTH, MARIA, LINDELO:
+Architecture
+TREVOR:
+Design & Testing
+LIZ:
+User Manual & Testing
+EVERYONE:
+Function Requirements
+
+Use cases:
+Maria: Login & patient details(User)
+Lindelo: Patient details(Admin) & CRUD User
+Ruth: Form
+Trevor: Authorization
