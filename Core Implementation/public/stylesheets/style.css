@@ -62,7 +62,7 @@ div.top
 {
     height: 30%;
     width: auto;
-    background-color: #36648b;
+    background-color: #004B8F;
     text-align:center;
     /*background-color: #191970;*/
 }
@@ -82,10 +82,10 @@ h1#logoHeading
 
 div.container
 {
-    color: #f5f5f5;
+    color: #333333;
     width: auto;
     height: 66%;
-    background-color: #333333;
+    background-color: #d8d8d8;
 }
 
 div.formContent
@@ -94,7 +94,6 @@ div.formContent
     height: 45%;
     margin-left: auto;
     margin-right: auto;
-    border-color: pink;
     padding-top: 2%;
     text-align:center;
 }
@@ -103,21 +102,22 @@ input.username
 {
     width: 50%;
     padding: 2%;
-    background-color: black;
+    background-color: white;
 }
 
 input.password
 {
     width: 50%;
     padding: 2%;
-    background-color: black;
+    background-color: white;
 }
 
 input.loginBtn
 {
     width: 50%;
     padding: 2%;
-    background-color: #36648b;
+    background-color: #004B8F;
+    color: #d8d8d8;
 }
 
 input.loginBtn:hover
@@ -140,11 +140,11 @@ div.footer
 {
     border: 1px;
     border-top-style:dotted;
-    border-top-color: #f5f5f5;
-    color: #f5f5f5;
+    border-top-color: #333333;
+    color: #333333;
     width: auto;
     height: 4%;
-    background-color: #333333;
+    background-color: #d8d8d8;
     text-align: right;
 }
 
@@ -152,14 +152,14 @@ a.loginHome
 {
     padding: 1%;
     display : inline;
-    color: #f5f5f5;
+    color: #333333;
 }
 
 a.loginHelp
 {
     padding: 1%;
     display : inline;
-    color: #f5f5f5;
+    color: #333333;
 }
 
 /*Add New User Centre Div*/
