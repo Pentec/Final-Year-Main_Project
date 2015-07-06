@@ -17,4 +17,9 @@ router.get('/add', function(req, res, next) {
 });
 
 
+/* GET login page. */
+router.get('/form', function(req, res, next) {
+    res.render('formBuild', { title: 'Form Builder' });
+});
+
 module.exports = router;

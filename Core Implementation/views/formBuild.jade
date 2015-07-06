@@ -1,0 +1,88 @@
+//
+   Created by Ruth on 2015-07-03.
+doctype html
+html
+block head
+    head
+        //title= FormBuilder
+        meta(name='description' content="")
+        block style
+            link(rel='stylesheet', href='/form/vendor/css/vendor.css')
+            link(rel='stylesheet', href='/form/dist/formbuilder.css')
+            style.
+                *
+                {
+                box-sizing: border-box;
+                }
+                body {
+                    background-color: #444;
+                    font-family: sans-serif;
+                }
+                .fb-main {
+                    background-color: #fff;
+                    border-radius: 5px;
+                    min-height: 600px;
+                }
+                input[type=text] {
+                height: 26px;
+                    margin-bottom: 3px;
+                }
+                select {
+                    margin-bottom: 5px;
+                    font-size: 40px;
+                }
+
+    body
+        block content
+            div#formbuilder
+            block script
+                  script(src='/form/vendor/js/vendor.js')
+                  script(src='/form/dist/formbuilder.js')
+                  script.
+                      //var formbuilder = new Formbuilder({ selector: '#formbuilder' });
+                      //var form = new Formbuilder({selector: '#formbuilder'});
+                      $(function(){
+                          var form = new Formbuilder({selector: '#formbuilder'});
+                          //alert("Again!!!!!!!");
+
+                          form.on('save', function(payload){
+                              alert(payload + "\n   Again!!!!!!!");
+                                    console.log(payload);
+                          })
+
+                          var load = localStorage.getItem("Payload");
+                          if(load)
+                          {
+                              console.log("In load \n ");
+                              //var load = localStorage.getItem("Payload");
+                              if (load) {
+                                  alert("Again!!!!!!! \n" + load + " \n Hoorah!!");
+                                  load = JSON.parse(load);
+                                  console.log("Got it!! \n " + load);
+                                  localStorage.removeItem('Payload');
+                              }
+                              else
+                              {
+                                  alert("Nooooooooooooooooooooooooooooooooooooo");
+                                  console.log("Nooooooooooooooooooooooooooooooooooooo");
+                              }
+                          }
+
+
+                      });
+
+                      function load(load) {
+                          console.log("In load \n ");
+                          //var load = localStorage.getItem("Payload");
+                          if (load) {
+                              alert("Again!!!!!!! \n" + load + " \n Hoorah!!");
+                              load = JSON.parse(load);
+                              console.log("Got it!! \n " + load);
+                              localStorage.removeItem('Payload');
+                          }
+                          else
+                          {
+                              alert("Nooooooooooooooooooooooooooooooooooooo");
+                              console.log("Nooooooooooooooooooooooooooooooooooooo");
+                          }
+                      }
