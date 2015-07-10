@@ -1,0 +1,222 @@
+html, body{width: 100%; height: 100%; overflow: hidden;}
+
+.content {
+    margin-left: 85px;
+}
+
+#sidebar {
+    font-family: 'Open Sans';
+    text-align: center;
+    background-color: #003B79;
+    color: white;
+    height: 100%;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 150px;
+    z-index: 2;
+}
+
+.sidebar-avatar {
+    margin-top: 10px;
+
+    font-size: 10px;
+}
+
+.navTab {
+    border-top: 2px solid #002E79;
+    margin-top: 100px;
+}
+
+.sidebar-settings {
+    border-top: 2px solid #002E79;
+    background-color: #001f41;
+    position: absolute;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 105px;
+    bottom: 0;
+}
+
+.navTab a {
+    color: #d0d0d0;
+}
+
+.navTab li a:hover {
+    background-color: #001f41;
+}
+
+.navTab .active a,
+.navTab .active a:hover {
+    color: white;
+    background-color: #001f41;
+}
+p.sidebartext{
+	font-size:20px;
+}
+
+
+/*Login page*/
+div.top
+{
+    height: 30%;
+    width: auto;
+    background-color: #004B8F;
+    text-align:center;
+    /*background-color: #191970;*/
+}
+
+img#kalaLogo
+{
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1#logoHeading
+{
+    color: #f5f5f5;
+
+}
+
+div.container
+{
+    color: #333333;
+    width: auto;
+    height: 66%;
+    background-color: #d8d8d8;
+}
+
+div.formContent
+{
+    width: 40%;
+    height: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2%;
+    text-align:center;
+}
+
+input.username
+{
+    width: 50%;
+    padding: 2%;
+    background-color: white;
+}
+
+input.password
+{
+    width: 50%;
+    padding: 2%;
+    background-color: white;
+}
+
+input.loginBtn
+{
+    width: 50%;
+    padding: 2%;
+    background-color: #004B8F;
+    color: #d8d8d8;
+}
+
+input.loginBtn:hover
+{
+    width: 55%;
+}
+
+form.loginForm
+{
+    white-space:pre;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+
+div.footer
+{
+    border: 1px;
+    border-top-style:dotted;
+    border-top-color: #333333;
+    color: #333333;
+    width: auto;
+    height: 4%;
+    background-color: #d8d8d8;
+    text-align: right;
+}
+
+a.loginHome
+{
+    padding: 1%;
+    display : inline;
+    color: #333333;
+}
+
+a.loginHelp
+{
+    padding: 1%;
+    display : inline;
+    color: #333333;
+}
+
+/*Add New User Centre Div*/
+.form-centered{
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.text-centered{
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+img.logo
+{
+    width: 50%;
+}
+
+.biggerheight
+{
+	height: 50px;
+}
+::-webkit-input-placeholder {
+ font-size: 20px;
+ color: #d0cdfa;
+ text-transform: uppercase;
+ text-transform: uppercase;
+ text-align: center;
+ font-weight: bold;
+}
+:-moz-placeholder { /* older Firefox*/
+ font-size:20px;
+ color: #d0cdfa;
+ text-transform: uppercase;
+ text-align: center;
+ font-weight: bold;
+}
+::-moz-placeholder { /* Firefox 19+ */ 
+ font-size: 20px;
+ color: #d0cdfa; 
+ text-transform: uppercase;
+ text-align: center;
+ font-weight: bold;
+} 
+:-ms-input-placeholder { 
+ font-size: 20px; 
+ color: #d0cdfa;
+ text-transform: uppercase;
+ text-align: center;
+ font-weight: bold;
+}
+.adduserinput
+{
+ font-size:20px;
+ color: black;
+ text-align: center;
+ font-weight: bold;
+}
