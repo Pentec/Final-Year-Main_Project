@@ -15,6 +15,7 @@
     "morgan": "~1.5.3",
     "pims-database": ">=0.0.1",
     "pims-login": ">=0.0.1",
+    "pims-settings": ">=0.0.1",
     "serve-favicon": "~2.2.1",
     "unit.js": "^2.0.0"
   }
