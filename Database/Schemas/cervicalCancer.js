@@ -84,7 +84,7 @@ var CervCanver = new GynaSurgerySchema({
 	},
        DateOfSurgery: Date,
        
-/*Type Of Tadiatherapy*/	
+/*Type Of Tadiatherapy**/	
        TypeOfRadTheropy: 
 	{
 	Intracavitary: Boolean,
