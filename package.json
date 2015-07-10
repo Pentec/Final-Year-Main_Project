@@ -1,5 +1,5 @@
 {
-  "name": "Source-Code",
+  "name": "Pentec_PIMS",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -13,6 +13,9 @@
     "express": "~4.12.4",
     "jade": "~1.9.2",
     "morgan": "~1.5.3",
+    "pims-database": ">=0.0.1",
+    "pims-login": ">=0.0.1",
+    "pims-settings": ">=0.0.1",
     "serve-favicon": "~2.2.1",
     "unit.js": "^2.0.0"
   }
