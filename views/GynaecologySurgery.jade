@@ -1,0 +1,174 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    |     
+    title Gynaecology Surgery
+    |     
+    link(rel='stylesheet', style='text/css', href='deps/opt/bootstrap.css')
+  |   
+  body
+    h1 Gynaecology Surgery
+    |     
+    form
+    |     
+    #res.alert
+    |     
+    script(type='text/javascript', src='deps/jquery.min.js')
+    |     
+    script(type='text/javascript', src='deps/underscore.js')
+    |     
+    script(type='text/javascript', src='deps/opt/jsv.js')
+    |     
+    script(type='text/javascript', src='lib/jsonform.js')
+    |     
+    script(type='text/javascript').
+      $('form').jsonForm({
+      schema: {
+      procedureDate: {
+      type: 'string',
+      title: 'Date'
+      },
+      HospitalNumber: {
+      type: 'number',
+      title: 'Hospital Number'
+      },
+      Age: {
+      type: 'number',
+      title: 'Age'
+      },
+      Name: {
+      type: 'string',
+      title: 'Name'
+      },
+      Surname: {
+      type: 'string',
+      title: 'Surname'
+      },
+      HospitalNumber: {
+      type: 'number',
+      title: 'Hospital Number'
+      },
+      "unknownField": {
+      "type": "checkboxes",
+      "title": "Options",
+      "items": {
+      "type": "string",
+      "title": "Option",
+      "enum": [
+      "P",
+      "G",
+      "M",
+      "E"
+      ]
+      }
+      },
+      "HIVStatus": {
+      "type": "string",
+      "title": "HIV Status",
+      "enum": [ "Negative", "Positive", "Unknown" ]
+      },
+      "CD4": {
+      "type": "integer",
+      "title": "CD4"
+      },
+      "ProcedureType": {
+      "type": "string",
+      "title": "Procedure Type",
+      "enum": [
+      "",
+      "Elective",
+      "Emergency"
+      ]
+      },
+      "Firm": {
+      "type": "string",
+      "title": "Firm",
+      "enum": [
+      "",
+      "G1",
+      "G2",
+      "G3",
+      "ONC"
+      ]
+      },
+      "ProcedureCat": {
+      "type": "string",
+      "title": "Procedure Catagory",
+      "enum": [
+      "",
+      "Oncology",
+      "General Gynaecology",
+      "Infertility",
+      "Urogynaecology",
+      "Open abdomen",
+      "Endoscopy",
+      "Vaginal"
+      ]
+      },
+      "Type of Access": {
+      "type": "string",
+      "title": "Type of Access",
+      "enum": [
+      "",
+      "Open abdomen",
+      "Endoscopy",
+      "Vaginal"
+      ]
+      },
+      "PerfBy": {
+      "type": "string",
+      "title": "Performed primarlily by",
+      "enum": [
+      "",
+      "Consultant",
+      "Fellow",
+      "Registerar",
+      "Intern"
+      ]
+      },
+      " PreOperCodes": {
+      "type": "array",
+      "title": "Pre-Operative Diagnosis ICD Codes:",
+      "items": {
+      "type": "string",
+      }
+      },
+      DigIfNot: {
+      type: 'string',
+      title: 'Diagnosis if not on ICD 10 list'
+      },
+      "ProcPrefCodes": {
+      "type": "array",
+      "title": " Procedure(s) Performed(Codes) :",
+      "items": {
+      "type": "string",
+      }
+      },
+      "IOcomplications": {
+      "type": "string",
+      "title": "Intra-operative complications",
+      "enum": [
+      "None",
+      "Bladder injury",
+      "Bowel injury",
+      "Bleeding requiring unplanned blood transfusion",
+      "Procedure not completed"
+      ]
+      },
+      "other": {
+      "type": "textarea",
+      "title": "Other"
+      },
+      },
+      onSubmit: function (errors, values) {
+      if (errors) {
+      $('#res').html('<p>I beg your pardon?</p>');
+      }
+      else {
+      $('#res').html('<p>Hello ' + values.name + '.' +
+      (values.age ? '<br/>You are ' + values.age + '.' : '') +
+      '</p>');
+      }
+      }
+      });
