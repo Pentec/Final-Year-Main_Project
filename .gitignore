@@ -72,3 +72,9 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
+Core Implementation/public/dist/formbuilder.css
+Core Implementation/public/dist/formbuilder.js
+*.db
+Core Implementation/public/vendor/css/vendor.css
+*.svg
+Core Implementation/public/vendor/js/vendor.js
