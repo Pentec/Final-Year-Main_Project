@@ -7,8 +7,8 @@ block head
         //title= FormBuilder
         meta(name='description' content="")
         block style
-            link(rel='stylesheet', href='/FBPlugin/vendor/css/vendor.css')
-            link(rel='stylesheet', href='/FBPlugin/dist/formbuilder.css')
+            link(rel='stylesheet', href='/vendor/css/vendor.css')
+            link(rel='stylesheet', href='/dist/formbuilder.css')
             style.
                 *
                 {
@@ -33,56 +33,74 @@ block head
                 }
 
     body
+        h2(id ='jsonresult')
         block content
             div#formbuilder
             block script
-                  script(src='/FBPlugin/vendor/js/vendor.js')
-                  script(src='/FBPlugin/dist/formbuilder.js')
+                  script(src='/vendor/js/vendor.js')
+                  script(src='/dist/formbuilder.js')
                   script.
                       //var formbuilder = new Formbuilder({ selector: '#formbuilder' });
                       //var form = new Formbuilder({selector: '#formbuilder'});
+
+
                       $(function(){
+                          //app.locals.fs = require('fs');
+                          /*var mongoose = require('mongoose');
+                          var generator = require('mongoose-gen');*/
+
                           var form = new Formbuilder({selector: '#formbuilder'});
                           //alert("Again!!!!!!!");
 
+                          /*$(function () {
+                              $('#search').on('keyup', function (e) {
+                                  if (e.keyCode === 13) {
+                                      var parameters = {search: $(this).val()};
+                                      $.get('/searching', parameters, function (data) {
+                                          $('#results').html(data);
+                                      });
+                                  }
+                                  ;
+                              });
+                          });*/
+
                           form.on('save', function(payload){
                               alert(payload + "\n   Again!!!!!!!");
-                                    console.log(payload);
+                              $.get('/form', function(payload){
+                                  $('#jsonresult').html(payload);
+                              })
+                                    //console.log(payload);
+
+                              /*var options = {
+                                  host: 'localhost',
+                                  port: '300',
+                                  path: '/form',
+                                  method: 'POST',
+                                  headers:{
+                                      'Content-Type': 'application/json',
+                                      'Content-Length': payload.length
+                                  }
+                              };
+
+                              var req = config.httpServer.request(options, function(res){
+                                  //response
+                              });
+                              //request.write(JSON.stringify(some_json),encoding='utf8');
+                              req.write(JSON.stringify(payload), encoding='utf8');
+                              req.end();*/
+
+
+
+
+                              console.log(JSON.stringify(payload, null, 4) + "   \n in jade file");
+                              //config.form
+                              //let's try sending the data through a form element so we can access it in index.js
+
+
+
                           })
 
-                          var load = localStorage.getItem("Payload");
-                          if(load)
-                          {
-                              console.log("In load \n ");
-                              //var load = localStorage.getItem("Payload");
-                              if (load) {
-                                  alert("Again!!!!!!! \n" + load + " \n Hoorah!!");
-                                  load = JSON.parse(load);
-                                  console.log("Got it!! \n " + load);
-                                  localStorage.removeItem('Payload');
-                              }
-                              else
-                              {
-                                  alert("Nooooooooooooooooooooooooooooooooooooo");
-                                  console.log("Nooooooooooooooooooooooooooooooooooooo");
-                              }
-                          }
+
 
 
                       });
-
-                      function load(load) {
-                          console.log("In load \n ");
-                          //var load = localStorage.getItem("Payload");
-                          if (load) {
-                              alert("Again!!!!!!! \n" + load + " \n Hoorah!!");
-                              load = JSON.parse(load);
-                              console.log("Got it!! \n " + load);
-                              localStorage.removeItem('Payload');
-                          }
-                          else
-                          {
-                              alert("Nooooooooooooooooooooooooooooooooooooo");
-                              console.log("Nooooooooooooooooooooooooooooooooooooo");
-                          }
-                      }

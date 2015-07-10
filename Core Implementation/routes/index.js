@@ -1,6 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
+
+/*var browserify = require('browserify');
+//var formModule  = require('./pimsForm.js');*/
+var formModule  = require('pimsForm');
+//var b = browserify();
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Kalafong PIMS' });
@@ -8,7 +15,9 @@ router.get('/', function(req, res, next) {
 
 /* GET login page. */
 router.get('/login', function(req, res, next) {
-    res.render('login', { title: 'PIMS Login Page' });
+    res.render('login', { title: 'Kalafong PIMS Login Page' });
+
+    //formModule.getJSON();
 });
 
 /* Add New User page */
@@ -17,9 +26,17 @@ router.get('/add', function(req, res, next) {
 });
 
 
-/* GET login page. */
+/* GET form page. */
 router.get('/form', function(req, res, next) {
-    res.render('formBuild', { title: 'Form Builder' });
+    var cool = req;
+    console.log("IN index \n ");
+    console.log(cool);
+    res.render('formBuild', { title: 'Form Builder'});
+
+
 });
+
+
+
 
 module.exports = router;

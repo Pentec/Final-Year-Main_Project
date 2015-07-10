@@ -64,3 +64,8 @@ Temporary Items
 
 # FormBuilder Files
 FormBuilding/form/
+Core Implementation/public/dist/formbuilder.js
+Core Implementation/public/dist/formbuilder.css
+Core Implementation/public/vendor/css/vendor.css
+Core Implementation/public/vendor/fonts/fontawesome-webfont.svg
+Core Implementation/public/vendor/js/vendor.js

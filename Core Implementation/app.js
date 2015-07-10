@@ -5,10 +5,26 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var http = require('http');
+var fs = require('fs');
+var mongoose = require('mongoose');
+var formModule  = require('pimsForm');
+//mongoose.connect('mongodb://Admin:qYMqsW5Z@ds033601.mongolab.com:33601/pentec_pims');
+var generator = require('mongoose-gen');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+
 var app = express();
+
+app.locals.config = {
+    fileSystem: fs,
+    httpServer: http,
+    mong: mongoose,
+    form: formModule
+}
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -58,3 +74,4 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+module.exports = app.locals.config.form;
