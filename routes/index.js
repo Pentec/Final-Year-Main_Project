@@ -16,5 +16,10 @@ router.get('/add', function(req, res, next) {
     res.render('add', { title: 'Kalafong PIMS - Add New User' });
 });
 
+/*Countdown Page*/
+router.get("/countdown", function(req, res, next){
+    res.render('countdown', { title : 'Coming Soon'});
+});
+
 
 module.exports = router;

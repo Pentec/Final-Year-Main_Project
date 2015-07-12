@@ -1,2 +1,10 @@
+extends layout
 block extFiles
-   script(src='/javascripts/bootstrap.js')
+   link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300")
+   link(rel="stylesheet", href="/stylesheets/countdownStyle.css")
+   link(rel="stylesheet", href="/stylesheets/jquery.countdown.css")
+   script(src="/javascripts/jquery.countdown.js")
+   script(src="/javascripts/countdown.js")
+block content
+    div(id="countdown")
+    p(id="note")
