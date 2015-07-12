@@ -12,8 +12,8 @@ $(function(){
 			message += days + " day" + ( days==1 ? '':'s' ) + ", ";
 			message += hours + " hour" + ( hours==1 ? '':'s' ) + ", ";
 			message += minutes + " minute" + ( minutes==1 ? '':'s' ) + " and ";
-			message += seconds + " second" + ( seconds==1 ? '':'s' ) + " <br />";
-			message += "left until website is complete!";
+			message += seconds + " second" + ( seconds==1 ? '':'s' );
+			message += " left until website is complete!";
 
 			note.html(message);
 		}

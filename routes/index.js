@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Kalafong PIMS' });
+  res.render('countdown', { title: 'Kalafong PIMS: Coming Soon' });
 });
 
 /* GET login page. */
@@ -17,8 +17,8 @@ router.get('/add', function(req, res, next) {
 });
 
 /*Countdown Page*/
-router.get("/countdown", function(req, res, next){
-    res.render('countdown', { title : 'Coming Soon'});
+router.get("/dashboard", function(req, res, next){
+    res.render('index', { title : 'PIMS Dashboard'});
 });
 
 
