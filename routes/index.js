@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var Comment = mongoose.model('forms');
+var User = mongoose.model('users');
 
 /* GET splash page. */
 router.get('/', function(req, res, next) {
@@ -23,6 +23,17 @@ router.get('/login', function(req, res, next) {
 /* Add New User page */
 router.get('/add', function(req, res, next) {
     res.render('add', { title: 'Kalafong PIMS - Add New User' });
+});
+
+
+/* Add New User to database */
+router.post('/create', function(req, res) {
+  new User({username : req.body.username,surname : req.body.surname,email : req.body.email,user_rights : req.body.user_rights,password : req.body.password,department : req.body.department,staff_type : req.body.staff_type })
+  .save(function(err, users) {
+  console.log("New user added");
+    res.redirect('add');
+	
+  });
 });
 
 /* GET login page. */
