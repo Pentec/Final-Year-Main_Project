@@ -104,5 +104,5 @@ if (success)
 			return "Error: Could not add test data";
 		}
 
-mongoose.connect('mongodb://127.0.0.1:27017/db');
+mongoose.connect('mongodb://Admin:qYMqsW5Z@ds033601.mongolab.com:33601/pentec_pims');
 
