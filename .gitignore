@@ -61,3 +61,13 @@ Network Trash Folder
 Temporary Items
 .apdisk
 *.db
+
+
+# Dependency directory
+# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
+node_modules
+Core Implementation/public/dist/formbuilder.css
+Core Implementation/public/dist/formbuilder.js
+Core Implementation/public/vendor/css/vendor.css
+Core Implementation/public/vendor/fonts/fontawesome-webfont.svg
+Core Implementation/public/vendor/js/vendor.js
