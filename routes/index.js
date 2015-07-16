@@ -66,29 +66,20 @@ router.post('/create', function(req, res) {
 router.get('/form', function(req, res, next) {
     res.render('formBuild', { title: 'Form Builder' });
  
- //This is code to save something into our database
- /* 
- router.post('/', function(req, res) {
-  new Form({ data : obj })
-  .save(function(err, obj) {
-   // console.log(obj + "My obj")
-    res.redirect('form');
-  });
 });
 
- //This is code to retrieve something from our database
-router.get('/', function(req, res) {
-  Form.find(function(err, form){
-    console.log(form)
-    res.render(
-      'form',
-      {title : 'My funky form', comments : comments} //if you wan it to show on a page
-    );
-  });
+router.post('/formsave', function(req, res) {
+    var object = JSON.stringify(req.body);
+    console.log(object);
+
+    new Form({form_name : "new form",data : object ,is_deleted : false})
+        .save(function(err, forms) {
+            console.log("New form added");
+            res.redirect('formBuild');
+
+        });
+
 });
 
-*/
 
-	
-});
 module.exports = router;
