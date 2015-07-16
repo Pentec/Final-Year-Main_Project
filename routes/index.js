@@ -3,6 +3,8 @@ var router = express.Router();
 
 var mongoose = require('mongoose');
 var User = mongoose.model('users');
+var Form = mongoose.model('forms');
+var login = require('pims-login');
 
 /* GET splash page. */
 router.get('/', function(req, res, next) {
