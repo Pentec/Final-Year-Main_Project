@@ -5,8 +5,7 @@ var Schema   = mongoose.Schema;
 var Form = new Schema({  
 	form_name			: String,
 	data				: String,
-	is_deleted			: Boolean,
-	data				: String
+	is_deleted			: Boolean
 });
 
 var Users = new Schema({          
@@ -37,72 +36,10 @@ var Statistics = new Schema({
 });
 
 
-var form = mongoose.model('forms', Form);
-var patient = mongoose.model('patient', Patient);
-var stats = mongoose.model('statistics', Statistics);
-var user = mongoose.model('users', Users);
-var success = false;
-
-//-------------------------------------------------------------------------------------------------------------
-//Adding new users
-var newUser = new user(
-		{
-			username				: "Leon",
-			surname					: "Snyman",
-			email					: "pentecpims@gmail.com",
-			profile_pic				: "snyman.jpg",
-			user_rights				: 1,
-			password				: "lsny",
-			department				: "Department of Obstetrics and Gynaecology",
-			staff_type				: "Doctor"
-			
-		});
-		newUser.save(function(err,newUser)
-		{
-			if (err) 
-			{
-				success = false;
-				console.log("Error Adding New User");
-			}
-			else 
-			{
-				success = true;
-			}
-		});
-
-		var newUser = new user(
-		{
-			username				: "Mary",
-			surname					: "Poppins",
-			email					: "marypoppins@gmail.com",
-			profile_pic				: "mary.jpg",
-			user_rights				: 2,
-			password				: "mary",
-			department				: "Department of Obstetrics and Gynaecology",
-			staff_type				: "Intern"
-			
-		});
-		newUser.save(function(err,newUser)
-		{
-			if (err) 
-			{
-				success = false;
-				console.log("Error Adding New User");
-			}
-			else 
-			{
-				success = true;
-			}
-		});
-//-------------------------------------------------------------------------------------------------------------
-if (success)
-		{
-			return "Test data added successfully";
-		}
-		else 
-		{
-			return "Error: Could not add test data";
-		}
+mongoose.model('forms', Form);
+mongoose.model('patient', Patient);
+mongoose.model('statistics', Statistics);
+mongoose.model('users', Users);
 
 mongoose.connect('mongodb://Admin:qYMqsW5Z@ds033601.mongolab.com:33601/pentec_pims');
 
