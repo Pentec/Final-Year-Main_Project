@@ -45,7 +45,7 @@ block head
                             form.on('save', function(payload){
                                 var one = payload;
                                 alert(one);
-                                $.ajax({type: 'POST',url: '/liz',data: one});
+                                $.ajax({type: 'POST',url: '/formsave',data: one});
                                    
                           })
                       });
