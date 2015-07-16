@@ -58,6 +58,10 @@ node_modules
 *.iws
 
 ## Plugin-specific files:
+/public/vendor/js/*
+/public/vendor/fonts/*
+public/dist/*
+public/vendor/css/*
 
 # IntelliJ
 /out/

@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var Comment = mongoose.model('forms');
+var Form = mongoose.model('forms');
 
+var login = require('pims-login');
 /* GET splash page. */
 router.get('/', function(req, res, next) {
   res.render('splash', { title: 'Kalafong PIMS' });
@@ -15,43 +16,73 @@ router.get('/home', function(req, res, next) {
   res.render('index', { title: 'Kalafong PIMS' });
 });
 
-/* GET login page. */
+
+/*******************************LOGIN BELOW**********************************************/
+
+
+/* GET login page */
 router.get('/login', function(req, res, next) {
     res.render('login', { title: 'PIMS Login Page' });
 });
+
+ /*POST login page.*/
+router.post('/login', function(req, res, next) {
+    //res.render('login', { title: 'PIMS Login Page' });
+    var username = req.body.userid;
+    var password = req.body.pswd;
+    console.log("Hello \n" + req.body.userid);
+    console.log("Hello Again \n" + req.body.pswd);
+
+    //login.authenticate(username, password);
+
+    var getIt = login.authenticate(username, password, function(found) {
+        console.log('Finished calling authenticate. \n' + found);
+        //res.redirect('home');
+        //
+        //console.log(getIt + "  OK")
+         if(found)
+         {
+             console.log("its true");
+             res.redirect('home');
+         }
+         else
+         {
+             console.log("its false");
+             res.redirect('login');
+         }
+
+
+    });
+
+
+
+});
+/*******************************LOGIN ABOVE**********************************************/
+
 
 /* Add New User page */
 router.get('/add', function(req, res, next) {
     res.render('add', { title: 'Kalafong PIMS - Add New User' });
 });
 
-/* GET login page. */
+/* GET form page. */
 router.get('/form', function(req, res, next) {
     res.render('formBuild', { title: 'Form Builder' });
  
- //This is code to save something into our database
- /* 
- router.post('/', function(req, res) {
-  new Form({ data : obj })
-  .save(function(err, obj) {
-   // console.log(obj + "My obj")
-    res.redirect('form');
-  });
 });
 
- //This is code to retrieve something from our database
-router.get('/', function(req, res) {
-  Form.find(function(err, form){
-    console.log(form)
-    res.render(
-      'form',
-      {title : 'My funky form', comments : comments} //if you wan it to show on a page
-    );
-  });
+router.post('/liz', function(req, res) {
+    var object = JSON.stringify(req.body);
+    console.log(object);
+
+    new Form({form_name : "new form",data : object ,is_deleted : false})
+        .save(function(err, forms) {
+            console.log("New form added");
+            res.redirect('formBuild');
+
+        });
+
 });
 
-*/
 
-	
-});
 module.exports = router;
