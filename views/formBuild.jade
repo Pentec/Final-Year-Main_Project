@@ -44,7 +44,6 @@ block head
                           var form = new Formbuilder({selector: '#formbuilder'});
                             form.on('save', function(payload){
                                 var one = payload;
-                                alert(one);
                                 $.ajax({type: 'POST',url: '/formsave',data: one});
                                    
                           })

@@ -3,7 +3,13 @@ var router = express.Router();
 
 var mongoose = require('mongoose');
 var User = mongoose.model('users');
+<<<<<<< HEAD
+var Form = mongoose.model('forms');
+var login = require('pims-login');
+
+=======
 var Forms = mongoose.model('forms');
+>>>>>>> origin/Develop
 /* GET splash page. */
 router.get('/', function(req, res, next) {
   res.render('splash', { title: 'Kalafong PIMS' });
