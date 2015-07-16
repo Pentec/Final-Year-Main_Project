@@ -15,10 +15,36 @@ router.get('/home', function(req, res, next) {
   res.render('index', { title: 'Kalafong PIMS' });
 });
 
-/* GET login page. */
+/*******************************LOGIN BELOW**********************************************/
+
+/* GET login page */
 router.get('/login', function(req, res, next) {
     res.render('login', { title: 'PIMS Login Page' });
 });
+
+ /*POST login page.*/
+router.post('/login', function(req, res, next) {
+    var username = req.body.userid;
+    var password = req.body.pswd;
+    console.log("Hello \n" + req.body.userid);
+    console.log("Hello Again \n" + req.body.pswd);
+
+    login.authenticate(username, password, function(found) {
+        console.log('Finished calling authenticate. \n' + found);
+         if(found)
+         {
+             console.log("its true");
+             res.redirect('home');
+         }
+         else
+         {
+             console.log("its false");
+             res.redirect('login');
+         }
+    });
+
+});
+/*******************************LOGIN ABOVE**********************************************/
 
 /* Add New User page */
 router.get('/add', function(req, res, next) {
