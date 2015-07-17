@@ -55,19 +55,13 @@ router.get('/login', function(req, res, next) {
 router.post('/login', function(req, res, next) {
     var username = req.body.userid;
     var password = req.body.pswd;
-    console.log("Hello \n" + req.body.userid);
-    console.log("Hello Again \n" + req.body.pswd);
-
     login.authenticate(username, password, function(found) {
-        console.log('Finished calling authenticate. \n' + found);
          if(found)
          {
-             console.log("its true");
              res.redirect('home');
          }
          else
          {
-             console.log("its false");
              res.redirect('login');
          }
     });
