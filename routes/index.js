@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var User = mongoose.model('users');
-var Form = mongoose.model('forms');
+//var User = mongoose.model('users');
+//var Form = mongoose.model('forms');
 var login = require('pims-login');
 
 /* GET splash page. */
@@ -53,6 +53,10 @@ router.get('/add', function(req, res, next) {
     res.render('add', { title: 'Kalafong PIMS - Add New User' });
 });
 
+/* GynaecologySurgery*/
+router.get('/GynaecologySurgery', function(req, res, next) {
+    res.render('GynaecologySurgery', { title: 'Kalafong PIMS - Add New User' });
+});
 
 /* Add New User to database */
 router.post('/create', function(req, res) {
