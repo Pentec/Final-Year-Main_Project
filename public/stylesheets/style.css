@@ -20,12 +20,13 @@ html, body{width: 100%; height: 100%; overflow: hidden;}
 
 .sidebar-avatar {
     margin-top: 10px;
+
     font-size: 10px;
 }
 
 .navTab {
     border-top: 2px solid #002E79;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .sidebar-settings {
@@ -33,9 +34,8 @@ html, body{width: 100%; height: 100%; overflow: hidden;}
     background-color: #001f41;
     position: absolute;
     width: 100%;
-	height: 20%;
     padding-top: 20px;
-    padding-bottom: 105px;
+    padding-bottom: 30px;
     bottom: 0;
 }
 
@@ -83,7 +83,7 @@ h1#logoHeading
 div.container
 {
     color: #333333;
-    width: 50%;
+    width: auto;
     height: 66%;
     background-color: #d8d8d8;
 }
@@ -162,33 +162,6 @@ a.loginHelp
     color: #333333;
 }
 
-.container-fluids{
-
-	text-align: center;
-	background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
-	background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
-	margin:auto;
-	position:relative;
-	width:550px;
-	height:450px;
-	font-family: Tahoma, Geneva, sans-serif;
-	font-size: 14px;
-	font-style: italic;
-	line-height: 24px;
-	font-weight: bold;
-	color: #09C;
-	text-decoration: none;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	padding:10px;
-	border: 1px solid #999;
-	border: inset 1px solid #333;
-	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-	-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-}
-
 /*Add New User Centre Div*/
 .form-centered{
     float: none;
@@ -197,7 +170,6 @@ a.loginHelp
     margin-right: auto;
 }
 .text-centered{
-	
     float: none;
     display: block;
     margin-left: auto;
@@ -205,22 +177,16 @@ a.loginHelp
 }
 img.logo
 {
-    width: 40%;
+    width: 50%;
 }
 
 .biggerheight
 {
-	height: 30px;
-	width: 70px;
+	height: 50px;
 }
-.backbutton
-{
- font-size: 23px;
-}
-
 ::-webkit-input-placeholder {
  font-size: 20px;
- color: #53A6CF;
+ color: #d0cdfa;
  text-transform: uppercase;
  text-transform: uppercase;
  text-align: center;
@@ -228,21 +194,21 @@ img.logo
 }
 :-moz-placeholder { /* older Firefox*/
  font-size:20px;
- color: #53A6CF;
+ color: #d0cdfa;
  text-transform: uppercase;
  text-align: center;
  font-weight: bold;
 }
 ::-moz-placeholder { /* Firefox 19+ */ 
  font-size: 20px;
- color: #53A6CF; 
+ color: #d0cdfa; 
  text-transform: uppercase;
  text-align: center;
  font-weight: bold;
 } 
 :-ms-input-placeholder { 
  font-size: 20px; 
- color: #53A6CF;
+ color: #d0cdfa;
  text-transform: uppercase;
  text-align: center;
  font-weight: bold;
@@ -254,3 +220,25 @@ img.logo
  text-align: center;
  font-weight: bold;
 }
+
+/*////////////////////////////STATS /////////////////////////////////*/
+#display
+{
+	height:300pt;
+	width: 500pt;
+	background-color: #78d8de;
+}
+	
+#contain
+{
+	position:relative;
+	left:300pt;
+	top: -20pt;
+	height: 400pt;
+	width: 500pt;    
+	background-color:#003b79;
+}
+
+label{
+	color: #f5f5f5;
+	}
