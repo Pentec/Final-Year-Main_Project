@@ -149,5 +149,9 @@ router.get('/forms', function(req, res, next) {
     res.render('forms', { title: 'FormSelect' });
 });
 
+/*//*///////////FORM*/////////////////////*/
+router.get('/forms', function(req, res, next) {
+    res.render('forms', { title: 'FormSelect' });
+});
 
 module.exports = router;
