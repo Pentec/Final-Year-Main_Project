@@ -2,33 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var Schema   = mongoose.Schema;
-mongoose.connect('mongodb://Admin:qYMqsW5Z@ds033601.mongolab.com:33601/pentec_pims');
-
-
-var Form = new Schema({
-    form_name			: String,
-    data			: String,
-    is_deleted			: Boolean
-});
-
-var Users = new Schema({
-    username				: String,
-    surname				: String,
-    email				: String,
-    profile_pic				: String,
-    user_rights				: Number,
-    password				: String,
-    department				: String,
-    staff_type				: String
-});
-
-mongoose.model('users', Users);
-mongoose.model('forms', Form);
-var Form = mongoose.model('forms');
-var User = mongoose.model('users');
+/*var User = mongoose.model('users');
+<<<<<<< HEAD
+var Form = mongoose.model('forms');*/
 var login = require('pims-login');
 
+/*=======
+var Forms = mongoose.model('forms');*/
+/*>>>>>>> origin/Develop*/
 /* GET splash page. */
 router.get('/', function(req, res, next) {
   res.render('splash', { title: 'Kalafong PIMS' });
@@ -51,13 +32,19 @@ router.get('/login', function(req, res, next) {
 router.post('/login', function(req, res, next) {
     var username = req.body.userid;
     var password = req.body.pswd;
+    console.log("Hello \n" + req.body.userid);
+    console.log("Hello Again \n" + req.body.pswd);
+
     login.authenticate(username, password, function(found) {
+        console.log('Finished calling authenticate. \n' + found);
          if(found)
          {
+             console.log("its true");
              res.redirect('home');
          }
          else
          {
+             console.log("its false");
              res.redirect('login');
          }
     });
@@ -70,15 +57,6 @@ router.get('/add', function(req, res, next) {
     res.render('add', { title: 'Kalafong PIMS - Add New User' });
 });
 
-/* Settings page */
-router.get('/editProfile', function(req, res, next) {
-    res.render('editProfile', { title: 'Kalafong PIMS - Edit Profile' });
-});
-
-/* GynaecologySurgery*/
-router.get('/GynaecologySurgery', function(req, res, next) {
-    res.render('GynaecologySurgery', { title: 'Kalafong PIMS - Add New User' });
-});
 
 /* Add New User to database */
 router.post('/create', function(req, res) {
@@ -108,6 +86,17 @@ router.post('/formsave', function(req, res) {
         });
 
 });
+
+/*View Stats */
+router.get('/stats', function(req, res, next) {
+    res.render('stats', { title: 'viewStats' });
+});
+
+/******************************* STATS NAV**********************************************/
+router.get('/pro', function(req, res, next) {
+    res.render('pro', { title: 'viewProcedure' });
+});
+
 
 
 module.exports = router;
