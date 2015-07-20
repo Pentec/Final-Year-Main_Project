@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
+
 var Schema   = mongoose.Schema;
 mongoose.connect('mongodb://Admin:qYMqsW5Z@ds033601.mongolab.com:33601/pentec_pims');
 
@@ -29,6 +30,8 @@ var Form = mongoose.model('forms');
 var User = mongoose.model('users');
 var login = require('pims-login');
 
+
+
 /* GET splash page. */
 router.get('/', function(req, res, next) {
   res.render('splash', { title: 'Kalafong PIMS' });
@@ -51,13 +54,19 @@ router.get('/login', function(req, res, next) {
 router.post('/login', function(req, res, next) {
     var username = req.body.userid;
     var password = req.body.pswd;
+    console.log("Hello \n" + req.body.userid);
+    console.log("Hello Again \n" + req.body.pswd);
+
     login.authenticate(username, password, function(found) {
+        console.log('Finished calling authenticate. \n' + found);
          if(found)
          {
+             console.log("its true");
              res.redirect('home');
          }
          else
          {
+             console.log("its false");
              res.redirect('login');
          }
     });
@@ -75,10 +84,6 @@ router.get('/editProfile', function(req, res, next) {
     res.render('editProfile', { title: 'Kalafong PIMS - Edit Profile' });
 });
 
-/* GynaecologySurgery*/
-router.get('/GynaecologySurgery', function(req, res, next) {
-    res.render('GynaecologySurgery', { title: 'Kalafong PIMS - Add New User' });
-});
 
 /* Add New User to database */
 router.post('/create', function(req, res) {
@@ -107,6 +112,41 @@ router.post('/formsave', function(req, res) {
 
         });
 
+});
+
+/*View Stats */
+router.get('/stats', function(req, res, next) {
+    res.render('stats', { title: 'viewStats' });
+});
+
+/******************************* STATS NAV**********************************************/
+router.get('/pro', function(req, res, next) {
+    res.render('pro', { title: 'viewProcedure' });
+});
+
+/*View patient stats */
+router.get('/pat', function(req, res, next) {
+    res.render('pat', { title: 'viewPatient' });
+});
+
+/*View patient stats */
+router.get('/res', function(req, res, next) {
+    res.render('res', { title: 'viewResources' });
+});
+
+/*View patient stats */
+router.get('/doc', function(req, res, next) {
+    res.render('doc', { title: 'viewDoctor' });
+});
+
+/*View patient stats */
+router.get('/pred', function(req, res, next) {
+    res.render('pred', { title: 'Predictions' });
+});
+
+/*View patient stats */
+router.get('/forms', function(req, res, next) {
+    res.render('forms', { title: 'FormSelect' });
 });
 
 
