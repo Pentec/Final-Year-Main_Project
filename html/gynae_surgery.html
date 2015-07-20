@@ -2,17 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Gynaecology Surgery</title>
+    <title>Gynaecology Surgery Form</title>
     <link rel="stylesheet" style="text/css" href="/deps/opt/bootstrap.css" />
   </head>
   <body>
-    <h1>Gynaecology Surgery</h1>
-    <form method = "GET" action = "collectData.js"></form>
-    <div id="res" class="alert"></div>
-    <script type="text/javascript" src="/deps/jquery.min.js"></script>
+    <div class="jumbotron">
+	<h1>Gynaecology Surgery</h1>
+    </div>
+    
+    <div>
+	<form class="form-horizontal" role="form" method = "GET" action = "collectData.js"></form>
+    </div>
+    <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="/deps/underscore.js"></script>
     <script type="text/javascript" src="/deps/opt/jsv.js"></script>
     <script type="text/javascript" src="/lib/jsonform.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
     <script type="text/javascript">
       $('form').jsonForm({
         schema: {
