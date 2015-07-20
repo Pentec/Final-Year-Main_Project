@@ -97,6 +97,30 @@ router.get('/pro', function(req, res, next) {
     res.render('pro', { title: 'viewProcedure' });
 });
 
+/*View patient stats */
+router.get('/pat', function(req, res, next) {
+    res.render('pat', { title: 'viewPatient' });
+});
+
+/*View patient stats */
+router.get('/res', function(req, res, next) {
+    res.render('res', { title: 'viewResources' });
+});
+
+/*View patient stats */
+router.get('/doc', function(req, res, next) {
+    res.render('doc', { title: 'viewDoctor' });
+});
+
+/*View patient stats */
+router.get('/pred', function(req, res, next) {
+    res.render('pred', { title: 'Predictions' });
+});
+
+/*View patient stats */
+router.get('/forms', function(req, res, next) {
+    res.render('forms', { title: 'FormSelect' });
+});
 
 
 module.exports = router;
