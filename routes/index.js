@@ -9,14 +9,14 @@ mongoose.connect('mongodb://Admin:qYMqsW5Z@ds033601.mongolab.com:33601/pentec_pi
 
 var Form = new Schema({
     form_name			: String,
-    data			: String,
+    data				: String,
     is_deleted			: Boolean
 });
 
 var Users = new Schema({
     username				: String,
     surname				: String,
-    email				: String,
+    email					: String,
     profile_pic				: String,
     user_rights				: Number,
     password				: String,
