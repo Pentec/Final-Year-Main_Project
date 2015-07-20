@@ -70,6 +70,11 @@ router.get('/add', function(req, res, next) {
     res.render('add', { title: 'Kalafong PIMS - Add New User' });
 });
 
+/* Settings page */
+router.get('/editProfile', function(req, res, next) {
+    res.render('editProfile', { title: 'Kalafong PIMS - Edit Profile' });
+});
+
 /* GynaecologySurgery*/
 router.get('/GynaecologySurgery', function(req, res, next) {
     res.render('GynaecologySurgery', { title: 'Kalafong PIMS - Add New User' });
