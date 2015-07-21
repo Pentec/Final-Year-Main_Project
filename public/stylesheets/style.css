@@ -20,7 +20,7 @@ html, body{width: 100%; height: 100%; overflow: hidden;}
 
 .sidebar-avatar {
     margin-top: 10px;
-    font-size: 10px;
+    font-size: 10px; 
 }
 
 .navTab {
@@ -35,7 +35,7 @@ html, body{width: 100%; height: 100%; overflow: hidden;}
     width: 100%;
 	height: 20%;
     padding-top: 20px;
-    padding-bottom: 105px;
+    padding-bottom: 50px;
     bottom: 0;
 }
 
@@ -62,7 +62,7 @@ div.top
 {
     height: 30%;
     width: auto;
-    background-color: #004B8F;
+    background-color: #36648b;
     text-align:center;
     /*background-color: #191970;*/
 }
@@ -77,15 +77,14 @@ img#kalaLogo
 h1#logoHeading
 {
     color: #f5f5f5;
-
 }
 
 div.container
 {
-    color: #333333;
-    width: 50%;
+    color: #f5f5f5;
+    width: auto;
     height: 66%;
-    background-color: #d8d8d8;
+    background-color: #333333;
 }
 
 div.formContent
@@ -94,6 +93,7 @@ div.formContent
     height: 45%;
     margin-left: auto;
     margin-right: auto;
+    border-color: pink;
     padding-top: 2%;
     text-align:center;
 }
@@ -116,8 +116,8 @@ input.loginBtn
 {
     width: 50%;
     padding: 2%;
-    background-color: #004B8F;
-    color: #d8d8d8;
+    background-color: #36648b;
+	color: #d8d8d8;
 }
 
 input.loginBtn:hover
@@ -140,11 +140,11 @@ div.footer
 {
     border: 1px;
     border-top-style:dotted;
-    border-top-color: #333333;
-    color: #333333;
+    border-top-color: #f5f5f5;
+    color: #f5f5f5;
     width: auto;
     height: 4%;
-    background-color: #d8d8d8;
+    background-color: #333333;
     text-align: right;
 }
 
@@ -152,14 +152,14 @@ a.loginHome
 {
     padding: 1%;
     display : inline;
-    color: #333333;
+    color: #f5f5f5;
 }
 
 a.loginHelp
 {
     padding: 1%;
     display : inline;
-    color: #333333;
+    color: #f5f5f5;
 }
 
 .container-fluids{
@@ -197,7 +197,6 @@ a.loginHelp
     margin-right: auto;
 }
 .text-centered{
-	
     float: none;
     display: block;
     margin-left: auto;
@@ -205,14 +204,15 @@ a.loginHelp
 }
 img.logo
 {
-    width: 40%;
+    width: 50%;
 }
 
 .biggerheight
 {
-	height: 30px;
+	height: 50px;
 	width: 70px;
 }
+
 .backbutton
 {
  font-size: 23px;
@@ -247,6 +247,7 @@ img.logo
  text-align: center;
  font-weight: bold;
 }
+
 .adduserinput
 {
  font-size:20px;
@@ -254,3 +255,24 @@ img.logo
  text-align: center;
  font-weight: bold;
 }
+/*////////////////////////////STATS /////////////////////////////////*/
+#display
+{
+	height:300pt;
+	width: 500pt;
+	background-color: #78d8de;
+}
+	
+#contain
+{
+	position:relative;
+	left:300pt;
+	top: -20pt;
+	height: 400pt;
+	width: 500pt;    
+	background-color:#003b79;
+}
+
+label{
+	color: #f5f5f5;
+	}
