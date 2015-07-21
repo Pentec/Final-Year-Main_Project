@@ -30,8 +30,6 @@ var Form = mongoose.model('forms');
 var User = mongoose.model('users');
 var login = require('pims-login');
 
-
-
 /* GET splash page. */
 router.get('/', function(req, res, next) {
   res.render('splash', { title: 'Kalafong PIMS' });

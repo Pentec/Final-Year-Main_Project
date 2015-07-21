@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var formRoute = require('./routes/formRoute');
+var formData = require('./routes/formData');
 
 var app = express();
 
@@ -29,7 +29,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/formsave', routes);
 app.use('/create', routes);
-app.use('/collectData', formRoute);
+app.use('/collectData', formData);
 
 
 //This code below, until the next comment, serves for static html forms.
