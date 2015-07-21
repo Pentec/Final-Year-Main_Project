@@ -91,7 +91,6 @@ router.post('/create', function(req, res) {
   .save(function(err, users) {
   console.log("New user added");
     res.redirect('add');
-	
   });
 });
 

@@ -29,6 +29,8 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/formsave', routes);
 app.use('/create', routes);
+app.use('/collectData', formRoute);
+
 
 //This code below, until the next comment, serves for static html forms.
 var html_dir = './html/';
