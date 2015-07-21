@@ -1,4 +1,4 @@
-html, body{width: 100%; height: 100%; overflow: hidden;}
+html, body{width: 100%; height: 100%; overflow: auto;}
 
 .content {
     margin-left: 85px;
@@ -102,14 +102,14 @@ input.username
 {
     width: 50%;
     padding: 2%;
-    background-color: white;
+    background-color: black;
 }
 
 input.password
 {
     width: 50%;
     padding: 2%;
-    background-color: white;
+    background-color: black;
 }
 
 input.loginBtn
@@ -204,7 +204,7 @@ a.loginHelp
 }
 img.logo
 {
-    width: 50%;
+    width: 40%;
 }
 
 .biggerheight
