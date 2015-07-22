@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'html'))); //for html forms
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -31,6 +32,14 @@ app.use('/users', users);
 app.use('/formsave', routes);
 app.use('/sendEmail', routes);
 app.use('/create', routes);
+
+//This code below, until the next comment, serves for static html forms.
+var html_dir = './html/';
+app.get('/gynae_surgery', function(req, res) {
+    res.sendfile(html_dir + 'gynae_surgery.html');
+});
+//end of html routing
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

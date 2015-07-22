@@ -27,18 +27,9 @@ var Patient = new Schema({
 	physical_address		: String
 });
 
-var Statistics = new Schema({          
-	patient_id				: String,
-	patient_name			: String,
-	doctor_name				: String,
-	procedure_name			: String,
-	demographics			: String
-});
-
 
 mongoose.model('forms', Form);
 mongoose.model('patient', Patient);
-mongoose.model('statistics', Statistics);
 mongoose.model('users', Users);
 
 mongoose.connect('mongodb://Admin:qYMqsW5Z@ds033601.mongolab.com:33601/pentec_pims');

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Gynaecology Surgery Form</title>
+    <link rel="stylesheet" style="text/css" href="/deps/opt/bootstrap.css" />
+  </head>
+  <body>
+    <div class="jumbotron">
+	<h1>Gynaecology Surgery Form</h1>
+    </div>
+    
+    <div class = "formdiv">
+	<form class="form-horizontal" role="form" method = "GET" action = "collectData.js"></form>
+    </div>
+    <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/deps/underscore.js"></script>
+    <script type="text/javascript" src="/deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="/lib/jsonform.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+    <script type="text/javascript">
+      $('form').jsonForm({
+        schema: {
+"ProcedureDate": {
+  "type": "date",
+  "require": true,
+  "title": "Procedure Date"
+},
+"HospitalNumber": {
+  "type": "string",
+  "require": true,
+  "title": "Hospital Number"
+},
+"Age": {
+  "type": "number",
+  "require": true,
+  "title": "Age"
+},
+"Name": {
+  "type": "string",
+  "require": true,
+  "title": "Name"
+},
+"Surname": {
+  "type": "string",
+  "require": true,
+  "title": "Surname"
+},
+"UnknownField": {
+  "type": "object",
+  "properties": {
+    "Properties": {
+      "type": "object",
+      "properties": {
+        "P": {
+          "type": "boolean",
+          "title": "P"
+        },
+        "G": {
+          "type": "boolean",
+          "title": "G"
+        },
+        "M": {
+          "type": "boolean",
+          "title": "M"
+        },
+        "E": {
+          "type": "boolean",
+          "title": "E"
+        }
+      }
+    }
+  }
+},
+"HIV": {
+  "type": "object",
+  "properties": {
+    "Status": {
+      "type": "string",
+      "title": "HIV Status"
+    },
+    "CD4": {
+      "type": "number",
+      "title": "CD4"
+    }
+  }
+},
+"ProcedureType": {
+  "type": "object",
+  "properties": {
+    "Properties": {
+      "type": "object",
+      "properties": {
+        "Elective": {
+          "type": "boolean",
+          "title": "Elective"
+        },
+        "Emergency": {
+          "type": "boolean",
+          "title": "Emergency"
+        }
+      }
+    }
+  }
+},
+"Firm": {
+  "type": "object",
+  "properties": {
+    "Properties": {
+      "type": "object",
+      "properties": {
+        "G1": {
+          "type": "boolean",
+          "title": "G1"
+        },
+        "G2": {
+          "type": "boolean",
+          "title": "G2"
+        },
+        "G3": {
+          "type": "boolean",
+          "title": "G3"
+        },
+        "ONC": {
+          "type": "boolean",
+          "title": "ONC"
+        }
+      }
+    }
+  }
+},
+"ProcedureCat": {
+  "type": "object",
+  "properties": {
+    "Properties": {
+      "type": "object",
+      "properties": {
+        "Oncology": {
+          "type": "boolean",
+          "title": "Oncology"
+        },
+        "GeneralGynae": {
+          "type": "boolean",
+          "title": "General Gynaecology"
+        },
+        "Infertility": {
+          "type": "boolean",
+          "title": "Infertility"
+        },
+        "Urologynaecology": {
+          "type": "boolean",
+          "title": "Urologynaecology"
+        }
+      }
+    }
+  }
+},
+"AccessType": {
+  "type": "object",
+  "properties": {
+    "Properties": {
+      "type": "object",
+      "properties": {
+        "OpenAbdomen": {
+          "type": "boolean",
+          "title": "Open Abdomen"
+        },
+        "Endoscopy": {
+          "type": "boolean",
+          "title": "Endoscopy"
+        },
+        "Vaginal": {
+          "type": "boolean",
+          "title": "Vaginal"
+        }
+      }
+    }
+  }
+},
+"PreOperICD10Codes": {
+  "type": "array",
+  "items": {
+    "type": "string",
+    "title": "Pre-Operative Diagnosis ICD Codes:"
+  }
+},
+"PerformedBy": {
+  "type": "object",
+  "properties": {
+    "Properties": {
+      "type": "object",
+      "properties": {
+        "Consultant": {
+          "type": "boolean",
+          "title": "Consultant"
+        },
+        "Fellow": {
+          "type": "boolean",
+          "title": "Fellow"
+        },
+        "Registrar": {
+          "type": "boolean",
+          "title": "Registrar"
+        },
+        "Intern": {
+          "type": "boolean",
+          "title": "Intern"
+        }
+      }
+    }
+  }
+},
+"DygnosisNotOnICD10List": {
+  "type": "array",
+  "items": {
+    "type": "string",
+    "title": "Diagnosis if not on ICD 10 list"
+  }
+},
+"ProPerformedCode": {
+  "type": "array",
+  "items": {
+    "type": "string",
+    "title": "Procedure(s) Performed(Codes) :"
+  }
+},
+"IOComplications": {
+  "type": "object",
+  "properties": {
+    "Properties": {
+      "type": "object",
+      "properties": {
+        "None": {
+          "type": "boolean",
+          "title": "None"
+        },
+        "BladderInjury": {
+          "type": "boolean",
+          "title": "Bladder Injury"
+        },
+        "BowelInjury": {
+          "type": "boolean",
+          "title": "Bowel Injury"
+        },
+        "BRUBT": {
+          "type": "boolean",
+          "title": "BRUBT"
+        },
+        "ProcedureNotCompleted": {
+          "type": "boolean",
+          "title": "Procedure Not Completed"
+        }
+      }
+    }
+  }
+},
+"OtherComplications": {
+  "type": "string",
+  "title": "Other Complications"
+}
+
+    
+  }
+      });
+    </script>
+  </body>
+</html>

@@ -133,6 +133,8 @@ node_modules
 # .idea/gradle.xml
 # .idea/libraries
 
+# splashcss
+
 # Mongo Explorer plugin:
 # .idea/mongoSettings.xml
 

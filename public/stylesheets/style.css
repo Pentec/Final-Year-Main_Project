@@ -1,4 +1,4 @@
-html, body{width: 100%; height: 100%; overflow: hidden;}
+html, body{width: 100%; height: 100%; overflow: auto;}
 
 .content {
     margin-left: 85px;
@@ -20,8 +20,7 @@ html, body{width: 100%; height: 100%; overflow: hidden;}
 
 .sidebar-avatar {
     margin-top: 10px;
-
-    font-size: 10px;
+    font-size: 10px; 
 }
 
 .navTab {
@@ -34,8 +33,9 @@ html, body{width: 100%; height: 100%; overflow: hidden;}
     background-color: #001f41;
     position: absolute;
     width: 100%;
+	height: 20%;
     padding-top: 20px;
-    padding-bottom: 105px;
+    padding-bottom: 50px;
     bottom: 0;
 }
 
@@ -62,7 +62,7 @@ div.top
 {
     height: 30%;
     width: auto;
-    background-color: #004B8F;
+    background-color: #36648b;
     text-align:center;
     /*background-color: #191970;*/
 }
@@ -77,15 +77,14 @@ img#kalaLogo
 h1#logoHeading
 {
     color: #f5f5f5;
-
 }
 
 div.container
 {
-    color: #333333;
+    color: #f5f5f5;
     width: auto;
     height: 66%;
-    background-color: #d8d8d8;
+    background-color: #333333;
 }
 
 div.formContent
@@ -94,6 +93,7 @@ div.formContent
     height: 45%;
     margin-left: auto;
     margin-right: auto;
+    border-color: pink;
     padding-top: 2%;
     text-align:center;
 }
@@ -102,22 +102,22 @@ input.username
 {
     width: 50%;
     padding: 2%;
-    background-color: white;
+    background-color: black;
 }
 
 input.password
 {
     width: 50%;
     padding: 2%;
-    background-color: white;
+    background-color: black;
 }
 
 input.loginBtn
 {
     width: 50%;
     padding: 2%;
-    background-color: #004B8F;
-    color: #d8d8d8;
+    background-color: #36648b;
+	color: #d8d8d8;
 }
 
 input.loginBtn:hover
@@ -140,11 +140,11 @@ div.footer
 {
     border: 1px;
     border-top-style:dotted;
-    border-top-color: #333333;
-    color: #333333;
+    border-top-color: #f5f5f5;
+    color: #f5f5f5;
     width: auto;
     height: 4%;
-    background-color: #d8d8d8;
+    background-color: #333333;
     text-align: right;
 }
 
@@ -152,14 +152,41 @@ a.loginHome
 {
     padding: 1%;
     display : inline;
-    color: #333333;
+    color: #f5f5f5;
 }
 
 a.loginHelp
 {
     padding: 1%;
     display : inline;
-    color: #333333;
+    color: #f5f5f5;
+}
+
+.container-fluids{
+
+	text-align: center;
+	background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
+	background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+	margin:auto;
+	position:relative;
+	width:550px;
+	height:450px;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	font-style: italic;
+	line-height: 24px;
+	font-weight: bold;
+	color: #09C;
+	text-decoration: none;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding:10px;
+	border: 1px solid #999;
+	border: inset 1px solid #333;
+	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }
 
 /*Add New User Centre Div*/
@@ -177,16 +204,23 @@ a.loginHelp
 }
 img.logo
 {
-    width: 50%;
+    width: 40%;
 }
 
 .biggerheight
 {
 	height: 50px;
+	width: 70px;
 }
+
+.backbutton
+{
+ font-size: 23px;
+}
+
 ::-webkit-input-placeholder {
  font-size: 20px;
- color: #d0cdfa;
+ color: #53A6CF;
  text-transform: uppercase;
  text-transform: uppercase;
  text-align: center;
@@ -194,25 +228,26 @@ img.logo
 }
 :-moz-placeholder { /* older Firefox*/
  font-size:20px;
- color: #d0cdfa;
+ color: #53A6CF;
  text-transform: uppercase;
  text-align: center;
  font-weight: bold;
 }
 ::-moz-placeholder { /* Firefox 19+ */ 
  font-size: 20px;
- color: #d0cdfa; 
+ color: #53A6CF; 
  text-transform: uppercase;
  text-align: center;
  font-weight: bold;
 } 
 :-ms-input-placeholder { 
  font-size: 20px; 
- color: #d0cdfa;
+ color: #53A6CF;
  text-transform: uppercase;
  text-align: center;
  font-weight: bold;
 }
+
 .adduserinput
 {
  font-size:20px;
@@ -220,6 +255,7 @@ img.logo
  text-align: center;
  font-weight: bold;
 }
+<<<<<<< HEAD
 
 .patientinput
 {
@@ -228,3 +264,26 @@ img.logo
      text-align: center;
      font-weight: bold;
 }
+=======
+/*////////////////////////////STATS /////////////////////////////////*/
+#display
+{
+	height:300pt;
+	width: 500pt;
+	background-color: #78d8de;
+}
+	
+#contain
+{
+	position:relative;
+	left:300pt;
+	top: -20pt;
+	height: 400pt;
+	width: 500pt;    
+	background-color:#003b79;
+}
+
+label{
+	color: #f5f5f5;
+	}
+>>>>>>> Develop

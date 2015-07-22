@@ -2,11 +2,40 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var User = mongoose.model('users');
+
+var Schema   = mongoose.Schema;
+mongoose.connect('mongodb://Admin:qYMqsW5Z@ds033601.mongolab.com:33601/pentec_pims');
+
+
+var Form = new Schema({
+    form_name			: String,
+    data				: String,
+    is_deleted			: Boolean
+});
+
+var Users = new Schema({
+    username				: String,
+    surname				: String,
+    email					: String,
+    profile_pic				: String,
+    user_rights				: Number,
+    password				: String,
+    department				: String,
+    staff_type				: String
+});
+
+mongoose.model('users', Users);
+mongoose.model('forms', Form);
 var Form = mongoose.model('forms');
+<<<<<<< HEAD
 var Patient = mongoose.model('patients');
+=======
+var User = mongoose.model('users');
+>>>>>>> Develop
 var login = require('pims-login');
 var notification = require('pims-notification');
+
+
 
 /* GET splash page. */
 router.get('/', function(req, res, next) {
@@ -55,6 +84,11 @@ router.get('/add', function(req, res, next) {
     res.render('add', { title: 'Kalafong PIMS - Add New User' });
 });
 
+/* Settings page */
+router.get('/editProfile', function(req, res, next) {
+    res.render('editProfile', { title: 'Kalafong PIMS - Edit Profile' });
+});
+
 
 /* Add New User to database */
 router.post('/create', function(req, res) {
@@ -62,7 +96,6 @@ router.post('/create', function(req, res) {
   .save(function(err, users) {
   console.log("New user added");
     res.redirect('add');
-	
   });
 });
 
@@ -85,6 +118,45 @@ router.post('/formsave', function(req, res) {
 
 });
 
+/*View Stats */
+router.get('/stats', function(req, res, next) {
+    res.render('stats', { title: 'viewStats' });
+});
+
+/******************************* STATS NAV**********************************************/
+router.get('/pro', function(req, res, next) {
+    res.render('pro', { title: 'viewProcedure' });
+});
+
+/*View patient stats */
+router.get('/pat', function(req, res, next) {
+    res.render('pat', { title: 'viewPatient' });
+});
+
+/*View patient stats */
+router.get('/res', function(req, res, next) {
+    res.render('res', { title: 'viewResources' });
+});
+
+/*View patient stats */
+router.get('/doc', function(req, res, next) {
+    res.render('doc', { title: 'viewDoctor' });
+});
+
+/*View patient stats */
+router.get('/pred', function(req, res, next) {
+    res.render('pred', { title: 'Predictions' });
+});
+
+/*View patient stats */
+router.get('/forms', function(req, res, next) {
+    res.render('forms', { title: 'FormSelect' });
+});
+
+/*//*///////////FORM*/////////////////////*/
+router.get('/forms', function(req, res, next) {
+    res.render('forms', { title: 'FormSelect' });
+});
 
 
 /*******************************FIND PATIENT BELOW**********************************************/
