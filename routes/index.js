@@ -30,6 +30,7 @@ var Form = mongoose.model('forms');
 //var Patient = mongoose.model('patients');
 var User = mongoose.model('users');
 var login = require('pims-login');
+var notification = require('pims-notification');
 
 
 
@@ -216,8 +217,6 @@ router.post('/sendNotification', function(req, res, next) {
     /*req.assert('patientid', 'Search is required').notEmpty();
 
     var errors = req.validationError();*/
-
-
 
     notification.findPatient(patientid, function(found) {
         if(found != "")

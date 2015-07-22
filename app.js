@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/formsave', routes);
+app.use('/sendEmail', routes);
 app.use('/create', routes);
 app.use('/profile', routes);
 app.use('/collectData', formData);

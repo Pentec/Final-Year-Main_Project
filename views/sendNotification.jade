@@ -1,0 +1,51 @@
+//
+   Created by Ruth on 2015-07-16.
+extends layout
+block content
+    div.top(id="banner")
+        img#kalaLogo(src='images/KPTH_Logo.png').img-circle.img-responsive.center-block
+        h1#logoHeading Kalafong PIMS
+    br
+    br
+    div.container-fluid
+        div.row.span8.offset2
+            div.col-xs-4#dateTimePicks
+                div.input-group.date(id='datetimepicker')
+                    input.form-control(type="text", id="fillDate")
+                    span.input-group-addon
+                        span.glyphicon.glyphicon-calendar
+                    script.
+                        $(function () {
+                            $('#datetimepicker').datetimepicker(); //fix glyphicon font error
+                        });
+
+            div.col-xs-7
+                div.messaging
+                    //p#sendTo #{send.found}
+                form.form-group.col-xs-6.form-centered(id="messagebox", name="messagebox", method="post")
+                    label(for="message") Message:
+                    textarea.form-control(rows="5", id="message", name="message", tabindex="5", placeholder="Write your message", required)
+                    br
+                    input.btn.btn-primary.btn-block(type="submit", value="Send Notification", id="sendNotify", tabindex="5")
+    script.
+        $("#datetimepicker").on("dp.change",function (e) {
+            console.log("Hellos " + $("#fillDate").val());
+            $('#message').val($("#fillDate").val());
+        });
+
+        $("#messagebox").on("submit",function (e) {
+            e.preventDefault();
+            var sendTo = !{JSON.stringify(send.found)};
+            var rcptName = !{JSON.stringify(send.patient)};
+
+            $.ajax({
+                type: 'POST',
+                url: '/sendEmail',
+                data: JSON.stringify({forMailing: {recipient: sendTo, message: JSON.stringify($('#message').val()), name: rcptName}}),
+                dataType: "json",
+                contentType: "application/json"
+            });
+        });
+
+
+
