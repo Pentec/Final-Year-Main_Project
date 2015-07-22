@@ -24,8 +24,8 @@ var Users = new Schema({
     staff_type				: String
 });
 
-mongoose.model('users', Users);
-mongoose.model('forms', Form);
+//mongoose.model('users', Users);
+//mongoose.model('forms', Form);
 var Form = mongoose.model('forms');
 //var Patient = mongoose.model('patients');
 var User = mongoose.model('users');
