@@ -27,11 +27,8 @@ var Users = new Schema({
 mongoose.model('users', Users);
 mongoose.model('forms', Form);
 var Form = mongoose.model('forms');
-<<<<<<< HEAD
 var Patient = mongoose.model('patients');
 var User = mongoose.model('users');
-=======
->>>>>>> parent of 73a5731... Notification module working with minor polishing needs
 var login = require('pims-login');
 
 
@@ -157,7 +154,6 @@ router.get('/forms', function(req, res, next) {
     res.render('forms', { title: 'FormSelect' });
 });
 
-<<<<<<< HEAD
 
 /*******************************FIND PATIENT BELOW**********************************************/
 /* GET patient page */
@@ -229,7 +225,4 @@ router.post('/sendEmail', function(req, res, next) {
 });
 /*******************************FIND PATIENT ABOVE**********************************************/
 
-
-=======
->>>>>>> parent of 73a5731... Notification module working with minor polishing needs
 module.exports = router;
