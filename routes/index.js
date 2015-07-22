@@ -76,7 +76,6 @@ router.get('/editProfile', function(req, res, next) {
 
 /* Add New User to database from add user page */
 router.post('/updateProfile', function(req, res) {
-<<<<<<< HEAD
 
     User.findOne({username: req.body.username}, function(err, contact) {
         if(!err) {
@@ -100,7 +99,6 @@ router.post('/updateProfile', function(req, res) {
             });
         }
     });
-=======
 	
   User.findOne({username: req.body.username}, function(err, contact) {
     if(!err) {
@@ -115,7 +113,7 @@ router.post('/updateProfile', function(req, res) {
         contact.save(function(err) {res.redirect('editProfile');});
     }
 });
->>>>>>> 03da05ee0cea2aac6c136b70c3011464b9df2aa4
+
 
 });
 
