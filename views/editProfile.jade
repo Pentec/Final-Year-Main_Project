@@ -1,0 +1,39 @@
+include ./index.jade
+block content
+  .page-header.mypageHeader
+    h3 Profile Information
+  img(src='images/snyman.jpg' width="100px").img-circle.img-responsive.center-block.myimageforedit
+  form.form-horizontal(action='/updateProfile', id="myformedit" method='POST')
+    input(type='hidden', name='_csrf', value=token)
+    .form-group
+      label.col-sm-2.control-label(for='name') Name
+      .col-sm-4
+        input.form-control(type='text', name='username', id='username', value='#{user.username}')
+    .form-group
+      label.col-sm-2.control-label(for='surname') Surname
+      .col-sm-4
+        input.form-control(type='text', name='surname', id='surname', value='#{user.surname}')
+    .form-group
+        label.col-sm-2.control-label(for='password') New Password
+        .col-sm-4
+          input.form-control(type='password', name='password', id='password')
+    .form-group
+        label.col-sm-2.control-label(for='confirmPassword') Confirm Password
+        .col-sm-4
+          input.form-control(type='password', name='confirmpassword', id='confirmpassword')
+    .form-group
+      label.col-sm-2.control-label(for='email') Email
+      .col-sm-4
+        input.form-control(type='email', name='email', id='email', value='#{user.email}')
+    .form-group
+      label.col-sm-2.control-label(for='department') Department
+      .col-sm-4
+        input.form-control(type='text', name='department', id='department', value='#{user.department}')
+    .form-group
+      .col-sm-offset-2.col-sm-4
+        button.btn.btn.btn-primary(type='submit')
+          i.fa.fa-magnet
+          | Update Profile
+    h3 title
+
+   

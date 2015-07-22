@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 //require('./database');
 require('pims-database');
+=======
+>>>>>>> origin/feat-Login
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -9,6 +12,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var formData = require('./routes/formData');
 
 
 var app = express();
@@ -23,11 +27,27 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'html'))); //for html forms
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
 app.use('/formsave', routes);
+<<<<<<< HEAD
+=======
+app.use('/sendEmail', routes);
+app.use('/create', routes);
+app.use('/profile', routes);
+app.use('/collectData', formData);
+
+//This code below, until the next comment, serves for static html forms.
+var html_dir = './html/';
+app.get('/gynae_surgery', function(req, res) {
+    res.sendfile(html_dir + 'gynae_surgery.html');
+});
+//end of html routing
+
+>>>>>>> origin/feat-Login
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -44,10 +44,18 @@ block head
                           var form = new Formbuilder({selector: '#formbuilder'});
                             form.on('save', function(payload){
                                 var one = payload;
+<<<<<<< HEAD
                                 alert(one);
                                 $.ajax({type: 'POST',url: '/liz',data: one});
+=======
+                                $.ajax({type: 'POST',url: '/formsave',data: one});
+>>>>>>> origin/feat-Login
                                    
                           })
                       });
 
+<<<<<<< HEAD
                      
+=======
+                     
+>>>>>>> origin/feat-Login

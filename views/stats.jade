@@ -1,0 +1,27 @@
+extends layout
+block content
+    div#sidebar
+        div#sidebar-nav
+            div.sidebar-avatar
+                img(src='images/physician_avatar.png' width="100px").img-circle.img-responsive.center-block
+                p.sidebartext   General Statistics
+            div.sidebar-links
+                ul.nav.nav-stacked.navTab
+                    li
+                        a(href='/') Home
+                    li
+                        a(href='/pro') Procedures
+                    li
+                        a(href='/pat') Patients
+                    li
+                        a(href='/res') Resources
+                    li
+                        a(href='/doc') Doctors
+                    li
+                        a(href='/pred') Predictions
+            div.sidebar-settings
+                ul.nav.nav-stacked
+                    li
+                        img(src="images/settings.png" width="50px").img-responsive.center-block
+                    li v0.1
+    div.content
