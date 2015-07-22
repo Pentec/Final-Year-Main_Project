@@ -27,11 +27,8 @@ var Users = new Schema({
 mongoose.model('users', Users);
 mongoose.model('forms', Form);
 var Form = mongoose.model('forms');
-<<<<<<< HEAD
 var Patient = mongoose.model('patients');
-=======
 var User = mongoose.model('users');
->>>>>>> Develop
 var login = require('pims-login');
 var notification = require('pims-notification');
 
