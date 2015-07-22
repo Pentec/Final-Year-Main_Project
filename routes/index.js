@@ -64,7 +64,7 @@ router.get('/editProfile', function(req, res, next) {
 
 /* Add New User to database from add user page */
 router.post('/updateProfile', function(req, res) {
-
+	
   User.findOne({username: req.body.username}, function(err, contact) {
     if(!err) {
         contact.username = req.body.username;
@@ -75,20 +75,12 @@ router.post('/updateProfile', function(req, res) {
 		{
 			contact.password = req.body.confirmpassword;
 		}
-        contact.save(function(err) {
-		//res.redirect('editProfile');
-			if(!err)
-			{
-			 res.render('editProfile', { title: 'Profile has been updated' });
-			 }else
-			 {
-			  res.render('editProfile', { title: 'There were problems updating your profile' });
-			 }
-		});
+        contact.save(function(err) {res.redirect('editProfile');});
     }
 });
 
 });
+
 
 /* Add New User to database from add user page */
 router.post('/create', function(req, res) {
