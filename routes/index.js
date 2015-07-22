@@ -27,7 +27,7 @@ var Users = new Schema({
 mongoose.model('users', Users);
 mongoose.model('forms', Form);
 var Form = mongoose.model('forms');
-var Patient = mongoose.model('patients');
+//var Patient = mongoose.model('patients');
 var User = mongoose.model('users');
 var login = require('pims-login');
 
@@ -63,7 +63,7 @@ router.post('/login', function(req, res, next) {
          if(found)
          {
              console.log("its true");
-             res.redirect('home');
+             res.redirect('editProfile');
          }
          else
          {
@@ -82,11 +82,44 @@ router.get('/add', function(req, res, next) {
 
 /* Settings page */
 router.get('/editProfile', function(req, res, next) {
-    res.render('editProfile', { title: 'Kalafong PIMS - Edit Profile' });
+ User.find({username:"Leon"},function(err, users){
+    res.render(
+      'editProfile',
+      {title : 'Edit Your Profile', user : users[0]}
+    );
+  });
+    
 });
 
+/* Add New User to database from add user page */
+router.post('/updateProfile', function(req, res) {
 
-/* Add New User to database */
+  User.findOne({username: req.body.username}, function(err, contact) {
+    if(!err) {
+        contact.username = req.body.username;
+        contact.email = req.body.email;
+		contact.surname = req.body.surname;
+        contact.department = req.body.department;
+		if(req.body.password == req.body.confirmpassword && req.body.password != "")
+		{
+			contact.password = req.body.confirmpassword;
+		}
+        contact.save(function(err) {
+		//res.redirect('editProfile');
+			if(!err)
+			{
+			 res.render('editProfile', { title: 'Profile has been updated' });
+			 }else
+			 {
+			  res.render('editProfile', { title: 'There were problems updating your profile' });
+			 }
+		});
+    }
+});
+
+});
+
+/* Add New User to database from add user page */
 router.post('/create', function(req, res) {
   new User({username : req.body.username,surname : req.body.surname,email : req.body.email,user_rights : req.body.user_rights,password : req.body.password,department : req.body.department,staff_type : req.body.staff_type })
   .save(function(err, users) {
@@ -95,12 +128,13 @@ router.post('/create', function(req, res) {
   });
 });
 
-/* GET login page. */
+/* GET form builder page page. */
 router.get('/form', function(req, res, next) {
     res.render('formBuild', { title: 'Form Builder' });
  
 });
 
+/* Save the form obj into the database. */
 router.post('/formsave', function(req, res) {
     var object = JSON.stringify(req.body);
     console.log(object);
