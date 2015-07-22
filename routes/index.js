@@ -34,11 +34,11 @@ var login = require('pims-login');
 
 
 /* GET splash page. */
-router.get('/', function(req, res, next) {
+router.get('/splash', function(req, res, next) {
   res.render('splash', { title: 'Kalafong PIMS' });
 });
 
-router.get('/countdown', function(req, res, next){
+router.get('/', function(req, res, next){
     res.render('countdown', { title: 'Kalafong Pims: Coming Soon!'})
 });
 
