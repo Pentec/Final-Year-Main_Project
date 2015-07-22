@@ -29,7 +29,6 @@ block content
                     input.btn.btn-primary.btn-block(type="submit", value="Send Notification", id="sendNotify", tabindex="5")
     script.
         $("#datetimepicker").on("dp.change",function (e) {
-            console.log("Hellos " + $("#fillDate").val());
             $('#message').val($("#fillDate").val());
         });
 
