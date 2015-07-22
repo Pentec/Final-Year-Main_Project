@@ -132,11 +132,6 @@ router.post('/sendNotification', function(req, res, next) {
         else
         {
             var pageErrors = "Sorry, an email address does not exist for the patient.\n Please enter in a different patient ID";
-            console.log("its false");
-            /*res.render('findPatient', {
-                pageErrors: pageErrors,
-                userName: patientid
-            });*/
             //redirect to page with a message that says patient not found or email doesn't exist
             var sendEmail = "";
 
@@ -153,7 +148,6 @@ router.post('/sendNotification', function(req, res, next) {
 });
 
 router.post('/sendEmail', function(req, res, next) {
-    console.log("its 5555555");
     var recipientAdr =JSON.stringify(req.body.forMailing.recipient);
     var emailMsg =JSON.stringify(req.body.forMailing.message);
     var patientid =JSON.stringify(req.body.forMailing.name);
