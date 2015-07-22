@@ -12,9 +12,11 @@
     "debug": "~2.2.0",
     "electrolyte": "0.0.6",
     "express": "~4.12.4",
+    "express-validator": "^2.13.0",
     "jade": "~1.9.2",
     "mongoose": "^4.0.7",
     "morgan": "~1.5.3",
+    "node-mailer": "^0.1.1",
     "nodemailer": "^1.4.0",
     "serve-favicon": "~2.2.1",
     "unit.js": "^2.0.0"
