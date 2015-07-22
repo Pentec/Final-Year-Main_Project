@@ -15,6 +15,7 @@
     "jade": "~1.9.2",
     "mongoose": "^4.0.7",
     "morgan": "~1.5.3",
+    "nodemailer": "^1.4.0",
     "serve-favicon": "~2.2.1",
     "unit.js": "^2.0.0"
   },

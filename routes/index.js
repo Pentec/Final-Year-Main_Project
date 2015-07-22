@@ -76,6 +76,7 @@ router.get('/editProfile', function(req, res, next) {
 
 /* Add New User to database from add user page */
 router.post('/updateProfile', function(req, res) {
+<<<<<<< HEAD
 
     User.findOne({username: req.body.username}, function(err, contact) {
         if(!err) {
@@ -99,8 +100,25 @@ router.post('/updateProfile', function(req, res) {
             });
         }
     });
+=======
+	
+  User.findOne({username: req.body.username}, function(err, contact) {
+    if(!err) {
+        contact.username = req.body.username;
+        contact.email = req.body.email;
+		contact.surname = req.body.surname;
+        contact.department = req.body.department;
+		if(req.body.password == req.body.confirmpassword && req.body.password != "")
+		{
+			contact.password = req.body.confirmpassword;
+		}
+        contact.save(function(err) {res.redirect('editProfile');});
+    }
+});
+>>>>>>> 03da05ee0cea2aac6c136b70c3011464b9df2aa4
 
 });
+
 
 /* Add New User to database from add user page */
 router.post('/create', function(req, res) {
