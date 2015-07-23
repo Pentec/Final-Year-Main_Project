@@ -3,8 +3,9 @@ var express = require('express');
 var router = express.Router();
 
 var Form =  db;
-var Patient = db;
 var User = db;
+var Patient = db;
+
 var login = require('pims-login');
 var notification = require('pims-notification');
 
@@ -235,7 +236,8 @@ router.post('/sendEmail', function(req, res, next) {
     var recipientAdr =JSON.stringify(req.body.forMailing.recipient);
     var emailMsg =JSON.stringify(req.body.forMailing.message);
     var patientid =JSON.stringify(req.body.forMailing.name);
-    notification.sendEmail(recipientAdr, emailMsg, patientid);
+    var checkSent = notification.sendEmail(recipientAdr, emailMsg, patientid);
+    console.log("checkSent "+ checkSent.valueOf());
 
 
 });
