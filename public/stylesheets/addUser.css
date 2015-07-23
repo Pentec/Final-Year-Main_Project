@@ -4,22 +4,30 @@
 
 #signup .container{
     margin: 0 auto;
-    border: 1px solid #001f41;
-    border-top: none;
     width:650px;
     height:100%;
     padding: 0;
+    padding-top: 4%;
+    position: absolute;
+    overflow: scroll;
+    left: 35%;
+    padding-bottom: 80px;
+}
+
+#signup .container::-webkit-scrollbar {
+    /* This is the magic bit */
+    display: none;
 }
 
 #signup .col-xs-12{
     margin:0;
-    border-bottom: 1px dotted #001f41;
 }
 
 #signup .form-wrap {
     width: 600px;
     padding: 15px;
-    padding-top: 50px;
+    padding-top: 10px;
+    border: 2px solid #001f41;
 }
 
 #signup h1 {

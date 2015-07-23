@@ -5,14 +5,22 @@
 }
 
 /*Global CSS*/
-html, body{width: 100%; height: 100%; margin:0; padding: 0;}
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 .content {
     padding-left: 100px;
-    position:fixed;
+    position: relative;
     width: 100%;
-    height: 100%;
+    height:100%;
+    overflow-y:hidden;
 }
+
+
 
 #sidebar {
     font-family: 'Open Sans', sans-serif;
@@ -29,17 +37,17 @@ html, body{width: 100%; height: 100%; margin:0; padding: 0;}
     z-index: 2;
     float: left;
 }
-.control-label
-{
-	color: blue;
+
+.control-label {
+    color: blue;
 }
 
-.sidebar-links{
-    position:absolute;
+.sidebar-links {
+    position: absolute;
     background-color: #004B8F;
     height: auto !important;
-    min-height:100%;
-    width:100%;
+    min-height: 100%;
+    width: 100%;
 }
 
 .sidebar-avatar {
@@ -77,11 +85,12 @@ html, body{width: 100%; height: 100%; margin:0; padding: 0;}
     color: white;
     background-color: #001f41;
 }
-p.sidebartext{
-	font-size:12px;
+
+p.sidebartext {
+    font-size: 12px;
 }
 
-.titleBar{
+.titleBar {
     min-height: 72px;
     max-height: 72px;
     background-color: #004B8F;
@@ -90,7 +99,7 @@ p.sidebartext{
     margin: 0;
 }
 
-.titleBar h2{
+.titleBar h2 {
     margin: 0;
     padding: 0;
     margin-left: 10px;
@@ -102,60 +111,53 @@ p.sidebartext{
 
 /*//css for edit profile///*/
 
-#myformedit
-{
-	position:relative;
-	left:300pt;
-	top: -60pt;
-	height: 500pt;
-	width: 600pt;    
-	
+#myformedit {
+    position: relative;
+    left: 300pt;
+    top: -60pt;
+    height: 500pt;
+    width: 600pt;
+
 }
 
-.mypageHeader
-{
-	position:relative;
-	left:400pt;
-	top: 10pt;
-	
+.mypageHeader {
+    position: relative;
+    left: 400pt;
+    top: 10pt;
+
 }
 
-.myimageforedit
-{
-position:relative;
-	left:-300pt;
-	top: 20pt;
-	height: 100pt;
-	width: 100pt; 
+.myimageforedit {
+    position: relative;
+    left: -300pt;
+    top: 20pt;
+    height: 100pt;
+    width: 100pt;
 }
-
 
 /*////////////////////////////STATS /////////////////////////////////*/
-#display
-{
-	height:300pt;
-	width: 500pt;
-	background-color: #78d8de;
-}
-	
-#contain
-{
-	position:relative;
-	left:300pt;
-	top: -20pt;
-	height: 400pt;
-	width: 500pt;    
-	background-color:#003b79;
+#display {
+    height: 300pt;
+    width: 500pt;
+    background-color: #78d8de;
 }
 
-label{
-	color: #f5f5f5;
-	}
+#contain {
+    position: relative;
+    left: 300pt;
+    top: -20pt;
+    height: 400pt;
+    width: 500pt;
+    background-color: #003b79;
+}
+
+label {
+    color: #f5f5f5;
+}
 
 /*Notification*/
-.patientinput
-{
-    font-size:20px;
+.patientinput {
+    font-size: 20px;
     color: black;
     text-align: center;
     font-weight: bold;
