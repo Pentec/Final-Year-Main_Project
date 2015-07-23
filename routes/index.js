@@ -86,8 +86,8 @@ router.post('/login', function(req, res, next) {
 
 
 /* Add New User page */
-router.get('/addUser', function(req, res, next) {
-    res.render('addUser', { title: 'Kalafong PIMS - Add New User' });
+router.get('/add', function(req, res, next) {
+    res.render('add', { title: 'Kalafong PIMS - Add New User' });
 });
 
 /* Settings page */
@@ -152,6 +152,12 @@ router.post('/create', function(req, res) {
             console.log("New user added");
             res.redirect('add');
         });
+});
+
+/* GET form builder page page. */
+router.get('/viewForms', function(req, res, next) {
+    res.render('viewForms', { title: 'Select Forms' });
+ 
 });
 
 /* GET form builder page page. */
