@@ -21,7 +21,8 @@
     <script type="text/javascript">
       $('form').jsonForm({
         schema: {
-"ProcedureDate": {
+	
+	"ProcedureDate": {
   "type": "date",
   "require": true,
   "title": "Procedure Date"
@@ -46,169 +47,104 @@
   "require": true,
   "title": "Surname"
 },
-"UnknownField": {
-  "type": "object",
-  "properties": {
-    "Properties": {
-      "type": "object",
-      "properties": {
-        "P": {
-          "type": "boolean",
-          "title": "P"
-        },
-        "G": {
-          "type": "boolean",
-          "title": "G"
-        },
-        "M": {
-          "type": "boolean",
-          "title": "M"
-        },
-        "E": {
-          "type": "boolean",
-          "title": "E"
-        }
-      }
-    }
-  }
+"P": {
+  "type": "boolean",
+  "title": "P"
 },
-"HIV": {
-  "type": "object",
-  "properties": {
-    "Status": {
-      "type": "string",
-      "title": "HIV Status"
-    },
-    "CD4": {
-      "type": "number",
-      "title": "CD4"
-    }
-  }
+"G": {
+  "type": "boolean",
+  "title": "G"
 },
-"ProcedureType": {
-  "type": "object",
-  "properties": {
-    "Properties": {
-      "type": "object",
-      "properties": {
-        "Elective": {
-          "type": "boolean",
-          "title": "Elective"
-        },
-        "Emergency": {
-          "type": "boolean",
-          "title": "Emergency"
-        }
-      }
-    }
-  }
+"M": {
+  "type": "boolean",
+  "title": "M"
 },
-"Firm": {
-  "type": "object",
-  "properties": {
-    "Properties": {
-      "type": "object",
-      "properties": {
-        "G1": {
-          "type": "boolean",
-          "title": "G1"
-        },
-        "G2": {
-          "type": "boolean",
-          "title": "G2"
-        },
-        "G3": {
-          "type": "boolean",
-          "title": "G3"
-        },
-        "ONC": {
-          "type": "boolean",
-          "title": "ONC"
-        }
-      }
-    }
-  }
+"E": {
+  "type": "boolean",
+  "title": "E"
 },
-"ProcedureCat": {
-  "type": "object",
-  "properties": {
-    "Properties": {
-      "type": "object",
-      "properties": {
-        "Oncology": {
-          "type": "boolean",
-          "title": "Oncology"
-        },
-        "GeneralGynae": {
-          "type": "boolean",
-          "title": "General Gynaecology"
-        },
-        "Infertility": {
-          "type": "boolean",
-          "title": "Infertility"
-        },
-        "Urologynaecology": {
-          "type": "boolean",
-          "title": "Urologynaecology"
-        }
-      }
-    }
-  }
+"HIVStatus": {
+  "type": "string",
+  "title": "HIV Status"
 },
-"AccessType": {
-  "type": "object",
-  "properties": {
-    "Properties": {
-      "type": "object",
-      "properties": {
-        "OpenAbdomen": {
-          "type": "boolean",
-          "title": "Open Abdomen"
-        },
-        "Endoscopy": {
-          "type": "boolean",
-          "title": "Endoscopy"
-        },
-        "Vaginal": {
-          "type": "boolean",
-          "title": "Vaginal"
-        }
-      }
-    }
-  }
+"CD4": {
+  "type": "number",
+  "title": "CD4"
+},
+"Elective": {
+  "type": "boolean",
+  "title": "Elective"
+},
+"Emergency": {
+  "type": "boolean",
+  "title": "Emergency"
+},
+"G1": {
+  "type": "boolean",
+  "title": "G1"
+},
+"G2": {
+  "type": "boolean",
+  "title": "G2"
+},
+"G3": {
+  "type": "boolean",
+  "title": "G3"
+},
+"ONC": {
+  "type": "boolean",
+  "title": "ONC"
+},
+"Oncology": {
+  "type": "boolean",
+  "title": "Oncology"
+},
+"GeneralGynae": {
+  "type": "boolean",
+  "title": "General Gynaecology"
+},
+"Infertility": {
+  "type": "boolean",
+  "title": "Infertility"
+},
+"Urologynaecology": {
+  "type": "boolean",
+  "title": "Urologynaecology"
+},
+"OpenAbdomen": {
+  "type": "boolean",
+  "title": "Open Abdomen"
+},
+"Endoscopy": {
+  "type": "boolean",
+  "title": "Endoscopy"
+},
+"Vaginal": {
+  "type": "boolean",
+  "title": "Vaginal"
 },
 "PreOperICD10Codes": {
   "type": "array",
   "items": {
     "type": "string",
-    "title": "Pre-Operative Diagnosis ICD Codes:"
+    "title": "Pre-Operative Diagnosis ICD Code:"
   }
 },
-"PerformedBy": {
-  "type": "object",
-  "properties": {
-    "Properties": {
-      "type": "object",
-      "properties": {
-        "Consultant": {
-          "type": "boolean",
-          "title": "Consultant"
-        },
-        "Fellow": {
-          "type": "boolean",
-          "title": "Fellow"
-        },
-        "Registrar": {
-          "type": "boolean",
-          "title": "Registrar"
-        },
-        "Intern": {
-          "type": "boolean",
-          "title": "Intern"
-        }
-      }
-    }
-  }
+"Consultant": {
+  "type": "boolean",
+  "title": "Consultant"
+},
+"Fellow": {
+  "type": "boolean",
+  "title": "Fellow"
+},
+"Registrar": {
+  "type": "boolean",
+  "title": "Registrar"
+},
+"Intern": {
+  "type": "boolean",
+  "title": "Intern"
 },
 "DygnosisNotOnICD10List": {
   "type": "array",
@@ -221,43 +157,34 @@
   "type": "array",
   "items": {
     "type": "string",
-    "title": "Procedure(s) Performed(Codes) :"
+    "title": "Procedure(s) Performed(Code) :"
   }
 },
-"IOComplications": {
-  "type": "object",
-  "properties": {
-    "Properties": {
-      "type": "object",
-      "properties": {
-        "None": {
-          "type": "boolean",
-          "title": "None"
-        },
-        "BladderInjury": {
-          "type": "boolean",
-          "title": "Bladder Injury"
-        },
-        "BowelInjury": {
-          "type": "boolean",
-          "title": "Bowel Injury"
-        },
-        "BRUBT": {
-          "type": "boolean",
-          "title": "BRUBT"
-        },
-        "ProcedureNotCompleted": {
-          "type": "boolean",
-          "title": "Procedure Not Completed"
-        }
-      }
-    }
-  }
+"None": {
+  "type": "boolean",
+  "title": "None"
+},
+"BladderInjury": {
+  "type": "boolean",
+  "title": "Bladder Injury"
+},
+"BowelInjury": {
+  "type": "boolean",
+  "title": "Bowel Injury"
+},
+"BRUBT": {
+  "type": "boolean",
+  "title": "BRUBT"
+},
+"ProcedureNotCompleted": {
+  "type": "boolean",
+  "title": "Procedure Not Completed"
 },
 "OtherComplications": {
   "type": "string",
   "title": "Other Complications"
 }
+
 
     
   }
