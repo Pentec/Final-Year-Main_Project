@@ -51,8 +51,8 @@ router.post('/login', function(req, res, next) {
 
 
 /* Add New User page */
-router.get('/add', function(req, res, next) {
-    res.render('add', { title: 'Kalafong PIMS - Add New User' });
+router.get('/addUser', function(req, res, next) {
+    res.render('addUser', { title: 'Kalafong PIMS - Add New User' });
 });
 
 /* Settings page */
