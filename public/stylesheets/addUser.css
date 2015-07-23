@@ -1,17 +1,25 @@
-
-
-.banner{
-    margin-top: 50px;
-    padding: 1px;
+#signup {
+    height:100%;
 }
 
-#signup{
-
-}
-
-#signup .form-wrap{
-    width: 30%;
+#signup .container{
     margin: 0 auto;
+    border: 1px solid #001f41;
+    border-top: none;
+    width:650px;
+    height:100%;
+    padding: 0;
+}
+
+#signup .col-xs-12{
+    margin:0;
+    border-bottom: 1px dotted #001f41;
+}
+
+#signup .form-wrap {
+    width: 600px;
+    padding: 15px;
+    padding-top: 50px;
 }
 
 #signup h1 {
@@ -19,8 +27,8 @@
     font-size: 18px;
     font-weight: bold;
     padding-bottom: 15px;
-    padding-top: 0px;
-    margin: 0px;
+    padding-top: 0;
+    margin: 0;
 }
 
 #signup .form-group {
@@ -42,18 +50,25 @@
     font-size: 14px;
 }
 
-.form-control:-moz-placeholder { /* Firefox 18- */
-    font-size: 14px;}
+.form-control:-moz-placeholder {
+    /* Firefox 18- */
+    font-size: 14px;
+}
 
-.form-control::-moz-placeholder {  /* Firefox 19+ */
-    font-size: 14px;}
+.form-control::-moz-placeholder {
+    /* Firefox 19+ */
+    font-size: 14px;
+}
 
 .form-control:-ms-input-placeholder {
-    font-size: 14px;}
+    font-size: 14px;
+}
+
 .btn-custom {
     color: #fff;
     background-color: #004B8F;
 }
+
 .btn-custom:hover,
 .btn-custom:focus {
     color: #fff;
@@ -72,7 +87,7 @@ label {
 .regular-checkbox + label {
     background-color: #fafafa;
     border: 1px solid #cacece;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05);
     padding: 9px;
     border-radius: 3px;
     display: inline-block;
@@ -80,13 +95,13 @@ label {
 }
 
 .regular-checkbox + label:active, .regular-checkbox:checked + label:active {
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .regular-checkbox:checked + label {
     background-color: #e9ecee;
     border: 1px solid #adb8c0;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0 -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
     color: #99a1a7;
 }
 
@@ -94,7 +109,7 @@ label {
     content: '\2714';
     font-size: 14px;
     position: absolute;
-    top: 0px;
+    top: 0;
     left: 3px;
     color: #99a1a7;
 }
