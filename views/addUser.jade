@@ -1,37 +1,37 @@
-extends index
+extends layout
 block extFiles
     link(rel="stylesheet", href="/stylesheets/addUser.css")
-block contentRight
-    div.titleBar
-        h2 Add User
-        div#signup
-            div.container
-                div.col-xs-12
-                    div.form-wrap.panel
-                        h1 Add the details of the new user
-                        form(role="form", method="post", autocomplete="off")#signup-form
-                            div.form-group
-                                input.form-control(type="text", name="username", placeholder="Username")
-                            div.form-group
-                                input.form-control(type="text", name="firstName", placeholder="First Name")
-                            div.form-group
-                                input.form-control(type='text', name="lastName", placeholder="Last Name")
-                            div.form-group
-                                input.form-control(type="email", name="email", placeholder="Email")
-                            div.form-group
-                                input.form-control(type="password", name="password", placeholder="Password")
-                            div.form-group
-                                input.form-control(type="password", name="cpassword", placeholder="Confirm Password")
-                            div.form-group
-                                select#departments
-                                    option(value="Department of Oncology") Department of Oncology
-                                    option(value="Department of Gynaecology") Department of Gynaecology
-                            div.form-group
-                                select#staff
-                                    option(value="Employer") Employer
-                                    option(value="Employee") Employee
-                            div.form-group
-                                div.tag Administrator
-                                input(type="checkbox", value="Admin", id="admin", name="accessRights").regular-checkbox
-                                label(for="admin")
-                            input.btn.btn-custom.btn-lg.btn-block#btn-addUser(type="submit", value="Add User")
+block content
+    div.jumbotron.center-block.banner
+        img.logo(src='images/KPTH_Logo.png', width="550px").img-responsive.center-block
+    section#signup
+        div.container
+            div.col-xs-12
+                div.form-wrap.panel
+                    h1 Add the details of the new user
+                    form(role="form", method="post", autocomplete="off")#signup-form
+                        div.form-group
+                            input.form-control(type="text", name="username", placeholder="Username")
+                        div.form-group
+                            input.form-control(type="text", name="firstName", placeholder="First Name")
+                        div.form-group
+                            input.form-control(type='text', name="lastName", placeholder="Last Name")
+                        div.form-group
+                            input.form-control(type="email", name="email", placeholder="Email")
+                        div.form-group
+                            input.form-control(type="password", name="password", placeholder="Password")
+                        div.form-group
+                            input.form-control(type="password", name="cpassword", placeholder="Confirm Password")
+                        div.form-group
+                            select#departments
+                                option(value="Department of Oncology") Department of Oncology
+                                option(value="Department of Gynaecology") Department of Gynaecology
+                        div.form-group
+                            select#staff
+                                option(value="Employer") Employer
+                                option(value="Employee") Employee
+                        div.form-group
+                            div.tag Administrator
+                            input(type="checkbox", value="Admin", id="admin", name="accessRights").regular-checkbox
+                            label(for="admin")
+                        input.btn.btn-custom.btn-lg.btn-block#btn-addUser(type="submit", value="Add User")
