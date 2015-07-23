@@ -7,24 +7,31 @@ block content
 		label(for='addNewUser') Please add the details of the new user
 			form.form-group.form-centered(name="addNewUser", method="post", action="/create")
 					input(type="text", name="username",value=username, placeholder="Username")
+					img(src='images/tooltip.png', title='Please enter the name of the person you would like to add', width="20px").img-circle
 					br
 					br
 					input(type="text", name="surname",value=surname, placeholder="Surname")
+					img(src='images/tooltip.png', title='Please enter the surname of the person you would like to add', width="20px").img-circle
 					br
 					br
 					input(type="text", name="email",value=email, placeholder="Email")
+					img(src='images/tooltip.png', title='Please enter the email of the person you would like to add', width="20px").img-circle
 					br
 					br
 					input(type="text", name="user_rights",value=user_rights, placeholder="User Rights")
+					img(src='images/tooltip.png', title='Please enter the userights of the person you would like to add, 1 for admin, 2 for normal staff', width="20px").img-circle
 					br
 					br
 					input(type="text", name="password",value=password, placeholder="Password")
+					img(src='images/tooltip.png', title='Please enter the passwod of the person you would like to add', width="20px").img-circle
 					br
 					br
 					input(type="text", name="department",value=department, placeholder="Department")
+					img(src='images/tooltip.png', title='Please enter the department the person works in', width="20px").img-circle
 					br
 					br
 					input(type="text", name="staff_type",value=staff_type, placeholder="Staff Type")
+					img(src='images/tooltip.png', title='Please enter the position the person currently holds in the hospital', width="20px").img-circle
 					br
 					br
 					input.btn.btn-info.biggerheight(type="submit", value="Save")
