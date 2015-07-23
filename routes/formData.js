@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 var GynaecologySurgery = new Schema({
 
         ProcedureDate: {type: Date, require: true, title: 'Procedure Date' },
@@ -51,5 +52,4 @@ router.post('/', function(req, res, next) {
 	
     console.log(req.body);
 });
-
 module.exports = router;
