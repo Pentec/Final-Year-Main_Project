@@ -2,7 +2,7 @@ include ./index.jade
 block content
   .page-header.mypageHeader
     h3 Profile Information
-  img(src='images/snyman.jpg' width="100px").img-circle.img-responsive.center-block.myimageforedit
+  img(src='images/snyman.jpg', title='How many ninjas do you need to create an awesome library?', width="100px").img-circle.img-responsive.center-block.myimageforedit
   form.form-horizontal(action='/updateProfile', id="myformedit" method='POST')
     input(type='hidden', name='_csrf', value=token)
     .form-group
@@ -34,6 +34,5 @@ block content
         button.btn.btn.btn-primary(type='submit')
           i.fa.fa-magnet
           | Update Profile
-
 
    
