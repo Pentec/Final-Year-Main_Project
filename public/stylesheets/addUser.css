@@ -1,14 +1,13 @@
 #signup {
     height:100%;
+    position: absolute;
 }
 
 #signup .container{
-    margin: 0 auto;
-    border: 1px solid #001f41;
-    border-top: none;
+
+    top:0;
     width:650px;
-    height:100%;
-    padding: 0;
+    /*height:100%;*/
 }
 
 #signup .col-xs-12{
