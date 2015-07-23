@@ -60,14 +60,26 @@ router.post('/login', function(req, res, next) {
     var password = req.body.pswd;
 
     login.authenticate(username, password, function(found) {
-         if(found)
-         {
-             res.redirect('editProfile');
-         }
-         else
-         {
-             res.redirect('login');
-         }
+        if(found)
+        {
+            login.checkAdmin(username, password, function(isAdmin)
+            {
+                if(isAdmin)
+                {
+                    res.redirect('editProfile');
+                }
+                else
+                {
+                    res.redirect('home');
+                }
+
+            });
+
+        }
+        else
+        {
+            res.redirect('login');
+        }
     });
 
 });
