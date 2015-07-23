@@ -1,4 +1,6 @@
 var express = require('express');
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 var router = express.Router();
 var GynaecologySurgery = new Schema({
 
