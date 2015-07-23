@@ -210,3 +210,12 @@ position:relative;
 label{
 	color: #f5f5f5;
 	}
+
+/*Notification*/
+.patientinput
+{
+    font-size:20px;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
