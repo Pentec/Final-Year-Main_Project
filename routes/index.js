@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var database = require('pims-database');
 
 var mongoose = require('mongoose');
 
@@ -35,13 +34,8 @@ var notification = require('pims-notification');
 
 
 /* GET splash page. */
-<<<<<<< HEAD
-router.get('/', function(req, res, next) {
-    res.render('splash', { title: 'Kalafong PIMS' });
-=======
 router.get('/splash', function(req, res, next) {
   res.render('splash', { title: 'Kalafong PIMS' });
->>>>>>> c905465efc898c0829b3b7d16884a32d46754796
 });
 
 router.get('/', function(req, res, next){
