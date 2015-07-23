@@ -8,7 +8,7 @@ var expressValidator =require('express-validator');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var formData = require('./routes/formData');
+//var formData = require('./routes/formData');
 
 var app = express();
 
@@ -32,7 +32,7 @@ app.use('/formsave', routes);
 app.use('/sendEmail', routes);
 app.use('/create', routes);
 app.use('/profile', routes);
-app.use('/collectData', formData);
+//app.use('/collectData', formData);
 
 //This code below, until the next comment, serves for static html forms.
 var html_dir = './html/';
