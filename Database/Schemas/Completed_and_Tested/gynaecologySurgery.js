@@ -54,7 +54,8 @@ var Form = new GynaSergery({
     }
 );
 
-new Form.save(function(err){
+Form.save(function(err){
+
     if(err) {console.log('An error occurred while trying to add data', err);}
     else{console.log('The data has been saved.');}
 });
