@@ -9,6 +9,9 @@ block content
     br
     div.container-fluid
         div.row.span8.offset2
+            div.col-xs-2
+                a.btn.btn-info.btn-lg(href="/editProfile")
+                    span.glyphicon.glyphicon-step-backward
             div.col-xs-4#dateTimePicks
                 div.input-group.date(id='datetimepicker')
                     input.form-control(type="text", id="fillDate")
@@ -16,12 +19,11 @@ block content
                         span.glyphicon.glyphicon-calendar
                     script.
                         $(function () {
-                            $('#datetimepicker').datetimepicker(); //fix glyphicon font error
+                            $('#datetimepicker').datetimepicker();
                         });
 
-            div.col-xs-7
+            div.col-xs-6
                 div.messaging
-                    //p#sendTo #{send.found}
                 form.form-group.col-xs-6.form-centered(id="messagebox", name="messagebox", method="post")
                     label(for="message") Message:
                     textarea.form-control(rows="5", id="message", name="message", tabindex="5", placeholder="Write your message", required)

@@ -11,27 +11,17 @@ block content
                     h1 Add the details of the new user
                     form(role="form", method="post", autocomplete="off")#signup-form
                         div.form-group
-                            input.form-control(type="text", name="username", placeholder="Username")
+                            input(type="text", name="username",value=username, placeholder="Username").form-control
                         div.form-group
-                            input.form-control(type="text", name="firstName", placeholder="First Name")
+                            input(type="text", name="surname",value=surname, placeholder="Surname").form-control
                         div.form-group
-                            input.form-control(type='text', name="lastName", placeholder="Last Name")
+                            input(type="text", name="email",value=email, placeholder="Email").form-control
                         div.form-group
-                            input.form-control(type="email", name="email", placeholder="Email")
+                            input(type="text", name="user_rights",value=user_rights, placeholder="User Rights").form-control
                         div.form-group
-                            input.form-control(type="password", name="password", placeholder="Password")
+                            input(type="text", name="password",value=password, placeholder="Password").form-control
                         div.form-group
-                            input.form-control(type="password", name="cpassword", placeholder="Confirm Password")
+                            input(type="text", name="department",value=department, placeholder="Department").form-control
                         div.form-group
-                            select#departments
-                                option(value="Department of Oncology") Department of Oncology
-                                option(value="Department of Gynaecology") Department of Gynaecology
-                        div.form-group
-                            select#staff
-                                option(value="Employer") Employer
-                                option(value="Employee") Employee
-                        div.form-group
-                            div.tag Administrator
-                            input(type="checkbox", value="Admin", id="admin", name="accessRights").regular-checkbox
-                            label(for="admin")
+                            input(type="text", name="staff_type",value=staff_type, placeholder="Staff Type").form-control
                         input.btn.btn-custom.btn-lg.btn-block#btn-addUser(type="submit", value="Add User")

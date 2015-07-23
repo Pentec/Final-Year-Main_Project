@@ -45,7 +45,7 @@ router.get('/', function(req, res, next){
 
 /* GET home page. */
 router.get('/home', function(req, res, next) {
-  res.render('index', { title: 'Kalafong PIMS' });
+    res.render('index', { title: 'Kalafong PIMS' });
 });
 
 
@@ -54,7 +54,7 @@ router.get('/login', function(req, res, next) {
     res.render('login', { title: 'PIMS Login Page' });
 });
 
- /*POST login page.*/
+/*POST login page.*/
 router.post('/login', function(req, res, next) {
     var username = req.body.userid;
     var password = req.body.pswd;
@@ -70,7 +70,7 @@ router.post('/login', function(req, res, next) {
                 }
                 else
                 {
-                    res.redirect('home');
+                    res.redirect('viewForms');
                 }
 
             });
@@ -86,24 +86,47 @@ router.post('/login', function(req, res, next) {
 
 
 /* Add New User page */
-router.get('/addUser', function(req, res, next) {
-    res.render('addUser', { title: 'Kalafong PIMS - Add New User' });
+router.get('/add', function(req, res, next) {
+    res.render('add', { title: 'Kalafong PIMS - Add New User' });
 });
 
 /* Settings page */
 router.get('/editProfile', function(req, res, next) {
- User.find({username:"Leon"},function(err, users){
-    res.render(
-      'editProfile',
-      {title : 'Edit Your Profile', user : users[0]}
-    );
-  });
-    
+    User.find({username:"Leon"},function(err, users){
+        res.render(
+            'editProfile',
+            {title : 'Edit Your Profile', user : users[0]}
+        );
+    });
+
 });
 
 /* Add New User to database from add user page */
 router.post('/updateProfile', function(req, res) {
-	
+
+    User.findOne({username: req.body.username}, function(err, contact) {
+        if(!err) {
+            contact.username = req.body.username;
+            contact.email = req.body.email;
+            contact.surname = req.body.surname;
+            contact.department = req.body.department;
+            if(req.body.password == req.body.confirmpassword && req.body.password != "")
+            {
+                contact.password = req.body.confirmpassword;
+            }
+            contact.save(function(err) {
+                //res.redirect('editProfile');
+                if(!err)
+                {
+                    res.render('editProfile', { title: 'Profile has been updated' });
+                }else
+                {
+                    res.render('editProfile', { title: 'There were problems updating your profile' });
+                }
+            });
+        }
+    });
+
   User.findOne({username: req.body.username}, function(err, contact) {
     if(!err) {
         contact.username = req.body.username;
@@ -118,16 +141,17 @@ router.post('/updateProfile', function(req, res) {
     }
 });
 
+
 });
 
 
 /* Add New User to database from add user page */
 router.post('/create', function(req, res) {
-  new User({username : req.body.username,surname : req.body.surname,email : req.body.email,user_rights : req.body.user_rights,password : req.body.password,department : req.body.department,staff_type : req.body.staff_type })
-  .save(function(err, users) {
-  console.log("New user added");
-    res.redirect('add');
-  });
+    new User({username : req.body.username,surname : req.body.surname,email : req.body.email,user_rights : req.body.user_rights,password : req.body.password,department : req.body.department,staff_type : req.body.staff_type })
+        .save(function(err, users) {
+            console.log("New user added");
+            res.redirect('add');
+        });
 });
 
 /* GET form builder page page. */
@@ -139,7 +163,7 @@ router.get('/viewForms', function(req, res, next) {
 /* GET form builder page page. */
 router.get('/form', function(req, res, next) {
     res.render('formBuild', { title: 'Form Builder' });
- 
+
 });
 
 /* Save the form obj into the database. */
@@ -241,12 +265,11 @@ router.post('/sendNotification', function(req, res, next) {
 });
 
 router.post('/sendEmail', function(req, res, next) {
+    console.log('sendEmail');
     var recipientAdr =JSON.stringify(req.body.forMailing.recipient);
     var emailMsg =JSON.stringify(req.body.forMailing.message);
     var patientid =JSON.stringify(req.body.forMailing.name);
     notification.sendEmail(recipientAdr, emailMsg, patientid);
-
-
 });
 
 
