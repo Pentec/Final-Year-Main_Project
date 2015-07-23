@@ -131,6 +131,12 @@ router.post('/create', function(req, res) {
 });
 
 /* GET form builder page page. */
+router.get('/viewForms', function(req, res, next) {
+    res.render('viewForms', { title: 'Select Forms' });
+ 
+});
+
+/* GET form builder page page. */
 router.get('/form', function(req, res, next) {
     res.render('formBuild', { title: 'Form Builder' });
  

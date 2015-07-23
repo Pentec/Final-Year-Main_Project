@@ -1,0 +1,14 @@
+extends layout
+block content
+    .dropdown
+        a(href="#", data-toggle="dropdown").dropdown-toggle Select Forms
+        ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu')
+            li
+                a(href='/gynae_surgery.html', tabindex='-1') Gynaecology Surgery
+            li 
+                a(href='#', tabindex='-1') Something else here
+            li.divider
+            li
+                a(href='#', tabindex='-1') Separated link
+    script.
+        $('.dropdown-toggle').dropdown()
