@@ -1,0 +1,44 @@
+extends index
+block contentRight
+  .page-header.mypageHeader
+    h3 Profile Information
+  img(src='images/snyman.jpg', title='How many ninjas do you need to create an awesome library?', width="100px").img-circle.img-responsive.center-block.myimageforedit
+  form.form-horizontal(action='/updateProfile', id="myformedit" method='POST')
+    input(type='hidden', name='_csrf', value=token)
+    .form-group
+      label.col-sm-2.control-label(for='name') Name
+      .col-sm-4
+        input.form-control(type='text', name='username', id='username', value='#{user.username}')
+      img(src='images/tooltip.png', title='Please enter your name', width="20px").img-circle
+    .form-group
+      label.col-sm-2.control-label(for='surname') Surname
+      .col-sm-4
+        input.form-control(type='text', name='surname', id='surname', value='#{user.surname}')
+       img(src='images/tooltip.png', title='Please enter your surname', width="20px").img-circle
+    .form-group
+        label.col-sm-2.control-label(for='password') New Password
+        .col-sm-4
+          input.form-control(type='password', name='password', id='password')
+        img(src='images/tooltip.png', title='Please enter the password you would like to change to', width="20px").img-circle
+    .form-group
+        label.col-sm-2.control-label(for='confirmPassword') Confirm Password
+        .col-sm-4
+          input.form-control(type='password', name='confirmpassword', id='confirmpassword')
+         img(src='images/tooltip.png', title='Please confirm the password you would like to change to', width="20px").img-circle
+    .form-group
+      label.col-sm-2.control-label(for='email') Email
+      .col-sm-4
+        input.form-control(type='email', name='email', id='email', value='#{user.email}')
+      img(src='images/tooltip.png', title='Please enter your email', width="20px").img-circle
+    .form-group
+      label.col-sm-2.control-label(for='department') Department
+      .col-sm-4
+        input.form-control(type='text', name='department', id='department', value='#{user.department}')
+      img(src='images/tooltip.png', title='Please enter your email address that you would like to change', width="20px").img-circle
+    .form-group
+      .col-sm-offset-2.col-sm-4
+        button.btn.btn.btn-primary(type='submit')
+          i.fa.fa-magnet
+          | Update Profile
+
+   

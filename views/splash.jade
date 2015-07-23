@@ -1,0 +1,172 @@
+doctype html
+html(lang='en')
+  head
+    title Kalafong - Patient Information Management System
+    meta(charset='utf-8')
+    meta(name='format-detection', content='telephone=no')
+    meta(name='keywords', content='software for health care, healthcare,')
+    meta(name='description', content='Medical software developement ')
+    meta(name='robots', content='index,follow')
+    meta(name='author', content='Pentec')
+    meta(name='language', content='English')
+    link(rel='icon', href='images/favicon.ico')
+    link(rel='shortcut icon', href='images/favicon.ico')
+    script(language='JavaScript', src='/splashcss/stats.js')
+    // Google fonts
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='/splashcss/boostrap.css')
+    script(src='/splashcss/jquery.js')
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-57762417-1', 'auto');
+      ga('send', 'pageview');
+  body
+    div(style='display:none')
+      script(language='javascript', type='text/javascript').
+        <!--
+        stats(576192);
+        //-->
+    style.
+      body, html {
+      width: 100%;
+      height: 100%;
+      }
+      .glob {
+      position: relative;
+      width: 960px;
+      height: 100%;
+      margin: 0 auto;
+      }
+      .preview-grid {
+      list-style: none;
+      width: 960px;
+      margin: 0 auto;
+      overflow: hidden;
+      height: 600px;
+      position: absolute;
+      margin-top: -300px;
+      top: 50%;
+      left: 0;
+      }
+      .preview-grid li {
+      float: left;
+      width: 320px;
+      text-align: center;
+      height: 200px;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      position: relative;
+      border-left: 1px solid #DDD;
+      border-bottom: 1px solid #DDD;
+      }
+      .bor-no-left {
+      border-left: none !important;
+      }
+      .bor-no-bottom {
+      border-bottom: none !important;
+      }
+      .bor-right {
+      border-right: 1px solid #DDD;
+      }
+      .preview-grid li.bottom {
+        width: 960px;
+      }
+      .bor-bottom {
+      border-left: none !important;
+      border-right: none !important;
+      border-bottom: 1px solid #DDD;
+      }
+      h1 {
+      font-weight: normal;
+      font-family:'Open Sans', arial, helvetica;
+      font-size: 30px;
+      }
+      h2 {
+      font-weight: normal;
+      font-family:'Open Sans', arial, helvetica;
+      font-size: 20px;
+      line-height:30px;
+      color:#008776;
+      }
+      i {
+      font-size: 55px;
+      /*position: relative;*/
+      }
+      a {
+      -webkit-transition: 0.5s;
+      -o-transition: 0.5s;
+      -moz-transition: 0.5s;
+      -ms-transition: 0.5s;
+      transition: 0.5s;
+      text-decoration: none !important;
+      /*padding: 100px 0;*/
+      display: block;
+      height: 200px;
+      color: #6F6F6F;
+      /*position: relative;*/
+      /*background: #DDD;*/
+      }
+      a:hover {
+      background: #004B8F;
+      color: #fff;
+      }
+      /*a:hover i:before {
+      -webkit-transform: translate(0, -20%);
+      }*/
+      .preview-grid li > a > div {
+      position: relative;
+      top: 42px;
+      }
+    .glob
+      ul.preview-grid
+        li.bor-no-left
+          a(href='/login')
+            div
+              i.icon-user-md
+              h1
+                | University of
+                br
+                |  Pretoria
+        li
+          a(href='/login')
+            div
+              i.icon-medkit
+              h1 NHLS Website 
+        li
+          a(href='/login')
+            div
+              i.icon-beaker
+              h1
+                | Senior
+                br
+                | Medical Students
+        li.bor-no-left
+          a(href='/login')
+            div
+              i.icon-leaf
+              h1 Research Assistants
+        li
+          a(href='/login')
+            div
+              i.icon-hospital
+              h1 Administrative Staff
+        li
+          a(href='/login')
+            div
+              i.icon-signal
+              h1
+                | Medical Officer
+                br
+                | 	Medical Interns
+        li.bottom.bor-no-left
+          a(href='/login')
+            div
+              img(src='images/KPTH_Logo.png', width='300')
+            div
+              h5(style='font-weight:normal; line-height:10px;text-align:center; font-weight: bold;')
+                | Department of Obstetrics
+                | and Gynaecology
+              span Kalafong Hospital

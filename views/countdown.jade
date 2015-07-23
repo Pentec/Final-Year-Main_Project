@@ -1,0 +1,16 @@
+extends layout
+block extFiles
+   link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300")
+   link(rel="stylesheet", href="/stylesheets/countdownStyle.css")
+   link(rel="stylesheet", href="/stylesheets/jquery.countdown.css")
+   script(src="/javascripts/jquery.countdown.js")
+   script(src="/javascripts/countdown.js")
+block content
+    div.jumbotron
+        h1(style="color:white").text-center Kalafong PIMS
+        div(id="countdown")
+        p(id="note")
+    footer.text-center.center-block
+        h2 Click&nbsp;
+            a(href="splash") here
+            | &nbsp;to enter the alpha website.

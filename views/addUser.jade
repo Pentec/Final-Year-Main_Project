@@ -1,0 +1,27 @@
+extends index
+block extFiles
+    link(rel="stylesheet", href="/stylesheets/addUser.css")
+block contentRight
+    div.titleBar
+        h2 Add User
+    section#signup
+        div.container
+            div.col-xs-12
+                div.form-wrap.panel
+                    h1 Add the details of the new user
+                    form(role="form", name="addNewUser", method="post", action="/create", autocomplete="off")#signup-form
+                        div.form-group
+                            input(type="text", name="username",value=username, placeholder="Username").form-control
+                        div.form-group
+                            input(type="text", name="surname",value=surname, placeholder="Surname").form-control
+                        div.form-group
+                            input(type="text", name="email",value=email, placeholder="Email").form-control
+                        div.form-group
+                            input(type="text", name="user_rights",value=user_rights, placeholder="User Rights").form-control
+                        div.form-group
+                            input(type="text", name="password",value=password, placeholder="Password").form-control
+                        div.form-group
+                            input(type="text", name="department",value=department, placeholder="Department").form-control
+                        div.form-group
+                            input(type="text", name="staff_type",value=staff_type, placeholder="Staff Type").form-control
+                        input.btn.btn-custom.btn-lg.btn-block#btn-addUser(type="submit", value="Add User")
