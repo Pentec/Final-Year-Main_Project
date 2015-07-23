@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var database = require('pims-database');
 
 var mongoose = require('mongoose');
 
@@ -122,7 +123,7 @@ router.post('/updateProfile', function(req, res) {
             });
         }
     });
-	
+
   User.findOne({username: req.body.username}, function(err, contact) {
     if(!err) {
         contact.username = req.body.username;
@@ -255,13 +256,11 @@ router.post('/sendNotification', function(req, res, next) {
 });
 
 router.post('/sendEmail', function(req, res, next) {
+    console.log('sendEmail');
     var recipientAdr =JSON.stringify(req.body.forMailing.recipient);
     var emailMsg =JSON.stringify(req.body.forMailing.message);
     var patientid =JSON.stringify(req.body.forMailing.name);
-    var checkSent = notification.sendEmail(recipientAdr, emailMsg, patientid);
-    console.log("checkSent "+ checkSent.valueOf());
-
-
+    notification.sendEmail(recipientAdr, emailMsg, patientid);
 });
 
 
