@@ -1,12 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-<<<<<<< HEAD
-var Form =  db;
-var User = db;
-var Patient = db;
-
-=======
 var mongoose = require('mongoose');
 
 var Schema   = mongoose.Schema;
@@ -34,7 +28,6 @@ mongoose.model('users', Users);
 mongoose.model('forms', Form);
 var Form = mongoose.model('forms');
 var User = mongoose.model('users');
->>>>>>> 2f3efb99aaf060ff47d0696818c646b02adb8788
 var login = require('pims-login');
 var notification = require('pims-notification');
 
