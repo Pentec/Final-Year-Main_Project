@@ -139,7 +139,7 @@ router.post('/updateProfile', function(req, res) {
 		}
         contact.save(function(err) {res.redirect('editProfile');});
     }
-});
+  });
 
 
 });
