@@ -1,32 +1,65 @@
-html, body{width: 100%; height: 100%; overflow: hidden;}
-
-.content {
-    margin-left: 85px;
+/*Fonts*/
+@font-face {
+    font-family: 'proxima-nova';
+    src: url(ProximaNova.otf);
 }
 
+/*Global CSS*/
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    padding-left: 100px;
+    position: relative;
+    width: 100%;
+    height:100%;
+    overflow-y:hidden;
+}
+
+
+
 #sidebar {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
     text-align: center;
-    background-color: #003B79;
+    background-color: #001f41;
     color: white;
     height: 100%;
     padding: 0;
-    position: absolute;
+    position: fixed;
+    margin: 0;
     left: 0;
     top: 0;
-    width: 150px;
+    width: 100px;
     z-index: 2;
+    float: left;
+}
+
+.control-label {
+    color: blue;
+}
+
+.sidebar-links {
+    position: absolute;
+    background-color: #004B8F;
+    height: auto !important;
+    min-height: 100%;
+    width: 100%;
 }
 
 .sidebar-avatar {
-    margin-top: 10px;
-
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 5px;
     font-size: 10px;
+    background-color: #001f41;
 }
 
 .navTab {
     border-top: 2px solid #002E79;
-    margin-top: 100px;
 }
 
 .sidebar-settings {
@@ -34,8 +67,8 @@ html, body{width: 100%; height: 100%; overflow: hidden;}
     background-color: #001f41;
     position: absolute;
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 105px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     bottom: 0;
 }
 
@@ -52,171 +85,80 @@ html, body{width: 100%; height: 100%; overflow: hidden;}
     color: white;
     background-color: #001f41;
 }
-p.sidebartext{
-	font-size:20px;
+
+p.sidebartext {
+    font-size: 12px;
 }
 
-
-/*Login page*/
-div.top
-{
-    height: 30%;
-    width: auto;
+.titleBar {
+    min-height: 72px;
+    max-height: 72px;
     background-color: #004B8F;
-    text-align:center;
-    /*background-color: #191970;*/
+    border-bottom: 2px solid #002E79;
+    padding: 0;
+    margin: 0;
 }
 
-img#kalaLogo
-{
-    width: 20%;
-    margin-left: auto;
-    margin-right: auto;
+.titleBar h2 {
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    font-family: 'proxima-nova', 'Open Sans Condensed', sans-serif;
+    line-height: 72px;
+    font-weight: 100;
+    color: white;
 }
 
-h1#logoHeading
-{
+/*//css for edit profile///*/
+
+#myformedit {
+    position: relative;
+    left: 300pt;
+    top: -60pt;
+    height: 500pt;
+    width: 600pt;
+
+}
+
+.mypageHeader {
+    position: relative;
+    left: 400pt;
+    top: 10pt;
+
+}
+
+.myimageforedit {
+    position: relative;
+    left: -300pt;
+    top: 20pt;
+    height: 100pt;
+    width: 100pt;
+}
+
+/*////////////////////////////STATS /////////////////////////////////*/
+#display {
+    height: 300pt;
+    width: 500pt;
+    background-color: #78d8de;
+}
+
+#contain {
+    position: relative;
+    left: 300pt;
+    top: -20pt;
+    height: 400pt;
+    width: 500pt;
+    background-color: #003b79;
+}
+
+label {
     color: #f5f5f5;
-
 }
 
-div.container
-{
-    color: #333333;
-    width: auto;
-    height: 66%;
-    background-color: #d8d8d8;
-}
-
-div.formContent
-{
-    width: 40%;
-    height: 45%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 2%;
-    text-align:center;
-}
-
-input.username
-{
-    width: 50%;
-    padding: 2%;
-    background-color: white;
-}
-
-input.password
-{
-    width: 50%;
-    padding: 2%;
-    background-color: white;
-}
-
-input.loginBtn
-{
-    width: 50%;
-    padding: 2%;
-    background-color: #004B8F;
-    color: #d8d8d8;
-}
-
-input.loginBtn:hover
-{
-    width: 55%;
-}
-
-form.loginForm
-{
-    white-space:pre;
-    width: 100%;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-
-
-}
-
-div.footer
-{
-    border: 1px;
-    border-top-style:dotted;
-    border-top-color: #333333;
-    color: #333333;
-    width: auto;
-    height: 4%;
-    background-color: #d8d8d8;
-    text-align: right;
-}
-
-a.loginHome
-{
-    padding: 1%;
-    display : inline;
-    color: #333333;
-}
-
-a.loginHelp
-{
-    padding: 1%;
-    display : inline;
-    color: #333333;
-}
-
-/*Add New User Centre Div*/
-.form-centered{
-    float: none;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.text-centered{
-    float: none;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-img.logo
-{
-    width: 50%;
-}
-
-.biggerheight
-{
-	height: 50px;
-}
-::-webkit-input-placeholder {
- font-size: 20px;
- color: #d0cdfa;
- text-transform: uppercase;
- text-transform: uppercase;
- text-align: center;
- font-weight: bold;
-}
-:-moz-placeholder { /* older Firefox*/
- font-size:20px;
- color: #d0cdfa;
- text-transform: uppercase;
- text-align: center;
- font-weight: bold;
-}
-::-moz-placeholder { /* Firefox 19+ */ 
- font-size: 20px;
- color: #d0cdfa; 
- text-transform: uppercase;
- text-align: center;
- font-weight: bold;
-} 
-:-ms-input-placeholder { 
- font-size: 20px; 
- color: #d0cdfa;
- text-transform: uppercase;
- text-align: center;
- font-weight: bold;
-}
-.adduserinput
-{
- font-size:20px;
- color: black;
- text-align: center;
- font-weight: bold;
+/*Notification*/
+.patientinput {
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    font-weight: bold;
 }

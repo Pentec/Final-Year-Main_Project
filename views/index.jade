@@ -3,19 +3,25 @@ block content
     div#sidebar
         div#sidebar-nav
             div.sidebar-avatar
-                img(src='images/physician_avatar.png' width="100px").img-circle.img-responsive.center-block
-                p.sidebartext   Department <br />of <br />Something
+                img(src='images/Logo-noText.png' width="60px").img-circle.img-responsive.center-block
             div.sidebar-links
                 ul.nav.nav-stacked.navTab
                     li
-                        a(href="/add") Add New User
+                        a(href="/addUser") Add User
                     li
-                        a(href='/login') Login
+                        a(href="/viewForms") Form Select
                     li
-                        a(href='#') Link 3
+                        a(href='/form') Form Builder
+                    li
+                        a(href='/findPatient') Send Notification
+                    li
+                        a(href='stats') Statistics
+                    li
+                        a(href='/') Logout
             div.sidebar-settings
                 ul.nav.nav-stacked
                     li
-                        img(src="images/settings.png" width="50px").img-responsive.center-block
-                    li v0.1
+                        a(class='settingsbutton', href='/editProfile')
+                            img(src= "images/settings.png" width="40px").img-responsive.center-block
     div.content
+        block contentRight

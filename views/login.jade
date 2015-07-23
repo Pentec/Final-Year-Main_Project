@@ -1,24 +1,22 @@
-//
-   Created by Ruth on 2015-06-27.
 extends layout
+block extFiles
+    link(rel="stylesheet", href="/stylesheets/login.css")
 block content
-    div.top(id="banner")
-        img#kalaLogo(src='images/KPTH_Logo.png').img-circle.img-responsive.center-block
-        h1#logoHeading Kalafong PIMS
-
-    div.container
-        br
-        br
-        div.formContent
-            form.loginForm(method="post", id="loginForm")
-                input.username(id="userid", type="text", name="User", placeholder="User ID", autofocus)
-                br
-                br
-                input.password(id="pswd", type="password", name="Password", placeholder="Password")
-                br
-                br
-                input.loginBtn(type="submit", value="Log In")
-
-    div.footer
-        a.loginHome(href='/') Home
-        a.loginHelp(href='#') Help
+    div.jumbotron.center-block.banner
+        img(src='images/KPTH_Logo.png', width="550px").img-responsive.center-block
+    section#login
+        div.container
+            div.row
+                div.col-xs-12
+                    div.form-wrap.panel
+                        h1 Login with your username
+                        form(role="form", method="post", autocomplete="off")#login-form
+                            div.form-group
+                                input.form-control#userid(type="text", placeholder="Username", name="userid", autofocus)
+                            div.form-group
+                                input.form-control#pswd(type="password", placeholder="Password", name="pswd")
+                            input.btn.btn-custom.btn-lg.btn-block#btn-login(type="submit", value="Log In")
+                        a.forget Forgot your password?
+    footer.text-center.center-block
+        h2 Back to&nbsp;
+        a(href="/splash") Home
