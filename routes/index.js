@@ -60,14 +60,26 @@ router.post('/login', function(req, res, next) {
     var password = req.body.pswd;
 
     login.authenticate(username, password, function(found) {
-         if(found)
-         {
-             res.redirect('editProfile');
-         }
-         else
-         {
-             res.redirect('login');
-         }
+        if(found)
+        {
+            login.checkAdmin(username, password, function(isAdmin)
+            {
+                if(isAdmin)
+                {
+                    res.redirect('editProfile');
+                }
+                else
+                {
+                    res.redirect('home');
+                }
+
+            });
+
+        }
+        else
+        {
+            res.redirect('login');
+        }
     });
 
 });
@@ -116,6 +128,12 @@ router.post('/create', function(req, res) {
   console.log("New user added");
     res.redirect('add');
   });
+});
+
+/* GET form builder page page. */
+router.get('/viewForms', function(req, res, next) {
+    res.render('viewForms', { title: 'Select Forms' });
+ 
 });
 
 /* GET form builder page page. */
