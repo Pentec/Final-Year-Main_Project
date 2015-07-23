@@ -35,8 +35,17 @@ var notification = require('pims-notification');
 
 
 /* GET splash page. */
+<<<<<<< HEAD
 router.get('/', function(req, res, next) {
     res.render('splash', { title: 'Kalafong PIMS' });
+=======
+router.get('/splash', function(req, res, next) {
+  res.render('splash', { title: 'Kalafong PIMS' });
+>>>>>>> c905465efc898c0829b3b7d16884a32d46754796
+});
+
+router.get('/', function(req, res, next){
+    res.render('countdown', { title: 'Kalafong Pims: Coming Soon!'})
 });
 
 
@@ -83,8 +92,8 @@ router.post('/login', function(req, res, next) {
 
 
 /* Add New User page */
-router.get('/add', function(req, res, next) {
-    res.render('add', { title: 'Kalafong PIMS - Add New User' });
+router.get('/addUser', function(req, res, next) {
+    res.render('addUser', { title: 'Kalafong PIMS - Add New User' });
 });
 
 /* Settings page */

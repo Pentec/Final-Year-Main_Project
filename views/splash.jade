@@ -71,6 +71,9 @@ html(lang='en')
       .bor-right {
       border-right: 1px solid #DDD;
       }
+      .preview-grid li.bottom {
+        width: 960px;
+      }
       .bor-bottom {
       border-left: none !important;
       border-right: none !important;
@@ -118,52 +121,6 @@ html(lang='en')
       top: 42px;
       }
     .glob
-      #sidebarWrapper
-        style(type='text/css').
-          .sidebar { padding: 0; position: absolute; bottom:0; right: -132px; }
-          .sidebar ul { list-style: none; margin: 0; padding: 0; }
-          .sidebar ul li { float: left; display: block; width: 271px; height: 61px; clear: both; margin: 5px 0; overflow: hidden; }
-          .sidebar ul li img { float: left; }
-          .sidebar ul li div.tabcontent { float: left; width: 181px; height: 61px; background: #FFFFFF; font-family: Verdana, Geneva, sans-serif; font-size: 12px; margin-right: -181px; }
-          .sidebar ul li div.tabcontent label { color: #231F20; float: left; line-height: 16px; padding: 10px 0 12px; text-align: center; }
-          .sidebar ul li div.tabcontent a { scroll 0 0 transparent; float: left; font-weight: bold; margin-left: 40px; padding: 0 0 0 15px; text-align: center; text-decoration: none; text-transform: uppercase; }
-          .sidebar ul li div { position: relative; float: right; cursor: pointer; }
-          .sidebar ul li div span { position: absolute; left: 0; bottom: 0; width: 60px; text-align: center; margin-bottom:5px; text-transform: uppercase; font-size: 12px; color: #FFFFFF; font-weight: bold; padding: 6px 0; }
-          /* style tweaks - NY 10.17.12 */
-          .sidebar ul li div, .sidebar ul li div.tabcontent label { cursor: auto !important; }
-          .sidebar ul li div.tabcontent { font-size: 10px; }
-          .sidebar ul li div.tabcontent label { text-align: left; padding-left: 5px; }
-          .sidebar ul li div.tabcontent a { margin: 0px; }
-          .sidebar ul li div.tabcontent label p span#lpButDivID-1350483829881 a span, .sidebar ul li div.tabcontent label span#lpButDivID-1350483829881 a span { scroll 5px 8px transparent; color: #e61C3b; font-size: 10px; padding-left: 5px !important; width: 100%; }
-        script(type='text/javascript').
-          $(document).ready(function () {
-          $('.sidebar ul li div').hover(function () {
-          //$(this).children('.tabcontent').show(1000);
-          $(this).children('.tabcontent').animate({ 'margin-right': '0px' }, 200);
-          }, function () {
-          //$(this).children('.tabcontent').hide(1000);
-          $(this).children('.tabcontent').animate({ 'margin-right': '-181px' }, 200);
-          });
-          });
-        .sidebar(style='z-index:20')
-          ul
-            li
-              div
-                img(src='img/chat-live.png', width='60', height='50', alt='')
-                span
-                  | Chat
-                .tabcontent
-            li
-              div
-                img(src='img/demo.png', width='60', height='50', alt='')
-                span
-                  | Demo
-                .tabcontent
-                  label
-            li
-              div
-                .tabcontent
-                  label
       ul.preview-grid
         li.bor-no-left
           a(href='/login')
@@ -204,15 +161,12 @@ html(lang='en')
                 | Medical Officer
                 br
                 | 	Medical Interns
-        li.bor-bottom
-        li.bor-bottom
+        li.bottom.bor-no-left
           a(href='/login')
-            div(style='padding-top:0px') 
-              img(src='images/KPTH_Logo.png', width='283', height='77')
             div
-              h5(style='font-weight:normal; line-height:10px;text-align:center; font-weight: bold;padding-left:50px')
-                | Department Obstetrics 
-                br
+              img(src='images/KPTH_Logo.png', width='300')
+            div
+              h5(style='font-weight:normal; line-height:10px;text-align:center; font-weight: bold;')
+                | Department of Obstetrics
                 | and Gynaecology
-              span(style='padding-left:65px') Kalafong Hospital
-        li.bor-bottom
+              span Kalafong Hospital
