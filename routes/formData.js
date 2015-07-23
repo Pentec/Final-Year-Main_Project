@@ -180,23 +180,11 @@ Form.save(function(err){
     }
 });
 
+
 });
 
 
-router.get('/', function(req, res, next) {
- GS.find(function(err, data){
- console.log(' hello' + data );
-  });
-});
-
-  /* GET form builder page page. */
-//router.get('/pat', function(req, res, next) {
-	 GS.find(function(err, data){
-	 console.log(' hello' + data );
- //  res.render('viewForms', { title: 'Select Forms' });
-  });
-
-//});
+  
   
   
 module.exports = router;
