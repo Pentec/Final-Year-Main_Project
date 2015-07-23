@@ -1,15 +1,15 @@
-extends layout
+extends index
 block extFiles
     link(rel="stylesheet", href="/stylesheets/addUser.css")
-block content
-    div.jumbotron.center-block.banner
-        img.logo(src='images/KPTH_Logo.png', width="550px").img-responsive.center-block
+block contentRight
+    div.titleBar
+        h2 Add User
     section#signup
         div.container
             div.col-xs-12
                 div.form-wrap.panel
                     h1 Add the details of the new user
-                    form(role="form", method="post", autocomplete="off")#signup-form
+                    form(role="form", name="addNewUser", method="post", action="/create", autocomplete="off")#signup-form
                         div.form-group
                             input(type="text", name="username",value=username, placeholder="Username").form-control
                         div.form-group

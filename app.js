@@ -39,6 +39,11 @@ var html_dir = './html/';
 app.get('/gynae_surgery', function(req, res) {
     res.sendfile(html_dir + 'gynae_surgery.html');
 });
+
+var html_dir = './html/';
+app.get('/addmission_discharge', function(req, res) {
+    res.sendfile(html_dir + 'addmission_discharge.html');
+});
 //end of html routing
 
 

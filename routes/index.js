@@ -70,7 +70,7 @@ router.post('/login', function(req, res, next) {
                 }
                 else
                 {
-                    res.redirect('home');
+                    res.redirect('viewForms');
                 }
 
             });
@@ -86,8 +86,8 @@ router.post('/login', function(req, res, next) {
 
 
 /* Add New User page */
-router.get('/add', function(req, res, next) {
-    res.render('add', { title: 'Kalafong PIMS - Add New User' });
+router.get('/addUser', function(req, res, next) {
+    res.render('addUser', { title: 'Kalafong PIMS - Add New User' });
 });
 
 /* Settings page */
@@ -150,7 +150,7 @@ router.post('/create', function(req, res) {
     new User({username : req.body.username,surname : req.body.surname,email : req.body.email,user_rights : req.body.user_rights,password : req.body.password,department : req.body.department,staff_type : req.body.staff_type })
         .save(function(err, users) {
             console.log("New user added");
-            res.redirect('add');
+            res.redirect('addUser');
         });
 });
 
