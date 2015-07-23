@@ -1,1 +1,0 @@
-//This folder serves the purpose of storing all database code that has been worked on for each demo.
