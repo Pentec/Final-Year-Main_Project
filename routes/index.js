@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var mongoose = require('mongoose');
 
 var Schema   = mongoose.Schema;
@@ -31,6 +32,11 @@ var Users = new Schema({
 var Form = mongoose.model('forms');
 //var Patient = mongoose.model('patients');
 var User = mongoose.model('users');
+=======
+var Form =  db;
+var Patient = db;
+var User = db;
+>>>>>>> origin/Develop
 =======
 var Form =  db;
 var Patient = db;
