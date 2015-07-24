@@ -115,32 +115,11 @@ router.post('/updateProfile', function(req, res) {
                 contact.password = req.body.confirmpassword;
             }
             contact.save(function(err) {
-                //res.redirect('editProfile');
-                if(!err)
-                {
-                    res.render('editProfile', { title: 'Profile has been updated' });
-                }else
-                {
-                    res.render('editProfile', { title: 'There were problems updating your profile' });
-                }
+                res.redirect('editProfile');
+               
             });
         }
     });
-
-  User.findOne({username: req.body.username}, function(err, contact) {
-    if(!err) {
-        contact.username = req.body.username;
-        contact.email = req.body.email;
-		contact.surname = req.body.surname;
-        contact.department = req.body.department;
-		if(req.body.password == req.body.confirmpassword && req.body.password != "")
-		{
-			contact.password = req.body.confirmpassword;
-		}
-        contact.save(function(err) {res.redirect('editProfile');});
-    }
-  });
-
 
 });
 
