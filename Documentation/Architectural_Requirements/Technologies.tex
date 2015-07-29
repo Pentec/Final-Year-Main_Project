@@ -1,12 +1,14 @@
 \subsection{Platform}
-\begin{itemize}
-		\item Java EE
-\end{itemize}
+\subsubsection{Node.js}
+The system will be deployed in a Node.js environment. Node.js allows for queued inputs and since the system revolves around multiple inputs possibly going through at any particular time this provides a huge advantage over most other systems. Node.js also includes a wide range of modules through NPM(Node package manager). Some examples of these include Express, AngularJS, mongo, mongoose, and many more. Node.js processes programs asynchronously and thus is a no-interrupt driven language. This is as advantage because, as stated above, it allows for queued inputs. Node.js is written in javascript which means it is ubiquitous which is an obvious advantage.
+
+Node.js relies heavily on callbacks to allow for synchronization which is an obvous hinderance for programmers that are not strong with recursion or callbacks. Although this con is outweighed by the advantages of the system.
 
 
 \subsection{Frameworks}
 \begin{itemize}
-		\item Java Server Faces
+		\item Express
+		\item AngularJS
 \end{itemize}
 
 \subsection{Operating System}
@@ -37,6 +39,11 @@
 \subsubsection{Mark-up Languages}
 \begin{itemize}
 	\item HTML
+\end{itemize}
+
+/subsubsection{Template Engine}
+\begin{itemize}
+	\item Jade
 \end{itemize}
 
 
