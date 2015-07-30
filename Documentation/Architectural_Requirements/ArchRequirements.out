@@ -10,39 +10,24 @@
 \BOOKMARK [3][-]{subsubsection.2.2.3}{Integration channels}{subsection.2.2}% 10
 \BOOKMARK [2][-]{subsection.2.3}{Quality requirements}{section.2}% 11
 \BOOKMARK [3][-]{subsubsection.2.3.1}{Critical Architectural Requirements}{subsection.2.3}% 12
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Security}{subsection.2.3}% 13
-\BOOKMARK [3][-]{subsubsection.2.3.3}{Description}{subsection.2.3}% 14
-\BOOKMARK [3][-]{subsubsection.2.3.4}{Justification}{subsection.2.3}% 15
-\BOOKMARK [3][-]{subsubsection.2.3.5}{Mechanism}{subsection.2.3}% 16
-\BOOKMARK [3][-]{subsubsection.2.3.6}{Usability}{subsection.2.3}% 17
-\BOOKMARK [2][-]{subsection.2.4}{Usability}{section.2}% 18
-\BOOKMARK [3][-]{subsubsection.2.4.1}{Description}{subsection.2.4}% 19
-\BOOKMARK [3][-]{subsubsection.2.4.2}{Justification}{subsection.2.4}% 20
-\BOOKMARK [3][-]{subsubsection.2.4.3}{Mechanism}{subsection.2.4}% 21
-\BOOKMARK [3][-]{subsubsection.2.4.4}{Scalability}{subsection.2.4}% 22
-\BOOKMARK [3][-]{subsubsection.2.4.5}{Reliability and Availability}{subsection.2.4}% 23
-\BOOKMARK [2][-]{subsection.2.5}{Reliability and Availability}{section.2}% 24
-\BOOKMARK [3][-]{subsubsection.2.5.1}{Integrability}{subsection.2.5}% 25
-\BOOKMARK [3][-]{subsubsection.2.5.2}{Important Quality Requirements}{subsection.2.5}% 26
-\BOOKMARK [3][-]{subsubsection.2.5.3}{Usability}{subsection.2.5}% 27
-\BOOKMARK [2][-]{subsection.2.6}{Usability}{section.2}% 28
-\BOOKMARK [3][-]{subsubsection.2.6.1}{Description}{subsection.2.6}% 29
-\BOOKMARK [3][-]{subsubsection.2.6.2}{Justification}{subsection.2.6}% 30
-\BOOKMARK [3][-]{subsubsection.2.6.3}{Mechanism}{subsection.2.6}% 31
-\BOOKMARK [3][-]{subsubsection.2.6.4}{Scalability}{subsection.2.6}% 32
-\BOOKMARK [3][-]{subsubsection.2.6.5}{Reliability and Availability}{subsection.2.6}% 33
-\BOOKMARK [2][-]{subsection.2.7}{Reliability and Availability}{section.2}% 34
-\BOOKMARK [3][-]{subsubsection.2.7.1}{Integrability}{subsection.2.7}% 35
-\BOOKMARK [3][-]{subsubsection.2.7.2}{Nice to have quality requirements}{subsection.2.7}% 36
-\BOOKMARK [3][-]{subsubsection.2.7.3}{Usability}{subsection.2.7}% 37
-\BOOKMARK [2][-]{subsection.2.8}{Usability}{section.2}% 38
-\BOOKMARK [3][-]{subsubsection.2.8.1}{Description}{subsection.2.8}% 39
-\BOOKMARK [3][-]{subsubsection.2.8.2}{Justification}{subsection.2.8}% 40
-\BOOKMARK [3][-]{subsubsection.2.8.3}{Mechanism}{subsection.2.8}% 41
-\BOOKMARK [3][-]{subsubsection.2.8.4}{Scalability}{subsection.2.8}% 42
-\BOOKMARK [1][-]{section.3}{Architectural Patterns or Styles}{}% 43
-\BOOKMARK [2][-]{subsection.3.1}{Model-View-Controller \(MVC\)}{section.3}% 44
-\BOOKMARK [2][-]{subsection.3.2}{Technologies}{section.3}% 45
-\BOOKMARK [2][-]{subsection.3.3}{Tactics and strategies}{section.3}% 46
-\BOOKMARK [1][-]{section.4}{Architectural responsibilities}{}% 47
-\BOOKMARK [1][-]{section.5}{Architecture constraints}{}% 48
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Description}{subsection.2.3}% 13
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Justification}{subsection.2.3}% 14
+\BOOKMARK [3][-]{subsubsection.2.3.4}{Mechanism}{subsection.2.3}% 15
+\BOOKMARK [3][-]{subsubsection.2.3.5}{Description}{subsection.2.3}% 16
+\BOOKMARK [3][-]{subsubsection.2.3.6}{Justification}{subsection.2.3}% 17
+\BOOKMARK [3][-]{subsubsection.2.3.7}{Mechanism}{subsection.2.3}% 18
+\BOOKMARK [3][-]{subsubsection.2.3.8}{Important Quality Requirements}{subsection.2.3}% 19
+\BOOKMARK [3][-]{subsubsection.2.3.9}{Maintainability}{subsection.2.3}% 20
+\BOOKMARK [3][-]{subsubsection.2.3.10}{Testability}{subsection.2.3}% 21
+\BOOKMARK [3][-]{subsubsection.2.3.11}{Reliability and Availability}{subsection.2.3}% 22
+\BOOKMARK [3][-]{subsubsection.2.3.12}{Integrability}{subsection.2.3}% 23
+\BOOKMARK [3][-]{subsubsection.2.3.13}{Nice to have quality requirements}{subsection.2.3}% 24
+\BOOKMARK [3][-]{subsubsection.2.3.14}{Description}{subsection.2.3}% 25
+\BOOKMARK [3][-]{subsubsection.2.3.15}{Justification}{subsection.2.3}% 26
+\BOOKMARK [3][-]{subsubsection.2.3.16}{Mechanism}{subsection.2.3}% 27
+\BOOKMARK [1][-]{section.3}{Architectural Patterns and Styles}{}% 28
+\BOOKMARK [2][-]{subsection.3.1}{Model-View-Controller \(MVC\)}{section.3}% 29
+\BOOKMARK [2][-]{subsection.3.2}{Technologies}{section.3}% 30
+\BOOKMARK [2][-]{subsection.3.3}{Tactics and strategies}{section.3}% 31
+\BOOKMARK [1][-]{section.4}{Architectural responsibilities}{}% 32
+\BOOKMARK [1][-]{section.5}{Architecture constraints}{}% 33
