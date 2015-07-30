@@ -13,35 +13,82 @@
 \tableofcontents
 \newpage
 
+\section{Introduction}
 %\Intro
-%\input{./ArchIntroduction.tex}
+\input{./ArchIntroduction.tex}
+ %-------------------------------------------------------------------
+\section{Architectural requirements}
+	\subsection{Architectural Scope} %Maria
+	\input{Arch_Scope}
+	\newpage
+	
+	\subsection{Access and integration requirements}
+			\subsubsection{Human access channels}	
+			\subsubsection{System access channels}	
+			\subsubsection{Integration channels}
+ 	\subsection{Quality requirements}
+ 	
+		\textbf{\LARGE Critical Quality Requirements}
+		\subsubsection{Security}
+			%Lindelo - Security
+			\input{./Security.tex}
+			
+		\subsubsection{Usability}
+			%Lindelo - Usability
+			\input{./Usability.tex}
+			
+		\subsubsection{Scalability}
+			%Ruth - Scalability
+			\input{./Scalability}
+			
+		\subsubsection{Reliability and Availability}
+			%Ruth - Reliability and Availability
+			\input{./Reliability}
+			
+		\subsubsection{Integrability}
+			%Maria - Imtegrability
+			\input{./Int}
 
-\section{Critical Architectural Requirements}
-%Lindelo - Security
-\input{./Security.tex}
 
-%Lindelo - Usability
-\input{./Usability.tex}
 
-\subsection{Scalability}
-%Ruth - Scalability
-\input{./Scalability}
+%----------------------------------------------------
+\textbf{\LARGE Important Quality Requirements}
+			
+		\subsubsection{Maintainability}
+			%Maria - Monitorabilty
+			\input{./Mentainability.tex}
+			
+		\subsubsection{Monitorability}
+			%Maria - testability
+			\input{./Monitorability}
+			
+		\subsubsection{Testability}
+			%Maria - Monitorabilty
+			\input{./Testability}
+			
+		\subsubsection{Performance}
+			%Maria - Monitorabilty
+			%\input{./Integrability}
 
-\subsection{Reliability and Availability}
-%Ruth - Reliability and Availability
-\input{./Reliability}
-=======
-%Maria - INtegrability
-\input{./Integrability_Quality_Requirement.tex}
-
-%Lindelo - MVC
-\input{./MVC.tex}
+%----------------------------------------------------
+\section{Architectural Patterns and Styles}
+	\subsection{Model-View-Controller (MVC)}
+	%Lindelo - MVC
+	\input{./MVC.tex}
+	
+	\subsection{Technologies}
+	%Maria - Technologies
+	\input{./Technologies.tex}
+	
+	\subsection{Tactics and strategies}
+	%Maria - Arch tactics and strategies
+	%\input{./Tactics_or_Strategies.tex}
+	
+\section{Architectural responsibilities}
+\section{Architecture constraints}
 
 %Maria - Arch tactics and strategies
-\input{./Tactics_or_Strategies.tex}
-
-%Maria - Technologies
-\input{./Technologies.tex}
+%\input{./Tactics_or_Strategies.tex}
 
 
 \end{document}

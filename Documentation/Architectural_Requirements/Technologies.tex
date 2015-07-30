@@ -1,17 +1,20 @@
 \subsection{Platform}
-\begin{itemize}
-\end{itemize}
+\subsubsection{Node.js}
+PIMS will be deployed in a Node.js environment. Node.js allows for queued inputs and since the system revolves around multiple inputs possibly going through at any particular time this provides a huge advantage over most other systems. Node.js also includes a wide range of modules through NPM(Node package manager). Some examples of these include Express, AngularJS, mongo, mongoose, and many more. Node.js processes programs asynchronously and thus is a no-interrupt driven language. This is as advantage because, as stated above, it allows for queued inputs. Node.js is written in javascript which means it is ubiquitous which is an obvious advantage.
+
+Node.js relies heavily on callbacks to allow for synchronization which is an obvous hinderance for programmers that are not strong with recursion or callbacks. Although this con is outweighed by the advantages of the system.
 
 
 \subsection{Frameworks}
 \begin{itemize}
-		\item Express is a web framework for Node.js. It provides a robust set of features for web and mobile applications. The Model-View-Controller pattern can also be encompassed by using Express as a framework. 
+		\item Express
+		\item AngularJS
 \end{itemize}
 
 \subsection{Operating System}
 \begin{itemize}
 		\item Windows
-		\item Linux
+		\item Posibly Android OS
 \end{itemize}
 	
 	
@@ -32,19 +35,26 @@
 \subsubsection{Programming Languages}
 \begin{itemize}
 	\item JavaScript	
-	\item Node.js
 \end{itemize}
 
 \subsubsection{Mark-up Languages}
 \begin{itemize}
 	\item HTML
+	\item Html
+	\item Json
+	\item CSS
+	\item AJAX
+\end{itemize}
+
+\subsubsection{Template Engine}
+\begin{itemize}
+	\item Jade
 \end{itemize}
 
 
 \subsection{Application Servers}
 \begin{itemize}
-	\item GlassFish Server
-	\item Tomcat
+	\item TBA
 \end{itemize}
 
 \subsection{Dependency Management}
@@ -57,95 +67,13 @@
 	\item SOAP-based
 \end{itemize} 
 
-
 \subsection{APIs}
+\subsection{Other}
 \begin{itemize}
-	\item Java Persistence API
-\end{itemize}
-
-\begin{itemize}
-	\item JAX-RS RESTful web services
-\end{itemize}
-
-\begin{itemize}
-	\item JAX-WS web service endpoints
-\end{itemize}
-
-\begin{itemize}
-	\item Java Persistence API entities
-\end{itemize}
-
-\begin{itemize}
-	\item The Java Database Connectivity API (JDBC)
-\end{itemize}
-
-\begin{itemize}
-	\item The Java Persistence API
-\end{itemize}
-
-\begin{itemize}
-	\item The Java EE Connector Architecture
-\end{itemize}
-
-\begin{itemize}
-	\item The Java Transaction API (JTA)
+	\item Haroku - A cloud based application platform.
 \end{itemize}
 
 
-\subsection{Others}
-\begin{itemize}
-	\item AJAX
-\end{itemize}
-
-\begin{itemize}
-	\item Servlets
-\end{itemize}
-
-\begin{itemize}
-	\item Java Server Pages
-\end{itemize}
 
 
-\begin{itemize}
-	\item JavaServer Faces
-\end{itemize}
-
-\begin{itemize}
-	\item JavaServer Faces Facelets
-\end{itemize}
-
-\begin{itemize}
-	\item Enterprise JavaBeans (enterprise bean) components
-\end{itemize}
-
-\begin{itemize}
-	\item Java EE managed beans
-\end{itemize}
-
-
-\section{Recommended Technologies}
-\subsection{Databases}
-\subsubsection{Object Relational Databases}
-\begin{itemize}
-	\item Postgresql
-\end{itemize}
-
-
-\subsection{JSON Schema}
-\begin{itemize}
-	\item It will assist us to describe and validate our JSON data
-	\item It is human readable and simple to understand
-	\item It assists with a complete structure
-	\item It is useful for automated testing
-	\item It helps transform our form data into data that can be represented in
-	\item the mongo database in a much simpler manner.
-\end{itemize}
-
-\subsection{JQuery}
-\item It promotes simplicty by being easy to learn and use in terms of syntax 
-\item Helps style our website application with ease
-\item JQuery elements will be displayed even when javascript is disabled allowing some of our content\item to still be displayed correctly.
-\item It is easily intergratable with IDES and other software
-\item Allows for animation in dynamic pages
-\item JQuery loads pages faster which will improve the speed of our website
 
