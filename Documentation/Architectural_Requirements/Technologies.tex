@@ -18,15 +18,16 @@ Node.js relies heavily on callbacks to allow for synchronization which is an obv
 	
 	
 \subsection{Databases}
-\subsubsection{Relational Databases}
+\subsubsection{Database(s)}
 \begin{itemize}
-	\item MySQL Database
+	\item MongoDB - is a NoSQL document store. MongoDB is used especially for applications that need store large volumes of data, which is mandatory for PIMS. \\
+	MongoDB ensures that scalability, a critical requirement, is enforced. This is due to the highly cache-able persistence environment. Concurrency is also handled  via the locking mechanisms. Multiple read access and a single write operation is allowed.
 \end{itemize}
 	
 
-\subsection{Object Relational Mappers}
+\subsection{Object Data Model}
 \begin{itemize}
-	\item JPQL
+	\item Mongoose - is an object modelling environment for MongoDB and Node.js. It enforces contracts and structure via validation, provides connection pooling, which improves scalability. Automatic object to document mappings is also supported.
 \end{itemize}
 
 \subsection{Languages}
