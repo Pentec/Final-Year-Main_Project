@@ -1,0 +1,33 @@
+This section discusses the boundaries and extent or range of view, outlook, applications, operations or effectiveness the system software architectur needs to address. 
+More spesificaly we will be looking at the following three topics in depth. Persistence, Reporting and Process execution.
+
+%Persistence
+\subsubsection{Persistence}
+	Buzz Space needs to be percistant in order for states to be stored and outlive the many
+	processes done. It will do so by making use of the following:
+
+		\begin{itemize}
+			\item Databases, to store and retrieve user accounts data and information.
+			\item Java Data Objects (JDO), a specification of Java object persistence. With it's great
+			 transparency feature of the persistence services to the domain model.
+			\item System prevalence, a technique that joins system images and transaction journals to achieve percistancey.
+		\end{itemize}
+	
+		%Process execution
+	\subsubsection{Reporting}
+	It is crucial that the Buzz Space gives the user some sort of reporting and feed back after activities such as successful posts, voting(either up or down), deleted or hidden posts, read and unread posts or any other change of state. This will be achieved by sending the user an email to notify him of any changes. 
+	
+			 
+	%Process execution
+	\subsubsection{Process execution}
+	Process infrastructure and execution deals with the essential operation components, such as policies, processes, equipment, data and internal operations, for overall effectiveness. In providing a good Process infrastructure for the Buzz Space system, we aim to:
+	\begin{itemize}
+  \item	Reduce duplication of effort
+  \item	Ensure adherence to standards (both coding and design)
+  \item	Enhance the flow of information throughout an the system
+  \item	Promote adaptability necessary for a changeable environment (Including the different human access channels.)
+  \item	Ensure interoperability among organizational and external entities
+  \item	Maintain effectiveness
+	\end{itemize}
+
+						
