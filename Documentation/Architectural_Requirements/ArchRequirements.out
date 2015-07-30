@@ -21,6 +21,22 @@
 \BOOKMARK [1][-]{section.3}{Architectural Patterns and Styles}{}% 21
 \BOOKMARK [2][-]{subsection.3.1}{Model-View-Controller \(MVC\)}{section.3}% 22
 \BOOKMARK [2][-]{subsection.3.2}{Technologies}{section.3}% 23
-\BOOKMARK [2][-]{subsection.3.3}{Tactics and strategies}{section.3}% 24
-\BOOKMARK [1][-]{section.4}{Architectural responsibilities}{}% 25
-\BOOKMARK [1][-]{section.5}{Architecture constraints}{}% 26
+\BOOKMARK [2][-]{subsection.3.3}{Platform}{section.3}% 24
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Node.js}{subsection.3.3}% 25
+\BOOKMARK [2][-]{subsection.3.4}{Frameworks}{section.3}% 26
+\BOOKMARK [2][-]{subsection.3.5}{Operating System}{section.3}% 27
+\BOOKMARK [2][-]{subsection.3.6}{Databases}{section.3}% 28
+\BOOKMARK [3][-]{subsubsection.3.6.1}{Database\(s\)}{subsection.3.6}% 29
+\BOOKMARK [2][-]{subsection.3.7}{Object Data Model}{section.3}% 30
+\BOOKMARK [2][-]{subsection.3.8}{Languages}{section.3}% 31
+\BOOKMARK [3][-]{subsubsection.3.8.1}{Programming Languages}{subsection.3.8}% 32
+\BOOKMARK [3][-]{subsubsection.3.8.2}{Mark-up Languages}{subsection.3.8}% 33
+\BOOKMARK [3][-]{subsubsection.3.8.3}{Template Engine}{subsection.3.8}% 34
+\BOOKMARK [2][-]{subsection.3.9}{Application Servers}{section.3}% 35
+\BOOKMARK [2][-]{subsection.3.10}{Dependency Management}{section.3}% 36
+\BOOKMARK [2][-]{subsection.3.11}{Web Services}{section.3}% 37
+\BOOKMARK [2][-]{subsection.3.12}{APIs}{section.3}% 38
+\BOOKMARK [2][-]{subsection.3.13}{Other}{section.3}% 39
+\BOOKMARK [2][-]{subsection.3.14}{Tactics and strategies}{section.3}% 40
+\BOOKMARK [1][-]{section.4}{Architectural responsibilities}{}% 41
+\BOOKMARK [1][-]{section.5}{Architecture constraints}{}% 42
