@@ -9,25 +9,18 @@
 \contentsline {subsubsection}{\numberline {2.2.2}System access channels}{4}{subsubsection.2.2.2}
 \contentsline {subsubsection}{\numberline {2.2.3}Integration channels}{4}{subsubsection.2.2.3}
 \contentsline {subsection}{\numberline {2.3}Quality requirements}{4}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}Critical Architectural Requirements}{4}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Description}{4}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}Justification}{4}{subsubsection.2.3.3}
-\contentsline {subsubsection}{\numberline {2.3.4}Mechanism}{4}{subsubsection.2.3.4}
-\contentsline {subsubsection}{\numberline {2.3.5}Description}{4}{subsubsection.2.3.5}
-\contentsline {subsubsection}{\numberline {2.3.6}Justification}{5}{subsubsection.2.3.6}
-\contentsline {subsubsection}{\numberline {2.3.7}Mechanism}{5}{subsubsection.2.3.7}
-\contentsline {subsubsection}{\numberline {2.3.8}Important Quality Requirements}{8}{subsubsection.2.3.8}
-\contentsline {subsubsection}{\numberline {2.3.9}Maintainability}{8}{subsubsection.2.3.9}
-\contentsline {subsubsection}{\numberline {2.3.10}Testability}{8}{subsubsection.2.3.10}
-\contentsline {subsubsection}{\numberline {2.3.11}Reliability and Availability}{8}{subsubsection.2.3.11}
-\contentsline {subsubsection}{\numberline {2.3.12}Integrability}{8}{subsubsection.2.3.12}
-\contentsline {subsubsection}{\numberline {2.3.13}Nice to have quality requirements}{8}{subsubsection.2.3.13}
-\contentsline {subsubsection}{\numberline {2.3.14}Description}{8}{subsubsection.2.3.14}
-\contentsline {subsubsection}{\numberline {2.3.15}Justification}{8}{subsubsection.2.3.15}
-\contentsline {subsubsection}{\numberline {2.3.16}Mechanism}{8}{subsubsection.2.3.16}
-\contentsline {section}{\numberline {3}Architectural Patterns and Styles}{10}{section.3}
-\contentsline {subsection}{\numberline {3.1}Model-View-Controller (MVC)}{10}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Technologies}{10}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Tactics and strategies}{11}{subsection.3.3}
-\contentsline {section}{\numberline {4}Architectural responsibilities}{11}{section.4}
-\contentsline {section}{\numberline {5}Architecture constraints}{11}{section.5}
+\contentsline {subsubsection}{\numberline {2.3.1}Security}{4}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Usability}{4}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Scalability}{4}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.4}Reliability and Availability}{4}{subsubsection.2.3.4}
+\contentsline {subsubsection}{\numberline {2.3.5}Integrability}{4}{subsubsection.2.3.5}
+\contentsline {subsubsection}{\numberline {2.3.6}Maintainability}{5}{subsubsection.2.3.6}
+\contentsline {subsubsection}{\numberline {2.3.7}Monitorability}{5}{subsubsection.2.3.7}
+\contentsline {subsubsection}{\numberline {2.3.8}Testability}{5}{subsubsection.2.3.8}
+\contentsline {subsubsection}{\numberline {2.3.9}Performance}{5}{subsubsection.2.3.9}
+\contentsline {section}{\numberline {3}Architectural Patterns and Styles}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Model-View-Controller (MVC)}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Technologies}{5}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Tactics and strategies}{5}{subsection.3.3}
+\contentsline {section}{\numberline {4}Architectural responsibilities}{5}{section.4}
+\contentsline {section}{\numberline {5}Architecture constraints}{5}{section.5}

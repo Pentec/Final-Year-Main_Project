@@ -1,10 +1,9 @@
-
-\subsubsection*{Description:}
-	  The Patient Information Management System should be integrated with ease on any host site.
-	 \subsubsection*{Justification:}
-	   The Patient Information Management System is primarily designed for the kalafong medical staff, but if in future a need to host it on another site arise,it needs to be easily integrated to the the site without any extra cost and the need  to change the implementation of the system.
-	\subsection*{Mechanism:}
+%Integratability
+\subsubsection *{Description:}
+	  The Patient Information Management System should be integrated with ease to the Universities website as well as the NHSA web site.
+	 \subsubsection *{Justification:}
+	   The Patient Information Management System is primarily designed for the kalafong medical staff and is required to be accessable on both the University's website and the NHSA website. For security perposes we limit it's intergaration to just these two sites.
+	\subsection *{Mechanism:}
 	\begin{enumerate}
-		\item Strategy: \\\ The contracts based decoupling strategy can be used to implement integrability and achieve extensibility on the system by providing an interface between the system and the host site which will improves decoupling on the host site and the system.    
-		\item Architectural Pattern: \\\ Messaging can be used to enhance decoupling and increase flexibility, the Buzz system or host site can change without affecting the other party, both parties will act as independent component that use an interface between them to request services and share resources.  
+		\item Strategy: \\\ The contracts based decoupling strategy is used to implement integrability and extensibility on the system by providing sections and different functionality between the back end system and the host site. 
 	\end{enumerate}
