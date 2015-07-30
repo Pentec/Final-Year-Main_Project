@@ -11,6 +11,7 @@
   padding: 4px;
   width: 19em;
 }
+
 @media (min-width: 768px) {
   .bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
     width: 38em;
