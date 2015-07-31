@@ -177,3 +177,7 @@ crashlytics-build.properties
 *.bak
 *.out
 *.gz
+*.aux
+*.out
+*.gz
+*.toc
