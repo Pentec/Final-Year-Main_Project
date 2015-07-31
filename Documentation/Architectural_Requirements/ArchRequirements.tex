@@ -4,6 +4,7 @@
 \usepackage{listings}
 \usepackage{float}
 \DeclareGraphicsExtensions{.png}
+\setcounter{tocdepth}{5}
 
 \begin{document}
 %\title and intnro
@@ -71,15 +72,16 @@
 			%\input{./Integrability}
 
 %----------------------------------------------------
-\section{Architectural Patterns and Styles}
+\section{Architecture Design}
+%\subsection{Architectural Patterns and Styles}
+	\subsection{Layering Architecture}
+	%Ruth - Layering
+	\input{./patterns}
+	
 	\subsection{Model-View-Controller (MVC)}
 	%Lindelo - MVC
 	\input{./MVC.tex}
-	
-	\subsection{Technologies}
-	%Maria - Technologies
-	\input{./Technologies.tex}
-	
+
 	\subsection{Tactics and strategies}
 	%Maria - Arch tactics and strategies
 	%\input{./Tactics_or_Strategies.tex}
@@ -89,6 +91,9 @@
 
 %Maria - Arch tactics and strategies
 %\input{./Tactics_or_Strategies.tex}
-
+\section{Architecture components}
+	\subsection{Technologies}
+	%Maria - Technologies
+	\input{./Technologies.tex}
 
 \end{document}
