@@ -27,6 +27,44 @@ Crypto is an node.js module that allows for multiple forms of encryption. It is 
 	\item MongoDB - is a NoSQL document store. MongoDB is used especially for applications that need store large volumes of data, which is mandatory for PIMS. \\
 	MongoDB ensures that scalability, a critical requirement, is enforced. This is due to the highly cache-able persistence environment. Concurrency is also handled  via the locking mechanisms. Multiple read access and a single write operation is allowed.
 \end{itemize}
+
+\subsection{Databases}
+\subsubsection{Database(s)}
+\begin{itemize}
+	\item MongoDB - is a NoSQL document store. MongoDB is used especially for applications that need store large volumes of data, which is mandatory for PIMS. \\
+	MongoDB ensures that scalability, a critical requirement, is enforced. This is due to the highly cache-able persistence environment. Concurrency is also handled  via the locking mechanisms. Multiple read access and a single write operation is allowed.
+\end{itemize}
+
+\subsection{Unit Testing}
+\subsubsection{Mocha}
+\begin{itemize}
+	\item Mocha was selected as our primary unit testing framework running for Node.js and the browser,
+to assist in the simplification of asynchronous testing. \\
+	Mocha tests run serially, allowing
+ for flexible and accurate reporting, while mapping uncaught exceptions to the correct test 
+ cases. We found that Mocha offered browser support which proves useful for our project as we are testing
+our application on different browsers and a javascript API for running tests which assisted us in identifying our 
+errors more visibly and made the framework much easier, both, to understand and use. Mocha is also very popular and 
+so there is an online community of users offering assistance and suggestions, it is also very configurable. 
+Mocha assisted us to describe our test suites.
+\end{itemize}
+
+\subsubsection{Chai}
+\begin{itemize}
+	\item We selected Chai as it is an assertion and expecting library for node and the browser given that we are
+creating a web application and using javascript as our testing framework; Chai pairs them 
+both very well. \\
+Chai also works well with Mocha and other unit testing frameworks as we had
+decided to use more than one to achieve readability for the output of our unit testing program. 
+Chai assisted us to perform all kinds of assertions against our javascript code.
+\end{itemize}
+
+\subsubsection{Should}
+\begin{itemize}
+	\item Should is an expressive, readable, test framework agnostic, assertion library \\
+	The main goals of the Should library is to be expressive and 
+to be helpful. It helped keep our test code clean, and add meaning to error messages.
+\end{itemize}
 	
 
 \subsection{Object Data Model}
