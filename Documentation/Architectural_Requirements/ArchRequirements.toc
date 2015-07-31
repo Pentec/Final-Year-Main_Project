@@ -24,19 +24,23 @@
 \contentsline {subsection}{\numberline {3.3}Platform}{12}{subsection.3.3}
 \contentsline {subsubsection}{\numberline {3.3.1}Node.js}{12}{subsubsection.3.3.1}
 \contentsline {subsection}{\numberline {3.4}Frameworks}{12}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}Operating System}{12}{subsection.3.5}
-\contentsline {subsection}{\numberline {3.6}Databases}{12}{subsection.3.6}
-\contentsline {subsubsection}{\numberline {3.6.1}Database(s)}{12}{subsubsection.3.6.1}
+\contentsline {subsubsection}{\numberline {3.4.1}Express}{12}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}AngularJS}{12}{subsubsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.3}Broadway}{12}{subsubsection.3.4.3}
+\contentsline {subsubsection}{\numberline {3.4.4}Crypto}{13}{subsubsection.3.4.4}
+\contentsline {subsection}{\numberline {3.5}Operating System}{13}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Databases}{13}{subsection.3.6}
+\contentsline {subsubsection}{\numberline {3.6.1}Database(s)}{13}{subsubsection.3.6.1}
 \contentsline {subsection}{\numberline {3.7}Object Data Model}{13}{subsection.3.7}
 \contentsline {subsection}{\numberline {3.8}Languages}{13}{subsection.3.8}
 \contentsline {subsubsection}{\numberline {3.8.1}Programming Languages}{13}{subsubsection.3.8.1}
 \contentsline {subsubsection}{\numberline {3.8.2}Mark-up Languages}{13}{subsubsection.3.8.2}
-\contentsline {subsubsection}{\numberline {3.8.3}Template Engine}{13}{subsubsection.3.8.3}
-\contentsline {subsection}{\numberline {3.9}Application Servers}{13}{subsection.3.9}
-\contentsline {subsection}{\numberline {3.10}Dependency Management}{13}{subsection.3.10}
-\contentsline {subsection}{\numberline {3.11}Web Services}{13}{subsection.3.11}
-\contentsline {subsection}{\numberline {3.12}APIs}{13}{subsection.3.12}
-\contentsline {subsection}{\numberline {3.13}Other}{13}{subsection.3.13}
+\contentsline {subsubsection}{\numberline {3.8.3}Template Engine}{14}{subsubsection.3.8.3}
+\contentsline {subsection}{\numberline {3.9}Application Servers}{14}{subsection.3.9}
+\contentsline {subsection}{\numberline {3.10}Dependency Management}{14}{subsection.3.10}
+\contentsline {subsection}{\numberline {3.11}Web Services}{14}{subsection.3.11}
+\contentsline {subsection}{\numberline {3.12}APIs}{14}{subsection.3.12}
+\contentsline {subsection}{\numberline {3.13}Other}{14}{subsection.3.13}
 \contentsline {subsection}{\numberline {3.14}Tactics and strategies}{14}{subsection.3.14}
 \contentsline {section}{\numberline {4}Architectural responsibilities}{14}{section.4}
 \contentsline {section}{\numberline {5}Architecture constraints}{14}{section.5}
