@@ -144,9 +144,261 @@ Contact your service provider(hosting site) to pull down the software
 
 \section{References}
 \begin{description}
-\item[$\bullet$] Department Obstetrics and Gynaecology Gynaecologic Oncology Unit Kalafong Hospital.
+\item[$\bullet$] The client, agent and dispatcher operations are described in this chapter. The description of
+the syntax of the operations needs an explanation:
+\item[$\bullet$]  [ arg ]: Parameters between 145 the symbols ”[” and ”]” mean that these are optional. Note
+that the symbols itself are never used.
+\item[$\bullet$] ( arg0 | arg1 | ... | argn ): Parameters between the symbols ”(” and ”)” and the symbol
+” | ” betweens those parameters, mean that one of the parameters from arg0 to argn
+must be chosen. Note that the symbols itself are never used.
 \end{description}
 
 
+\begin{enumerate}
+  \item Client Operations
+	  \begin{enumerate}
+	  \item add user\\
+	    Functional description This operation adds a user to the PENTEC-PIMS database.
+		  \begin{description}
+	      \item Formal description:
+	     	 \item[$\bullet$] Syntax: add user (username,surname,password,staff type,department,email address,user right) as [Users] [A schema to save the details of all medical staff that can access the system]
+	      
+	      \item[$\bullet$] Parameters:
+	      	 \item[$\bullet$] [schema] (Required when chosen) : Users Schema\\
+	      	 \item[$\bullet$] [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using\\
+	         \item[$\bullet$] [details](Required):All the above mentioned details in syntax are important to add a user\\
+		 \item Examples
+		  \item[$\bullet$] add user John Doe, Medical Intern, User right 2, Gynaecologist
+		  \item[$\bullet$] add user url:http://kalafongpims.herokuapp.com/addUser
+		  \item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset PENTEC Software User Manual 0.1.0 14
+		 \item Possible errors
+		  \item[$\bullet$] You do not have the login creditials
+		  \item[$\bullet$] A user with name [username]already exists
+		  \item[$\bullet$] You don't have the role of admin
+		  
+		  \item Solutions
+			  \item[$\bullet$] Go to admin(Dr Snyman) and request he add you to the database of users.
+			  \item[$\bullet$] Register with your already given details. No duplicates allowed.
+			  \item[$\bullet$]  Go to admin(Dr Snyman) and request he make you admin.
+		  
+		 \item  Related operations: remove user
+	      \end{description}
 
+	  
+	  \item edit profile\\
+	 	 Functional description This operation edits a users profile and saves it to the PENTEC-PIMS database.
+		  \begin{description}
+	      \item Formal description:
+	      \item[$\bullet$] Syntax: edit user (username,surname,password,confirm password,staff type,department,email address,user right) as [Users] [A schema to save the details of all medical staff that can access the system]
+	      \item[$\bullet$] Parameters:
+	      	 \item[$\bullet$] [schema] (Required when chosen) : Users Schema
+	      	 \item[$\bullet$] [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+	         \item[$\bullet$] [details] (Required) :All the above mentioned details in syntax are important to complete edit profile.
+		 \item Examples
+		  \item[$\bullet$] edit user John Doe, Medical Intern, User right 2, Gynaecologist
+		  \item[$\bullet$] edit user url:http://kalafongpims.herokuapp.com/editProfile
+		 \item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+		 \item Possible errors
+		  \item[$\bullet$] You do not have the login creditials to log into the system
+		  \item[$\bullet$] Passwords don't match
+		   \item[$\bullet$] You don't have the role of admin
+		     \item[$\bullet$] You do not appear on the system
+		  
+		  \item Solutions
+			  \item[$\bullet$] Go to admin(Dr Snyman) and request he add you to the database of users.
+			  \item[$\bullet$] Register with your already given details sent to your email. No duplicates allowed.
+			   \item[$\bullet$] Re-enter your password
+			  \item[$\bullet$]  Go to admin(Dr Snyman) and request he make you admin.
+		  
+		  \item  Related operations: add user
+	      \end{description}
+		   
+		 	  \item password \\
+	  	 Functional description This operation changes your password on the PENTEC-PIMS database.
+		  \begin{description}
+	      \item Formal description:
+	      \item[$\bullet$] Syntax:password (confirm password, password) as [Users] [A schema to save the details of all medical staff that can access the system]
+	      \item[$\bullet$] Parameters:
+	      	 \item[$\bullet$] [schema] (Required when chosen) : Users Schema
+	      	 \item[$\bullet$] [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+	         \item[$\bullet$] [details] (Required) :All the above mentioned details in syntax are important to complete password.
+		 \item Examples
+		  \item[$\bullet$]password mysecretpassword, mysecretpassword
+		  \item[$\bullet$] add user url:http://kalafongpims.herokuapp.com/editProfile
+		 \item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+		 \item Possible errors
+		  \item[$\bullet$] You do not have the login creditials
+		   \item[$\bullet$] You don't have the role of admin
+		    \item[$\bullet$] Passwords dont match
+		  
+		  \item Solutions
+			  \item[$\bullet$] Go to admin(Dr Snyman) and request he add you to the database of users.
+			  \item[$\bullet$]  Go to admin(Dr Snyman) and request he make you admin.
+			   \item[$\bullet$] Re-enter your password carefully.
+		  
+		 \item  Related operations: none
+		 
+	      \end{description}
+	      
+	  \item list form\\
+	  	 Functional description This operation list all the available forms in the PENTEC-PIMS database.
+		  \begin{description}
+	      \item Formal description:
+	      \item[$\bullet$] Syntax: list form (form name) as [Forms] [A schema to save the details of all medical forms in the system]
+	      \item[$\bullet$] Parameters:
+	      	 \item[$\bullet$] [schema] (Required when chosen) : Forms Schema
+	      	 \item[$\bullet$] [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+	         \item[$\bullet$] [details] (Required) :All the above mentioned details in syntax are important to complete list form.
+		 \item Examples
+		  \item[$\bullet$] list form Gynaecology Form
+		  \item[$\bullet$] list form url:http://kalafongpims.herokuapp.com/forms
+		 \item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+		 \item Possible errors
+		  \item[$\bullet$] You do not have the login creditials
+		  \item[$\bullet$] The form you are looking for does not exist
+		  
+		  \item Solutions
+			  \item[$\bullet$] Go to admin(Dr Snyman) and request he add you to the database of users.
+			  \item[$\bullet$] Go to admin(Dr Snyman) and request he create the form.
+		  
+		 \item  Related operations: none
+		
+	      \end{description}
+	      
+	  \item add form\\
+	  	 Functional description This operation allows you to add a new form using the form builder to the PENTEC-PIMS database.
+		  \begin{description}
+	      \item Formal description:
+	      \item[$\bullet$] Syntax: add form (data, form name) as [Forms] [A schema to save the details of all medical staff that can access the system]
+	      \item[$\bullet$] Parameters:
+	      	 \item[$\bullet$] [schema] (Required when chosen) : Forms Schema
+	      	 \item[$\bullet$] [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+	         \item[$\bullet$] [details] (Required) :All the above mentioned details in syntax are important to complete add form.
+		 \item Examples
+		  \item[$\bullet$] add form Checkout form, JSON Object
+		  \item[$\bullet$] add form url:http://kalafongpims.herokuapp.com/formbuilder
+		 \item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+	
+		 \item Possible errors
+		  \item[$\bullet$] You cannot find the form you created
+		  
+		  \item Solutions
+			  \item[$\bullet$] It should now be listed in the dropdownlist on the page forms
+		  
+		 \item  Related operations: list form
+	      \end{description}
+	      
+	      
+	  \item save form\\
+	  	 Functional description This operation allows you to save a form to the PENTEC-PIMS database.
+		  \begin{description}
+	      \item Formal description:
+	      \item[$\bullet$] Syntax: save form (data, form name) as [Forms] [A schema to save the details of all forms created in the system]
+	      \item[$\bullet$] Parameters:
+	      	 \item[$\bullet$] [schema] (Required when chosen) : Forms Schema
+	      	 \item[$\bullet$] [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+	         \item[$\bullet$] [details] (Required) :All the above mentioned details in syntax are important to complete save form.
+		 \item Examples
+		  \item[$\bullet$] save form discharge form, JSON Object
+		  \item[$\bullet$] save form url:http://kalafongpims.herokuapp.com/formbuilder
+		 \item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+		 \item Possible errors
+		  \item[$\bullet$] none
+
+		  
+		  \item Solutions
+			  \item[$\bullet$] none
+		  
+		 \item  Related operations: list form, add form
+	      \end{description}
+	      
+	      
+	 
+	  \item send notification\\
+	  	 Functional description This operation allows you to notify a patient of their follow up via email.
+		  \begin{description}
+	      \item Formal description:
+	      \item[$\bullet$] Syntax: add notification (username, email, message, date) as [Users] [A schema to save the details of all medical staff that can access the system]
+	      \item[$\bullet$] Parameters:
+	      	 \item[$\bullet$] [schema] (Required when chosen) : Users Schema
+	      	 \item[$\bullet$] [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+	         \item[$\bullet$] [details] (Required) :All the above mentioned details in syntax are important to complete send notification\\.
+		 \item Examples
+		  \item[$\bullet$] add notification John Doe,john@gmail.com, "John Please come for your checkup",2015
+		  \item[$\bullet$] add notification url:http://kalafongpims.herokuapp.com/sendNotification
+		 \item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+		 \item Possible errors
+		  \item[$\bullet$] You cant find the users name
+		  \item[$\bullet$] User does not have an email address
+		  
+		  \item Solutions
+			  \item[$\bullet$] Patient does not exist in the system
+			  \item[$\bullet$] Notification cannot be sent to user
+		  
+		 \item  Related operations: remove user
+	      \end{description}
+	 	
+	\end{enumerate}
+	 	
+ \item Agent Operations
+ 	   	\begin{description}
+ 	   		 \item list department \\
+ 	   		  Functional description This operation lists all the departments on the splash screen from the PENTEC-PIMS database.
+		  \begin{description}
+	      \item Formal description:
+	      \item[$\bullet$] Syntax: list department (name of department, link) as [Departments] [A schema to save the details of all departments in the system and display them on the splash screen]
+	      \item[$\bullet$] Parameters:
+	      	 \item[$\bullet$] [schema] (Required when chosen) : Departments Schema
+	      	 \item[$\bullet$] [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+	         \item[$\bullet$] [details] (Required) :All the above mentioned details in syntax are important to complete list user.
+		 \item Examples
+		  \item[$\bullet$] list department Gynaecology, www/d/
+		  \item[$\bullet$] list department url:http://kalafongpims.herokuapp.com/splash
+		 \item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+		 \item Possible errors
+		  \item[$\bullet$] None
+
+		  \item Solutions
+			  \item[$\bullet$] None
+		  
+		 \item  Related operations: none
+	      \end{description}
+	 	\end{description}
+ 	 
+ \item Dispatcher Operations
+ 	 	\begin{description}
+ 	   		 \item exit\\
+ 	   		  Functional description This operation adds a user to the PENTEC-PIMS database.
+		  \begin{description}
+	      \item Formal description:
+	      \item[$\bullet$] Syntax: add user (none) as [none] [none]
+	      \item[$\bullet$] Parameters:
+	      	 \item[$\bullet$] [schema] (Required when chosen) : Users Schema
+	      	 \item[$\bullet$] [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+	         \item[$\bullet$] [details] (Required) :All the above mentioned details in syntax are important to complete exit.
+		 \item Examples
+		  \item[$\bullet$] exit [press logout button]
+		  \item[$\bullet$] exit url:http://kalafongpims.herokuapp.com/home
+		 \item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+		 \item Possible errors
+		  \item[$\bullet$] none
+		  
+		  \item Solutions
+			  \item[$\bullet$] none
+		  
+		 \item  Related operations: login
+	      \end{description}
+	 	\end{description}
+
+
+	\end{enumerate}
 \end{document}
+
