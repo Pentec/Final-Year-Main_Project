@@ -1,0 +1,3 @@
+[submodule "lib/pims-database"]
+	path = lib/pims-database
+	url = https://git@github.com/Pentec/pims-database
