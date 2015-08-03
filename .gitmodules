@@ -1,3 +1,12 @@
 [submodule "lib/pims-database"]
 	path = lib/pims-database
 	url = https://git@github.com/Pentec/pims-database
+[submodule "lib/pims-notification"]
+	path = lib/pims-notification
+	url = https://git@github.com/Pentec/pims-notification
+[submodule "lib/pims-login"]
+	path = lib/pims-login
+	url = https://git@github.com/Pentec/pims-login
+[submodule "lib/pims-neuralnetwork"]
+	path = lib/pims-neuralnetwork
+	url = https://git@github.com/Pentec/pims-neuralnetwork
