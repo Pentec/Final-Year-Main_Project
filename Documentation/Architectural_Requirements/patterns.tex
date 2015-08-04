@@ -1,35 +1,26 @@
-\documentclass[a4paper,12pt,titlepage]{article}
-\usepackage{graphicx}
-\usepackage[hidelinks]{hyperref}
-\usepackage{listings}
-\usepackage{float}
-\DeclareGraphicsExtensions{.png}
-
-\begin{document}
-\section{Architecture Design}
-\subsection{Overview}
+\subsubsection{Overview}
 \begin{itemize}
 	\item The Kalafong PIMS will make use of a layered architecture which consists of the following layers: 
 		\begin{itemize}
 			\item Access Layer 
-			\item Services Layer
-			\item Domain Layer
+			\item Business Logic Layer
 			\item Infrastructure Layer				
 			\item Back-end Services Layer
 		\end{itemize}
+	\item At the Access layer we will make use of the Model-View-Controller architectural pattern, through the Express framework
 \end{itemize}
 
-\subsubsection{Access Layer}
+\paragraph{Access Layer} -
 The Access Layer will have the following technologies:
 \begin{itemize}
 	\item Jade templating engine
 	\item HTML
 	\item Express
-	\item express-validator				
+	\item express-validator
+	\item AngularJS			
 \end{itemize}
-%this may change
-At the access layer we aim to make use of the Model-View-Controller architectural pattern, through the Express framework
-\subsubsection{Business Logic Layer}
+
+\paragraph{Business Logic Layer} -
 The Business Logic Layer will have the following technologies:
 \begin{itemize}
 	\item Electrolyte
@@ -37,15 +28,16 @@ The Business Logic Layer will have the following technologies:
 	\item Node.js 
 \end{itemize}
 
-\subsubsection{Infrastructure Layer}
+\paragraph{Infrastructure Layer}
 The Infrastructure Layer will have the following technologies:
 \begin{itemize}
 	\item node-mailer
 	\item Mongoose
+	\item Crypto
 \end{itemize}
 
-\subsubsection{Persistence Layer}
-The Back-end Services Layer will have the following technologies:
+\paragraph{Persistence Layer} -
+The Back-end Services Layer will have the following technology:
 \begin{itemize}
 	\item MongoDB
 \end{itemize}
@@ -54,7 +46,7 @@ The Back-end Services Layer will have the following technologies:
 %\includegraphics[width=1\linewidth]{./Graphics/}
 %Have diagram of layering of technologies
 %Also for scalability
-\subsection{Modularization}
+\subsubsection{Modularization}
 The Kalafong PIMS is a modularized system.
 The core modules are as follows:
 \begin{itemize}
@@ -68,4 +60,3 @@ The add-on modules are as follows:
 	\item PimsNeuralNet
 	\item PimsNotification	
 \end{itemize}
-\end{document}
