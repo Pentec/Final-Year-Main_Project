@@ -108,45 +108,471 @@ The software is used by doctors and medical staff to create patient forms and do
   \end{enumerate} \ldots
 \end{enumerate}
 
-\begin{description}
-\item[$\bullet$]Client\\
-90 file options\\
-proxy address= the proxy address when used \\
-password= your password \\
-http port= the port of the dispatcher to which to connect to (this would normally be port
-80) \\
-95 dispatcher address= the address of the dispatcher \\
-username= your username in the system \\
-
-
-\item[$\bullet$]Agent\\
-file options\\
-100 proxy address= the proxy address when used \\
-http port= the port of the dispatcher to which to connect to (this would normally be port
-80) \\
-proxy port= the port that used by the proxy \\
-dispatcher address= the address of the dispatcher \\
-agent id= this must be 105 a unique identifier in the PIMS system \\
-
-\item[$\bullet$]Dispatcher\\
-file options\\
-database name= name of the user that has full privileges over the database \\
-database pass= password of the user \\
-125 database address= address to the database e.g. jdbc:mysql://pcwin509.softeng.tue.nl/pentec \\
-http port= port on which HTTP runs \\
-max connections= maximum number of simultaneous connections allowed \\
-
-\end{description}
-
 \subsubsection{Shutting down the website}
 Contact your service provider(hosting site) to pull down the software
 
 
 \section{References}
 \begin{description}
-\item[$\bullet$] Department Obstetrics and Gynaecology Gynaecologic Oncology Unit Kalafong Hospital.
+\item The login, forms, user and statistics operations are described in this chapter.
+\end{description}
+
+
+\subsection(User)
+	  
+\subsubsection add user
+\begin{description}
+\item [Functional Description] This operation adds a user to the PENTEC-PIMS database.
+\item [Formal Description] \hfill
+\begin{itemize}
+	\item Syntax: add user (username,surname,password,staff type,department,email address,user right) as [Users] [A schema to save the details of all medical staff that can access the system]\\
+	\item Parameters:
+		\begin{itemize}
+			\item [schema] (Required when chosen) : Users Schema\\
+			\item [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using\\
+			\item [details](Required):All the above mentioned details in syntax are important to add a user\\
+		 \end{itemize}
+\end{itemize}
+\item[Examples]\hfill
+\begin{itemize}
+	\item add user John Doe, Medical Intern, User right 2, Gynaecologist
+	\item add user url:http://kalafongpims.herokuapp.com/addUser
+	\item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset PENTEC Software User Manual 0.1.0 14
+\end{itemize}
+\item[Possible errors]\hfill
+	\begin{itemize}
+	\item You do not have the login creditials
+	\item A user with name [username]already exists
+	\item You don't have the role of admin
+	\end{itemize}
+\item[Solutions]\hfill
+	\begin{itemize}
+	\item Go to admin(Dr Snyman) and request he add you to the database of users.
+	\item Register with your already given details. No duplicates allowed.
+	\item  Go to admin(Dr Snyman) and request he make you admin.
+	\end{itemize}
+\item[Related operations] remove user
+\end{description}
+	  
+\subsubsection edit profile
+\begin{description}
+\item[Functional Description] This operation edits a users profile and saves it to the PENTEC-PIMS database.
+\item[Formal description]\hfill
+\begin{itemize}
+	\item Syntax: edit user (username,surname,password,confirm password,staff type,department,email address,user right) as [Users] [A schema to save the details of all medical staff that can access the system]\\
+	\item Parameters:
+		\begin{itemize}
+			\item [schema] (Required when chosen) : Users Schema
+			\item [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+			\item [details] (Required) :All the above mentioned details in syntax are important to complete edit profile.
+		\end{itemize}
+\end{itemize}
+
+\item[Examples]\hfill
+\begin{itemize}
+	\item edit user John Doe, Medical Intern, User right 2, Gynaecologist
+	\item edit user url:http://kalafongpims.herokuapp.com/editProfile
+	\item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset PENTEC Software User Manual 0.1.0 14
+\end{itemize}
+
+\item[Possible errors]\hfill
+\begin{itemize}
+	\item You do not have the login creditials to log into the system
+	\item Passwords don't match
+	\item You don't have the role of admin
+	\item You do not appear on the system
+\end{itemize}
+
+\item[Solutions]\hfill
+\begin{itemize}
+	\item Go to admin(Dr Snyman) and request he add you to the database of users.
+	\item Register with your already given details sent to your email. No duplicates allowed.
+	\item Re-enter your password
+	\item  Go to admin(Dr Snyman) and request he make you admin.
+\end{itemize}
+\item[Related operations] add user
+\end{description}
+		   
+\subsubsection password
+\begin{description}
+\item[Functional description] This operation changes your password on the PENTEC-PIMS database.
+\item[Formal description]\hfill
+\begin{itemize}
+	\item Syntax:password (confirm password, password) as [Users] [A schema to save the details of all medical staff that can access the system]\\
+	\item Parameters:
+	\begin{itemize}
+		\item [schema] (Required when chosen) : Users Schema
+		\item [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+		\item [details] (Required) :All the above mentioned details in syntax are important to complete password.
+	\end{itemize}
+\end{itemize}
+
+\item[Examples]\hfill
+\begin{itemize}
+	\item password mysecretpassword, mysecretpassword
+	\item add user url:http://kalafongpims.herokuapp.com/editProfile
+	\item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+\end{itemize}
+\item[Possible errors]\hfill
+\begin{itemize}
+	\item You do not have the login creditials
+	\item You don't have the role of admin
+	\item Passwords dont match
+\end{itemize}
+\item[Solutions]\hfill
+\begin{itemize}
+	\item Go to admin(Dr Snyman) and request he add you to the database of users.
+	\item  Go to admin(Dr Snyman) and request he make you admin.
+	\item Re-enter your password carefully.
+\end{itemize}
+\item[Related operations] none
+\end{description}
+
+\subsubsection list form
+\begin{description}
+\item[Functional description] This operation list all the available forms in the PENTEC-PIMS database.
+\item[Formal description]\hfill
+\begin{itemize}
+	\item Syntax: list form (form name) as [Forms] [A schema to save the details of all medical forms in the system]\\
+	\item Parameters:
+	\begin{itemize}
+		\item [schema] (Required when chosen) : Forms Schema
+		\item [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+		\item [details] (Required) :All the above mentioned details in syntax are important to complete list form.
+	\end{itemize}
+\end{itemize}
+
+\item[Examples]\hfill
+\begin{itemize}
+	\item list form Gynaecology Form
+	\item list form url:http://kalafongpims.herokuapp.com/forms
+	\item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+\end{itemize}
+
+\item[Possible errors]\hfill
+\begin{itemize}
+	\item You do not have the login creditials
+	\item The form you are looking for does not exist
+\end{itemize}
+
+\item[Solutions]\hfill
+\begin{itemize}
+	\item Go to admin(Dr Snyman) and request he add you to the database of users.
+	\item Go to admin(Dr Snyman) and request he create the form.
+\end{itemize}
+\item[Related operations] none
+
+\end{description}
+	      
+	  
+\subsubsection add form
+\begin{description}
+\item[Functional description] This operation allows you to add a new form using the form builder to the PENTEC-PIMS database.
+\item [Formal description]\hfill
+\begin{itemize}
+	\item Syntax: add form (data, form name) as [Forms] [A schema to save the details of all medical staff that can access the system]\\
+	\item Parameters:
+	\begin{itemize}
+		\item [schema] (Required when chosen) : Forms Schema
+		\item [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+		\item [details] (Required) :All the above mentioned details in syntax are important to complete add form.
+	\end{itemize}
+\end{itemize}
+\item[Examples]\hfill
+\begin{itemize}
+	\item add form Checkout form, JSON Object
+	\item add form url:http://kalafongpims.herokuapp.com/formbuilder
+	\item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+\end{itemize}
+
+\item[Possible errors]\hfill
+\begin{itemize}
+	\item You cannot find the form you created
+\end{itemize}
+
+\item[Solutions]\hfill
+\begin{itemize}
+	\item It should now be listed in the dropdownlist on the page forms
+\end{itemize}
+\item[Related operations] list form
+\end{description}
+	      
+	      
+\subsubsection save form
+\begin{description}
+\item[Functional description] This operation allows you to save a form to the PENTEC-PIMS database.
+\item [Formal description]\hfill
+\begin{itemize}
+	\item Syntax: save form (data, form name) as [Forms] [A schema to save the details of all forms created in the system]\\
+	\item Parameters:
+	\begin{itemize}
+		\item [schema] (Required when chosen) : Forms Schema
+		\item [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+		\item [details] (Required) :All the above mentioned details in syntax are important to complete save form.
+	\end{itemize}
+\end{itemize}
+
+\item[Examples]\hfill
+\begin{itemize}
+	\item save form discharge form, JSON Object
+	\item save form url:http://kalafongpims.herokuapp.com/formbuilder
+	\item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+\end{itemize}
+
+\item[Possible errors]none
+\item[Solutions] none
+\item [Related operations] list form, add form
+\end{description}
+
+\subsubsection send notification
+\begin{description}
+\item[Functional description] This operation allows you to notify a patient of their follow up via email.
+\item[Formal description]\hfill
+\begin{itemize}
+	\item Syntax: add notification (username, email, message, date) as [Users] [A schema to save the details of all medical staff that can access the system]\\
+	\item Parameters:
+	\begin{itemize}
+		\item [schema] (Required when chosen) : Users Schema
+		\item [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+		\item [details] (Required) :All the above mentioned details in syntax are important to complete send notification.
+	\end{itemize}
+\end{itemize}
+\item[Examples]\hfill
+\begin{itemize}
+	\item add notification John Doe,john@gmail.com, "John Please come for your checkup",2015
+	\item add notification url:http://kalafongpims.herokuapp.com/sendNotification
+	\item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+\end{itemize}
+
+\item[Possible errors]\hfill
+\begin{itemize}
+	\item You cant find the users name
+	\item User does not have an email address
+\end{itemize}
+
+
+\item[Solutions]\hfill
+\begin{itemize}
+	\item Patient does not exist in the system
+	\item Notification cannot be sent to user
+\end{itemize}
+
+
+\item[Related operations] remove user
+\end{description}
+	   
+\subsubsection list department
+\begin{description}
+\item[Functional description] This operation lists all the departments on the splash screen from the PENTEC-PIMS database.
+\item[Formal description]\hfill
+\begin{itemize}
+	\item Syntax: list department (name of department, link) as [Departments] [A schema to save the details of all departments in the system and display them on the splash screen]\\
+	\item Parameters:
+	\begin{itemize}
+		\item [schema] (Required when chosen) : Departments Schema
+		\item [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+		\item [details] (Required) :All the above mentioned details in syntax are important to complete list user.
+	\end{itemize}
+\end{itemize}
+
+\item[Examples]\hfill
+\begin{itemize}
+	\item list department Gynaecology, www/d/
+	\item list department url:http://kalafongpims.herokuapp.com/splash
+	\item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+\end{itemize}
+\item[Possible errors] None
+\item[Solutions] None
+\item[Related operations] none
+\end{description}
+	      
+\subsubsection exit
+\begin{description}
+\item[Functional description] This operation adds a user to the PENTEC-PIMS database.
+\item[Formal description]\hfill
+\begin{itemize}
+	\item Syntax: add user (none) as [none] [none]\\
+	\item Parameters:
+	\begin{itemize}
+		\item [schema] (Required when chosen) : Users Schema
+		\item [pentec\_pims] (Required) : This is the name of the database in mongoose that we are using.
+		\item [details] (Required) :All the above mentioned details in syntax are important to complete exit.
+	\end{itemize}
+\end{itemize}
+
+\item[Examples]\hfill
+\begin{itemize}
+	\item exit [press logout button]
+	\item exit url:http://kalafongpims.herokuapp.com/home
+	\item URL : :http://kalafongpims.herokuapp.com as Medical Staff This is a medical research dataset
+	PENTEC Software User Manual 0.1.0 14
+\end{itemize}
+
+\item[Possible errors] none
+\item[Solutions] none
+\item [Related operations] login
+\end{description}
+
+\subsection{Login}
+\subsubsection{authenticate} 
+\begin{description}
+\item[Functional Description] This function authenticates a user and logs them into the system.
+\item[Formal Description]\hfill
+\begin{itemize}
+	\item Syntax: authenticate(<username>, <password>, <callback>)\\
+	\item Parameters:
+		\begin{itemize}
+			\item <username> (Required): This is the username of the user, it will usually be the user's name or a unique number assigned to them.
+			\item <password> (Required): This is the password of the user and is used to authenticate the user.
+			\item <callback>(Opitional): This is the callback function and is used to keep the processes synchronous.
+		\end{itemize}
+\end{itemize}
+\item[Examples]\hfill
+\begin{itemize}
+	\item authenticate("John", 1234)
+	\item authenticate("john", 1234, thisIsAFunction(){})
+\end{itemize}
+\item[Possible Errors \&  Solutions]\hfill
+	\begin{itemize}
+		\item Problem: Your login does not exist.
+		\item Solution: Contact supervisor.
+		\item Problem: Your password is incorrect.
+		\item Solution: Contact supervisor.
+		\item Problem: You are trying to access an admin page but it takes you to a regular user page.
+		\item Solution: Request supervisor to change your rank.
+	\end{itemize}
+\item [Related operations]	checkAdmin
+\end{description}
+
+\subsubsection{check admin}
+\begin{description}
+\item[Functional Description] Determines if the user is an administrator.
+\item[Formal Description]\hfill
+\begin{itemize}
+	\item Syntax: checkAdmin(<username>, <password>, <callback>)\\
+	\item Parameters:
+		\begin{itemize}
+			\item <username> (Required): This is the username of the user, it will usually be the user's name or a unique number assigned to them.
+			\item <password> (Required): This is the password of the user and is used to authenticate the user.
+			\item <callback>(Opitional): This is the callback function and is used to keep the processes synchronous.
+		\end{itemize}
+\end{itemize}
+\item[Examples]\hfill
+\begin{itemize}
+	\item checkAdmin("John", 1234)
+	\item checkAdmin("john", 1234, thisIsAFunction(){})
+\end{itemize}
+\item[Possible Errors \& Solutions]
+\begin{itemize}
+	\item Problem: You are trying to access an admin page but takes you to a regular user page.
+	\item Solution: Request supervisor to change your rank.
+\end{itemize}
+\item[Related operations] authenticate
+\end{description}
+
+\subsection{Statistics}
+
+\subsubsection{get procedure}
+\begin{description}
+\item[Functional Description] This function gets certain procedures based on its selectors and returns them in a format which can be converted into a graph.
+\item[Formal Description]/hfill
+\begin{itemize}
+	\item Syntax: getProcedure(<procedure>, <selectors>, <callback>)\\
+	\item Parameters:
+		\begin{itemize}
+			\item <procedure>(Required) This is the procedure that has been selected.
+			\item <selectors>(Required) These are the selectors put in place to customize the procedures that are selected.
+			\item <callback>(Optional) This isi the callback function and is used to keep the processes synchronous.
+		\end{itemize}
+\end{itemize}
+\item[Examples]\hfill
+\begin{itemize}
+	\item getProcedure("Hysterectomy", {startDate : "10/10/2014", endDate: "10/10/2015"})
+	\item getProcedure("Hysterectomy", {startDate : "10/10/2014", endDate: "10/10/2015"}, callback)
+\end{itemize}
+\item[Possible Errors \& Solutions]
+\begin{itemize}
+	\item Problem: Invalid procedure
+	\item Solution: Choose a valid procedure
+	\item Problem: Invalid selectors
+	\item Solution: Choose a valid selector.
+\end{itemize}
+\item[Related operations] \hfill
+\begin{itemize}
+	\item get patients
+	\item get doctor
+\end{itemize}
+\end{description}
+
+\subsubsection{get patients}
+\begin{description}
+\item[Functional Description] This function gets admission based data on patients and certain selectors and returns them in a format which can be converted into a graph.
+\item[Formal Description]/hfill
+\begin{itemize}
+	\item Syntax: getPatients(<selectors>, <callback>)\\
+	\item Parameters:
+		\begin{itemize}
+			\item <selectors>(Required) These are the selectors put in place to customize the procedures that are selected.
+			\item <callback>(Required) This isi the callback function and is used to keep the processes synchronous.
+		\end{itemize}
+\end{itemize}
+\item[Examples]\hfill
+\begin{itemize}
+	\item getProcedure({startDate : "10/10/2014", age: 25, endDate: "10/10/2015"})
+	\item getProcedure({startDate : "10/10/2014", age: 25, endDate: "10/10/2015"}, callback)
+\end{itemize}
+\item[Possible Errors \& Solutions]
+\begin{itemize}
+	\item Problem: Invalid selectors
+	\item Solution: Choose a valid selector.
+\end{itemize}
+\item[Related operations] \hfill
+\begin{itemize}
+	\item get procedure
+	\item get doctor
+\end{itemize}
+\end{description}
+
+\subsubsection{get doctor}
+
+\begin{description}
+\item[Functional Description] This function gets data about specific doctors based on its selectors and returns them in a format which can be converted into a graph.
+\item[Formal Description]/hfill
+\begin{itemize}
+	\item Syntax: getProcedure(<doctor>, <selectors>, <callback>)\\
+	\item Parameters:
+		\begin{itemize}
+			\item <doctor>(Required) This is the doctor that has been selected.
+			\item <selectors>(Required) These are the selectors put in place to customize the procedures that are selected.
+			\item <callback>(Optional) This isi the callback function and is used to keep the processes synchronous.
+		\end{itemize}
+\end{itemize}
+\item[Examples]\hfill
+\begin{itemize}
+	\item getProcedure("Dr. Snyman", {startDate : "10/10/2014", procedure: "all", endDate: "10/10/2015"})
+	\item getProcedure("Dr. Snyman", {startDate : "10/10/2014", procedure: "all" ,endDate: "10/10/2015"}, callback)
+\end{itemize}
+\item[Possible Errors \& Solutions]
+\begin{itemize}
+	\item Problem: Doctor does not exist
+	\item Solution: Determine whether Doctor exists, if they do contact supervisor.
+	\item Problem: Invalid selectors
+	\item Solution: Choose a valid selector.
+\end{itemize}
+\item[Related operations] \hfill
+\begin{itemize}
+	\item get patients
+	\item get procedures
+\end{itemize}
 \end{description}
 
 
 
 \end{document}
+
