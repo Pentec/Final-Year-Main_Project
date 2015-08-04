@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var models = require('pims-database');
 var GS = models.gynaecologySurgery;
+
 router.post('/', function(req, res, next) {
 console.log(req.body);
 
@@ -68,22 +69,5 @@ Form.save(function(err){
 });
 
 });
-
-
-  /*router.get('/', function(req, res, next) {
- GS.find(function(err, data){
- console.log(' hello' + data );
-  });
-});
-
- GET form builder page page.
-//router.get('/pat', function(req, res, next) {
-	// GS.find(function(err, data){
-	// console.log(' hello' + data );
- //  res.render('viewForms', { title: 'Select Forms' });
-  //});
-
-}); */
-  
   
 module.exports = router;
