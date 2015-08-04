@@ -1,0 +1,60 @@
+\documentclass[a4paper,12pt,titlepage]{article}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\usepackage{float}
+\DeclareGraphicsExtensions{.png}
+
+\begin{document}
+\section{PIMS-Notification}
+
+%--------Notifications Use case---------
+\subsection{findPatient}
+\textbf{Description:}
+This use-case allows for the searching of a patient by ID, to allow for a medical staff to send follow-up notifications to a patient.
+\subsubsection{Prioritization:}
+Nice-to-have
+\subsubsection{Conditions and Data Structures:}
+\textbf{Pre-Conditions:}
+\begin{itemize}
+	\item User must be a registered medical staff.
+	\item Patient must exist on the system and have a valid ID.
+	\item Email address must exist on the system.
+\end{itemize}
+
+\textbf{Post-Conditions:}	
+\begin{itemize}
+	\item Email address is retrieved and page is redirected to Send Notification.
+\end{itemize}
+\subsubsection{Service Contract:} 
+%\includegraphics[width=1\linewidth]{./Graphics/}
+%\subsubsection{Required Functionality:}
+\subsubsection{Process Specifications:} 
+%\includegraphics[width=1\linewidth]{./Graphics/}
+
+
+\subsection{sendNotification}
+\textbf{Description:}
+This use-case allows for the sending of notification messages to a patient, for the sake of follow-up visits.
+\subsubsection{Prioritization:}
+Nice-to-have
+\subsubsection{Conditions and Data Structures:}
+\textbf{Pre-Conditions:}
+\begin{itemize}
+	\item User must be a registered medical staff.
+	\item Patient must exist on the system.
+	\item Existing patient must have an email address on system.
+\end{itemize}
+
+\textbf{Post-Conditions:}	
+\begin{itemize}
+	\item Notification is sent to patient email address
+\end{itemize}
+\subsubsection{Service Contract:} 
+%\includegraphics[width=1\linewidth]{./Graphics/}
+%\subsubsection{Required Functionality:}
+\subsubsection{Process Specifications:} 
+%\includegraphics[width=1\linewidth]{./Graphics/}
+
+
+\end{document}

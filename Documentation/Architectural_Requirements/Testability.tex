@@ -1,0 +1,23 @@
+%testability
+	\subsubsection*{Description}
+		Testability is a measure of how well system or components allow you to create test criteria and execute tests to determine if the criteria (pre and post conditions)are met. Testability allows faults in a system to be isolated in a timely and effective manner.
+		
+		
+	\subsubsection*{Justification}
+	It is extremely important to conduct test cases for every component that will be intergrated or incorporated into PIMS. This ensures consistency in the system,and enables faults and/or loopholes to be picked up and resolved in good time.
+	
+	\subsubsection*{Mechanism}
+		\begin{enumerate}
+			\item Strategy:\\\\
+		\begin{itemize}
+			\item Unit testing: Unit testing and integration testing will be conducted using moch and unit.js
+			\item	White-box tests internal structures or workings of an application. This requires the explicit knowledge of the internal workings of the PIMS.
+		\end{itemize}
+		
+		
+			 \item Pattern:\\\\
+		 \begin{itemize}
+			\item	Layering:  Simplify testability since high level issues will be separated from low level issues. This level of granularity makes the system to be easily testable on every layer separately.
+			\item Model View Controller: The PIMS model will be separate from the view and the controller, so that it is simpler to have separate test criteria testing different cases. This separation simplifies the development cycle since the model, view or the controller could be tested independently. 
+		\end{itemize}
+\end{enumerate}

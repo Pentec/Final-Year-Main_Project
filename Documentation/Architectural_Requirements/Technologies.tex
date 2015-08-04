@@ -1,54 +1,98 @@
 \subsection{Platform}
+\subsubsection{Node.js}
+The system will be deployed in a Node.js environment. Node.js allows for queued inputs and since the system revolves around multiple inputs possibly going through at any particular time this provides a huge advantage over most other systems. Node.js also includes a wide range of modules through NPM (Node package manager). Some examples of these include Express, AngularJS, mongo, mongoose, and many more. Node.js processes programs asynchronously and thus is a no-interrupt driven language. This is as advantage because, as stated above, it allows for queued inputs. Node.js is written in JavaScript which means it is ubiquitous which is an obvious advantage.
+
+Node.js relies heavily on callbacks to allow for synchronization which is an obvious hindrance for programmers that are not strong with recursion or callbacks. Although this con is outweighed by the advantages of the system.
+
+\subsection{Framework}
+\subsubsection{Express}
+Express is a lightweight, high performance HTTP which supports URL configurable routing. This allows for a more professional look as well as improvements in maintainability and flexibility.
+\subsection{AngularJS}
+Angular is front-side development framework that applies the MVC architecture pattern. Angular speeds up client-side templating and allows for the programmers to write less code. Angular allows for dependency injection and is unit testing ready. This is a far better means than the traditional way of testing web applications by creating individual test pages that petition one component. This aids in usability, maintainability and performance.
+\subsection{Broadway}
+This framework creates a more flexible system as it allows the client to possibly implement further plug-ins to the web application.
+\subsection{Crypto}
+Crypto is an npm module that allows for multiple forms of encryption. It is lightweight and provides much needed security for the web application. It offers a way of encapsulating secure credentials over a secure HTTPS or HTTP connection.
+
+\subsection{Express-Validator}
+This npm package is an Express server middle-ware for the npm validator module. It is used for the purposes of form validation, particularly when making a post request to the server. This technology aids Usability, as it allows for the application to give feedback to a user concerning an input made.
+
+\subsection{Node-mailer}
+This npm package is for the notifications component of the system, allowing for the sending of email notifications to patients.
+	
+\subsection{Database}
 \begin{itemize}
-		\item Java EE
+	\item MongoDB - is a NoSQL document store. MongoDB is used especially for applications that need store large volumes of data, which is mandatory for PIMS. \\
+	MongoDB ensures that scalability, a critical requirement, is enforced. This is due to the highly cache-able persistence environment. Concurrency is also handled  via the locking mechanisms. Multiple read access and a single write operation is allowed.
 \end{itemize}
 
-
-\subsection{Frameworks}
+\subsection{Unit Testing}
+\subsubsection{Mocha}
 \begin{itemize}
-		\item Java Server Faces
+	\item Mocha was selected as our primary unit testing framework running for Node.js and the browser,
+to assist in the simplification of asynchronous testing. \\
+	Mocha tests run serially, allowing
+ for flexible and accurate reporting, while mapping uncaught exceptions to the correct test 
+ cases. We found that Mocha offered browser support which proves useful for our project as we are testing
+our application on different browsers and a javascript API for running tests which assisted us in identifying our 
+errors more visibly and made the framework much easier, both, to understand and use. Mocha is also very popular and 
+so there is an online community of users offering assistance and suggestions, it is also very configurable. 
+Mocha assisted us to describe our test suites.
 \end{itemize}
 
-\subsection{Operating System}
+\subsubsection{Chai}
 \begin{itemize}
-		\item Linux
+	\item We selected Chai as it is an assertion and expecting library for node and the browser given that we are
+creating a web application and using javascript as our testing framework; Chai pairs them 
+both very well. \\
+Chai also works well with Mocha and other unit testing frameworks as we had
+decided to use more than one to achieve readability for the output of our unit testing program. 
+Chai assisted us to perform all kinds of assertions against our javascript code.
+\end{itemize}
+
+\subsubsection{Should}
+\begin{itemize}
+	\item Should is an expressive, readable, test framework agnostic, assertion library \\
+	The main goals of the Should library is to be expressive and 
+to be helpful. It helped keep our test code clean, and add meaning to error messages.
 \end{itemize}
 	
-	
-\subsection{Databases}
-\subsubsection{Relational Databases}
-\begin{itemize}
-	\item MySQL Database
-\end{itemize}
-	
 
-\subsection{Object Relational Mappers}
+\subsection{Object Data Model}
 \begin{itemize}
-	\item JPQL
+	\item Mongoose - is an object modelling environment for MongoDB and Node.js. It enforces contracts and structure via validation, provides connection pooling, which improves scalability. Automatic object to document mappings is also supported.
 \end{itemize}
 
-\subsection{Languages}
-\subsubsection{Programming Languages}
-\begin{itemize}
-	\item JavaScript	
-	\item Java
-\end{itemize}
-
-\subsubsection{Mark-up Languages}
-\begin{itemize}
-	\item HTML
-\end{itemize}
+\subsection{Templating Engine}
+\textbf{Jade:} The HTML code will be generated by the template engine Jade. This allows for minimal code and speeds up the entire process of writing HTML pages. Jade improves maintainability as the views are more readable and writeable.
 
 
 \subsection{Application Servers}
 \begin{itemize}
-	\item GlassFish Server
-	\item Tomcat
+	\item TBA
+\end{itemize}
+
+\subsection{Web front-end}
+The web front-end will make use of the following technologies:
+\begin{itemize}
+	\item Bootstrap
+	\item HTML
+	\item CSS
+\end{itemize}
+
+\subsection{Operating System}
+\begin{itemize}
+	\item Windows
+	\item Possibly Android OS
 \end{itemize}
 
 \subsection{Dependency Management}
 \begin{itemize}
-	\item Apache Maven
+	\item NPM
+		\begin{itemize}
+			\item This will be used to build the project and ensure that any component is not IDE-specific
+			\item The details pertaining to each of the packages are within a package.json file				
+		\end{itemize}
 \end{itemize}
 
 \subsection{Web Services}
@@ -56,87 +100,13 @@
 	\item SOAP-based
 \end{itemize} 
 
-
 \subsection{APIs}
+\subsection{Other}
 \begin{itemize}
-	\item Java Persistence API
-\end{itemize}
-
-\begin{itemize}
-	\item JAX-RS RESTful web services
-\end{itemize}
-
-\begin{itemize}
-	\item JAX-WS web service endpoints
-\end{itemize}
-
-\begin{itemize}
-	\item Java Persistence API entities
-\end{itemize}
-
-\begin{itemize}
-	\item The Java Database Connectivity API (JDBC)
-\end{itemize}
-
-\begin{itemize}
-	\item The Java Persistence API
-\end{itemize}
-
-\begin{itemize}
-	\item The Java EE Connector Architecture
-\end{itemize}
-
-\begin{itemize}
-	\item The Java Transaction API (JTA)
+	\item Heroku - A cloud based application platform.
 \end{itemize}
 
 
-\subsection{Others}
-\begin{itemize}
-	\item AJAX
-\end{itemize}
-
-\begin{itemize}
-	\item Servlets
-\end{itemize}
-
-\begin{itemize}
-	\item Java Server Pages
-\end{itemize}
 
 
-\begin{itemize}
-	\item JavaServer Faces
-\end{itemize}
 
-\begin{itemize}
-	\item JavaServer Faces Facelets
-\end{itemize}
-
-\begin{itemize}
-	\item Enterprise JavaBeans (enterprise bean) components
-\end{itemize}
-
-\begin{itemize}
-	\item Java EE managed beans
-\end{itemize}
-
-
-\section{Recommended Technologies}
-\subsection{Databases}
-\subsubsection{Object Relational Databases}
-\begin{itemize}
-	\item Postgresql
-\end{itemize}
-
-\subsubsection{NoSQL Databases}
-\begin{itemize}
-	\item Neo4j
-	\item MongoDB
-\end{itemize}
-
-\subsection{Object Data Mappers}
-To cater for the use of NoSQL Databases
-\begin{itemize}
-	\item Hibernate OGM
-\end{itemize}
