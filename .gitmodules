@@ -1,0 +1,18 @@
+[submodule "lib/pims-database"]
+	path = lib/pims-database
+	url = https://git@github.com/Pentec/pims-database
+[submodule "lib/pims-notification"]
+	path = lib/pims-notification
+	url = https://git@github.com/Pentec/pims-notification
+[submodule "lib/pims-login"]
+	path = lib/pims-login
+	url = https://git@github.com/Pentec/pims-login
+[submodule "lib/pims-neuralnetwork"]
+	path = lib/pims-neuralnetwork
+	url = https://git@github.com/Pentec/pims-neuralnetwork
+[submodule "lib/pims-statistics"]
+	path = lib/pims-statistics
+	url = https://git@github.com/Pentec/pims-statistics
+[submodule "lib/pims-formbuilding"]
+	path = lib/pims-formbuilding
+	url = https://git@github.com/Pentec/pims-formbuilding
