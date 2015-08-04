@@ -18,37 +18,25 @@
 \BOOKMARK [3][-]{subsubsection.2.3.7}{Monitorability}{subsection.2.3}% 18
 \BOOKMARK [3][-]{subsubsection.2.3.8}{Testability}{subsection.2.3}% 19
 \BOOKMARK [3][-]{subsubsection.2.3.9}{Performance}{subsection.2.3}% 20
-\BOOKMARK [1][-]{section.3}{Architecture Design}{}% 21
-\BOOKMARK [2][-]{subsection.3.1}{Layering Architecture}{section.3}% 22
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Overview}{subsection.3.1}% 23
-\BOOKMARK [4][-]{section*.26}{Access Layer}{subsubsection.3.1.1}% 24
-\BOOKMARK [4][-]{section*.27}{Business Logic Layer}{subsubsection.3.1.1}% 25
-\BOOKMARK [4][-]{section*.28}{Infrastructure Layer}{subsubsection.3.1.1}% 26
-\BOOKMARK [4][-]{section*.29}{Persistence Layer}{subsubsection.3.1.1}% 27
-\BOOKMARK [3][-]{subsubsection.3.1.2}{Modularization}{subsection.3.1}% 28
-\BOOKMARK [2][-]{subsection.3.2}{Model-View-Controller \(MVC\)}{section.3}% 29
-\BOOKMARK [2][-]{subsection.3.3}{Tactics and strategies}{section.3}% 30
-\BOOKMARK [1][-]{section.4}{Architectural responsibilities}{}% 31
-\BOOKMARK [1][-]{section.5}{Architecture constraints}{}% 32
-\BOOKMARK [1][-]{section.6}{Architecture components}{}% 33
-\BOOKMARK [2][-]{subsection.6.1}{Technologies}{section.6}% 34
-\BOOKMARK [2][-]{subsection.6.2}{Platform}{section.6}% 35
-\BOOKMARK [3][-]{subsubsection.6.2.1}{Node.js}{subsection.6.2}% 36
-\BOOKMARK [2][-]{subsection.6.3}{Frameworks}{section.6}% 37
-\BOOKMARK [3][-]{subsubsection.6.3.1}{Express}{subsection.6.3}% 38
-\BOOKMARK [3][-]{subsubsection.6.3.2}{AngularJS}{subsection.6.3}% 39
-\BOOKMARK [3][-]{subsubsection.6.3.3}{Broadway}{subsection.6.3}% 40
-\BOOKMARK [3][-]{subsubsection.6.3.4}{Crypto}{subsection.6.3}% 41
-\BOOKMARK [2][-]{subsection.6.4}{Operating System}{section.6}% 42
-\BOOKMARK [2][-]{subsection.6.5}{Databases}{section.6}% 43
-\BOOKMARK [3][-]{subsubsection.6.5.1}{Database\(s\)}{subsection.6.5}% 44
-\BOOKMARK [2][-]{subsection.6.6}{Object Data Model}{section.6}% 45
-\BOOKMARK [2][-]{subsection.6.7}{Languages}{section.6}% 46
-\BOOKMARK [3][-]{subsubsection.6.7.1}{Programming Languages}{subsection.6.7}% 47
-\BOOKMARK [3][-]{subsubsection.6.7.2}{Mark-up Languages}{subsection.6.7}% 48
-\BOOKMARK [3][-]{subsubsection.6.7.3}{Template Engine}{subsection.6.7}% 49
-\BOOKMARK [2][-]{subsection.6.8}{Application Servers}{section.6}% 50
-\BOOKMARK [2][-]{subsection.6.9}{Dependency Management}{section.6}% 51
-\BOOKMARK [2][-]{subsection.6.10}{Web Services}{section.6}% 52
-\BOOKMARK [2][-]{subsection.6.11}{APIs}{section.6}% 53
-\BOOKMARK [2][-]{subsection.6.12}{Other}{section.6}% 54
+\BOOKMARK [1][-]{section.3}{Architectural Patterns and Styles}{}% 21
+\BOOKMARK [2][-]{subsection.3.1}{Model-View-Controller \(MVC\)}{section.3}% 22
+\BOOKMARK [2][-]{subsection.3.2}{Technologies}{section.3}% 23
+\BOOKMARK [2][-]{subsection.3.3}{Platform}{section.3}% 24
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Node.js}{subsection.3.3}% 25
+\BOOKMARK [2][-]{subsection.3.4}{Frameworks}{section.3}% 26
+\BOOKMARK [2][-]{subsection.3.5}{Operating System}{section.3}% 27
+\BOOKMARK [2][-]{subsection.3.6}{Databases}{section.3}% 28
+\BOOKMARK [3][-]{subsubsection.3.6.1}{Database\(s\)}{subsection.3.6}% 29
+\BOOKMARK [2][-]{subsection.3.7}{Object Data Model}{section.3}% 30
+\BOOKMARK [2][-]{subsection.3.8}{Languages}{section.3}% 31
+\BOOKMARK [3][-]{subsubsection.3.8.1}{Programming Languages}{subsection.3.8}% 32
+\BOOKMARK [3][-]{subsubsection.3.8.2}{Mark-up Languages}{subsection.3.8}% 33
+\BOOKMARK [3][-]{subsubsection.3.8.3}{Template Engine}{subsection.3.8}% 34
+\BOOKMARK [2][-]{subsection.3.9}{Application Servers}{section.3}% 35
+\BOOKMARK [2][-]{subsection.3.10}{Dependency Management}{section.3}% 36
+\BOOKMARK [2][-]{subsection.3.11}{Web Services}{section.3}% 37
+\BOOKMARK [2][-]{subsection.3.12}{APIs}{section.3}% 38
+\BOOKMARK [2][-]{subsection.3.13}{Other}{section.3}% 39
+\BOOKMARK [2][-]{subsection.3.14}{Tactics and strategies}{section.3}% 40
+\BOOKMARK [1][-]{section.4}{Architectural responsibilities}{}% 41
+\BOOKMARK [1][-]{section.5}{Architecture constraints}{}% 42
