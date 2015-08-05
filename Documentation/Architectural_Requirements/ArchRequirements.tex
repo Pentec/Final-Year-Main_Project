@@ -3,7 +3,6 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{listings}
 \usepackage{float}
-\usepackage[margin=1in]{geometry}
 \DeclareGraphicsExtensions{.png}
 
 \begin{document}
@@ -13,116 +12,83 @@
 %\table of content
 \tableofcontents
 \newpage
+
 \section{Introduction}
 %\Intro
 \input{./ArchIntroduction.tex}
  %-------------------------------------------------------------------
-%\section{Architectural requirements}
-%\subsection{Architectural Scope} %Maria
-%\input{Arch_Scope}
-%\newpage
-		
-\section{Access and integration requirements}
-	\subsection{Human access channels}
-	\input{Human-Access-Channels}	
-	\subsection{System access channels}
-	\input{SystemAccess}
-	\subsection{Integration channels}
-	\input{integrationChannels}
-%\subsection{Quality requirements}
-\newpage
-\section{Critical Quality Requirements}
-\subsection{Security}
-	%Lindelo - Security
-	\input{./Security.tex}
+\section{Architectural requirements}
+	\subsection{Architectural Scope} %Maria
+	\input{Arch_Scope}
+	\newpage
 	
-\subsection{Usability}
-	%Lindelo - Usability
-	\input{./Usability.tex}
-	
-\subsection{Scalability}
-	%Ruth - Scalability
-	\input{./Scalability}
-	
-\subsection{Reliability and Availability}
-	%Ruth - Reliability and Availability
-	\input{./Reliability}
-	
-\subsection{Integrability}
-	%Maria - Imtegrability
-	\input{./Int}
-
-
-
-%----------------------------------------------------
-\newpage
-\section{Important Quality Requirements}
+	\subsection{Access and integration requirements}
+			\subsubsection{Human access channels}	
+			\subsubsection{System access channels}	
+			\subsubsection{Integration channels}
+ 	\subsection{Quality requirements}
+ 	
+		\textbf{\LARGE Critical Quality Requirements}
+		\subsubsection{Security}
+			%Lindelo - Security
+			\input{./Security.tex}
 			
-\subsection{Maintainability}
-	%Maria - Monitorabilty
-	\input{./Mentainability.tex}
-	
-\subsection{Monitorability}
-	%Maria - testability
-	\input{./Monitorability}
-	
-\subsection{Testability}
-	%Maria - Monitorabilty
-	\input{./Testability}
-	
-%\subsection{Performance}
-	%Maria - Monitorabilty
-	%\input{./Integrability}
-	
-%Maria - Arch tactics and strategies
-\input{./Tactics_or_Strategies.tex}
+		\subsubsection{Usability}
+			%Lindelo - Usability
+			\input{./Usability.tex}
+			
+		\subsubsection{Scalability}
+			%Ruth - Scalability
+			\input{./Scalability}
+			
+		\subsubsection{Reliability and Availability}
+			%Ruth - Reliability and Availability
+			\input{./Reliability}
+			
+		\subsubsection{Integrability}
+			%Maria - Imtegrability
+			\input{./Int}
+
+
 
 %----------------------------------------------------
-\newpage
-\section{Architecture Design}
-%\subsection{Architectural Patterns and Styles}
+\textbf{\LARGE Important Quality Requirements}
+			
+		\subsubsection{Maintainability}
+			%Maria - Monitorabilty
+			\input{./Mentainability.tex}
+			
+		\subsubsection{Monitorability}
+			%Maria - testability
+			\input{./Monitorability}
+			
+		\subsubsection{Testability}
+			%Maria - Monitorabilty
+			\input{./Testability}
+			
+		\subsubsection{Performance}
+			%Maria - Monitorabilty
+			%\input{./Integrability}
 
-\subsection{Model-View-Controller (MVC)}
+%----------------------------------------------------
+\section{Architectural Patterns and Styles}
+	\subsection{Model-View-Controller (MVC)}
 	%Lindelo - MVC
 	\input{./MVC.tex}
 	
-\subsection{Layered Architecture}
-	%Ruth - Layering
-	\input{./patterns}
-
-\newpage	
+	\subsection{Technologies}
+	%Maria - Technologies
+	\input{./Technologies.tex}
+	
+	\subsection{Tactics and strategies}
+	%Maria - Arch tactics and strategies
+	%\input{./Tactics_or_Strategies.tex}
+	
 \section{Architectural responsibilities}
-The architectural responsibilities for the Kalafong PIMS include:
-\begin{enumerate}
-	\item form building and generation
-	\item form handling
-	\item statistics calculation and generation
-	\item a web and mobile access channel
-	\item the persisting and accessing of patient information
-	\item data encryption
-	\item sending notifications by email
-	\item integration with University of Pretoria website
-	\item logging
-	\item predictive analysis through a neural network
-\end{enumerate}
-
-
-\newpage
 \section{Architecture constraints}
-\begin{itemize}
-	\item The architecture is largely constrained to node.js and MongoDB.
-	\item Due to the nature of node.js' single-threaded processing there may be an impact on performance, but this will be balanced out with the use of other performance-driven technologies, such as MongoDB.
-\end{itemize}
 
-\subsection{Data exchange format}
-\begin{itemize}
-	\item The transfer of data between the server and client side as well as from the database will primarily be in JSON format, particularly due to the nature of the MongoDB database data format.
-\end{itemize}
+%Maria - Arch tactics and strategies
+\input{./Tactics_or_Strategies.tex}
 
-\newpage
-\section{Architecture components}
-%\subsection{Technologies}
-%Maria - Technologies
-\input{./Technologies.tex}
 
 \end{document}

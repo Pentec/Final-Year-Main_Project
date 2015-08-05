@@ -18,37 +18,25 @@
 \contentsline {subsubsection}{\numberline {2.3.7}Monitorability}{9}{subsubsection.2.3.7}
 \contentsline {subsubsection}{\numberline {2.3.8}Testability}{10}{subsubsection.2.3.8}
 \contentsline {subsubsection}{\numberline {2.3.9}Performance}{11}{subsubsection.2.3.9}
-\contentsline {section}{\numberline {3}Architecture Design}{11}{section.3}
-\contentsline {subsection}{\numberline {3.1}Layering Architecture}{11}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Overview}{11}{subsubsection.3.1.1}
-\contentsline {paragraph}{Access Layer}{11}{section*.26}
-\contentsline {paragraph}{Business Logic Layer}{12}{section*.27}
-\contentsline {paragraph}{Infrastructure Layer}{12}{section*.28}
-\contentsline {paragraph}{Persistence Layer}{12}{section*.29}
-\contentsline {subsubsection}{\numberline {3.1.2}Modularization}{12}{subsubsection.3.1.2}
-\contentsline {subsection}{\numberline {3.2}Model-View-Controller (MVC)}{13}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Tactics and strategies}{13}{subsection.3.3}
-\contentsline {section}{\numberline {4}Architectural responsibilities}{13}{section.4}
-\contentsline {section}{\numberline {5}Architecture constraints}{13}{section.5}
-\contentsline {section}{\numberline {6}Architecture components}{13}{section.6}
-\contentsline {subsection}{\numberline {6.1}Technologies}{13}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Platform}{13}{subsection.6.2}
-\contentsline {subsubsection}{\numberline {6.2.1}Node.js}{13}{subsubsection.6.2.1}
-\contentsline {subsection}{\numberline {6.3}Frameworks}{14}{subsection.6.3}
-\contentsline {subsubsection}{\numberline {6.3.1}Express}{14}{subsubsection.6.3.1}
-\contentsline {subsubsection}{\numberline {6.3.2}AngularJS}{14}{subsubsection.6.3.2}
-\contentsline {subsubsection}{\numberline {6.3.3}Broadway}{14}{subsubsection.6.3.3}
-\contentsline {subsubsection}{\numberline {6.3.4}Crypto}{14}{subsubsection.6.3.4}
-\contentsline {subsection}{\numberline {6.4}Operating System}{14}{subsection.6.4}
-\contentsline {subsection}{\numberline {6.5}Databases}{15}{subsection.6.5}
-\contentsline {subsubsection}{\numberline {6.5.1}Database(s)}{15}{subsubsection.6.5.1}
-\contentsline {subsection}{\numberline {6.6}Object Data Model}{15}{subsection.6.6}
-\contentsline {subsection}{\numberline {6.7}Languages}{15}{subsection.6.7}
-\contentsline {subsubsection}{\numberline {6.7.1}Programming Languages}{15}{subsubsection.6.7.1}
-\contentsline {subsubsection}{\numberline {6.7.2}Mark-up Languages}{15}{subsubsection.6.7.2}
-\contentsline {subsubsection}{\numberline {6.7.3}Template Engine}{15}{subsubsection.6.7.3}
-\contentsline {subsection}{\numberline {6.8}Application Servers}{16}{subsection.6.8}
-\contentsline {subsection}{\numberline {6.9}Dependency Management}{16}{subsection.6.9}
-\contentsline {subsection}{\numberline {6.10}Web Services}{16}{subsection.6.10}
-\contentsline {subsection}{\numberline {6.11}APIs}{16}{subsection.6.11}
-\contentsline {subsection}{\numberline {6.12}Other}{16}{subsection.6.12}
+\contentsline {section}{\numberline {3}Architectural Patterns and Styles}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}Model-View-Controller (MVC)}{11}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Technologies}{12}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Platform}{12}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Node.js}{12}{subsubsection.3.3.1}
+\contentsline {subsection}{\numberline {3.4}Frameworks}{12}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Operating System}{12}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Databases}{12}{subsection.3.6}
+\contentsline {subsubsection}{\numberline {3.6.1}Database(s)}{12}{subsubsection.3.6.1}
+\contentsline {subsection}{\numberline {3.7}Object Data Model}{13}{subsection.3.7}
+\contentsline {subsection}{\numberline {3.8}Languages}{13}{subsection.3.8}
+\contentsline {subsubsection}{\numberline {3.8.1}Programming Languages}{13}{subsubsection.3.8.1}
+\contentsline {subsubsection}{\numberline {3.8.2}Mark-up Languages}{13}{subsubsection.3.8.2}
+\contentsline {subsubsection}{\numberline {3.8.3}Template Engine}{13}{subsubsection.3.8.3}
+\contentsline {subsection}{\numberline {3.9}Application Servers}{13}{subsection.3.9}
+\contentsline {subsection}{\numberline {3.10}Dependency Management}{13}{subsection.3.10}
+\contentsline {subsection}{\numberline {3.11}Web Services}{13}{subsection.3.11}
+\contentsline {subsection}{\numberline {3.12}APIs}{13}{subsection.3.12}
+\contentsline {subsection}{\numberline {3.13}Other}{13}{subsection.3.13}
+\contentsline {subsection}{\numberline {3.14}Tactics and strategies}{14}{subsection.3.14}
+\contentsline {section}{\numberline {4}Architectural responsibilities}{14}{section.4}
+\contentsline {section}{\numberline {5}Architecture constraints}{14}{section.5}
