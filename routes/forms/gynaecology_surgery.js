@@ -55,7 +55,7 @@ console.log(req.body);
 	BRUBT: req.body.BRUBT, 
 	ProcedureNotCompleted: req.body.ProcedureNotCompleted,
 	
-	OtherComplications: req.body.OtherComplications,
+	OtherComplications: req.body.OtherComplications
    });
    
 

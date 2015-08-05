@@ -12,7 +12,7 @@
     
     <div class = "container">
 	<br>
-	<form class="form-horizontal" role="form" method = "POST" action = "/addmission_discharge"></form>
+	<form class="form-horizontal" role="form" method = "POST" action = "/addmission_discharge" enctype="application/json"></form>
     </div>
     <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="/deps/underscore.js"></script>
@@ -22,124 +22,129 @@
     <script type="text/javascript">
       $('form').jsonForm({
         schema: {
-	 "HospitalNumber": {
-   "type": "string",
-   "require": true,
-   "title": "Hospital Number"
- },
- "DateOfBirth": {
-   "type": "date",
-   "require": true,
-   "title": "Date of Birth"
- },
- "Age": {
-   "type": "number",
-   "require": true,
-   "title": "Age"
- },
- "Name": {
-   "type": "string",
-   "require": true,
-   "title": "Name"
- },
- "Surname": {
-   "type": "string",
-   "require": true,
-   "title": "Surname"
- },
- "DateofAdmission": {
-   "type": "date",
-   "require": true,
-   "title": "Date of Admission"
- },
- "G1": {
-   "type": "boolean",
-   "title": "G1"
- },
- "G2": {
-   "type": "boolean",
-   "title": "G2"
- },
- "G3": {
-   "type": "boolean",
-   "title": "G3"
- },
- "ONC": {
-   "type": "boolean",
-   "title": "ONC"
- },
- "Emergency": {
-   "type": "boolean",
-   "title": "Emergency"
- },
- "ElectiveSurgery": {
-   "type": "boolean",
-   "title": "Elective Surgery"
- },
- "ElectiveOther": {
-   "type": "boolean",
-   "title": "Elective Other"
- },
- "P": {
-   "type": "boolean",
-   "title": "P"
- },
- "G": {
-   "type": "boolean",
-   "title": "G"
- },
- "M": {
-   "type": "boolean",
-   "title": "M"
- },
- "E": {
-   "type": "boolean",
-   "title": "E"
- },
- "HIVStatus": {
-   "type": "string",
-   "title": "HIV Status"
- },
- "CD4": {
-   "type": "number",
-   "title": "CD4"
- },
- "DateofDischarge": {
-   "type": "date",
-   "require": true,
-   "title": "Date of Discharge"
- },
- "TotalNumberOfDaysHospital": {
-   "type": "number",
-   "require": true,
-   "title": "Total Number of Days in Hospital"
- },
- "DaysInWard": {
-   "type": "number",
-   "require": true,
-   "title": "Days in Ward"
- },
- "DaysInICU": {
-   "type": "number",
-   "require": true,
-   "title": "Days in ICU"
- },
- "DaysInHighCare": {
-   "type": "number",
-   "require": true,
-   "title": "Days in High Care"
- },
- "FinalDiagnosisOnDischarge": {
-   "type": "array",
-   "items": {
-     "type": "string",
-     "title": "Final diagnosis on discharge (ICD 10)"
-   }
- },
- "OtherComplications": {
-   "type": "string",
-   "title": "Other complications or reasons for non completion or anaesthetic complication"
- }
+            "HospitalNumber": {
+                "type": "string",
+                "require": true,
+                "title": "Hospital Number"
+            },
+            "DateOfBirth": {
+                "type": "date",
+                "require": true,
+                "title": "Date of Birth"
+            },
+            "Age": {
+                "type": "number",
+                "require": true,
+                "title": "Age"
+            },
+            "Name": {
+                "type": "string",
+                "require": true,
+                "title": "Name"
+            },
+            "Surname": {
+                "type": "string",
+                "require": true,
+                "title": "Surname"
+            },
+            "DateofAdmission": {
+                "type": "date",
+                "require": true,
+                "title": "Date of Admission"
+            },
+            "G1": {
+                "type": "boolean",
+                "title": "G1"
+            },
+            "G2": {
+                "type": "boolean",
+                "title": "G2"
+            },
+            "G3": {
+                "type": "boolean",
+                "title": "G3"
+            },
+            "ONC": {
+                "type": "boolean",
+                "title": "ONC"
+            },
+            "Emergency": {
+                "type": "boolean",
+                "title": "Emergency"
+            },
+            "ElectiveSurgery": {
+                "type": "boolean",
+                "title": "Elective Surgery"
+            },
+            "ElectiveOther": {
+                "type": "boolean",
+                "title": "Elective Other"
+            },
+            "P": {
+                "type": "boolean",
+                "title": "P"
+            },
+            "G": {
+                "type": "boolean",
+                "title": "G"
+            },
+            "M": {
+                "type": "boolean",
+                "title": "M"
+            },
+            "E": {
+                "type": "boolean",
+                "title": "E"
+            },
+            "HIV": {
+                "type": "object",
+                "properties": {
+                    "HIVStatus": {
+                        "type": "string",
+                        "title": "HIV Status"
+                    },
+                    "CD4": {
+                        "type": "number",
+                        "title": "CD4"
+                    }
+                }
+            },
+            "DateofDischarge": {
+                "type": "date",
+                "require": true,
+                "title": "Date of Discharge"
+            },
+            "TotalNumberOfDaysHospital": {
+                "type": "number",
+                "require": true,
+                "title": "Total Number of Days in Hospital"
+            },
+            "DaysInWard": {
+                "type": "number",
+                "require": true,
+                "title": "Days in Ward"
+            },
+            "DaysInICU": {
+                "type": "number",
+                "require": true,
+                "title": "Days in ICU"
+            },
+            "DaysInHighCare": {
+                "type": "number",
+                "require": true,
+                "title": "Days in High Care"
+            },
+            "FinalDiagnosisOnDischarge": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "title": "Final diagnosis on discharge (ICD 10)"
+                }
+            },
+            "OtherComplications": {
+                "type": "string",
+                "title": "Other complications or reasons for non completion or anaesthetic complication "
+            }
   }
       });
     </script>
