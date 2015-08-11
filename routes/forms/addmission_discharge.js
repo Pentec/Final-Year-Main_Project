@@ -4,7 +4,12 @@ var models = require('pims-database');
 var AD = models.addmissionDischarge;
 
 router.post('/', function(req, res, next) {
-console.log(req.body);
+
+    var jsonString = JSON.stringify(req.body);
+    var changedString = jsonString.replace(/([./])/g, "");
+
+    console.log(changedString);
+    console.log(JSON.parse(changedString));
 
   // var Form = new AD({
   // });

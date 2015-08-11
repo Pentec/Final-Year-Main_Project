@@ -4,9 +4,12 @@ var models = require('pims-database');
 var GS = models.gynaecologySurgery;
 
 router.post('/', function(req, res, next) {
-console.log(req.body);
+    var jsonString = JSON.stringify(req.body);
+    var changedString = jsonString.replace(/([./])/g, "");
 
-   var Form = new GS({
+    console.log(changedString);
+    console.log(JSON.parse(changedString));
+   /*var Form = new GS({
    
 	ProcedureDate: req.body.ProcedureDate,
 	HospitalNumber: req.body.HospitalNumber,
@@ -62,11 +65,11 @@ console.log(req.body);
 Form.save(function(err){
     if(err) {
    /* throw err;*/
-    console.log('An error occurred while trying to add data');
+    /*console.log('An error occurred while trying to add data');
     }
     else{console.log('The data has been saved.');
     }
-});
+});*/
 
 });
   

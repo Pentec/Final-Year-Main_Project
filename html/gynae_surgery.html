@@ -23,7 +23,6 @@
       $('form').jsonForm({
         schema: {
 
-
             "ProcedureDate": {
                 "type": "date",
                 "require": true,
@@ -65,88 +64,118 @@
                 "type": "number",
                 "title": "Ectopic pregnancy"
             },
-            "HIVStatus": {
-                "type": "string",
-                "title": "HIV Status"
+            "HIV": {
+                "type": "object",
+                "properties": {
+                    "HIVStatus": {
+                        "type": "string",
+                        "title": "HIV Status"
+                    },
+                    "CD4": {
+                        "type": "number",
+                        "title": "CD4"
+                    }
+                }
             },
-            "CD4": {
-                "type": "number",
-                "title": "CD4"
+            "typeOfProcedure": {
+                "type": "object",
+                "properties": {
+                    "Elective": {
+                        "type": "boolean",
+                        "title": "Elective"
+                    },
+                    "Emergency": {
+                        "type": "boolean",
+                        "title": "Emergency"
+                    }
+                }
             },
-            "Elective": {
-                "type": "boolean",
-                "title": "Elective"
+            "firm": {
+                "type": "object",
+                "properties": {
+                    "G1": {
+                        "type": "boolean",
+                        "title": "G1"
+                    },
+                    "G2": {
+                        "type": "boolean",
+                        "title": "G2"
+                    },
+                    "G3": {
+                        "type": "boolean",
+                        "title": "G3"
+                    },
+                    "ONC": {
+                        "type": "boolean",
+                        "title": "ONC"
+                    }
+                }
             },
-            "Emergency": {
-                "type": "boolean",
-                "title": "Emergency"
+            "categoryOfProcedure": {
+                "type": "object",
+                "properties": {
+                    "Oncology": {
+                        "type": "boolean",
+                        "title": "Oncology"
+                    },
+                    "GeneralGynae": {
+                        "type": "boolean",
+                        "title": "General Gynaecology"
+                    },
+                    "Infertility": {
+                        "type": "boolean",
+                        "title": "Infertility"
+                    },
+                    "Urologynaecology": {
+                        "type": "boolean",
+                        "title": "Urologynaecology"
+                    }
+                }
             },
-            "G1": {
-                "type": "boolean",
-                "title": "G1"
+            "typeOfAccess": {
+                "type": "object",
+                "properties": {
+                    "OpenAbdomen": {
+                        "type": "boolean",
+                        "title": "Open Abdomen"
+                    },
+                    "Endoscopy": {
+                        "type": "boolean",
+                        "title": "Endoscopy"
+                    },
+                    "Vaginal": {
+                        "type": "boolean",
+                        "title": "Vaginal"
+                    }
+                }
             },
-            "G2": {
-                "type": "boolean",
-                "title": "G2"
-            },
-            "G3": {
-                "type": "boolean",
-                "title": "G3"
-            },
-            "ONC": {
-                "type": "boolean",
-                "title": "ONC"
-            },
-            "Oncology": {
-                "type": "boolean",
-                "title": "Oncology"
-            },
-            "GeneralGynae": {
-                "type": "boolean",
-                "title": "General Gynaecology"
-            },
-            "Infertility": {
-                "type": "boolean",
-                "title": "Infertility"
-            },
-            "Urologynaecology": {
-                "type": "boolean",
-                "title": "Urologynaecology"
-            },
-            "OpenAbdomen": {
-                "type": "boolean",
-                "title": "Open Abdomen"
-            },
-            "Endoscopy": {
-                "type": "boolean",
-                "title": "Endoscopy"
-            },
-            "Vaginal": {
-                "type": "boolean",
-                "title": "Vaginal"
-            },
-            "PreOperICD10Codes": {
+            "preOperICD10Codes": {
                 "type": "array",
                 "items": {
                     "type": "string",
                     "title": "Pre-Operative Diagnosis ICD Code:"
                 }
             },
-            "Consultant": {
-                "type": "boolean",
-                "title": "Consultant"
-            },
-            "Fellow": {
-                "type": "boolean",
-                "title": "Fellow"
-            },
-            "Registrar": {
-                "type": "boolean",
-                "title": "Registrar"
-            },
-            "Intern": {
-                "type": "boolean",
-                "title": "Intern"
+            "performedBy": {
+                "type": "object",
+                "properties": {
+                    "Consultant": {
+                        "type": "boolean",
+                        "title": "Consultant"
+                    },
+                    "Fellow": {
+                        "type": "boolean",
+                        "title": "Fellow"
+                    },
+                    "Registrar": {
+                        "type": "boolean",
+                        "title": "Registrar"
+                    },
+                    "Intern": {
+                        "type": "boolean",
+                        "title": "Intern"
+                    }
+                }
             },
             "DygnosisNotOnICD10List": {
                 "type": "array",
@@ -162,25 +191,30 @@
                     "title": "Procedure(s) Performed(Code) :"
                 }
             },
-            "None": {
-                "type": "boolean",
-                "title": "None"
-            },
-            "BladderInjury": {
-                "type": "boolean",
-                "title": "Bladder Injury"
-            },
-            "BowelInjury": {
-                "type": "boolean",
-                "title": "Bowel Injury"
-            },
-            "BRUBT": {
-                "type": "boolean",
-                "title": "BRUBT"
-            },
-            "ProcedureNotCompleted": {
-                "type": "boolean",
-                "title": "Procedure Not Completed"
+            "IntraOperativeComplications": {
+                "type": "object",
+                "properties": {
+                    "None": {
+                        "type": "boolean",
+                        "title": "None"
+                    },
+                    "BladderInjury": {
+                        "type": "boolean",
+                        "title": "Bladder Injury"
+                    },
+                    "BowelInjury": {
+                        "type": "boolean",
+                        "title": "Bowel Injury"
+                    },
+                    "BRUBT": {
+                        "type": "boolean",
+                        "title": "Bleeding requiring unplanned blood transfusion"
+                    },
+                    "ProcedureNotCompleted": {
+                        "type": "boolean",
+                        "title": "Procedure Not Completed"
+                    }
+                }
             },
             "OtherComplications": {
                 "type": "string",
