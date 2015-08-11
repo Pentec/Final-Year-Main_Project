@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressValidator =require('express-validator');
+var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -26,6 +27,16 @@ app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'html'))); //for html forms
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    cookieName: 'session',
+    secret: 'ssshhhhh',
+    proxy: true,
+    resave: true,
+    saveUninitialized: true,
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 100
+}));
+
 
 app.use('/', routes);
 app.use('/users', users);

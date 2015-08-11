@@ -5,12 +5,16 @@ block content
     div.jumbotron.center-block.banner
         img(src='images/KPTH_Logo.png', width="550px").img-responsive.center-block
     section#login
-        div.container
+        div.container-fluid
             div.row
+                div.col-xs-4.col-xs-offset-4#errordiv
+                    if (!send)
+                        .alert.alert-danger
+                            p= message
                 div.col-xs-12
                     div.form-wrap.panel
                         h1 Login with your username
-                        form(role="form", method="post", autocomplete="off")#login-form
+                        form(role="form", method="post", autocomplete="off", name="loginform", id="loginform")
                             div.form-group
                                 input.form-control#userid(type="text", placeholder="Username", name="userid", autofocus)
                             div.form-group

@@ -14,51 +14,139 @@ router.get('/splash', function(req, res, next) {
 });
 
 router.get('/', function(req, res, next){
+    sess=req.session;
+    sess.email;
+    sess.username;
     res.render('countdown', { title: 'Kalafong Pims: Coming Soon!'})
 });
 
 
 /* GET home page. */
+var sess;
 router.get('/home', function(req, res, next) {
+    sess = req.session;
     res.render('index', { title: 'Kalafong PIMS' });
 });
 
 
 /* GET login page */
 router.get('/login', function(req, res, next) {
-    res.render('login', { title: 'PIMS Login Page' });
+    var sendData = {found: "hello"};
+    res.render('login', {
+        title: 'PIMS Login Page',
+        message: '',
+        errors: {},
+        send: sendData
+    });
+    //res.render('login', { title: 'PIMS Login Page' });
+    sess = req.session;
+
 });
 
 /*POST login page.*/
 router.post('/login', function(req, res, next) {
+    sess = req.session;
     var username = req.body.userid;
     var password = req.body.pswd;
+    var sendData = "";
+
+    if(username == '' || password == '')
+    {
+        var pageErrors = "User name or password is empty.";
+
+        res.render('login', {
+            title: 'Kalafong PIMS',
+            message: pageErrors,
+            errors: {},
+            send: sendData
+
+        });
+        return;
+    }
+
 
     login.authenticate(username, password, function(found) {
         if(found)
         {
+            sess.username = req.body.userid;
+            sess.password = req.body.pswd;
+
             login.checkAdmin(username, password, function(isAdmin)
             {
-                if(isAdmin)
+                if(sess.username && sess.password)
                 {
-                    res.redirect('editProfile');
+                    if(isAdmin)
+                    {
+                        res.redirect('editProfile');
+                    }
+                    else
+                    {
+                        res.redirect('viewForms');
+                    }
                 }
                 else
                 {
-                    res.redirect('viewForms');
+                    res.redirect('login');
                 }
+
 
             });
 
         }
         else
         {
-            res.redirect('login');
+            //sess.reset();
+            //res.redirect('login');
+            req.session.destroy(function(err){
+                if(err){
+                    console.log(err);
+                }
+                else
+                {
+                    var pageErrors = "User name or password is incorrect.";
+                    sendData = "";
+
+                    res.render('login', {
+                        title: 'Kalafong PIMS',
+                        message: pageErrors,
+                        errors: {},
+                        send: sendData
+
+                    });
+                    return;
+                }
+            });
+
+            /*var pageErrors = "User name or password is incorrect.";
+            sendData = "";
+
+            res.render('login', {
+                title: 'Kalafong PIMS',
+                message: pageErrors,
+                errors: {},
+                send: sendData
+
+            });
+            return;*/
         }
     });
 
 });
 
+
+router.get('/logout',function(req,res){
+
+    req.session.destroy(function(err){
+        if(err){
+            console.log(err);
+        }
+        else
+        {
+            console.log('Logging out...');
+            res.redirect('/');
+        }
+    });
+});
 
 /* Add New User page */
 router.get('/addUser', function(req, res, next) {
