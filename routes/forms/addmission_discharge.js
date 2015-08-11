@@ -10,6 +10,7 @@ router.post('/', function(req, res, next) {
 
     console.log(changedString);
     console.log(JSON.parse(changedString));
+    var object = JSON.parse(changedString);
 
   // var Form = new AD({
   // });
