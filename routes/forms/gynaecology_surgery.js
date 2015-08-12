@@ -4,64 +4,84 @@ var models = require('pims-database');
 var GS = models.gynaecologySurgery;
 
 router.post('/', function(req, res, next) {
-console.log(req.body);
+    var jsonString = JSON.stringify(req.body);
+    var changedString = jsonString.replace(/([./])/g, "");
 
+    console.log(changedString);
+    console.log(JSON.parse(changedString));
+
+    var changedString = JSON.parse(changedString);
    var Form = new GS({
    
-	ProcedureDate: req.body.ProcedureDate,
-	HospitalNumber: req.body.HospitalNumber,
-	Age: req.body.Age,
-	Name: req.body.Name,
-        Surname: req.body.Surname,
+	ProcedureDate: changedString.ProcedureDate,
+	HospitalNumber: changedString.HospitalNumber,
+	Age: changedString.Age,
+	Name: changedString.Name,
+    Surname: changedString.Surname,
 	
-	P: req.body.P,
-	G: req.body.G, 
-	M: req.body.M, 
-	E: req.body.E,
-        HIVStatus: req.body.HIVStatus,
-	
-	CD4: req.body.CD4,
-	
-	Elective: req.body.Elective,
-	Emergency: req.body.Emergency,
-	
-        G1:req.body.G1, 
-	G2: req.body.G2,
-	G3: req.body.G3,
-	ONC: req.body.ONC,
-	
-	Oncology: req.body.Oncology,
-	GeneralGynae: req.body.GeneralGynae,
-	Infertility: req.body.Infertility,
-	Urologynaecology: req.body.Urologynaecology,
-	
-       OpenAbdomen: req.body.OpenAbdomen,
-       Endoscopy: req.body.Endoscopy,
-       Vaginal: req.body.Vaginal,
-        PreOperICD10Codes: req.body.PreOperICD10Codes,
-	
-	Consultant: req.body.Consultant,
-	Fellow: req.body.Fellow,
-	Registrar: req.body.Registrar,
-	Intern: req.body.Intern,
+	P: changedString.P,
+	G: changedString.G,
+	M: changedString.M,
+	E: changedString.E,
+
+   HIV: {HIVStatus: changedString.HIVHIVStatus,
+       CD4: changedString.HIVCD4
+   },
+
+   typeOfProcedure: {
+       Elective: changedString.typeOfProcedureElective,
+       Emergency: changedString.typeOfProcedureEmergency
+   },
+
+    firm: {
+        G1: changedString.firmG1,
+        G2: changedString.firmG2,
+        G3: changedString.firmG3,
+        ONC: changedString.firmONC
+    },
+
+       categoryOfProcedure: {
+           Oncology: changedString.categoryOfProcedureOncology,
+           GeneralGynae: changedString.categoryOfProcedureGeneralGynae,
+           Infertility: changedString.categoryOfProcedureInfertility,
+           Urologynaecology: changedString.categoryOfProcedureUrologynaecology
+       },
+
+       typeOfAccess: {
+           OpenAbdomen: changedString.typeOfAccessOpenAbdomen,
+           Endoscopy: changedString.typeOfAccessEndoscopy,
+           Vaginal: changedString.typeOfAccessVaginal
+       },
+
+
+        preOperICD10Codes: changedString.preOperICD10Codes,
+
+       performedBy:{
+           Consultant: changedString.performedByConsultant,
+           Fellow: changedString.performedByFellow,
+           Registrar: changedString.performedByRegistrar,
+           Intern: changedString.performedByIntern
+       },
        
-	DygnosisNotOnICD10List: req.body.DygnosisNotOnICD10List,
+	DygnosisNotOnICD10List: changedString.DygnosisNotOnICD10List,
 	
-	ProPerformedCode: req.body.ProPerformedCode,
+	ProPerformedCode: changedString.ProPerformedCode,
+
+   IntraOperativeComplications: {
+       None: changedString.IntraOperativeComplicationsNone,
+       BladderInjury: changedString.IntraOperativeComplicationsBladderInjury,
+       BowelInjury:changedString.IntraOperativeComplicationsBowelInjury,
+       BRUBT: changedString.IntraOperativeComplicationsBRUBT,
+       ProcedureNotCompleted: changedString.IntraOperativeComplicationsProcedureNotCompleted
+   },
 	
-	None: req.body.None,
-	BladderInjury: req.body.BladderInjury,
-	BowelInjury: req.body.BowelInjury,
-	BRUBT: req.body.BRUBT, 
-	ProcedureNotCompleted: req.body.ProcedureNotCompleted,
-	
-	OtherComplications: req.body.OtherComplications,
+	OtherComplications: changedString.OtherComplications
    });
    
 
 Form.save(function(err){
     if(err) {
-   /* throw err;*/
+    throw err;
     console.log('An error occurred while trying to add data');
     }
     else{console.log('The data has been saved.');
