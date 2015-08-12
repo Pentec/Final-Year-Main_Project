@@ -174,10 +174,3 @@ crashlytics.properties
 crashlytics-build.properties
 >>>>>>> origin/master
 >>>>>>> 80db67fb315e2ee58186aa3954e4b01ad5d8a7d7
-*.bak
-*.out
-*.gz
-*.aux
-*.out
-*.gz
-*.toc
