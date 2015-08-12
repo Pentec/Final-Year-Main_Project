@@ -10,6 +10,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var gynaecology_surgery = require('./routes/forms/gynaecology_surgery');
 var addmission_discharge = require('./routes/forms/addmission_discharge');
+var cervical_cancer = require('./routes/forms/cervical_cancer');
 
 
 var app = express();
@@ -36,6 +37,7 @@ app.use('/create', routes);
 app.use('/profile', routes);
 app.use('/gynaecology_surgery', gynaecology_surgery);
 app.use('/addmission_discharge', addmission_discharge);
+app.use('/cervical_cancer', cervical_cancer);
 
 //This code below, until the next comment, serves for static html forms.
 var html_dir = './html/';
@@ -43,9 +45,12 @@ app.get('/gynae_surgery', function(req, res) {
     res.sendfile(html_dir + 'gynae_surgery.html');
 });
 
-var html_dir = './html/';
 app.get('/addmission_discharge', function(req, res) {
     res.sendfile(html_dir + 'addmission_discharge.html');
+});
+
+app.get('/cervical_cancer', function(req, res) {
+    res.sendfile(html_dir + 'cervical_cancer');
 });
 //end of html routing
 
