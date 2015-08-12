@@ -29,8 +29,8 @@ router.post('/', function(req, res, next) {
    },
 
    typeOfProcedure: {
-       Elective: changedString.Elective,
-       Emergency: changedString.Emergency
+       Elective: changedString.typeOfProcedureElective,
+       Emergency: changedString.typeOfProcedureEmergency
    },
 
     firm: {

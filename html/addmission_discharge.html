@@ -52,49 +52,59 @@
                 "require": true,
                 "title": "Date of Admission"
             },
-            "G1": {
-                "type": "boolean",
-                "title": "G1"
+            "firm": {
+                "type": "object",
+                "properties": {
+                    "G1": {
+                        "type": "boolean",
+                        "title": "G1"
+                    },
+                    "G2": {
+                        "type": "boolean",
+                        "title": "G2"
+                    },
+                    "G3": {
+                        "type": "boolean",
+                        "title": "G3"
+                    },
+                    "ONC": {
+                        "type": "boolean",
+                        "title": "ONC"
+                    }
+                }
             },
-            "G2": {
-                "type": "boolean",
-                "title": "G2"
-            },
-            "G3": {
-                "type": "boolean",
-                "title": "G3"
-            },
-            "ONC": {
-                "type": "boolean",
-                "title": "ONC"
-            },
-            "Emergency": {
-                "type": "boolean",
-                "title": "Emergency"
-            },
-            "ElectiveSurgery": {
-                "type": "boolean",
-                "title": "Elective Surgery"
-            },
-            "ElectiveOther": {
-                "type": "boolean",
-                "title": "Elective Other"
+            "Admission": {
+                "type": "object",
+                "properties": {
+                    "Emergency": {
+                        "type": "boolean",
+                        "title": "Emergency"
+                    },
+                    "ElectiveSurgery": {
+                        "type": "boolean",
+                        "title": "Elective Surgery"
+                    },
+                    "ElectiveOther": {
+                        "type": "boolean",
+                        "title": "Elective Other"
+                    }
+                }
             },
             "P": {
-                "type": "boolean",
-                "title": "P"
+                "type": "number",
+                "title": "Parity"
             },
             "G": {
-                "type": "boolean",
-                "title": "G"
+                "type": "number",
+                "title": "Gravidity"
             },
             "M": {
-                "type": "boolean",
-                "title": "M"
+                "type": "number",
+                "title": "Miscarriage"
             },
             "E": {
-                "type": "boolean",
-                "title": "E"
+                "type": "number",
+                "title": "Ectopic pregnancy"
             },
             "HIV": {
                 "type": "object",
@@ -139,6 +149,135 @@
                 "items": {
                     "type": "string",
                     "title": "Final diagnosis on discharge (ICD 10)"
+                }
+            },
+            "Miscarriage": {
+                "type": "object",
+                "properties": {
+                    "Threatening": {
+                        "type": "boolean",
+                        "title": "Threatening"
+                    },
+                    "Complete": {
+                        "type": "boolean",
+                        "title": "Complete"
+                    },
+                    "Incomplete": {
+                        "type": "boolean",
+                        "title": "Incomplete"
+                    },
+                    "Septic": {
+                        "type": "boolean",
+                        "title": "Septic"
+                    }
+                }
+            },
+            "Salpingitis": {
+                "type": "object",
+                "properties": {
+                    "ASOI": {
+                        "type": "boolean",
+                        "title": "ASO I"
+                    },
+                    "ASOII": {
+                        "type": "boolean",
+                        "title": "ASO II"
+                    },
+                    "ASOIII": {
+                        "type": "boolean",
+                        "title": "ASO III"
+                    },
+                    "ASOIV": {
+                        "type": "boolean",
+                        "title": "ASO IV"
+                    }
+                }
+            },
+            "Ectopic": {
+                "type": "object",
+                "properties": {
+                    "Ruptured": {
+                        "type": "boolean",
+                        "title": "Ruptured"
+                    },
+                    "Unruptured": {
+                        "type": "boolean",
+                        "title": "Unruptured"
+                    }
+                }
+            },
+            "BBA": {
+                "type": "boolean",
+                "title": "BBA"
+            },
+            "OtherDiagnosis": {
+                "type": "boolean",
+                "title": "Other"
+            },
+            "Oncology": {
+                "type": "object",
+                "properties": {
+                    "Cervix": {
+                        "type": "boolean",
+                        "title": "Cervix"
+                    },
+                    "Endometrium": {
+                        "type": "boolean",
+                        "title": "Endometrium"
+                    },
+                    "Ovarian": {
+                        "type": "boolean",
+                        "title": "Ovarian"
+                    },
+                    "Vulva": {
+                        "type": "boolean",
+                        "title": "Vulva"
+                    },
+                    "Vagina": {
+                        "type": "boolean",
+                        "title": "Vagina"
+                    },
+                    "ChorioGTD": {
+                        "type": "boolean",
+                        "title": "Chorio/GTD"
+                    }
+                }
+            },
+            "PostOperativeComplications": {
+                "type": "object",
+                "properties": {
+                    "None": {
+                        "type": "boolean",
+                        "title": "None"
+                    },
+                    "BladderInjury": {
+                        "type": "boolean",
+                        "title": "Bladder injury"
+                    },
+                    "BowelInjury": {
+                        "type": "boolean",
+                        "title": "Bowel injury"
+                    },
+                    "UretericInjury": {
+                        "type": "boolean",
+                        "title": "Ureteric injury"
+                    },
+                    "AnaestheticComplication": {
+                        "type": "boolean",
+                        "title": "Anaesthetic complication"
+                    },
+                    "ProcedureNotCompleted": {
+                        "type": "boolean",
+                        "title": "Procedure not completed"
+                    },
+                    "BRUBT": {
+                        "type": "boolean",
+                        "title": "Bleeding requiring unplanned blood transfusion"
+                    },
+                    "VascularInjury": {
+                        "type": "boolean",
+                        "title": "Vascular injury"
+                    }
                 }
             },
             "OtherComplications": {
