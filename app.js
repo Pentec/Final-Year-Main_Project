@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressValidator =require('express-validator');
+var stormpath = require('express-stormpath');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -17,6 +18,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.locals.pretty = true;
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -27,6 +29,16 @@ app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'html'))); //for html forms
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+app.use(stormpath.init(app, {
+    apiKeyFile: './apiKey/apiKey-ILS450BUSEY13SQJ0YLIMFUKX.properties',
+    application: 'https://api.stormpath.com/v1/applications/2VchPBvjrRQJDzFCN34ubT',
+    secretKey: 'fhxrgytjdjhdqagsbucjkendbacvuaidblnvck.zdnvciayvgdihewoihidi;fd8734yujoeifndvchk309j4roi4hn3e',
+    enableAutoLogin: false,
+    enableUsername: false,
+    enableRegistration: false
+}));
 
 app.use('/', routes);
 app.use('/users', users);
@@ -80,6 +92,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
