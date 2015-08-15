@@ -4,6 +4,7 @@ var models = require('pims-database');
 
 var Form = models.forms;
 var User = models.users;
+var GS = models.gynaecologySurgery;
 var login = require('pims-login');
 var notification = require('pims-notification');
 
@@ -109,12 +110,6 @@ router.post('/create', function(req, res) {
 });
 
 /* GET form builder page page. */
-router.get('/viewForms', function(req, res, next) {
-    res.render('viewForms', { title: 'Select Forms' });
- 
-});
-
-/* GET form builder page page. */
 router.get('/form', function(req, res, next) {
     res.render('formBuild', { title: 'Form Builder' });
 
@@ -134,11 +129,25 @@ router.post('/formsave', function(req, res) {
 
 });
 
+
 /*View Stats */
 router.get('/stats', function(req, res, next) {
-    res.render('stats', { title: 'viewStats' });
-});
+var EmergencyCount;
+var ElectiveCount;
+	//Check the stats for Emergency
 
+	 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
+          console.log("There are " + EmergencyCount + " Emergency records.");
+ 
+	//Check the stats for Elective
+	
+	 GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
+          console.log("There are " + ElectiveCount + " Elective records.");
+        
+     res.render('stats',{title : 'Edit Your Profile', elective : ElectiveCount, emergency : EmergencyCount });
+	  });
+	});
+});
 /******************************* STATS NAV**********************************************/
 router.get('/pro', function(req, res, next) {
     res.render('pro', { title: 'viewProcedure' });
