@@ -9,7 +9,30 @@ block content
                     li
                         a(href="/addUser") Add User
                     li
-                        a(href="/viewForms") Form Select
+                        .dropdown
+                            a(href="#", data-toggle="dropdown").dropdown-toggle Forms
+                            ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu')
+                                li
+                                    a(href='/gynae_surgery.html', tabindex='-1') Gynaecology Surgery
+                                li
+                                    a(href='/addmission_discharge.html', tabindex='-1') Gynaecology Admission and Discharge
+                                li
+                                    a(href='/#', tabindex='-1') Office Hysteroscopy
+                                li.divider
+                                li
+                                    a(href='#', tabindex='-1') Data Form
+                                        li.divider
+                                li
+                                    a(href='cervical_cancer.html', tabindex='-1') Cervical Cancer
+                                    a(href='#', tabindex='-1') Endomentrial Cancer
+                                    a(href='#', tabindex='-1') Fallopian Tube Cancer
+                                    a(href='#', tabindex='-1') Follow-Up
+                                    a(href='#', tabindex='-1') Gestational Trophoblastic Disease
+                                    a(href='#', tabindex='-1') Ovarian Cancer
+                                    a(href='#', tabindex='-1') Vaginal Cancer
+                                    a(href='#', tabindex='-1') Vulva Cancer
+                        script.
+                            $('.dropdown-toggle').dropdown()
                     li
                         a(href='/form') Form Builder
                     li
