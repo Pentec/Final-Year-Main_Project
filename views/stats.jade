@@ -6,4 +6,47 @@ block extFiles
 block contentRight
     div.container.graphbox
         div.graph
+block queryItems
 
+ div.container-fluid
+        p From    
+        div.row.span8.offset2
+            div.col-xs-2
+                a.btn.btn-primary.btn-lg(href="/editProfile")
+                    span.glyphicon.glyphicon-step-backward
+            div.col-xs-4#dateTimePicks
+                div.input-group.date(id='datetimepicker')
+                    input.form-control(type="text", id="fillDate")
+                    span.input-group-addon
+                        span.glyphicon.glyphicon-calendar
+                    script.
+                        $(function () {
+                            $('#datetimepicker').datetimepicker();
+                        });div.row.span8.offset2    
+            p To 
+            div.col-xs-2
+                a.btn.btn-primary.btn-lg(href="/editProfile")
+                    span.glyphicon.glyphicon-step-backward
+            div.col-xs-4#dateTimePicks
+                div.input-group.date(id='datetimepicker')
+                    input.form-control(type="text", id="fillDate")
+                    span.input-group-addon
+                        span.glyphicon.glyphicon-calendar
+                    script.
+                        $(function () {
+                            $('#datetimepicker').datetimepicker();
+                        });
+
+            div.col-xs-6
+                div.messaging
+                form.form-group.col-xs-6.form-centered(id="messagebox", name="messagebox", method="post")
+                    label(for="message") Message:
+                    textarea.form-control(rows="5", id="message", name="message", tabindex="5", placeholder="Write your message", required)
+                    br
+                    input.btn.btn-primary.btn-block(type="submit", value="Send Notification", id="sendNotify", tabindex="5")
+    script.
+        $("#datetimepicker").on("dp.change",function (e) {
+            $('#message').val($("#fillDate").val());
+        });
+
+        });
