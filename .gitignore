@@ -79,14 +79,13 @@ crashlytics-build.properties
 Core Implementation/public/dist/formbuilder.css
 Core Implementation/public/dist/formbuilder.js
 *.db
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
+
+
 Core Implementation/public/vendor/css/vendor.css
 *.svg
 Core Implementation/public/vendor/js/vendor.js
-=======
+
 
 # Logs
 logs
@@ -111,18 +110,16 @@ coverage
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
->>>>>>> 80db67fb315e2ee58186aa3954e4b01ad5d8a7d7
 
 # Dependency directory
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules
-<<<<<<< HEAD
+
 Core Implementation/public/dist/formbuilder.css
 Core Implementation/public/dist/formbuilder.js
 Core Implementation/public/vendor/css/vendor.css
 Core Implementation/public/vendor/fonts/fontawesome-webfont.svg
 Core Implementation/public/vendor/js/vendor.js
-=======
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion
 
@@ -172,5 +169,4 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
->>>>>>> origin/master
->>>>>>> 80db67fb315e2ee58186aa3954e4b01ad5d8a7d7
+public/deps/opt/bootstrap_3.css
