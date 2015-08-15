@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8" />
     <title>Gynaecology Surgery Form</title>
-    <link rel="stylesheet" style="text/css" href="/deps/opt/bootstrap.css" />
-  </head>
-  <body>
-    <div class="container-fluid">
-	<h1 class = "page-header">Gynaecology Surgery Form</h1>
-    </div>
-    <br>
-    <div class = "container">
-	<br>
-	<form class="form-horizontal" role="form" method = "POST" action = "/gynaecology_surgery"></form>
-    </div>
+    <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap_3.css" />
+    <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap.css" />
     <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="/deps/underscore.js"></script>
     <script type="text/javascript" src="/deps/opt/jsv.js"></script>
     <script type="text/javascript" src="/lib/jsonform.js"></script>
     <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
-    <script type="text/javascript">
+</head>
+<body>
+<div class="container">
+    <h1 class = "page-header" >Gynaecology Surgery Form</h1>
+</div>
+
+<div class = "container">
+    <br>
+    <form class="form-inline" role="form" method = "POST" action = "/addmission_discharge" enctype="application/json"></form>
+</div>
+<script type="text/javascript">
       $('form').jsonForm({
         schema: {
 

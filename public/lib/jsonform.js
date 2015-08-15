@@ -189,7 +189,7 @@ var initializeTabs = function (tabs) {
 
 // Twitter bootstrap-friendly HTML boilerplate for standard inputs
 jsonform.fieldTemplate = function(inner) {
-  return '<div class="control-group jsonform-error-<%= keydash %>' +
+  return '<div class="form-group container-fluid jsonform-error-<%= keydash %>' +
     '<%= elt.htmlClass ? " " + elt.htmlClass : "" %>' +
     '<%= (node.schemaElement && node.schemaElement.required && (node.schemaElement.type !== "boolean") ? " jsonform-required" : "") %>' +
     '<%= (node.readOnly ? " jsonform-readonly" : "") %>' +
@@ -198,14 +198,14 @@ jsonform.fieldTemplate = function(inner) {
     '<% if (node.title && !elt.notitle) { %>' +
       '<label class="control-label" for="<%= node.id %>"><%= node.title %></label>' +
     '<% } %>' +
-    '<div class="controls">' +
+    '<div class="control container-fluid">' +
       '<% if (node.prepend || node.append) { %>' +
       '<div class="<% if (node.prepend) { %>input-prepend<% } %>' +
         '<% if (node.append) { %> input-append<% } %>">' +
         '<% if (node.prepend) { %>' +
           '<span class="add-on"><%= node.prepend %></span>' +
         '<% } %>' +
-      '<% } %>' +
+      '<% } %>                              ' + 
       inner +
       '<% if (node.append) { %>' +
         '<span class="add-on"><%= node.append %></span>' +
