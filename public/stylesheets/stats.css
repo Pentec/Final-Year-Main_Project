@@ -1,0 +1,25 @@
+.graphbox{
+    width:60%;
+    height:80%;
+    background-color: #EEEEEE;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 2px solid #dedede;
+}
+
+.graph{
+
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
