@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('pims-database');
-var CC = models.endometrialCancer;
+var EC = models.endometrialCancer;
 
 router.post('/', function(req, res, next) {
 
@@ -13,7 +13,7 @@ router.post('/', function(req, res, next) {
 
     var changedString = JSON.parse(changedString);
 
-   var Form = new CC({
+   var Form = new EC({
     Name: changedString.Name,
 
     Surname: changedString.Surname,
@@ -176,24 +176,7 @@ router.post('/', function(req, res, next) {
     Unknown: changedString.responseToTreatmentUnknown,
     Dateofassessment: changedString.responseToTreatmentDateofassessment
     },
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
+/*--------------------------------completed-------------------------------------------------*/
 
     Histology: {
         Squamous: changedString.HistologySquamous,
@@ -203,13 +186,6 @@ router.post('/', function(req, res, next) {
         Other: changedString.HistologyOther,
         Unknown : changedString.HistologyUnknown
     },
-
-
-
-
-
- 
-
 
     typeOfRadiotherapy: {
     Intracavitary: changedString.typeOfRadiotherapyIntracavitary,
