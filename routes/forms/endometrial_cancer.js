@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('pims-database');
-var CC = models.cervicalCancer;
+var CC = models.endometrialCancer;
 
 router.post('/', function(req, res, next) {
 
@@ -31,121 +31,116 @@ router.post('/', function(req, res, next) {
     Alternative: changedString.CellPhoneAlternative
     },
 
-    HIV:{
-    HIVStatus: changedString.HIVHIVStatus,
-    CD4: changedString.HIVCD4
-    },
+    HIVStatus:{
+    Negative: changedString.HIVStatusNegative,
+    Positive: changedString.HIVStatusPositive
+	    },
+	    
+    CD4:  changedString.CD4,
 
    figoStage: {
-    Ia1: changedString.figoStageIa1,
-    Ia2: changedString.figoStageIa2,
-    Ib1: changedString.figoStagIb1,
-    Ib2: changedString.figoStageIb2,
-    IIa1: changedString.figoStageIIa1,
-    IIa2: changedString.figoStageIIa2,
-    IIb : changedString.figoStageIIb,
-    IIIa : changedString.figoStageIIIa,
-    IIIb :changedString.figoStageIIIb,
-    IVa : changedString.figoStageIVa,
-    IVb : changedString.figoStageIVb,
+    Ia: changedString.figoStageIa,
+    Ib: changedString.figoStageIb,
+    Ic: changedString.figoStagIc,
+    IIa: changedString.figoStageIIa,
+    IIb: changedString.figoStageIIb,
+    IIIa: changedString.figoStageIIIa,
+    IIIb: changedString.figoStageIIIb,
+    IIIc: changedString.figoStageIIIc,
+    IVa:changedString.figoStageIVa ,
+    IVb: changedString.figoStageIVb,
+    SurgicalStageUnavailable:changedString.figoStageSurgicalStageUnavailable,
     Unknown: changedString.figoStageUnknown
     },
 
-    tumor: {
-    tumorSize:{
-        lessThan4: changedString.tumortumorSizelessThan4,
-        greaterThan4: changedString.tumortumorSizegreaterThan4,
-        Unknown: changedString.tumortumorSizeUnknown
-    },
-
-        depthOfInvasion: changedString.tumordepthOfInvasion
-    },
-
-
-    imaging:{
-
-    useOfImagingDiagnosticTools: {
-
-    Yes: changedString.imaginguseOfImagingDiagnosticToolsYes,
-    No: changedString.imaginguseOfImagingDiagnosticToolsNo,
-    Unknown: changedString.imaginguseOfImagingDiagnosticToolsUnknown
-    },
-
-    ifYes:{
-    MRI: changedString.imagingifYesMRI,
-    CT: changedString.imagingifYesCT,
-    Ultrasound: changedString.imagingifYesUltrasound,
-    PET: changedString.imagingifYesPET,
-    Other: changedString.imagingifYesOther,
-    Unknown: changedString.imagingifYesUnknown
-    }
-    },
-
-    siteOfDistantMetastase: {
-    Nil: changedString.siteOfDistantMetastaseNil,
-    Lung: changedString.siteOfDistantMetastaseLung,
-    Liver: changedString.siteOfDistantMetastaseLiver,
-    Bowel: changedString.siteOfDistantMetastaseBowel,
-    Bone: changedString.siteOfDistantMetastaseBone,
-    Brain: changedString.siteOfDistantMetastaseBrain,
-    Other : changedString.siteOfDistantMetastaseOther,
-    Unknown : changedString.siteOfDistantMetastaseUnknown
-    },
-
     Histology: {
-        Squamous: changedString.HistologySquamous,
-        Adeno: changedString.HistologyAdeno,
-        Adenosquamous: changedString.HistologyAdenosquamous,
-        Clearcell: changedString.HistologyClearcell,
+        NilUnclassifiable: changedString.HistologyNilUnclassifiable,
+        EndometrioidAdeno: changedString.HistologyEndometrioidAdeno,
+        Adenosquamous: changedString.HistologyEndometrioidAdeno,
+        Clearcell: changedString.Histology Clearcell,
+        MucinousAdeno: changedString.HistologyMucinousAdeno,
+        PapillarySerous: changedString.HistologyPapillarySerous,
+	Squamous: changedString.HistologySquamous,
         Other: changedString.HistologyOther,
-        Unknown : changedString.HistologyUnknown
+        Unknown : changedString.HistologyUnknown,
     },
 
-    Differentiation: {
+   Differentiation: {
     Well: changedString.DifferentiationWell,
     Moderately: changedString.DifferentiationModerately,
-    Poorly: changedString.DifferentiationPoorly
+    Poorly: changedString.DifferentiationPoorly,
+    Unknown: changedString.DifferentiationUnknown
     },
 
     lymphovascularSpaceInvolvement: {
     Absent: changedString.lymphovascularSpaceInvolvementAbsent,
     Present: changedString.lymphovascularSpaceInvolvementPresent,
-    Unknown: changedString.lymphovascularSpaceInvolvementUnknown
-    },
+    Unknown: changedString.lymphovascularSpaceInvolvementUnkn
 
-    primaryTreatment: {
-
+   primaryTreatment: {
     Nil: changedString.primaryTreatmentNil,
     SurgeryAlone: changedString.primaryTreatmentSurgeryAlone,
-    RTAlone: changedString.primaryTreatmentRTAlone,
-    NeoAdjuvantCTSurgery: changedString.primaryTreatmentNeoAdjuvantCTSurgery,
-    SurgeryAdjuvantRTCRT: changedString.primaryTreatmentSurgeryAdjuvantRTCRT,
+    SurgeryAdjuvantRT: changedString.primaryTreatmentSurgeryAdjuvantRT,
     SurgeryAdjuvantCT: changedString.primaryTreatmentSurgeryAdjuvantCT,
-    Chemoradiation: changedString.primaryTreatmentChemoradiation,
-    CTAlone : changedString.primaryTreatmentCTAlone,
+    AdjuvantHT: changedString.primaryTreatmentSurgeryAdjuvantHT,
+    HormonalPrimaryTherapy : changedString.primaryTreatmentHormonalPrimaryTherapy,
     Other : changedString.primaryTreatmentOther,
     Unknown : changedString.primaryTreatmentUnknown,
     DateofTreatment: changedString.primaryTreatmentDateofTreatment
     },
 
     typeOfSurgery: {
-    Conization: changedString.typeOfSurgeryConization,
-    AmputationOfCervix: changedString.typeOfSurgeryAmputationOfCervix,
-    RTNoLND: changedString.typeOfSurgeryRTNoLND,
-    RTwithLND: changedString.typeOfSurgeryRTwithLND,
-    TAHnoLND: changedString.typeOfSurgeryTAHnoLND,
-    TAHwithLND: changedString.typeOfSurgeryTAHwithLND,
-    VHnoLND : changedString.typeOfSurgeryVHnoLND,
-    VHwithLND : changedString.typeOfSurgeryVHwithLND,
-    RHnoLND : changedString.typeOfSurgeryRHnoLND,
-    RHwithLND : changedString.typeOfSurgeryRHwithLND,
-    RadVHnoLND : changedString.typeOfSurgeryRadVHnoLND,
-    RadVHwithLND: changedString.typeOfSurgeryRadVHwithLND,
-    AnyKindOfExenteration: changedString.typeOfSurgeryAnyKindOfExenteration,
+    SimpleAbdHystNoLND: changedString.typeOfSurgerySimpleAbdHystNoLND,
+    SimpleAbdHystWithLND: changedString.typeOfSurgerySimpleAbdHystWithLND,
+    SimpleVagHystNoLND: changedString.typeOfSurgerySimpleVagHystNoLND,
+    SimpleVagHystWithLND: changedString.typeOfSurgerySimpleVagHystWithLND,
+    RadicalAbdHystNoLND: changedString.typeOfSurgeryRadicalAbdHystNoLND,
+    RadicalAbdHystWithLND: changedString.typeOfSurgeryRadicalAbdHystWithLND,
+    AnyKindOfexenteration : changedString.typeOfSurgeryAnyKindOfexenteration,
     Unknown: changedString.typeOfSurgeryUnknown,
     Other: changedString.typeOfSurgeryOther,
     DateofSurgery : changedString.typeOfSurgeryDateofSurgery
     },
+
+   LymphovascularSpaceInvolvement: {
+    Absent: changedString.LymphovascularSpaceInvolvementAbsent,
+    Present: changedString.LymphovascularSpaceInvolvementPresent,
+    Unknown: changedString.lymphnodeInvolvementAtSurgeryUnknown
+    },
+
+    nodesInvolved: {
+    Onlypelvic: changedString.nodesInvolvedOnlypelvic,
+    Pelvicparaortic:changedString.nodesInvolvedPelvicparaortic,
+    Onlyparaortic: changedString.nodesInvolvedOnlyparaortic,
+    Unknown: changedString.nodesInvolvedUnknown
+    },
+
+    numberOfNodesExamined : {
+    Pelvic: changedString.numberOfNodesExaminedPelvic,
+    Paraortic: changedString.numberOfNodesExaminedParaortic
+    },
+
+    /*---SURGICAL PATHOLOGICAL EVALUATION---*/
+
+    Cytology: {
+        NotAvailable: changedString.CytologyNotAvailable,
+        Negative: changedString.CytologyNegative,
+        Positive: changedString.CytologyPositive,
+        Unknown : changedString.CytologyUnknown ,
+    }
+
+    Metastase: {
+    Nil: changedString.MetastaseNil,
+    UterineSerosa: changedString.MetastaseUterineSerosa,
+    Vagina: changedString.MetastaseVagina,
+    Adnexa: changedString.MetastaseAdnexa,
+    BladdeBowelMucosa: changedString.MetastaseBladdeBowelMucosa,
+    IntraAbdominal: changedString.MetastaseIntraAbdominal,
+    InguinalNodes: changedString.MetastaseInguinalNodes,
+    Distant : changedString.MetastaseDistant,
+    Unknown : changedString.MetastaseUnknown
+    },
+
 
     typeOfRadiotherapy: {
     Intracavitary: changedString.typeOfRadiotherapyIntracavitary,
@@ -164,6 +159,14 @@ router.post('/', function(req, res, next) {
     DateEnded: changedString.typeOfChemotherapyDateEnded
     },
 
+ HormonalTreatment: {
+        SingleDrug : changedString.tHormonalTreatmentSingleDrug,
+        MultipleDrug : changedString.tHormonalTreatmentMultipleDrug,
+        Unknown: changedString.tHormonalTreatmentUnknown,
+        DateStarted: changedString.tHormonalTreatmentDateStarted,
+        DateEnded: changedString.tHormonalTreatmentDateEnded
+    },
+
     responseToTreatment: {
     Complete: changedString.responseToTreatmentComplete,
     Partial: changedString.responseToTreatmentPartial,
@@ -174,6 +177,53 @@ router.post('/', function(req, res, next) {
     Dateofassessment: changedString.responseToTreatmentDateofassessment
     },
 
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+    Histology: {
+        Squamous: changedString.HistologySquamous,
+        Adeno: changedString.HistologyAdeno,
+        Adenosquamous: changedString.HistologyAdenosquamous,
+        Clearcell: changedString.HistologyClearcell,
+        Other: changedString.HistologyOther,
+        Unknown : changedString.HistologyUnknown
+    },
+
+
+
+
+
+ 
+
+
+    typeOfRadiotherapy: {
+    Intracavitary: changedString.typeOfRadiotherapyIntracavitary,
+    ExternalPelvicRT: changedString.typeOfRadiotherapyExternalPelvicRT,
+    ExternalPelvicParaortic: changedString.typeOfRadiotherapyExternalPelvicParaortic,
+    ExternalPelvicIntracavitary: changedString.typeOfRadiotherapyExternalPelvicIntracavitary,
+    ExtpelvicParaortIntracavitary: changedString.typeOfRadiotherapyExtpelvicParaortIntracavitary,
+    Unknown: changedString.typeOfRadiotherapyUnknown,
+    DateStarted: changedString.typeOfRadiotherapyDateStarted,
+    DateEnded: changedString.typeOfRadiotherapyDateEnded
+    },
+
+
+
     surgicalPathologicalEvaluation :{
     tumorSize: {
     lessThan4:changedString.surgicalPathologicalEvaluationtumorSizelessThan4,
@@ -182,36 +232,12 @@ router.post('/', function(req, res, next) {
     }
     },
 
-    lymphnodeInvolvementAtSurgery: {
-    Notevaluated: changedString.lymphnodeInvolvementAtSurgeryNotevaluated,
-    Posnodes: changedString.lymphnodeInvolvementAtSurgeryPosnodes,
-    Negnodes: changedString.lymphnodeInvolvementAtSurgeryNegnodes,
-    Unknown: changedString.lymphnodeInvolvementAtSurgeryUnknown
-    },
-
-    nodesInvolved: {
-    Onlypelvic: changedString.nodesInvolvedOnlypelvic,
-    Pelvicparaortic:changedString.nodesInvolvedPelvicparaortic,
-    Onlyparaortic: changedString.nodesInvolvedOnlyparaortic,
-    Unknown: changedString.nodesInvolvedUnknown
-    },
-
-    numberOfNodesExamined : {
-    Pelvic: changedString.numberOfNodesExaminedPelvic,
-    Paraortic: changedString.numberOfNodesExaminedParaortic
-    },
-
+ 
     numberOfNodesPositive: {
     Pelvic: changedString.numberOfNodesPositivePelvic,
     Paraortic: changedString.numberOfNodesPositiveParaortic
     },
 
-    Relapse: {
-    Yes:changedString.RelapseYes,
-    No: changedString.RelapseNo,
-    Unknown: changedString.RelapseUnknown,
-    DateOfRelapseDiagnosis:changedString.RelapseDateOfRelapseDiagnosis
-    },
 
     SiteOfRelapse: {
     Local: changedString.SiteOfRelapseLocal,
