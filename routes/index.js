@@ -18,6 +18,15 @@ router.get('/', function(req, res, next){
     res.render('countdown', { title: 'Kalafong Pims: Coming Soon!'})
 });
 
+/*Get myAdminSpace page */
+router.get('/myAdminSpace', function(req, res, next) {
+    res.render('pims_space/myAdminSpace', { title: 'My PIMS Space' });
+});
+
+/*Get mySpace page */
+router.get('/mySpace', function(req, res, next) {
+    res.render('pims_space/mySpace', { title: 'My PIMS Space' });
+});
 
 /* GET home page. */
 router.get('/home', function(req, res, next) {
@@ -46,7 +55,7 @@ router.post('/login', function(req, res, next) {
                 }
                 else
                 {
-                    res.redirect('viewForms');
+                    res.redirect('/mySpace');
                 }
 
             });
