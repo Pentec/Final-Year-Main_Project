@@ -5,11 +5,19 @@ img.imglinks:hover {
     transform: rotate(20deg);
 	transition: transform 1000ms ease;
 }
-nav.largernav{
-	height: 100px;
-	background-color: #0056A3;
+
+.spaceHeader{
+	text-align: center;
+		margin-right: 0 auto;
+        margin-left: 0 auto
 }
-.spacelinks{
-	color: white;
+
+.headingPims{
+	color:#0056A3;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 800;
+	line-height: 72px;
+	margin: 0 0 24px;
 }
+
 
