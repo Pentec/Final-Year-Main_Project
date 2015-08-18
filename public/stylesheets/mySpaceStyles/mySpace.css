@@ -1,0 +1,15 @@
+img.imglinks:hover {
+    /* Rotate div */
+    -ms-transform: rotate(7deg); /* IE 9 */
+    -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+    transform: rotate(20deg);
+	transition: transform 1000ms ease;
+}
+nav.largernav{
+	height: 100px;
+	background-color: #0056A3;
+}
+.spacelinks{
+	color: white;
+}
+

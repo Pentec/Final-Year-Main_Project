@@ -1,17 +1,13 @@
 extends ../layout
 block content
-    nav.navbar.navbar-inverse
+    nav.navbar.largernav
         .container-fluid
             .navbar-header
-            span.icon-bar
-                    span.icon-bar
-                    span.icon-bar
-                a.navbar-brand(href='/') Pentec PIMS
-                ul.nav.navbar-nav
-                    li
-                        a(href='#') My PIMS Space
-                ul.nav.navbar-nav.navbar-right
-                    li
-                        a(href='#')
-                            span.glyphicon.glyphicon-log-out
-                            |  Logout
+                a.nav.navbar-brand(href='/')
+                    img(src='images/newlogo.png', width="150px")
+            ul.nav.navbar-nav.navbar-right
+                li
+                    a.spacelinks(href='#') My PIMS Space
+                    a.spacelinks(href='#')
+                        span.glyphicon.glyphicon-log-out
+                        |  Logout
