@@ -1,16 +1,20 @@
 extends ../layout
 block content
-    nav.navbar.navbar-inverse
+    nav.navbar.navbar-default
         .container-fluid
             .navbar-header
-            span.icon-bar
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
                     span.icon-bar
                     span.icon-bar
-                a.navbar-brand(href='/') Pentec PIMS
-                ul.nav.navbar-nav
-                    li
-                        a(href='#') My PIMS Space
+                    span.icon-bar
+                a.nav.navbar-brand(href='/')
+                    img(src='images/newlogo.png', width="105px").img-rounded
+            #myNavbar.collapse.navbar-collapse
                 ul.nav.navbar-nav.navbar-right
+                    li
+                        a(href='#')
+                            span.glyphicon.glyphicon-user
+                            |  My PIMS Space
                     li
                         a(href='#')
                             span.glyphicon.glyphicon-log-out
