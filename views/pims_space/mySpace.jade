@@ -1,2 +1,18 @@
 extends navBar
-div.container
+block append content
+    div.container
+        h2 MY GADGETS
+        | Select a gadget from below:
+        p
+        table.table.table-condensed
+            thead
+                tr
+                    th
+                        a(href='#')
+                            img.imglinks(src='images/mySpaceIcons/activities.png', title='My Activities')
+                    th
+                        a(href='#')
+                            img.imglinks(src='images/mySpaceIcons/Forms.png', title='Forms')
+                    th
+                        a(href='#')
+                            img.imglinks(src='images/mySpaceIcons/tutorial.png', title='Tutorial')
