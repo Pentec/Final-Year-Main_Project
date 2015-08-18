@@ -9,3 +9,7 @@ Team membes:
 * Lindelo Mapumulo 12002862
 
 ---
+
+
+#Testing
+npm test
