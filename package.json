@@ -22,7 +22,8 @@
     "serve-favicon": "~2.2.1",
     "unit.js": "^2.0.0",
     "pims-database": "file:lib/pims-database",
-    "pims-login": "file:lib/pims-login"
+    "pims-login": "file:lib/pims-login",
+    "pims-notification" : "file:lib/pims-notification"
   },
   "optionalDependencies": {
     "pims-settings": "file:lib/pims-settings",
