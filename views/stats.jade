@@ -5,10 +5,10 @@ block extFiles
     script(src='/javascripts/stats.js')
 block contentRight
     div.container.graphbox
-        div.graph
-block queryItems
-
- div.container-fluid
+        div.graph-wrapper
+            div.graph
+        div.graph-interaction
+    div.container-fluid
         p From    
         div.row.span8.offset2
             div.col-xs-2
@@ -22,7 +22,7 @@ block queryItems
                     script.
                         $(function () {
                             $('#datetimepicker').datetimepicker();
-                        });div.row.span8.offset2    
+                        });div.row.span8.offset2
             p To 
             div.col-xs-2
                 a.btn.btn-primary.btn-lg(href="/editProfile")
@@ -45,7 +45,7 @@ block queryItems
                     br
                     input.btn.btn-primary.btn-block(type="submit", value="Send Notification", id="sendNotify", tabindex="5")
     script.
-        $("#datetimepicker").on("dp.change",function (e) {
+        $("#datetimepicker").on("dp.change", function (e) {
             $('#message').val($("#fillDate").val());
         });
 
