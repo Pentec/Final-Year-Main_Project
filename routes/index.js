@@ -1,13 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var models = require('pims-database');
-<<<<<<< HEAD
-=======
-
 var Form = models.forms;
 var User = models.users;
 var GS = models.gynaecologySurgery;
->>>>>>> 7144adec0c860608de7f7af33f817694d5702fd5
+
 var login = require('pims-login');
 var notification = require('pims-notification');
 
