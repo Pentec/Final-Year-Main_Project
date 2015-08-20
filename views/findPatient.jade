@@ -1,63 +1,31 @@
 //
    Created by Ruth on 2015-07-16.
 extends layout
-
-script.
-    var checkform = function(){
-        var sendTo = !{JSON.stringify(pageErrors)};
-        if (sendTo) {
-            console.log("Error");
-            $("#errordiv").text(sendTo).show();
-            return false;
-        }
-        window.location.replace("/sendNotification");
-        return true;
-        //e.preventDefault();
-    }
-    $("#searchPatient").on("submit",function (e) {
-        e.preventDefault();
-        var sendTo = !{JSON.stringify(send)};
-        if (!sendTo) {
-            console.log("Error");
-            //$("#errordiv").text(sendTo).show();
-        }
-
-    });
-
-
-
-
-
 block content
+<<<<<<< HEAD
+    div.jumbotron.center-block.banner
+        img#kalaLogo(src='images/KPTH_Logo.png', width="30%").img-responsive.center-block
+=======
     div.top(id="banner")
         img#kalaLogo(src='images/KPTH_Logo.png').img-responsive.center-block
         h1#logoHeading Kalafong PIMS
+>>>>>>> 7144adec0c860608de7f7af33f817694d5702fd5
     //2= "Please enter the id of the patient that you wish to search for"
-    br
-    br
-    div.container-fluid
-        div.row
-            div.col-xs-6
-                form.form-group.col-xs-6.form-centered(name="searchPatient", id="searchPatient", method="post", action="/sendNotification")
-                    label(for="searchP") Enter the ID of the patient:
-                    input.form-control.patientinput(type="text", id="patientid", name="patientid", value="", placeholder="Patient ID / NAME", required)
-                    br
-                    input.btn.btn-primary.btn-block(type="submit", value="Search", tabindex="5")
-
-            div.col-xs-6.col-xs-offset-3#errordiv
-                if (!send)
-                    .alert.alert-danger
-                        p= message
+    section#findPatient
+        div.container-fluid
+            div.row
+                div.col-xs-4.col-xs-offset-4#errordiv
+                    if (!send)
+                        .alert.alert-danger
+                            p= message
+                div.col-xs-12
+                    div.form-wrap.panel
+                        form(name="searchPatient", id="searchPatient", method="post", action="/sendNotification")
+                            div.form-group.form-centered
+                                label#instruct(for="searchP") Enter the ID of the patient:
+                                input.form-control.patientinput(type="text", id="patientid", name="patientid", value="", placeholder="Patient ID / NAME", required)
+                            div.form-group.form-centered
+                                input.btn.btn-primary.btn-block(type="submit", value="Search", tabindex="5")
 
                  //#{pageErrors}
                 //send email here
-                //input.btn.btn-info.btn-block(type="submit", value="Search", tabindex="5")
-
-
-
-
-
-
-
-            //, action="/sendNotification"
-

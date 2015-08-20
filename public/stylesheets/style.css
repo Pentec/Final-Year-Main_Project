@@ -162,3 +162,37 @@ label {
     text-align: center;
     font-weight: bold;
 }
+
+
+
+#findPatient {
+    padding-top: 60px;
+}
+#findPatient .form-wrap {
+    width: 30%;
+    margin: 0 auto;
+}
+#findPatient .form-group {
+    margin-bottom: 25px;
+}
+
+#findPatient .btn.btn-custom {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+#findPatient .forget {
+    font-size: 14px;
+    text-align: center;
+    display: block;
+}
+#instruct{
+
+    color: #004B8F;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 15px;
+    padding-top: 0px;
+    margin: 0px;
+
+}

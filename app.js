@@ -1,10 +1,13 @@
 var express = require('express');
+var router = express.Router();
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressValidator =require('express-validator');
+var session = require('express-session');
+//var passport = require('passport');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -26,8 +29,23 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 app.use(cookieParser());
+
+app.use(session({
+    cookieName: 'session',
+    secret: 'ssshhhhh',
+    proxy: true,
+    resave: true,
+    saveUninitialized: true,
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 100
+}));
+//app.use(passport.initialize());
+//app.use(passport.session());
+
 app.use(express.static(path.join(__dirname, 'html'))); //for html forms
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 app.use('/', routes);
 app.use('/users', users);
@@ -38,6 +56,7 @@ app.use('/profile', routes);
 app.use('/gynaecology_surgery', gynaecology_surgery);
 app.use('/addmission_discharge', addmission_discharge);
 app.use('/cervical_cancer', cervical_cancer);
+
 
 //This code below, until the next comment, serves for static html forms.
 var html_dir = './html/';
