@@ -1,13 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('pims-database');
-<<<<<<< HEAD
-var Form = models.forms;
-var User = models.users;
-var GS = models.gynaecologySurgery;
 
-=======
->>>>>>> 48f20ecbd11fa145af37bc68882bd71a3155d292
 var login = require('pims-login');
 var notification = require('pims-notification');
 
@@ -109,17 +103,17 @@ router.post('/login', function(req, res, next) {
                 {
                     if(isAdmin)
                     {
-                        res.redirect('editProfile');
+                        res.redirect('/editProfile');
                     }
                     else
                     {
-                        res.redirect('mySpace');
+                        res.redirect('/mySpace');
                         //res.send(403);
                     }
                 }
                 else
                 {
-                    res.redirect('login');
+                    res.redirect('/login');
                 }
 
 
@@ -175,7 +169,7 @@ router.get('/logout',function(req,res){
         }
         else
         {
-            res.redirect('/');
+            res.redirect('/splash');
         }
     });
 
@@ -338,7 +332,20 @@ router.get('/stats', function(req, res, next) {
 
     if(sess.username)
     {
-        res.render('stats', { title: 'viewStats' });
+        var EmergencyCount;
+        var ElectiveCount;
+        //Check the stats for Emergency
+        GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
+            console.log("There are " + EmergencyCount + " Emergency records.");
+
+            //Check the stats for Elective
+
+            GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
+                console.log("There are " + ElectiveCount + " Elective records.");
+
+                res.render('stats',{title : 'Edit Your Profile', elective : ElectiveCount, emergency : EmergencyCount });
+            });
+        });
     }
     else
     {
@@ -346,24 +353,7 @@ router.get('/stats', function(req, res, next) {
     }
 
 });
-var EmergencyCount;
-var ElectiveCount;
-	//Check the stats for Emergency
-<<<<<<< HEAD
-=======
 
->>>>>>> 48f20ecbd11fa145af37bc68882bd71a3155d292
-	 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
-          console.log("There are " + EmergencyCount + " Emergency records.");
- 
-	//Check the stats for Elective
-	
-	 GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
-          console.log("There are " + ElectiveCount + " Elective records.");
-        
-     res.render('stats',{title : 'Edit Your Profile', elective : ElectiveCount, emergency : EmergencyCount });
-	  });
-	});
 /******************************* STATS NAV**********************************************/
 router.get('/pro', function(req, res, next) {
 
