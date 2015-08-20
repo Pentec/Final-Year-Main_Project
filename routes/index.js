@@ -338,7 +338,6 @@ router.post('/formsave', function(req, res) {
 
 /*View Stats */
 router.get('/stats', function(req, res, next) {
-<<<<<<< HEAD
     sess=req.session;
 
     if(sess.username)
@@ -351,12 +350,9 @@ router.get('/stats', function(req, res, next) {
     }
 
 });
-=======
 var EmergencyCount;
 var ElectiveCount;
 	//Check the stats for Emergency
->>>>>>> 7144adec0c860608de7f7af33f817694d5702fd5
-
 	 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
           console.log("There are " + EmergencyCount + " Emergency records.");
  
