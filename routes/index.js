@@ -1,20 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var models = require('pims-database');
-<<<<<<< HEAD
-=======
-
-var Form = models.forms;
-var User = models.users;
-var GS = models.gynaecologySurgery;
->>>>>>> 7144adec0c860608de7f7af33f817694d5702fd5
 var login = require('pims-login');
 var notification = require('pims-notification');
 
 var userModel = require('../models/userModel.js');
 var User = userModel.user;
 var Form = models.forms;
-
+var GS = models.gynaecologySurgery;
 
 
 function isLoggedIn(req, res, next) {
@@ -113,17 +106,13 @@ router.post('/login', function(req, res, next) {
                     }
                     else
                     {
-                        res.redirect('viewForms');
+                        res.redirect('mySpace');
                         //res.send(403);
                     }
                 }
                 else
                 {
-<<<<<<< HEAD
                     res.redirect('login');
-=======
-                    res.redirect('/mySpace');
->>>>>>> 7144adec0c860608de7f7af33f817694d5702fd5
                 }
 
 
@@ -278,7 +267,6 @@ router.post('/create', function(req, res) {
 });
 
 /* GET form builder page page. */
-<<<<<<< HEAD
 router.get('/viewForms', function(req, res, next) {
 
     sess=req.session;
@@ -296,8 +284,6 @@ router.get('/viewForms', function(req, res, next) {
 });
 
 /* GET form builder page page. */
-=======
->>>>>>> 7144adec0c860608de7f7af33f817694d5702fd5
 router.get('/form', function(req, res, next) {
 
     sess=req.session;
@@ -341,7 +327,6 @@ router.post('/formsave', function(req, res) {
 
 /*View Stats */
 router.get('/stats', function(req, res, next) {
-<<<<<<< HEAD
     sess=req.session;
 
     if(sess.username)
@@ -354,11 +339,9 @@ router.get('/stats', function(req, res, next) {
     }
 
 });
-=======
 var EmergencyCount;
 var ElectiveCount;
 	//Check the stats for Emergency
->>>>>>> 7144adec0c860608de7f7af33f817694d5702fd5
 
 	 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
           console.log("There are " + EmergencyCount + " Emergency records.");
@@ -371,7 +354,6 @@ var ElectiveCount;
      res.render('stats',{title : 'Edit Your Profile', elective : ElectiveCount, emergency : EmergencyCount });
 	  });
 	});
-});
 /******************************* STATS NAV**********************************************/
 router.get('/pro', function(req, res, next) {
 
