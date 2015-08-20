@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 var expressValidator =require('express-validator');
 var session = require('express-session');
 //var passport = require('passport');
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var gynaecology_surgery = require('./routes/forms/gynaecology_surgery');
