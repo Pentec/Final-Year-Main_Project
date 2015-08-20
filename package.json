@@ -29,9 +29,13 @@
     "passport-oauth1": "^1.0.1",
     "pims-database": "file:lib/pims-database",
     "pims-login": "file:lib/pims-login",
+<<<<<<< HEAD
     "pims-notification": "file:lib/pims-notification",
     "serve-favicon": "~2.2.1",
     "unit.js": "^2.0.0"
+=======
+    "pims-notification" : "file:lib/pims-notification"
+>>>>>>> 7144adec0c860608de7f7af33f817694d5702fd5
   },
   "optionalDependencies": {
     "connect-flash": "^0.1.1",

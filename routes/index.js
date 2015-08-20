@@ -1,6 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var models = require('pims-database');
+<<<<<<< HEAD
+=======
+
+var Form = models.forms;
+var User = models.users;
+var GS = models.gynaecologySurgery;
+>>>>>>> 7144adec0c860608de7f7af33f817694d5702fd5
 var login = require('pims-login');
 var notification = require('pims-notification');
 
@@ -32,6 +39,15 @@ router.get('/', function(req, res, next){
     res.render('countdown', { title: 'Kalafong Pims: Coming Soon!'})
 });
 
+/*Get myAdminSpace page */
+router.get('/myAdminSpace', function(req, res, next) {
+    res.render('pims_space/myAdminSpace', { title: 'My PIMS Space' });
+});
+
+/*Get mySpace page */
+router.get('/mySpace', function(req, res, next) {
+    res.render('pims_space/mySpace', { title: 'My PIMS Space' });
+});
 
 /* GET home page. */
 var sess;
@@ -103,7 +119,11 @@ router.post('/login', function(req, res, next) {
                 }
                 else
                 {
+<<<<<<< HEAD
                     res.redirect('login');
+=======
+                    res.redirect('/mySpace');
+>>>>>>> 7144adec0c860608de7f7af33f817694d5702fd5
                 }
 
 
@@ -258,6 +278,7 @@ router.post('/create', function(req, res) {
 });
 
 /* GET form builder page page. */
+<<<<<<< HEAD
 router.get('/viewForms', function(req, res, next) {
 
     sess=req.session;
@@ -275,6 +296,8 @@ router.get('/viewForms', function(req, res, next) {
 });
 
 /* GET form builder page page. */
+=======
+>>>>>>> 7144adec0c860608de7f7af33f817694d5702fd5
 router.get('/form', function(req, res, next) {
 
     sess=req.session;
@@ -315,8 +338,10 @@ router.post('/formsave', function(req, res) {
 
 });
 
+
 /*View Stats */
 router.get('/stats', function(req, res, next) {
+<<<<<<< HEAD
     sess=req.session;
 
     if(sess.username)
@@ -329,7 +354,24 @@ router.get('/stats', function(req, res, next) {
     }
 
 });
+=======
+var EmergencyCount;
+var ElectiveCount;
+	//Check the stats for Emergency
+>>>>>>> 7144adec0c860608de7f7af33f817694d5702fd5
 
+	 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
+          console.log("There are " + EmergencyCount + " Emergency records.");
+ 
+	//Check the stats for Elective
+	
+	 GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
+          console.log("There are " + ElectiveCount + " Elective records.");
+        
+     res.render('stats',{title : 'Edit Your Profile', elective : ElectiveCount, emergency : EmergencyCount });
+	  });
+	});
+});
 /******************************* STATS NAV**********************************************/
 router.get('/pro', function(req, res, next) {
 

@@ -1,16 +1,20 @@
-extends layout
-block content
-    div#sidebar
-        div#sidebar-nav
-            div.sidebar-avatar
-                img(src='images/Logo-noText.png' width="60px").img-circle.img-responsive.center-block
-            div.sidebar-links
-                ul.nav.nav-stacked.navTab
-                    li
-                        a(href="/addUser") Add User
-                    li
+extends navBar
+block append content
+    div.container
+        div.spaceHeader
+            h2.headingPims MY PIMS SPACE
+        br
+        br
+        table.table.table-condensed
+            thead
+                tr
+                    th
+                        a(href='#')
+                            img.imglinks(src='images/mySpaceIcons/activities.png', title='My Activities').col-xs-12.col-lg-6
+                    th
                         .dropdown
-                            a(href="#", data-toggle="dropdown").dropdown-toggle Forms
+                            a(href="#", data-toggle="dropdown").dropdown-toggle
+                                img.imglinks(src='images/mySpaceIcons/Forms.png', title='Forms').col-xs-12.col-lg-8
                             ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu')
                                 li
                                     a(href='/gynae_surgery.html', tabindex='-1') Gynaecology Surgery
@@ -33,18 +37,6 @@ block content
                                     a(href='#', tabindex='-1') Vulva Cancer
                         script.
                             $('.dropdown-toggle').dropdown()
-                    li
-                        a(href='/form') Form Builder
-                    li
-                        a(href='/findPatient') Send Notification
-                    li
-                        a(href='stats') Statistics
-                    li
-                        a(href='/logout') Logout
-            div.sidebar-settings
-                ul.nav.nav-stacked
-                    li
-                        a(class='settingsbutton', href='/editProfile')
-                            img(src= "images/settings.png" width="40px").img-responsive.center-block
-    div.content
-        block contentRight
+                    th
+                        a(href='#')
+                            img.imglinks(src='images/mySpaceIcons/tutorial.png', title='Tutorial').col-xs-12.col-lg-6

@@ -1,27 +1,52 @@
-extends layout
-block content
-    div#sidebar
-        div#sidebar-nav
-            div.sidebar-avatar
-                img(src='images/physician_avatar.png' width="100px").img-circle.img-responsive.center-block
-                p.sidebartext   General Statistics
-            div.sidebar-links
-                ul.nav.nav-stacked.navTab
-                    li
-                        a(href='/') Home
-                    li
-                        a(href='/pro') Procedures
-                    li
-                        a(href='/pat') Patients
-                    li
-                        a(href='/res') Resources
-                    li
-                        a(href='/doc') Doctors
-                    li
-                        a(href='/pred') Predictions
-            div.sidebar-settings
-                ul.nav.nav-stacked
-                    li
-                        img(src="images/settings.png" width="50px").img-responsive.center-block
-                    li v0.1
-    div.content
+extends index
+block extFiles
+    link(rel='stylesheet', href='/stylesheets/stats.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js')
+    script(src='/javascripts/stats.js')
+block contentRight
+    div.container.graphbox
+        div.graph-wrapper
+            div.graph
+        div.graph-interaction
+    div.container-fluid
+        p From    
+        div.row.span8.offset2
+            div.col-xs-2
+                a.btn.btn-primary.btn-lg(href="/editProfile")
+                    span.glyphicon.glyphicon-step-backward
+            div.col-xs-4#dateTimePicks
+                div.input-group.date(id='datetimepicker')
+                    input.form-control(type="text", id="fillDate")
+                    span.input-group-addon
+                        span.glyphicon.glyphicon-calendar
+                    script.
+                        $(function () {
+                            $('#datetimepicker').datetimepicker();
+                        });div.row.span8.offset2
+            p To 
+            div.col-xs-2
+                a.btn.btn-primary.btn-lg(href="/editProfile")
+                    span.glyphicon.glyphicon-step-backward
+            div.col-xs-4#dateTimePicks
+                div.input-group.date(id='datetimepicker')
+                    input.form-control(type="text", id="fillDate")
+                    span.input-group-addon
+                        span.glyphicon.glyphicon-calendar
+                    script.
+                        $(function () {
+                            $('#datetimepicker').datetimepicker();
+                        });
+
+            div.col-xs-6
+                div.messaging
+                form.form-group.col-xs-6.form-centered(id="messagebox", name="messagebox", method="post")
+                    label(for="message") Message:
+                    textarea.form-control(rows="5", id="message", name="message", tabindex="5", placeholder="Write your message", required)
+                    br
+                    input.btn.btn-primary.btn-block(type="submit", value="Send Notification", id="sendNotify", tabindex="5")
+    script.
+        $("#datetimepicker").on("dp.change", function (e) {
+            $('#message').val($("#fillDate").val());
+        });
+
+        });

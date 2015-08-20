@@ -1,0 +1,55 @@
+.graphbox{
+    width:75%;
+    background-color: #EEEEEE;
+    margin-top: 100px;
+    border-radius: 5px;
+    border: 2px solid #dedede;
+    padding: 0;
+}
+
+.graph{
+    background-color: white;
+    border-radius: 5px 0px 0px 10px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.graph-wrapper{
+    width: 72%;
+    display: inline-block;
+    position: relative;
+    padding:0;
+}
+
+.graph-interaction{
+    width:30%;
+    height:20%;
+    background-color:pink;
+}
+
+.graph-wrapper:after{
+    padding: 40%;
+    display: block;
+    content: '';
+}
+
+.graph.svg{
+    width: 500px;
+    height: 300px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}

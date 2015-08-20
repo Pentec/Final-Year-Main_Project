@@ -215,7 +215,6 @@ a:hover {
   clear: both;
 }
 
-
 [class*="span"] {
   float: left;
   min-height: 1px;
@@ -552,11 +551,6 @@ a:hover {
 }
 
 .container {
-
-  border: 2px solid;
-  border-radius: 10px;
-  overflow: auto;
-  max-height: 550px;
   margin-right: auto;
   margin-left: auto;
   *zoom: 1;
