@@ -50,7 +50,6 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/formsave', routes);
 app.use('/sendEmail', routes);
-app.use('/findSelectedQuery', routes);
 app.use('/create', routes);
 app.use('/profile', routes);
 app.use('/gynaecology_surgery', gynaecology_surgery);

@@ -2,19 +2,34 @@ var express = require('express');
 var router = express.Router();
 var models = require('pims-database');
 
-var Form = models.forms;
-var User = models.users;
-var GS = models.gynaecologySurgery;
 var login = require('pims-login');
 var notification = require('pims-notification');
+
+var userModel = require('../models/userModel.js');
+var User = userModel.user;
+var Form = models.forms;
+var GS = models.gynaecologySurgery;
+
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+
+    res.redirect('/');
+};
 
 
 /* GET splash page. */
 router.get('/splash', function(req, res, next) {
+    sess=req.session;
   res.render('splash', { title: 'Kalafong PIMS' });
 });
 
 router.get('/', function(req, res, next){
+    sess=req.session;
+
+    sess.username;
+    sess.password;
     res.render('countdown', { title: 'Kalafong Pims: Coming Soon!'})
 });
 
@@ -29,257 +44,512 @@ router.get('/mySpace', function(req, res, next) {
 });
 
 /* GET home page. */
+var sess;
 router.get('/home', function(req, res, next) {
+    sess = req.session;
     res.render('index', { title: 'Kalafong PIMS' });
 });
 
 
-/* GET login page */
+
+/* GET login page  , userAuthentication.userAuthenticated,*/
 router.get('/login', function(req, res, next) {
-    res.render('login', { title: 'PIMS Login Page' });
+    var sendData = {found: "hello"};
+    res.render('login', {
+        title: 'PIMS Login Page',
+        message: '',
+        errors: {},
+        send: sendData
+    });
+    //res.render('login', { title: 'PIMS Login Page' });
+    sess = req.session;
+
 });
 
-/*POST login page.*/
+
+
+/*POST login page*/
 router.post('/login', function(req, res, next) {
-    var username = req.body.userid;
-    var password = req.body.pswd;
+    sess = req.session;
+    var username = req.body.username;
+    var password = req.body.password;
+    var sendData = "";
+
+    if(username == '' || password == '')
+    {
+        var pageErrors = "User name or password is empty.";
+
+        res.render('login', {
+            title: 'Kalafong PIMS',
+            message: pageErrors,
+            errors: {},
+            send: sendData
+
+        });
+        return;
+    }
+
 
     login.authenticate(username, password, function(found) {
         if(found)
         {
+            sess.username = req.body.username;
+            sess.password = req.body.password;
+
             login.checkAdmin(username, password, function(isAdmin)
             {
-                if(isAdmin)
+                console.log("after admin");
+                if(sess.username && sess.password)
                 {
-                    res.redirect('editProfile');
+                    if(isAdmin)
+                    {
+                        res.redirect('/editProfile');
+                    }
+                    else
+                    {
+                        res.redirect('/mySpace');
+                        //res.send(403);
+                    }
                 }
                 else
                 {
-                    res.redirect('/mySpace');
+                    res.redirect('/login');
                 }
+
 
             });
 
         }
         else
         {
-            res.redirect('login');
+            //sess.reset();
+            //res.redirect('login');
+            req.session.destroy(function(err){
+                if(err){
+                    console.log(err);
+                }
+                else
+                {
+                    var pageErrors = "User name or password is incorrect.";
+                    sendData = "";
+
+                    res.render('login', {
+                        title: 'Kalafong PIMS',
+                        message: pageErrors,
+                        errors: {},
+                        send: sendData
+
+                    });
+                    return;
+                }
+            });
+
+            /*var pageErrors = "User name or password is incorrect.";
+            sendData = "";
+
+            res.render('login', {
+                title: 'Kalafong PIMS',
+                message: pageErrors,
+                errors: {},
+                send: sendData
+
+            });
+            return;*/
         }
     });
 
 });
 
 
+router.get('/logout',function(req,res){
+
+    req.session.destroy(function(err){
+        if(err){
+            console.log(err);
+        }
+        else
+        {
+            res.redirect('/splash');
+        }
+    });
+
+    /*req.logout();
+    res.redirect('/');*/
+});
+
 /* Add New User page */
 router.get('/addUser', function(req, res, next) {
-    res.render('addUser', { title: 'Kalafong PIMS - Add New User' });
+    sess=req.session;
+
+    if(sess.username)
+    {
+        res.render('addUser', { title: 'Kalafong PIMS - Add New User' });
+    }
+    else{
+        res.redirect('/login');
+    }
+
 });
 
 /* Settings page */
 router.get('/editProfile', function(req, res, next) {
-    User.find({username:"Leon"},function(err, users){
-        res.render(
-            'editProfile',
-            {title : 'Edit Your Profile', user : users[0]}
-        );
-    });
+    sess=req.session;
+
+    if(sess.username)
+    {
+        User.find({username:"Leon"},function(err, users){
+            res.render(
+                'editProfile',
+                {title : 'Edit Your Profile', user : users[0]}
+            );
+        });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+
+
 
 });
 
 /* Add New User to database from add user page */
 router.post('/updateProfile', function(req, res) {
 
-    User.findOne({username: req.body.username}, function(err, contact) {
-        if(!err) {
-            contact.username = req.body.username;
-            contact.email = req.body.email;
-            contact.surname = req.body.surname;
-            contact.department = req.body.department;
-            if(req.body.password == req.body.confirmpassword && req.body.password != "")
-            {
-                contact.password = req.body.confirmpassword;
+    sess=req.session;
+
+    if(sess.username)
+    {
+        User.findOne({username: req.body.username}, function(err, contact) {
+            if(!err) {
+                contact.username = req.body.username;
+                contact.email = req.body.email;
+                contact.surname = req.body.surname;
+                contact.department = req.body.department;
+                if(req.body.password == req.body.confirmpassword && req.body.password != "")
+                {
+                    contact.password = req.body.confirmpassword;
+                }
+                contact.save(function(err) {
+                    res.redirect('editProfile');
+
+                });
             }
-            contact.save(function(err) {
-                res.redirect('editProfile');
-               
-            });
-        }
-    });
+        });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+
 
 });
 
 
 /* Add New User to database from add user page */
 router.post('/create', function(req, res) {
-    new User({username : req.body.username,surname : req.body.surname,email : req.body.email,user_rights : req.body.user_rights,password : req.body.password,department : req.body.department,staff_type : req.body.staff_type })
-        .save(function(err, users) {
-            console.log("New user added");
-            res.redirect('addUser');
-        });
+
+    sess=req.session;
+
+    if(sess.username)
+    {
+        new User({username : req.body.username,surname : req.body.surname,email : req.body.email,user_rights : req.body.user_rights,password : req.body.password,department : req.body.department,staff_type : req.body.staff_type })
+            .save(function(err, users) {
+                console.log("New user added");
+                res.redirect('addUser');
+            });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+
+
+});
+
+/* GET form builder page page. */
+router.get('/viewForms', function(req, res, next) {
+
+    sess=req.session;
+
+    if(sess.username)
+    {
+        res.render('viewForms', { title: 'Select Forms' });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+
+ 
 });
 
 /* GET form builder page page. */
 router.get('/form', function(req, res, next) {
-    res.render('formBuild', { title: 'Form Builder' });
+
+    sess=req.session;
+
+    if(sess.username)
+    {
+        res.render('formBuild', { title: 'Form Builder' });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
 
 });
 
 /* Save the form obj into the database. */
 router.post('/formsave', function(req, res) {
-    var object = JSON.stringify(req.body);
-    console.log(object);
 
-    new Form({form_name : "new form",data : object ,is_deleted : false})
-        .save(function(err, forms) {
-            console.log("New form added");
-            res.redirect('formBuild');
+    sess=req.session;
 
-        });
+    if(sess.username)
+    {
+        var object = JSON.stringify(req.body);
+        console.log(object);
+
+        new Form({form_name : "new form",data : object ,is_deleted : false})
+            .save(function(err, forms) {
+                console.log("New form added");
+                res.redirect('formBuild');
+
+            });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+
 
 });
 
 
 /*View Stats */
 router.get('/stats', function(req, res, next) {
-var EmergencyCount;
-var ElectiveCount;
-	//Check the stats for Emergency
+    sess=req.session;
 
-	 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
-          //console.log("There are " + EmergencyCount + " Emergency records.");
- 
-	//Check the stats for Elective
-	
-	 GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
-         // console.log("There are " + ElectiveCount + " Elective records.");
-        
-     res.render('stats',{title : 'Edit Your Profile'});
-	  });
-	});
+    if(sess.username)
+    {
+        var EmergencyCount;
+        var ElectiveCount;
+        //Check the stats for Emergency
+        GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
+            console.log("There are " + EmergencyCount + " Emergency records.");
+
+            //Check the stats for Elective
+
+            GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
+                console.log("There are " + ElectiveCount + " Elective records.");
+
+                res.render('stats',{title : 'Edit Your Profile', elective : ElectiveCount, emergency : EmergencyCount });
+            });
+        });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+
 });
 
-router.post('/findSelectedQuery', function(req, res, next) {
-	
-	
-    var startDate =JSON.stringify(req.body.forQuering.start);
-    var endDate =JSON.stringify(req.body.forQuering.end);
-	var period = JSON.stringify(req.body.forQuering.periodQuery);
-	var stats =  JSON.stringify(req.body.forQuering.statsQuery);
-	var EmergencyCount;
-    var ElectiveCount;
-	check(period, stats, startDate, endDate);
-	function check(period, stats, startDate, endDate)
-	{
-		if( stats = "Number of emergency operations over a period")
-		{
-			
-			
-		 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
-			  console.log("There are " + EmergencyCount + " Emergency records.");
-		  });
-			
-		}
-		
-		if( stats = "Number of elective operations over a period")
-		{
-			
-		  GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
-           console.log("There are " + ElectiveCount + " Elective records.");
-		  });
-			
-		}
-	
-	}
-	
-      res.redirect('stats');
-	
-});
 /******************************* STATS NAV**********************************************/
 router.get('/pro', function(req, res, next) {
-    res.render('pro', { title: 'viewProcedure' });
+
+    sess=req.session;
+
+    if(sess.username)
+    {
+        res.render('pro', { title: 'viewProcedure' });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
 });
 
 /*View patient stats */
 router.get('/pat', function(req, res, next) {
-    res.render('pat', { title: 'viewPatient' });
+
+    sess=req.session;
+
+    if(sess.username)
+    {
+        res.render('pat', { title: 'viewPatient' });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+
 });
 
 /*View patient stats */
 router.get('/res', function(req, res, next) {
-    res.render('res', { title: 'viewResources' });
+
+    sess=req.session;
+
+    if(sess.username)
+    {
+        res.render('res', { title: 'viewResources' });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
 });
 
 /*View patient stats */
 router.get('/doc', function(req, res, next) {
-    res.render('doc', { title: 'viewDoctor' });
+
+    sess=req.session;
+
+    if(sess.username)
+    {
+        res.render('doc', { title: 'viewDoctor' });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
 });
 
 /*View patient stats */
 router.get('/pred', function(req, res, next) {
-    res.render('pred', { title: 'Predictions' });
+
+    sess=req.session;
+
+    if(sess.username)
+    {
+        res.render('pred', { title: 'Predictions' });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
 });
 
 /*View patient stats */
 router.get('/forms', function(req, res, next) {
-    res.render('forms', { title: 'FormSelect' });
+
+    sess=req.session;
+
+    if(sess.username)
+    {
+        res.render('forms', { title: 'FormSelect' });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
 });
 
 /*//*///////////FORM*/////////////////////*/
 router.get('/forms', function(req, res, next) {
-    res.render('forms', { title: 'FormSelect' });
+
+    sess=req.session;
+
+    if(sess.username)
+    {
+        res.render('forms', { title: 'FormSelect' });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+
 });
 
 
-/* GET patient page */
+
+
+/* GET patient page*/
 router.get('/findPatient', function(req, res, next) {
-    var sendEmail = {found: "hello"};
-    res.render('findPatient', {
-        title: 'PIMS Notification Page',
-        message: '',
-        errors: {},
-        send: sendEmail
-    });
+
+    sess=req.session;
+
+    if(sess.username)
+    {
+        var sendEmail = {found: "hello"};
+        res.render('findPatient', {
+            title: 'PIMS Notification Page',
+            message: '',
+            errors: {},
+            send: sendEmail
+        });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+
 });
+
 
 /*POST patient page.*/
-router.post('/sendNotification', function(req, res, next) {
-    var patientid = req.body.patientid;
+router.post('/findPatient/sendNotification', function(req, res, next) {
 
-    notification.findPatient(patientid, function(found) {
-        if(found != "")
-        {
-            var sendEmail = {found: found, patient: patientid};
-            res.render('sendNotification', {
-                title: 'PIMS Notification Page',
-                message: '',
-                errors: {},
-                send: sendEmail
-            });
-        }
-        else
-        {
-            var pageErrors = "Sorry, an email address does not exist for the patient.\n Please enter in a different patient ID";
-            var sendEmail = "";
+    sess=req.session;
 
-            res.render('findPatient', {
-                title: 'PIMS Notification Page',
-                message: pageErrors,
-                errors: {},
-                send: sendEmail
+    if(sess.username)
+    {
+        var patientid = req.body.patientid;
 
-            });
-        }
-    });
+        notification.findPatient(patientid, function(found) {
+            if(found != "")
+            {
+                var sendEmail = {found: found, patient: patientid};
+                res.render('sendNotification', {
+                    title: 'PIMS Notification Page',
+                    message: '',
+                    errors: {},
+                    send: sendEmail
+                });
+            }
+            else
+            {
+                var pageErrors = "Sorry, an email address does not exist for the patient.\n Please enter in a different patient ID";
+                var sendEmail = "";
+
+                res.render('findPatient', {
+                    title: 'PIMS Notification Page',
+                    message: pageErrors,
+                    errors: {},
+                    send: sendEmail
+
+                });
+            }
+        });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+
 
 });
 
-router.post('/sendEmail', function(req, res, next) {
-    console.log('sendEmail');
-    var recipientAdr =JSON.stringify(req.body.forMailing.recipient);
-    var emailMsg =JSON.stringify(req.body.forMailing.message);
-    var patientid =JSON.stringify(req.body.forMailing.name);
-    notification.sendEmail(recipientAdr, emailMsg, patientid);
+router.post('/findPatient/sendEmail', function(req, res, next) {
+
+    sess=req.session;
+
+    if(sess.username)
+    {
+        console.log('sendEmail');
+        var recipientAdr =JSON.stringify(req.body.forMailing.recipient);
+        var emailMsg =JSON.stringify(req.body.forMailing.message);
+        var patientid =JSON.stringify(req.body.forMailing.name);
+        notification.sendEmail(recipientAdr, emailMsg, patientid);
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+
 });
+
+
 
 
 module.exports = router;
