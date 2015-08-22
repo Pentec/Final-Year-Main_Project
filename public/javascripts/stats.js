@@ -4,7 +4,7 @@
 /**
  * Function that creates the graph on page load;
  */
-var ratio = 0.5
+var ratio = 0.57
 
 $(function () {
     $(".graphbox").height( $(".graphbox").width() * ratio);

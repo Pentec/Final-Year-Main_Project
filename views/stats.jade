@@ -15,7 +15,7 @@ block contentRight
         .graph-interaction
             .graph-interaction-header
                 h2 Queries
-            .query-form
+            .stats-section
                 #datepicker.input-daterange.input-group.date.center-block
                     form(name="queryForm", autocomplete="off", method="post")#mainQuery
                         div.form-group.text-center
@@ -27,6 +27,7 @@ block contentRight
                                 option(value='numElec', selected=numElec) Elective Operations
                         div.form-group.text-center
                             select(name='TypeOfSearch')
+                                option(value='none',   selected=none) None
                                 option(value='week',   selected=week) Weekly
                                 option(value='month', selected=month) Monthly
                                 option(value='year', selected=year) Yearly
@@ -70,5 +71,14 @@ block contentRight
                             });
                         });
 
-            .graph-interaction-header.graph-interaction-stats
+            .graph-interaction-header
                 h2 Statistics
+            .overall-stats.stats-section
+                p
+                    b Overall Average:
+                    em.pull-right 28.5
+                p
+                    b Current Interval Average:
+                    em.pull-right 24.5
+            .graph-interaction-header
+                h2 Options
