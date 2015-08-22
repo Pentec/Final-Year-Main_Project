@@ -3,15 +3,20 @@ block extFiles
     link(rel='stylesheet', href='/stylesheets/stats.css')
     link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css')
     link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"')
+    link(rel='stylesheet', href='/stylesheets/fancySelectors/cs-select.css')
+    link(rel='stylesheet', href='/stylesheets/fancySelectors/cs-skin-elastic.css')
     script(src='https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"')
     script(src='https://cdn.jsdelivr.net/jquery/1/jquery.min.js')
     script(src='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js')
     script(src='/javascripts/stats.js')
+    script(src='/javascripts/fancySelectors/classie.js')
+    script(src='/javascripts/fancySelectors/selectFx.js')
+
 block contentRight
     .container.graphbox
-        .graph-wrapper
-            .graph
+        .graph-wrapper.media-middle
+            .graph.media-object
         .graph-interaction
             .graph-interaction-header
                 h2 Queries
@@ -19,18 +24,22 @@ block contentRight
                 #datepicker.input-daterange.input-group.date.center-block
                     form(name="queryForm", autocomplete="off", method="post")#mainQuery
                         div.form-group.text-center
-                            select(id='TypeOfQuery')
-                                option(value='avgAge',   selected=avgAge) Average Age
-                                option(value='avgNum', selected=avgNum) Average Stay
-                                option(value='numAd', selected=numAd) Average Number Of Admissions
-                                option(value='numEmerg',   selected=numEmerg) Emergency Operations
-                                option(value='numElec', selected=numElec) Elective Operations
+                            select(name='TypeOfQuery').cs-select.cs-skin-elastic
+                                option(value='', disabled='', selected='') Select Statistics Data
+                                option(value='avgAge',   data-class='age', selected=avgAge) Average Age
+                                option(value='avgNum', data-class='stay', selected=avgNum) Average Hospital Stay
+                                option(value='numAd', data-class='admissions', selected=numAd) Average Number Of Admissions
+                                option(value='numEmerg', data-class='emergency',  selected=numEmerg) Emergency Operations
+                                option(value='numElec', data-class='elective', selected=numElec) Elective Operations
                         div.form-group.text-center
-                            select(id='TypeOfSearch')
-                                option(value='none',   selected=none) None
-                                option(value='week',   selected=week) Weekly
-                                option(value='month', selected=month) Monthly
-                                option(value='year', selected=year) Yearly
+                            section
+                                select(name='TypeOfSearch').cs-select.cs-skin-elastic
+                                    option(value='', disabled='', selected='') Select an Interval
+                                    option(value='none', data-class='nothing',  selected='none') None
+                                    option(value='none', data-class='day',  selected='day') Daily
+                                    option(value='week', data-class='week'  selected=week) Weekly
+                                    option(value='month', data-class='month' selected='monthly') Monthly
+                                    option(value='year', data-class='year' selected=year) Yearly
                         div.form-group.input-daterange.input-group
                             input#StartDate.input-sm.form-control(type='date', name='startDate', placeholder='Date 1')
                             span.input-group-addon
@@ -82,3 +91,9 @@ block contentRight
                     em.pull-right 24.5
             .graph-interaction-header
                 h2 Options
+            script.
+                (function() {
+                    [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
+                    new SelectFx(el);
+                } );
+                })();
