@@ -20,10 +20,12 @@ passport.deserializeUser(function(id, done){
 });
 
 
-passport.use('login', new LocalStrategy({
-    passReqToCallback : true
-},
-    function(req, username, password, done){
+passport.use(new LocalStrategy({
+        username: 'username',
+        password: 'password',
+        passReqToCallback: true
+    },
+    function(username, password, done){
         User.findOne({'username' : username},
         function(err, user){
             if(err)
@@ -31,12 +33,12 @@ passport.use('login', new LocalStrategy({
 
             if(!user){
                 console.log('User: ' + username + ' not found');
-                return done(null, false, req.flash('message', 'Invalid Username or Password'));
+                return done(null, false, {message: 'User doesnot exist'});
             }
 
             if(!passwordValid(user, password)){
                 console.log('pswd invalid');
-                return done(null, false, req.flash('message', 'Invalid Username or Password'));
+                return done(null, false, {message: 'Invalid Username or Password'});
             }
 
             return done(null, user);
@@ -57,11 +59,27 @@ var userAuthenticated = function userAuthenticated(req, res, next){
 };
 
 
-
+/**
+ *
+ * @param user
+ * @param password
+ */
 //will have to change it to add better pswd check function
 var passwordValid = function(user, password){
-    return true;
-}
+    User.findOne({'password' : user.password},
+        function(err, user){
+            if(err)
+                return err;
+
+            if(user){
+                return true;
+            }
+            else {
+                return false;
+            }
+        });
+
+};
 
 //module.exports.isAuthenticated = passport.authenticate('basic', {session: false});
 module.exports.userAuthenticated = userAuthenticated;
