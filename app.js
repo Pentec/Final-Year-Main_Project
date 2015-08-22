@@ -7,7 +7,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressValidator =require('express-validator');
 var session = require('express-session');
-//var passport = require('passport');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var gynaecology_surgery = require('./routes/forms/gynaecology_surgery');
@@ -38,8 +39,8 @@ app.use(session({
     duration: 30 * 60 * 1000,
     activeDuration: 5 * 60 * 100
 }));
-//app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, 'html'))); //for html forms
 app.use(express.static(path.join(__dirname, 'public')));
@@ -56,6 +57,12 @@ app.use('/gynaecology_surgery', gynaecology_surgery);
 app.use('/addmission_discharge', addmission_discharge);
 app.use('/cervical_cancer', cervical_cancer);
 
+
+// passport config
+var userModel = require('./models/userModel.js');
+passport.use(new LocalStrategy(userModel.authenticate()));
+passport.serializeUser(userModel.serializeUser());
+passport.deserializeUser(userModel.deserializeUser());
 
 //This code below, until the next comment, serves for static html forms.
 var html_dir = './html/';
@@ -103,6 +110,8 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+
 
 
 module.exports = app;

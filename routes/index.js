@@ -1,16 +1,94 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
+
+
+/**
+ * A variable in the global namespace called 'SECRET'.
+ * It captures the secret key for Google reCAPTCHA
+ * @type {string}
+ */
+var SECRET = "6Lc9mAsTAAAAAOyPr1IUrfH30n-YoT1m_f4u0KIf";
+
+
+/**
+ * @function verifyRecaptcha
+ * This function verifies the two keys pertaining to the Google reCAPTCHA add-on
+ * @param secretKey
+ * @param callback
+ */
+var verifyRecaptcha = function (secretKey, callback){
+    https.get("https://www.google.com/recaptcha/api/siteverify?secret=" + SECRET + "&response=" + secretKey, function(res){
+        var data = "";
+        res.on('data', function(text){
+            data += text.toString();
+        });
+
+        res.on('end', function(){
+            try {
+                var jsonData = JSON.parse(data);
+                callback(jsonData.success);
+            } catch(e) {
+                callback(false);
+
+            }
+        });
+    });
+};
+
+
+/**
+ * A variable in the global namespace called 'models'.
+ * It is for the PIMS login functionality
+ * @type {*|exports|module.exports}
+ */
 var models = require('pims-database');
 
+/**
+ * A variable in the global namespace called 'login'.
+ * It is for the PIMS login functionality
+ * @type {exports|module.exports}
+ */
 var login = require('pims-login');
-var notification = require('pims-notification');
 
+/**
+ * A variable in the global namespace called 'notification'.
+ * It is for the PIMS notification functionality
+ * @type {exports|module.exports}
+ */
+var notification = require('pims-notification');
+var https = require('https');
+
+/**
+ * A variable in the global namespace called 'userModel'.
+ * It is for the PIMS User schema and has all the details pertaining to users of the system.
+ * @type {exports|module.exports}
+ */
 var userModel = require('../models/userModel.js');
 var User = userModel.user;
 var Form = models.forms;
 var GS = models.gynaecologySurgery;
 
+/**
+ * A variable in the global namespace called 'sess'.
+ * It is used for all session related operations.
+ * @type {Session}
+ */
+var sess;
 
+
+
+/**
+ * @function isLoggedIn
+ * This helper function verifies if a user is logged in whilst accessing
+ * the url endpoints of the system. If a user is authenticated, they are
+ * allowed to proceed to the next page, otherwise they are requested
+ * to login and thus redirected to the login page.
+ * @param req
+ * @param res
+ * @param next
+ * @returns {next()}
+ */
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
@@ -33,18 +111,8 @@ router.get('/', function(req, res, next){
     res.render('countdown', { title: 'Kalafong Pims: Coming Soon!'})
 });
 
-/*Get myAdminSpace page */
-router.get('/myAdminSpace', function(req, res, next) {
-    res.render('pims_space/myAdminSpace', { title: 'My PIMS Space' });
-});
-
-/*Get mySpace page */
-router.get('/mySpace', function(req, res, next) {
-    res.render('pims_space/mySpace', { title: 'My PIMS Space' });
-});
 
 /* GET home page. */
-var sess;
 router.get('/home', function(req, res, next) {
     sess = req.session;
     res.render('index', { title: 'Kalafong PIMS' });
@@ -52,11 +120,42 @@ router.get('/home', function(req, res, next) {
 
 
 
+/*Get myAdminSpace page */
+router.get('/myAdminSpace', function(req, res, next) {
+
+    sess=req.session;
+
+    if(sess.username)
+    {
+        res.render('pims_space/myAdminSpace', { title: 'My PIMS Space' });
+    }
+    else{
+        res.redirect('/login');
+    }
+
+});
+
+/*Get mySpace page */
+router.get('/mySpace', function(req, res, next) {
+
+    sess=req.session;
+
+    if(sess.username)
+    {
+        res.render('pims_space/mySpace', { title: 'My PIMS Space' });
+    }
+    else{
+        res.redirect('/login');
+    }
+});
+
+
 /* GET login page  , userAuthentication.userAuthenticated,*/
 router.get('/login', function(req, res, next) {
     var sendData = {found: "hello"};
     res.render('login', {
         title: 'PIMS Login Page',
+        user: req.user,
         message: '',
         errors: {},
         send: sendData
@@ -68,9 +167,10 @@ router.get('/login', function(req, res, next) {
 
 
 
-/*POST login page*/
-router.post('/login', function(req, res, next) {
+/*POST login page    */
+router.post('/login', passport.authenticate('local'), function(req, res, next) {
     sess = req.session;
+
     var username = req.body.username;
     var password = req.body.password;
     var sendData = "";
@@ -90,7 +190,9 @@ router.post('/login', function(req, res, next) {
     }
 
 
-    login.authenticate(username, password, function(found) {
+
+
+    login.authenticateUser(username, password, function(found) {
         if(found)
         {
             sess.username = req.body.username;
@@ -103,10 +205,35 @@ router.post('/login', function(req, res, next) {
                 {
                     if(isAdmin)
                     {
+                        /*verifyRecaptcha(req.body['g-recaptcha-response'], function(success){
+                            if(success){
+                                res.end("Recaptchaed!!!");
+                                res.redirect('/editProfile');
+                            }
+                            else
+                            {
+                                res.end("Captcha failed sorry");
+                                res.redirect('/login');
+                            }
+                        });*/
+
                         res.redirect('/editProfile');
                     }
                     else
                     {
+                        /*verifyRecaptcha(req.body['g-recaptcha-response'], function(success){
+                            if(success){
+                                res.end("Recaptchaed!!!");
+                                res.redirect('/mySpace');
+                            }
+                            else
+                            {
+                                res.end("Captcha failed sorry");
+                                res.redirect('/login');
+                            }
+                        });*/
+
+
                         res.redirect('/mySpace');
                         //res.send(403);
                     }
@@ -157,6 +284,8 @@ router.post('/login', function(req, res, next) {
             return;*/
         }
     });
+
+
 
 });
 
@@ -471,12 +600,22 @@ router.get('/findPatient', function(req, res, next) {
 
     if(sess.username)
     {
-        var sendEmail = {found: "hello"};
+        /*var sendEmail = {found: "hello"};
         res.render('findPatient', {
             title: 'PIMS Notification Page',
             message: '',
             errors: {},
             send: sendEmail
+        });*/
+
+        passport.authenticate('local')(req, res, function () {
+            var sendEmail = {found: "hello"};
+            res.render('findPatient', {
+                title: 'PIMS Notification Page',
+                message: '',
+                errors: {},
+                send: sendEmail
+            });
         });
     }
     else
