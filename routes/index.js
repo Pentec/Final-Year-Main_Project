@@ -367,7 +367,7 @@ router.post('/findSelectedQuery', function(req, res, next) {
 	check(period, stats, startDate, endDate);
 	function check(period, stats, startDate, endDate)
 	{
-		if( stats = "Number of emergency operations over a period")
+		if( stats = "Emergency Operations")
 		{
 			
 			
@@ -377,7 +377,7 @@ router.post('/findSelectedQuery', function(req, res, next) {
 			
 		}
 		
-		if( stats = "Number of elective operations over a period")
+		if( stats = "Elective Operations")
 		{
 			
 		  GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
