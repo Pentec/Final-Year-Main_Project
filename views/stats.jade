@@ -1,52 +1,70 @@
 extends index
 block extFiles
     link(rel='stylesheet', href='/stylesheets/stats.css')
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css')
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"')
+    script(src='https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"')
+    script(src='https://cdn.jsdelivr.net/jquery/1/jquery.min.js')
+    script(src='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js')
     script(src='/javascripts/stats.js')
+
 block contentRight
+    div.mainStatsDiv
+        form.form-group.col-xs-6.form-centered(id="mainQuery", name="myDatePicker", method="post")
+            .input-group.date
+                #datepicker.input-daterange.input-group
+                    input#StartDate.input-sm.form-control(type='date', style='width:200px;height:30px;' name='startDate', placeholder='Date 1')
+                    span.input-group-addon
+                        span.glyphicon.glyphicon-calendar 
+                    span.input-group-btn
+                    input.btn.btn-primary.btn-block(type="submit", value="Search Query", id="search", style='margin-left:8px; width:120px;height:30px;')
+            script.
+                $('#StartDate').daterangepicker(
+                {
+                    locale: {
+                    format: 'YYYY-MM-DD h:mm:ss'
+                    },
+                    startDate: '2014-01-01',
+                    endDate: '2014-12-31'
+                }, 
+                function(start, end, label) {
+                    startDate = start.format('YYYY-MM-DD h:mm:ss') ;
+                    endDate = end.format('YYYY-MM-DD h:mm:ss');
+                });
+
+
+                $("#mainQuery").on("submit",function (e) {
+                    e.preventDefault();
+                    var period = $('#TypeOfSearch :selected').text();
+                    var stats = $('#TypeOfQuery :selected').text();
+                    $.ajax({
+                        type: 'POST',
+                        url: '/findSelectedQuery',
+                        data: JSON.stringify({forQuering: {start : startDate, end: endDate, periodQuery : period, statsQuery : stats}}),
+                        dataType: "json",
+                        contentType: "application/json"
+                    });
+                });
+
+            div#divPeriod
+            p Select search period
+            select(id='TypeOfSearch')
+              option(value='none',   selected=none) None
+              option(value='week',   selected=week) Weekly 
+              option(value='month', selected=month) Monthly
+              option(value='year', selected=year) Yearly
+
+            div#divStats
+            p Select Statistics
+            select(id='TypeOfQuery')
+              option(value='avgAge',   selected=avgAge) Average age of woman patients are admitted 
+              option(value='avgNum', selected=avgNum) Average number of days patients stay 
+              option(value='numAd', selected=numAd) Number of admissions over a period
+              option(value='numEmerg',   selected=numEmerg) Number of emergency operations over a period 
+              option(value='numElec', selected=numElec) Number of elective operations over a period
+
     div.container.graphbox
         div.graph-wrapper
             div.graph
         div.graph-interaction
-    div.container-fluid
-        p From    
-        div.row.span8.offset2
-            div.col-xs-2
-                a.btn.btn-primary.btn-lg(href="/editProfile")
-                    span.glyphicon.glyphicon-step-backward
-            div.col-xs-4#dateTimePicks
-                div.input-group.date(id='datetimepicker')
-                    input.form-control(type="text", id="fillDate")
-                    span.input-group-addon
-                        span.glyphicon.glyphicon-calendar
-                    script.
-                        $(function () {
-                            $('#datetimepicker').datetimepicker();
-                        });div.row.span8.offset2
-            p To 
-            div.col-xs-2
-                a.btn.btn-primary.btn-lg(href="/editProfile")
-                    span.glyphicon.glyphicon-step-backward
-            div.col-xs-4#dateTimePicks
-                div.input-group.date(id='datetimepicker')
-                    input.form-control(type="text", id="fillDate")
-                    span.input-group-addon
-                        span.glyphicon.glyphicon-calendar
-                    script.
-                        $(function () {
-                            $('#datetimepicker').datetimepicker();
-                        });
-
-            div.col-xs-6
-                div.messaging
-                form.form-group.col-xs-6.form-centered(id="messagebox", name="messagebox", method="post")
-                    label(for="message") Message:
-                    textarea.form-control(rows="5", id="message", name="message", tabindex="5", placeholder="Write your message", required)
-                    br
-                    input.btn.btn-primary.btn-block(type="submit", value="Send Notification", id="sendNotify", tabindex="5")
-    script.
-        $("#datetimepicker").on("dp.change", function (e) {
-            $('#message').val($("#fillDate").val());
-        });
-
-        });

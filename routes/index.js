@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('pims-database');
+
 var login = require('pims-login');
 var notification = require('pims-notification');
 
@@ -102,17 +103,17 @@ router.post('/login', function(req, res, next) {
                 {
                     if(isAdmin)
                     {
-                        res.redirect('editProfile');
+                        res.redirect('/editProfile');
                     }
                     else
                     {
-                        res.redirect('mySpace');
+                        res.redirect('/mySpace');
                         //res.send(403);
                     }
                 }
                 else
                 {
-                    res.redirect('login');
+                    res.redirect('/login');
                 }
 
 
@@ -168,7 +169,7 @@ router.get('/logout',function(req,res){
         }
         else
         {
-            res.redirect('/');
+            res.redirect('/splash');
         }
     });
 
@@ -331,7 +332,21 @@ router.get('/stats', function(req, res, next) {
 
     if(sess.username)
     {
-        res.render('stats', { title: 'viewStats' });
+		  var EmergencyCount;
+		  var ElectiveCount;
+		//Check the stats for Emergency
+
+		 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
+			  //console.log("There are " + EmergencyCount + " Emergency records.");
+	 
+		//Check the stats for Elective
+		
+		 GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
+			 // console.log("There are " + ElectiveCount + " Elective records.");
+			
+		 res.render('stats',{title : 'Edit Your Profile'});
+		  });
+		});
     }
     else
     {
@@ -339,21 +354,44 @@ router.get('/stats', function(req, res, next) {
     }
 
 });
-var EmergencyCount;
-var ElectiveCount;
-	//Check the stats for Emergency
 
-	 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
-          console.log("There are " + EmergencyCount + " Emergency records.");
- 
-	//Check the stats for Elective
+router.post('/findSelectedQuery', function(req, res, next) {
 	
-	 GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
-          console.log("There are " + ElectiveCount + " Elective records.");
-        
-     res.render('stats',{title : 'Edit Your Profile', elective : ElectiveCount, emergency : EmergencyCount });
-	  });
-	});
+	
+    var startDate =JSON.stringify(req.body.forQuering.start);
+    var endDate =JSON.stringify(req.body.forQuering.end);
+	var period = JSON.stringify(req.body.forQuering.periodQuery);
+	var stats =  JSON.stringify(req.body.forQuering.statsQuery);
+	var EmergencyCount;
+    var ElectiveCount;
+	check(period, stats, startDate, endDate);
+	function check(period, stats, startDate, endDate)
+	{
+		if( stats = "Number of emergency operations over a period")
+		{
+			
+			
+		 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
+			  console.log("There are " + EmergencyCount + " Emergency records.");
+		  });
+			
+		}
+		
+		if( stats = "Number of elective operations over a period")
+		{
+			
+		  GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
+           console.log("There are " + ElectiveCount + " Elective records.");
+		  });
+			
+		}
+	
+	}
+	
+      res.redirect('stats');
+	
+});
+
 /******************************* STATS NAV**********************************************/
 router.get('/pro', function(req, res, next) {
 

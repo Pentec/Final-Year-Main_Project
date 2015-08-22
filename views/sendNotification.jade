@@ -43,7 +43,7 @@ block content
 
             $.ajax({
                 type: 'POST',
-                url: '/sendEmail',
+                url: '/findPatient/sendEmail',
                 data: JSON.stringify({forMailing: {recipient: sendTo, message: JSON.stringify($('#message').val()), name: rcptName}}),
                 dataType: "json",
                 contentType: "application/json"
