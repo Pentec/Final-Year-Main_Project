@@ -4,24 +4,29 @@
 /**
  * Function that creates the graph on page load;
  */
+var ratio = 0.5
+
 $(function () {
-    createGraph();
+    $(".graphbox").height( $(".graphbox").width() * ratio);
+    createGraph("Admissions");
 });
 
 /**
  *
  */
 $(window).resize(function () {
+
+    $(".graphbox").height( $(".graphbox").width() * ratio);
     $(".graph").empty();
     createGraph();
 });
 
-function createGraph() {
-    var data = [{date: '10-Jun-11', close: 4}, {date: '11-Jun-11', close: 5}, {date: '12-Jun-11', close: 6}];
-    var width = $(".graph").width() * 7 / 10;
-    var height = $(".graph").height();
+function createGraph(yAxisName, data) {
+    var data = [{date: '01-Jun-11', close: 4}, {date: '11-Jun-11', close: 5}, {date: '12-Jun-11', close: 6}];
+    var width = $(".graph-wrapper").width()-10;
+    var height = $(".graph-wrapper").height();
 
-    var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    var margin = {top: 20, right: 30, bottom: 40, left: 50},
         width = width - margin.left - margin.right,
         height = height - margin.top - margin.bottom;
 
@@ -35,11 +40,11 @@ function createGraph() {
 
     var xAxis = d3.svg.axis()
         .scale(x)
-        .orient("bottom");
+        .orient("bottom").ticks(3);
 
     var yAxis = d3.svg.axis()
         .scale(y)
-        .orient("left");
+        .orient("left").ticks(12);
 
     var line = d3.svg.line()
         .x(function (d) {
@@ -82,7 +87,7 @@ function createGraph() {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Pdsfsadfasdce ($)");
+        .text(yAxisName);
 
     svg.append("path")
         .datum(data)

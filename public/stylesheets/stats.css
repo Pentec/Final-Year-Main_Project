@@ -1,44 +1,41 @@
-.graphbox{
-    width:75%;
-    background-color: #EEEEEE;
+/*-------------------------------------------------Graph Stuff--------------------------------------------*/
+.graphbox {
+    width: 75%;
     margin-top: 100px;
     border-radius: 5px;
-    border: 2px solid #dedede;
+    border: 2px solid #d6d6d6;
+    background-color: white;
     padding: 0;
 }
 
-.graph{
-    background-color: white;
-    border-radius: 5px 0px 0px 10px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-}
-
-.graph-wrapper{
+.graph-wrapper {
     width: 72%;
-    display: inline-block;
-    position: relative;
-    padding:0;
+    height: 100%;
+    background-color: white;
+    float: left;
 }
 
-.graph-interaction{
-    width:30%;
-    height:20%;
-    background-color:pink;
+.graph-interaction {
+    color: #004B8F;
+    float: left;
+    width: 28%;
+    height: 100%;
+    border-left: 2px solid #d6d6d6;
 }
 
-.graph-wrapper:after{
-    padding: 40%;
-    display: block;
-    content: '';
+.graph-interaction-header {
+    padding: 10px;
+    margin-top: 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #d6d6d6;;
 }
 
-.graph.svg{
-    width: 500px;
-    height: 300px;
+.graph-interaction-stats {
+    border-top: 1px solid #d6d6d6;
+}
+
+.graph-interaction h2 {
+    margin: 0px;
 }
 
 .axis path,
@@ -52,4 +49,17 @@
     fill: none;
     stroke: steelblue;
     stroke-width: 1.5px;
+}
+
+/*----------------------------------------------------Graph Form Stuff-----------------------------------------------*/
+.query-form {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 8%;
+}
+
+.form-group:nth-last-child(2), .form-group:last-child{
+    margin-bottom: 5%;
 }
