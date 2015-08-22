@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('pims-database');
-
+require('datejs');
 var login = require('pims-login');
 var notification = require('pims-notification');
 
@@ -364,31 +364,34 @@ router.post('/findSelectedQuery', function(req, res, next) {
 	var stats =  JSON.stringify(req.body.forQuering.statsQuery);
 	var EmergencyCount;
     var ElectiveCount;
+	
 	check(period, stats, startDate, endDate);
+	
 	function check(period, stats, startDate, endDate)
 	{
-		if( stats = "Emergency Operations")
+		
+		if(stats ='Emergency Operations')
 		{
-			
-			
-		 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
-			  console.log("There are " + EmergencyCount + " Emergency records.");
+	 
+		 GS.count({"typeOfProcedure.Emergency": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, EmergencyCount) {
+		   console.log("There are " + EmergencyCount + " Emergency records.");
 		  });
 			
 		}
-		
-		if( stats = "Elective Operations")
+
+		if(stats ='Elective Operations')
 		{
 			
-		  GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
+		  GS.count({"typeOfProcedure.Elective": true,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, ElectiveCount) {
            console.log("There are " + ElectiveCount + " Elective records.");
-		  });
+		 });
 			
 		}
 	
 	}
 	
-      res.redirect('stats');
+        res.redirect('/stats');
+	
 	
 });
 

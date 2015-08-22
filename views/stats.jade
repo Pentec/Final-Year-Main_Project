@@ -19,14 +19,14 @@ block contentRight
                 #datepicker.input-daterange.input-group.date.center-block
                     form(name="queryForm", autocomplete="off", method="post")#mainQuery
                         div.form-group.text-center
-                            select(name='TypeOfQuery')
+                            select(id='TypeOfQuery')
                                 option(value='avgAge',   selected=avgAge) Average Age
                                 option(value='avgNum', selected=avgNum) Average Stay
                                 option(value='numAd', selected=numAd) Average Number Of Admissions
                                 option(value='numEmerg',   selected=numEmerg) Emergency Operations
                                 option(value='numElec', selected=numElec) Elective Operations
                         div.form-group.text-center
-                            select(name='TypeOfSearch')
+                            select(id='TypeOfSearch')
                                 option(value='none',   selected=none) None
                                 option(value='week',   selected=week) Weekly
                                 option(value='month', selected=month) Monthly
@@ -41,14 +41,14 @@ block contentRight
                         $('#StartDate').daterangepicker(
                         {
                             locale: {
-                                format: 'YYYY-MM-DD h:mm:ss'
+                                format: 'YYYY-MM-DD'
                             },
                             startDate: '2014-01-01',
                             endDate: '2014-12-31'
                         },
                         function (start, end, label) {
-                            startDate = start.format('YYYY-MM-DD h:mm:ss');
-                            endDate = end.format('YYYY-MM-DD h:mm:ss');
+                            startDate = start.format('YYYY-MM-DD');
+                            endDate = end.format('YYYY-MM-DD');
                         });
 
                         $("#mainQuery").on("submit", function (e) {
