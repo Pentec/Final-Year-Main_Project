@@ -2,7 +2,7 @@
  * Created by Ruth on 2015-08-15.
  */
 var mongoose = require('mongoose');
-var passportLocalMongoose = require('passport-local-mongoose');
+//var passportLocalMongoose = require('passport-local-mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var Schema   = mongoose.Schema;
 
@@ -30,17 +30,10 @@ var Users = new Schema({
 	department : String,
 	staff_type : String
 });
-<<<<<<< HEAD
-=======
 
-Users.plugin(passportLocalMongoose);
 
-/*
-var u = new Users({username : "l", surname : "m", email : "lm@gmail.com",user_rights : 1,password : "n", department : "Obstetrics", staff_type : "Doctor" })
-    .save(function(err, users) {
-        console.log("New user added");
-    });*/
->>>>>>> 47732607e8bed010a86b24d8b4fb4be768a30ff6
+//Users.plugin(passportLocalMongoose);
+
 
 //Before saving, check if password has been modified, else return a call back
 //if modified, then salt and hash pswd

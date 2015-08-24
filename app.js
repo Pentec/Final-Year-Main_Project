@@ -58,11 +58,11 @@ app.use('/addmission_discharge', addmission_discharge);
 app.use('/cervical_cancer', cervical_cancer);
 
 
-// passport config
+/* passport config
 var userModel = require('./models/userModel.js');
 passport.use(new LocalStrategy(userModel.authenticate()));
 passport.serializeUser(userModel.serializeUser());
-passport.deserializeUser(userModel.deserializeUser());
+passport.deserializeUser(userModel.deserializeUser());*/
 
 //This code below, until the next comment, serves for static html forms.
 var html_dir = './html/';
