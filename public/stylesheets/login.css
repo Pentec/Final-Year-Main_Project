@@ -1,13 +1,13 @@
 body{
     background-image: url("../images/background.gif");
     background-repeat: no-repeat;
-    background-position: right 10% bottom;
-    background-size: 50%;
+    background-position: right 10% center;
+    background-size: contain;
     background-color: white;
 
 }
 .banner{
-    padding: 1px;
+    padding: 0.5%;
     background-color: #0056a3;
 }
 
@@ -37,7 +37,7 @@ div.container
 }
 
 #login {
-    padding-top: 60px;
+    padding-top: 1%;
 }
 #login .form-wrap {
     width: 30%;
