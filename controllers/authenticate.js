@@ -79,11 +79,9 @@ var passwordValid = function(user, password){
                 return err;
 
             if(user){
-                console.log('Checking password ' + user.password + "true");
                 return true;
             }
             else {
-                console.log('Checking password ' + user.password + "false");
                 return false;
             }
         });

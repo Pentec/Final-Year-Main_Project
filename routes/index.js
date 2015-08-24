@@ -142,40 +142,14 @@ function postLogin(req, res, next)
 
             login.checkAdmin(req.body.username, req.body.password, function(isAdmin)
             {
-                console.log("after admin");
-                if(sess.username && sess.password)
+                if(req.user.username && req.user.password)
                 {
                     if(isAdmin)
                     {
-                        /*verifyRecaptcha(req.body['g-recaptcha-response'], function(success){
-                         if(success){
-                         res.end("Recaptchaed!!!");
-                         res.redirect('/editProfile');
-                         }
-                         else
-                         {
-                         res.end("Captcha failed sorry");
-                         res.redirect('/login');
-                         }
-                         });*/
-
                         res.redirect('/editProfile');
                     }
                     else
                     {
-                        /*verifyRecaptcha(req.body['g-recaptcha-response'], function(success){
-                         if(success){
-                         res.end("Recaptchaed!!!");
-                         res.redirect('/mySpace');
-                         }
-                         else
-                         {
-                         res.end("Captcha failed sorry");
-                         res.redirect('/login');
-                         }
-                         });*/
-
-
                         res.redirect('/mySpace');
                     }
                 }
@@ -304,125 +278,6 @@ router.post('/login', postLogin, function(req, res, next) {
         return;
     }
 
-    //fields are not empty, authenticate credentials
-
-
-
-/*
-    var username = req.body.username;
-    var password = req.body.password;
-    var sendData = "";
-
-    if(username == '' || password == '')
-    {
-        var pageErrors = "User name or password is empty.";
-
-        res.render('login', {
-            title: 'Kalafong PIMS',
-            message: pageErrors,
-            errors: {},
-            send: sendData
-
-        });
-        return;
-    }
-
-
-
-
-    login.authenticateUser(username, password, function(found) {
-        if(found)
-        {
-            sess.username = req.body.username;
-            sess.password = req.body.password;
-
-            login.checkAdmin(username, password, function(isAdmin)
-            {
-                console.log("after admin");
-                if(sess.username && sess.password)
-                {
-                    if(isAdmin)
-                    {
-                        /*verifyRecaptcha(req.body['g-recaptcha-response'], function(success){
-                            if(success){
-                                res.end("Recaptchaed!!!");
-                                res.redirect('/editProfile');
-                            }
-                            else
-                            {
-                                res.end("Captcha failed sorry");
-                                res.redirect('/login');
-                            }
-                        });//
-
-                        res.redirect('/editProfile');
-                    }
-                    else
-                    {
-                        /*verifyRecaptcha(req.body['g-recaptcha-response'], function(success){
-                            if(success){
-                                res.end("Recaptchaed!!!");
-                                res.redirect('/mySpace');
-                            }
-                            else
-                            {
-                                res.end("Captcha failed sorry");
-                                res.redirect('/login');
-                            }
-                        });//
-
-
-                        res.redirect('/mySpace');
-                        //res.send(403);
-                    }
-                }
-                else
-                {
-                    res.redirect('/login');
-                }
-
-
-            });
-
-        }
-        else
-        {
-            //sess.reset();
-            //res.redirect('login');
-            req.session.destroy(function(err){
-                if(err){
-                    console.log(err);
-                }
-                else
-                {
-                    var pageErrors = "User name or password is incorrect.";
-                    sendData = "";
-
-                    res.render('login', {
-                        title: 'Kalafong PIMS',
-                        message: pageErrors,
-                        errors: {},
-                        send: sendData
-
-                    });
-                    return;
-                }
-            });
-
-            /*var pageErrors = "User name or password is incorrect.";
-            sendData = "";
-
-            res.render('login', {
-                title: 'Kalafong PIMS',
-                message: pageErrors,
-                errors: {},
-                send: sendData
-
-            });
-            return;//
-        }
-    });*/
-
 
 
 });
@@ -436,16 +291,6 @@ router.get('/logout', function(req,res){
 
     }
     res.redirect('/splash');
-
-    /*req.session.destroy(function(err){
-        if(err){
-            console.log(err);
-        }
-        else
-        {
-            res.redirect('/splash');
-        }
-    });*/
 });
 
 /* Add New User page */
