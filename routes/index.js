@@ -10,12 +10,16 @@ var userAuthentication = require('../controllers/authenticate.js');
  * @type {*|exports|module.exports}
  */
 var models = require('pims-database');
+<<<<<<< HEAD
 
 /**
  * A variable in the global namespace called 'login'.
  * It is for the PIMS login functionality
  * @type {exports|module.exports}
  */
+=======
+require('datejs');
+>>>>>>> aafa6c19fce1f535135205b533b79e84a44c517f
 var login = require('pims-login');
 
 /**
@@ -448,26 +452,67 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
 
     if(req.user)
     {
-        var EmergencyCount;
-        var ElectiveCount;
-        //Check the stats for Emergency
-        GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
-            console.log("There are " + EmergencyCount + " Emergency records.");
+		  var EmergencyCount;
+		  var ElectiveCount;
+		//Check the stats for Emergency
 
-            //Check the stats for Elective
-
-            GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
-                console.log("There are " + ElectiveCount + " Elective records.");
-
-                res.render('stats',{title : 'Edit Your Profile', elective : ElectiveCount, emergency : EmergencyCount });
-            });
-        });
+		 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
+			  //console.log("There are " + EmergencyCount + " Emergency records.");
+	 
+		//Check the stats for Elective
+		
+		 GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
+			 // console.log("There are " + ElectiveCount + " Elective records.");
+			
+		 res.render('stats',{title : 'Edit Your Profile'});
+		  });
+		});
     }
     else
     {
         res.redirect('/login');
     }
 
+});
+
+router.post('/findSelectedQuery', function(req, res, next) {
+	
+	
+    var startDate =JSON.stringify(req.body.forQuering.start);
+    var endDate =JSON.stringify(req.body.forQuering.end);
+	var period = JSON.stringify(req.body.forQuering.periodQuery);
+	var stats =  JSON.stringify(req.body.forQuering.statsQuery);
+	var EmergencyCount;
+    var ElectiveCount;
+	
+	check(period, stats, startDate, endDate);
+	
+	function check(period, stats, startDate, endDate)
+	{
+		
+		if(stats ='Emergency Operations')
+		{
+	 
+		 GS.count({"typeOfProcedure.Emergency": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, EmergencyCount) {
+		   console.log("There are " + EmergencyCount + " Emergency records.");
+		  });
+			
+		}
+
+		if(stats ='Elective Operations')
+		{
+			
+		  GS.count({"typeOfProcedure.Elective": true,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, ElectiveCount) {
+           console.log("There are " + ElectiveCount + " Elective records.");
+		 });
+			
+		}
+	
+	}
+	
+        res.redirect('/stats');
+	
+	
 });
 
 /******************************* STATS NAV**********************************************/

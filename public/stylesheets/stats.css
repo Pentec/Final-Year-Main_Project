@@ -1,44 +1,48 @@
-.graphbox{
-    width:75%;
-    background-color: #EEEEEE;
-    margin-top: 100px;
+/*-------------------------------------------------Graph Stuff--------------------------------------------*/
+.graphbox {
+    width: 75%;
+    margin-top: 5%;
     border-radius: 5px;
-    border: 2px solid #dedede;
-    padding: 0;
-}
-
-.graph{
+    border: 2px solid #d6d6d6;
     background-color: white;
-    border-radius: 5px 0px 0px 10px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    padding: 0;
+    margin-right: 20%;
 }
 
-.graph-wrapper{
+.graph-wrapper {
     width: 72%;
-    display: inline-block;
-    position: relative;
-    padding:0;
+    height: 100%;
+    background-color: white;
+    float: left;
+}
+
+.graph-interaction {
+    color: #002240;
+    float: left;
+    width: 28%;
+    min-height: 100%;
+    border-left: 2px solid #d6d6d6;
+}
+
+.graph-interaction-header:first-child{
+    border-top: none;
+}
+
+.graph-interaction-header {
+    padding: 2%;
+    margin-top: 0;
+    padding-bottom: 6px;
+    border-top: 1px solid #d6d6d6;
+    border-bottom: 1px solid #d6d6d6;;
+}
+
+.graph-interaction h2 {
+    margin: 0px;
+    font-size: 1.5vw;
 }
 
 .graph-interaction{
-    width:30%;
-    height:20%;
-    background-color:pink;
-}
-
-.graph-wrapper:after{
-    padding: 40%;
-    display: block;
-    content: '';
-}
-
-.graph.svg{
-    width: 500px;
-    height: 300px;
+    font-size: 0.7vw;
 }
 
 .axis path,
@@ -52,4 +56,21 @@
     fill: none;
     stroke: steelblue;
     stroke-width: 1.5px;
+}
+
+/*----------------------------------------------------Graph Form Stuff-----------------------------------------------*/
+.stats-section{
+    padding: 4%;
+}
+
+.overall-stats{
+    padding-right: 15%;
+}
+
+.form-group {
+    margin-bottom: 3%;
+}
+
+.form-group:nth-last-child(2), .form-group:last-child{
+    margin-bottom: 5%;
 }

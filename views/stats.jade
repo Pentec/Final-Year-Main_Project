@@ -1,52 +1,99 @@
 extends index
 block extFiles
     link(rel='stylesheet', href='/stylesheets/stats.css')
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css')
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"')
+    link(rel='stylesheet', href='/stylesheets/fancySelectors/cs-select.css')
+    link(rel='stylesheet', href='/stylesheets/fancySelectors/cs-skin-elastic.css')
+    script(src='https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"')
+    script(src='https://cdn.jsdelivr.net/jquery/1/jquery.min.js')
+    script(src='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js')
     script(src='/javascripts/stats.js')
+    script(src='/javascripts/fancySelectors/classie.js')
+    script(src='/javascripts/fancySelectors/selectFx.js')
+
 block contentRight
-    div.container.graphbox
-        div.graph-wrapper
-            div.graph
-        div.graph-interaction
-    div.container-fluid
-        p From    
-        div.row.span8.offset2
-            div.col-xs-2
-                a.btn.btn-primary.btn-lg(href="/editProfile")
-                    span.glyphicon.glyphicon-step-backward
-            div.col-xs-4#dateTimePicks
-                div.input-group.date(id='datetimepicker')
-                    input.form-control(type="text", id="fillDate")
-                    span.input-group-addon
-                        span.glyphicon.glyphicon-calendar
+    .container.graphbox
+        .graph-wrapper.media-middle
+            .graph.media-object
+        .graph-interaction
+            .graph-interaction-header
+                h2 Queries
+            .stats-section
+                #datepicker.input-daterange.input-group.date.center-block
+                    form(name="queryForm", autocomplete="off", method="post")#mainQuery
+                        div.form-group.text-center
+                            select(name='TypeOfQuery').cs-select.cs-skin-elastic
+                                option(value='', disabled='', selected='') Select Statistics Data
+                                option(value='avgAge',   data-class='age', selected=avgAge) Average Age
+                                option(value='avgNum', data-class='stay', selected=avgNum) Average Hospital Stay
+                                option(value='numAd', data-class='admissions', selected=numAd) Average Number Of Admissions
+                                option(value='numEmerg', data-class='emergency',  selected=numEmerg) Emergency Operations
+                                option(value='numElec', data-class='elective', selected=numElec) Elective Operations
+                        div.form-group.text-center
+                            section
+                                select(name='TypeOfSearch').cs-select.cs-skin-elastic
+                                    option(value='', disabled='', selected='') Select an Interval
+                                    option(value='none', data-class='nothing',  selected='none') None
+                                    option(value='none', data-class='day',  selected='day') Daily
+                                    option(value='week', data-class='week'  selected=week) Weekly
+                                    option(value='month', data-class='month' selected='monthly') Monthly
+                                    option(value='year', data-class='year' selected=year) Yearly
+                        div.form-group.input-daterange.input-group
+                            input#StartDate.input-sm.form-control(type='date', name='startDate', placeholder='Date 1')
+                            span.input-group-addon
+                                span.glyphicon.glyphicon-calendar
+                        div.form-group
+                            input.btn.btn-primary.btn-block(type="submit", value="Search Query", id="search")
                     script.
-                        $(function () {
-                            $('#datetimepicker').datetimepicker();
-                        });div.row.span8.offset2
-            p To 
-            div.col-xs-2
-                a.btn.btn-primary.btn-lg(href="/editProfile")
-                    span.glyphicon.glyphicon-step-backward
-            div.col-xs-4#dateTimePicks
-                div.input-group.date(id='datetimepicker')
-                    input.form-control(type="text", id="fillDate")
-                    span.input-group-addon
-                        span.glyphicon.glyphicon-calendar
-                    script.
-                        $(function () {
-                            $('#datetimepicker').datetimepicker();
+                        $('#StartDate').daterangepicker(
+                        {
+                            locale: {
+                                format: 'YYYY-MM-DD'
+                            },
+                            startDate: '2014-01-01',
+                            endDate: '2014-12-31'
+                        },
+                        function (start, end, label) {
+                            startDate = start.format('YYYY-MM-DD');
+                            endDate = end.format('YYYY-MM-DD');
                         });
 
-            div.col-xs-6
-                div.messaging
-                form.form-group.col-xs-6.form-centered(id="messagebox", name="messagebox", method="post")
-                    label(for="message") Message:
-                    textarea.form-control(rows="5", id="message", name="message", tabindex="5", placeholder="Write your message", required)
-                    br
-                    input.btn.btn-primary.btn-block(type="submit", value="Send Notification", id="sendNotify", tabindex="5")
-    script.
-        $("#datetimepicker").on("dp.change", function (e) {
-            $('#message').val($("#fillDate").val());
-        });
+                        $("#mainQuery").on("submit", function (e) {
+                            e.preventDefault();
+                            var period = $('#TypeOfSearch :selected').text();
+                            var stats = $('#TypeOfQuery :selected').text();
+                            $.ajax({
+                                type: 'POST',
+                                url: '/findSelectedQuery',
+                                data: JSON.stringify({
+                                    forQuering: {
+                                        start: startDate,
+                                        end: endDate,
+                                        periodQuery: period,
+                                        statsQuery: stats
+                                    }
+                                }),
+                                dataType: "json",
+                                contentType: "application/json"
+                            });
+                        });
 
-        });
+            .graph-interaction-header
+                h2 Statistics
+            .overall-stats.stats-section
+                p
+                    b Overall Average:
+                    em.pull-right 28.5
+                p
+                    b Current Interval Average:
+                    em.pull-right 24.5
+            .graph-interaction-header
+                h2 Options
+            script.
+                (function() {
+                    [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
+                    new SelectFx(el);
+                } );
+                })();
