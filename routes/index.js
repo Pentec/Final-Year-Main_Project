@@ -10,16 +10,13 @@ var userAuthentication = require('../controllers/authenticate.js');
  * @type {*|exports|module.exports}
  */
 var models = require('pims-database');
-<<<<<<< HEAD
 
+require('datejs');
 /**
  * A variable in the global namespace called 'login'.
  * It is for the PIMS login functionality
  * @type {exports|module.exports}
  */
-=======
-require('datejs');
->>>>>>> aafa6c19fce1f535135205b533b79e84a44c517f
 var login = require('pims-login');
 
 /**
