@@ -7,8 +7,19 @@ body{
 
 }
 .banner{
-    margin-top: 50px;
     padding: 1px;
+    background-color: #0056a3;
+}
+
+.inner{
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    text-align: left;
+}
+
+.inner a{
+
 }
 
 .loginForm{
@@ -87,9 +98,9 @@ div.container
     :: Footer
 	-------------------------------------------------- */
 footer{
-    background-color: #001f41;
+    background-color: #002240;
     bottom: 0;
-    box-shadow: 0 -1px 2px #001f41;
+    box-shadow: 0 -1px 2px #002240;
     height: 45px;
     left: 0;
     position: fixed;
