@@ -1,17 +1,5 @@
 extends navBar
 block append content
-doctype html
-html(lang='en')
-  head
-    title Bootstrap Example
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
-    link(rel='stylesheet', href='css/bootstrap')
-    link(rel='stylesheet', href='css/adminPimsSpace.css')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
-    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
-  body
     .container-fluid
       h1.headingPims My PIMS Space
     #myCarousel.carousel.slide.contents(data-ride='carousel')
@@ -25,32 +13,32 @@ html(lang='en')
           .row
             .col-xs-2
               a(href='#')
-                img(src='activities.png')
-              h3          My Activities
+                img.link(src='images/mySpaceIcons/activities.png')
+              h3 My Activities
             .col-xs-2
               a(href='#')
-                img(src='forms.png')
-              h3               Forms
+                img.link(src='images/mySpaceIcons/forms.png')
+              h3  Forms
             .col-xs-2
               a(href='#')
-                img(src='tutorial.png')
-              h3                Tutorial
+                img.link(src='images/mySpaceIcons/tutorial.png')
+              h3 Tutorial
             br
             br
             br
         #content2.item
           .row
             .col-xs-2
-              img(src='profile.png')
+              img.link(src='images/mySpaceIcons/profile.png')
               h3               Profile
             .col-xs-2
-              img(src='stats.png')
+              img.link(src='images/mySpaceIcons/stats.png')
               h3             Statistics
             .col-xs-2
-              img(src='AddUser.png')
+              img.link(src='images/mySpaceIcons/AddUser.png')
               h3             Add user
             .col-xs-2
-              img(src='notifications.png')
+              img(src='images/mySpaceIcons/notifications.png')
               h3            Notifications
         // Left and right controls
         a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
