@@ -72,7 +72,6 @@ var verifyRecaptcha = function (secretKey, callback){
                 callback(jsonData.success);
             } catch(e) {
                 callback(false);
-
             }
         });
     });
@@ -147,7 +146,7 @@ function postLogin(req, res, next)
                 {
                     if(isAdmin)
                     {
-                        res.redirect('/myAdminSpace');
+                        res.redirect('/editProfile');
                     }
                     else
                     {
@@ -158,8 +157,6 @@ function postLogin(req, res, next)
                 {
                     res.redirect('/login');
                 }
-
-
             });
 
         })
@@ -242,7 +239,7 @@ router.get('/login', function(req, res) {
         {
                 if(isAdmin)
                 {
-                    res.redirect('/myAdminSpace');
+                    res.redirect('/editProfile');
                 }
                 else
                 {
