@@ -1,13 +1,13 @@
 extends index
 block extFiles
     link(rel='stylesheet', href='/stylesheets/stats.css')
-    link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css')
-    link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"')
+    //link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"')
     link(rel='stylesheet', href='/stylesheets/fancySelectors/cs-select.css')
     link(rel='stylesheet', href='/stylesheets/fancySelectors/cs-skin-elastic.css')
-    script(src='https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"')
+    //script(src='https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"')
     script(src='https://cdn.jsdelivr.net/jquery/1/jquery.min.js')
     script(src='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js')
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js')
     script(src='/javascripts/stats.js')
     script(src='/javascripts/fancySelectors/classie.js')
@@ -21,9 +21,9 @@ block contentRight
             .graph-interaction-header
                 h2 Queries
             .stats-section
-                #datepicker.input-daterange.input-group.date.center-block
+                #datepicker.input-daterange.date.center-block
                     form(name="queryForm", autocomplete="off", method="post")#mainQuery
-                        div.form-group.text-center
+                        div.form-group
                             select(name='TypeOfQuery').cs-select.cs-skin-elastic
                                 option(value='', disabled='', selected='') Select Statistics Data
                                 option(value='avgAge',   data-class='age', selected=avgAge) Average Age
@@ -31,7 +31,7 @@ block contentRight
                                 option(value='numAd', data-class='admissions', selected=numAd) Average Number Of Admissions
                                 option(value='numEmerg', data-class='emergency',  selected=numEmerg) Emergency Operations
                                 option(value='numElec', data-class='elective', selected=numElec) Elective Operations
-                        div.form-group.text-center
+                        div.form-group
                             section
                                 select(name='TypeOfSearch').cs-select.cs-skin-elastic
                                     option(value='', disabled='', selected='') Select an Interval
@@ -40,12 +40,11 @@ block contentRight
                                     option(value='week', data-class='week'  selected=week) Weekly
                                     option(value='month', data-class='month' selected='monthly') Monthly
                                     option(value='year', data-class='year' selected=year) Yearly
-                        div.form-group.input-daterange.input-group
-                            input#StartDate.input-sm.form-control(type='date', name='startDate', placeholder='Date 1')
-                            span.input-group-addon
-                                span.glyphicon.glyphicon-calendar
+                        div.form-group.input-daterange
+                            input#StartDate.form-control(type='text', name='startDate', placeholder='Date 1').date-custom
+                            i.glyphicon.glyphicon-calendar
                         div.form-group
-                            input.btn.btn-primary.btn-block(type="submit", value="Search Query", id="search")
+                            input.btn.btn-custom.btn-block(type="submit", value="Query", id="search")
                     script.
                         $('#StartDate').daterangepicker(
                         {
@@ -53,7 +52,10 @@ block contentRight
                                 format: 'YYYY-MM-DD'
                             },
                             startDate: '2014-01-01',
-                            endDate: '2014-12-31'
+                            endDate: '2014-12-31',
+                            opens: 'left',
+                            "applyClass": "btn-block btn-custom btn-top",
+                            "cancelClass" : "btn-block btn-bottom"
                         },
                         function (start, end, label) {
                             startDate = start.format('YYYY-MM-DD');
