@@ -147,7 +147,7 @@ function postLogin(req, res, next)
                 {
                     if(isAdmin)
                     {
-                        res.redirect('/editProfile');
+                        res.redirect('/myAdminSpace');
                     }
                     else
                     {
@@ -242,7 +242,7 @@ router.get('/login', function(req, res) {
         {
                 if(isAdmin)
                 {
-                    res.redirect('/editProfile');
+                    res.redirect('/myAdminSpace');
                 }
                 else
                 {
