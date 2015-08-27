@@ -24,7 +24,7 @@ block contentRight
                 #datepicker.input-daterange.date.center-block
                     form(name="queryForm", autocomplete="off", method="post")#mainQuery
                         div.form-group
-                            select(name='TypeOfQuery').cs-select.cs-skin-elastic
+                            select(id='TypeOfQuery').cs-select.cs-skin-elastic
                                 option(value='', disabled='', selected='') Select Statistics Data
                                 option(value='avgAge',   data-class='age', selected=avgAge) Average Age
                                 option(value='avgNum', data-class='stay', selected=avgNum) Average Hospital Stay
@@ -33,7 +33,7 @@ block contentRight
                                 option(value='numElec', data-class='elective', selected=numElec) Elective Operations
                         div.form-group
                             section
-                                select(name='TypeOfSearch').cs-select.cs-skin-elastic
+                                select(id='TypeOfSearch').cs-select.cs-skin-elastic
                                     option(value='', disabled='', selected='') Select an Interval
                                     option(value='none', data-class='nothing',  selected='none') None
                                     option(value='none', data-class='day',  selected='day') Daily
@@ -86,11 +86,11 @@ block contentRight
                 h2 Statistics
             .overall-stats.stats-section
                 p
-                    b Overall Average:
-                    em.pull-right 28.5
+                    b Overall Average age:
+                    em.pull-right #{avgAge}
                 p
-                    b Current Interval Average:
-                    em.pull-right 24.5
+                    b Average Stay Days:
+                    em.pull-right #{avgStay}
             .graph-interaction-header
                 h2 Options
             .stats-section(style="height:30%;")
