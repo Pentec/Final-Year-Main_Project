@@ -153,7 +153,7 @@ function postLogin(req, res, next)
                 {
                     if(isAdmin)
                     {
-                        res.redirect('/editProfile');
+                        res.redirect('/myAdminSpace');
                     }
                     else
                     {
