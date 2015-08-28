@@ -3,7 +3,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{listings}
 \usepackage{float}
-\DeclareGraphicsExtensions{.png}
+\DeclareGraphicsExtensions{.png,.eps,.jpg}
 
 \begin{document}
 %\title and intnro
@@ -17,26 +17,28 @@
 %\Intro
 \input{./testIntro.tex}
 
+\newpage	
 \section{Features and Items tested}
+\input{./Features.tex}
 
 \section{Functional Testing}
 	\subsection{PIMS Login}
 	\input{./PIMSLogin.tex}
 	
 	\subsection{PIMS Notifications}
-	\input{./PIMSLogin.tex}
+	\input{./PIMSNotifications.tex}
 	
 	\subsection{PIMS Edit Profile}
-	\input{./PIMSLogin.tex}
+	\input{./PIMSEdit.tex}
 	
 	\subsection{PIMS Add User}
-	\input{./PIMSLogin.tex}
+	\input{./PIMSAddUser.tex}
 	
 	\subsection{PIMS Artificial Inteligence}
-	\input{./PIMSLogin.tex}
+	\input{./PIMSArtificialInteligence.tex}
 	
 	\subsection{PIMS Statistics}
-	\input{./PIMSLogin.tex}
+	\input{./PIMSStatistics.tex}
 	
 	\subsection{PIMS Predictions}
 	\input{./PIMSLogin.tex}
@@ -52,7 +54,7 @@
 	\subsection{Performance}
 	\input{./Performance.tex}
 	
-	\subsection{maintainability}
+	\subsection{Maintainability}
 	\input{./maintainability.tex}
 	
 	\subsection{Reliability}
@@ -63,9 +65,6 @@
 	
 	\subsection{Monitorability}
 	\input{./Monitorability.tex}
-	
-	\subsection{Extendability}
-	\input{./Extendability.tex}
 	
 \section{Remarks}
 	\subsection{Risks and issues}
