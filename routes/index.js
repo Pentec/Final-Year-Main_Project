@@ -1,8 +1,23 @@
+/**
+ * Index.js file
+ */
+
+/**
+ * Node modules included.
+ * For the purpose of login authenticate.
+ * @type {*|exports|module.exports}
+ */
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var userAuthentication = require('../controllers/authenticate.js');
+
+/**
+ * The two variables in the global namespace called EmergencyCountGlobal and ElectiveCountGlobal.
+ * It is used for all pims stats functionality.
+ * @type {Integer}[EmergencyCountGlobal][ElectiveCountGlobal]
+ */
 var EmergencyCountGlobal;
 var ElectiveCountGlobal;
 
@@ -13,6 +28,11 @@ var ElectiveCountGlobal;
  */
 var models = require('pims-database');
 
+/**
+ * Required module d3 for the purpose of Statistical graphical representation.
+ * Required module datejs for the purpose of time manipulation.
+ * @type {*|exports|module.exports}
+ */
 require('datejs');
 require('d3');
 
@@ -193,13 +213,22 @@ function postLogin(req, res, next)
 
 };
 
-
-/* GET splash page. */
+/**
+ * Route that invokes the /splash action
+ * Sends back the response page splash
+ * @type {GET request}
+ */
 router.get('/splash', function(req, res, next) {
     sess=req.session;
   res.render('splash', { title: 'Kalafong PIMS' });
 });
 
+
+/**
+ * Route that invokes the home page action
+ * Sends back the home page which is temporarily the 'countdown' page
+ * @type {GET request}
+ */
 router.get('/', function(req, res, next){
     sess=req.session;
 
@@ -209,15 +238,24 @@ router.get('/', function(req, res, next){
 });
 
 
-/* GET home page. */
+/**
+ * Route that invokes the home page 'index.jade' action
+ * Sends back the index page which is temporarily the 'countdown' page
+ * @type {GET request}
+ */
 router.get('/home', isLoggedIn, function(req, res, next) {
     sess = req.session;
     res.render('index', { title: 'Kalafong PIMS' });
 });
 
-
-
-/*Get myAdminSpace page */
+/**
+ * Route that invokes the myAdminSpace page 'myAdminSpace.jade' 
+ * First checks to see if the users is logged in and if they are admin. 
+ * Admin user gets directed to myAdminSpace page, other user not logged into the session
+ * gets redirected to login page.
+ * Sends back the myAdminSpace page
+ * @type {GET request}
+ */
 router.get('/myAdminSpace', isLoggedIn, function(req, res, next) {
 
     sess=req.session;
@@ -232,7 +270,12 @@ router.get('/myAdminSpace', isLoggedIn, function(req, res, next) {
 
 });
 
-/*Get mySpace page */
+/**
+ * Route that invokes the /mySpace action and directs a user to their mySpace page.
+ * Checks to see if user is logged in to the session.
+ * Sends back the index page which is temporarily the 'countdown' page
+ * @type {GET request}
+ */
 router.get('/mySpace', isLoggedIn, function(req, res, next) {
     sess=req.session;
 
@@ -245,7 +288,13 @@ router.get('/mySpace', isLoggedIn, function(req, res, next) {
     }
 });
 
-
+/**
+ * Route that invokes the /login action and directs a user to their login page.
+ * If the user is not logged in they get redirected to the login page.
+ * If they are logged in they get directed to the editProfile page.
+ * Sends back the index page which is temporarily the 'countdown' page
+ * @type {GET request}
+ */
 router.get('/login', function(req, res) {
     sess = req.session;
     //user not logged in
@@ -281,9 +330,12 @@ router.get('/login', function(req, res) {
 });
 
 
-
-
-/*POST login page*/
+/**
+ * Route that invokes the /login action and directs a user to their login page.
+ * This checks to see if the username and password is an empty string. 
+ * If the username and password is empty it redirects the user back to login page.
+ * @type {POST request}
+ */
 router.post('/login', postLogin, function(req, res, next) {
     sess = req.session;
     //checks if login fields are empty
