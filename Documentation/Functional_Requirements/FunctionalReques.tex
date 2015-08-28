@@ -9,6 +9,7 @@
 \usepackage[margin=1in]{geometry}
 
 \DeclareGraphicsExtensions{.png,.eps,.jpg}
+\setcounter{secnumdepth}{5}
 
 \begin{document}
 %\title and intro
@@ -18,36 +19,26 @@
 \tableofcontents
 \newpage
 
-
-\section{Use Case Diagram}
-\includegraphics[width=\linewidth]{./Graphics/PIMSUseCase}
-\pagebreak
-
-
-\section{Domain Model}
-%\begin{sidewaysfigure}
-\includegraphics[width=\linewidth]{./Graphics/ClassDiagramRefined}
-%\end{sidewaysfigure}
-\pagebreak
-
 %\Intro
 \input{./introduction.tex}
 
-%\UserDynamics - Maria
-\input{./userHandeling.tex}
+\input{./pimsLogin.tex}
+\newpage
 
-%Form Use case - Ruth
-\input{./FormUsecase.tex}
+\input{./pimsStats.tex}
+\newpage
 
-%Patient Details (Admin use cases) - Lindelo
-\input{./PatientDetails.tex}
+\input{./pimsAI.tex}
+\newpage
 
-% CRUDUser - Lindelo
-\input{./CRUDUser.tex}
+\input{./pimsNeuralNetwork.tex}
+\newpage
 
-%Authorization - Trevor
-\input{./Authorization.tex}
+\input{./pimsNotification.tex}
+\newpage
 
+\input{./pimsSpace.tex}
+\newpage
 
 
 \end{document}
