@@ -506,7 +506,7 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
 
 router.post('/findSelectedQuery', function(req, res, next) {
 	
-    var startDate =JSON.stringify(req.body.forQuering.start);
+   var startDate =JSON.stringify(req.body.forQuering.start);
     var endDate =JSON.stringify(req.body.forQuering.end);
 	var period = JSON.stringify(req.body.forQuering.periodQuery);
 	var stats =  JSON.stringify(req.body.forQuering.statsQuery);
@@ -517,8 +517,7 @@ router.post('/findSelectedQuery', function(req, res, next) {
 	var AvAdmissionOp = "\"Average Number Of Admissions\"";
 	
 	var arr = [];
-	
-		console.log(stats  +"-"+  EmergencyOp);
+	var arrTwo = [];
 
 		if(stats == EmergencyOp)
 		{
@@ -543,19 +542,19 @@ router.post('/findSelectedQuery', function(req, res, next) {
 						for (i = 0; i < EmergencyCount; i++) { 
 							var obj = {stats: new Date(dates[i].ProcedureDate).toString('dd-mm-yyyy'), value: 1};
 							arr.push(obj);
-							console.log(arr[i]);
-							console.log(" - ");
+							//console.log(arr[i]);
+							//console.log(" - ");
 						}
-						
+							 var resBody = { myStatsArry: arr};
+							  console.log(resBody);
+							  res.json(resBody);
+							  console.log("POST response sent.");
 				});
 					
 					EmergencyCountGlobal = EmergencyCount;
 		  });
-		  
-		  return EmergencyCountGlobal;
-		
+		  	
 	}
-	
 	
 	 function checkElective(period, stats, startDate, endDate)
 	{
@@ -569,21 +568,24 @@ router.post('/findSelectedQuery', function(req, res, next) {
 						
 						for (i = 0; i < ElectiveCount; i++) { 
 							var obj = {stats: new Date(dates[i].ProcedureDate).toString('dd-mm-yyyy'), value: 1};
-							arr.push(obj);
-							console.log(arr[i]);
+							arrTwo.push(obj);
+							console.log(arrTwo[i]);
 							console.log(" - ");
 						}
+						
+						      var resBody = { myStatsArry: arrTwo};
+							  console.log(resBody);
+							  res.json(resBody);
+							  console.log("POST response sent.");
 						
 				});
 					
 					ElectiveCountGlobal = ElectiveCount;
 		  });
 		  
-		  return ElectiveCountGlobal;
-		
 	}
 	
-        res.redirect('/stats');
+       // res.redirect('/stats');
 	
 	
 });
