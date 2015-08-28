@@ -3,61 +3,27 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{listings}
 \usepackage{float}
-\DeclareGraphicsExtensions{.png}
+\usepackage{pdflscape}
+\usepackage{epstopdf}
+\usepackage{rotating}
+\usepackage[margin=1in]{geometry}
+\DeclareGraphicsExtensions{.png,.eps,.jpg}
 
 \begin{document}
 %\title and intnro
 \input{./MasterTitlePage.tex}
 
-%\table of content
 \tableofcontents
 \newpage
 
 %\Intro
 \input{./MasterIntro.tex}
+%Functional Requirements
+\input{./Functional_Requirements/introduction}
+\input{./Functional_Requirements/pimsLogin}
 
 
-\section{Vision and scope}
-	\subsection{Project background}
-	\subsection{Project vision}
-	\subsection{Project background}
+%Archetectural Requirements
 
-\section{Application requirements and design}
-	\subsection{Modular System}
-
-\section{Architectural requirementsn}
-	\subsection{Access and integration requirements}
-			\subsubsection{Human access channels}	
-			\subsubsection{System access channels}	
-			\subsubsection{Integration channels}
-	\subsection{Quality requirements}
-			\subsubsection{Maintainability}	
-			\subsubsection{Scalability}	
-			\subsubsection{Reliability and Availability}
-			\subsubsection{Performance requirements}	
-			\subsubsection{Security}	
-			\subsubsection{Auditability}
-			\subsubsection{Testability}	
-			\subsubsection{Usability}	
-			\subsubsection{Integrability}
-			\subsubsection{Deployability}
-	\subsection{Architectural responsibilities}
-	\subsection{Architecture constraints}
-	
-	
-\section{Architecture design}
-	\subsection{Overview}
-	\subsection{Modularization}
-	\subsection{Architectural tactics addressing quality requirements}
-	\subsection{Architectural components}
-	\subsection{Infrastructure}
-	\subsection{Development architecture}
-					\subsubsection{Version control}	
-					\subsubsection{IDE}	
-					\subsubsection{Buildsy}
-					\subsubsection{Unit testing}	
-					\subsubsection{Integration testing}	
-					\subsubsection{Documentation}
-					\subsubsection{Bug tracking}	
 
 \end{document}
