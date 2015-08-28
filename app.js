@@ -1,4 +1,6 @@
 var express = require('express');
+var scribe = require('scribe-js')(),
+    console = process.console;
 var router = express.Router();
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -57,13 +59,21 @@ app.use('/profile', routes);
 app.use('/gynaecology_surgery', gynaecology_surgery);
 app.use('/addmission_discharge', addmission_discharge);
 app.use('/cervical_cancer', cervical_cancer);
+app.use(scribe.express.logger());
+app.use('/logs', scribe.webPanel());
 
 
-/* passport config
-var userModel = require('./models/userModel.js');
-passport.use(new LocalStrategy(userModel.authenticate()));
-passport.serializeUser(userModel.serializeUser());
-passport.deserializeUser(userModel.deserializeUser());*/
+//Make some logs
+console.addLogger('debug', 'red');
+console.addLogger('fun', 'red');
+
+console.time().fun('hello world');
+console.tag('This is a test').debug('A test');
+console.tag('An object').log({
+    a: 'b',
+    c: [1, 2, 3]
+});
+
 
 //This code below, until the next comment, serves for static html forms.
 var html_dir = './html/';
