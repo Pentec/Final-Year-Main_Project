@@ -3,6 +3,8 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var userAuthentication = require('../controllers/authenticate.js');
+var EmergencyCountGlobal;
+var ElectiveCountGlobal;
 
 /**
  * A variable in the global namespace called 'models'.
@@ -12,6 +14,8 @@ var userAuthentication = require('../controllers/authenticate.js');
 var models = require('pims-database');
 
 require('datejs');
+require('d3');
+
 /**
  * A variable in the global namespace called 'login'.
  * It is for the PIMS login functionality
@@ -36,6 +40,7 @@ var userModel = require('../models/userModel.js');
 var User = userModel.user;
 var Form = models.forms;
 var GS = models.gynaecologySurgery;
+var AD = models.addmissionDischarge;
 
 /**
  * A variable in the global namespace called 'sess'.
@@ -72,7 +77,6 @@ var verifyRecaptcha = function (secretKey, callback){
                 callback(jsonData.success);
             } catch(e) {
                 callback(false);
-
             }
         });
     });
@@ -91,6 +95,8 @@ var verifyRecaptcha = function (secretKey, callback){
  * @param next
  * @returns {next()}
  */
+ 
+ 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
@@ -103,7 +109,7 @@ function isLoggedIn(req, res, next) {
     next();
 
 
-};
+}; 
 
 
 /**
@@ -149,7 +155,7 @@ function postLogin(req, res, next)
                     {
                         verifyRecaptcha(req.body['g-recaptcha-response'], function(success){
                              if(success){
-                                 res.redirect('/editProfile');
+                                 res.redirect('/myAdminSpace');
                                  res.end("Recaptchaed!!!");
                              }
                              else
@@ -179,8 +185,6 @@ function postLogin(req, res, next)
                 {
                     res.redirect('/login');
                 }
-
-
             });
 
         })
@@ -188,7 +192,6 @@ function postLogin(req, res, next)
     })(req, res, next);
 
 };
-
 
 
 /* GET splash page. */
@@ -467,69 +470,143 @@ router.post('/formsave', isLoggedIn, function(req, res) {
 
 /*View Stats */
 router.get('/stats', isLoggedIn, function(req, res, next) {
-    sess=req.session;
+   sess=req.session;
 
     if(req.user)
     {
 		  var EmergencyCount;
 		  var ElectiveCount;
-		//Check the stats for Emergency
-
-		 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
-			  //console.log("There are " + EmergencyCount + " Emergency records.");
-	 
-		//Check the stats for Elective
-		
-		 GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
-			 // console.log("There are " + ElectiveCount + " Elective records.");
-			
-		 res.render('stats',{title : 'Edit Your Profile'});
-		  });
-		});
-    }
+	  
+		  AD.aggregate(
+				{
+					$group: {
+						"_id": 1,
+						avgAge   : { $avg: "$Age"  }
+						}
+				}, function(err, avg) 
+				{
+						if (err)
+						{
+							throw err;
+							res.redirect('stats');
+						}
+						else{
+							
+											
+							 AD.aggregate(
+								{
+									$group: {
+										"_id": 1,
+										avgStay   : { $avg: "$TotalNumberOfDaysHospital"  }
+										}
+								}, function(err, avgStay) 
+								{
+										if (err)
+										{
+											throw err;
+											res.redirect('stats');
+										}
+										else{
+											var average = JSON.stringify(avg[0].avgAge);
+											var averageStay = JSON.stringify(avgStay[0].avgStay);
+											 res.render('stats', { avgAge: average , avgStay: averageStay });
+											
+										}
+							});
+	
+						}
+			}); 
+   }
     else
-    {
+   {
         res.redirect('/login');
-    }
-
+   }
+   
+  
 });
 
 router.post('/findSelectedQuery', function(req, res, next) {
 	
-	
-    var startDate =JSON.stringify(req.body.forQuering.start);
+   var startDate =JSON.stringify(req.body.forQuering.start);
     var endDate =JSON.stringify(req.body.forQuering.end);
 	var period = JSON.stringify(req.body.forQuering.periodQuery);
 	var stats =  JSON.stringify(req.body.forQuering.statsQuery);
-	var EmergencyCount;
-    var ElectiveCount;
+	var EmergencyOp = "\"Emergency Operations\"";
+	var ElectiveOp = "\"Elective Operations\"";
+	var AvAgeOp = "\"Average Age\"";
+	var AvStayOp = "\"Average Hospital Stay\"";
+	var AvAdmissionOp = "\"Average Number Of Admissions\"";
 	
-	check(period, stats, startDate, endDate);
-	
-	function check(period, stats, startDate, endDate)
-	{
-		
-		if(stats ='Emergency Operations')
-		{
-	 
-		 GS.count({"typeOfProcedure.Emergency": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, EmergencyCount) {
-		   console.log("There are " + EmergencyCount + " Emergency records.");
-		  });
-			
-		}
+	var arr = [];
+	var arrTwo = [];
 
-		if(stats ='Elective Operations')
+		if(stats == EmergencyOp)
 		{
+			var one = checkEmergency(period,stats,startDate,endDate);
 			
-		  GS.count({"typeOfProcedure.Elective": true,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, ElectiveCount) {
-           console.log("There are " + ElectiveCount + " Elective records.");
-		 });
-			
+		}else if(stats == ElectiveOp)
+		{
+			var two = checkElective(period,stats,startDate,endDate);
 		}
-	
+		
+		
+   function checkEmergency(period, stats, startDate, endDate)
+	{
+		 GS.count({"typeOfProcedure.Emergency": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, EmergencyCount) {
+				 if(err) {
+						console.log("DB error");
+						callback(err);
+					}
+					
+				GS.find({"typeOfProcedure.Emergency": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, dates){
+						
+						for (i = 0; i < EmergencyCount; i++) { 
+							var obj = {stats: new Date(dates[i].ProcedureDate).toString('dd-mm-yyyy'), value: 1};
+							arr.push(obj);
+							//console.log(arr[i]);
+							//console.log(" - ");
+						}
+							 var resBody = { myStatsArry: arr};
+							  console.log(resBody);
+							  res.json(resBody);
+							  console.log("POST response sent.");
+				});
+					
+					EmergencyCountGlobal = EmergencyCount;
+		  });
+		  	
 	}
 	
-        res.redirect('/stats');
+	 function checkElective(period, stats, startDate, endDate)
+	{
+		 GS.count({"typeOfProcedure.Elective": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, ElectiveCount) {
+				 if(err) {
+						console.log("DB error");
+						callback(err);
+					}
+					
+				GS.find({"typeOfProcedure.Elective": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, dates){
+						
+						for (i = 0; i < ElectiveCount; i++) { 
+							var obj = {stats: new Date(dates[i].ProcedureDate).toString('dd-mm-yyyy'), value: 1};
+							arrTwo.push(obj);
+							console.log(arrTwo[i]);
+							console.log(" - ");
+						}
+						
+						      var resBody = { myStatsArry: arrTwo};
+							  console.log(resBody);
+							  res.json(resBody);
+							  console.log("POST response sent.");
+						
+				});
+					
+					ElectiveCountGlobal = ElectiveCount;
+		  });
+		  
+	}
+	
+       // res.redirect('/stats');
 	
 	
 });
