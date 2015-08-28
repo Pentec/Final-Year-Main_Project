@@ -6,7 +6,7 @@
     border: 2px solid #d6d6d6;
     background-color: white;
     padding: 0;
-    margin-right: 20%;
+    position: relative;
 }
 
 .graph-wrapper {
@@ -17,14 +17,15 @@
 }
 
 .graph-interaction {
+    position: relative;
     color: #002240;
     float: left;
     width: 28%;
-    min-height: 100%;
+    height: 100%;
     border-left: 2px solid #d6d6d6;
 }
 
-.graph-interaction-header:first-child{
+.graph-interaction-header:first-child {
     border-top: none;
 }
 
@@ -41,7 +42,7 @@
     font-size: 1.5vw;
 }
 
-.graph-interaction{
+.graph-interaction {
     font-size: 0.7vw;
 }
 
@@ -58,12 +59,17 @@
     stroke-width: 1.5px;
 }
 
-/*----------------------------------------------------Graph Form Stuff-----------------------------------------------*/
-.stats-section{
-    padding: 4%;
+.date {
+    position: relative;
 }
 
-.overall-stats{
+/*----------------------------------------------------Graph Form Stuff-----------------------------------------------*/
+.stats-section {
+    padding: 4%;
+    position: relative;
+}
+
+.overall-stats {
     padding-right: 15%;
 }
 
@@ -71,6 +77,91 @@
     margin-bottom: 3%;
 }
 
-.form-group:nth-last-child(2), .form-group:last-child{
+.form-group:last-child {
     margin-bottom: 5%;
+}
+
+.btn-custom {
+    color: #fff;
+    background-color: #159d00;
+    font-size: 0.8vw;
+    height: 100%;
+    font-weight: 700;
+    padding: 0.7vw;
+    margin: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 0px;
+}
+
+.btn-custom-color {
+    color: #dedede;;
+}
+
+.btn-custom:hover {
+    color: #FFF;
+}
+
+.form-group.input-daterange {
+    position: relative
+}
+
+#mainQuery {
+    position: relative;
+}
+
+.date-custom {
+    color: #fff;
+    background-color: #0462b7;
+    border: none;
+    padding: 5%;
+    border-radius: 0;
+    height: 100%;
+    vertical-align: middle;
+    font-size: 0.7vw;
+    font-weight: 700;
+}
+
+.form-group i {
+    color: white;
+    position: absolute;
+    vertical-align: middle;
+    font-size: 0.7vw;
+    z-index: 1;
+
+    right: 3.6%;
+    top: 35%;
+}
+
+.btn-top {
+    margin-top: 115%;
+}
+
+.btn-bottom {
+    background-color: #dedede;
+    font-size: 0.8vw;
+    height: 100%;
+    font-weight: 700;
+    padding: 0.7vw;
+    margin: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 0px;
+}
+
+/*------------------------------------------Options-------------------------------*/
+
+.stats-section .input-group input{
+    width: 50%;
+    transition: all 0.2s linear;
+    border: 1px solid #dedede;
+}
+
+.stats-section .input-group input:hover{
+    transform: scale(1, 1.1);
+
+}
+
+.blue {
+    background-color: #0462B7;
 }

@@ -1,2 +1,53 @@
 extends navBar
-div.container
+block append content
+    .container-fluid
+      h1.headingPims My PIMS Space
+    #myCarousel.carousel.slide.contents(data-ride='carousel')
+      // Indicators
+      ol.carousel-indicators
+        li.active(data-target='#myCarousel', data-slide-to='0')
+        li(data-target='#myCarousel', data-slide-to='1')
+      // Wrapper for slides
+      .carousel-inner.container
+        #content.item.active
+          .row
+            .col-xs-2
+              a(href='#')
+                img.link(src='images/mySpaceIcons/activities.png')
+              h3 My Activities
+            .col-xs-2
+              a(href='#')
+                img.link(src='images/mySpaceIcons/forms.png')
+              h3  Forms
+            .col-xs-2
+              a(href='#')
+                img.link(src='images/mySpaceIcons/tutorial.png')
+              h3 Tutorial
+            br
+            br
+            br
+        #content2.item
+          .row
+            .col-xs-2
+             a(href='editProfile')
+              img.link(src='images/mySpaceIcons/profile.png')
+              h3               Profile
+            .col-xs-2
+             a(href='stats')
+              img.link(src='images/mySpaceIcons/stats.png')
+              h3             Statistics
+            .col-xs-2
+             a(href='addUser')
+              img.link(src='images/mySpaceIcons/AddUser.png')
+              h3             Add user
+            .col-xs-2
+             a(href='findPatient')
+              img.link(src='images/mySpaceIcons/notifications.png')
+              h3            Notifications
+        // Left and right controls
+        a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+          span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+          span.sr-only Previous
+        a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
+          span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+          span.sr-only Next

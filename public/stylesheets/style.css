@@ -4,6 +4,11 @@
     src: url(ProximaNova.otf);
 }
 
+@font-face {
+    font-family: 'collab-thin';
+    src: url('../fonts/ColabThi.otf');
+}
+
 /*Global CSS*/
 html, body {
     width: 100%;

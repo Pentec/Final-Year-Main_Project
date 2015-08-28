@@ -5,10 +5,10 @@
  * Function that creates the graph on page load;
  */
 var ratio = 0.54;
-var dummyData = [{date: '03-06-2011', close: 4}, {date: '11-06-2011', close: 9}, {date: '12-26-2011', close: 11}];
+var dummyData = [{date: '01-06-2011', close: 5},{date: '03-06-2011', close: 11}, {date: '03-06-2011', close: 12}, {date: '12-26-2011', close: 14}];
 
 $(function () {
-    pageSetup();
+    dummyData = [{date: '01-06-2011', close: 5},{date: '03-06-2011', close: 11}, {date: '03-06-2011', close: 12}, {date: '12-26-2011', close: 14}];
     createGraph(dummyData, 'Admissions');
 });
 
@@ -16,8 +16,8 @@ $(function () {
  *
  */
 $(window).resize(function () {
-    pageSetup();
-    $(".graph").empty();
+    /*set data here*/
+    dummyData = [{date: '01-06-2011', close: 5},{date: '03-06-2011', close: 11}, {date: '03-06-2011', close: 12}, {date: '12-26-2011', close: 14}];
     createGraph(dummyData, 'Admissions');
 });
 
@@ -30,9 +30,10 @@ function pageSetup() {
 }
 
 function createGraph(data, yAxisName) {
+    pageSetup();
+    $(".graph").empty();
     var width = $(".graph-wrapper").width() - 10;
     var height = $(".graph-wrapper").height();
-
     var margin = {top: 20, right: 30, bottom: 40, left: 50},
         width = width - margin.left - margin.right,
         height = height - margin.top - margin.bottom;
@@ -47,7 +48,7 @@ function createGraph(data, yAxisName) {
 
     var xAxis = d3.svg.axis()
         .scale(x)
-        .orient("bottom").ticks(6);
+        .orient("bottom").ticks(3);
 
     var yAxis = d3.svg.axis()
         .scale(y)
@@ -61,13 +62,11 @@ function createGraph(data, yAxisName) {
             return y(d.close);
         });
 
-
     var svg = d3.select(".graph").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
 
     data.forEach(function (d) {
         d.date = parseDate(d.date);
@@ -80,7 +79,6 @@ function createGraph(data, yAxisName) {
     y.domain(d3.extent(data, function (d) {
         return d.close;
     }));
-
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
