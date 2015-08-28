@@ -3,61 +3,109 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{listings}
 \usepackage{float}
-\DeclareGraphicsExtensions{.png}
+\usepackage{pdflscape}
+\usepackage{epstopdf}
+\usepackage{rotating}
+\usepackage[margin=1in]{geometry}
+\DeclareGraphicsExtensions{.png,.eps,.jpg}
+\usepackage{amsmath}
 
 \begin{document}
 %\title and intnro
 \input{./MasterTitlePage.tex}
 
-%\table of content
 \tableofcontents
 \newpage
 
 %\Intro
 \input{./MasterIntro.tex}
-
-
-\section{Vision and scope}
-	\subsection{Project background}
-	\subsection{Project vision}
-	\subsection{Project background}
-
+%------------------------------------------------------------------------------------------------Functional Requirements------------------------------------------------------------------------------------------------%
 \section{Application requirements and design}
-	\subsection{Modular System}
 
-\section{Architectural requirementsn}
+\input{./Functional_Requirements/pimsLogin}
+\newpage
+\input{./Functional_Requirements/pimsStats}
+\newpage
+\input{./Functional_Requirements/pimsAI}
+\newpage
+\input{./Functional_Requirements/pimsNeuralNetwork}
+\newpage
+\input{./Functional_Requirements/pimsNotification}
+\newpage
+\input{./Functional_Requirements/pimsSpace}
+
+
+%------------------------------------------------------------------------------------------------Architectural Requirements------------------------------------------------------------------------------------------%
+\section{Architectural requirements}
+	\subsection{Architectural Scope} %Maria
+	\input{./Architectural_Requirements/Arch_Scope}
+	\newpage
+	
 	\subsection{Access and integration requirements}
 			\subsubsection{Human access channels}	
-			\subsubsection{System access channels}	
+				\input{./Architectural_Requirements/Human-Access-Channels}
+			\subsubsection{System access channels}
+				\input{./Architectural_Requirements/SystemAccess}	
 			\subsubsection{Integration channels}
-	\subsection{Quality requirements}
-			\subsubsection{Maintainability}	
-			\subsubsection{Scalability}	
-			\subsubsection{Reliability and Availability}
-			\subsubsection{Performance requirements}	
-			\subsubsection{Security}	
-			\subsubsection{Auditability}
-			\subsubsection{Testability}	
-			\subsubsection{Usability}	
-			\subsubsection{Integrability}
-			\subsubsection{Deployability}
+				\input{./Architectural_Requirements/integrationChannels}
+ 	\subsection{Quality requirements}
+ 	
+		\underline{\textbf{Critical Quality Requirements}}
+		\subsubsection{Security}
+			%Lindelo - Security
+			\input{./Architectural_Requirements/Security.tex}
+			
+		\subsubsection{Usability}
+			%Lindelo - Usability
+			\input{./Architectural_Requirements/Usability.tex}
+			
+		\subsubsection{Scalability}
+			%Ruth - Scalability
+			\input{./Architectural_Requirements/Scalability}
+			
+		\subsubsection{Reliability and Availability}
+			%Ruth - Reliability and Availability
+			\input{./Architectural_Requirements/Reliability}
+			
+		\subsubsection{Integrability}
+			%Maria - Imtegrability
+			\input{./Architectural_Requirements/Int}
+		\underline{\textbf{Important Quality Requirements}}
+			
+		\subsubsection{Maintainability}
+			%Maria - Monitorabilty
+			\input{./Architectural_Requirements/Mentainability.tex}
+			
+		\subsubsection{Monitorability}
+			%Maria - testability
+			\input{./Architectural_Requirements/Monitorability}
+			
+		\subsubsection{Testability}
+			%Maria - Monitorabilty
+			\input{./Architectural_Requirements/Testability}
+			
+		\subsubsection{Performance}
+			%Maria - Monitorabilty
+			%\input{./Architectural_Requirements/Integrability}
 	\subsection{Architectural responsibilities}
-	\subsection{Architecture constraints}
+	\subsection{Architecture constraints}	
+
+
+
+%----------------------------------------------------
+\section{Architectural Patterns and Styles}
+	\subsection{Model-View-Controller (MVC)}
+	%Lindelo - MVC
+	\input{./Architectural_Requirements/MVC.tex}
 	
+	\subsection{Technologies}
+	%Maria - Technologies
+	\input{./Architectural_Requirements/Technologies.tex}
 	
-\section{Architecture design}
-	\subsection{Overview}
-	\subsection{Modularization}
-	\subsection{Architectural tactics addressing quality requirements}
-	\subsection{Architectural components}
-	\subsection{Infrastructure}
-	\subsection{Development architecture}
-					\subsubsection{Version control}	
-					\subsubsection{IDE}	
-					\subsubsection{Buildsy}
-					\subsubsection{Unit testing}	
-					\subsubsection{Integration testing}	
-					\subsubsection{Documentation}
-					\subsubsection{Bug tracking}	
+	%Maria - Arch tactics and strategies
+	\input{./Architectural_Requirements/Tactics_or_Strategies.tex}
+
+%----------------------------------------------------------------------------------------------------------Testing -------------------------------------------------------------------------------------------------------%
+
 
 \end{document}
