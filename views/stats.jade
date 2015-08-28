@@ -1,11 +1,12 @@
 extends index
 block extFiles
+    script(src='https://cdn.jsdelivr.net/jquery/1/jquery.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
     link(rel='stylesheet', href='/stylesheets/stats.css')
     //link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"')
     link(rel='stylesheet', href='/stylesheets/fancySelectors/cs-select.css')
     link(rel='stylesheet', href='/stylesheets/fancySelectors/cs-skin-elastic.css')
     //script(src='https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"')
-    script(src='https://cdn.jsdelivr.net/jquery/1/jquery.min.js')
     script(src='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js')
     link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js')
@@ -46,6 +47,7 @@ block contentRight
                         div.form-group
                             input.btn.btn-custom.btn-block(type="submit", value="Query", id="search")
                     script.
+                        include /javascripts/stats.js
                         $('#StartDate').daterangepicker(
                         {
                             locale: {
@@ -77,6 +79,11 @@ block contentRight
                                         statsQuery: stats
                                     }
                                 }),
+                                success: function (data, textStatus, jqXHR){
+                                    var res = JSON.parse(jqXHR.responseText);
+                                    var resBus = JSON.stringify(res.myStatsArry);
+                                    alert(resBus);
+                                },
                                 dataType: "json",
                                 contentType: "application/json"
                             });
