@@ -153,11 +153,32 @@ function postLogin(req, res, next)
                 {
                     if(isAdmin)
                     {
-                        res.redirect('/myAdminSpace');
+                        verifyRecaptcha(req.body['g-recaptcha-response'], function(success){
+                             if(success){
+                                 res.redirect('/myAdminSpace');
+                                 res.end("Recaptchaed!!!");
+                             }
+                             else
+                             {
+                                 res.redirect('/login');
+                                 res.end("Captcha failed sorry");
+
+                             }
+                         });
                     }
                     else
                     {
-                        res.redirect('/mySpace');
+                        verifyRecaptcha(req.body['g-recaptcha-response'], function(success){
+                             if(success){
+                                 res.redirect('/mySpace');
+                                 res.end("Recaptchaed!!!");
+                             }
+                             else
+                             {
+                                 res.redirect('/login');
+                                 res.end("Captcha failed sorry");
+                             }
+                         });
                     }
                 }
                 else
