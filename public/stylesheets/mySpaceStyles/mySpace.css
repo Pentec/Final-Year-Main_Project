@@ -1,13 +1,15 @@
 img.imglinks:hover {
     /* Rotate div */
-    -ms-transform: rotate(7deg); /* IE 9 */
-    -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+	-ms-transform: rotate(7deg); /* IE 9*/
+    -webkit-transform: rotate(7deg); 
     transform: rotate(20deg);
 	transition: transform 1000ms ease;
 }
 
 .spaceHeader{
-	text-align: center;
+		text-align: center;
 		margin-right: 0 auto;
         margin-left: 0 auto
 }

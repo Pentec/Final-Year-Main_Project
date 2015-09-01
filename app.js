@@ -1,11 +1,16 @@
 var express = require('express');
+var scribe = require('scribe-js')(),
+    console = process.console;
+var router = express.Router();
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressValidator =require('express-validator');
-
+var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var gynaecology_surgery = require('./routes/forms/gynaecology_surgery');
@@ -26,18 +31,50 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 app.use(cookieParser());
+
+app.use(session({
+    cookieName: 'session',
+    secret: 'ssshhhhh',
+    proxy: true,
+    resave: true,
+    saveUninitialized: true,
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 100
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(express.static(path.join(__dirname, 'html'))); //for html forms
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 app.use('/', routes);
 app.use('/users', users);
 app.use('/formsave', routes);
 app.use('/sendEmail', routes);
+app.use('/findSelectedQuery', routes);
 app.use('/create', routes);
 app.use('/profile', routes);
+app.use('/add', routes);
 app.use('/gynaecology_surgery', gynaecology_surgery);
 app.use('/addmission_discharge', addmission_discharge);
 app.use('/cervical_cancer', cervical_cancer);
+app.use(scribe.express.logger());
+app.use('/logs', scribe.webPanel());
+
+
+//Make some logs
+console.addLogger('debug', 'red');
+console.addLogger('fun', 'red');
+
+console.time().fun('hello world');
+console.tag('This is a test').debug('A test');
+console.tag('An object').log({
+    a: 'b',
+    c: [1, 2, 3]
+});
+
 
 //This code below, until the next comment, serves for static html forms.
 var html_dir = './html/';
@@ -85,6 +122,8 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+
 
 
 module.exports = app;
