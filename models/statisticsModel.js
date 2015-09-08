@@ -1,14 +1,10 @@
-/**
- * Created by Ruth on 2015-08-25.
- */
 var mongoose = require('mongoose');
 
 var Schema   = mongoose.Schema;
 var Statistics = new Schema({
-    TotalPatients	: {
-        CancerFormID: {//form id per cancer type
+    CervicalCancer	: {
             patientID: [Number],
-            totalPatients: [Number],//number of patients per cancer type (size will be number of forms)
+            patientAge: [Number],
             DateOfDiagnosis: [Date],//will be per patient (size = no. of patients)
             TumourSizeBefore: [Number],//Range of the two; before and after
             TumourSizeAfter: [Number],
@@ -18,16 +14,16 @@ var Statistics = new Schema({
             RadioTherapyType: [String],
             TreatmentResponse: [String],
             VitalStatus: [String],
+            doctor_name	: [String],
             Death: [{ //Death[index].Cause
                 Cause: String,
                 DateOfDeath: Date
             }],
-            averagePatients: Number, //totalPatients divided by OverallPatients per cancer type
-            stdDevPatients: [Number],//will be per patient (size = no. of cancer types)
-        },
-        OverallPatients: Number,
-        required: true
+            percentageOfPatients: Number, //percentage of with this type of cancer (out of total cancer patients)
+            totalPatients: Number,
+            required: true
     },
+<<<<<<< HEAD
     doctor_name				: [String],//allow for duplicates, same doctor can treat many patients
     Summary	: [{//stats related data
         OverallPatients: Number,
@@ -40,11 +36,120 @@ var Statistics = new Schema({
 
     }]
 });
+=======
 
+    EndometrialCancer	: {
+        patientID: [Number],
+        patientAge: [Number],
+        DateOfDiagnosis: [Date],//will be per patient (size = no. of patients)
+        TumourSizeBefore: [Number],//Range of the two; before and after
+        TumourSizeAfter: [Number],
+        PrimaryTreatment: [String],
+        DateOfTreatment: [Date],
+        SurgeryType: [String],
+        RadioTherapyType: [String],
+        TreatmentResponse: [String],
+        VitalStatus: [String],
+        doctor_name	: [String],
+        Death: [{ //Death[index].Cause
+            Cause: String,
+            DateOfDeath: Date
+        }],
+        percentageOfPatients: Number, //percentage of with this type of cancer (out of total cancer patients)
+        totalPatients: Number,
+        required: true
+    },
+>>>>>>> 6a0fe1d09cb7334702cf5d5269950e8aea74d9b2
 
+    FallopianTubeCancer	: {
+        patientID: [Number],
+        patientAge: [Number],
+        DateOfDiagnosis: [Date],//will be per patient (size = no. of patients)
+        TumourSizeBefore: [Number],//Range of the two; before and after
+        TumourSizeAfter: [Number],
+        PrimaryTreatment: [String],
+        DateOfTreatment: [Date],
+        SurgeryType: [String],
+        RadioTherapyType: [String],
+        TreatmentResponse: [String],
+        VitalStatus: [String],
+        doctor_name	: [String],
+        Death: [{ //Death[index].Cause
+            Cause: String,
+            DateOfDeath: Date
+        }],
+        percentageOfPatients: Number,
+        totalPatients: Number,
+        required: true
+    },
 
+    OvarianCancer	: {
+        patientID: [Number],
+        patientAge: [Number],
+        DateOfDiagnosis: [Date],//will be per patient (size = no. of patients)
+        TumourSizeBefore: [Number],//Range of the two; before and after
+        TumourSizeAfter: [Number],
+        PrimaryTreatment: [String],
+        DateOfTreatment: [Date],
+        SurgeryType: [String],
+        RadioTherapyType: [String],
+        TreatmentResponse: [String],
+        VitalStatus: [String],
+        doctor_name	: [String],
+        Death: [{ //Death[index].Cause
+            Cause: String,
+            DateOfDeath: Date
+        }],
+        percentageOfPatients: Number,
+        totalPatients: Number,
+        required: true
+    },
 
-/*methods*/
+    VaginalCancer	: {
+        patientID: [Number],
+        patientAge: [Number],
+        DateOfDiagnosis: [Date],//will be per patient (size = no. of patients)
+        TumourSizeBefore: [Number],//Range of the two; before and after
+        TumourSizeAfter: [Number],
+        PrimaryTreatment: [String],
+        DateOfTreatment: [Date],
+        SurgeryType: [String],
+        RadioTherapyType: [String],
+        TreatmentResponse: [String],
+        VitalStatus: [String],
+        doctor_name	: [String],
+        Death: [{ //Death[index].Cause
+            Cause: String,
+            DateOfDeath: Date
+        }],
+        percentageOfPatients: Number,
+        totalPatients: Number,
+        required: true
+    },
 
+    VulvaCancer	: {
+        patientID: [Number],
+        patientAge: [Number],
+        DateOfDiagnosis: [Date],//will be per patient (size = no. of patients)
+        TumourSizeBefore: [Number],//Range of the two; before and after
+        TumourSizeAfter: [Number],
+        PrimaryTreatment: [String],
+        DateOfTreatment: [Date],
+        SurgeryType: [String],
+        RadioTherapyType: [String],
+        TreatmentResponse: [String],
+        VitalStatus: [String],
+        doctor_name	: [String],
+        Death: [{ //Death[index].Cause
+            Cause: String,
+            DateOfDeath: Date
+        }],
+        percentageOfPatients: Number, //percentage of with this type of cancer (out of total cancer patients)
+        totalPatients: Number,
+        required: true
+    },
 
+    totalCancerPatients: Number //total cancer patients
+
+});
 module.exports.statistics = mongoose.model('statistics', Statistics);
