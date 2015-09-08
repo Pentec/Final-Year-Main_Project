@@ -23,20 +23,6 @@ var Statistics = new Schema({
             totalPatients: Number,
             required: true
     },
-<<<<<<< HEAD
-    doctor_name				: [String],//allow for duplicates, same doctor can treat many patients
-    Summary	: [{//stats related data
-        OverallPatients: Number,
-        OverallAverage: Number,
-        OverallMedian: Number,
-        OverallMode: Number,
-        OverallStdDevPatients: Number,
-        OverallVariancePatients: Number,
-        required: true
-
-    }]
-});
-=======
 
     EndometrialCancer	: {
         patientID: [Number],
@@ -59,7 +45,6 @@ var Statistics = new Schema({
         totalPatients: Number,
         required: true
     },
->>>>>>> 6a0fe1d09cb7334702cf5d5269950e8aea74d9b2
 
     FallopianTubeCancer	: {
         patientID: [Number],
