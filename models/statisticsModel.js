@@ -39,8 +39,6 @@ var Statistics = new Schema({
         required: true
 
     }]
-
-
 });
 
 
