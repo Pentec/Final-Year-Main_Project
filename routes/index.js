@@ -105,7 +105,7 @@ var verifyRecaptcha = function (secretKey, callback){
 
 
 /**
- * @function isLoggedIn
+ * @function 
  * This helper function verifies if a user is logged in whilst accessing
  * the url endpoints of the system. If a user is authenticated, they are
  * allowed to proceed to the next page, otherwise they are requested
@@ -210,7 +210,6 @@ function postLogin(req, res, next)
         })
 
     })(req, res, next);
-
 };
 
 /**
@@ -316,7 +315,7 @@ router.get('/login', function(req, res) {
         {
                 if(isAdmin)
                 {
-                    res.redirect('/editProfile');
+                    res.redirect('/myAdminSpace');
                 }
                 else
                 {
@@ -402,9 +401,6 @@ router.get('/editProfile', isLoggedIn, function(req, res, next) {
     {
         res.redirect('/login');
     }
-
-
-
 });
 
 /* Add New User to database from add user page */
@@ -520,7 +516,7 @@ router.post('/formsave', isLoggedIn, function(req, res) {
 });
 
 
-/*View Stats */
+/*View Stats 
 router.get('/stats', isLoggedIn, function(req, res, next) {
    sess=req.session;
 
@@ -575,9 +571,9 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
    }
    
   
-});
+}); */
 
-router.post('/findSelectedQuery', function(req, res, next) {
+/*router.post('/findSelectedQuery', function(req, res, next) {
 	
    var startDate =JSON.stringify(req.body.forQuering.start);
     var endDate =JSON.stringify(req.body.forQuering.end);
@@ -660,7 +656,7 @@ router.post('/findSelectedQuery', function(req, res, next) {
 	
        // res.redirect('/stats');
 	
-});
+});*/
 
 /*View patient stats */
 router.get('/forms', isLoggedIn, function(req, res, next) {
@@ -677,7 +673,7 @@ router.get('/forms', isLoggedIn, function(req, res, next) {
     }
 });
 
-/*//*///////////FORM*/////////////////////*/
+//forms
 router.get('/forms', isLoggedIn, function(req, res, next) {
 
     sess=req.session;
