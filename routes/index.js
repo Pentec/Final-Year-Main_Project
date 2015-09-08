@@ -1,8 +1,23 @@
+/**
+ * Index.js file
+ */
+
+/**
+ * Node modules included.
+ * For the purpose of login authenticate.
+ * @type {*|exports|module.exports}
+ */
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var userAuthentication = require('../controllers/authenticate.js');
+
+/**
+ * The two variables in the global namespace called EmergencyCountGlobal and ElectiveCountGlobal.
+ * It is used for all pims stats functionality.
+ * @type {Integer}[EmergencyCountGlobal][ElectiveCountGlobal]
+ */
 var EmergencyCountGlobal;
 var ElectiveCountGlobal;
 
@@ -13,6 +28,11 @@ var ElectiveCountGlobal;
  */
 var models = require('pims-database');
 
+/**
+ * Required module d3 for the purpose of Statistical graphical representation.
+ * Required module datejs for the purpose of time manipulation.
+ * @type {*|exports|module.exports}
+ */
 require('datejs');
 require('d3');
 
@@ -85,7 +105,7 @@ var verifyRecaptcha = function (secretKey, callback){
 
 
 /**
- * @function isLoggedIn
+ * @function 
  * This helper function verifies if a user is logged in whilst accessing
  * the url endpoints of the system. If a user is authenticated, they are
  * allowed to proceed to the next page, otherwise they are requested
@@ -190,16 +210,24 @@ function postLogin(req, res, next)
         })
 
     })(req, res, next);
-
 };
 
-
-/* GET splash page. */
+/**
+ * Route that invokes the /splash action
+ * Sends back the response page splash
+ * @type {GET request}
+ */
 router.get('/splash', function(req, res, next) {
     sess=req.session;
   res.render('splash', { title: 'Kalafong PIMS' });
 });
 
+
+/**
+ * Route that invokes the home page action
+ * Sends back the home page which is temporarily the 'countdown' page
+ * @type {GET request}
+ */
 router.get('/', function(req, res, next){
     sess=req.session;
 
@@ -209,15 +237,24 @@ router.get('/', function(req, res, next){
 });
 
 
-/* GET home page. */
+/**
+ * Route that invokes the home page 'index.jade' action
+ * Sends back the index page which is temporarily the 'countdown' page
+ * @type {GET request}
+ */
 router.get('/home', isLoggedIn, function(req, res, next) {
     sess = req.session;
     res.render('index', { title: 'Kalafong PIMS' });
 });
 
-
-
-/*Get myAdminSpace page */
+/**
+ * Route that invokes the myAdminSpace page 'myAdminSpace.jade' 
+ * First checks to see if the users is logged in and if they are admin. 
+ * Admin user gets directed to myAdminSpace page, other user not logged into the session
+ * gets redirected to login page.
+ * Sends back the myAdminSpace page
+ * @type {GET request}
+ */
 router.get('/myAdminSpace', isLoggedIn, function(req, res, next) {
 
     sess=req.session;
@@ -232,7 +269,12 @@ router.get('/myAdminSpace', isLoggedIn, function(req, res, next) {
 
 });
 
-/*Get mySpace page */
+/**
+ * Route that invokes the /mySpace action and directs a user to their mySpace page.
+ * Checks to see if user is logged in to the session.
+ * Sends back the index page which is temporarily the 'countdown' page
+ * @type {GET request}
+ */
 router.get('/mySpace', isLoggedIn, function(req, res, next) {
     sess=req.session;
 
@@ -245,7 +287,13 @@ router.get('/mySpace', isLoggedIn, function(req, res, next) {
     }
 });
 
-
+/**
+ * Route that invokes the /login action and directs a user to their login page.
+ * If the user is not logged in they get redirected to the login page.
+ * If they are logged in they get directed to the editProfile page.
+ * Sends back the index page which is temporarily the 'countdown' page
+ * @type {GET request}
+ */
 router.get('/login', function(req, res) {
     sess = req.session;
     //user not logged in
@@ -267,7 +315,7 @@ router.get('/login', function(req, res) {
         {
                 if(isAdmin)
                 {
-                    res.redirect('/editProfile');
+                    res.redirect('/myAdminSpace');
                 }
                 else
                 {
@@ -281,9 +329,12 @@ router.get('/login', function(req, res) {
 });
 
 
-
-
-/*POST login page*/
+/**
+ * Route that invokes the /login action and directs a user to their login page.
+ * This checks to see if the username and password is an empty string. 
+ * If the username and password is empty it redirects the user back to login page.
+ * @type {POST request}
+ */
 router.post('/login', postLogin, function(req, res, next) {
     sess = req.session;
     //checks if login fields are empty
@@ -350,9 +401,6 @@ router.get('/editProfile', isLoggedIn, function(req, res, next) {
     {
         res.redirect('/login');
     }
-
-
-
 });
 
 /* Add New User to database from add user page */
@@ -471,11 +519,10 @@ router.post('/formsave', isLoggedIn, function(req, res) {
 /*View Stats */
 router.get('/stats', isLoggedIn, function(req, res, next) {
    sess=req.session;
-
+	var EmergencyCount;
+	var ElectiveCount;
     if(req.user)
     {
-		  var EmergencyCount;
-		  var ElectiveCount;
 	  
 		  AD.aggregate(
 				{
@@ -509,19 +556,21 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
 										else{
 											var average = JSON.stringify(avg[0].avgAge);
 											var averageStay = JSON.stringify(avgStay[0].avgStay);
-											 res.render('stats', { avgAge: average , avgStay: averageStay });
 											
+											 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
+										     GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
+										     res.render('stats', { avgAge: average , avgStay: averageStay, elCount : ElectiveCount, emCount: EmergencyCount });
+											  });
+											 });
 										}
 							});
-	
 						}
 			}); 
    }
     else
    {
         res.redirect('/login');
-   }
-   
+   } 
   
 });
 
@@ -536,6 +585,7 @@ router.post('/findSelectedQuery', function(req, res, next) {
 	var AvAgeOp = "\"Average Age\"";
 	var AvStayOp = "\"Average Hospital Stay\"";
 	var AvAdmissionOp = "\"Average Number Of Admissions\"";
+
 	
 	var arr = [];
 	var arrTwo = [];
@@ -552,6 +602,8 @@ router.post('/findSelectedQuery', function(req, res, next) {
 		
    function checkEmergency(period, stats, startDate, endDate)
 	{
+		var obj = [];
+		
 		 GS.count({"typeOfProcedure.Emergency": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, EmergencyCount) {
 				 if(err) {
 						console.log("DB error");
@@ -561,10 +613,12 @@ router.post('/findSelectedQuery', function(req, res, next) {
 				GS.find({"typeOfProcedure.Emergency": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, dates){
 						
 						for (i = 0; i < EmergencyCount; i++) { 
-							var obj = {stats: new Date(dates[i].ProcedureDate).toString('dd-mm-yyyy'), value: 1};
-							arr.push(obj);
-							//console.log(arr[i]);
-							//console.log(" - ");
+						
+							 var newElement = {};
+								newElement['date'] = new Date(dates[i].ProcedureDate).toString('dd-MM-yyyy');
+								newElement['close'] = 1;
+								arr.push(newElement);
+							
 						}
 							 var resBody = { myStatsArry: arr};
 							  console.log(resBody);
@@ -579,6 +633,8 @@ router.post('/findSelectedQuery', function(req, res, next) {
 	
 	 function checkElective(period, stats, startDate, endDate)
 	{
+		var obj = 
+		
 		 GS.count({"typeOfProcedure.Elective": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, ElectiveCount) {
 				 if(err) {
 						console.log("DB error");
@@ -588,10 +644,11 @@ router.post('/findSelectedQuery', function(req, res, next) {
 				GS.find({"typeOfProcedure.Elective": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, dates){
 						
 						for (i = 0; i < ElectiveCount; i++) { 
-							var obj = {stats: new Date(dates[i].ProcedureDate).toString('dd-mm-yyyy'), value: 1};
-							arrTwo.push(obj);
-							console.log(arrTwo[i]);
-							console.log(" - ");
+						
+								var newElement = {};
+								newElement['date'] = new Date(dates[i].ProcedureDate).toString('dd-MM-yyyy');
+								newElement['close'] = 1;
+								arrTwo.push(newElement);
 						}
 						
 						      var resBody = { myStatsArry: arrTwo};
@@ -605,86 +662,7 @@ router.post('/findSelectedQuery', function(req, res, next) {
 		  });
 		  
 	}
-	
-       // res.redirect('/stats');
-	
-	
-});
 
-/******************************* STATS NAV**********************************************/
-router.get('/pro', isLoggedIn, function(req, res, next) {
-
-    sess=req.session;
-
-    if(req.user)
-    {
-        res.render('pro', { title: 'viewProcedure' });
-    }
-    else
-    {
-        res.redirect('/login');
-    }
-});
-
-/*View patient stats */
-router.get('/pat', isLoggedIn, function(req, res, next) {
-
-    sess=req.session;
-
-    if(req.user)
-    {
-        res.render('pat', { title: 'viewPatient' });
-    }
-    else
-    {
-        res.redirect('/login');
-    }
-
-});
-
-/*View patient stats */
-router.get('/res', function(req, res, next) {
-
-    sess=req.session;
-
-    if(req.user)
-    {
-        res.render('res', { title: 'viewResources' });
-    }
-    else
-    {
-        res.redirect('/login');
-    }
-});
-
-/*View patient stats */
-router.get('/doc', isLoggedIn, function(req, res, next) {
-
-    sess=req.session;
-
-    if(req.user)
-    {
-        res.render('doc', { title: 'viewDoctor' });
-    }
-    else
-    {
-        res.redirect('/login');
-    }
-});
-
-/*View patient stats */
-router.get('/pred', isLoggedIn, function(req, res, next) {
-
-    sess=req.session;
-
-    if(req.user)
-    {
-        res.render('pred', { title: 'Predictions' });
-    }
-    else
-    {
-        res.redirect('/login');
-    }
 });
 
 /*View patient stats */
@@ -702,7 +680,7 @@ router.get('/forms', isLoggedIn, function(req, res, next) {
     }
 });
 
-/*//*///////////FORM*/////////////////////*/
+//forms
 router.get('/forms', isLoggedIn, function(req, res, next) {
 
     sess=req.session;

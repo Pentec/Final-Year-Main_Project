@@ -1,6 +1,10 @@
 extends index
 block extFiles
     script(src='https://cdn.jsdelivr.net/jquery/1/jquery.min.js')
+    script(src='javascripts/Chart.js')
+    script(src='javascripts/statistics.js')
+    link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700', rel='stylesheet', type='text/css')
+    link(href='stylesheets/statistics.css', rel='stylesheet', type='text/css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
     link(rel='stylesheet', href='/stylesheets/stats.css')
     //link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"')
@@ -17,7 +21,19 @@ block extFiles
 block contentRight
     .container.graphbox
         .graph-wrapper.media-middle
-            .graph.media-object
+            .third.widget.doughnut
+                h3 Overall Procedures in Kalafong Hospital
+                  p
+                  .canvas-container
+                    canvas#hours
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    span.status
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .chart-legend
+                    ul
+                      li.admin Elective Procedures
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                      li.prod Emergency Procedures
         .graph-interaction
             .graph-interaction-header
                 h2 Queries
@@ -81,12 +97,18 @@ block contentRight
                                 success: function (data, textStatus, jqXHR){
                                     var res = JSON.parse(jqXHR.responseText);
                                     var resBus = JSON.stringify(res.myStatsArry);
-                                    alert(resBus);
+                                    window.location = '/statistics.html?myObject=' + resBus;
                                 },
                                 dataType: "json",
                                 contentType: "application/json"
                             });
                         });
+                        var one = #{elCount}; var two = #{emCount}
+                        var data = [{value : one,color : "#dbba34"},{value : two,color : "#c62f29"}];
+                        var canvas = document.getElementById("hours");
+                        var ctx = canvas.getContext("2d");
+                        new Chart(ctx).Doughnut(data);
+                         
 
             .graph-interaction-header
                 h2 Statistics
