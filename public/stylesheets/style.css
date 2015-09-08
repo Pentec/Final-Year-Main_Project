@@ -23,7 +23,7 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: #EEEEEE;
-    font-family: Raleway-thin;
+    font-family: Raleway-thin, sans-serif;
 }
 
 .content {
@@ -44,8 +44,8 @@ html, body {
 }
 
 .navbar-nav > li > a {
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 0;
+    padding-bottom: 0;
     line-height: 80px;
     text-align: center;
 }
@@ -78,6 +78,9 @@ nav.navbar-findcond ul.navbar-nav a {
 nav.navbar-findcond ul.navbar-nav a:hover,
 nav.navbar-findcond ul.navbar-nav a:focus {
     background-color: #004B8F;
+}
+
+nav.navbar-findcond ul.navbar-nav a:hover{
     border-color: #002240;
 }
 
@@ -86,7 +89,16 @@ nav.navbar-findcond ul.navbar-nav li{
     z-index: 2;
 }
 
-li.sub-hide{
+nav.navbar-findcond ul.navbar-nav li.sub-show{
+    background-color: #002240;
+}
+
+nav.navbar-findcond ul.navbar-nav li.sub-show a:hover,
+nav.navbar-findcond ul.navbar-nav li.sub-show a:focus {
+    background-color: #002240;
+}
+
+li.sub{
     display: none;
 }
 
@@ -95,8 +107,8 @@ li.sub-show{
     animation-name: slideRight;
     -webkit-animation-name: slideRight;
 
-    animation-duration: 1.5s;
-    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.0s;
+    -webkit-animation-duration: 1.0s;
 
     animation-timing-function: ease-in-out;
     -webkit-animation-timing-function: ease-in-out;
@@ -106,7 +118,7 @@ li.sub-show{
 
 @keyframes slideRight {
     0% {
-        transform: translateX(150%);
+        transform: translateX(600%);
     }
     50%{
         transform: translateX(-8%);
@@ -157,7 +169,7 @@ nav.navbar-findcond ul.navbar-nav li.active a:hover {
 
 nav.navbar-findcond button.navbar-toggle {
     background: #ffffff;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .navbar-toggle {
