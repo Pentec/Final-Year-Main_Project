@@ -174,8 +174,16 @@ router.post('/', function(req, res, next) {
     ProgressiveDisease: changedString.responseToTreatmentProgressiveDisease,
     NotAssessable: changedString.responseToTreatmentNotAssessable,
     Unknown: changedString.responseToTreatmentUnknown,
-    Dateofassessment: changedString.responseToTreatmentDateofassessment
+    DateOfAssessment: changedString.responseToTreatmentDateofassessment
     },
+
+    Relapse:{
+        Yes:changedString.RelapseYes,
+        No: changedString.RelapseNo,
+        Unknown: changedString.RelapseUnknown,
+        DateOfRelapse: changedString.RelapseDateOfRelapse
+    },
+
 /*--------------------------------completed-------------------------------------------------*/
 
     Histology: {
@@ -251,7 +259,7 @@ router.post('/', function(req, res, next) {
     DateOfDeath: changedString.causeOfDeathDateOfDeath
     }
 
-   });
+   //});
    
 
 Form.save(function(err){
