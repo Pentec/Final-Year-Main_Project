@@ -516,14 +516,13 @@ router.post('/formsave', isLoggedIn, function(req, res) {
 });
 
 
-/*View Stats 
+/*View Stats */
 router.get('/stats', isLoggedIn, function(req, res, next) {
    sess=req.session;
-
+	var EmergencyCount;
+	var ElectiveCount;
     if(req.user)
     {
-		  var EmergencyCount;
-		  var ElectiveCount;
 	  
 		  AD.aggregate(
 				{
@@ -557,23 +556,25 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
 										else{
 											var average = JSON.stringify(avg[0].avgAge);
 											var averageStay = JSON.stringify(avgStay[0].avgStay);
-											 res.render('stats', { avgAge: average , avgStay: averageStay });
 											
+											 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
+										     GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
+										     res.render('stats', { avgAge: average , avgStay: averageStay, elCount : ElectiveCount, emCount: EmergencyCount });
+											  });
+											 });
 										}
 							});
-	
 						}
 			}); 
    }
     else
    {
         res.redirect('/login');
-   }
-   
+   } 
   
-}); */
+});
 
-/*router.post('/findSelectedQuery', function(req, res, next) {
+router.post('/findSelectedQuery', function(req, res, next) {
 	
    var startDate =JSON.stringify(req.body.forQuering.start);
     var endDate =JSON.stringify(req.body.forQuering.end);
@@ -584,6 +585,7 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
 	var AvAgeOp = "\"Average Age\"";
 	var AvStayOp = "\"Average Hospital Stay\"";
 	var AvAdmissionOp = "\"Average Number Of Admissions\"";
+
 	
 	var arr = [];
 	var arrTwo = [];
@@ -600,6 +602,8 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
 		
    function checkEmergency(period, stats, startDate, endDate)
 	{
+		var obj = [];
+		
 		 GS.count({"typeOfProcedure.Emergency": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, EmergencyCount) {
 				 if(err) {
 						console.log("DB error");
@@ -609,10 +613,12 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
 				GS.find({"typeOfProcedure.Emergency": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, dates){
 						
 						for (i = 0; i < EmergencyCount; i++) { 
-							var obj = {stats: new Date(dates[i].ProcedureDate).toString('dd-mm-yyyy'), value: 1};
-							arr.push(obj);
-							//console.log(arr[i]);
-							//console.log(" - ");
+						
+							 var newElement = {};
+								newElement['date'] = new Date(dates[i].ProcedureDate).toString('dd-MM-yyyy');
+								newElement['close'] = 1;
+								arr.push(newElement);
+							
 						}
 							 var resBody = { myStatsArry: arr};
 							  console.log(resBody);
@@ -627,6 +633,8 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
 	
 	 function checkElective(period, stats, startDate, endDate)
 	{
+		var obj = 
+		
 		 GS.count({"typeOfProcedure.Elective": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, ElectiveCount) {
 				 if(err) {
 						console.log("DB error");
@@ -636,10 +644,11 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
 				GS.find({"typeOfProcedure.Elective": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, dates){
 						
 						for (i = 0; i < ElectiveCount; i++) { 
-							var obj = {stats: new Date(dates[i].ProcedureDate).toString('dd-mm-yyyy'), value: 1};
-							arrTwo.push(obj);
-							console.log(arrTwo[i]);
-							console.log(" - ");
+						
+								var newElement = {};
+								newElement['date'] = new Date(dates[i].ProcedureDate).toString('dd-MM-yyyy');
+								newElement['close'] = 1;
+								arrTwo.push(newElement);
 						}
 						
 						      var resBody = { myStatsArry: arrTwo};
@@ -653,10 +662,8 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
 		  });
 		  
 	}
-	
-       // res.redirect('/stats');
-	
-});*/
+
+});
 
 /*View patient stats */
 router.get('/forms', isLoggedIn, function(req, res, next) {
