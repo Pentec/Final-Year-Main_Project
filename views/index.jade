@@ -12,28 +12,28 @@ block content
             #navbar.collapse.navbar-collapse
                 ul.nav.navbar-nav.navbar-left
                     li.active
-                        a(href="#") Home
+                        a(href="/myAdminSpace") Home
                     li.has-sub#usersub
                         a(href='#' role='button') Users
                     li.sub.usersub
-                        a(href='#') Add User
+                        a(href='/addUser') Add User
                     li.sub.usersub
                         a(href='#') Remove User
                     li#formtab.has-sub
-                        a(href='#') Forms
+                        a(href='') Forms
                     li.sub.formtab
-                        a(href="#") Add form
+                        a(href="") Add form
                     li#statisticstab
-                        a(href='#') Statistics
+                        a(href='/stats') Statistics
                 ul.nav.navbar-nav.navbar-right
                     li.nobar.has-sub#settings
                         a(href='#')
                             img(alt="Settings" src='/images/settings.png' height="40px")
                     li.sub.settings
-                        a(href="#") Update Profile
+                        a(href="/editProfile") Edit Profile
                     li.sub.settings
-                        a(href="#") Logout
+                        a(href="/logout") Logout
                 form.navbar-form.navbar-right.search-form(role='search')
                     input.form-control(type='text', placeholder='Search')
     div.content
-        block contentRight
+        block mainContent
