@@ -9,6 +9,13 @@
     src: url('../fonts/ColabThi.otf');
 }
 
+@font-face {
+    font-family: Raleway-thin;
+    src: url('../fonts/raleway/Raleway-Light.ttf')
+}
+
+
+
 /*Global CSS*/
 html, body {
     width: 100%;
@@ -16,189 +23,292 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: #EEEEEE;
+    font-family: Raleway-thin, sans-serif;
 }
 
 .content {
-    padding-left: 100px;
     position: relative;
     width: 100%;
-    height:100%;
-    overflow-y:hidden;
-}
-
-
-
-#sidebar {
-    font-family: 'Open Sans', sans-serif;
-    text-align: center;
-    background-color: #001f41;
-    color: white;
     height: 100%;
-    padding: 0;
-    position: fixed;
-    margin: 0;
-    left: 0;
-    top: 0;
-    width: 100px;
+}
+
+/*-------------------------------NAVBAR------------------------------------*/
+.navbar-fixed-top {
+    min-height: 80px;
+}
+
+.nav {
+    min-height: 80px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 80px;
+    text-align: center;
+}
+
+.navbar-form {
+    line-height: 60px;
+    height: 60px;
+    padding-top: 0;
+}
+
+.navbar-brand {
+    padding-top: 5px;
+}
+
+.navbar-brand img {
+    max-width: 260px;
+}
+
+nav.navbar-findcond {
+    background-color: #004B8F;
+}
+
+nav.navbar-findcond ul.navbar-nav a {
+    color: #ffffff;
+    border-style: solid;
+    border-width: 0 0 2px 0;
+    border-color: #fff;
+}
+
+nav.navbar-findcond ul.navbar-nav a:hover,
+nav.navbar-findcond ul.navbar-nav a:focus {
+    background-color: #004B8F;
+}
+
+nav.navbar-findcond ul.navbar-nav a:hover{
+    border-color: #002240;
+}
+
+nav.navbar-findcond ul.navbar-nav li{
+    background-color: #004B8F;
     z-index: 2;
-    float: left;
 }
 
-.control-label {
-    color: blue;
+nav.navbar-findcond ul.navbar-nav li.sub-show{
+    background-color: #002240;
 }
 
-.sidebar-links {
-    position: absolute;
+nav.navbar-findcond ul.navbar-nav li.sub-show a:hover,
+nav.navbar-findcond ul.navbar-nav li.sub-show a:focus {
+    background-color: #002240;
+}
+
+li.sub{
+    display: none;
+}
+
+li.sub-show{
+    z-index: 1;
+    animation-name: slideRight;
+    -webkit-animation-name: slideRight;
+
+    animation-duration: 0.8s;
+    -webkit-animation-duration: 0.8s;
+
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+
+    visibility: visible !important;
+}
+
+nav.navbar-findcond ul.navbar-nav li.nobar a{
+    border: none;
+}
+
+nav.navbar-findcond ul.navbar-nav li.settings a{
     background-color: #004B8F;
-    height: auto !important;
-    min-height: 100%;
-    width: 100%;
 }
 
-.sidebar-avatar {
-    position: relative;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-size: 10px;
-    background-color: #001f41;
-}
-
-.navTab {
-    border-top: 2px solid #002E79;
-}
-
-.sidebar-settings {
-    border-top: 2px solid #002E79;
-    background-color: #001f41;
-    position: absolute;
-    width: 100%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    bottom: 0;
-}
-
-.navTab a {
-    color: #d0d0d0;
-}
-
-.navTab li a:hover {
-    background-color: #001f41;
-}
-
-.navTab .active a,
-.navTab .active a:hover {
-    color: white;
-    background-color: #001f41;
-}
-
-p.sidebartext {
-    font-size: 12px;
-}
-
-.titleBar {
-    min-height: 72px;
-    max-height: 72px;
+nav.navbar-findcond ul.navbar-nav li.settings a:hover{
     background-color: #004B8F;
-    border-bottom: 2px solid #002E79;
-    padding: 0;
-    margin: 0;
 }
 
-.titleBar h2 {
-    margin: 0;
-    padding: 0;
-    margin-left: 10px;
-    font-family: 'proxima-nova', 'Open Sans Condensed', sans-serif;
-    line-height: 72px;
-    font-weight: 100;
-    color: white;
+@keyframes slideRight {
+    0% {
+        transform: translateY(-150%);
+    }
+    50%{
+        transform: translateY(8%);
+    }
+    65%{
+        transform: translateY(-4%);
+    }
+    80%{
+        transform: translateY(4%);
+    }
+    95%{
+        transform: translateY(-2%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
 }
 
-/*//css for edit profile///*/
-
-#myformedit {
-    position: relative;
-    left: 300pt;
-    top: -60pt;
-    height: 500pt;
-    width: 600pt;
-
-}
-
-.mypageHeader {
-    position: relative;
-    left: 400pt;
-    top: 10pt;
-
-}
-
-.myimageforedit {
-    position: relative;
-    left: -300pt;
-    top: 20pt;
-    height: 100pt;
-    width: 100pt;
-}
-
-/*////////////////////////////STATS /////////////////////////////////*/
-#display {
-    height: 300pt;
-    width: 500pt;
-    background-color: #78d8de;
-}
-
-#contain {
-    position: relative;
-    left: 300pt;
-    top: -20pt;
-    height: 400pt;
-    width: 500pt;
-    background-color: #003b79;
-}
-
-label {
-    color: #f5f5f5;
-}
-
-/*Notification*/
-.patientinput {
-    font-size: 20px;
-    color: black;
-    text-align: center;
-    font-weight: bold;
+@-webkit-keyframes slideRight {
+    0% {
+        transform: translateY(-150%);
+    }
+    50%{
+        transform: translateY(8%);
+    }
+    65%{
+        transform: translateY(-4%);
+    }
+    80%{
+        transform: translateY(4%);
+    }
+    95%{
+        transform: translateY(-2%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
 }
 
 
-
-#findPatient {
-    padding-top: 60px;
+nav.navbar-findcond ul.navbar-nav li.active a {
+    border-color: #002240;
 }
-#findPatient .form-wrap {
-    width: 30%;
+
+nav.navbar-findcond ul.navbar-nav li.active a:hover {
+    border-color: white;
+}
+
+nav.navbar-findcond button.navbar-toggle {
+    background: #ffffff;
+    border-radius: 0;
+}
+
+.navbar-toggle {
+    width: 100%;
+    float: none;
     margin: 0 auto;
-}
-#findPatient .form-group {
-    margin-bottom: 25px;
+    border-width: 0;
+    border-radius: 0;
 }
 
-#findPatient .btn.btn-custom {
-    font-size: 14px;
-    margin-bottom: 20px;
+form.navbar-form {
+    box-shadow: none;
+    -webkit-box-shadow: none;
 }
-#findPatient .forget {
-    font-size: 14px;
-    text-align: center;
-    display: block;
-}
-#instruct{
 
-    color: #004B8F;
-    font-size: 18px;
-    text-align: center;
-    font-weight: bold;
-    padding-bottom: 15px;
-    padding-top: 0px;
-    margin: 0px;
+@media (max-width: 767px) {
+    .navbar-nav > li > a {
+        line-height: 40px;
+        height: 40px;
+    }
 
+    .navbar-form {
+        line-height: 40px;
+        height: 40px;
+    }
+
+    nav.navbar-findcond ul.navbar-nav li.active a {
+        background-color: #002240;
+        border-bottom: 1px solid white;
+    }
+
+    nav.navbar-findcond ul.navbar-nav li.active a:hover {
+        background-color: white;
+    }
+    nav.navbar-findcond ul.navbar-nav a {
+        color: #ffffff;
+        border-style: solid;
+        border-width: 0 0 1px 0;
+        border-color: white;
+    }
 }
+
+
+/*css for edit profile*/
+
+/*#myformedit {*/
+    /*position: relative;*/
+    /*left: 300pt;*/
+    /*top: -60pt;*/
+    /*height: 500pt;*/
+    /*width: 600pt;*/
+
+/*}*/
+
+/*.mypageHeader {*/
+    /*position: relative;*/
+    /*left: 400pt;*/
+    /*top: 10pt;*/
+
+/*}*/
+
+/*.myimageforedit {*/
+    /*position: relative;*/
+    /*left: -300pt;*/
+    /*top: 20pt;*/
+    /*height: 100pt;*/
+    /*width: 100pt;*/
+/*}*/
+
+/*STATS /////////////////////////////////!*/
+/*#display {*/
+    /*height: 300pt;*/
+    /*width: 500pt;*/
+    /*background-color: #78d8de;*/
+/*}*/
+
+/*#contain {*/
+    /*position: relative;*/
+    /*left: 300pt;*/
+    /*top: -20pt;*/
+    /*height: 400pt;*/
+    /*width: 500pt;*/
+    /*background-color: #003b79;*/
+/*}*/
+
+/*label {*/
+    /*color: #f5f5f5;*/
+/*}*/
+
+/*/!*Notification*!/*/
+/*.patientinput {*/
+    /*font-size: 20px;*/
+    /*color: black;*/
+    /*text-align: center;*/
+    /*font-weight: bold;*/
+/*}*/
+
+/*#findPatient {*/
+    /*padding-top: 60px;*/
+/*}*/
+
+/*#findPatient .form-wrap {*/
+    /*width: 30%;*/
+    /*margin: 0 auto;*/
+/*}*/
+
+/*#findPatient .form-group {*/
+    /*margin-bottom: 25px;*/
+/*}*/
+
+/*#findPatient .btn.btn-custom {*/
+    /*font-size: 14px;*/
+    /*margin-bottom: 20px;*/
+/*}*/
+
+/*#findPatient .forget {*/
+    /*font-size: 14px;*/
+    /*text-align: center;*/
+    /*display: block;*/
+/*}*/
+
+/*#instruct {*/
+
+    /*color: #004B8F;*/
+    /*font-size: 18px;*/
+    /*text-align: center;*/
+    /*font-weight: bold;*/
+    /*padding-bottom: 15px;*/
+    /*padding-top: 0px;*/
+    /*margin: 0px;*/
+
+/*}*/
