@@ -107,8 +107,8 @@ li.sub-show{
     animation-name: slideRight;
     -webkit-animation-name: slideRight;
 
-    animation-duration: 1.0s;
-    -webkit-animation-duration: 1.0s;
+    animation-duration: 0.8s;
+    -webkit-animation-duration: 0.8s;
 
     animation-timing-function: ease-in-out;
     -webkit-animation-timing-function: ease-in-out;
@@ -116,45 +116,57 @@ li.sub-show{
     visibility: visible !important;
 }
 
+nav.navbar-findcond ul.navbar-nav li.nobar a{
+    border: none;
+}
+
+nav.navbar-findcond ul.navbar-nav li.settings a{
+    background-color: #004B8F;
+}
+
+nav.navbar-findcond ul.navbar-nav li.settings a:hover{
+    background-color: #004B8F;
+}
+
 @keyframes slideRight {
     0% {
-        transform: translateX(600%);
+        transform: translateY(-150%);
     }
     50%{
-        transform: translateX(-8%);
+        transform: translateY(8%);
     }
     65%{
-        transform: translateX(4%);
+        transform: translateY(-4%);
     }
     80%{
-        transform: translateX(-4%);
+        transform: translateY(4%);
     }
     95%{
-        transform: translateX(2%);
+        transform: translateY(-2%);
     }
     100% {
-        transform: translateX(0%);
+        transform: translateY(0%);
     }
 }
 
 @-webkit-keyframes slideRight {
     0% {
-        transform: translateX(150%);
+        transform: translateY(-150%);
     }
     50%{
-        transform: translateX(-8%);
+        transform: translateY(8%);
     }
     65%{
-        transform: translateX(4%);
+        transform: translateY(-4%);
     }
     80%{
-        transform: translateX(-4%);
+        transform: translateY(4%);
     }
     95%{
-        transform: translateX(2%);
+        transform: translateY(-2%);
     }
     100% {
-        transform: translateX(0%);
+        transform: translateY(0%);
     }
 }
 

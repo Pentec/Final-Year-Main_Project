@@ -10,7 +10,7 @@ block content
                         span.sr-only Toggle navigation
                         span.glyphicon.glyphicon-align-justify(style="color:#004B8F")
             #navbar.collapse.navbar-collapse
-                ul.nav.navbar-nav.navbar-right
+                ul.nav.navbar-nav.navbar-left
                     li.active
                         a(href="#") Home
                     li.has-sub#usersub
@@ -25,8 +25,14 @@ block content
                         a(href="#") Add form
                     li#statisticstab
                         a(href='#') Statistics
-                    li
-                        a(href='#') Logout
+                ul.nav.navbar-nav.navbar-right
+                    li.nobar.has-sub#settings
+                        a(href='#')
+                            img(alt="Settings" src='/images/settings.png' height="40px")
+                    li.sub.settings
+                        a(href="#") Update Profile
+                    li.sub.settings
+                        a(href="#") Logout
                 form.navbar-form.navbar-right.search-form(role='search')
                     input.form-control(type='text', placeholder='Search')
     div.content

@@ -13,9 +13,9 @@ $(document).ready(function(){
                     fn.start = 0;
                     fn.end = 210;
                     $(c).css({
-                        '-webkit-transform':'translateX('+now+'%)'
-                        ,'-moz-transform':'translateX('+now+'%)'
-                        ,'transform':'translateX('+now+'%)'
+                        '-webkit-transform':'translateY(-'+now+'%)'
+                        ,'-moz-transform':'translateY(-'+now+'%)'
+                        ,'transform':'translateY(-'+now+'%)'
                     });
                 },
                 complete:function(){
@@ -32,9 +32,9 @@ $(document).ready(function(){
                         fn.start = 0;
                         fn.end = 210;
                         $(this).css({
-                            '-webkit-transform':'translateX('+now+'%)'
-                            ,'-moz-transform':'translateX('+now+'%)'
-                            ,'transform':'translateX('+now+'%)'
+                            '-webkit-transform':'translateY(-'+now+'%)'
+                            ,'-moz-transform':'translateY(-'+now+'%)'
+                            ,'transform':'translateY(-'+now+'%)'
                         });
                     },
                     complete:function(){
