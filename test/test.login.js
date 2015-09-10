@@ -126,8 +126,15 @@ describe("send notification to patient", function(){
        });
        done();
    });
-
-
+   
+   /*////.stats testing//////*/
+   	it('should pass', function(done){
+	done();
+	});
+	
+	it('should pass', function(done){
+		throw "don't pass";
+	});
 
 
 });

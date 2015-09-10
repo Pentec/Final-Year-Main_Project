@@ -1,5 +1,7 @@
-extends navBar
-block append content
+extends ../index
+block extFiles
+    link(rel='stylesheet', href='/stylesheets/mySpaceStyles/adminPimsSpace.css')
+block mainContent
     .container-fluid
       h1.headingPims My PIMS Space
     #myCarousel.carousel.slide.contents(data-ride='carousel')
