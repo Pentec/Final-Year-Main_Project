@@ -22,6 +22,7 @@ var dataNormalizerCervical = require('../controllers/dataNormalizers/dataNormali
 var EmergencyCountGlobal;
 var ElectiveCountGlobal;
 
+
 /**
  * A variable in the global namespace called 'models'.
  * It is for the PIMS login functionality
@@ -788,6 +789,15 @@ router.post('/findPatient/sendEmail', isLoggedIn, function(req, res, next) {
     {
         res.redirect('/login');
     }
+
+});
+
+var AI = require('pims-neuralnetwork');
+router.get('/testAI', function(req, res){
+    //var AI = require("../neuralnetwork");
+    //C:\Users\Ruth\Documents\GitHub\Main\Pentec_PIMS\lib\pims-neuralnetwork\UnitTests\test.json
+    var ai = new AI('./lib/pims-neuralnetwork/UnitTests/test.json');
+    ai.train();
 
 });
 

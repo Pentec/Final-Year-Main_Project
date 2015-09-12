@@ -7,10 +7,9 @@ block extFiles
     link(href='stylesheets/statistics.css', rel='stylesheet', type='text/css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
     link(rel='stylesheet', href='/stylesheets/stats.css')
-    //link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"')
     link(rel='stylesheet', href='/stylesheets/fancySelectors/cs-select.css')
     link(rel='stylesheet', href='/stylesheets/fancySelectors/cs-skin-elastic.css')
-    //script(src='https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"')
+    script(src='/javascripts/moment.js')
     script(src='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js')
     link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js')
@@ -18,7 +17,7 @@ block extFiles
     script(src='/javascripts/fancySelectors/classie.js')
     script(src='/javascripts/fancySelectors/selectFx.js')
 
-block contentRight
+block mainContent
     .container.graphbox
         .graph-wrapper.media-middle
             .third.widget.doughnut

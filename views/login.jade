@@ -2,6 +2,13 @@ extends layout
 block extFiles
     link(rel="stylesheet", href="/stylesheets/login.css")
     script(src='https://www.google.com/recaptcha/api.js')
+    script.
+        function recaptchaCallback() {
+            $('#btn-login').removeAttr('disabled');
+        };
+        $("#warningdiv").fadeTo(2000, 500).slideUp(500, function () {
+            $("#warningdiv").alert('close');
+        });
 block content
     div.jumbotron.center.banner
         div.inner
@@ -9,6 +16,10 @@ block content
     section#login
         div.container-fluid
             div.row
+                div.col-xs-4.col-xs-offset-4#warningdiv
+                    .alert.alert-info.fadein
+                        button.close(data-dismiss="alert", type="button") x
+                        p= "Please check the recaptcha box before logging in"
                 div.col-xs-4.col-xs-offset-4#errordiv
                     if (!send)
                         .alert.alert-danger
@@ -21,8 +32,8 @@ block content
                                 input.form-control#username(type="text", placeholder="Username", name="username", autofocus)
                             div.form-group
                                 input.form-control#password(type="password", placeholder="Password", name="password")
-                            input.btn.btn-custom.btn-lg.btn-block#btn-login(type="submit", value="Log In")
-                            div.g-recaptcha(data-sitekey="6Lc9mAsTAAAAADbZqkl2r7pEenxsAccFzN540Anm")
+                            input.btn.btn-custom.btn-lg.btn-block#btn-login(type="submit", value="Log In" disabled)
+                            div.g-recaptcha(data-callback="recaptchaCallback" data-sitekey="6Lc9mAsTAAAAADbZqkl2r7pEenxsAccFzN540Anm")
                         a.forget Forgot your password?
     footer.text-center.center-block
         h2 Back to&nbsp;
