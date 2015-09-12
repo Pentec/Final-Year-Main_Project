@@ -65,6 +65,7 @@ app.use('/addmission_discharge', addmission_discharge);
 app.use('/cervical_cancer', cervical_cancer);
 app.use(scribe.express.logger());
 app.use('/logs', scribe.webPanel());
+app.use('/dataNormalizer', routes);
 
 
 //Make some logs
