@@ -12,6 +12,7 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var userAuthentication = require('../controllers/authenticate.js');
+var dataNormalizerCervical = require('../controllers/dataNormalizers/dataNormalizerCervical.js');
 
 /**
  * The two variables in the global namespace called EmergencyCountGlobal and ElectiveCountGlobal.
@@ -20,6 +21,7 @@ var userAuthentication = require('../controllers/authenticate.js');
  */
 var EmergencyCountGlobal;
 var ElectiveCountGlobal;
+
 
 /**
  * A variable in the global namespace called 'models'.
@@ -222,6 +224,11 @@ router.get('/splash', function(req, res, next) {
   res.render('splash', { title: 'Kalafong PIMS' });
 });
 
+router.get('/dataNormalizer', function(req, res, next) {
+
+    dataNormalizerCervical.getNormalizedData(req.body.firstname, req.body.surname);
+
+});
 
 /**
  * Route that invokes the home page action
@@ -782,6 +789,15 @@ router.post('/findPatient/sendEmail', isLoggedIn, function(req, res, next) {
     {
         res.redirect('/login');
     }
+
+});
+
+var AI = require('pims-neuralnetwork');
+router.get('/testAI', function(req, res){
+    //var AI = require("../neuralnetwork");
+    //C:\Users\Ruth\Documents\GitHub\Main\Pentec_PIMS\lib\pims-neuralnetwork\UnitTests\test.json
+    var ai = new AI('./lib/pims-neuralnetwork/UnitTests/test.json');
+    ai.train();
 
 });
 
