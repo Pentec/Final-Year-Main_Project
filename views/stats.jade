@@ -41,11 +41,11 @@ block mainContent
                         div.form-group
                             select(id='TypeOfQuery').cs-select.cs-skin-elastic
                                 option(value='', disabled='', selected='') Select Statistics Data
-                                option(value='avgAge',   data-class='age', selected=avgAge) Average Age
-                                option(value='avgNum', data-class='stay', selected=avgNum) Average Hospital Stay
-                                option(value='numAd', data-class='admissions', selected=numAd) Average Number Of Admissions
-                                option(value='numEmerg', data-class='emergency',  selected=numEmerg) Emergency Operations
-                                option(value='numElec', data-class='elective', selected=numElec) Elective Operations
+                                option(value='avgAge',   data-class='age', selected=avgAge) Number of Admissions
+                                option(value='avgNum', data-class='stay', selected=avgNum) Hospitalization Periods
+                                option(value='numAd', data-class='admissions', selected=numAd) Emergency Operations
+                                option(value='numEmerg', data-class='emergency',  selected=numEmerg) Elective Operations
+                                option(value='numElec', data-class='elective', selected=numElec) Type of Surgery
                         div.form-group
                             section
                                 select(id='TypeOfSearch').cs-select.cs-skin-elastic
@@ -86,7 +86,7 @@ block mainContent
                                 type: 'POST',
                                 url: '/findSelectedQuery',
                                 beforeSend: function(xhr){
-                                    $("#search").html("<img src='/images/loading.gif' height = '30px' />");
+                                    $("#search").html("<img src='/images/loader.gif' height = '30px' />");
                                 },
                                 data: JSON.stringify({
                                     forQuering: {

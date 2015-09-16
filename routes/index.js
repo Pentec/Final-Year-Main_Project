@@ -589,13 +589,15 @@ router.post('/findSelectedQuery', function(req, res, next) {
 	var stats =  JSON.stringify(req.body.forQuering.statsQuery);
 	var EmergencyOp = "\"Emergency Operations\"";
 	var ElectiveOp = "\"Elective Operations\"";
-	var AvAgeOp = "\"Average Age\"";
-	var AvStayOp = "\"Average Hospital Stay\"";
-	var AvAdmissionOp = "\"Average Number Of Admissions\"";
+	var TypeOfSurg = "\"Type of Surgery\"";
+	var HosPeriod = "\"Hospitalization Periods\"";
+	var AdmissionOp = "\"Number of Admissions\"";
 
 	
 	var arr = [];
 	var arrTwo = [];
+	var arrThree = [];
+	var arrFour = [];
 
 		if(stats == EmergencyOp)
 		{
@@ -604,26 +606,39 @@ router.post('/findSelectedQuery', function(req, res, next) {
 		}else if(stats == ElectiveOp)
 		{
 			var two = checkElective(period,stats,startDate,endDate);
+		}else if(stats == TypeOfSurg)
+		{
+			var three = checkSurgery(period,stats,startDate,endDate);
+		}else if(stats == HosPeriod)
+		{
+			var four = checkHosPeriod(period,stats,startDate,endDate);
+		}else if(stats == AdmissionOp)
+		{
+			checkAdmission(period,stats,startDate,endDate);
 		}
 		
-		
+
    function checkEmergency(period, stats, startDate, endDate)
 	{
-		var obj = [];
-		
-		 GS.count({"typeOfProcedure.Emergency": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, EmergencyCount) {
-				 if(err) {
-						console.log("DB error");
-						callback(err);
-					}
-					
-				GS.find({"typeOfProcedure.Emergency": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, dates){
-						
-						for (i = 0; i < EmergencyCount; i++) { 
+
+		 GS.aggregate(
+		   [
+			  { $match : {"typeOfProcedure.Emergency": true , "ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}} },
+			  
+			  {
+				  $group : { _id : { month: { $month: "$ProcedureDate" }, day: { $dayOfMonth: "$ProcedureDate" }, year: { $year: "$ProcedureDate" }} ,count: { $sum: 1 } ,  ourDate: { $first: "$ProcedureDate"  } } 
+			  
+			  }
+			  
+		   ] , function(err, myResult)
+		   {
+			   var num = myResult.length;
+			   
+			   for (var i = 0; i < num; i++) { 
 						
 							 var newElement = {};
-								newElement['date'] = new Date(dates[i].ProcedureDate).toString('dd-MM-yyyy');
-								newElement['close'] = 1;
+								newElement['date'] = new Date(myResult[i].ourDate).toString('dd-MM-yyyy');
+								newElement['close'] = myResult[i].count;
 								arr.push(newElement);
 							
 						}
@@ -631,46 +646,136 @@ router.post('/findSelectedQuery', function(req, res, next) {
 							  console.log(resBody);
 							  res.json(resBody);
 							  console.log("POST response sent.");
-				});
-					
-					EmergencyCountGlobal = EmergencyCount;
-		  });
+			   
+		   }
+		);
 		  	
 	}
 	
 	 function checkElective(period, stats, startDate, endDate)
 	{
-		var obj = 
-		
-		 GS.count({"typeOfProcedure.Elective": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, ElectiveCount) {
-				 if(err) {
-						console.log("DB error");
-						callback(err);
-					}
-					
-				GS.find({"typeOfProcedure.Elective": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, dates){
+		 GS.aggregate(
+		   [
+			  { $match : {"typeOfProcedure.Elective": true , "ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}} },
+			  
+			  {
+				  $group : { _id : { month: { $month: "$ProcedureDate" }, day: { $dayOfMonth: "$ProcedureDate" }, year: { $year: "$ProcedureDate" }} ,count: { $sum: 1 } ,  ourDate: { $first: "$ProcedureDate"  } } 
+			  
+			  }
+			  
+		   ] , function(err, myResult)
+		   {
+			   var num = myResult.length;
+			   
+			   for (var i = 0; i < num; i++) { 
 						
-						for (i = 0; i < ElectiveCount; i++) { 
-						
-								var newElement = {};
-								newElement['date'] = new Date(dates[i].ProcedureDate).toString('dd-MM-yyyy');
-								newElement['close'] = 1;
-								arrTwo.push(newElement);
+							 var newElement = {};
+								newElement['date'] = new Date(myResult[i].ourDate).toString('dd-MM-yyyy');
+								newElement['close'] = myResult[i].count;
+								arr.push(newElement);
+							
 						}
-						
-						      var resBody = { myStatsArry: arrTwo};
+							 var resBody = { myStatsArry: arr};
 							  console.log(resBody);
 							  res.json(resBody);
 							  console.log("POST response sent.");
+			   
+		   }
+		);
+	}
+	
+	
+	function checkAdmission(period, stats, startDate, endDate)
+	{
+		
+		 
+		 AD.aggregate(
+		   [
+			  { $match : {"DateofAdmission": {'$gte': new Date(startDate),'$lte': new Date(endDate)}} },
+			  {
+				  $group : { _id : { month: { $month: "$DateofAdmission" }, day: { $dayOfMonth: "$DateofAdmission" }, year: { $year: "$DateofAdmission" }} ,count: { $sum: 1 } ,  ourDate: { $first: "$DateofAdmission"  } } 
+			  
+			  }
+			  
+		   ] , function(err, myResult)
+		   {
+			  
+			   var num = myResult.length;
+			   
+			   for (var i = 0; i < num; i++) { 
 						
-				});
-					
-					ElectiveCountGlobal = ElectiveCount;
-		  });
-		  
+							 var newElement = {};
+								newElement['date'] = new Date(myResult[i].ourDate).toString('dd-MM-yyyy');
+								newElement['close'] = myResult[i].count;
+								arrThree.push(newElement);
+							
+						}
+							 var resBody = { myStatsArry: arrThree};
+							  console.log(resBody);
+							  res.json(resBody);
+							  console.log("POST response sent.");
+			   
+		   }
+		);
+		
+		
+	}
+	
+	function checkSurgery(period, stats, startDate, endDate)
+	{console.log("Surg");}
+	
+	function checkHosPeriod(period, stats, startDate, endDate)
+	{
+		
+		AD.aggregate(
+		   [
+			  { $match : {"DateofDischarge": {'$gte': new Date(startDate),'$lte': new Date(endDate)}} },
+			  {
+				  $group : { _id : { month: { $month: "$DateofDischarge" }, day: { $dayOfMonth: "$DateofDischarge" }, year: { $year: "$DateofDischarge" }} ,count: { $sum: 1 } ,  ourDate: { $first: "$DateofDischarge"  } } 
+			  
+			  }
+			  
+		   ] , function(err, myResult)
+		   {
+			  
+			   var num = myResult.length;
+			   
+			   for (var i = 0; i < num; i++) { 
+						
+								var newElement = {};
+								newElement['date'] = new Date(myResult[i].ourDate).toString('dd-MM-yyyy');
+								newElement['close'] = myResult[i].count;
+								arrFour.push(newElement);
+							
+						}
+							 var resBody = { myStatsArry: arrFour};
+							  console.log(resBody);
+							  res.json(resBody);
+							  console.log("POST response sent.");
+			   
+		   }
+		);
+		
+	
 	}
 
 });
+
+/*View patient stats */
+router.get('/forms', isLoggedIn, function(req, res, next) {
+
+    sess=req.session;
+
+    if(req.user)
+    {
+        res.render('forms', { title: 'FormSelect' });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+});
+
 
 /*View patient stats */
 router.get('/forms', isLoggedIn, function(req, res, next) {
