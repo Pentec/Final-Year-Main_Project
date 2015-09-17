@@ -1,53 +1,112 @@
 extends ../index
+block extFiles
+    link(rel='stylesheet', href='/stylesheets/mySpaceStyles/adminPimsSpace.css')
 block mainContent
-    .container-fluid
-      h1.headingPims My PIMS Space
-    #myCarousel.carousel.slide.contents(data-ride='carousel')
-      // Indicators
-      ol.carousel-indicators
-        li.active(data-target='#myCarousel', data-slide-to='0')
-        li(data-target='#myCarousel', data-slide-to='1')
-      // Wrapper for slides
-      .carousel-inner.container
-        #content.item.active
-          .row
-            .col-xs-2
-              a(href='#')
-                img.link(src='images/mySpaceIcons/activities.png')
-              h3 My Activities
-            .col-xs-2
-              a(href='#')
-                img.link(src='images/mySpaceIcons/forms.png')
-              h3  Forms
-            .col-xs-2
-              a(href='#')
-                img.link(src='images/mySpaceIcons/tutorial.png')
-              h3 Tutorial
-            br
-            br
-            br
-        #content2.item
-          .row
-            .col-xs-2
-             a(href='editProfile')
-              img.link(src='images/mySpaceIcons/profile.png')
-              h3               Profile
-            .col-xs-2
-             a(href='stats')
-              img.link(src='images/mySpaceIcons/stats.png')
-              h3             Statistics
-            .col-xs-2
-             a(href='addUser')
-              img.link(src='images/mySpaceIcons/AddUser.png')
-              h3             Add user
-            .col-xs-2
-             a(href='findPatient')
-              img.link(src='images/mySpaceIcons/notifications.png')
-              h3            Notifications
-        // Left and right controls
-        a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
-          span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
-          span.sr-only Previous
-        a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
-          span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
-          span.sr-only Next
+    #myCarousel.carousel(data-interval="10000000000000" data-keyboard="false")
+        // Wrapper for slides
+        .carousel-inner(role="listbox")
+            .item.slideInRight.active
+                a(href='#')
+                    img.link(src='images/mySpaceIcons/activities.png')
+                    h3 My Activities
+                a(href='#')
+                    img.link(src='images/mySpaceIcons/forms.png')
+                    h3  Forms
+                a(href='#')
+                    img.link(src='images/mySpaceIcons/tutorial.png')
+                    h3 Tutorial
+            .item
+                a(href='editProfile')
+                    img.link(src='images/mySpaceIcons/profile.png')
+                    h3               Profile
+                a(href='stats')
+                    img.link(src='images/mySpaceIcons/stats.png')
+                    h3             Statistics
+                a(href='addUser')
+                    img.link(src='images/mySpaceIcons/AddUser.png')
+                    h3             Add user
+                a(href='findPatient')
+                    img.link(src='images/mySpaceIcons/notifications.png')
+                    h3            Notifications
+            // Left and right controls
+            a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+                span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+                span.sr-only Previous
+            a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
+                span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+                span.sr-only Next
+            script.
+                $("a.left.carousel-control").click(left);
+                $("a.right.carousel-control").click(right);
+                $(window).keyup(function (event) {
+                    if (event.which == 37) {
+                        leftKey();
+                    }
+                    if (event.which == 39) {
+                        rightKey();
+                    }
+                });
+                function left() {
+                    if ($(".item").siblings() > 0) {
+                        $(".carousel-control").hide();
+                    }
+                    $(".item").removeClass("slideInLeft");
+                    $(".item.active").addClass("prevo");
+                    $(".item.active").addClass("slideInRight");
+                    setTimeout(function () {
+                        $(".item").removeClass("slideInRight");
+                        $(".prevo").removeClass("prevo");
+                        $(".item.active").addClass("slideInRight");
+
+                    }, 500)
+                }
+                function right() {
+                    if ($(".item").siblings() > 0) {
+                        $(".carousel-control").hide();
+                    }
+                    $(".item").removeClass("slideInRight");
+                    $(".item.active").addClass("prevo");
+                    $(".item.active").addClass("slideInLeft");
+                    setTimeout(function () {
+                        $(".item").removeClass("slideInLeft");
+                        $(".prevo").removeClass("prevo");
+                        $(".item.active").addClass("slideInLeft");
+                    }, 500)
+                }
+                function rightKey() {
+                    if ($(".item").siblings() > 0) {
+                        $(".carousel-control").hide();
+                    }
+                    $(".item").removeClass("slideInRight");
+                    $(".item.active").addClass("prevo");
+                    $(".item.active").addClass("slideInLeft");
+                    setTimeout(function () {
+                        $(".item").removeClass("slideInLeft");
+                        $(".prevo").removeClass("prevo");
+                        if ($(".item.active").next(".item").is(".item")) {
+                            $(".item.active").removeClass("active").next().addClass("active").addClass("slideInLeft");
+                        } else {
+                            $(".item").removeClass("active");
+                            $(".item").first().addClass("active").addClass("slideInLeft");
+                        }
+
+                    }, 490)
+                }
+                function leftKey() {
+                    if ($(".item").siblings() > 0) {
+                        $(".carousel-control").hide();
+                    }
+                    $(".item").removeClass("slideInLeft");
+                    $(".item.active").addClass("prevo");
+                    $(".item.active").addClass("slideInRight");
+                    setTimeout(function () {
+                        $(".item").removeClass("slideInRight");
+                        $(".prevo").removeClass("prevo");
+                        if ($(".item.active").prev().is(".item")) {
+                            $(".item.active").removeClass("active").prev().addClass("active").addClass("slideInRight");
+                        } else {
+                            $(".item").removeClass("active");
+                            $(".item:last-of-type").addClass("active").addClass("slideInRight");
+                        }
+                    }, 490)
+                }

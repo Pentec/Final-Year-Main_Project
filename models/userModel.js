@@ -2,7 +2,6 @@
  * Created by Ruth on 2015-08-15.
  */
 var mongoose = require('mongoose');
-//var passportLocalMongoose = require('passport-local-mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var Schema   = mongoose.Schema;
 
@@ -32,18 +31,17 @@ var Users = new Schema({
 });
 
 
-//Users.plugin(passportLocalMongoose);
-
 
 //Before saving, check if password has been modified, else return a call back
-//if modified, then salt and hash pswd
-/*
+//if modified, then salt and hash password
+
 Users.pre('save', function(callback){
    var user = this;
 
 	if(!user.isModified('password'))
 		return callback();
 
+	//Password change; hash it
 	bcrypt.genSalt(5, function(err,salt){
 	   if(err)
 		   return callback(err);
@@ -60,17 +58,13 @@ Users.pre('save', function(callback){
 });
 
 //verify password, compares hash with plain text value
-User.methods.verifyPassword = function(password, callback){
+Users.methods.passwordValid = function(password, callback){
 	bcrypt.compare(password, this.password, function(err, isMatch){
         if(err)
             return callback(err);
 
         callback(null, isMatch);
     });
-};*/
-
-
-/*methods*/
-
+};
 
 module.exports.user = mongoose.model('users', Users);
