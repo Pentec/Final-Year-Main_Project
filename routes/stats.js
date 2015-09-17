@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
-var models = require('pims-database');
+var submodules = "../sub_modules/";
+var models = require(submodules + 'pims-database/database');
 var userModel = require('../models/userModel.js');
 var User = userModel.user;
 var Form = models.forms;

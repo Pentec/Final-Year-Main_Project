@@ -12,6 +12,7 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var userAuthentication = require('../controllers/authenticate.js');
+var submodules = "../sub_modules/";
 
 /**
  * The two variables in the global namespace called EmergencyCountGlobal and ElectiveCountGlobal.
@@ -26,7 +27,7 @@ var ElectiveCountGlobal;
  * It is for the PIMS login functionality
  * @type {*|exports|module.exports}
  */
-var models = require('pims-database');
+var models = require(submodules + 'pims-database/database');
 
 /**
  * Required module d3 for the purpose of Statistical graphical representation.
@@ -41,14 +42,14 @@ require('d3');
  * It is for the PIMS login functionality
  * @type {exports|module.exports}
  */
-var login = require('pims-login');
+var login = require(submodules + 'pims-login/login');
 
 /**
  * A variable in the global namespace called 'notification'.
  * It is for the PIMS notification functionality
  * @type {exports|module.exports}
  */
-var notification = require('pims-notification');
+var notification = require(submodules + 'pims-notification/notifications');
 var https = require('https');
 
 /**

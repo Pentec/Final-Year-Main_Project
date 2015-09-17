@@ -32,7 +32,8 @@
     "pims-notification": "file:lib/pims-notification",
     "scribe-js": "^2.0.4",
     "serve-favicon": "~2.2.1",
-    "unit.js": "^2.0.0"
+    "unit.js": "^2.0.0",
+    "synaptic": "^1.0.1"
   },
   "optionalDependencies": {
     "connect-flash": "^0.1.1",

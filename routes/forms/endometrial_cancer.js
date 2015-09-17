@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var models = require('pims-database');
+var submodules = "../../sub_modules/";
+var models = require(submodules + 'pims-database/database');
 var EC = models.endometrialCancer;
 
 router.post('/', function(req, res, next) {
