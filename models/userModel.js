@@ -4,18 +4,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var Schema   = mongoose.Schema;
-/*
-var Users = new Schema({
-	username				: String,
-	surname				: String,
-	email				: String,
-	profile_pic				: String,
-	user_rights				: Number,
-	password				: String,
-	department				: String,
-	staff_type				: String
-});*/
-
 
 
 var Users = new Schema({
@@ -41,19 +29,19 @@ var Users = new Schema({
 	department : String,
 	staff_type : String
 });
-/*
-var u = new Users({username : "l", surname : "m", email : "lm@gmail.com",user_rights : 1,password : "n", department : "Obstetrics", staff_type : "Doctor" })
-    .save(function(err, users) {
-        console.log("New user added");
-    });*/
 
-/*
+
+
+//Before saving, check if password has been modified, else return a call back
+//if modified, then salt and hash password
+
 Users.pre('save', function(callback){
    var user = this;
 
 	if(!user.isModified('password'))
 		return callback();
 
+	//Password change; hash it
 	bcrypt.genSalt(5, function(err,salt){
 	   if(err)
 		   return callback(err);
@@ -69,14 +57,14 @@ Users.pre('save', function(callback){
 
 });
 
-User.methods.verifyPassword = function(password, callback){
+//verify password, compares hash with plain text value
+Users.methods.passwordValid = function(password, callback){
 	bcrypt.compare(password, this.password, function(err, isMatch){
         if(err)
             return callback(err);
 
         callback(null, isMatch);
     });
-};*/
-
+};
 
 module.exports.user = mongoose.model('users', Users);

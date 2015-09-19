@@ -1,0 +1,289 @@
+/*.col-sm-4_Maria1*/
+/*{*/
+  /*position: relative;*/
+  /*min-height: 10px;*/
+  /*padding-right: 1px;*/
+  /*padding-left: 280px;*/
+  /*float:left;*/
+/*}*/
+
+/*.col-sm-4_Maria2*/
+/*{*/
+  /*position: relative;*/
+  /*min-height: 10px;*/
+  /*padding-right: 15px;*/
+  /*padding-left: 30px;*/
+  /*float:left;*/
+/*}*/
+
+/*.col-sm-4_Maria3*/
+/*{*/
+  /*position: relative;*/
+  /*min-height: 1px;*/
+  /*padding-right: 15px;*/
+  /*padding-left: 10px;*/
+  /*float:left;*/
+/*}*/
+/*/!*---------------------------------------------*!/*/
+/*.col-sm-4_Maria4*/
+/*{*/
+  /*position: relative;*/
+  /*min-height: 10px;*/
+  /*padding-right: 1px;*/
+  /*padding-left: 500px;*/
+  /*float:left;*/
+/*}*/
+
+/*.col-sm-4_Maria5*/
+/*{*/
+  /*position: relative;*/
+  /*min-height: 10px;*/
+  /*padding-right: 15px;*/
+  /*padding-left: 30px;*/
+  /*float:left;*/
+/*}*/
+
+/*.col-sm-4_Maria6*/
+/*{*/
+  /*position: relative;*/
+  /*min-height: 1px;*/
+  /*padding-right: 15px;*/
+  /*padding-left: 10px;*/
+  /*float:left;*/
+/*}*/
+
+/*.col-sm-4_style7*/
+/*{*/
+  /*position: relative;*/
+  /*min-height: 1px;*/
+  /*padding-right: 15px;*/
+  /*padding-left: 15px;*/
+  /*float:left;*/
+/*}*/
+
+/*---------------------------------------------*/
+
+
+img.link:hover {
+	-ms-transform: rotate(7deg); /* IE 9*/
+    -webkit-transform: rotate(7deg); 
+    transform: rotate(20deg);
+	transition: transform 1000ms ease;
+}
+
+#myCarousel{
+    margin-top: 15%;
+}
+
+.carousel-control.left{
+    background-image: none;
+}
+
+.carousel-control.right{
+    background-image: none;
+}
+
+.carousel-control{
+    color: #004B8F;
+    opacity: 1.0;
+    text-shadow: none;
+}
+
+.carousel-control:hover span,
+.carousel-control:focus span{
+    color: #002240;
+}
+
+@media (max-height: 700px){
+    #myCarousel{
+        margin-top: 100px;
+    }
+}
+
+.item a{
+    float: left;
+}
+
+.carousel-inner{
+    text-align: center;
+}
+
+.carousel-inner > .active{
+    display: inline-block;
+}
+
+.item.active.slideInRight{
+    display: inline-block;
+    animation-name: slideInRight;
+    -webkit-animation-name: slideInRight;
+
+    animation-duration: 0.8s;
+    -webkit-animation-duration: 0.8s;
+
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+
+    visibility: visible !important;
+}
+
+.item.prevo.slideInRight{
+    display: inline-block;
+    animation-name: slideOutRight;
+    -webkit-animation-name: slideOutRight;
+
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+.item.active.slideInLeft{
+    display: inline-block;
+    animation-name: slideInLeft;
+    -webkit-animation-name: slideInLeft;
+
+    animation-duration: 0.8s;
+    -webkit-animation-duration: 0.8s;
+
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+
+    visibility: visible !important;
+}
+
+.item.prevo.slideInLeft{
+    display: inline-block;
+    animation-name: slideOutLeft;
+    -webkit-animation-name: slideOutLeft;
+
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+.item.active{
+    display: none;
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(-200%);
+    }
+    50%{
+        transform: translateX(4%);
+    }
+    65%{
+        transform: translateX(-2%);
+    }
+    80%{
+        transform: translateX(2%);
+    }
+    95%{
+        transform: translateX(-1%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@-webkit-keyframes slideInRight{
+    0% {
+        transform: translateX(-200%);
+    }
+    50%{
+        transform: translateX(4%);
+    }
+    65%{
+        transform: translateX(-2%);
+    }
+    80%{
+        transform: translateX(2%);
+    }
+    95%{
+        transform: translateX(-1%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideOutRight {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+@-webkit-keyframes slideOutRight{
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(200%);
+    }
+    50%{
+        transform: translateX(-4%);
+    }
+    65%{
+        transform: translateX(2%);
+    }
+    80%{
+        transform: translateX(-2%);
+    }
+    95%{
+        transform: translateX(1%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@-webkit-keyframes slideInLeft{
+    0% {
+        transform: translateX(200%);
+    }
+    50%{
+        transform: translateX(-4%);
+    }
+    65%{
+        transform: translateX(2%);
+    }
+    80%{
+        transform: translateX(-2%);
+    }
+    95%{
+        transform: translateX(1%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideOutLeft {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+@-webkit-keyframes slideOutLeft{
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}

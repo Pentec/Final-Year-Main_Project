@@ -1,0 +1,82 @@
+\documentclass[a4paper,12pt,titlepage]{article}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\usepackage{float}
+\DeclareGraphicsExtensions{.bmp,.eps,.jpg,.png}
+
+\begin{document}
+%\title and intnro
+\input{./testCover.tex}
+
+%\table of content
+\tableofcontents
+\newpage
+
+\section{Introduction}
+%\Intro
+\input{./testIntro.tex}
+
+\newpage	
+\section{Features and Items tested}
+\input{./Features.tex}
+
+\section{Functional Testing}
+	\subsection{PIMS Login}
+	\input{./PIMSLogin.tex}
+	
+	\subsection{PIMS Notifications}
+	\input{./PIMSNotifications.tex}
+	
+	\subsection{PIMS Edit Profile}
+	\input{./PIMSEdit.tex}
+	
+	\subsection{PIMS Add User}
+	%\\input{./PIMSAddUser.tex}
+	
+	\subsection{PIMS Artificial Inteligence}
+%\	\input{./PIMSArtificialInteligence.tex}
+	
+	\subsection{PIMS Statistics}
+%\	\input{./PIMSStatistics.tex}
+	
+	\subsection{PIMS Predictions}
+%\	\input{./PIMSLogin.tex}
+	
+	
+\section{Non-functional Testing}
+	\subsection{Usability}
+%\	\input{./Usability.tex}
+	
+	\subsection{Scalability}
+%\	\input{./Scalability.tex}
+	
+	\subsection{Performance}
+%\	\input{./Performance.tex}
+	
+	\subsection{Maintainability}
+%\	\input{./maintainability.tex}
+	
+	\subsection{Reliability}
+%\	\input{./Reliability.tex}
+	
+	\subsection{Secutity}
+%\	\input{./Secutity.tex}
+	
+	\subsection{Monitorability}
+%\	\input{./Monitorability.tex}
+	
+\section{Remarks}
+	\subsection{Risks and issues}
+%\	\input{./Risks.tex}
+	
+	\subsection{Product quality}
+%\	\input{./ProductQuality.tex} 
+	
+	\subsection{Possible improvements}
+%\	\input{./improvements.tex}
+
+\section{Conclusion}
+	
+
+\end{document}

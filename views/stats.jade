@@ -1,54 +1,81 @@
 extends index
 block extFiles
+    script(src='javascripts/Chart.js')
+    script(src='javascripts/statistics.js')
+    link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700', rel='stylesheet', type='text/css')
+    link(href='stylesheets/statistics.css', rel='stylesheet', type='text/css')
     link(rel='stylesheet', href='/stylesheets/stats.css')
-    link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css')
-    link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"')
-    script(src='https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"')
-    script(src='https://cdn.jsdelivr.net/jquery/1/jquery.min.js')
-    script(src='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js')
+    link(rel='stylesheet', href='/stylesheets/fancySelectors/cs-select.css')
+    link(rel='stylesheet', href='/stylesheets/fancySelectors/cs-skin-elastic.css')
+    link(rel='stylesheet', href='/stylesheets/daterangepicker/daterangepicker.css')
+    script(src='/javascripts/moment.js')
+    script(src='/javascripts/daterangepicker/daterangepicker.js')
+    script(src='/javascripts/d3/d3.min.js')
     script(src='/javascripts/stats.js')
-block contentRight
+    script(src='/javascripts/fancySelectors/classie.js')
+    script(src='/javascripts/fancySelectors/selectFx.js')
+
+block mainContent
     .container.graphbox
-        .graph-wrapper
+        .graph-wrapper.media-middle
             .graph
+            //.third.widget.doughnut
+                h3 Overall Procedures in Kalafong Hospital
+                  p
+                  .canvas-container
+                    canvas#hours
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    span.status
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .chart-legend
+                    ul
+                      li.admin Elective Procedures
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                      li.prod Emergency Procedures
         .graph-interaction
             .graph-interaction-header
                 h2 Queries
             .stats-section
-                #datepicker.input-daterange.input-group.date.center-block
+                #datepicker.input-daterange.date.center-block
                     form(name="queryForm", autocomplete="off", method="post")#mainQuery
-                        div.form-group.text-center
-                            select(name='TypeOfQuery')
-                                option(value='avgAge',   selected=avgAge) Average Age
-                                option(value='avgNum', selected=avgNum) Average Stay
-                                option(value='numAd', selected=numAd) Average Number Of Admissions
-                                option(value='numEmerg',   selected=numEmerg) Emergency Operations
-                                option(value='numElec', selected=numElec) Elective Operations
-                        div.form-group.text-center
-                            select(name='TypeOfSearch')
-                                option(value='none',   selected=none) None
-                                option(value='week',   selected=week) Weekly
-                                option(value='month', selected=month) Monthly
-                                option(value='year', selected=year) Yearly
-                        div.form-group.input-daterange.input-group
-                            input#StartDate.input-sm.form-control(type='date', name='startDate', placeholder='Date 1')
-                            span.input-group-addon
-                                span.glyphicon.glyphicon-calendar
                         div.form-group
-                            input.btn.btn-primary.btn-block(type="submit", value="Search Query", id="search")
+                            select(id='TypeOfQuery').cs-select.cs-skin-elastic
+                                option(value='', disabled='', selected='') Select Statistics Data
+                                option(value='avgAge',   data-class='age', selected=avgAge) Number of Admissions
+                                option(value='avgNum', data-class='stay', selected=avgNum) Hospitalization Periods
+                                option(value='numAd', data-class='admissions', selected=numAd) Emergency Operations
+                                option(value='numEmerg', data-class='emergency',  selected=numEmerg) Elective Operations
+                                option(value='numElec', data-class='elective', selected=numElec) Type of Surgery
+                        div.form-group
+                            section
+                                select(id='TypeOfSearch').cs-select.cs-skin-elastic
+                                    option(value='', disabled='', selected='') Select an Interval
+                                    option(value='none', data-class='nothing',  selected='none') None
+                                    option(value='none', data-class='day',  selected='day') Daily
+                                    option(value='week', data-class='week'  selected=week) Weekly
+                                    option(value='month', data-class='month' selected='monthly') Monthly
+                                    option(value='year', data-class='year' selected=year) Yearly
+                        div.form-group.input-daterange
+                            input#StartDate.form-control(type='text', name='startDate', placeholder='Date 1').date-custom
+                            i.glyphicon.glyphicon-calendar
+                        div.form-group
+                            button.btn.btn-custom.btn-block(type="Submit", value="submit", id="search" onclick="")
+                                | Query
                     script.
                         $('#StartDate').daterangepicker(
                         {
                             locale: {
-                                format: 'YYYY-MM-DD h:mm:ss'
+                                format: 'YYYY-MM-DD'
                             },
                             startDate: '2014-01-01',
-                            endDate: '2014-12-31'
+                            endDate: '2014-12-31',
+                            opens: 'left',
+                            "applyClass": "btn-block btn-custom btn-top",
+                            "cancelClass" : "btn-block btn-bottom"
                         },
                         function (start, end, label) {
-                            startDate = start.format('YYYY-MM-DD h:mm:ss');
-                            endDate = end.format('YYYY-MM-DD h:mm:ss');
+                            startDate = start.format('YYYY-MM-DD');
+                            endDate = end.format('YYYY-MM-DD');
                         });
 
                         $("#mainQuery").on("submit", function (e) {
@@ -58,6 +85,9 @@ block contentRight
                             $.ajax({
                                 type: 'POST',
                                 url: '/findSelectedQuery',
+                                beforeSend: function(xhr){
+                                    $("#search").html("<img src='/images/loader.gif' height = '30px' />");
+                                },
                                 data: JSON.stringify({
                                     forQuering: {
                                         start: startDate,
@@ -66,19 +96,43 @@ block contentRight
                                         statsQuery: stats
                                     }
                                 }),
+                                success: function (data, textStatus, jqXHR){
+                                    $("#search").html("Query");
+                                    var res = JSON.parse(jqXHR.responseText);
+                                    var resBus = JSON.stringify(res.myStatsArry);
+                                    updateGraph(res.myStatsArry, "Test");
+                                    //window.location = '/statistics.html?myObject=' + resBus;
+                                },
                                 dataType: "json",
                                 contentType: "application/json"
                             });
                         });
+                        var one = #{elCount}; var two = #{emCount}
+                        var data = [{value : one,color : "#dbba34"},{value : two,color : "#c62f29"}];
+                        var canvas = document.getElementById("hours");
+                        var ctx = canvas.getContext("2d");
+                        new Chart(ctx).Doughnut(data);
+                         
 
             .graph-interaction-header
                 h2 Statistics
             .overall-stats.stats-section
                 p
-                    b Overall Average:
-                    em.pull-right 28.5
+                    b Overall Average age:
+                    em.pull-right #{avgAge}
                 p
-                    b Current Interval Average:
-                    em.pull-right 24.5
+                    b Average Stay Days:
+                    em.pull-right #{avgStay}
             .graph-interaction-header
                 h2 Options
+            .stats-section(style="height:30%;")
+                div(style="height:60%")
+                    .input-group
+                        input(type="image", src="/images/bar.png")
+                        input(type="image", src="/images/line.png")
+                .btn-group.btn-group-justified
+                    .btn-group
+                        button(type="button" onclick="anim()").btn.btn-custom Predict
+                    .btn-group
+                        button(type="button").btn.btn-custom.blue Save as PDF
+
