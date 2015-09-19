@@ -1,27 +1,25 @@
 extends index
 block extFiles
-    script(src='https://cdn.jsdelivr.net/jquery/1/jquery.min.js')
     script(src='javascripts/Chart.js')
     script(src='javascripts/statistics.js')
     link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700', rel='stylesheet', type='text/css')
     link(href='stylesheets/statistics.css', rel='stylesheet', type='text/css')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
     link(rel='stylesheet', href='/stylesheets/stats.css')
-    //link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"')
     link(rel='stylesheet', href='/stylesheets/fancySelectors/cs-select.css')
     link(rel='stylesheet', href='/stylesheets/fancySelectors/cs-skin-elastic.css')
-    //script(src='https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"')
-    script(src='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js')
-    link(rel='stylesheet', href='https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js')
+    link(rel='stylesheet', href='/stylesheets/daterangepicker/daterangepicker.css')
+    script(src='/javascripts/moment.js')
+    script(src='/javascripts/daterangepicker/daterangepicker.js')
+    script(src='/javascripts/d3/d3.min.js')
     script(src='/javascripts/stats.js')
     script(src='/javascripts/fancySelectors/classie.js')
     script(src='/javascripts/fancySelectors/selectFx.js')
 
-block contentRight
+block mainContent
     .container.graphbox
         .graph-wrapper.media-middle
-            .third.widget.doughnut
+            .graph
+            //.third.widget.doughnut
                 h3 Overall Procedures in Kalafong Hospital
                   p
                   .canvas-container
@@ -43,11 +41,11 @@ block contentRight
                         div.form-group
                             select(id='TypeOfQuery').cs-select.cs-skin-elastic
                                 option(value='', disabled='', selected='') Select Statistics Data
-                                option(value='avgAge',   data-class='age', selected=avgAge) Average Age
-                                option(value='avgNum', data-class='stay', selected=avgNum) Average Hospital Stay
-                                option(value='numAd', data-class='admissions', selected=numAd) Average Number Of Admissions
-                                option(value='numEmerg', data-class='emergency',  selected=numEmerg) Emergency Operations
-                                option(value='numElec', data-class='elective', selected=numElec) Elective Operations
+                                option(value='avgAge',   data-class='age', selected=avgAge) Number of Admissions
+                                option(value='avgNum', data-class='stay', selected=avgNum) Hospitalization Periods
+                                option(value='numAd', data-class='admissions', selected=numAd) Emergency Operations
+                                option(value='numEmerg', data-class='emergency',  selected=numEmerg) Elective Operations
+                                option(value='numElec', data-class='elective', selected=numElec) Type of Surgery
                         div.form-group
                             section
                                 select(id='TypeOfSearch').cs-select.cs-skin-elastic
@@ -61,7 +59,8 @@ block contentRight
                             input#StartDate.form-control(type='text', name='startDate', placeholder='Date 1').date-custom
                             i.glyphicon.glyphicon-calendar
                         div.form-group
-                            input.btn.btn-custom.btn-block(type="submit", value="Query", id="search")
+                            button.btn.btn-custom.btn-block(type="Submit", value="submit", id="search" onclick="")
+                                | Query
                     script.
                         $('#StartDate').daterangepicker(
                         {
@@ -86,6 +85,9 @@ block contentRight
                             $.ajax({
                                 type: 'POST',
                                 url: '/findSelectedQuery',
+                                beforeSend: function(xhr){
+                                    $("#search").html("<img src='/images/loader.gif' height = '30px' />");
+                                },
                                 data: JSON.stringify({
                                     forQuering: {
                                         start: startDate,
@@ -95,9 +97,11 @@ block contentRight
                                     }
                                 }),
                                 success: function (data, textStatus, jqXHR){
+                                    $("#search").html("Query");
                                     var res = JSON.parse(jqXHR.responseText);
                                     var resBus = JSON.stringify(res.myStatsArry);
-                                    window.location = '/statistics.html?myObject=' + resBus;
+                                    updateGraph(res.myStatsArry, "Test");
+                                    //window.location = '/statistics.html?myObject=' + resBus;
                                 },
                                 dataType: "json",
                                 contentType: "application/json"
@@ -128,12 +132,7 @@ block contentRight
                         input(type="image", src="/images/line.png")
                 .btn-group.btn-group-justified
                     .btn-group
-                        button(type="button").btn.btn-custom Predict
+                        button(type="button" onclick="anim()").btn.btn-custom Predict
                     .btn-group
                         button(type="button").btn.btn-custom.blue Save as PDF
-            script.
-                (function() {
-                    [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
-                    new SelectFx(el);
-                } );
-                })();
+
