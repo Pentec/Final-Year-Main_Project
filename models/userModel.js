@@ -2,20 +2,9 @@
  * Created by Ruth on 2015-08-15.
  */
 var mongoose = require('mongoose');
+//var passportLocalMongoose = require('passport-local-mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var Schema   = mongoose.Schema;
-/*
-var Users = new Schema({
-	username				: String,
-	surname				: String,
-	email				: String,
-	profile_pic				: String,
-	user_rights				: Number,
-	password				: String,
-	department				: String,
-	staff_type				: String
-});*/
-
 
 
 var Users = new Schema({
@@ -41,12 +30,13 @@ var Users = new Schema({
 	department : String,
 	staff_type : String
 });
-/*
-var u = new Users({username : "l", surname : "m", email : "lm@gmail.com",user_rights : 1,password : "n", department : "Obstetrics", staff_type : "Doctor" })
-    .save(function(err, users) {
-        console.log("New user added");
-    });*/
 
+
+//Users.plugin(passportLocalMongoose);
+
+
+//Before saving, check if password has been modified, else return a call back
+//if modified, then salt and hash pswd
 /*
 Users.pre('save', function(callback){
    var user = this;
@@ -69,6 +59,7 @@ Users.pre('save', function(callback){
 
 });
 
+//verify password, compares hash with plain text value
 User.methods.verifyPassword = function(password, callback){
 	bcrypt.compare(password, this.password, function(err, isMatch){
         if(err)
@@ -77,6 +68,9 @@ User.methods.verifyPassword = function(password, callback){
         callback(null, isMatch);
     });
 };*/
+
+
+/*methods*/
 
 
 module.exports.user = mongoose.model('users', Users);

@@ -4,33 +4,41 @@
 /**
  * Function that creates the graph on page load;
  */
-var ratio = 0.57
+var ratio = 0.54;
+var dummyData = [{date: '01-06-2011', close: 5},{date: '03-06-2011', close: 11}, {date: '03-06-2011', close: 12}, {date: '12-26-2011', close: 14}];
 
 $(function () {
-    $(".graphbox").height( $(".graphbox").width() * ratio);
-    createGraph("Admissions");
+    dummyData = [{date: '01-06-2011', close: 5},{date: '03-06-2011', close: 11}, {date: '03-06-2011', close: 12}, {date: '12-26-2011', close: 14}];
+    createGraph(dummyData, 'Admissions');
 });
 
 /**
  *
  */
 $(window).resize(function () {
-
-    $(".graphbox").height( $(".graphbox").width() * ratio);
-    $(".graph").empty();
-    createGraph();
+    /*set data here*/
+    dummyData = [{date: '01-06-2011', close: 5},{date: '03-06-2011', close: 11}, {date: '03-06-2011', close: 12}, {date: '12-26-2011', close: 14}];
+    createGraph(dummyData, 'Admissions');
 });
 
-function createGraph(yAxisName, data) {
-    var data = [{date: '01-Jun-11', close: 4}, {date: '11-Jun-11', close: 5}, {date: '12-Jun-11', close: 6}];
-    var width = $(".graph-wrapper").width()-10;
-    var height = $(".graph-wrapper").height();
+function pageSetup() {
+    $(".graphbox").height($(".graphbox").width() * ratio);
+    if ($(".graph-interaction").height() > $(".graphbox").height()) {
+        $('.graphbox').height($(".graph-interaction").height());
+    }
+    $(".graph-wrapper").height($(".graphbox").width() * ratio);
+}
 
+function createGraph(data, yAxisName) {
+    pageSetup();
+    $(".graph").empty();
+    var width = $(".graph-wrapper").width() - 10;
+    var height = $(".graph-wrapper").height();
     var margin = {top: 20, right: 30, bottom: 40, left: 50},
         width = width - margin.left - margin.right,
         height = height - margin.top - margin.bottom;
 
-    var parseDate = d3.time.format("%d-%b-%y").parse;
+    var parseDate = d3.time.format("%m-%d-%Y").parse;
 
     var x = d3.time.scale()
         .range([0, width]);
@@ -44,7 +52,7 @@ function createGraph(yAxisName, data) {
 
     var yAxis = d3.svg.axis()
         .scale(y)
-        .orient("left").ticks(12);
+        .orient("left").ticks(10);
 
     var line = d3.svg.line()
         .x(function (d) {
@@ -54,13 +62,11 @@ function createGraph(yAxisName, data) {
             return y(d.close);
         });
 
-
     var svg = d3.select(".graph").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
 
     data.forEach(function (d) {
         d.date = parseDate(d.date);
@@ -73,7 +79,6 @@ function createGraph(yAxisName, data) {
     y.domain(d3.extent(data, function (d) {
         return d.close;
     }));
-
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
