@@ -11,7 +11,6 @@ router.post('/', function(req, res, next) {
     }
     else
     {
-        submitFunctions.submitGynaecologySurgery(req);
     }
 });
 module.exports = router;
