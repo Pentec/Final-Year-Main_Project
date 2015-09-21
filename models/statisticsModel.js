@@ -5,19 +5,21 @@ var Statistics = new Schema({
     CervicalCancer	: {
             patientID: [Number],
             patientAge: [Number],
-            DateOfDiagnosis: [Date],//will be per patient (size = no. of patients)
+            DateOfDiagnosis: [Number],//will be per patient (size = no. of patients)
             TumourSizeBefore: [Number],//Range of the two; before and after
             TumourSizeAfter: [Number],
-            PrimaryTreatment: [String],
-            DateOfTreatment: [Date],
-            SurgeryType: [String],
-            RadioTherapyType: [String],
-            TreatmentResponse: [String],
-            VitalStatus: [String],
-            doctor_name	: [String],
+            HIVStatus: Number,
+            CD4: Number,
+            DateOfTreatment: [Number],
+            figoStage: [Number],
+            SurgeryType: [Number],
+            RadioTherapyType: [Number],
+            TreatmentResponse: [Number],
+            VitalStatus: [Number],
+            doctor_name	: [Number],
             Death: [{ //Death[index].Cause
-                Cause: String,
-                DateOfDeath: Date
+                Cause: Number,
+                DateOfDeath: Number
             }],
             percentageOfPatients: Number, //percentage of with this type of cancer (out of total cancer patients)
             totalPatients: Number,
@@ -27,19 +29,21 @@ var Statistics = new Schema({
     EndometrialCancer	: {
         patientID: [Number],
         patientAge: [Number],
-        DateOfDiagnosis: [Date],//will be per patient (size = no. of patients)
+        DateOfDiagnosis: [Number],//will be per patient (size = no. of patients)
         TumourSizeBefore: [Number],//Range of the two; before and after
         TumourSizeAfter: [Number],
-        PrimaryTreatment: [String],
-        DateOfTreatment: [Date],
-        SurgeryType: [String],
-        RadioTherapyType: [String],
-        TreatmentResponse: [String],
-        VitalStatus: [String],
-        doctor_name	: [String],
+        HIVStatus: Number,
+        CD4: Number,
+        DateOfTreatment: [Number],
+        figoStage: [Number],
+        SurgeryType: [Number],
+        RadioTherapyType: [Number],
+        TreatmentResponse: [Number],
+        VitalStatus: [Number],
+        doctor_name	: [Number],
         Death: [{ //Death[index].Cause
-            Cause: String,
-            DateOfDeath: Date
+            Cause: Number,
+            DateOfDeath: Number
         }],
         percentageOfPatients: Number, //percentage of with this type of cancer (out of total cancer patients)
         totalPatients: Number,
@@ -49,21 +53,23 @@ var Statistics = new Schema({
     FallopianTubeCancer	: {
         patientID: [Number],
         patientAge: [Number],
-        DateOfDiagnosis: [Date],//will be per patient (size = no. of patients)
+        DateOfDiagnosis: [Number],//will be per patient (size = no. of patients)
         TumourSizeBefore: [Number],//Range of the two; before and after
         TumourSizeAfter: [Number],
-        PrimaryTreatment: [String],
-        DateOfTreatment: [Date],
-        SurgeryType: [String],
-        RadioTherapyType: [String],
-        TreatmentResponse: [String],
-        VitalStatus: [String],
-        doctor_name	: [String],
+        HIVStatus: Number,
+        CD4: Number,
+        DateOfTreatment: [Number],
+        figoStage: [Number],
+        SurgeryType: [Number],
+        RadioTherapyType: [Number],
+        TreatmentResponse: [Number],
+        VitalStatus: [Number],
+        doctor_name	: [Number],
         Death: [{ //Death[index].Cause
-            Cause: String,
-            DateOfDeath: Date
+            Cause: Number,
+            DateOfDeath: Number
         }],
-        percentageOfPatients: Number,
+        percentageOfPatients: Number, //percentage of with this type of cancer (out of total cancer patients)
         totalPatients: Number,
         required: true
     },
@@ -71,21 +77,23 @@ var Statistics = new Schema({
     OvarianCancer	: {
         patientID: [Number],
         patientAge: [Number],
-        DateOfDiagnosis: [Date],//will be per patient (size = no. of patients)
+        DateOfDiagnosis: [Number],//will be per patient (size = no. of patients)
         TumourSizeBefore: [Number],//Range of the two; before and after
         TumourSizeAfter: [Number],
-        PrimaryTreatment: [String],
-        DateOfTreatment: [Date],
-        SurgeryType: [String],
-        RadioTherapyType: [String],
-        TreatmentResponse: [String],
-        VitalStatus: [String],
-        doctor_name	: [String],
+        HIVStatus: Number,
+        CD4: Number,
+        DateOfTreatment: [Number],
+        figoStage: [Number],
+        SurgeryType: [Number],
+        RadioTherapyType: [Number],
+        TreatmentResponse: [Number],
+        VitalStatus: [Number],
+        doctor_name	: [Number],
         Death: [{ //Death[index].Cause
-            Cause: String,
-            DateOfDeath: Date
+            Cause: Number,
+            DateOfDeath: Number
         }],
-        percentageOfPatients: Number,
+        percentageOfPatients: Number, //percentage of with this type of cancer (out of total cancer patients)
         totalPatients: Number,
         required: true
     },
@@ -93,21 +101,23 @@ var Statistics = new Schema({
     VaginalCancer	: {
         patientID: [Number],
         patientAge: [Number],
-        DateOfDiagnosis: [Date],//will be per patient (size = no. of patients)
+        DateOfDiagnosis: [Number],//will be per patient (size = no. of patients)
         TumourSizeBefore: [Number],//Range of the two; before and after
         TumourSizeAfter: [Number],
-        PrimaryTreatment: [String],
-        DateOfTreatment: [Date],
-        SurgeryType: [String],
-        RadioTherapyType: [String],
-        TreatmentResponse: [String],
-        VitalStatus: [String],
-        doctor_name	: [String],
+        HIVStatus: Number,
+        CD4: Number,
+        DateOfTreatment: [Number],
+        figoStage: [Number],
+        SurgeryType: [Number],
+        RadioTherapyType: [Number],
+        TreatmentResponse: [Number],
+        VitalStatus: [Number],
+        doctor_name	: [Number],
         Death: [{ //Death[index].Cause
-            Cause: String,
-            DateOfDeath: Date
+            Cause: Number,
+            DateOfDeath: Number
         }],
-        percentageOfPatients: Number,
+        percentageOfPatients: Number, //percentage of with this type of cancer (out of total cancer patients)
         totalPatients: Number,
         required: true
     },
@@ -115,19 +125,21 @@ var Statistics = new Schema({
     VulvaCancer	: {
         patientID: [Number],
         patientAge: [Number],
-        DateOfDiagnosis: [Date],//will be per patient (size = no. of patients)
+        DateOfDiagnosis: [Number],//will be per patient (size = no. of patients)
         TumourSizeBefore: [Number],//Range of the two; before and after
         TumourSizeAfter: [Number],
-        PrimaryTreatment: [String],
-        DateOfTreatment: [Date],
-        SurgeryType: [String],
-        RadioTherapyType: [String],
-        TreatmentResponse: [String],
-        VitalStatus: [String],
-        doctor_name	: [String],
+        HIVStatus: Number,
+        CD4: Number,
+        DateOfTreatment: [Number],
+        figoStage: [Number],
+        SurgeryType: [Number],
+        RadioTherapyType: [Number],
+        TreatmentResponse: [Number],
+        VitalStatus: [Number],
+        doctor_name	: [Number],
         Death: [{ //Death[index].Cause
-            Cause: String,
-            DateOfDeath: Date
+            Cause: Number,
+            DateOfDeath: Number
         }],
         percentageOfPatients: Number, //percentage of with this type of cancer (out of total cancer patients)
         totalPatients: Number,

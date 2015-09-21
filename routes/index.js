@@ -12,6 +12,7 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var userAuthentication = require('../controllers/authenticate.js');
+var dataNormalizerCervical = require('../controllers/dataNormalizers/dataNormalizerCervical.js');
 
 /**
  * The two variables in the global namespace called EmergencyCountGlobal and ElectiveCountGlobal.
@@ -86,6 +87,11 @@ router.get('/splash', function(req, res, next) {
   res.render('splash', { title: 'Kalafong PIMS' });
 });
 
+router.get('/dataNormalizer', function(req, res, next) {
+
+    dataNormalizerCervical.getNormalizedData(req.body.firstname, req.body.surname);
+
+});
 
 /**
  * Route that invokes the home page action
