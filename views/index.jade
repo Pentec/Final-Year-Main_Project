@@ -25,6 +25,8 @@ block content
                         a(href="") Add form
                     li#statisticstab
                         a(href='/stats') Statistics
+                    li#statisticstab
+                        a(href='#/neural') Neural Network
                 ul.nav.navbar-nav.navbar-right
                     li.nobar.has-sub#settings
                         a(href='#')
@@ -37,3 +39,4 @@ block content
                     input.form-control(type='text', placeholder='Search')
     div.content
         block mainContent
+            //a(href='#/neural/{{userID._id}}') Neural Network

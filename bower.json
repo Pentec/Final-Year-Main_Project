@@ -1,0 +1,39 @@
+{
+  "name": "Pentec_PIMS",
+  "version": "0.1.1",
+  "homepage": "https://github.com/Pentec/Pentec_PIMS",
+  "authors": [
+    "u11310856 <taustin.swim@gmail.com>",
+    "lizjoseph <u10075268@tuks.co.za",
+    "lindelo <olednil@gmail.com>",
+    "RuthOjo <ruthojo93@gmail.com>",
+    "MariaQumayo <mariaqumayo38@gmail.com>"
+  ],
+  "description": "Implementation of the University of Pretoria COS 301 Main Project.",
+  "main": "lib/pims-neuralnetwor/testNN.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "None",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "~1.4.5",
+    "angular-animate": "~1.4.5",
+    "angular-bootstrap": "~0.13.4",
+    "angular-cookies": "~1.4.5",
+    "angular-mocks": "~1.4.5",
+    "angular-resource": "~1.4.5",
+    "angular-route": "~1.4.5",
+    "angular-sanitize": "~1.4.5",
+    "angular-touch": "~1.4.5",
+    "animate.css": "~3.4.0",
+    "bootstrap": "~3.3.5"
+  },
+  "devDependencies": {
+    "angular-ui-router": "~0.2.15"
+  }
+}

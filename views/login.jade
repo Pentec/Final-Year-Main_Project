@@ -23,6 +23,7 @@ block content
                 div.col-xs-4.col-xs-offset-4#errordiv
                     if (!send)
                         .alert.alert-danger
+                            button.close(data-dismiss="alert", type="button") x
                             p= message
                 div.col-xs-12
                     div.form-wrap.panel

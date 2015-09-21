@@ -48,7 +48,7 @@ app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, 'html'))); //for html forms
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/bower_components',  express.static(path.join(__dirname + '/bower_components')));//for client-side dependencies
 
 
 app.use('/', routes);
