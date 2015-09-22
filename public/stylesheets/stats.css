@@ -1,6 +1,6 @@
 /*-------------------------------------------------Graph Stuff--------------------------------------------*/
 .graphbox {
-    width: 75%;
+    width: 80%;
     margin-top: 5%;
     border-radius: 5px;
     border: 2px solid #d6d6d6;
@@ -38,7 +38,7 @@
 }
 
 .graph-interaction h2 {
-    margin: 0px;
+    margin: 0;
     font-size: 1.5vw;
 }
 
@@ -56,7 +56,7 @@
 .line {
     fill: none;
     stroke: steelblue;
-    stroke-width: 1.5px;
+    stroke-width: 1.5;
 }
 
 .date {
@@ -91,7 +91,7 @@
     margin: 0;
     box-sizing: border-box;
     display: inline-block;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .btn-custom-color {
@@ -146,7 +146,7 @@
     margin: 0;
     box-sizing: border-box;
     display: inline-block;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 /*------------------------------------------Options-------------------------------*/

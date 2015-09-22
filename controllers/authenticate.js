@@ -1,6 +1,3 @@
-/**
- * Created by Ruth on 2015-08-15.
- */
 var passport = require('passport'),
     BasicStrategy = require('passport-http').BasicStrategy;
     LocalStrategy = require('passport-local').Strategy;

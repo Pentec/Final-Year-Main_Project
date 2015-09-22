@@ -1,22 +1,33 @@
-%By Maria
-\subsection{Login and Admnistartive user}
-	\subsubsection*{PIMS Login}
-		Functional Testing
-		- for each use case tested
-		* either success or a list of violations of the contract requirements (pre- and post-condition violations or data structure requirements)
-		* a test coverage analysis reporting which percentage of the use cases have been covered by the testing
-		
-		2. Non-functional testing/assessment
-		- any performance, scalability, maintainability, reliability, usability, ... problems identified with evidence for the identified problem.
-	
-				
-					\begin{itemize}
-							\item The Buzz Space system has to accommodate and host a multitude of users concurrently, thus making it prone to various malfunctions and glitches
-							
-							\item The Space needs to be monitored in real time at all times to ensure relevance of topics and subject matters.
-							\item The rating and tagging functionality need to be fair and accurate
-							
-							\item Sufficient feedback and updates of the Buzz Space state must be provided to the users. Users that create threads or just comment on one.
-							
-							\item General software control and application usage..
-						 \end{itemize}
+%By Maria/
+ \subsubsection{Pims Login}
+Pims Send Notification is a two part function that we tested. First check if user is found(exists) in the database. Then send email using smtp.The unit test codes bellow demonstrates.
+\newline
+
+\includegraphics[width=\linewidth]{./Graphics/find.jpg}
+\newline
+
+Send Notifications via email
+\newline
+
+\includegraphics[width=\linewidth]{./Graphics/send.jpg}
+The following conditions must be true for the send notification use case to pass.					
+	\begin{itemize}
+				\item Find patient should query the database to see if a user exists by searching for an email adress.
+				\item Oce user is found, send notification must send and email to the found adress.
+ \end{itemize}
+ 
+ The figure bellow depics the successful testing of the Send Notification and FindUser functions.
+ \newline
+ 
+ \includegraphics[width=\linewidth]{./Graphics/Notify.jpg}
+ 
+ \subsubsection{Remarks}
+ 	\begin{itemize}
+ 				\item Pre-Conditions
+ 		User must exist in database and have and email.
+ 				\item Post-Conditions
+	User recieves and email from Prof Snyman.
+  \end{itemize}
+  
+  Both Pre and Post conditions  are considered in the implimentation of sending notifications. Unit testing successfuly.  tested with no violations to the security of the systm.
+ 

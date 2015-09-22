@@ -12,11 +12,13 @@ var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./routes/users'); 
+var stats = require('./routes/stats');//stats route
+
+//schemas
 var gynaecology_surgery = require('./routes/forms/gynaecology_surgery');
 var addmission_discharge = require('./routes/forms/addmission_discharge');
 var cervical_cancer = require('./routes/forms/cervical_cancer');
-
 
 var app = express();
 
@@ -57,15 +59,17 @@ app.use('/findSelectedQuery', routes);
 app.use('/create', routes);
 app.use('/profile', routes);
 app.use('/add', routes);
+app.use('/stats', stats);  //for html rms
 app.use('/gynaecology_surgery', gynaecology_surgery);
 app.use('/addmission_discharge', addmission_discharge);
 app.use('/cervical_cancer', cervical_cancer);
 app.use(scribe.express.logger());
 app.use('/logs', scribe.webPanel());
+app.use('/dataNormalizer', routes);
 
 
 //Make some logs
-console.addLogger('debug', 'red');
+console.addLogger('debug', 'yellow');
 console.addLogger('fun', 'red');
 
 console.time().fun('hello world');
@@ -122,8 +126,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
-
-
 
 module.exports = app;

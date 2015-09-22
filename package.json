@@ -30,8 +30,10 @@
     "pims-database": "file:lib/pims-database",
     "pims-login": "file:lib/pims-login",
     "pims-notification": "file:lib/pims-notification",
+    "pims-notification": "file:lib/pims-neuralnetwork",
     "scribe-js": "^2.0.4",
     "serve-favicon": "~2.2.1",
+    "synaptic": "^1.0.1",
     "unit.js": "^2.0.0"
   },
   "optionalDependencies": {
@@ -42,6 +44,7 @@
   },
   "devDependencies": {
     "chai": "^3.2.0",
+	"chart.js": "^1.0.2",
     "d3": "^3.5.6",
     "datejs": "^1.0.0-rc3",
     "mocha": "^2.2.5",

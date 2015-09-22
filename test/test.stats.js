@@ -276,5 +276,85 @@ describe('stats', function(){
 		 
        done();
    });
+   
+   it("Check if number of emergencies are a number and exist", function(done){
+  
+
+		 GS.aggregate(
+		   [
+			  { $match : {"typeOfProcedure.Emergency": true , "ProcedureDate": {'$gte': new Date("2014-01-02"),'$lte': new Date("2014-01-21")}} },
+			  
+			  {
+				  $group : { _id : { month: { $month: "$ProcedureDate" }, day: { $dayOfMonth: "$ProcedureDate" }, year: { $year: "$ProcedureDate" }} ,count: { $sum: 1 } ,  ourDate: { $first: "$ProcedureDate"  } } 
+			  
+			  }
+			  
+		   ] , function(err, myResult)
+		   {
+			   	
+			should.exist(myResult);					
+			   var num = myResult.length;
+			   
+			   for (var i = 0; i < num; i++) { 
+						
+							 var newElement = {};
+								newElement['date'] = new Date(myResult[i].ourDate).toString('dd-MM-yyyy');
+								newElement['close'] = myResult[i].count;
+								arr.push(newElement);
+							
+						}
+							 var resBody = { myStatsArry: arr};
+							  console.log(resBody);
+							  should.exist(resBody);		
+							  res.json(resBody);
+							  console.log("POST response sent.");
+			   
+		   }
+		);
+		  	done();
+	});
+	
+	   it("Check if number of elective are a number and exist", function(done){
+  
+
+		 GS.aggregate(
+		   [
+			  { $match : {"typeOfProcedure.Elective": true , "ProcedureDate": {'$gte': new Date("2014-01-02"),'$lte': new Date("2014-01-21")}} },
+			  
+			  {
+				  $group : { _id : { month: { $month: "$ProcedureDate" }, day: { $dayOfMonth: "$ProcedureDate" }, year: { $year: "$ProcedureDate" }} ,count: { $sum: 1 } ,  ourDate: { $first: "$ProcedureDate"  } } 
+			  
+			  }
+			  
+		   ] , function(err, myResult)
+		   {
+			   	
+			should.exist(myResult);					
+			   var num = myResult.length;
+			   
+			   for (var i = 0; i < num; i++) { 
+						
+							 var newElement = {};
+								newElement['date'] = new Date(myResult[i].ourDate).toString('dd-MM-yyyy');
+								newElement['close'] = myResult[i].count;
+								arr.push(newElement);
+							
+						}
+							 var resBody = { myStatsArry: arr};
+							  console.log(resBody);
+							  should.exist(resBody);		
+							  res.json(resBody);
+							  console.log("POST response sent.");
+			   
+		   }
+		);
+		  	done();
+	});
+	
+	
+   
+   
+
+   
 });
 
