@@ -1,8 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var saveFunctions  = require('../../controllers/forms/submitForm');
+var submitFunctions  = require('../../controllers/forms/submitForm');
+var saveFunctions  = require('../../controllers/forms/saveForm');
 
 router.post('/', function(req, res, next) {
+    if(req.body.isNotCompeleted == true)
+    {
+        saveFunctions.saveGynaecologySurgery(req, req.session.username);
+    }
+    else
+    {
     var success = saveFunctions.submitGynaecologySurgery(req);
     console.log(success);
 
@@ -11,6 +18,7 @@ router.post('/', function(req, res, next) {
     }
     else{
         res.redirect('/myAdminSpace');
+	}
     }
 });
 module.exports = router;
