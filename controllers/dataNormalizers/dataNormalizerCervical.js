@@ -14,7 +14,7 @@ var MIN = -1; //Minimum value for scaling
  */
 var getNormalizedData = function(name, surname) {
 
-    cervical.findOne({Name: "Lons"}, function(err, patient){
+    cervical.findOne({Name: name}, function(err, patient){
         if(!err) {
 
             var dataArray;

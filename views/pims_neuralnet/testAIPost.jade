@@ -17,10 +17,18 @@ head
     script(src='http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js')
     script(src='controllers/synaptic.js')
     script(src='controllers/testNN.js')
-    script(type='text/ng-template', id='../../views/login')
     style.
-        #neuralCanvas{ position: absolute; left: 0px; top: 0px;}
-        #NNDIv{ border-radius: 25px; background: #8AC007;}
+        #neuralCanvas {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        #NNDIv {
+            border-radius: 25px;
+            background: #8AC007;
+        }
+
         .btn-custom {
             color: #fff;
             background-color: #004B8F;
@@ -35,8 +43,6 @@ head
             font-size: 14px;
             margin-bottom: 20px;
         }
-
-block content
 body(data-ng-app='runAI', data-ng-controller='AIControl')
     section#neuralnet
         div.container-fluid
@@ -49,13 +55,15 @@ body(data-ng-app='runAI', data-ng-controller='AIControl')
                     p="Individual Patients"
                     form.form-inline(role="form", method="post", autocomplete="on", name="patientNeuralForm", id="patientNeuralForm", action="/neural")
                         div.form-group
-                            label#instruct(for="searchNNP") Enter the ID or name of the patient:
+                            label#instruct(for="{{patientNeural}}") Enter the ID or name of the patient:
                             br
-                            input.form-control(type="text", placeholder="Patient Name", id="patientNeural", name="patientNeural", data-ng-model="patientNeural",autofocus required)
+                            input.form-control(type="text", value = '#{send}', id="patientNeural", name="patientNeural", data-ng-model="patientNeural",autofocus required)
                             br
                             br
                             input.btn.btn-custom.btn-lg.btn-block(type="submit", value="Search", tabindex="5")
-
+                    button.btn.btn-custom(data-ng-click='startTrain()') Start training
+                    br
+                    button.btn.btn-custom(data-ng-click='stopTrain()') stop training
                     // <button class="btn btn-primary" data-ng-click="train()">Start training</button>
             div.row.text-center
                 div.col-md-12.col-md-offset-3
@@ -64,18 +72,9 @@ body(data-ng-app='runAI', data-ng-controller='AIControl')
                     | {{startedTraining}}
                     br
                     | Search for Patient: {{patientNeural}}
-
             div.row.text-center#NNDIv
                 canvas#neuralCanvas
-
             div.row.text-center(data-ng-if="startedTraining")
                 strong Iterate:
                 span#iterate
             hr(data-ng-show="startedTraining")
-
-
-
-
-
-
-

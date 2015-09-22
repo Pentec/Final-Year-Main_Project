@@ -1,12 +1,3 @@
-/*
-var synaptic = require('synaptic'); // this line is not needed in the browser
-var Neuron = synaptic.Neuron,
-    Layer = synaptic.Layer,
-    Network = synaptic.Network,
-    Trainer = synaptic.Trainer,
-    Architect = synaptic.Architect;*/
-
-
 var runApp = angular.module('runAI', [
     'ui.router',
     'ui.bootstrap']);
@@ -25,30 +16,25 @@ runApp.controller('AIControl', ['$scope',function($scope, $timeout, $location){
         $scope.test = res;
     };
 
+    var patientNNInput = document.getElementById('patientNeural');
+
+    $scope.useValue = function(patientNeural) {
+        $scope.patientNeural = patientNeural
+    };
+
+    /*$scope.NameValue = "";
+    function useValue() {
+        if(patientNNInput.value != '')
+        {
+            $scope.patientNeural = patientNNInput.value;
+            // use it
+            //alert(NameValue); // just to show the new value
+        }
+
+    }*/
+
     var myNetwork = null;
     $scope.outputNodes = [];
-    /*function Perceptron(input, hidden, output)
-    {
-        // create the layers
-        var inputLayer = new Layer(input);
-        var hiddenLayer = new Layer(hidden);
-        var outputLayer = new Layer(output);
-
-        // connect the layers
-        inputLayer.project(hiddenLayer);
-        hiddenLayer.project(outputLayer);
-
-        // set the layers
-        this.set({
-            input: inputLayer,
-            hidden: [hiddenLayer],
-            output: outputLayer
-        });
-    }
-
-// extend the prototype chain
-    Perceptron.prototype = new Network();
-    Perceptron.prototype.constructor = Perceptron;*/
 
     var myPercept = null;
     var iteration = 0;
@@ -120,12 +106,12 @@ runApp.controller('AIControl', ['$scope',function($scope, $timeout, $location){
             //at each iteration through loop, same inputs will be fed through network
             //inputs = normalizeInputs(); (will have to be an array)
 
-            console.log("Hello " + i);
+            //console.log("Hello " + i);
             iteration = 0;
 
             //check = myPercept.activate([1,1,1,1,1,1,1,1,1,1]);
             check = myPercept.activate([0.5,0.7,0.3,0.5568950,0.2478956,0.568945,0.7254698416,0.412356940,0.15,0.6784,0.325648,0.55578415,0.433333]);
-            console.log("check " + check);
+            //console.log("check " + check);
             //myPercept.propagate(learningRate, [1]);//back-propagate learning rate and target of 1; survive cancer;
             //myPercept.propagate(learningRate, [0.874656945]);//back-propagate learning rate and target of 1; survive cancer;
             myPercept.propagate(learningRate, [0.674656945, 0.267895525]);//back-propagate learning rate and target of 1; survive cancer;
@@ -134,8 +120,14 @@ runApp.controller('AIControl', ['$scope',function($scope, $timeout, $location){
             //myPercept.activate([0,0,0,0,0,0,0,0,0,0]);
             //myPercept.propagate(learningRate, [0]);//back-propagate learning rate and target of 0;  die from cancer
 
+            if(i + 1 == maxEpochs)
+            {
+                alert('done');
+            }
+
 
         }
+
 
 
 
@@ -203,10 +195,6 @@ runApp.controller('AIControl', ['$scope',function($scope, $timeout, $location){
 
     }
 
-
-
-
-
     /*var exported = myNetwork.toJSON();
     var imported = Network.fromJSON(exported);*/
 }]);
@@ -235,114 +223,5 @@ runApp.config([
     }
 ]);
 
-
-
-
-
-
-
-
-/*
-Copy of previous code
-angular.module('runAI', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-    'ui.bootstrap']).controller('AIControl', function($scope, $rootScope){
-    var myPercept = null;
-    $scope.outputNodes = [];
-    function Perceptron(input, hidden, output)
-    {
-        // create the layers
-        var inputLayer = new Layer(input);
-        var hiddenLayer = new Layer(hidden);
-        var outputLayer = new Layer(output);
-
-        // connect the layers
-        inputLayer.project(hiddenLayer);
-        hiddenLayer.project(outputLayer);
-
-        // set the layers
-        this.set({
-            input: inputLayer,
-            hidden: [hiddenLayer],
-            output: outputLayer
-        });
-    }
-
-// extend the prototype chain
-    Perceptron.prototype = new Network();
-    Perceptron.prototype.constructor = Perceptron;
-
-    $scope.train = function(){
-        //var myPercept = new Perceptron(10, 7, 2);
-        var myPercept = new Perceptron(10, 7, 2);
-
-        $scope.myTrain = new Trainer(myPercept);
-
-        var nTrials = 200,
-            learningRate = 0.6,
-            maxEpochs = 0,
-            momentum = 0,
-            dataseperation = 0;
-
-
-        //train network
-        //loop through for each set of inputs;
-        // will have to figure out how to feed test data
-        // when testing NN, either directly from database or store somewhere
-        for(var i = 0; i < nTrials; i++) {
-            //call function that standardizes inputs from each schema
-            myPercept.activate([1,1,1,1,1,1,1,1,1,1]);
-            myPercept.propagate(learningRate, [1]);//survive cancer
-
-            myPercept.activate([0,0,0,0,0,0,0,0,0,0]);
-            myPercept.propagate(learningRate, [0]);//die from cancer
-
-
-        }
-
-        testNetwork();
-    }
-
-    var testNetwork = function(){
-        //test network
-        $scope.outputNodes = [];
-
-        $scope.outputNodes.push({
-            input: '0 0 0 0 0 0 0 0 0 0',
-            output: myPercept.activate([0,0,0,0,0,0,0,0,0,0])[0].toFixed(3),
-            target: 0
-        });
-        $scope.outputNodes.push({
-            input: '0 1 0 1 0 1 0 1 0 0',
-            output: myPercept.activate([0,1,0,1,0,1,0,1,0,0])[0].toFixed(3),
-            target: 0
-        });
-        $scope.outputNodes.push({
-            input: '1 1 1 1 1 0 0 0 0 0',
-            output: myPercept.activate([1,1,1,1,1,0,0,0,0,0])[0].toFixed(3),
-            target: 1
-        });
-        $scope.outputNodes.push({
-            input: '1 1 1 1 1 1 1 1 1 1',
-            output: myPercept.activate([1,1,1,1,1,1,1,1,1,1])[0].toFixed(3),
-            target: 1
-        });
-
-        var checkVal = myPercept.activate([0,0,0,0,0,0,0,0,0,0]); //check output
-        console.log(checkVal);
-    }
-
-
-
-
-
-    var exported = myNetwork.toJSON();
-    var imported = Network.fromJSON(exported);
-});*/
 
 

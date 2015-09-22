@@ -603,7 +603,6 @@ router.post('/findPatient/sendNotification', login.isLoggedIn, function(req, res
 
     if(req.user)
     {
-        console.log('Yaaaaay ' + req.user);
         var patientid = req.body.patientid;
 
         notification.findPatient(patientid, function(found) {
@@ -664,6 +663,7 @@ router.post('/findPatient/sendEmail', login.isLoggedIn, function(req, res, next)
 });
 
 
+
 router.get('/neural', function(req, res, next){
     //to collect the data from the statistics
     //model and then send it in JSON format to the client-side AngularJS
@@ -680,6 +680,21 @@ router.get('/neural', function(req, res, next){
     res.render('pims_neuralnet/testAI');
 
 });
+
+var cervicalNeural = require('../controllers/dataNormalizers/dataNormalizerCervical');
+
+router.post('/neural', function(req, res, next){
+    var sendPatientName = {patient: req.body.patientNeural};
+
+    res.render('pims_neuralnet/testAIPost', {
+        title: 'PIMS Neural Network Page',
+        send: sendPatientName.patient
+    });
+    console.log('Hello' + sendPatientName.patient);
+    //cervicalNeural.getNormalizedData(req.body.patientNeural, '');
+
+});
+
 
 
 
