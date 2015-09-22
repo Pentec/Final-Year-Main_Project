@@ -12,6 +12,7 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var userAuthentication = require('../controllers/authenticate.js');
+var dataNormalizerCervical = require('../controllers/dataNormalizers/dataNormalizerCervical.js');
 
 /**
  * The two variables in the global namespace called EmergencyCountGlobal and ElectiveCountGlobal.
@@ -20,6 +21,7 @@ var userAuthentication = require('../controllers/authenticate.js');
  */
 var EmergencyCountGlobal;
 var ElectiveCountGlobal;
+
 
 /**
  * A variable in the global namespace called 'models'.
@@ -105,7 +107,7 @@ var verifyRecaptcha = function (secretKey, callback){
 
 
 /**
- * @function isLoggedIn
+ * @function 
  * This helper function verifies if a user is logged in whilst accessing
  * the url endpoints of the system. If a user is authenticated, they are
  * allowed to proceed to the next page, otherwise they are requested
@@ -210,7 +212,6 @@ function postLogin(req, res, next)
         })
 
     })(req, res, next);
-
 };
 
 /**
@@ -223,6 +224,11 @@ router.get('/splash', function(req, res, next) {
   res.render('splash', { title: 'Kalafong PIMS' });
 });
 
+router.get('/dataNormalizer', function(req, res, next) {
+
+    dataNormalizerCervical.getNormalizedData(req.body.firstname, req.body.surname);
+
+});
 
 /**
  * Route that invokes the home page action
@@ -316,7 +322,7 @@ router.get('/login', function(req, res) {
         {
                 if(isAdmin)
                 {
-                    res.redirect('/editProfile');
+                    res.redirect('/myAdminSpace');
                 }
                 else
                 {
@@ -402,9 +408,6 @@ router.get('/editProfile', isLoggedIn, function(req, res, next) {
     {
         res.redirect('/login');
     }
-
-
-
 });
 
 /* Add New User to database from add user page */
@@ -523,11 +526,10 @@ router.post('/formsave', isLoggedIn, function(req, res) {
 /*View Stats */
 router.get('/stats', isLoggedIn, function(req, res, next) {
    sess=req.session;
-
+	var EmergencyCount;
+	var ElectiveCount;
     if(req.user)
     {
-		  var EmergencyCount;
-		  var ElectiveCount;
 	  
 		  AD.aggregate(
 				{
@@ -561,19 +563,21 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
 										else{
 											var average = JSON.stringify(avg[0].avgAge);
 											var averageStay = JSON.stringify(avgStay[0].avgStay);
-											 res.render('stats', { avgAge: average , avgStay: averageStay });
 											
+											 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
+										     GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {
+										     res.render('stats', { avgAge: average , avgStay: averageStay, elCount : ElectiveCount, emCount: EmergencyCount });
+											  });
+											 });
 										}
 							});
-	
 						}
 			}); 
    }
     else
    {
         res.redirect('/login');
-   }
-   
+   } 
   
 });
 
@@ -585,12 +589,15 @@ router.post('/findSelectedQuery', function(req, res, next) {
 	var stats =  JSON.stringify(req.body.forQuering.statsQuery);
 	var EmergencyOp = "\"Emergency Operations\"";
 	var ElectiveOp = "\"Elective Operations\"";
-	var AvAgeOp = "\"Average Age\"";
-	var AvStayOp = "\"Average Hospital Stay\"";
-	var AvAdmissionOp = "\"Average Number Of Admissions\"";
+	var TypeOfSurg = "\"Type of Surgery\"";
+	var HosPeriod = "\"Hospitalization Periods\"";
+	var AdmissionOp = "\"Number of Admissions\"";
+
 	
 	var arr = [];
 	var arrTwo = [];
+	var arrThree = [];
+	var arrFour = [];
 
 		if(stats == EmergencyOp)
 		{
@@ -599,67 +606,159 @@ router.post('/findSelectedQuery', function(req, res, next) {
 		}else if(stats == ElectiveOp)
 		{
 			var two = checkElective(period,stats,startDate,endDate);
+		}else if(stats == TypeOfSurg)
+		{
+			var three = checkSurgery(period,stats,startDate,endDate);
+		}else if(stats == HosPeriod)
+		{
+			var four = checkHosPeriod(period,stats,startDate,endDate);
+		}else if(stats == AdmissionOp)
+		{
+			checkAdmission(period,stats,startDate,endDate);
 		}
 		
-		
+
    function checkEmergency(period, stats, startDate, endDate)
 	{
-		 GS.count({"typeOfProcedure.Emergency": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, EmergencyCount) {
-				 if(err) {
-						console.log("DB error");
-						callback(err);
-					}
-					
-				GS.find({"typeOfProcedure.Emergency": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, dates){
+
+		 GS.aggregate(
+		   [
+			  { $match : {"typeOfProcedure.Emergency": true , "ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}} },
+			  
+			  {
+				  $group : { _id : { month: { $month: "$ProcedureDate" }, day: { $dayOfMonth: "$ProcedureDate" }, year: { $year: "$ProcedureDate" }} ,count: { $sum: 1 } ,  ourDate: { $first: "$ProcedureDate"  } } 
+			  
+			  }
+			  
+		   ] , function(err, myResult)
+		   {
+			   var num = myResult.length;
+			   
+			   for (var i = 0; i < num; i++) { 
 						
-						for (i = 0; i < EmergencyCount; i++) { 
-							var obj = {stats: new Date(dates[i].ProcedureDate).toString('dd-mm-yyyy'), value: 1};
-							arr.push(obj);
-							//console.log(arr[i]);
-							//console.log(" - ");
+							 var newElement = {};
+								newElement['date'] = new Date(myResult[i].ourDate).toString('dd-MM-yyyy');
+								newElement['close'] = myResult[i].count;
+								arr.push(newElement);
+							
 						}
 							 var resBody = { myStatsArry: arr};
 							  console.log(resBody);
 							  res.json(resBody);
 							  console.log("POST response sent.");
-				});
-					
-					EmergencyCountGlobal = EmergencyCount;
-		  });
+			   
+		   }
+		);
 		  	
 	}
 	
 	 function checkElective(period, stats, startDate, endDate)
 	{
-		 GS.count({"typeOfProcedure.Elective": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, ElectiveCount) {
-				 if(err) {
-						console.log("DB error");
-						callback(err);
-					}
-					
-				GS.find({"typeOfProcedure.Elective": true ,"ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}},function(err, dates){
+		 GS.aggregate(
+		   [
+			  { $match : {"typeOfProcedure.Elective": true , "ProcedureDate": {'$gte': new Date(startDate),'$lte': new Date(endDate)}} },
+			  
+			  {
+				  $group : { _id : { month: { $month: "$ProcedureDate" }, day: { $dayOfMonth: "$ProcedureDate" }, year: { $year: "$ProcedureDate" }} ,count: { $sum: 1 } ,  ourDate: { $first: "$ProcedureDate"  } } 
+			  
+			  }
+			  
+		   ] , function(err, myResult)
+		   {
+			   var num = myResult.length;
+			   
+			   for (var i = 0; i < num; i++) { 
 						
-						for (i = 0; i < ElectiveCount; i++) { 
-							var obj = {stats: new Date(dates[i].ProcedureDate).toString('dd-mm-yyyy'), value: 1};
-							arrTwo.push(obj);
-							console.log(arrTwo[i]);
-							console.log(" - ");
+							 var newElement = {};
+								newElement['date'] = new Date(myResult[i].ourDate).toString('dd-MM-yyyy');
+								newElement['close'] = myResult[i].count;
+								arr.push(newElement);
+							
 						}
-						
-						      var resBody = { myStatsArry: arrTwo};
+							 var resBody = { myStatsArry: arr};
 							  console.log(resBody);
 							  res.json(resBody);
 							  console.log("POST response sent.");
-						
-				});
-					
-					ElectiveCountGlobal = ElectiveCount;
-		  });
-		  
+			   
+		   }
+		);
 	}
 	
-       // res.redirect('/stats');
 	
+	function checkAdmission(period, stats, startDate, endDate)
+	{
+		
+		 
+		 AD.aggregate(
+		   [
+			  { $match : {"DateofAdmission": {'$gte': new Date(startDate),'$lte': new Date(endDate)}} },
+			  {
+				  $group : { _id : { month: { $month: "$DateofAdmission" }, day: { $dayOfMonth: "$DateofAdmission" }, year: { $year: "$DateofAdmission" }} ,count: { $sum: 1 } ,  ourDate: { $first: "$DateofAdmission"  } } 
+			  
+			  }
+			  
+		   ] , function(err, myResult)
+		   {
+			  
+			   var num = myResult.length;
+			   
+			   for (var i = 0; i < num; i++) { 
+						
+							 var newElement = {};
+								newElement['date'] = new Date(myResult[i].ourDate).toString('dd-MM-yyyy');
+								newElement['close'] = myResult[i].count;
+								arrThree.push(newElement);
+							
+						}
+							 var resBody = { myStatsArry: arrThree};
+							  console.log(resBody);
+							  res.json(resBody);
+							  console.log("POST response sent.");
+			   
+		   }
+		);
+		
+		
+	}
+	
+	function checkSurgery(period, stats, startDate, endDate)
+	{console.log("Surg");}
+	
+	function checkHosPeriod(period, stats, startDate, endDate)
+	{
+		
+		AD.aggregate(
+		   [
+			  { $match : {"DateofDischarge": {'$gte': new Date(startDate),'$lte': new Date(endDate)}} },
+			  {
+				  $group : { _id : { month: { $month: "$DateofDischarge" }, day: { $dayOfMonth: "$DateofDischarge" }, year: { $year: "$DateofDischarge" }} ,count: { $sum: 1 } ,  ourDate: { $first: "$DateofDischarge"  } } 
+			  
+			  }
+			  
+		   ] , function(err, myResult)
+		   {
+			  
+			   var num = myResult.length;
+			   
+			   for (var i = 0; i < num; i++) { 
+						
+								var newElement = {};
+								newElement['date'] = new Date(myResult[i].ourDate).toString('dd-MM-yyyy');
+								newElement['close'] = myResult[i].count;
+								arrFour.push(newElement);
+							
+						}
+							 var resBody = { myStatsArry: arrFour};
+							  console.log(resBody);
+							  res.json(resBody);
+							  console.log("POST response sent.");
+			   
+		   }
+		);
+		
+	
+	}
+
 });
 
 /*View patient stats */
@@ -677,7 +776,23 @@ router.get('/forms', isLoggedIn, function(req, res, next) {
     }
 });
 
-/*//*///////////FORM*/////////////////////*/
+
+/*View patient stats */
+router.get('/forms', isLoggedIn, function(req, res, next) {
+
+    sess=req.session;
+
+    if(req.user)
+    {
+        res.render('forms', { title: 'FormSelect' });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+});
+
+//forms
 router.get('/forms', isLoggedIn, function(req, res, next) {
 
     sess=req.session;
@@ -779,6 +894,15 @@ router.post('/findPatient/sendEmail', isLoggedIn, function(req, res, next) {
     {
         res.redirect('/login');
     }
+
+});
+
+var AI = require('pims-neuralnetwork');
+router.get('/testAI', function(req, res){
+    //var AI = require("../neuralnetwork");
+    //C:\Users\Ruth\Documents\GitHub\Main\Pentec_PIMS\lib\pims-neuralnetwork\UnitTests\test.json
+    var ai = new AI('./lib/pims-neuralnetwork/UnitTests/test.json');
+    ai.train();
 
 });
 

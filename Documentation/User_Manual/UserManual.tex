@@ -118,9 +118,9 @@ Contact your service provider(hosting site) to pull down the software
 \end{description}
 
 
-\subsection(User)
+\subsection{User}
 	  
-\subsubsection add user
+\subsubsection{add user}
 \begin{description}
 \item [Functional Description] This operation adds a user to the PENTEC-PIMS database.
 \item [Formal Description] \hfill
@@ -154,7 +154,7 @@ Contact your service provider(hosting site) to pull down the software
 \item[Related operations] remove user
 \end{description}
 	  
-\subsubsection edit profile
+\subsubsection{edit profile}
 \begin{description}
 \item[Functional Description] This operation edits a users profile and saves it to the PENTEC-PIMS database.
 \item[Formal description]\hfill
@@ -193,7 +193,7 @@ Contact your service provider(hosting site) to pull down the software
 \item[Related operations] add user
 \end{description}
 		   
-\subsubsection password
+\subsubsection{password}
 \begin{description}
 \item[Functional description] This operation changes your password on the PENTEC-PIMS database.
 \item[Formal description]\hfill
@@ -229,7 +229,7 @@ Contact your service provider(hosting site) to pull down the software
 \item[Related operations] none
 \end{description}
 
-\subsubsection list form
+\subsubsection{list for}
 \begin{description}
 \item[Functional description] This operation list all the available forms in the PENTEC-PIMS database.
 \item[Formal description]\hfill
@@ -267,7 +267,7 @@ Contact your service provider(hosting site) to pull down the software
 \end{description}
 	      
 	  
-\subsubsection add form
+\subsubsection{add form}
 \begin{description}
 \item[Functional description] This operation allows you to add a new form using the form builder to the PENTEC-PIMS database.
 \item [Formal description]\hfill
@@ -301,7 +301,7 @@ Contact your service provider(hosting site) to pull down the software
 \end{description}
 	      
 	      
-\subsubsection save form
+\subsubsection{save form}
 \begin{description}
 \item[Functional description] This operation allows you to save a form to the PENTEC-PIMS database.
 \item [Formal description]\hfill
@@ -328,7 +328,7 @@ Contact your service provider(hosting site) to pull down the software
 \item [Related operations] list form, add form
 \end{description}
 
-\subsubsection send notification
+\subsubsection{send notification}
 \begin{description}
 \item[Functional description] This operation allows you to notify a patient of their follow up via email.
 \item[Formal description]\hfill
@@ -366,7 +366,7 @@ Contact your service provider(hosting site) to pull down the software
 \item[Related operations] remove user
 \end{description}
 	   
-\subsubsection list department
+\subsubsection{list department}
 \begin{description}
 \item[Functional description] This operation lists all the departments on the splash screen from the PENTEC-PIMS database.
 \item[Formal description]\hfill
@@ -392,7 +392,7 @@ Contact your service provider(hosting site) to pull down the software
 \item[Related operations] none
 \end{description}
 	      
-\subsubsection exit
+\subsubsection{exit}
 \begin{description}
 \item[Functional description] This operation adds a user to the PENTEC-PIMS database.
 \item[Formal description]\hfill
@@ -425,12 +425,12 @@ Contact your service provider(hosting site) to pull down the software
 \item[Functional Description] This function authenticates a user and logs them into the system.
 \item[Formal Description]\hfill
 \begin{itemize}
-	\item Syntax: authenticate(<username>, <password>, <callback>)\\
+	\item Syntax: authenticate([username], [password], [callback])\\
 	\item Parameters:
 		\begin{itemize}
-			\item <username> (Required): This is the username of the user, it will usually be the user's name or a unique number assigned to them.
-			\item <password> (Required): This is the password of the user and is used to authenticate the user.
-			\item <callback>(Opitional): This is the callback function and is used to keep the processes synchronous.
+			\item [username] (Required): This is the username of the user, it will usually be the user's name or a unique number assigned to them.
+			\item [password] (Required): This is the password of the user and is used to authenticate the user.
+			\item [callback](Opitional): This is the callback function and is used to keep the processes synchronous.
 		\end{itemize}
 \end{itemize}
 \item[Examples]\hfill
@@ -455,12 +455,12 @@ Contact your service provider(hosting site) to pull down the software
 \item[Functional Description] Determines if the user is an administrator.
 \item[Formal Description]\hfill
 \begin{itemize}
-	\item Syntax: checkAdmin(<username>, <password>, <callback>)\\
+	\item Syntax: checkAdmin([username], [password], [callback])\\
 	\item Parameters:
 		\begin{itemize}
-			\item <username> (Required): This is the username of the user, it will usually be the user's name or a unique number assigned to them.
-			\item <password> (Required): This is the password of the user and is used to authenticate the user.
-			\item <callback>(Opitional): This is the callback function and is used to keep the processes synchronous.
+			\item [username] (Required): This is the username of the user, it will usually be the user's name or a unique number assigned to them.
+			\item [password] (Required): This is the password of the user and is used to authenticate the user.
+			\item [callback](Opitional): This is the callback function and is used to keep the processes synchronous.
 		\end{itemize}
 \end{itemize}
 \item[Examples]\hfill
@@ -478,97 +478,101 @@ Contact your service provider(hosting site) to pull down the software
 
 \subsection{Statistics}
 
-\subsubsection{get procedure}
+\subsubsection{get daterange}
 \begin{description}
-\item[Functional Description] This function gets certain procedures based on its selectors and returns them in a format which can be converted into a graph.
+\item[Functional Description] This function allows the user to select a time period that he would like his data to reflect.
 \item[Formal Description]/hfill
 \begin{itemize}
-	\item Syntax: getProcedure(<procedure>, <selectors>, <callback>)\\
+	\item Syntax: getDatarange([startDate], [endDate], [callback])\\
 	\item Parameters:
 		\begin{itemize}
-			\item <procedure>(Required) This is the procedure that has been selected.
-			\item <selectors>(Required) These are the selectors put in place to customize the procedures that are selected.
-			\item <callback>(Optional) This isi the callback function and is used to keep the processes synchronous.
+			\item [startDate](Required) This is the start date that has been selected.
+			\item [endDate](Required) This is the end date that has been selected.
+			\item [callback](Optional) This is the callback function and is used to keep the processes synchronous.
 		\end{itemize}
 \end{itemize}
 \item[Examples]\hfill
 \begin{itemize}
-	\item getProcedure("Hysterectomy", {startDate : "10/10/2014", endDate: "10/10/2015"})
-	\item getProcedure("Hysterectomy", {startDate : "10/10/2014", endDate: "10/10/2015"}, callback)
+	\item getDatarange({startDate : "10/10/2014", endDate: "10/10/2015"})
+	\item getDatarange({startDate : "10/10/2014", endDate: "10/10/2015"}, callback)
 \end{itemize}
 \item[Possible Errors \& Solutions]
 \begin{itemize}
-	\item Problem: Invalid procedure
-	\item Solution: Choose a valid procedure
-	\item Problem: Invalid selectors
-	\item Solution: Choose a valid selector.
+	\item Problem: No date selected
+	\item Solution: Reselect the date on the date time picker and click apply then select other procedures and click query.
+	\item Problem: No procedures in the dates selected
+	\item Solution: Graph will show user there are no procedures in that period.
 \end{itemize}
 \item[Related operations] \hfill
 \begin{itemize}
-	\item get patients
-	\item get doctor
+	\item get interval
+	\item get graph
 \end{itemize}
 \end{description}
 
-\subsubsection{get patients}
+\subsubsection{get interval}
 \begin{description}
-\item[Functional Description] This function gets admission based data on patients and certain selectors and returns them in a format which can be converted into a graph.
+\item[Functional Description] This function gets the interval based data in the dropdownlist and certain selectors and uses it to query the database.
 \item[Formal Description]/hfill
 \begin{itemize}
-	\item Syntax: getPatients(<selectors>, <callback>)\\
+	\item Syntax: getInterval([selectors], [callback])\\
 	\item Parameters:
 		\begin{itemize}
-			\item <selectors>(Required) These are the selectors put in place to customize the procedures that are selected.
-			\item <callback>(Required) This isi the callback function and is used to keep the processes synchronous.
+			\item [interval][statistics],[selectors](Required) These are the selectors put in place to customize the procedures that are selected.
+			\item [callback](Required) This is the callback function and is used to keep the processes synchronous.
 		\end{itemize}
 \end{itemize}
 \item[Examples]\hfill
 \begin{itemize}
-	\item getProcedure({startDate : "10/10/2014", age: 25, endDate: "10/10/2015"})
-	\item getProcedure({startDate : "10/10/2014", age: 25, endDate: "10/10/2015"}, callback)
+	\item getInterval(Weekly,Average Age,{startDate : "10/10/2014", age: 25, endDate: "10/10/2015"})
+	\item getInterval(Yearly, Average Age,{startDate : "10/10/2014", age: 25, endDate: "10/10/2015"}, callback)
 \end{itemize}
 \item[Possible Errors \& Solutions]
 \begin{itemize}
 	\item Problem: Invalid selectors
 	\item Solution: Choose a valid selector.
+	\item Problem: No operations during that selector
+	\item Solution: Graph will correctly depict the scenario.
 \end{itemize}
 \item[Related operations] \hfill
 \begin{itemize}
-	\item get procedure
-	\item get doctor
+	\item get daterange
+	\item get graph
 \end{itemize}
 \end{description}
 
-\subsubsection{get doctor}
+\subsubsection{get graph}
 
 \begin{description}
-\item[Functional Description] This function gets data about specific doctors based on its selectors and returns them in a format which can be converted into a graph.
+\item[Functional Description] This function gets data selected from the input boxes and after querying the database returns them in a format which can be converted into a graph.
 \item[Formal Description]/hfill
 \begin{itemize}
-	\item Syntax: getProcedure(<doctor>, <selectors>, <callback>)\\
+	\item Syntax: getGraph([startDate],[endDate],[interval],[statistic], [callback])\\
 	\item Parameters:
 		\begin{itemize}
-			\item <doctor>(Required) This is the doctor that has been selected.
-			\item <selectors>(Required) These are the selectors put in place to customize the procedures that are selected.
-			\item <callback>(Optional) This isi the callback function and is used to keep the processes synchronous.
+			\item [startDate](Required) This is the start date that has been selected.
+			\item [endDate](Required) This is the end date that has been selected.
+			\item [interval](Required) This is the interval that has been selected.
+			\item [statistic](Required) This is the statistic that has been selected.
+			\item [callback](Optional) This is the callback function and is used to keep the processes synchronous.
 		\end{itemize}
 \end{itemize}
 \item[Examples]\hfill
 \begin{itemize}
-	\item getProcedure("Dr. Snyman", {startDate : "10/10/2014", procedure: "all", endDate: "10/10/2015"})
-	\item getProcedure("Dr. Snyman", {startDate : "10/10/2014", procedure: "all" ,endDate: "10/10/2015"}, callback)
+	\item getGraph({startDate : "10/10/2014", procedure: "all", endDate: "10/10/2015"},"Weekly", "Average Age", )
+	\item getGraph({startDate : "10/10/2014", procedure: "all" ,endDate: "10/10/2015"}, callback)
 \end{itemize}
 \item[Possible Errors \& Solutions]
 \begin{itemize}
-	\item Problem: Doctor does not exist
-	\item Solution: Determine whether Doctor exists, if they do contact supervisor.
+	\item Problem: Data does not exist
+	\item Solution: Graph shows the appropriate message.
 	\item Problem: Invalid selectors
 	\item Solution: Choose a valid selector.
 \end{itemize}
 \item[Related operations] \hfill
 \begin{itemize}
-	\item get patients
-	\item get procedures
+	\item get interval
+	\item get datarange
 \end{itemize}
 \end{description}
 
