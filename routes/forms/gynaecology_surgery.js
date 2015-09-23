@@ -4,14 +4,21 @@ var submitFunctions  = require('../../controllers/forms/submitForm');
 var saveFunctions  = require('../../controllers/forms/saveForm');
 
 router.post('/', function(req, res, next) {
-
     if(req.body.isNotCompeleted == true)
     {
         saveFunctions.saveGynaecologySurgery(req, req.session.username);
     }
     else
     {
-        submitFunctions.submitGynaecologySurgery(req);
+    var success = saveFunctions.submitGynaecologySurgery(req);
+    console.log(success);
+
+    if(!success){
+        res.redirect('/gynae_surgery.html');
+    }
+    else{
+        res.redirect('/myAdminSpace');
+	}
     }
 });
 module.exports = router;
