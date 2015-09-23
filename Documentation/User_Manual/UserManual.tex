@@ -1,43 +1,27 @@
-\documentclass[a4paper]{article}
+\documentclass[14pt, a4paper]{article}
+\usepackage{float}
+\usepackage{graphicx}
 
-\title{User Manual
-\\COS 301 Main Project
-\\Gynaecological Patient Information Management System
-\\Team :Pentec
-\\Version 1.0}
-
-\author{Ruth Ojo 12042804
-\\Liz Joseph 10075268
-\\Trevor Austin 11310856
-\\Maria Qumayo 29461775
-\\Lindelo Mapumulo 12002862
-\\ University of Pretoria}
-
-\date{1 June 2015}
+\DeclareGraphicsExtensions{.png}
 
 \begin{document}
 
-\maketitle
-% No page number to cover page
-\pagenumbering{gobble}
+%\title and intnro
+\input{./titlepage.tex}
+
+\begin{abstract}
+\Large
+This document is the Software User Manual (SUM) for the Patient Information Management System project and was made according to the software engineering standard described in the tender proposal provided by Professor Snyman. The Software User Manual (SUM) instructs how to install and use the
+Patient Information Management System software. This project is part of the Software Engineering Project course (COS301) at the University of Pretoria.\\
+\end{abstract}
+
 \newpage
-% start page numbering
-\pagenumbering{arabic}
 
-% Generate Table of Contents
-
+%\table of content
 \tableofcontents
 \newpage
 
-
-\section{Abstract}
-This document is the Software User Manual (SUM) for the Patient Information Management System project and was made according to the software engineering standard described in the tender proposal provided by Professor Snyman. The Software User Manual (SUM) instructs how to install and use the
-Patient Information Management System software. This project is part of the Software Engineering Project course (COS301) at the University of Pretoria.\\
-
-\newpage
-
-\section{Chapter 1}
-
+\section{Introduction}
 
 
 \subsection{Change Log}
@@ -79,14 +63,13 @@ Since the Pentec team will be dissolved after completion of the PIMS project, th
 issue of problem reporting is left to the Administrator, Professor Snyman.\\
 	
 
-\section{Chapter 2}
-\subsubsection{Overview}
+\section{Overview}
 The software is used by doctors and medical staff to create patient forms and document patient information and to query the forms for statistical information. 
 \\
+\newpage
 
-\section{Chapter 3}
-\subsection{Tutorial}
-\subsubsection{Running the Software}
+\section{Tuturial}
+\subsection{Running the Software}
 \begin{enumerate}
   \item Website page
   \begin{enumerate}
@@ -108,11 +91,12 @@ The software is used by doctors and medical staff to create patient forms and do
   \end{enumerate} \ldots
 \end{enumerate}
 
-\subsubsection{Shutting down the website}
+\subsection{Shutting down the website}
 Contact your service provider(hosting site) to pull down the software
 
+\newpage
 
-\section{References}
+\section{Operations}
 \begin{description}
 \item The login, forms, user and statistics operations are described in this chapter.
 \end{description}
