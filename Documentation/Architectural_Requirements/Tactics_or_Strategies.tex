@@ -1,11 +1,10 @@
-\subsection{Tactics and Strategies Addressing Quality Requirements}
 \subsubsection{Aspect Oriented programming}
 \begin{itemize}
 		\item AOP is an interception mechanism that will allow for the addition of new services to the system.
 This tactic will aid the following system functionalities:
 		\begin{itemize}
-			\item Logging
-		    \item Tracing
+			\item Logging (tactic: \ref{sec:logging})
+		    \item System traceability
 		\end{itemize}
 \end{itemize}
 
@@ -17,13 +16,58 @@ This tactic will aid the following system functionalities:
 		\end{itemize}
 \end{itemize}
 
-\subsubsection{Contracts-driven Development}
+\subsubsection{Contracts-driven Development} \label{sec:contracts}
 Service contracts were specified prior to the commencement of system implementation. The different pre and post-conditions pertaining to each functional requirement as well as the data structure constraints are enforced across the system services. The use of contracts addresses the following quality requirements:
-	\begin{itemize}
-		\item \textbf{Testability} - Having specified the pre and post-conditions for each use case, any violation of a pre-condition will give a failing test and will throw an exception. Also, any failure to fulfill a post-condition will show a failure in a service of a the system.
-		\item \textbf{Maintainability/Flexibility} - any system component that is replaced by another must be able to satisfy the same contract as the previous component
-	\end{itemize}	
+\begin{itemize}
+	\item \textbf{Testability} \ref{sec:testability} - Having specified the pre and post-conditions for each use case, any violation of a pre-condition will give a failing test and will throw an exception. Also, any failure to fulfill a post-condition will show a failure in a service of a the system.
+	\item \textbf{Maintainability/Flexibility} \ref{sec:maintainability} - any system component that is replaced by another must be able to satisfy the same contract as the previous component
+\end{itemize}
 
+
+\subsubsection{Indexing}
+Indexing of database objects will allow for faster retrieval of these objects; thus improving system performance as well as scalability.
+
+\subsubsection{Templating}
+Node.js offers many templating engines and these allow for:
+\begin{itemize}
+	\item A consistent user interface which improves system maintainability and usability.
+\end{itemize}
+
+
+
+\subsubsection{Database Connection pools}
+
+
+\subsubsection{Logging} \label{sec:logging}
+System
+System logging will help achieve system auditability, security} \ref{sec:security} as well as maintainability \ref{sec:maintainability}. 
+
+4.3.17 Logging
+The system will employ logging to capture audit data (requirement 3.2.6). Logging functionality
+is to be applied via aspects as to not pollute the business logic resulting in more maintainable
+business logic (requirement 3.2.1) and also to make the logging itself fore 
+exible and maintainable
+(requirement 3.2.1). The system will have a web front-end to provide humans access to the system
+logs.
+
+Winston is a widely used multi-transport async logging library for Node.js which will allow for all user operations, server requests as well as errors to be logged to a file stored on the server. The purpose of logging is to ensure system auditability. The logging functionality will be injected through aspects so as to not have the logging functions inter-woven through the code; thereby decoupling the logging functionality form the core system functionality. The use of aspects will make the logging functionality flexible and maintainable.
+
+
+\subsubsection{Client-side Rendering}
+By rendering pages on the client-side (in the browser), load is taken off the server to render pages and this is helps to improve system performance and scalability, as well as usability given that pages will load quicker.
+
+
+\subsubsection{Asynchronous processing}
+Asynchronous processing will be achieved through laying back tasks which may involve lengthy operations or tasks that have to wait for resources into the background to process. This will achieve better system scalability, performance and responsiveness, as other operations will not be blocked or held up.
+
+
+\subsubsection{Framework for UI elements}
+By applying a dynamic Javascript UI component library, for all the user interface elements, the following will be achieved:
+\begin{itemize}
+		\item A dynamic user interface; thereby achieving system usability \ref{sec:usability}
+		\item System maintainability  \ref{sec:maintainability}, as components will be re-used
+		\item System scalability \ref{sec:scalability} and performance \ref{sec:performance}, as these libraries will off-load system rendering to the client-side.
+\end{itemize}	
 
 	
 \subsubsection{Scalability and Performance}

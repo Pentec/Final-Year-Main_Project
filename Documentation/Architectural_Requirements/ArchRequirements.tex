@@ -27,47 +27,47 @@
 			\subsubsection{Human access channels}	
 				\input{./Human-Access-Channels}
 			\subsubsection{System access channels}
-				\input{SystemAccess}	
+				\input{./SystemAccess}	
 			\subsubsection{Integration channels}
-				\input{integrationChannels}
+				\input{./integrationChannels}
  	\subsection{Quality requirements}
  	
 		\underline{\textbf{Critical Quality Requirements}}
-		\subsubsection{Security}
+		\subsubsection{Security} \label{sec:security}
 			%Lindelo - Security
 			\input{./Security.tex}
 			
-		\subsubsection{Usability}
+		\subsubsection{Usability} \label{sec:usability}
 			%Lindelo - Usability
 			\input{./Usability.tex}
 			
-		\subsubsection{Scalability}
+		\subsubsection{Scalability} \label{sec:scalability}
 			%Ruth - Scalability
 			\input{./Scalability}
 			
-		\subsubsection{Reliability and Availability}
+		\subsubsection{Reliability and Availability} \label{sec:reliabilityavailability}
 			%Ruth - Reliability and Availability
 			\input{./Reliability}
 			
-		\subsubsection{Integrability}
-			%Maria - Imtegrability
+		\subsubsection{Integrability} \label{sec:integrability}
+			%Maria - Integrability
 			\input{./Int}
 		\underline{\textbf{Important Quality Requirements}}
 			
-		\subsubsection{Maintainability}
-			%Maria - Monitorabilty
+		\subsubsection{Maintainability} \label{sec:maintainability}
+			%Maria - Maintainability
 			\input{./Mentainability.tex}
 			
-		\subsubsection{Monitorability}
-			%Maria - testability
+		\subsubsection{Monitorability} \label{sec:monitorability}
+			%Maria - Monitorabilty
 			\input{./Monitorability}
 			
-		\subsubsection{Testability}
-			%Maria - Monitorabilty
+		\subsubsection{Testability} \label{sec:testability}
+			%Maria - Testability
 			\input{./Testability}
 			
-		\subsubsection{Performance}
-			%Maria - Monitorabilty
+		\subsubsection{Performance} \label{sec:performance}
+			%Maria - Performance
 			%\input{./Integrability}
 
 	\subsection{Architectural responsibilities}
@@ -78,19 +78,22 @@
 %----------------------------------------------------
 
 %----------------------------------------------------
+
 \section{Architectural Patterns and Styles}
+With Node.js being a dynamic, prototype-based language, the GoF Patterns do work as well with it compared to object oriented languages. Also, Node.js is non-blocking and as such the following patterns are either Javascript specific or work well with prototype-based languages. Some of the patterns discussed here do have some aspects of the GoF patterns.
 	\subsection{Model-View-Controller (MVC)}
 	%Lindelo - MVC
-	\input{./MVC.tex}
+	\input{./MVC}
 	
+	\subsection{Module Pattern}
+		\input{./ModulePattern}
+	
+\section{Architectural Design}	
 	\subsection{Technologies}
-	%Maria - Technologies
-	\input{./Technologies.tex}
+		\input{./Technologies}
+	\subsection{Tactics and Strategies Addressing Quality Requirements}
+		\input{./Tactics_or_Strategies}
+	\subsection{Development Architecture}
+		\input{./DevArchitecture}	
 	
-	%Maria - Arch tactics and strategies
-	\input{./Tactics_or_Strategies.tex}
-	
-
-
-
 \end{document}
