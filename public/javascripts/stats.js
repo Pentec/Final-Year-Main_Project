@@ -5,19 +5,41 @@
  * Function that creates the graph on page load;
  */
 var ratio = 0.54;
-var dummyData = [{date: '01-06-2011', close: 5},{date: '03-06-2011', close: 11}, {date: '03-06-2011', close: 12}, {date: '12-26-2011', close: 14}];
+var dummyData = [{date: '01-06-2011', close: 0}, {date: '03-06-2011', close: 0}, {
+    date: '03-06-2011',
+    close: 0
+}, {date: '12-26-2011', close: 0}];
+var x, y, xAxis, yAxis, parseDate, path, data, svg;
+
+x = function(x){
+    return x;
+};
 
 $(function () {
-    dummyData = [{date: '01-06-2011', close: 5},{date: '03-06-2011', close: 11}, {date: '03-06-2011', close: 12}, {date: '12-26-2011', close: 14}];
+
     createGraph(dummyData, 'Admissions');
+    dummyData = [{date: '01-06-2011', close: 5}, {date: '03-06-2011', close: 11}, {
+        date: '03-06-2011',
+        close: 12
+    }, {date: '12-26-2011', close: 14}];
+    updateGraph(dummyData, 'Test');
 });
+
+$(function () {
+    [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function (el) {
+        new SelectFx(el);
+    });
+})();
 
 /**
  *
  */
 $(window).resize(function () {
     /*set data here*/
-    dummyData = [{date: '01-06-2011', close: 5},{date: '03-06-2011', close: 11}, {date: '03-06-2011', close: 12}, {date: '12-26-2011', close: 14}];
+    dummyData = [{date: '01-06-2011', close: 5}, {date: '03-06-2011', close: 11}, {
+        date: '03-06-2011',
+        close: 12
+    }, {date: '12-26-2011', close: 14}];
     createGraph(dummyData, 'Admissions');
 });
 
@@ -30,39 +52,43 @@ function pageSetup() {
 }
 
 function createGraph(data, yAxisName) {
+    //alert("working");
+    //alert(data);
     pageSetup();
     $(".graph").empty();
+
+    //Margins
     var width = $(".graph-wrapper").width() - 10;
     var height = $(".graph-wrapper").height();
     var margin = {top: 20, right: 30, bottom: 40, left: 50},
         width = width - margin.left - margin.right,
         height = height - margin.top - margin.bottom;
 
-    var parseDate = d3.time.format("%m-%d-%Y").parse;
+    parseDate = d3.time.format("%m-%d-%Y").parse;
 
-    var x = d3.time.scale()
+    x = d3.time.scale()
         .range([0, width]);
 
-    var y = d3.scale.linear()
+    y = d3.scale.linear()
         .range([height, 0]);
 
-    var xAxis = d3.svg.axis()
+    xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom").ticks(3);
 
-    var yAxis = d3.svg.axis()
+    yAxis = d3.svg.axis()
         .scale(y)
         .orient("left").ticks(10);
 
-    var line = d3.svg.line()
+    line = d3.svg.line()
         .x(function (d) {
             return x(d.date);
         })
         .y(function (d) {
             return y(d.close);
-        });
+        }).interpolate("linear");
 
-    var svg = d3.select(".graph").append("svg")
+    svg = d3.select(".graph").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -72,7 +98,7 @@ function createGraph(data, yAxisName) {
         d.date = parseDate(d.date);
         d.close = +d.close;
     });
-
+    this.data = data;
     x.domain(d3.extent(data, function (d) {
         return d.date;
     }));
@@ -94,8 +120,145 @@ function createGraph(data, yAxisName) {
         .style("text-anchor", "end")
         .text(yAxisName);
 
-    svg.append("path")
+    path = svg.append("path")
         .datum(data)
         .attr("class", "line")
         .attr("d", line);
+}
+
+function updateGraph(data, yAxisName) {
+    data.forEach(function (d) {
+        d.date = parseDate(d.date);
+        d.close = +d.close;
+    });
+    this.data = data;
+    x.domain(d3.extent(data, function (d) {
+        return d.date;
+    }));
+    y.domain(d3.extent(data, function (d) {
+        return d.close;
+    }));
+
+    var svg = d3.select(".graph").transition();
+
+    svg.select(".line")
+        .duration(750)
+        .attr("d", line(data));
+
+    svg.select(".x.axis")
+        .duration(750)
+        .call(xAxis);
+    svg.select(".y.axis")
+        .duration(750)
+        .call(yAxis);
+}
+
+function submit(){
+    $("#mainQuery").submit();
+}
+
+function anim(){
+    alert("running");
+    var json = [
+        {
+            "date": "07-12-2012",
+            "close": 14
+        },
+        {
+            "date": "05-20-2012",
+            "close": 11
+        },
+        {
+            "date": "07-27-2012",
+            "close": 11
+        },
+        {
+            "date": "06-20-2012",
+            "close": 12
+        },
+        {
+            "date": "06-25-2012",
+            "close": 12
+        },
+        {
+            "date": "07-05-2012",
+            "close": 14
+        },
+        {
+            "date": "01-06-2012",
+            "close": 13
+        },
+        {
+            "date": "05-06-2012",
+            "close": 12
+        },
+        {
+            "date": "03-10-2012",
+            "close": 14
+        },
+        {
+            "date": "03-26-2012",
+            "close": 11
+        },
+        {
+            "date": "03-22-2012",
+            "close": 14
+        },
+        {
+            "date": "02-15-2012",
+            "close": 13
+        },
+        {
+            "date": "03-08-2012",
+            "close": 12
+        },
+        {
+            "date": "05-03-2012",
+            "close": 12
+        },
+        {
+            "date": "03-02-2012",
+            "close": 11
+        },
+        {
+            "date": "05-16-2012",
+            "close": 14
+        },
+        {
+            "date": "05-24-2012",
+            "close": 14
+        },
+        {
+            "date": "01-03-2012",
+            "close": 14
+        },
+        {
+            "date": "02-09-2012",
+            "close": 13
+        },
+        {
+            "date": "07-02-2012",
+            "close": 12
+        }
+    ];
+
+    json.sort(function(a, b){
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
+    alert(JSON.stringify(json));
+    json.forEach(function (d) {
+        d.date = parseDate(d.date);
+        d.close = +d.close;
+        data.push(data.shift);
+        alert("running");
+        svg.selectAll("path")
+            .data([data])
+            .attr("transform", "translate(" + x(1) + ")")
+            .attr("d", line)
+            .interrupt()
+            .transition()
+            .ease("linear")
+            .duration(1000)
+            .attr("transform", "translate(" + x(0) + ")");
+    });
 }

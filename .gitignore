@@ -26,6 +26,8 @@ build/Release
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules
 
+bower_components
+
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion
 
 *.iml
@@ -209,3 +211,7 @@ public/stylesheets/bootstrap.css
 public/stylesheets/bootstrap.css
 public/stylesheets/bootstrap.min.css
 public/controllers/synaptic.js
+<<<<<<< HEAD
+=======
+Documentation/Architectural_Requirements/Auditability.tex
+>>>>>>> a020a39653f02e038b3a568d3f5a88c77a53ec9d
