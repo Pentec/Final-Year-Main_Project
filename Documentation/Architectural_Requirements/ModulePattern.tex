@@ -1,0 +1,9 @@
+The Module Pattern pulls some major principles  of object-oriented programming, namely encapsulation and abstraction.
+
+Module Pattern comprise 2 from 4 major principles of object-oriented programming - the encapsulation and abstraction.
+
+Firstly it encapsulates data and provides the client of such module with just public API methods. For JavaScript this is the easiest way how to substitute the explicit public/private variables scoping.
+
+Secondly the Module Pattern provides a layer of abstraction. It means that client using such module do not have to care about the process of the instantiation itself. He needs to know parameters of called constructor function and api of returned instance. This define an interface between client and module. If the interface remains the same the implementation of module can evolve freely without necessity to change a client.
+
+For example we can incorporate into Module Pattern another pattern called Factory Method. In the code example above the constructor method createInstance simply returns a new object instance for every call. But we can use Factory Method when we have a limited poll of instances and we would like to provide client with one from them. All this is change of the implementation but the interface for a client do not change. More about Factory Method pattern in Node.js you will find in some of my future posts.

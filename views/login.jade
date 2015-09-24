@@ -9,6 +9,8 @@ block extFiles
         $("#warningdiv").fadeTo(2000, 500).slideUp(500, function () {
             $("#warningdiv").alert('close');
         });
+
+        $("#g-recaptcha-response").width(550);
 block content
     div.jumbotron.center.banner
         div.inner
@@ -33,7 +35,8 @@ block content
                             div.form-group
                                 input.form-control#password(type="password", placeholder="Password", name="password")
                             input.btn.btn-custom.btn-lg.btn-block#btn-login(type="submit", value="Log In" disabled)
-                            div.g-recaptcha(data-callback="recaptchaCallback" data-sitekey="6Lc9mAsTAAAAADbZqkl2r7pEenxsAccFzN540Anm")
+                            div.form-group.recaptchaWrapper
+                                div.g-recaptcha(data-callback="recaptchaCallback" data-sitekey="6Lc9mAsTAAAAADbZqkl2r7pEenxsAccFzN540Anm").recaptcha
                         a.forget Forgot your password?
     footer.text-center.center-block
         h2 Back to&nbsp;
