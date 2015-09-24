@@ -1,89 +1,64 @@
-\subsection{Tactics and Strategies Addressing Quality Requirements}
-\subsubsection{Aspect Oriented programming}
+\subsubsection{Aspect Oriented programming} \label{sec:aop}
 \begin{itemize}
 		\item AOP is an interception mechanism that will allow for the addition of new services to the system.
 This tactic will aid the following system functionalities:
 		\begin{itemize}
-			\item Logging
-		    \item Tracing
+			\item Logging (tactic: \ref{sec:logging})
+		    \item System traceability
 		\end{itemize}
 \end{itemize}
-
 \begin{itemize}
 \item It will also address the following system requirements:
 	\begin{itemize}
-			\item \textbf{Auditability} - logging functionality can be injected across system services
-			\item \textbf{Maintainability} \ref{sec:maintainability} - additional services can be added to the system
-		\end{itemize}
+			\item \textbf{Auditability} (requirement: \ref{sec:auditability}) - logging functionality can be seamlessly injected across system services
+			\item \textbf{Maintainability} (requirement: \ref{sec:maintainability}) - additional services can be added to the system
+			\item \textbf{Integrability} (requirement: \ref{sec:integrability}) - AOP can make integration of other system components easier, particularly if those components would have to be inter-woven through the code.
+	\end{itemize}
 \end{itemize}
 
-\subsubsection{Contracts-driven Development}
+\subsubsection{Contracts-driven Development} \label{sec:contracts}
 Service contracts were specified prior to the commencement of system implementation. The different pre and post-conditions pertaining to each functional requirement as well as the data structure constraints are enforced across the system services. The use of contracts addresses the following quality requirements:
-	\begin{itemize}
-		\item \textbf{Testability} - Having specified the pre and post-conditions for each use case, any violation of a pre-condition will give a failing test and will throw an exception. Also, any failure to fulfill a post-condition will show a failure in a service of a the system.
-		\item \textbf{Maintainability/Flexibility} - any system component that is replaced by another must be able to satisfy the same contract as the previous component
-	\end{itemize}	
+\begin{itemize}
+	\item \textbf{Testability} (requirement: \ref{sec:testability}) - Having specified the pre and post-conditions for each use case, any violation of a pre-condition will give a failing test and will throw an exception. Also, any failure to fulfill a post-condition will show a failure in a service of a the system.
+	\item \textbf{Maintainability/Flexibility} (requirement: \ref{sec:maintainability}) - any system component that is replaced by another must be able to satisfy the same contract as the previous component
+\end{itemize}
 
 
-	
-\subsubsection{Scalability and Performance}
-	\begin{itemize}
-		\item Optimize repeated processes.
-		\item Reuse resources and results.
-		\item Reduce contention by replicating frequently used resources.
-		\item Clustering.
-		\item Efficient use of storage.
-		\item Load Balancing.
-		\item Caching.
-		\item Use REST (Representational State Transfer) to make Kalafong PIMS into a scalable web service.
-	\end{itemize}	
-\subsubsection{Security}
-	\begin{itemize}
-		\item Authenticate users by requesting user name and password when interaction with the system begins.
-		\item Authorize users checking if a user has the rights to access and modify either data or services.
-		\item Encryption to maintain confidentiality of data.
-		\item Input Validation to detect malicious attacks.
-		\item Auditing and logging for identifying and recovering from attacks.
-	\end{itemize}	
-\subsubsection{Usability}
-	\begin{itemize}
-		\item Usability is enhanced by giving the user feedback as to what the system is doing.
-		\item Descriptive Error messages must be provide along with the necessary steps to address the errors.
-		\item System must respond to actions performed by the user.
-		\item Separate the user interface from the rest of the application using Model-View-Controller.
-	\end{itemize}
-\subsubsection{Integrability}
-	\begin{itemize}
-		\item Use modular programming to modularize the system. 
-		\item Use REST (Representational State Transfer) to decouple Kalafong PIMS from other software that may need its services.
-	\end{itemize}
-\subsubsection{Maintainability}
-	\begin{itemize}
-		\item Use modular programming to modularize the system.
-		\item Use object-oriented programming to sub divide the sub-system features.
-	\end{itemize}
-\subsubsection{Monitor-ability}
-	\begin{itemize}
-		\item Monitor-ability can be enhanced by using fault detection tactics:
-		\begin{enumerate}
-			\item Ping/echo: One component issues a ping and expects to receive back an echo, within a predefined time, from the component under scrutiny.
-			\item Heartbeat: One component emits a message periodically and another component listens for it. If the heartbeat fails, the originating component is assumed to have failed and a fault correction component is notified.
-			\item Exceptions: These are raised when an anomaly in a component occurs, encounter an exception when a fault is detected.
-		\end{enumerate}
-	\end{itemize}
-\subsubsection{Reliability}
-	\begin{itemize}
-		\item Reliability can be enhanced by using fault recovery and preventions tactics:
-		\begin{enumerate}
-			\item Active redundancy: All redundant components respond to events concurrently. All redundant components will have the same state. When a fault occurs in the responding component, the system will switch to the next redundant component, minimizing downtime.
-			\item Checkpoint/rollback: the states of the components will be recorded periodically or in response to certain events. When a fault occurs, the system should be restored to the previously consistent state or checkpoint.
-			\item Transactions: The system should bundle several sequential steps in such a way that the entire bundle can be undone at once. 
-		\end{enumerate}
-	\end{itemize}
-\subsubsection{Testability}
-	\begin{itemize}
-		\item Enhanced testability by recording the information that enters the system and using it as input into the test harness, and recording the output of the system components.
-		\item Separating the interface from the implementation to enable substitution of implementations for various testing purposes.
-		\item Creating a specialized testing interfaces to capture variable values to a system component and also seeing the output of the component in order to detect faults.
-		\item The components can maintain useful information regarding its execution internally and then be viewed in the testing interface.
-	\end{itemize}
+\subsubsection{Indexing} \label{sec:indexing}
+Indexing of database objects will allow for faster retrieval of these objects; thus improving system performance as well as scalability.
+
+\subsubsection{Templating} \label{sec:template}
+Node.js offers many templating engines and these allow for:
+\begin{itemize}
+	\item A consistent user interface which improves system maintainability (requirement: \ref{sec:maintainability}) and usability (requirement: \ref{sec:usability}).
+\end{itemize}
+
+\subsubsection{Database Connection pools} \label{sec:pools}
+Connection pooling will be used to achieve better system scalability (requirement: \ref{sec:scalability}) and performance (requirement: \ref{sec:performance})
+
+\subsubsection{Logging} \label{sec:logging}
+System logging will capture audit data and will help achieve system auditability (requirement: \ref{sec:auditability}), security (requirement: \ref{sec:security}) as well as maintainability (requirement: \ref{sec:maintainability}). The use of aspects will lend to the achievement of these requirements, as it will make the logging functionality flexible and maintainable.
+
+\subsubsection{Client-side Rendering} \label{sec:clientrender}
+By rendering pages on the client-side (in the browser), load is taken off the server to render pages and this is helps to improve system performance (requirement: \ref{sec:performance}) and scalability (requirement: \ref{sec:scalability}), as well as usability given that web pages will load quicker.
+
+
+\subsubsection{Asynchronous processing} \label{sec:asyncprocess}
+Asynchronous processing will be achieved through delaying tasks which may involve lengthy operations or tasks that have to wait for resources into the background to process. This will achieve better system scalability (requirement: \ref{sec:scalability}), performance(requirement: \ref{sec:performance}) and responsiveness, as other operations will not be blocked or held up.
+
+
+\subsubsection{Framework for UI elements} \label{sec:uiframework}
+By applying a dynamic Javascript UI component library, for all the user interface elements, the following will be achieved:
+\begin{itemize}
+		\item A dynamic user interface; thereby achieving system usability (requirement :\ref{sec:usability})
+		\item System maintainability (requirement : \ref{sec:maintainability}), as components will be re-used
+		\item System scalability \ref{sec:scalability} and performance \ref{sec:performance}, as these libraries will off-load system rendering to the client-side.
+\end{itemize}	
+
+\subsubsection{Dependency Injection}  \label{sec:depinject}
+Dependency Injection will help in achieving the following:
+\begin{itemize}
+		\item Maintainability/flexibility (requirement :\ref{sec:maintainability}) - different system components can be replaced easily 
+		\item Testability (requirement :\ref{sec:testability}) - dependency injection aids unit testing, as mock objects can be injected allowing for a system component to be tested as a stand-alone module.
+		\item System components can be seamlessly applied in different environments.	
+\end{itemize}
