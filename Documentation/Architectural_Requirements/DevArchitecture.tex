@@ -1,0 +1,18 @@
+\subsubsection{Version control}
+The version control system that will be used is git. The final and reviewed implementation of the system will reside in the master branch, whilst the combined, prototype of the implementation will be in the Develop branch, where the system will be tested before being placed in the master branch. Any new feature, testing or bug fix is developed in a new branch where it is tested before being merged into the trunk. These new branches are created from the Develop branch.
+
+\subsubsection{IDE}
+The choice of an IDE is not limited to a specific one. All the project builds are IDE independent and are driven solely by npm.
+
+
+\subsubsection{Builds}
+NPM is used to build the project components. The package.json file specifies all the server-side dependency properties to build the project. The \textit{sub modules} of the project are kept in private git repositories and can be obtained through the Pentec Github Organisation.
+
+\subsubsection{Unit Testing}
+Unit testing will be done using Unit.JS.
+
+\subsubsection{Documentation}
+All code is annotated with JSDoc documentation metadata which generates and hosts the API documentation centrally. This quickens system development, as the documentation generation is automatic and it improves system maintainability (requirement: \ref{sec:maintainability}).
+
+\subsubsection{Issues and Bugs}
+Any issues found with the system implementation can  be raised using Github's issue tracker.

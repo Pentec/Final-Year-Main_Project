@@ -1,70 +1,69 @@
-\subsection{Platform}
 \subsubsection{Node.js}
 The system will be deployed in a Node.js environment. Node.js allows for queued inputs and since the system revolves around multiple inputs possibly going through at any particular time this provides a huge advantage over most other systems. Node.js also includes a wide range of modules through NPM (Node package manager). Some examples of these include ExpressJS, AngularJS, MongoDB, mongoose, and many more. Node.js processes programs asynchronously and thus is a no-interrupt driven language. This is as advantage because, as stated above, it allows for queued inputs. Node.js is written in JavaScript which means it is ubiquitous which is an obvious advantage.
 
 Node.js relies heavily on callbacks to allow for synchronization which is an obvious hindrance for programmers that are not strong with recursion or callbacks. Although this con is outweighed by the advantages of the system.
 
-\subsection{Framework}
 \subsubsection{ExpressJS HTTP Server}
 Express is a lightweight, high performance HTTP framework which supports URL configurable routing. This framework will lend to a more professional look of the system as well as enforce system maintainability and flexibility.
 
-\subsection{AngularJS}
-Angular is front-end development framework that enforces the MVC architecture pattern. Angular speeds up client-side templating, a feature that is essential for the Kalafong PIMS System. In addition, the structure of AngularJS allows for dependency injection; thus allowing for simpler implementation of unit tests. The use of this framework will aid system usability, maintainability as well as performance.
+\subsubsection{AngularJS}
+Angular is front-end development framework that enforces the MVC architecture pattern. Angular speeds up client-side templating, a feature that is essential for the PIMS System. In addition, the structure of AngularJS allows for dependency injection; thus allowing for simpler implementation of unit tests. The use of this framework will aid system usability, maintainability as well as performance.
 
-\subsection{Broadway plug-in framework}
-The Kalafong PIMS is largely a modular system as such, this Dependency Injection framework will allow for a more flexible and maintainable system, as modules can be plugged in as needed. In addition, it will allow any future developers who may wish to extend the system to add plug-ins that they deem necessary or to add to the existing modules.
+\subsubsection{Broadway plug-in framework}
+The PIMS is largely a modular system as such, this Dependency Injection (tactic: \ref{sec:depinject}) framework will allow for a more flexible and maintainable system, as modules can be plugged in as needed. In addition, it will allow any future developers who may wish to extend the system to add plug-ins that they deem necessary or to add to the existing modules.
 
-\subsection{Crypto}
-Crypto is an npm module that allows for multiple forms of encryption. It is the default hashing algorithm for Node.js and is fast enough, so as to not affect performance. For the sake of password security, the Kalafong PIMS system will make use of the crypto's PBKDF2 encryption. This form of encryption uses HMAC-SHA1 to derive a key of some fixed length form the password, salt and iterations. It is slow and somewhat computationally expensive which is why it will only be used for password encryption. 
+\subsubsection{Crypto}
+Crypto is an npm module that allows for multiple forms of encryption. It is the default hashing algorithm for Node.js and is fast enough, so as to not affect performance. For the sake of password security (requirement: \ref{sec:security}), the PIMS system will make use of the Crypto's PBKDF2 encryption. This form of encryption uses HMAC-SHA1 to derive a key of some fixed length form the password, salt and iterations. It is slow and somewhat computationally expensive which is why it will only be used for password encryption. 
 
-\subsection{Express-Validator}
-This npm package is an Express server middle-ware for the npm validator module. In the Kalafong PIMS system, it is used for the purposes of form validation, particularly when making a post request to the server. This technology aids Usability, as it allows for the application to give appropriate feedback to a user concerning any input made.
+\subsubsection{Express-Validator}
+This npm package is an Express server middle-ware for the npm validator module. In the PIMS system, it is used for the purposes of form validation, particularly when making a post request to the server. This technology aids Usability, as it allows for the application to give appropriate feedback to a user concerning any input made.
 
-\subsection{Node-mailer}
+\subsubsection{Node-mailer}
 This npm package is for the notifications component of the system, allowing for the sending of email notifications to patients for the purpose of follow-up visits with a medical practitioner.
 	
-\subsection{MongoDB Database}
+\subsubsection{MongoDB Database}
 \begin{itemize}
-	\item MongoDB is a NoSQL document store database and is used particularly for applications that need to store large volumes of data, which is mandatory for the Kalafong PIMS system.
+	\item MongoDB is a NoSQL document store database and is used particularly for applications that need to store large volumes of data, which is mandatory for the PIMS system.
 	\item MongoDB ensures that scalability, a critical requirement, is enforced. This is due to its highly cache-able persistence environment which allows for better system performance. Also, because the system will require multiple database access tasks, the use of the MongoDB database is very helpful, as it allows for multiple read access and a single write operation.
 \end{itemize}
 	
-\subsection{Mongoose Object Data Model}
+\subsubsection{Mongoose Object Data Model}
 \begin{itemize}
 	\item Mongoose is an object modelling environment for MongoDB and Node.js. It enforces service contracts and structure via validation, it also provides connection pooling, which improves system scalability. Automatic object to document mappings is also supported.
 \end{itemize}
 
-\subsection{Database Hosting Server}
+\subsubsection{Database Hosting Server}
 \begin{itemize}
-	\item The Kalafong PIMS MongoDB database will be hosted on MongoLab. It has the capacity to create multiple databases which would aid the system requirement of reliability and availability. It also offers database security using two-factor authentication to access the database.
+	\item The PIMS MongoDB database will be hosted on MongoLab. It has the capacity to create multiple databases which would aid the system requirement of reliability and availability. It also offers database security using two-factor authentication to access the database.
 \end{itemize}
 
-\subsection{Unit Testing}
-\subsubsection{Mocha}
+\subsubsection{Unit.JS}
 \begin{itemize}
-	\item Mocha was selected as our primary unit testing framework running for Node.js and the browser,
-to assist in the simplification of asynchronous testing. \\
-	Mocha tests run serially, allowing for flexible and accurate reporting, while mapping uncaught exceptions to the correct test 
- cases. We found that Mocha offered browser support which proves useful for our project as we are testing
-our application on different browsers and a javascript API for running tests which assisted us in identifying our 
-errors more visibly and made the framework much easier, both, to understand and use. Mocha is also very popular and 
-so there is an online community of users offering assistance and suggestions, it is also very configurable. 
-Mocha assisted us to describe our test suites.
+	\item Unit.JS supports dependency injection (tactic: \ref{sec:depinject}), a valuable tactic the implementation of the PIMS system.
+\end{itemize}
+
+
+
+\subsubsection{Mocha}
+Mocha was selected as our primary unit testing tool for Node.js and the browser, to assist in the simplification of asynchronous testing.
+\begin{itemize}
+	\item Mocha tests run serially, allowing for flexible and accurate reporting, whilst mapping uncaught exceptions to the correct test cases. 
+	\item Mocha offers browser support which proves useful for our project, as we are testing our application across different browsers.
+	\item Mocha offers a JavaScript API for running tests which assists in identifying errors easily and makes the framework much easier to understand and use.
+	\item Mocha is also very popular as a unit testing tool; there is an online community of users offering assistance and suggestions.
+	\item It is also very configurable  and assists in describing test suites.
 \end{itemize}
 
 \subsubsection{Chai}
 \begin{itemize}
-	\item We selected Chai as it is an assertion and expecting library for node and the browser given that we are
-creating a web application and using javascript as our testing framework; Chai pairs them 
-both very well. \\
-Chai also works well with Mocha and other unit testing frameworks as we had
-decided to use more than one to achieve readability for the output of our unit testing program. 
-Chai assisted us to perform all kinds of assertions against our javascript code.
+	\item We selected Chai as it is an assertion and expecting library for Node.js and the browser and given that we are creating a web application and using JavaScript as our testing framework; Chai pairs them both very well.
+\item Chai also works well with Mocha and other unit testing frameworks, as we had decided to use more than one to achieve readability for the output of our unit testing program. 
+\item Chai assists in performing various assertions against our JavaScript code.
 \end{itemize}
 
 \subsubsection{Should JS}
 \begin{itemize}
-	\item Should is an assertion library that makes use of functions that are natural language-based and are thus simple and intuitive to use and implement. Its expressive nature helps us keep our unit test code clean and it adds semantics to error messages.
+	\item Should is another assertion library that makes use of functions that are natural language-based and are thus simple and intuitive to use and implement. Its expressive nature helps us keep our unit test code clean and it adds semantics to error messages.
 \end{itemize}
 
 
@@ -74,23 +73,23 @@ Chai assisted us to perform all kinds of assertions against our javascript code.
 \end{itemize}
 
 
-\subsection{Jade Templating Engine}
+\subsubsection{Jade Templating Engine}
 The template engine Jade is simple to use and has a readable layout. It allows for minimal code and speeds up the entire process of writing web pages. Jade's readable layout helps improves system maintainability.
 
 
-\subsection{Heroku Dev Center Deployment Server}
+\subsubsection{Heroku Dev Center Deployment Server}
 \begin{itemize}
 	\item Heroku is a cloud based application platform and it offers an easy to use deployment service and it easily integrates with our version control system Github. As a result, when system implementation is pushed to the master branch it is automatically updated on the Heroku Server.
 \end{itemize}
 
 
-\subsection{Operating Systems}
+\subsubsection{Operating Systems}
 \begin{itemize}
 	\item Windows
 	\item Possibly Android OS
 \end{itemize}
 
-\subsection{Dependency Management}
+\subsubsection{Dependency Management}
 \begin{itemize}
 	\item \textbf{NPM}
 		\begin{itemize}
@@ -104,23 +103,23 @@ The template engine Jade is simple to use and has a readable layout. It allows f
 		\end{itemize}	
 \end{itemize}
 
-\subsection{PassportJS}
-This is a widely used Node.js authentication module and it offers a wide range of authentication strategies. The Kalafong PIMS makes use of of the PassportJS Local Strategy for user authentication. This strategy allows for one to use their own authentication measures, making it flexible to use. PassportJS also provides session management which is a very useful feature for the Kalafong PIMS; wherein multiple users will be accessing various system resources at the same time.
+\subsubsection{PassportJS}
+This is a widely used Node.js authentication module and it offers a wide range of authentication strategies. The PIMS makes use of of the PassportJS Local Strategy for user authentication. This strategy allows for one to use their own authentication measures, making it flexible to use. PassportJS also provides session management which is a very useful feature for the PIMS; wherein multiple users will be accessing various system resources at the same time.
 
-\subsection{MeldJS AOP}
-Meld is a widely used AOP library for Javascript. It allows for one to add to or change the behaviour of functions in a  non-invasive manner. It will address the Aspect-Oriented Programming tactic by supporting the following functionality:
+\subsubsection{MeldJS AOP}
+Meld is a widely used AOP library for JavaScript. It allows for one to add to or change the behaviour of functions in a  non-invasive manner. It will address the Aspect-Oriented Programming tactic by supporting the following functionality:
 \begin{itemize}
-	\item Logging
-	\item Tracing				
+	\item Logging (strategy: \ref{sec:logging})
+	\item System traceability				
 \end{itemize}
 
 
-\subsection{Winston logging}
-Winston is a widely used multi-transport async logging library for Node.js which will allow for all user operations, server requests as well as errors to be logged to a file stored on the server. The purpose of logging is to ensure system auditability. The logging functionality will be injected through aspects so as to not have the logging functions inter-woven through the code; thereby decoupling the logging functionality form the core system functionality. The use of aspects will make the logging functionality flexible and maintainable.
+\subsubsection{Winston logging}
+Winston is a widely used multi-transport async logging library for Node.js which will allow for all user operations, server requests as well as errors to be logged to a file stored on the server. The purpose of logging (strategy: \ref{sec:logging}) is to ensure system auditability (strategy: \ref{sec:auditability}). The logging functionality will be injected through aspects so as to not have the logging functions inter-woven through the code; thereby decoupling the logging functionality form the core system functionality. The use of aspects will make the logging functionality flexible and maintainable.
 
 
-\subsection{SynapticJS Neural Network}
-Synaptic is a technology neutral, Javascript Neural Network library that offers services for different types of neural networks with different training algorithms. The services offered are simple to apply and non-invasive. A user will be allowed to see the results of a neural network in the front-end, as this library works in the browser.
+\subsubsection{Synaptic Neural Network}
+Synaptic is a technology neutral, JavaScript Neural Network library that offers services for different types of neural networks with different training algorithms. The services offered are simple to apply and non-invasive. A user will be allowed to see the results of a neural network in the front-end, as this library works in the browser.
 
 
 

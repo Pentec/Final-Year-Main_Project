@@ -9,12 +9,9 @@ A high reliability rate is recommended to ensure that users do not encounter any
 	
 	
 \subsubsection*{Mechanism}	
-\begin{enumerate}
-\item Strategy:
 	\begin{itemize}
 		\item Clustering: using more resources by running many instances of the application over a cluster of servers or instances; therefore if any server should fail, the reliability and availability of the system will not be compromised.
 		\item For reading from and writing to the database, we will ensure that no parallel updates are possible through enforcing the use of a single object to stream all database transactions; thus reducing inaccuracy that would be a result of data redundancy.		 
 		\item Use of more resources: This would heavily reduce system downtime, as a temporary server can be run while the other is maintained.
 \end{itemize}
-					
-\end{enumerate}
+
