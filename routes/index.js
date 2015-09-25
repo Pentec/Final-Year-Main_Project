@@ -11,6 +11,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var submodules = "../sub-modules/";
 var userAuthentication = require('../controllers/authenticate.js');
 var dataNormalizerCervical = require('../controllers/dataNormalizers/dataNormalizerCervical.js');
 
@@ -28,7 +29,7 @@ var ElectiveCountGlobal;
  * It is for the PIMS login functionality
  * @type {*|exports|module.exports}
  */
-var models = require('pims-database');
+var models = require(submodules + 'pims-database/database');
 
 /**
  * Required module d3 for the purpose of Statistical graphical representation.
@@ -43,14 +44,14 @@ require('d3');
  * It is for the PIMS login functionality
  * @type {exports|module.exports}
  */
-var login = require('pims-login');
+var login = require(submodules + 'pims-login/login');
 
 /**
  * A variable in the global namespace called 'notification'.
  * It is for the PIMS notification functionality
  * @type {exports|module.exports}
  */
-var notification = require('pims-notification');
+var notification = require(submodules + 'pims-notification/notifications');
 var https = require('https');
 
 /**
@@ -583,7 +584,7 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
 
 router.post('/findSelectedQuery', function(req, res, next) {
 	
-   var startDate =JSON.stringify(req.body.forQuering.start);
+    var startDate =JSON.stringify(req.body.forQuering.start);
     var endDate =JSON.stringify(req.body.forQuering.end);
 	var period = JSON.stringify(req.body.forQuering.periodQuery);
 	var stats =  JSON.stringify(req.body.forQuering.statsQuery);
@@ -642,6 +643,15 @@ router.post('/findSelectedQuery', function(req, res, next) {
 								arr.push(newElement);
 							
 						}
+						console.log(arr);
+						  
+						   arr.sort(function(a,b){
+								if (a.date < b.date)
+									return -1;
+								  if (a.date > b.date)
+									return 1;
+								  return 0;
+								});
 							 var resBody = { myStatsArry: arr};
 							  console.log(resBody);
 							  res.json(resBody);
@@ -672,10 +682,21 @@ router.post('/findSelectedQuery', function(req, res, next) {
 							 var newElement = {};
 								newElement['date'] = new Date(myResult[i].ourDate).toString('dd-MM-yyyy');
 								newElement['close'] = myResult[i].count;
-								arr.push(newElement);
+								arrTwo.push(newElement);
 							
 						}
-							 var resBody = { myStatsArry: arr};
+						
+						console.log(arrTwo);
+						  
+						   arrTwo.sort(function(a,b){
+								if (a.date < b.date)
+									return -1;
+								  if (a.date > b.date)
+									return 1;
+								  return 0;
+								});
+								
+							 var resBody = { myStatsArry: arrTwo};
 							  console.log(resBody);
 							  res.json(resBody);
 							  console.log("POST response sent.");
@@ -710,6 +731,15 @@ router.post('/findSelectedQuery', function(req, res, next) {
 								arrThree.push(newElement);
 							
 						}
+						  console.log(arrThree);
+						  
+						   arrThree.sort(function(a,b){
+								if (a.date < b.date)
+									return -1;
+								  if (a.date > b.date)
+									return 1;
+								  return 0;
+								});
 							 var resBody = { myStatsArry: arrThree};
 							  console.log(resBody);
 							  res.json(resBody);
@@ -748,6 +778,15 @@ router.post('/findSelectedQuery', function(req, res, next) {
 								arrFour.push(newElement);
 							
 						}
+						console.log(arrFour);
+						  
+						   arrFour.sort(function(a,b){
+								if (a.date < b.date)
+									return -1;
+								  if (a.date > b.date)
+									return 1;
+								  return 0;
+								});
 							 var resBody = { myStatsArry: arrFour};
 							  console.log(resBody);
 							  res.json(resBody);
@@ -758,7 +797,6 @@ router.post('/findSelectedQuery', function(req, res, next) {
 		
 	
 	}
-
 });
 
 /*View patient stats */
@@ -897,7 +935,7 @@ router.post('/findPatient/sendEmail', isLoggedIn, function(req, res, next) {
 
 });
 
-var AI = require('pims-neuralnetwork');
+var AI = require(submodules + 'pims-neuralnetwork/neuralnetwork');
 router.get('/testAI', function(req, res){
     //var AI = require("../neuralnetwork");
     //C:\Users\Ruth\Documents\GitHub\Main\Pentec_PIMS\lib\pims-neuralnetwork\UnitTests\test.json

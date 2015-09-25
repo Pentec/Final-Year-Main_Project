@@ -1,19 +1,16 @@
 \subsubsection*{Description}
-The PIMS should be accessible at almost all times, in particular during the peak operational hours of the hospital. This accessibility will be limited to the hospital network only, so as to ensure no information can be changed without approval.
+This requirement pertains to how well the system responds to some action(s) execution within a set time interval. This is measured by system latency (time taken to respond to some event(s)) or throughput (number of events executed within a given amount of time).
 		
 \subsubsection*{Justification}
-The reliability and availability requirements are very important seeing as the information to be kept on the system is highly valuable to the medical staff, as the need up-to-date information concerning the patients they are dealing with (lives could be at risk).							 
-With this in mind, only a downtime of less than 2 hours, at most twice a month will be allowed, so as too allow for the medical staff to maximally use the system.
-A high reliability rate is recommended to ensure that users do not encounter any errors and/or data corruption in their use of the system. The only leeway that will be given for errors, is to have at most one.
+Performance is an important requirement, as the lack of it will influence other system quality requirements. For instance, if the system does not respond in a timely manner it would affect system responsiveness and usability \ref{sec:usability}. The PIMS system will be used by multiple medical staff at a time, as such it needs to respond to user events with minimal latency.
 	
 	
-\subsubsection*{Mechanism}	
-\begin{enumerate}
-\item Strategy:
+\subsubsection*{Mechanism}
 	\begin{itemize}
-		\item Clustering: using more resources by running many instances of the application over a cluster of servers or instances; therefore if any server should fail, the reliability and availability of the system will not be compromised.
-		\item For reading from and writing to the database, we will ensure that no parallel updates are possible through enforcing the use of a single object to stream all database transactions; thus reducing inaccuracy that would be a result of data redundancy.		 
-		\item Use of more resources: This would heavily reduce system downtime, as a temporary server can be run while the other is maintained.
+		\item High hardware and software tolerance: the system must continue to operate, even if a server lags or one software component is not working. The lagging of a server may result in performance at a reduced level but the system must still be operational with some level of throughput.
+		\item By using fewer computationally expensive hashing algorithms for data encryption, the effect of security measures on performance will be lessened.	 
+		\item The system should give user feedback if a background process is operational. For instance if an AJAX POST request is being sent in the background, the user must be given a system busy indicator so that they know their request is still being processed.
+		\item Caching of database objects: The system must cache any frequently used database objects so that any user tasks that require database processing will respond quicker. This is particularly important when there is an increses in database requests.
 \end{itemize}
-					
-\end{enumerate}
+
+

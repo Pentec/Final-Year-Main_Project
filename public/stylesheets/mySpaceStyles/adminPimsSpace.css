@@ -8,7 +8,8 @@ img.link:hover {
 	transition: transform 1000ms ease;
 }
 
-#formIcon img{
+.hasOptions img{
+    backface-visibility: hidden;
     animation-name: rotateMenu;
     -webkit-animation-name: rotateMenu;
 
@@ -17,16 +18,19 @@ img.link:hover {
 
     animation-timing-function: ease;
     -webkit-animation-timing-function: ease;
-    backface-visibility: hidden;
 }
 
-.options.hide{
-    display: none;
+.options ul a:hover, .options ul a:focus{
+    background-color: #002240;
+}
+
+.options.show{
+    display: inline-block;
 }
 
 .options{
     float: left;
-    display: inline-block;
+    display:none;
     width: 256px;
     text-align: center;
     animation-name: rotateMenu;
@@ -63,7 +67,7 @@ img.link:hover {
 }
 
 .options div{
-    min-width: 200px; padding-top: 30px; display: inline-block;
+    min-width: 200px; padding-top: 50px; display: inline-block;
 }
 
 .form-menu > li > a{
