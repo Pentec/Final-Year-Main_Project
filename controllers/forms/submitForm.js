@@ -120,6 +120,7 @@ var submitAdmissionDischarge = function(formData) {
     return success;
 };
 
+
 var submitGynaecologySurgery = function(formData) {
 
     var jsonString = JSON.stringify(formData.body);
@@ -208,6 +209,8 @@ var submitGynaecologySurgery = function(formData) {
 
     return success ;
 };
+
+
 var submitCervicalCancer = function(formData) {
 
     var success = false;
@@ -446,7 +449,7 @@ var submitCervicalCancer = function(formData) {
             Dead: changedString.lastKnownVitalStatusDead
         },
 
-        causeOfDeath :{
+        causeOfDeath : {
             CaCx: changedString.causeOfDeathCaCx,
             Otherprimarycancer: changedString.causeOfDeathOtherprimarycancer,
             Treatmentrelatedcause: changedString.causeOfDeathTreatmentrelatedcause,

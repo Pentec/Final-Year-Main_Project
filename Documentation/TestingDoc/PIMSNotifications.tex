@@ -1,33 +1,37 @@
-%By Maria/
- \subsubsection{Pims Login}
-Pims Send Notification is a two part function that we tested. First check if user is found(exists) in the database. Then send email using smtp.The unit test codes bellow demonstrates.
+Send notification is a feature that is not in the requirement documentation but was asked to be added in by our client. It allows him to send notifications to remind patience of their next follow up. 
+The send notification use case unit tests failed because the schema could not be found, see figure bellow.
+\newline 
+\newline 
+\includegraphics[width=350px]{./Graphics/SendNotification}
+\newline
+\newline
+Test failure causes
+\newline
+\newline
+\includegraphics[width=350px]{./Graphics/FailedTests}
+\newline
+\newline
+The following pre and post conditions for the send notification must hold true.
+		
+\subsubsection*{Conditions}
+The following pre and post conditions are defined for adding a new user.
+	
+\subsubsection*{Pre conditions}	
+\begin{itemize}
+		\item User must be logged in as administrator.
+		\item Patient must exist in the system database.
+		\item Patient must have an active email account.
+\end{itemize}	
+
+\subsubsection*{Post conditions}	
+\begin{itemize}
+		\item A notification informing patient about their next appointment is sent to the users email account. 
+\end{itemize}	
+
+Code snippets for send notification use case that looks for a patient email address in the database to send a notification to.	
 \newline
 
-\includegraphics[width=\linewidth]{./Graphics/find.jpg}
-\newline
+\includegraphics[width=350px]{./Graphics/find}
 
-Send Notifications via email
-\newline
-
-\includegraphics[width=\linewidth]{./Graphics/send.jpg}
-The following conditions must be true for the send notification use case to pass.					
-	\begin{itemize}
-				\item Find patient should query the database to see if a user exists by searching for an email adress.
-				\item Oce user is found, send notification must send and email to the found adress.
- \end{itemize}
- 
- The figure bellow depics the successful testing of the Send Notification and FindUser functions.
- \newline
- 
- \includegraphics[width=\linewidth]{./Graphics/Notify.jpg}
- 
- \subsubsection{Remarks}
- 	\begin{itemize}
- 				\item Pre-Conditions
- 		User must exist in database and have and email.
- 				\item Post-Conditions
-	User recieves and email from Prof Snyman.
-  \end{itemize}
-  
-  Both Pre and Post conditions  are considered in the implimentation of sending notifications. Unit testing successfuly.  tested with no violations to the security of the systm.
- 
+\subsubsection*{Remark}
+Since Send notification fails unit testing, the module needs to be revised and tested again.
