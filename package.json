@@ -27,13 +27,10 @@
     "passport-http": "^0.2.2",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^1.0.1",
-<<<<<<< HEAD
     "pims-database": "file:lib/pims-database",
     "pims-login": "file:lib/pims-login",
     "pims-notification": "file:lib/pims-notification",
     "pims-neuralnetwork": "file:lib/pims-neuralnetwork",
-=======
->>>>>>> Develop
     "scribe-js": "^2.0.4",
     "serve-favicon": "~2.2.1",
     "synaptic": "^1.0.1",
