@@ -176,3 +176,4 @@ public/stylesheets/bootstrap.css
 public/stylesheets/bootstrap.min.css
 public/controllers/synaptic.js
 Documentation/Architectural_Requirements/Auditability.tex
+public/javascripts/libs

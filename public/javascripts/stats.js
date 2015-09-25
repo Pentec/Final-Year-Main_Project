@@ -15,8 +15,10 @@ x = function(x){
     return x;
 };
 
-$(function () {
-
+$(document).ready(function () {
+    [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function (el) {
+        new SelectFx(el);
+    });
     createGraph(dummyData, 'Admissions');
     dummyData = [{date: '01-06-2011', close: 5}, {date: '03-06-2011', close: 11}, {
         date: '03-06-2011',
@@ -24,12 +26,6 @@ $(function () {
     }, {date: '12-26-2011', close: 14}];
     updateGraph(dummyData, 'Test');
 });
-
-$(function () {
-    [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function (el) {
-        new SelectFx(el);
-    });
-})();
 
 /**
  *
@@ -52,14 +48,13 @@ function pageSetup() {
 }
 
 function createGraph(data, yAxisName) {
-    //alert("working");
-    //alert(data);
     pageSetup();
     $(".graph").empty();
 
     //Margins
     var width = $(".graph-wrapper").width() - 10;
-    var height = $(".graph-wrapper").height();
+    var height = $(".graphbox").height();
+    //alert(height);
     var margin = {top: 20, right: 30, bottom: 40, left: 50},
         width = width - margin.left - margin.right,
         height = height - margin.top - margin.bottom;

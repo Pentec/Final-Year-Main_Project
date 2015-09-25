@@ -1,12 +1,27 @@
 /*-------------------------------------------------Graph Stuff--------------------------------------------*/
+.area {
+    position: relative;
+    margin: 0px auto;
+    padding: 0px;
+    height: 100%;
+    overflow: hidden;
+}
+
 .graphbox {
+    min-width: 1210px;
     width: 80%;
-    margin-top: 5%;
+    margin-top: 90px;
     border-radius: 5px;
     border: 2px solid #d6d6d6;
     background-color: white;
     padding: 0;
     position: relative;
+}
+
+@media (max-width: 767px) {
+    .graph-box{
+        margin-top: 120px;
+    }
 }
 
 .graph-wrapper {
@@ -39,11 +54,10 @@
 
 .graph-interaction h2 {
     margin: 0;
-    font-size: 1.5vw;
 }
 
 .graph-interaction {
-    font-size: 0.7vw;
+    font-size: 12px;
 }
 
 .axis path,
@@ -84,10 +98,10 @@
 .btn-custom {
     color: #fff;
     background-color: #159d00;
-    font-size: 0.8vw;
+    font-size: 14px;
     height: 100%;
     font-weight: 700;
-    padding: 0.7vw;
+    padding: 13px;
     margin: 0;
     box-sizing: border-box;
     display: inline-block;
@@ -110,15 +124,19 @@
     position: relative;
 }
 
+div.cs-skin-elastic{
+    font-size: 14px;
+}
+
 .date-custom {
     color: #fff;
     background-color: #0462b7;
     border: none;
-    padding: 5%;
+    padding: 13px;
     border-radius: 0;
     height: 100%;
     vertical-align: middle;
-    font-size: 0.7vw;
+    font-size: 14px;
     font-weight: 700;
 }
 
@@ -126,7 +144,7 @@
     color: white;
     position: absolute;
     vertical-align: middle;
-    font-size: 0.7vw;
+    font-size: 14px;
     z-index: 1;
 
     right: 3.6%;
@@ -139,10 +157,10 @@
 
 .btn-bottom {
     background-color: #dedede;
-    font-size: 0.8vw;
+    font-size: 14px;
     height: 100%;
     font-weight: 700;
-    padding: 0.7vw;
+    padding: 13px;
     margin: 0;
     box-sizing: border-box;
     display: inline-block;
@@ -151,13 +169,13 @@
 
 /*------------------------------------------Options-------------------------------*/
 
-.stats-section .input-group input{
+.stats-section .input-group input {
     width: 50%;
     transition: all 0.2s linear;
     border: 1px solid #dedede;
 }
 
-.stats-section .input-group input:hover{
+.stats-section .input-group input:hover {
     transform: scale(1, 1.1);
 
 }
