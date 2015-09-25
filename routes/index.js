@@ -584,7 +584,7 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
 
 router.post('/findSelectedQuery', function(req, res, next) {
 	
-   var startDate =JSON.stringify(req.body.forQuering.start);
+    var startDate =JSON.stringify(req.body.forQuering.start);
     var endDate =JSON.stringify(req.body.forQuering.end);
 	var period = JSON.stringify(req.body.forQuering.periodQuery);
 	var stats =  JSON.stringify(req.body.forQuering.statsQuery);
@@ -643,6 +643,15 @@ router.post('/findSelectedQuery', function(req, res, next) {
 								arr.push(newElement);
 							
 						}
+						console.log(arr);
+						  
+						   arr.sort(function(a,b){
+								if (a.date < b.date)
+									return -1;
+								  if (a.date > b.date)
+									return 1;
+								  return 0;
+								});
 							 var resBody = { myStatsArry: arr};
 							  console.log(resBody);
 							  res.json(resBody);
@@ -673,10 +682,21 @@ router.post('/findSelectedQuery', function(req, res, next) {
 							 var newElement = {};
 								newElement['date'] = new Date(myResult[i].ourDate).toString('dd-MM-yyyy');
 								newElement['close'] = myResult[i].count;
-								arr.push(newElement);
+								arrTwo.push(newElement);
 							
 						}
-							 var resBody = { myStatsArry: arr};
+						
+						console.log(arrTwo);
+						  
+						   arrTwo.sort(function(a,b){
+								if (a.date < b.date)
+									return -1;
+								  if (a.date > b.date)
+									return 1;
+								  return 0;
+								});
+								
+							 var resBody = { myStatsArry: arrTwo};
 							  console.log(resBody);
 							  res.json(resBody);
 							  console.log("POST response sent.");
@@ -711,6 +731,15 @@ router.post('/findSelectedQuery', function(req, res, next) {
 								arrThree.push(newElement);
 							
 						}
+						  console.log(arrThree);
+						  
+						   arrThree.sort(function(a,b){
+								if (a.date < b.date)
+									return -1;
+								  if (a.date > b.date)
+									return 1;
+								  return 0;
+								});
 							 var resBody = { myStatsArry: arrThree};
 							  console.log(resBody);
 							  res.json(resBody);
@@ -749,6 +778,15 @@ router.post('/findSelectedQuery', function(req, res, next) {
 								arrFour.push(newElement);
 							
 						}
+						console.log(arrFour);
+						  
+						   arrFour.sort(function(a,b){
+								if (a.date < b.date)
+									return -1;
+								  if (a.date > b.date)
+									return 1;
+								  return 0;
+								});
 							 var resBody = { myStatsArry: arrFour};
 							  console.log(resBody);
 							  res.json(resBody);
@@ -759,7 +797,6 @@ router.post('/findSelectedQuery', function(req, res, next) {
 		
 	
 	}
-
 });
 
 /*View patient stats */
