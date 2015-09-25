@@ -11,6 +11,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var submodules = "../sub-modules/";
 var userAuthentication = require('../controllers/authenticate.js');
 var dataNormalizerCervical = require('../controllers/dataNormalizers/dataNormalizerCervical.js');
 
@@ -28,7 +29,7 @@ var ElectiveCountGlobal;
  * It is for the PIMS login functionality
  * @type {*|exports|module.exports}
  */
-var models = require('pims-database');
+var models = require(submodules + 'pims-database/database');
 
 /**
  * Required module d3 for the purpose of Statistical graphical representation.
@@ -43,14 +44,14 @@ require('d3');
  * It is for the PIMS login functionality
  * @type {exports|module.exports}
  */
-var login = require('pims-login');
+var login = require(submodules + 'pims-login/login');
 
 /**
  * A variable in the global namespace called 'notification'.
  * It is for the PIMS notification functionality
  * @type {exports|module.exports}
  */
-var notification = require('pims-notification');
+var notification = require(submodules + 'pims-notification/notifications');
 var https = require('https');
 
 /**
@@ -897,7 +898,7 @@ router.post('/findPatient/sendEmail', isLoggedIn, function(req, res, next) {
 
 });
 
-var AI = require('pims-neuralnetwork');
+var AI = require(submodules + 'pims-neuralnetwork/neuralnetwork');
 router.get('/testAI', function(req, res){
     //var AI = require("../neuralnetwork");
     //C:\Users\Ruth\Documents\GitHub\Main\Pentec_PIMS\lib\pims-neuralnetwork\UnitTests\test.json
