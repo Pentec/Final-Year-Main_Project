@@ -1,38 +1,46 @@
-%By Maria/
- \subsubsection{Pims Login}
-Pims User login testes for correct authentication and identification before the user is allowed system access. Further testing was done for user rights and privilages.
-\newline
 
-\includegraphics[width=\linewidth]{./Graphics/login.jpg}
-\newline
+It is a priority that a user logs into the system for security reasons to be able to interact with it. When testing the login use case we tested for the user?s authentication and rights. We tested weather or not he has admin or normal user rights.
 
-Front end representation
-\newline
+The local login page
+\newline 
+\newline 
+\includegraphics[width=200px]{./Graphics/login}
+\newline 
+\newline 
+Successfu.l login unit tests
+\newline 
+\newline 
+\includegraphics[width=350px]{./Graphics/LoginTests}	
+\subsubsection*{Conditions}
+The following pre and post conditions are defined for adding a new user.
+	
+\subsubsection*{Pre conditions}	
+\begin{itemize}
+		\item User must not be logged in
+		\item User must have valid credentials, a valid username and password.
+		\item User credentials must be found in the Mongo database.
+\end{itemize}	
 
-\includegraphics[width=\linewidth]{./Graphics/frontEnd.jpg}
-		
-User Authentication tested for the following conditions					
-	\begin{itemize}
-				\item Provide user with access
-				\item Retrieve username
-				\item Retrieve user password
-				\item Fail with empty username and/ or empty password
-				\item Return a boolean with regards to user right.
- \end{itemize}
- 
- The figure bellow depics the successful testing of the Authentication and checkAdmin functions.
- \newline
- 
- \includegraphics[width=\linewidth]{./Graphics/userResults.jpg}
- 
- \subsubsection{Remarks}
- 	\begin{itemize}
- 				\item Pre-Conditions
- 		User does not have access to systme.
- 				\item Post-Conditions
- With correct login details, user successfuly gains access into the system with.
- User rights are checked upon login authentication
-  \end{itemize}
-  
-  Both Pre and Post conditions  are considered in the implimentation of the system login. Unit testing successfuly.  tested with no violations to the security of the systm.
- 
+\subsubsection*{Post conditions}	
+\begin{itemize}
+		\item User successfully logged in according to his user rights
+\end{itemize}	
+
+Code snippets for user login use case, with test data ?a? . Testing that a valid username is entered	
+
+\includegraphics[width=350px]{./Graphics/usernameTest}
+\newline 
+\newline 
+Code snippets for user login use case, with test data ?g?  . Testing that a valid password is entered
+\newline 
+\newline
+\includegraphics[width=350px]{./Graphics/passwordTest}
+\newline 
+\newline
+Code snippets for user login use case. Testing that the user is logged in after valid authentication
+\newline 
+\newline
+\includegraphics[width=350px]{./Graphics/UserMustLogIn}
+
+\subsubsection*{Remark}
+Login ensures security and access control. Testing regarding the logging in all pass, thus the PIMS system is secure.
