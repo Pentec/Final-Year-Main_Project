@@ -1,0 +1,12 @@
+{
+  "name": "Pentec_PIMS",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Pentec/Pentec_PIMS",
+  "description": "All angular related information to be kept here",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "latest",
+    "angular-perfect-scrollbar": "~0.0.4"
+  }
+}

@@ -1,22 +1,37 @@
-%By Maria
-\subsection{Login and Admnistartive user}
-	\subsubsection*{PIMS Login}
-		Functional Testing
-		- for each use case tested
-		* either success or a list of violations of the contract requirements (pre- and post-condition violations or data structure requirements)
-		* a test coverage analysis reporting which percentage of the use cases have been covered by the testing
+Send notification is a feature that is not in the requirement documentation but was asked to be added in by our client. It allows him to send notifications to remind patience of their next follow up. 
+The send notification use case unit tests failed because the schema could not be found, see figure bellow.
+\newline 
+\newline 
+\includegraphics[width=350px]{./TestingDoc/Graphics/SendNotification}
+\newline
+\newline
+Test failure causes
+\newline
+\newline
+\includegraphics[width=350px]{./TestingDoc/Graphics/FailedTests}
+\newline
+\newline
+The following pre and post conditions for the send notification must hold true.
 		
-		2. Non-functional testing/assessment
-		- any performance, scalability, maintainability, reliability, usability, ... problems identified with evidence for the identified problem.
+\subsubsection*{Conditions}
+The following pre and post conditions are defined for adding a new user.
 	
-				
-					\begin{itemize}
-							\item The Buzz Space system has to accommodate and host a multitude of users concurrently, thus making it prone to various malfunctions and glitches
-							
-							\item The Space needs to be monitored in real time at all times to ensure relevance of topics and subject matters.
-							\item The rating and tagging functionality need to be fair and accurate
-							
-							\item Sufficient feedback and updates of the Buzz Space state must be provided to the users. Users that create threads or just comment on one.
-							
-							\item General software control and application usage..
-						 \end{itemize}
+\subsubsection*{Pre conditions}	
+\begin{itemize}
+		\item User must be logged in as administrator.
+		\item Patient must exist in the system database.
+		\item Patient must have an active email account.
+\end{itemize}	
+
+\subsubsection*{Post conditions}	
+\begin{itemize}
+		\item A notification informing patient about their next appointment is sent to the users email account. 
+\end{itemize}	
+
+Code snippets for send notification use case that looks for a patient email address in the database to send a notification to.	
+\newline
+
+\includegraphics[width=350px]{./TestingDoc/Graphics/find}
+
+\subsubsection*{Remark}
+Since Send notification fails unit testing, the module needs to be revised and tested again.

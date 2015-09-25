@@ -1,11 +1,13 @@
 var express = require('express');
-var models = require('pims-database');
+var submodules = "../../sub-modules/"
+var models = require(submodules + 'pims-database/database');
 var AD = models.addmissionDischarge;
 var GS = models.gynaecologySurgery;
 var CC = models.cervicalCancer;
 
 var submitAdmissionDischarge = function(formData) {
 
+    var success = false;
     var jsonString = JSON.stringify(formData.body);
     var changedString = jsonString.replace(/([./])/g, "");
 
@@ -108,14 +110,19 @@ var submitAdmissionDischarge = function(formData) {
 
     Form.save(function(err){
         if(err) {
-            throw err;
+            success = false;
         }
-        else{console.log('The data has been saved.');
+        else{
+            success = true;
         }
     });
+
+    return success;
 };
 
+
 var submitGynaecologySurgery = function(formData) {
+
     var jsonString = JSON.stringify(formData.body);
     var changedString = jsonString.replace(/([./])/g, "");
 
@@ -191,15 +198,22 @@ var submitGynaecologySurgery = function(formData) {
     });
 
 
-    Form.save(function(err){
+   var success = Form.save(function(err){
         if(err) {
-            throw err;
+            return false;
         }
-        else{console.log('The data has been saved.');
+        else{
+            return true;
         }
     });
+
+    return success ;
 };
+
+
 var submitCervicalCancer = function(formData) {
+
+    var success = false;
     var jsonString = JSON.stringify(formData.body);
     var changedString = jsonString.replace(/([./])/g, "");
 
@@ -435,7 +449,7 @@ var submitCervicalCancer = function(formData) {
             Dead: changedString.lastKnownVitalStatusDead
         },
 
-        causeOfDeath :{
+        causeOfDeath : {
             CaCx: changedString.causeOfDeathCaCx,
             Otherprimarycancer: changedString.causeOfDeathOtherprimarycancer,
             Treatmentrelatedcause: changedString.causeOfDeathTreatmentrelatedcause,
@@ -449,11 +463,14 @@ var submitCervicalCancer = function(formData) {
 
     Form.save(function(err){
         if(err) {
-            throw err;
+            success = false;
         }
-        else{console.log('The data has been saved.');
+        else{
+            success = true;
         }
     });
+
+    return success;
 };
 
 module.exports = {

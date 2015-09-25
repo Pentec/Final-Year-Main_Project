@@ -3,16 +3,46 @@ This module is responsible for providing all the core functionality of Patient I
 
 \subsubsection{Scope}
 The scope is shown in the use case diagram below: \par
-\includegraphics[width=0.75\linewidth]{./Graphics/pimsSpace/pimsSpace}
+		\begin{figure}[H]
+			\centerline{\includegraphics[width=0.75\linewidth]{./Functional_Requirements/Graphics/pimsSpace/pimsSpace}}
+			\caption{Scope for PIMS Space Module}
+		\end{figure}
 
 \subsubsection{Use cases}
 \begin{description}
-	\item{getPIMSSpace:} 
+	\item{\textbf{getPIMSSpace:}}
+		\begin{description}
+		\item{\textbf{Service Contract}}
+		\begin{figure}[H]
+			\centerline{\includegraphics[width=0.7\linewidth]{./Functional_Requirements/Graphics/pimsSpace/getPIMSSpace}}
+			\caption{Service contract for getPIMSSpace}
+		\end{figure}
+	\end{description} 
 	\item{completeForm:}
-	\item{viewVideoTutorial:}
-	\item{viewTextTutorial:}
+			\begin{description}
+		\item{\textbf{Service Contract}}
+		\begin{figure}[H]
+			\centerline{\includegraphics[width=0.7\linewidth]{./Functional_Requirements/Graphics/pimsSpace/completeForms_ServiceContract}}
+			\caption{Service contract for completeForm}
+		\end{figure}
+	\end{description} 
+	\item{viewTutorial:}
 	\item{addNewUser:}
+			\begin{description}
+		\item{\textbf{Service Contract}}
+		\begin{figure}[H]
+			\centerline{\includegraphics[width=0.7\linewidth]{./Functional_Requirements/Graphics/pimsSpace/addUser_ServiceContract}}
+			\caption{Service contract for addNewUser}
+		\end{figure}
+	\end{description} 
 	\item{removeUser:}
-	\item{viewTotalFormSubmitted:}
+			\begin{description}
+		\item{\textbf{Service Contract}}
+		\begin{figure}[H]
+			\centerline{\includegraphics[width=0.7\linewidth]{./Functional_Requirements/Graphics/pimsSpace/removeUser_ServiceContract}}
+			\caption{Service contract for removeUser}
+		\end{figure}
+	\end{description} 
+	\item{viewTotalFormSubmitted:} 
 	\item{getIncompleteForm:}
 \end{description}
