@@ -7,6 +7,9 @@
 \usepackage{epstopdf}
 \usepackage{rotating}
 \usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[nottoc]{tocbibind}
 \DeclareGraphicsExtensions{.png,.eps,.jpg}
 \usepackage{amsmath}
 
@@ -38,8 +41,8 @@
 %------------------------------------------------------------------------------------------------Architectural Requirements------------------------------------------------------------------------------------------%
 \newpage
 \section{Architectural requirements}
-	\subsection{Architectural Scope} %Maria
-	\input{./Architectural_Requirements/Arch_Scope}
+	%\subsection{Architectural Scope} %Maria
+	%\input{./Architectural_Requirements/Arch_Scope}
 	
 	\subsection{Access and integration requirements}
 			\subsubsection{Human access channels}	
@@ -48,49 +51,52 @@
 				\input{./Architectural_Requirements/SystemAccess}	
 			\subsubsection{Integration channels}
 				\input{./Architectural_Requirements/integrationChannels}
- 	\subsection{Quality requirements}
- 	\newpage
-		\underline{\textbf{Critical Quality Requirements}}
-		\subsubsection{Security}
-			%Lindelo - Security
-			\input{./Architectural_Requirements/Security.tex}
-			
-		\subsubsection{Usability}
+				
+	\newpage			
+ 	\subsection{Quality requirements} 	
+		%\underline{\textbf{Critical Quality Requirements}}	
+		\subsubsection{Usability ( - priority:critical)} \label{sec:usability}
 			%Lindelo - Usability
 			\input{./Architectural_Requirements/Usability.tex}
 			
-		\subsubsection{Scalability}
+		\subsubsection{Scalability ( - priority:critical)} \label{sec:scalability}
 			%Ruth - Scalability
 			\input{./Architectural_Requirements/Scalability}
 			
-		\subsubsection{Reliability and Availability}
+		\subsubsection{Reliability and Availability ( - priority:critical)} \label{sec:reliabilityavailability}
 			%Ruth - Reliability and Availability
 			\input{./Architectural_Requirements/Reliability}
 			
-		\subsubsection{Integrability}
-			%Maria - Imtegrability
+		\subsubsection{Integrability ( - priority:critical)} \label{sec:integrability}
+			%Maria - Integrability
 			\input{./Architectural_Requirements/Int}
-		\underline{\textbf{Important Quality Requirements}}
-			
-		\subsubsection{Maintainability}
+		%\underline{\textbf{Important Quality Requirements}}
+		
+		\subsubsection{Security ( - priority:important)} \label{sec:security}
+			%Lindelo - Security
+			\input{./Architectural_Requirements/Security.tex}		
+		
+		\subsubsection{Maintainability ( - priority:important)} \label{sec:maintainability}
 			%Maria - Monitorabilty
 			\input{./Architectural_Requirements/Mentainability.tex}
 			
-		\subsubsection{Monitorability}
+		\subsubsection{Monitorability/Auditability ( - priority:important)} \label{sec:auditability}
 			%Maria - testability
 			\input{./Architectural_Requirements/Monitorability}
 			
-		\subsubsection{Testability}
-			%Maria - Monitorabilty
+		\subsubsection{Testability ( - priority:important)} \label{sec:testability}
 			\input{./Architectural_Requirements/Testability}
+		
+		\subsubsection{Performance ( - priority:important)} \label{sec:performance}
+			\input{./Architectural_Requirements/Performance}
 			
-		\subsubsection{Performance}
-			%Maria - Monitorabilty
-			%\input{./Architectural_Requirements/Integrability}
+	\newpage
 	\subsection{Architectural responsibilities}
-	\input{./Architectural_Requirements/archResponsibilities}
+		\input{./Architectural_Requirements/archResponsibilities}
+		
+	\newpage	
 	\subsection{Architecture constraints}
-	\input{./Architectural_Requirements/ArchConstraints}
+		\input{./Architectural_Requirements/ArchConstraints}
 
 
 
@@ -100,13 +106,24 @@
 	\subsection{Model-View-Controller (MVC)}
 	%Lindelo - MVC
 	\input{./Architectural_Requirements/MVC.tex}
-	
+
+\newpage	
+\section{Architectural Design}	
 	\subsection{Technologies}
-	%Maria - Technologies
-	\input{./Architectural_Requirements/Technologies.tex}
-	
-	%Maria - Arch tactics and strategies
-	\input{./Architectural_Requirements/Tactics_or_Strategies.tex}
+		\input{./Architectural_Requirements/Technologies.tex}
+	\newpage	
+	\subsection{Tactics and Strategies Addressing Quality Requirements}
+		\input{./Architectural_Requirements/Tactics_or_Strategies.tex}
+		
+	\newpage
+	\subsection{Development Architecture}
+		\input{./Architectural_Requirements/DevArchitecture}
+		
+\newpage
+\bibliographystyle{plain}
+%include .bib file
+\bibliography{./Architectural_Requirements/references}
+\end{itemize} %<--- This has to be there for the sake of no errors	
 
 %----------------------------------------------------------------------------------------------------------Testing -------------------------------------------------------------------------------------------------------%
 

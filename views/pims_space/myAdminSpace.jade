@@ -6,13 +6,20 @@ block mainContent
         // Wrapper for slides
         .carousel-inner(role="listbox")
             .item.slideInRight.active
-                a(href='#')
+                a(href='#')#activities.hasOptions
                     img.link(src='images/mySpaceIcons/activities.png')
                     h3 My Activities
-                a(href='#')#formIcon
-                    img.link(src='images/mySpaceIcons/forms.png')
+                div.options.activities
+                    div
+                        ul.nav.nav-pills.nav-stacked.form-menu
+                            li
+                                a(href='/#', tabindex='-1') Incomplete Form
+                            li
+                                a(href='/#', tabindex='-1') Submitted Forms
+                a(href='#')#formIcon.hasOptions
+                    img.link(src='images/mySpaceIcons/Forms.png')
                     h3  Forms
-                div.options.hide
+                div.options.formIcon
                     div
                         ul.nav.nav-pills.nav-stacked.form-menu
                             li
@@ -21,10 +28,8 @@ block mainContent
                                 a(href='/addmission_discharge.html', tabindex='-1') Gynaecology Admission and Discharge
                             li
                                 a(href='/#', tabindex='-1') Office Hysteroscopy
-                            li.divider
                             li
                                 a(href='#', tabindex='-1') Data Form
-                                    li.divider
                             li
                                 a(href='cervical_cancer.html', tabindex='-1') Cervical Cancer
                                 a(href='#', tabindex='-1') Endomentrial Cancer
@@ -34,9 +39,18 @@ block mainContent
                                 a(href='#', tabindex='-1') Ovarian Cancer
                                 a(href='#', tabindex='-1') Vaginal Cancer
                                 a(href='#', tabindex='-1') Vulva Cancer
-                a(href='#')
+                a(href='#')#tutorial.hasOptions
                     img.link(src='images/mySpaceIcons/tutorial.png')
                     h3 Tutorial
+                div.options.tutorial
+                    div
+                        ul.nav.nav-pills.nav-stacked.form-menu
+                            li
+                                a(href='/#', tabindex='-1') Video
+                            li
+                                a(href='/#', tabindex='-1') Overlay
+                            li
+                                a(href='/#', tabindex='-1') User Manual
             .item
                 a(href='editProfile')
                     img.link(src='images/mySpaceIcons/profile.png')
@@ -132,27 +146,38 @@ block mainContent
                         }
                     }, 490)
                 }
-
+                var lastClicked = null;
                 $("#formIcon").click(function (event) {
                     event.preventDefault();
-                    $("#formIcon img").toggleClass("rotate");
-                    setTimeout(function () {
-                        $("#formIcon").hide();
-
-                        $(".options").toggleClass("hide");
-                    }, 500)
+                    rotate("formIcon");
+                });
+                $("#tutorial").click(function (event) {
+                    event.preventDefault();
+                    rotate("tutorial");
+                });
+                $("#activities").click(function (event) {
+                    event.preventDefault();
+                    rotate("activities");
 
                 });
-                $(".options").mouseleave(function () {
-                    $('.options').addClass("rotate");
+                function rotate(clas){
+                    $("#" + clas + " img").toggleClass("rotate");
+                    lastClicked=clas;
                     setTimeout(function () {
-                                $(".options").toggleClass("hide");
-                                $(".options").removeClass("rotate");
-                                $("#formIcon img").toggleClass("rotate");
-                                $("#formIcon").show();
-                            }, 500
+                        $("#" + clas).hide();
+
+                        $(".options."+clas).toggleClass("show");
+                    }, 0)
+                }
+                $(".options").mouseleave(function () {
+                    var recentlyClicked = lastClicked;
+                    $('.options.' + recentlyClicked).addClass("rotate");
+                    setTimeout(function () {
+                                $(".options." + recentlyClicked).toggleClass("show");
+                                $(".options." + recentlyClicked).removeClass("rotate");
+                                $("#" + recentlyClicked + " img").toggleClass("rotate");
+                                $("#" + recentlyClicked).show();
+                            }, 450
                     );
 
                 });
-
-

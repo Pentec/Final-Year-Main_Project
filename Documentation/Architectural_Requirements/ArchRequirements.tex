@@ -1,9 +1,12 @@
-\documentclass[a4paper,12pt,titlepage]{article}
+\documentclass[a4paper,11pt,titlepage]{article}
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
 \usepackage{listings}
 \usepackage{float}
-\usepackage[margin=0.8in]{geometry}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[nottoc]{tocbibind}
 \DeclareGraphicsExtensions{.png}
 
 \begin{document}
@@ -14,9 +17,6 @@
 \tableofcontents
 \newpage
 
-\section{Introduction}
-%\Intro
-\input{./ArchIntroduction.tex}
  %-------------------------------------------------------------------
 \section{Architectural requirements}
 	%\subsection{Architectural Scope} %Maria
@@ -30,55 +30,64 @@
 				\input{./SystemAccess}	
 			\subsubsection{Integration channels}
 				\input{./integrationChannels}
+\newpage			
  	\subsection{Quality requirements}
- 	
-		\underline{\textbf{Critical Quality Requirements}}
-		\subsubsection{Security} \label{sec:security}
-			%Lindelo - Security
-			\input{./Security.tex}
+ 	%\underline{\textbf{Critical Quality Requirements}}
 			
-		\subsubsection{Usability} \label{sec:usability}
+		\subsubsection{Usability ( - priority:critical)} \label{sec:usability}
 			%Lindelo - Usability
 			\input{./Usability.tex}
 			
-		\subsubsection{Scalability} \label{sec:scalability}
+		\subsubsection{Scalability ( - priority:critical)} \label{sec:scalability}
 			%Ruth - Scalability
 			\input{./Scalability}
 			
-		\subsubsection{Reliability and Availability} \label{sec:reliabilityavailability}
+		\subsubsection{Reliability and Availability ( - priority:critical)} \label{sec:reliabilityavailability}
 			%Ruth - Reliability and Availability
 			\input{./Reliability}
 			
-		\subsubsection{Integrability} \label{sec:integrability}
+		\subsubsection{Integrability ( - priority:critical)} \label{sec:integrability}
 			%Maria - Integrability
 			\input{./Int}
-		\underline{\textbf{Important Quality Requirements}}
+		%\underline{\textbf{Important Quality Requirements}}
+		
+		\subsubsection{Security ( - priority:important)} \label{sec:security}
+			%Lindelo - Security
+			\input{./Security.tex}
 			
-		\subsubsection{Maintainability} \label{sec:maintainability}
+		\subsubsection{Maintainability ( - priority:important)} \label{sec:maintainability}
 			%Maria - Maintainability
 			\input{./Mentainability.tex}
 			
-		\subsubsection{Monitorability} \label{sec:monitorability}
+		\subsubsection{Monitorability/Auditability ( - priority:important)} \label{sec:auditability}
 			%Maria - Monitorabilty
 			\input{./Monitorability}
 			
-		\subsubsection{Testability} \label{sec:testability}
+		\subsubsection{Testability ( - priority:important)} \label{sec:testability}
 			%Maria - Testability
 			\input{./Testability}
 			
-		\subsubsection{Performance} \label{sec:performance}
+		\subsubsection{Performance ( - priority:important)} \label{sec:performance}
 			%Maria - Performance
-			%\input{./Integrability}
-
+			\input{./Performance}
+		%\subsubsection{Auditability ( - priority:important)} \label{sec:auditability}
+			%\input{./Auditability}	
+				
+	\newpage
 	\subsection{Architectural responsibilities}
-	\subsection{Architecture constraints}	
+		\input{./archResponsibilities}
+				
+	\newpage
+	\subsection{Architecture constraints}
+		\input{./ArchConstraints}
 
 
 
 %----------------------------------------------------
 
 %----------------------------------------------------
-
+			
+\newpage
 \section{Architectural Patterns and Styles}
 With Node.js being a dynamic, prototype-based language, the GoF Patterns do work as well with it compared to object oriented languages. Also, Node.js is non-blocking and as such the following patterns are either Javascript specific or work well with prototype-based languages. Some of the patterns discussed here do have some aspects of the GoF patterns.
 	\subsection{Model-View-Controller (MVC)}
@@ -87,13 +96,25 @@ With Node.js being a dynamic, prototype-based language, the GoF Patterns do work
 	
 	\subsection{Module Pattern}
 		\input{./ModulePattern}
-	
-\section{Architectural Design}	
+			
+\newpage	
+\section{Architectural Design}
 	\subsection{Technologies}
 		\input{./Technologies}
+			
+	\newpage	
 	\subsection{Tactics and Strategies Addressing Quality Requirements}
 		\input{./Tactics_or_Strategies}
+		
+	\newpage
 	\subsection{Development Architecture}
-		\input{./DevArchitecture}	
-	
+		\input{./DevArchitecture}
+		
+\newpage
+\bibliographystyle{plain}
+%include .bib file
+\bibliography{references}
+
+\end{itemize}
+
 \end{document}

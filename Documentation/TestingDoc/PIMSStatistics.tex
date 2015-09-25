@@ -1,22 +1,31 @@
-%By Maria
-\subsection{Login and Admnistartive user}
-	\subsubsection*{PIMS Login}
-		Functional Testing
-		- for each use case tested
-		* either success or a list of violations of the contract requirements (pre- and post-condition violations or data structure requirements)
-		* a test coverage analysis reporting which percentage of the use cases have been covered by the testing
+PIMS statistics is another feature for admin user only. For the statistics use case we tested for four different cases. All passed unit test and succeeded..
+\\* 
+%new line
+The add user case passed unit testing successfully as seen in the figure bellow
+\\* 
+\includegraphics[width=350px]{./Graphics/statsResults}
 		
-		2. Non-functional testing/assessment
-		- any performance, scalability, maintainability, reliability, usability, ... problems identified with evidence for the identified problem.
+\subsubsection*{Conditions}
+The following conditions had to be met for the statistics tests to pass.
 	
-				
-					\begin{itemize}
-							\item The Buzz Space system has to accommodate and host a multitude of users concurrently, thus making it prone to various malfunctions and glitches
-							
-							\item The Space needs to be monitored in real time at all times to ensure relevance of topics and subject matters.
-							\item The rating and tagging functionality need to be fair and accurate
-							
-							\item Sufficient feedback and updates of the Buzz Space state must be provided to the users. Users that create threads or just comment on one.
-							
-							\item General software control and application usage..
-						 \end{itemize}
+\subsubsection*{Pre conditions}	
+\begin{itemize}
+		\item User must be logged in as admin.
+		\item Object type has to be a digit.
+\end{itemize}	
+
+\subsubsection*{Post conditions}	
+\begin{itemize}
+		\item Statistical results are returned.
+\end{itemize}	
+
+Unit test code to validate the number of elective procedures is indeed a number.	
+
+\includegraphics[width=350px]{./Graphics/StatsChecknumexists}
+
+Unit test codes to validate the average age and stay in hospitals are indeed numbers.	
+
+\includegraphics[width=350px]{./Graphics/averageNumberStats}
+
+\subsubsection*{Remark}
+Statistics is the heaviest module the PIMS. More unit testing will be done to ensure accuracy, reliability and currency. For now all tests succeeded and passed.

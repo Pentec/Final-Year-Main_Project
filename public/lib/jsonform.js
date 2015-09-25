@@ -1104,10 +1104,10 @@ jsonform.elementTypes = {
       '</div>' +
       '</fieldset>'
   },
-  'submit':{
+  'submity':{
     'template':'<input type="submit" <% if (id) { %> id="<%= id %>" <% } %> class="btn btn-primary <%= elt.htmlClass?elt.htmlClass:"" %>" value="<%= value || node.title %>"<%= (node.disabled? " disabled" : "")%>/>'
   },
-  'button':{
+    'button':{
     'template':' <button <% if (id) { %> id="<%= id %>" <% } %> class="btn <%= elt.htmlClass?elt.htmlClass:"" %>"><%= node.title %></button> '
   },
   'actions':{
