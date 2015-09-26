@@ -8,7 +8,8 @@ block mainContent
         div.container
             div.col-xs-12
                 div.form-wrap.panel
-                    h1 Add the details of the new user
+                    .header
+                        h1 Add the details of the new user
                     form(role="form", name="addNewUser", method="post", action="/create", autocomplete="off")#signup-form
                         div.form-group
                             input(type="text", name="username",value=username, placeholder="Username").form-control

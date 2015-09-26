@@ -2,6 +2,13 @@
     height:100%;
 }
 
+.header{
+    padding: 5px 0px 0px 15px;
+    margin-top: 0;
+    border-bottom: 1px solid #d6d6d6;;
+    margin-bottom: 10px;
+}
+
 #signup .container{
     margin: 0 auto;
     width:650px;
@@ -9,7 +16,6 @@
     padding: 0;
     padding-top: 4%;
     position: absolute;
-    overflow: scroll;
     left: 35%;
     padding-bottom: 80px;
 }
@@ -25,13 +31,16 @@
 
 #signup .form-wrap {
     width: 600px;
-    padding: 15px;
     padding-top: 10px;
-    border: 2px solid #001f41;
+    border: 2px solid #d6d6d6;
+}
+
+#signup .form-wrap form{
+    padding: 15px;
 }
 
 #signup h1 {
-    color: #004B8F;
+    color: #002240;
     font-size: 18px;
     font-weight: bold;
     padding-bottom: 15px;
@@ -49,6 +58,10 @@
 }
 
 /*-----------------------------------------------Inputs & Buttons-------------------------------------------------*/
+
+.form-group input{
+    border-radius: 0;
+}
 
 .form-control {
     color: #212121;
@@ -75,6 +88,7 @@
 .btn-custom {
     color: #fff;
     background-color: #004B8F;
+    border-radius: 0;
 }
 
 .btn-custom:hover,
