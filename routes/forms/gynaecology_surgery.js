@@ -10,7 +10,7 @@ router.post('/', function(req, res, next) {
     }
     else
     {
-    var success = saveFunctions.submitGynaecologySurgery(req);
+    var success = submitFunctions.submitGynaecologySurgery(req);
     console.log(success);
 
     if(!success){
