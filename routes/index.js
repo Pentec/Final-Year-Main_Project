@@ -562,8 +562,11 @@ router.get('/stats', isLoggedIn, function(req, res, next) {
 											res.redirect('stats');
 										}
 										else{
-											var average = JSON.stringify(avg[0].avgAge);
-											var averageStay = JSON.stringify(avgStay[0].avgStay);
+											var av = JSON.stringify(avg[0].avgAge);
+											var average =Math.round(av);
+
+											var avs = JSON.stringify(avgStay[0].avgStay);
+											var averageStay = Math.round(avs);
 											
 											 GS.count({"typeOfProcedure.Emergency": true},function(err, EmergencyCount) {
 										     GS.count({"typeOfProcedure.Elective": true},function(err, ElectiveCount) {

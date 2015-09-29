@@ -12,17 +12,17 @@ block mainContent
                         h1 Add the details of the new user
                     form(role="form", name="addNewUser", method="post", action="/create", autocomplete="off")#signup-form
                         div.form-group
-                            input(type="text", name="username",value=username, placeholder="Username").form-control
+                            input(type="text", name="username",value=username, placeholder="Please enter their username eg.John").form-control
                         div.form-group
-                            input(type="text", name="surname",value=surname, placeholder="Surname").form-control
+                            input(type="text", name="surname",value=surname, placeholder="Please enter their Surname eg.Doe").form-control
                         div.form-group
-                            input(type="text", name="email",value=email, placeholder="Email").form-control
+                            input(type="text", name="email",value=email, placeholder="Please enter their Email address eg.abc@gmail.com").form-control
                         div.form-group
-                            input(type="text", name="user_rights",value=user_rights, placeholder="User Rights").form-control
+                            input(type="text", name="user_rights",value=user_rights, placeholder="Enter User Rights: 1 for admin, 2 for regular user").form-control
                         div.form-group
-                            input(type="text", name="password",value=password, placeholder="Password").form-control
+                            input(type="text", name="password",value=password, placeholder="Please enter their Password").form-control
                         div.form-group
-                            input(type="text", name="department",value=department, placeholder="Department").form-control
+                            input(type="text", name="department",value=department, placeholder="Please enter their Department eg.Obstetrics").form-control
                         div.form-group
-                            input(type="text", name="staff_type",value=staff_type, placeholder="Staff Type").form-control
+                            input(type="text", name="staff_type",value=staff_type, placeholder="Please enter their Staff Type eg.Intern").form-control
                         input.btn.btn-custom.btn-lg.btn-block#btn-addUser(type="submit", value="Add User")
