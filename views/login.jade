@@ -1,5 +1,6 @@
 extends layout
 block extFiles
+    script(src='javascripts/loginPassword.js')
     link(rel="stylesheet", href="/stylesheets/login.css")
     script(src='https://www.google.com/recaptcha/api.js')
     script.
@@ -34,6 +35,8 @@ block content
                                 input.form-control#username(type="text", placeholder="Username", name="username", autofocus)
                             div.form-group
                                 input.form-control#password(type="password", placeholder="Password", name="password")
+                                .hide-show
+                                   span Show Password
                             input.btn.btn-custom.btn-lg.btn-block#btn-login(type="submit", value="Log In" disabled)
                             div.form-group.recaptchaWrapper
                                 div.g-recaptcha(data-callback="recaptchaCallback" data-sitekey="6Lc9mAsTAAAAADbZqkl2r7pEenxsAccFzN540Anm").recaptcha
