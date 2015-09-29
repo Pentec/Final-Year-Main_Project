@@ -452,11 +452,230 @@ var gynaecologySurgery = mongoose.model('gynaecologySurgery', GynaecologySurgery
 var addmissionDischarge = mongoose.model('addmissionDischarge', AdmissionDischarge);
 var cervicalCancer = mongoose.model('cervicalCancer', CervicalCancer);
 
+var EndometrialCancer = new Schema({
+
+    Name: {type: String, require: true, title: 'Name'},
+
+    Surname: {type: String, require: true, title: 'Surname'},
+
+    HospitalNumber: {type: String, require: true, title: 'Hospital Number'},
+
+    ID: {type: Number, require: true, title: 'ID number'},
+
+    DateOfBirth: {type: Date, require: true, title: 'Date of Birth' },
+
+    DateOfDiagnosis: {type: Date, require: true, title: 'Date of diagnosis'},
+
+    CellPhone:{
+        First: {type: Number, require: true, title: 'Phone number'},
+        Alternative: {type: Number, require: true, title: 'Alternative number'}
+    },
+
+    HIVStatus:{
+        Negative: {type: Boolean, title: 'HIV Negative'},
+        Positive: {type: Boolean, title: 'HIV Positive'}
+    },
+
+    CD4: {type: Number, title: 'CD4 Count:'},
+
+    figoStage: {
+        Ia: {type: Boolean, title: 'Ia'},
+        Ib: {type: Boolean, title: 'Ib'},
+        Ic: {type: Boolean, title: 'Ic'},
+        IIa: {type: Boolean, title: 'IIa'},
+        IIb: {type: Boolean, title: 'IIb'},
+        IIIa: {type: Boolean, title: 'IIIa'},
+
+        IIIb: {type: Boolean, title: 'IIIb'},
+        IIIc: {type: Boolean, title: 'IIIc'},
+        IVa : {type: Boolean, title: 'IVa'},
+        IVb : {type: Boolean, title: 'IVb'},
+        Unknown: {type: Boolean, title: 'Unknown'},
+        StageUnavailable: {type: Boolean, title: 'Surgical stage unavailable'}
+    },
+
+    Histology: {
+        NilUnclassifiable: {type: Boolean, title: 'Nil/unclassifiable'},
+        EndometrioidAdeno: {type: Boolean, title: 'Endometrioid adeno'},
+        Adenosquamous: {type: Boolean, title: 'Adenosquamous'},
+        Clearcell: {type: Boolean, title: 'Clear cell'},
+        MucinousAdeno: {type: Boolean, title: 'Mucinous adeno '},
+        PapillarySerous: {type: Boolean, title: 'Papillary serous'},
+        Squamous: {type: Boolean, title: 'Squamous'},
+        Other: {type: Boolean, title: 'Other'},
+        Unknown : {type: Boolean, title: 'Unknown'}
+    },
+
+    Differentiation: {
+        Well: {type: Boolean, title: '1 (well)'},
+        Moderately: {type: Boolean, title: '2 (moderately)'},
+        Poorly: {type: Boolean, title: '3 (poorly)'},
+        Unknown : {type: Boolean, title: 'Unknown'}
+    },
+
+    LymphovascularSpaceInvolvement: {
+        Absent: {type: Boolean, title: 'Absent'},
+        Present: {type: Boolean, title: 'Present'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+
+    /*---(RT = Radiotherapy, CT = Chemotherapy, CRT = Chemoradiation HT = Hormonal treatment)---*/
+    primaryTreatmentPerformed : {
+        Nil: {type: Boolean, title: 'Nil'},
+        SurgeryAlone: {type: Boolean, title: 'Surgery alone'},
+        SurgeryAdjuvantRT: {type: Boolean, title: 'Surgery + adjuvant RT'},
+        SurgeryAdjuvantCT: {type: Boolean, title: 'Surgery + adjuvant CT'},
+        AdjuvantHT: {type: Boolean, title: 'Adjuvant HT'},
+        HormonalPrimaryTherapy: {type: Boolean, title: 'Hormonal primary therapy'},
+        Other : {type: Boolean, title: 'Other non standard treatments'},
+        Unknown : {type: Boolean, title: 'Unknown'},
+        DateofTreatment : {type: Date, require: true, title: 'Date of treatment'}
+    },
+
+
+    /*--(RH= Radical hysterectomy; LND= pelvic/paraortic lymphadenectomy)--*/
+    typeOfSurgery: {
+        SimpleAbdHystNoLND: {type: Boolean, title: 'Simple abd hyst no LND'},
+        SimpleAbdHystWithLND: {type: Boolean, title: 'Simple abd hyst with LND'},
+        SimpleVagHystNoLND: {type: Boolean, title: 'Simple vag  hyst no LND'},
+        SimpleVagHystWithLND: {type: Boolean, title: 'Simple vag  hyst with LND'},
+        RadicalAbdHystNoLND: {type: Boolean, title: 'Radical abd hyst no LND'},
+        RadicalAbdHystWithLND: {type: Boolean, title: ' Radical abd hyst with LND'},
+        AnyKindOfexenteration : {type: Boolean, title: 'Any kind of exenteration'},
+        Unknown: {type: Boolean, title: 'Unknown'},
+        Other: {type: Boolean, title: 'Other'},
+        DateofSurgery : {type: Date, require: true, title: 'Date of Surgery'}
+    },
+
+
+    nodesInvolved: {
+        Onlypelvic: {type: Boolean, title: 'Only pelvic'},
+        Pelvicparaortic: {type: Boolean, title: 'Pelvic + paraortic'},
+        Onlyparaortic: {type: Boolean, title: 'Only paraortic'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+    numberOfNodesExamined : {
+        Pelvic: {type: Number, title: 'Pelvic'},
+        Paraortic: {type: Number, title: 'Paraortic'}
+    },
+
+    numberOfNodesPositive: {
+        Pelvic: {type: Number, title: 'Pelvic'},
+        Paraortic: {type: Number, title: 'Paraortic'}
+    },
+
+    /*---SURGICAL PATHOLOGICAL EVALUATION---*/
+
+    Cytology: {
+        NotAvailable : {type: Boolean, title: 'Not available'},
+        Negative: {type: Boolean, title: 'Negative'},
+        Positive: {type: Boolean, title: 'Positive'},
+        Unknown : {type: Boolean, title: 'Unknown'}
+    },
+
+    Metastase: {
+        Nil: {type: Boolean, title: 'Nil'},
+        UterineSerosa: {type: Boolean, title: 'Uterine serosa'},
+        Vagina: {type: Boolean, title: 'Vagina'},
+        Adnexa: {type: Boolean, title: 'Adnexa'},
+        BladdeBowelMucosa: {type: Boolean, title: 'Bladder/bowel mucosa'},
+        IntraAbdominal: {type: Boolean, title: 'Intra abdominal'},
+        InguinalNodes: {type: Boolean, title: 'Inguinal nodes '},
+        Distant: {type: Boolean, title: 'Distant'},
+        Unknown : {type: Boolean, title: 'Unknown'}
+    },
+
+    typeOfRadiotherapy: {
+        Intracavitary: {type: Boolean, title: 'Intracavitary'},
+        ExternalPelvicRT: {type: Boolean, title: 'External pelvic RT'},
+        ExternalPelvicParaortic: {type: Boolean, title: 'External pelvic + paraortic'},
+        ExternalPelvicIntracavitary: {type: Boolean, title: 'External pelvic + intracavitary'},
+        ExtpelvicParaortIntracavitary: {type: Boolean, title: 'Ext pelvic paraortic + intracavitary'},
+        Unknown: {type: Boolean, title: 'Unknown'},
+        DateStarted: {type: Date, require: true, title: 'Date started' },
+        DateEnded: {type: Date, require: true, title: 'Date ended' }
+    },
+
+    typeOfChemotherapy:{
+        Chemotherapy: {type: String, title: 'Specify type and drugs'},
+        DateStarted: {type: Date, require: true, title: 'Date started' },
+        DateEnded: {type: Date, require: true, title: 'Date ended' }
+    },
+
+    HormonalTreatment: {
+        SingleDrug : {type: Boolean, title: 'Single drug'},
+        MultipleDrug : {type: Boolean, title: 'Multiple drug '},
+        Unknown: {type: Boolean, title: 'Unknown'},
+        DateStarted: {type: Date, require: true, title: 'Date started' },
+        DateEnded: {type: Date, require: true, title: 'Date ended' }
+    },
+
+    responseToTreatment: {
+        Complete: {type: Boolean, title: 'Complete'},
+        Partial: {type: Boolean, title: 'Partial'},
+        StableDisease: {type: Boolean, title: 'Stable disease'},
+        ProgressiveDisease: {type: Boolean, title: 'Progressive disease'},
+        NotAssessable: {type: Boolean, title: 'Not assessable'},
+        Unknown: {type: Boolean, title: 'Unknown'},
+        Dateofassessment: {type: Date, require: true, title: 'Date of assessment' }
+    },
+
+    Relapse: {
+        Yes: {type: Boolean, title: 'Yes'},
+        No: {type: Boolean, title: 'No'},
+        Unknown: {type: Boolean, title: 'Unknown'},
+        DateOfRelapseDiagnosis: {type: Date, require: true, title: 'Date of relapse diagnosis'}
+    },
+
+    siteOfDistantMetastase: {
+        Local: {type: Boolean, title: 'Local'},
+        Metastatic: {type: Boolean, title: 'Metastatic'},
+        LocalAndMetastatic: {type: Boolean, title: 'Local and metastatic'},
+        Unknown : {type: Boolean, title: 'Unknown'}
+    },
+
+
+    /*---(RT = Radiotherapy, CT = Chemotherapy, CRT = Chemoradiation, HT = Hormone Therapy)---*/
+    TreatmentAtRelapse: {
+        Nil: {type: Boolean, title: 'Nil'},
+        Surgery: {type: Boolean, title: 'Surgery'},
+        RT: {type: Boolean, title: 'RT'},
+        CT: {type: Boolean, title: 'CT'},
+        SurgeryRT: {type: Boolean, title: 'Surgery + RT'},
+        CTRT: {type: Boolean, title: 'CT + RT'},
+        HT: {type: Boolean, title: 'HT'},
+        Other: {type: Boolean, title: 'Other'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+    DateOfFolllowup: {type: Date, require: true, title: 'Date of Follow-up'},
+
+    LastKnownVitalStatus: {
+        AliveUnknownDiseaseStatus: {type: Boolean, title: 'Alive (unknown disease status)'},
+        AliveAndNoEvidenceOfDisease: {type: Boolean, title: 'Alive and no evidence of disease'},
+        AliveWithDisease: {type: Boolean, title: 'Alive with disease'},
+        Dead: {type: Boolean, title: 'Dead'}
+    },
+
+
+    causeOfDeath :{
+        EndometrialCa: {type: Boolean, title: 'Endometrial ca'},
+        Otherprimarycancer: {type: Boolean, title: 'Other primary cancer'},
+        Treatmentrelatedcause: {type: Boolean, title: 'Treatment related cause'},
+        Intercurrentdisease: {type: Boolean, title: 'Intercurrent disease'},
+        Unknowncauses: {type: Boolean, title: 'Unknown causes'},
+        DateOfDeath: {type: Date, require: true, title: 'Date of Death'}
+    }
+});
+
 module.exports = {
 	forms: forms,
 	patient: patient,
 	statistics: statistics,
 	gynaecologySurgery: gynaecologySurgery,
 	addmissionDischarge: addmissionDischarge,
-	cervicalCancer: cervicalCancer
+	cervicalCancer: cervicalCancer,
+	EndometrialCancer: EndometrialCancer
 };
