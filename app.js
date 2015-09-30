@@ -91,7 +91,10 @@ app.get('/addmission_discharge', function(req, res) {
 });
 
 app.get('/cervical_cancer', function(req, res) {
-    res.sendfile(html_dir + 'cervical_cancer');
+    res.sendfile(html_dir + 'cervical_cancer.html');
+});
+app.get('/endometrial_cancer', function(req, res) {
+    res.sendfile(html_dir + 'endometrial_cancer.html');
 });
 //end of html routing
 

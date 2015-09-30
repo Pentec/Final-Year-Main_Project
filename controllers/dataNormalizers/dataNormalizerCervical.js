@@ -15,13 +15,13 @@ var MIN = -1; //Minimum value for scaling
  */
 var getNormalizedData = function(name, surname) {
 
-    cervical.findOne({Name: "Lons"}, function(err, patient){
+    cervical.findOne({Name: "Vinny"}, function(err, patient){
         if(!err) {
 
             var dataArray;
 
             dataArray = [
-                normalizeDate(patient),
+                normalizeAge(patient),
                 normalizeHIV(patient),
                 normalizeCD4(patient),
                 normalizeFigoStage(patient),
@@ -326,15 +326,20 @@ var normalizelastKnownVitalStatus =  function(patient){
 };
 
 /**
- * @function normalizeDate
+ * @function normalizeAge
  * @param patient: the patient whose survival data is being queried.
  * @returns {number}: the input value to be added in dataArray.
  */
-var normalizeDate = function(patient){
+var normalizeAge = function(patient){
 
-    var date = parseInt(new Date(patient.DateOfBirth).toString('ddMMyyyy'));
+    var date = patient.DateOfBirth;
 
-    var value = (date/Math.pow(10,8));
+    var day = date.getDate();
+    var month = date.getMonth();
+    var year = date.getFullYear();
+
+   var age = getPatientAge(day,month,year);
+    var value = (age/Math.pow(10,2));
 
     return value;
 };
@@ -374,6 +379,25 @@ var normalizeHIV = function(patient){
 
     return value;
 };
+
+function getPatientAge(birth_day,birth_month,birth_year)
+{
+    var today_date = new Date();
+    var today_year = today_date.getFullYear();
+    var today_month = today_date.getMonth();
+    var today_day = today_date.getDate();
+    var age = today_year - birth_year;
+
+    if ( today_month < (birth_month - 1))
+    {
+        age--;
+    }
+    if (((birth_month - 1) == today_month) && (today_day < birth_day))
+    {
+        age--;
+    }
+    return age;
+}
 
 module.exports = {
     getNormalizedData: getNormalizedData
