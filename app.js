@@ -96,6 +96,9 @@ app.get('/cervical_cancer', function(req, res) {
 app.get('/endometrial_cancer', function(req, res) {
     res.sendfile(html_dir + 'endometrial_cancer.html');
 });
+app.get('/vaginal_cancer', function(req, res) {
+    res.sendfile(html_dir + 'vaginal_cancer.html');
+});
 //end of html routing
 
 
