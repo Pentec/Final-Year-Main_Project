@@ -1,7 +1,7 @@
 $(function(){
 
 	var note = $('#note');
-    var ts = (new Date("15 October, 2015").setUTCHours(22,0,0));
+    var ts = (new Date("16 October, 2015").setUTCHours(22,0,0));
 
 	$('#countdown').countdown({
 		timestamp	: ts,
