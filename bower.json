@@ -9,12 +9,13 @@
     "RuthOjo <ruthojo93@gmail.com>",
     "MariaQumayo <mariaqumayo38@gmail.com>"
   ],
-  "description": "Implementation of the University of Pretoria COS 301 Main Project.",
-  "main": "lib/pims-neuralnetwor/testNN.js",
+  "description": "Client-side dependencies with AngularJS.",
+  "main": "",
   "moduleType": [
     "node"
   ],
-  "license": "None",
+  "license": "MIT",
+  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -26,6 +27,7 @@
     "angular-bootstrap": "~0.13.4",
     "angular-cookies": "~1.4.5",
     "angular-mocks": "~1.4.5",
+    "angular-perfect-scrollbar": "~0.0.4",
     "angular-resource": "~1.4.5",
     "angular-route": "~1.4.5",
     "angular-sanitize": "~1.4.5",

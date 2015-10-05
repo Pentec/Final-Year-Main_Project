@@ -1,5 +1,6 @@
 var express = require('express');
-var models = require('pims-database');
+var submodules = "../../sub-modules/";
+var models = require(submodules + 'pims-database/database');
 var cervical = models.cervicalCancer;
 
 
@@ -28,7 +29,7 @@ var getNormalizedData = function(name, surname, callback) {
                 returnArray = null;
 
             dataArray = [
-                normalizeDate(patient),
+                normalizeAge(patient),
                 normalizeHIV(patient),
                 normalizeCD4(patient),
                 normalizeFigoStage(patient),
@@ -51,8 +52,6 @@ var getNormalizedData = function(name, surname, callback) {
                 //adds all values into an array; neural network input nodes are to be an array
                 returnArray = returnArray.concat([dataArray[i]]);
             }
-
-            //console.log('returnArray ' + returnArray);
             //return callback(dataArray);
             return callback(returnArray);
 
@@ -340,15 +339,20 @@ var normalizelastKnownVitalStatus =  function(patient){
 };
 
 /**
- * @function normalizeDate
+ * @function normalizeAge
  * @param patient: the patient whose survival data is being queried.
  * @returns {number}: the input value to be added in dataArray.
  */
-var normalizeDate = function(patient){
+var normalizeAge = function(patient){
 
-    var date = parseInt(new Date(patient.DateOfBirth).toString('ddMMyyyy'));
+    var date = patient.DateOfBirth;
 
-    var value = (date/Math.pow(10,8));
+    var day = date.getDate();
+    var month = date.getMonth();
+    var year = date.getFullYear();
+
+   var age = getPatientAge(day,month,year);
+    var value = (age/Math.pow(10,2));
 
     return value;
 };
@@ -362,7 +366,7 @@ var normalizeCD4 = function(patient){
     //normal CD4 count for HIV negative is 500-1500 cells/mm3; for HIV positive it can be around here or go down to even zero
     var cd4 = patient.HIV.CD4 ;
 
-    if(patient.HIV.HIVStatus == 'N' || patient.HIV.HIVStatus == 'Negative' || patient.HIV.HIVStatus == 'negative')
+    if(patient.HIV.HIVStatus == 'P' || patient.HIV.HIVStatus == 'Positive' || patient.HIV.HIVStatus == 'positive')
         var value = (cd4/Math.pow(10,3.5));
     else{
         //HIV status is positive, value to be returned is close to 1; Neural Network accepts decimal values
@@ -392,6 +396,25 @@ var normalizeHIV = function(patient){
 
     return value;
 };
+
+function getPatientAge(birth_day,birth_month,birth_year)
+{
+    var today_date = new Date();
+    var today_year = today_date.getFullYear();
+    var today_month = today_date.getMonth();
+    var today_day = today_date.getDate();
+    var age = today_year - birth_year;
+
+    if ( today_month < (birth_month - 1))
+    {
+        age--;
+    }
+    if (((birth_month - 1) == today_month) && (today_day < birth_day))
+    {
+        age--;
+    }
+    return age;
+}
 
 module.exports = {
     getNormalizedData: getNormalizedData

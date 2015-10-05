@@ -78,7 +78,25 @@ The purpose of this software is to be used by doctors and medical staff. It allo
 \newpage
 
 \section{Configuration}
-\subsection{Running the Software}
+\section{System Configuration}
+\subsection{Basic System Structure}
+The current system that is in place makes use of a Node.js server that interacts with any web client. The server is hosted through a PaaS named Heroku. The system delivers compiled jade files to the users that are stylized using CSS. The jade files are controlled and animated by Javascript and jQuery. The node.js server accesses MongoDB database hosted on the DaaS, mongolab. This is illustrated below:
+\begin{figure}[h!]
+\includegraphics[width=1.0\textwidth]{Graphics/Screenshots/infrastructure}
+\end{figure}
+\newpage
+\subsection{Node.js Architecture}
+Node.js is an asynchronous langauge and its basic client-server communication is illlustrated below:
+\begin{figure}[h!]
+\includegraphics[width=1.0\textwidth]{Graphics/Screenshots/nodejsinfrastructure}
+\end{figure}
+\subsection{Communication Protocols Used}
+This is the current list of all communication protocols used by PIMS:
+\begin{itemize}
+	\item HTTP/HTTPS
+	\item SMTP
+\end{itemize}
+\newpage
 
 \newpage
 
@@ -112,6 +130,17 @@ Contact your service provider(hosting site) to pull down the software
 
 
 \section{Getting Started}
+\subsection{Systems Procedure Order}
+This section describes a brief overview of how a user can access the system, it shows perspectives from an adminstrative user as well as normal users. The sections that are discussed can be found in more detail in the next section.
+\subsection{Splash Page}
+\subsection{Login}
+\subsection{Navbar}
+\subsection{Home Icons}
+\subsection{Fill Forms}
+\subsection{Statistics}
+\subsection{Add User}
+\subsection{Update Profile}
+\subsection{Logout}
 \newpage
 
 

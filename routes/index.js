@@ -11,9 +11,13 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var submodules = "../sub-modules/";
 var userAuthentication = require('../controllers/authenticate.js');
 var dataNormalizerCervical = require('../controllers/dataNormalizers/dataNormalizerCervical.js');
-var nn = require('../lib/pims-neuralnetwork/testNN2.js');
+
+var nn = require(submodules + 'pims-neuralnetwork/testNN2.js');
+
+var dataNormalizerEndometrial = require('../controllers/dataNormalizers/dataNormalizerEndometrial.js');
 
 
 /**
@@ -30,7 +34,7 @@ var ElectiveCountGlobal;
  * It is for the PIMS login functionality
  * @type {*|exports|module.exports}
  */
-var models = require('pims-database');
+var models = require(submodules + 'pims-database/database');
 
 /**
  * A variable in the global namespace called 'cervCan'.
@@ -51,15 +55,15 @@ require('d3');
  * It is for the PIMS login functionality
  * @type {exports|module.exports}
  */
-var login = require('../lib/pims-login/login.js');
+var login = require(submodules + 'pims-login/login');
 
 /**
  * A variable in the global namespace called 'notification'.
  * It is for the PIMS notification functionality
  * @type {exports|module.exports}
  */
-var notification = require('../lib/pims-notification/notifications.js');
-
+var notification = require(submodules + 'pims-notification/notifications');
+var https = require('https');
 
 /**
  * A variable in the global namespace called 'userModel'.
@@ -97,7 +101,8 @@ router.get('/splash', function(req, res, next) {
 
 router.get('/dataNormalizer', function(req, res, next) {
 
-    dataNormalizerCervical.getNormalizedData(req.body.firstname, req.body.surname);
+    //dataNormalizerCervical.getNormalizedData(req.body.firstname, req.body.surname);
+    dataNormalizerEndometrial.getNormalizedData(req.body.firstname, req.body.surname);
 
 });
 
@@ -434,7 +439,7 @@ router.get('/stats', login.isLoggedIn, login.isAdmin, function(req, res, next) {
 
 router.post('/findSelectedQuery', function(req, res, next) {
 	
-   var startDate =JSON.stringify(req.body.forQuering.start);
+    var startDate =JSON.stringify(req.body.forQuering.start);
     var endDate =JSON.stringify(req.body.forQuering.end);
 	var period = JSON.stringify(req.body.forQuering.periodQuery);
 	var stats =  JSON.stringify(req.body.forQuering.statsQuery);
@@ -493,6 +498,15 @@ router.post('/findSelectedQuery', function(req, res, next) {
 								arr.push(newElement);
 							
 						}
+						console.log(arr);
+						  
+						   arr.sort(function(a,b){
+								if (a.date < b.date)
+									return -1;
+								  if (a.date > b.date)
+									return 1;
+								  return 0;
+								});
 							 var resBody = { myStatsArry: arr};
 							  console.log(resBody);
 							  res.json(resBody);
@@ -523,10 +537,21 @@ router.post('/findSelectedQuery', function(req, res, next) {
 							 var newElement = {};
 								newElement['date'] = new Date(myResult[i].ourDate).toString('dd-MM-yyyy');
 								newElement['close'] = myResult[i].count;
-								arr.push(newElement);
+								arrTwo.push(newElement);
 							
 						}
-							 var resBody = { myStatsArry: arr};
+						
+						console.log(arrTwo);
+						  
+						   arrTwo.sort(function(a,b){
+								if (a.date < b.date)
+									return -1;
+								  if (a.date > b.date)
+									return 1;
+								  return 0;
+								});
+								
+							 var resBody = { myStatsArry: arrTwo};
 							  console.log(resBody);
 							  res.json(resBody);
 							  console.log("POST response sent.");
@@ -561,6 +586,15 @@ router.post('/findSelectedQuery', function(req, res, next) {
 								arrThree.push(newElement);
 							
 						}
+						  console.log(arrThree);
+						  
+						   arrThree.sort(function(a,b){
+								if (a.date < b.date)
+									return -1;
+								  if (a.date > b.date)
+									return 1;
+								  return 0;
+								});
 							 var resBody = { myStatsArry: arrThree};
 							  console.log(resBody);
 							  res.json(resBody);
@@ -599,6 +633,15 @@ router.post('/findSelectedQuery', function(req, res, next) {
 								arrFour.push(newElement);
 							
 						}
+						console.log(arrFour);
+						  
+						   arrFour.sort(function(a,b){
+								if (a.date < b.date)
+									return -1;
+								  if (a.date > b.date)
+									return 1;
+								  return 0;
+								});
 							 var resBody = { myStatsArry: arrFour};
 							  console.log(resBody);
 							  res.json(resBody);
@@ -609,7 +652,6 @@ router.post('/findSelectedQuery', function(req, res, next) {
 		
 	
 	}
-
 });
 
 /*View patient stats */
@@ -930,6 +972,7 @@ router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function(req, res, ne
     else{
         console.log("I don't know");
     }
+
 
 });
 

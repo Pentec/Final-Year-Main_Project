@@ -1,44 +1,48 @@
 extends index
+block append extFiles
+    script(src='/libs/angular/angular.min.js')
+    link(rel='stylesheet', href="/libs/perfect-scrollbar/min/perfect-scrollbar.min.css")
+    script(src="/libs/perfect-scrollbar/min/perfect-scrollbar.min.js")
+    script(src='/javascripts/app.js')
+    link(rel='stylesheet', href="/stylesheets/editProfile.css")
 block mainContent
-  .page-header.mypageHeader
-    h3 Profile Information
-  img(src='images/snyman.jpg', title='How many ninjas do you need to create an awesome library?', width="100px").img-circle.img-responsive.center-block.myimageforedit
-  form.form-horizontal(action='/updateProfile', id="myformedit" method='POST')
-    input(type='hidden', name='_csrf', value=token)
-    .form-group
-      label.col-sm-2.control-label(for='name') Name
-      .col-sm-4
-        input.form-control(type='text', name='username', id='username', value='#{user.username}')
-      img(src='images/tooltip.png', title='Please enter your name', width="20px").img-circle
-    .form-group
-      label.col-sm-2.control-label(for='surname') Surname
-      .col-sm-4
-        input.form-control(type='text', name='surname', id='surname', value='#{user.surname}')
-       img(src='images/tooltip.png', title='Please enter your surname', width="20px").img-circle
-    .form-group
-        label.col-sm-2.control-label(for='password') New Password
-        .col-sm-4
-          input.form-control(type='password', name='password', id='password')
-        img(src='images/tooltip.png', title='Please enter the password you would like to change to', width="20px").img-circle
-    .form-group
-        label.col-sm-2.control-label(for='confirmPassword') Confirm Password
-        .col-sm-4
-          input.form-control(type='password', name='confirmpassword', id='confirmpassword')
-         img(src='images/tooltip.png', title='Please confirm the password you would like to change to', width="20px").img-circle
-    .form-group
-      label.col-sm-2.control-label(for='email') Email
-      .col-sm-4
-        input.form-control(type='email', name='email', id='email', value='#{user.email}')
-      img(src='images/tooltip.png', title='Please enter your email', width="20px").img-circle
-    .form-group
-      label.col-sm-2.control-label(for='department') Department
-      .col-sm-4
-        input.form-control(type='text', name='department', id='department', value='#{user.department}')
-      img(src='images/tooltip.png', title='Please enter your email address that you would like to change', width="20px").img-circle
-    .form-group
-      .col-sm-offset-2.col-sm-4
-        button.btn.btn.btn-primary(type='submit')
-          i.fa.fa-magnet
-          | Update Profile
-
-   
+    .area
+        .container
+            .col-xs-12
+                .form-wrap
+                    .page-header.mypageHeader
+                        h3 Profile Information
+                    img(src='images/snyman.jpg', title='How many ninjas do you need to create an awesome library?', width="130px").img-circle.img-responsive.profile
+                    form.form-horizontal(action='/updateProfile', id="myformedit" method='POST').profile
+                        input(type='hidden', name='_csrf', value=token)
+                        .form-group
+                            label.col-sm-2.control-label(for='name') Name
+                            .col-sm-8
+                                input.form-control(type='text', name='username', id='username', value='#{user.username}')
+                        .form-group
+                            label.col-sm-2.control-label(for='surname') Surname
+                            .col-sm-8
+                                input.form-control(type='text', name='surname', id='surname', value='#{user.surname}')
+                        .form-group
+                            label.col-sm-2.control-label(for='password') New Password
+                            .col-sm-8
+                                input.form-control(type='password', name='password', id='password')
+                        .form-group
+                            label.col-sm-2.control-label(for='confirmPassword') Confirm Password
+                            .col-sm-8
+                                input.form-control(type='password', name='confirmpassword', id='confirmpassword')
+                        .form-group
+                            label.col-sm-2.control-label(for='email') Email
+                            .col-sm-8
+                                input.form-control(type='email', name='email', id='email', value='#{user.email}')
+                        .form-group
+                            label.col-sm-2.control-label(for='department') Department
+                            .col-md-8
+                                input.form-control(type='text', name='department', id='department', value='#{user.department}', data-toggle="tooltip", title="Enter the department")
+                        .form-group
+                            .col-sm-offset-2.col-sm-8
+                                button.btn.btn.btn-custom(type='submit')
+                                    i.fa.fa-magnet
+                                    | Update Profile
+                        script.
+                            $('.area').perfectScrollbar();

@@ -19,6 +19,7 @@ var stats = require('./routes/stats');//stats route
 var gynaecology_surgery = require('./routes/forms/gynaecology_surgery');
 var addmission_discharge = require('./routes/forms/addmission_discharge');
 var cervical_cancer = require('./routes/forms/cervical_cancer');
+var endometrial_cancer = require('./routes/forms/endometrial_cancer');
 
 var app = express();
 
@@ -63,6 +64,7 @@ app.use('/stats', stats);  //for html rms
 app.use('/gynaecology_surgery', gynaecology_surgery);
 app.use('/addmission_discharge', addmission_discharge);
 app.use('/cervical_cancer', cervical_cancer);
+app.use('/endometrial_cancer',endometrial_cancer);
 app.use(scribe.express.logger());
 app.use('/logs', scribe.webPanel());
 app.use('/dataNormalizer', routes);
@@ -91,7 +93,13 @@ app.get('/addmission_discharge', function(req, res) {
 });
 
 app.get('/cervical_cancer', function(req, res) {
-    res.sendfile(html_dir + 'cervical_cancer');
+    res.sendfile(html_dir + 'cervical_cancer.html');
+});
+app.get('/endometrial_cancer', function(req, res) {
+    res.sendfile(html_dir + 'endometrial_cancer.html');
+});
+app.get('/vaginal_cancer', function(req, res) {
+    res.sendfile(html_dir + 'vaginal_cancer.html');
 });
 //end of html routing
 

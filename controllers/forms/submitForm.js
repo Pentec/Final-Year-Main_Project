@@ -1,8 +1,10 @@
 var express = require('express');
-var models = require('pims-database');
+var submodules = "../../sub-modules/"
+var models = require(submodules + 'pims-database/database');
 var AD = models.addmissionDischarge;
 var GS = models.gynaecologySurgery;
 var CC = models.cervicalCancer;
+var EC = models.endometrialCancer;
 
 var submitAdmissionDischarge = function(formData) {
 
@@ -119,6 +121,7 @@ var submitAdmissionDischarge = function(formData) {
     return success;
 };
 
+
 var submitGynaecologySurgery = function(formData) {
 
     var jsonString = JSON.stringify(formData.body);
@@ -207,6 +210,8 @@ var submitGynaecologySurgery = function(formData) {
 
     return success ;
 };
+
+
 var submitCervicalCancer = function(formData) {
 
     var success = false;
@@ -445,7 +450,7 @@ var submitCervicalCancer = function(formData) {
             Dead: changedString.lastKnownVitalStatusDead
         },
 
-        causeOfDeath :{
+        causeOfDeath : {
             CaCx: changedString.causeOfDeathCaCx,
             Otherprimarycancer: changedString.causeOfDeathOtherprimarycancer,
             Treatmentrelatedcause: changedString.causeOfDeathTreatmentrelatedcause,
@@ -469,8 +474,245 @@ var submitCervicalCancer = function(formData) {
     return success;
 };
 
+var submitEndometrialCancer = function(formData){
+    var jsonString = JSON.stringify(formData.body);
+    var changedString = jsonString.replace(/([./])/g, "");
+
+    console.log(changedString);
+    console.log(JSON.parse(changedString));
+
+    var changedString = JSON.parse(changedString);
+
+    var Form = new EC({
+        Name:changedString.Name ,
+
+        Surname: changedString.Surname,
+
+        HospitalNumber: changedString.HospitalNumber,
+
+        ID: changedString.ID,
+
+        DateOfBirth: changedString.DateOfBirth,
+
+        DateOfDiagnosis: changedString.DateOfDiagnosis,
+
+        CellPhone:{
+            First: changedString.CellPhoneFirst,
+            Alternative: changedString.CellPhoneAlternative
+        },
+
+        HIVStatus:{
+            Negative:changedString.HIVStatusNegative,
+            Positive: changedString.HIVStatusPositive
+        },
+
+        CD4: changedString.CD4,
+
+        figoStage: {
+            Ia: changedString.figoStageIa,
+            Ib: changedString.figoStageIb,
+            Ic: changedString.figoStageIc,
+            IIa: changedString.figoStageIIa,
+            IIb: changedString.figoStageIIb,
+            IIIa: changedString.figoStageIIIa,
+            IIIb: changedString.figoStageIIIb,
+            IIIc: changedString.figoStageIIIc,
+            IVa : changedString.figoStageIVa,
+            IVb : changedString.figoStageIVb,
+            Unknown: changedString.figoStageUnknown,
+            StageUnavailable: changedString.figoStageStageUnavailable
+        },
+
+        Histology: {
+            NilUnclassifiable: changedString.HistologyNilUnclassifiable,
+            EndometrioidAdeno: changedString.HistologyEndometrioidAdeno,
+            Adenosquamous: changedString.HistologyAdenosquamous,
+            Clearcell: changedString.HistologyClearcell,
+            MucinousAdeno: changedString.HistologyMucinousAdeno,
+            PapillarySerous: changedString.HistologyPapillarySerous,
+            Squamous: changedString.HistologySquamous,
+            Other: changedString.HistologyOther,
+            Unknown : changedString.HistologyUnknown
+        },
+
+        Differentiation: {
+            Well: changedString.DifferentiationWell,
+            Moderately: changedString.DifferentiationModerately,
+            Poorly: changedString.DifferentiationPoorly,
+            Unknown : changedString.DifferentiationUnknown
+        },
+
+        LymphovascularSpaceInvolvement: {
+            Absent: changedString.LymphovascularSpaceInvolvementAbsent,
+            Present: changedString.LymphovascularSpaceInvolvementPresent,
+            Unknown: changedString.LymphovascularSpaceInvolvementUnknown
+        },
+
+
+        /*---(RT = Radiotherapy, CT = Chemotherapy, CRT = Chemoradiation HT = Hormonal treatment)---*/
+        primaryTreatmentPerformed : {
+            Nil: changedString.primaryTreatmentPerformedNil,
+            SurgeryAlone: changedString.primaryTreatmentPerformedSurgeryAlone,
+            SurgeryAdjuvantRT: changedString.primaryTreatmentPerformedSurgeryAdjuvantRT,
+            SurgeryAdjuvantCT: changedString.primaryTreatmentPerformedSurgeryAdjuvantCT,
+            AdjuvantHT: changedString.primaryTreatmentPerformedAdjuvantHT,
+            HormonalPrimaryTherapy: changedString.primaryTreatmentPerformedHormonalPrimaryTherapy,
+            Other : changedString.primaryTreatmentPerformedOther,
+            Unknown : changedString.primaryTreatmentPerformedUnknown,
+            DateofTreatment : changedString.primaryTreatmentPerformedDateofTreatment
+        },
+
+
+        /*--(RH= Radical hysterectomy; LND= pelvic/paraortic lymphadenectomy)--*/
+        typeOfSurgery: {
+            SimpleAbdHystNoLND: changedString.typeOfSurgerySimpleAbdHystNoLND,
+            SimpleAbdHystWithLND: changedString.typeOfSurgerySimpleAbdHystWithLND,
+            SimpleVagHystNoLND: changedString.typeOfSurgerySimpleVagHystNoLND,
+            SimpleVagHystWithLND: changedString.typeOfSurgerySimpleVagHystWithLND,
+            RadicalAbdHystNoLND: changedString.typeOfSurgeryRadicalAbdHystNoLND,
+            RadicalAbdHystWithLND: changedString.typeOfSurgeryRadicalAbdHystWithLND,
+            AnyKindOfexenteration : changedString.typeOfSurgeryAnyKindOfexenteration,
+            Unknown: changedString.typeOfSurgeryUnknown,
+            Other: changedString.typeOfSurgeryOther,
+            DateofSurgery : changedString.typeOfSurgeryDateofSurgery
+        },
+
+
+        nodesInvolved: {
+            Onlypelvic: changedString.nodesInvolvedOnlypelvic,
+            Pelvicparaortic: changedString.nodesInvolvedPelvicparaortic,
+            Onlyparaortic: changedString.nodesInvolvedOnlyparaortic,
+            Unknown: changedString.nodesInvolvedUnknown
+        },
+
+        numberOfNodesExamined : {
+            Pelvic: changedString.numberOfNodesExaminedPelvic,
+            Paraortic: changedString.numberOfNodesExaminedParaortic
+        },
+
+        numberOfNodesPositive: {
+            Pelvic: changedString.numberOfNodesPositivePelvic,
+            Paraortic: changedString.numberOfNodesPositiveParaortic
+        },
+
+        /*---SURGICAL PATHOLOGICAL EVALUATION---*/
+
+        Cytology: {
+            NotAvailable : changedString.CytologyNotAvailable,
+            Negative: changedString.CytologyNegative,
+            Positive: changedString.CytologyPositive,
+            Unknown : changedString.CytologyUnknown
+        },
+
+        Metastase: {
+            Nil: changedString.MetastaseNil,
+            UterineSerosa: changedString.MetastaseUterineSerosa,
+            Vagina: changedString.MetastaseVagina,
+            Adnexa: changedString.MetastaseAdnexa,
+            BladdeBowelMucosa: changedString.MetastaseBladdeBowelMucosa,
+            IntraAbdominal: changedString.MetastaseIntraAbdominal,
+            InguinalNodes: changedString.MetastaseInguinalNodes,
+            Distant: changedString.MetastaseDistant,
+            Unknown : changedString.MetastaseUnknown
+        },
+
+        typeOfRadiotherapy: {
+            Intracavitary: changedString.typeOfRadiotherapyIntracavitary,
+            ExternalPelvicRT: changedString.typeOfRadiotherapyExternalPelvicRT,
+            ExternalPelvicParaortic: changedString.typeOfRadiotherapyExternalPelvicParaortic,
+            ExternalPelvicIntracavitary:changedString.typeOfRadiotherapyExternalPelvicIntracavitary,
+            ExtpelvicParaortIntracavitary: changedString.typeOfRadiotherapyExtpelvicParaortIntracavitary,
+            Unknown: changedString.typeOfRadiotherapyUnknown,
+            DateStarted: changedString.typeOfRadiotherapyDateStarted,
+            DateEnded: changedString.typeOfRadiotherapyDateEnded
+        },
+
+        typeOfChemotherapy:{
+            Chemotherapy: changedString.typeOfChemotherapyChemotherapy,
+            DateStarted:changedString.typeOfChemotherapyDateStarted,
+            DateEnded: changedString.typeOfChemotherapyDateEnded
+        },
+
+        HormonalTreatment: {
+            SingleDrug : changedString.HormonalTreatmentSingleDrug,
+            MultipleDrug : changedString.HormonalTreatmentMultipleDrug,
+            Unknown: changedString.HormonalTreatmentUnknown,
+            DateStarted: changedString.HormonalTreatmentDateStarted,
+            DateEnded: changedString.HormonalTreatmentDateEnded
+        },
+
+        responseToTreatment: {
+            Complete: changedString.responseToTreatmentComplete,
+            Partial: changedString.responseToTreatmentPartial,
+            StableDisease: changedString.responseToTreatmentStableDisease,
+            ProgressiveDisease: changedString.responseToTreatmentProgressiveDisease,
+            NotAssessable: changedString.responseToTreatmentNotAssessable,
+            Unknown: changedString.responseToTreatmentUnknown,
+            Dateofassessment: changedString.responseToTreatmentDateofassessment
+        },
+
+        Relapse: {
+            Yes: changedString.RelapseYes,
+            No: changedString.RelapseNo,
+            Unknown: changedString.RelapseUnknown,
+            DateOfRelapseDiagnosis: changedString.RelapseDateOfRelapseDiagnosis
+        },
+
+        siteOfDistantMetastase: {
+            Local: changedString.siteOfDistantMetastaseLocal,
+            Metastatic: changedString.siteOfDistantMetastaseMetastatic,
+            LocalAndMetastatic: changedString.siteOfDistantMetastaseLocalAndMetastatic,
+            Unknown : changedString.siteOfDistantMetastaseUnknown
+        },
+
+
+        /*---(RT = Radiotherapy, CT = Chemotherapy, CRT = Chemoradiation, HT = Hormone Therapy)---*/
+        TreatmentAtRelapse: {
+            Nil:changedString.TreatmentAtRelapseNil,
+            Surgery: changedString.TreatmentAtRelapseSurgery,
+            RT: changedString.TreatmentAtRelapseRT,
+            CT: changedString.TreatmentAtRelapseCT,
+            SurgeryRT: changedString.TreatmentAtRelapseSurgeryRT,
+            CTRT: changedString.TreatmentAtRelapseCTRT,
+            HT: changedString.TreatmentAtRelapseHT,
+            Other: changedString.TreatmentAtRelapseOther,
+            Unknown: changedString.TreatmentAtRelapseUnknown
+        },
+
+        DateOfFolllowup: changedString.DateOfFolllowup,
+
+        LastKnownVitalStatus: {
+            AliveUnknownDiseaseStatus: changedString.LastKnownVitalStatusAliveUnknownDiseaseStatus,
+            AliveAndNoEvidenceOfDisease: changedString.LastKnownVitalStatusAliveAndNoEvidenceOfDisease,
+            AliveWithDisease: changedString.LastKnownVitalStatusAliveWithDisease,
+            Dead: changedString.LastKnownVitalStatusDead
+        },
+
+
+        causeOfDeath :{
+            EndometrialCa: changedString.causeOfDeathEndometrialCa,
+            Otherprimarycancer: changedString.causeOfDeathOtherprimarycancer,
+            Treatmentrelatedcause: changedString.causeOfDeathTreatmentrelatedcause,
+            Intercurrentdisease: changedString.causeOfDeathIntercurrentdisease,
+            Unknowncauses: changedString.causeOfDeathUnknowncauses,
+            DateOfDeath: changedString.causeOfDeathDateOfDeath
+        }
+    });
+
+
+    Form.save(function(err){
+        if(err) {
+            throw err;
+            console.log('An error occurred while trying to add data');
+        }
+        else{console.log('The data has been saved.');
+        }
+    });
+};
+
 module.exports = {
     submitGynaecologySurgery: submitGynaecologySurgery,
     submitAdmissionDischarge: submitAdmissionDischarge,
-    submitCervicalCancer: submitCervicalCancer
+    submitCervicalCancer: submitCervicalCancer,
+    submitEndometrialCancer: submitEndometrialCancer
 };

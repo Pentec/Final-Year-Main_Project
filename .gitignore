@@ -215,3 +215,7 @@ public/controllers/synaptic.js
 #Neural Network file
 lib/pims-neuralnetwork/trained/survive.json
 views/pims_neuralnet/testAIAll.jade
+
+Documentation/Architectural_Requirements/Auditability.tex
+public/javascripts/libs
+public/libs
