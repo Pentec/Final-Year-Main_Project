@@ -42,6 +42,8 @@ var models = require(submodules + 'pims-database/database');
  * @type {cervicalCancer}
  */
 var cervCan = models.cervicalCancer;
+
+var endometrial = models.endometrialCancer;
 /**
  * Required module d3 for the purpose of Statistical graphical representation.
  * Required module datejs for the purpose of time manipulation.
@@ -798,20 +800,20 @@ router.post('/findPatient/sendEmail', login.isLoggedIn, function(req, res, next)
 });
 
 
-router.get('/neural', login.isLoggedIn, login.isAdmin, function(req, res, next){
+//router.get('/neural', login.isLoggedIn, login.isAdmin, function(req, res, next){
+router.get('/neural', function(req, res, next){
     res.render('pims_neuralnet/testAI');
-    return next();
 
 });
 
-router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function(req, res, next){
+//router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function(req, res, next){
+router.post('/neuralOne', function(req, res, next){
     var sendPatientName = {patient: req.body.patientNeural};
     var sendPatientSurname = {patientLname: req.body.patientSNameNeural};
     var sendCancerForm = {form: req.body.cancerforms};
     var getFormVal = (sendCancerForm.form).split(':');
 
     if(getFormVal[1] == "Cervical Cancer" && sendPatientName.patient != ""){
-        console.log('Cervical Cancer');
         //data normalizer
         var check = dataNormalizerCervical.getNormalizedData(sendPatientName.patient, '', function(array){
             if(array != null){
@@ -851,6 +853,42 @@ router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function(req, res, ne
     }
     else if(getFormVal[1] == "Endometrial Cancer"){
         console.log('Endometrial Cancer');
+        //data normalizer
+        var check = dataNormalizerEndometrial.getNormalizedData(sendPatientName.patient, sendPatientSurname.patientLname, function(array){
+            if(array != null){
+                nn.testNetwork(array, function(found){
+                    if(found){
+                        if(found >= 0.143){
+                            //most probably to live with cancer long time
+                            res.render('pims_neuralnet/testAI', {
+                                title: 'PIMS Neural Network',
+                                patientName: sendPatientName.patient,
+                                patientLName: sendPatientSurname.patientLname,
+                                outcome: "Survive",
+                                formName: getFormVal[1],
+                                year: "5 years"
+                            });
+                        }
+                        else{
+                            //most probably to die form cancer soon
+                            res.render('pims_neuralnet/testAI', {
+                                title: 'PIMS Neural Network',
+                                patientName: sendPatientName.patient,
+                                outcome: "Die",
+                                formName: getFormVal[1],
+                                year: "5 years"
+                            });
+                        }
+
+                    }
+                });
+            }
+            else{
+                throw new Error("Unable to process data");
+                err.status = 400;
+                return next(err);
+            }
+        });
 
     }
     else if(getFormVal[1] == "Fallopian Tube Cancer"){
@@ -879,16 +917,15 @@ router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function(req, res, ne
 });
 
 
-router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function(req, res, next){
+//router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function(req, res, next){
+router.post('/neuralAll', function(req, res, next){
     var sendCancerForm = {form: req.body.cancerforms};
-    console.log(sendCancerForm.form);
     var getFormVal = (sendCancerForm.form).split(':');
     var totalPatients = 0;
     var countSurvive = 0;
     var countDie = 0;
 
     if(getFormVal[1] == "Cervical Cancer"){
-        console.log('Cervical Cancer');
         //data normalizer; foreach name, aggregate data to get percentage of patients who are
         // likely to die and percentage that are likely to live
         cervCan.find({}, function(err, docs){
@@ -898,14 +935,14 @@ router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function(req, res, ne
                 return next(err);
             }
             docs.forEach(function(doc){
-                console.log("hey " + doc.Name + " "+ doc.Surname);
+                //console.log("hey " + doc.Name + " "+ doc.Surname);
                 //console.log('size '+ docs.length);
                 dataNormalizerCervical.getNormalizedData(doc.Name, doc.Surname, function(array){
                     if(array == null){
                         throw new Error('Array empty');
                     }
                     else{
-                        console.log('fetching '+ array);
+                        //console.log('fetching '+ array);
                         nn.testNetwork(array, function(found){
                             if(found){
                                 totalPatients = docs.length;
@@ -916,11 +953,13 @@ router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function(req, res, ne
                                 else{
                                     //most probably to die form cancer soon
                                     ++countDie;
+
                                 }
 
-                                if(countDie + countSurvive == docs.length){
+                                if((countDie + countSurvive) == totalPatients){
+                                    console.log('Why!!!!!!!!1');
                                     nn.calculatePercentage(totalPatients, countSurvive, countDie, function(value){
-                                        if(value.percentSurvive == 0 || value.percentDie == 0){
+                                        if(value.percentSurvive == 0 && value.percentDie == 0){
                                             console.log('nothing');
                                         }
                                         else{
@@ -928,16 +967,18 @@ router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function(req, res, ne
 
                                             res.render('pims_neuralnet/testAI', {
                                                 title: 'PIMS Neural Network',
-                                                die: value.percentSurvive,
-                                                survive: value.percentDie,
+                                                die: value.percentDie,
+                                                survive: value.percentSurvive,
                                                 formName: getFormVal[1],
                                                 year: "5 years"
                                             });
+                                            countDie = 0;
+                                            countSurvive = 0;
+
                                         }
                                     });
 
-                                    countDie = 0;
-                                    countSurvive = 0;
+
                                 }
 
                             }
@@ -951,6 +992,66 @@ router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function(req, res, ne
     }
     else if(getFormVal[1] == "Endometrial Cancer"){
         console.log('Endometrial Cancer');
+        endometrial.find({}, function(err, docs){
+            if(err){
+                var err = new Error('Unable to process data');
+                err.status = 400;
+                return next(err);
+            }
+            docs.forEach(function(doc){
+                //console.log("hey " + doc.Name + " "+ doc.Surname);
+                //console.log('size '+ docs.length);
+                dataNormalizerEndometrial.getNormalizedData(doc.Name, doc.Surname, function(array){
+                    if(array == null){
+                        throw new Error('Array empty');
+                    }
+                    else{
+                        //console.log('fetching '+ array);
+                        nn.testNetwork(array, function(found){
+                            if(found){
+                                totalPatients = docs.length;
+                                if(found >= 0.143){
+                                    //most probably to live with cancer long time
+                                    ++countSurvive;
+                                }
+                                else{
+                                    //most probably to die form cancer soon
+                                    ++countDie;
+
+                                }
+
+                                if((countDie + countSurvive) == totalPatients){
+                                    console.log('Why!!!!!!!!1');
+                                    nn.calculatePercentage(totalPatients, countSurvive, countDie, function(value){
+                                        if(value.percentSurvive == 0 && value.percentDie == 0){
+                                            console.log('nothing');
+                                        }
+                                        else{
+                                            console.log(value.percentSurvive + "   " + value.percentDie);
+
+                                            res.render('pims_neuralnet/testAI', {
+                                                title: 'PIMS Neural Network',
+                                                die: value.percentDie,
+                                                survive: value.percentSurvive,
+                                                formName: getFormVal[1],
+                                                year: "5 years"
+                                            });
+                                            countDie = 0;
+                                            countSurvive = 0;
+
+                                        }
+                                    });
+
+
+                                }
+
+                            }
+                        });
+                    }
+                });
+            });
+
+        });
 
     }
     else if(getFormVal[1] == "Fallopian Tube Cancer"){

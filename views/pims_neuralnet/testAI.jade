@@ -91,10 +91,13 @@ body(data-ng-app='runAI', data-ng-controller='AIControl')
 
             div.row.text-center#NNDIv
                 div.col-md-8.col-md-offset-3
-                    if(outcome)
+                    if(outcome == "Survive")
+                        p= patientName + " with " + formName + " is likely to " + outcome + " from cancer"
+                        br
+                    if(outcome == "Die")
                         p= patientName + " with " + formName + " is likely to " + outcome + " from cancer within an average of "+ year
                         br
-                    if(die && survive)
+                    if(die || survive)
                         p= die + " % of your patients with " + formName + " are likely to " + " die from cancer."
                         br
                         p= survive + " % of your patients with " + formName + " are likely to " + " survive having cancer."

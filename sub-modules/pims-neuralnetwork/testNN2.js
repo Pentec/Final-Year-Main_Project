@@ -122,14 +122,14 @@ var trainMany = function(inputValuesArray, numPatients, callback){
  * @param filename
  */
 var testNetwork = function(filename, callback){
-    fs.readFile('./lib/pims-neuralnetwork/trained/survive.json', 'utf8', function(err, data){
+    fs.readFile('./sub-modules/pims-neuralnetwork/trained/survive.json', 'utf8', function(err, data){
         if(err){
             throw err;
             return callback(false);
         }
         else{
             if(filename != null || filename != ""){
-                console.log(data);
+                //console.log(data);
 
                 var testingSet = [
                     {
@@ -190,8 +190,9 @@ var testNetwork = function(filename, callback){
 
 var calculatePercentage = function(total, survive, die, callback){
     var percentSurvive = 0, percentDie = 0;
+    console.log('in function '+ total);
 
-    if(survive == 0 || die == 0 || total == 0)
+    if(total <= 0)
     {
         var allPercent = {
             percentSurvive: 0,
@@ -203,7 +204,7 @@ var calculatePercentage = function(total, survive, die, callback){
         percentSurvive = ((survive/total).toFixed(3)) * 100;
         percentDie = ((die/total).toFixed(3)) * 100;
 
-        if(percentDie > 0 || percentDie > 0){
+        if(percentSurvive >= 0 && percentDie >= 0){
             var allPercent = {
                 percentSurvive: percentSurvive,
                 percentDie : percentDie
