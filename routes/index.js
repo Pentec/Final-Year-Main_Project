@@ -14,6 +14,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var submodules = "../sub-modules/";
 var userAuthentication = require('../controllers/authenticate.js');
 var dataNormalizerCervical = require('../controllers/dataNormalizers/dataNormalizerCervical.js');
+var dataNormalizerEndometrial = require('../controllers/dataNormalizers/dataNormalizerEndometrial.js');
 
 /**
  * The two variables in the global namespace called EmergencyCountGlobal and ElectiveCountGlobal.
@@ -227,7 +228,8 @@ router.get('/splash', function(req, res, next) {
 
 router.get('/dataNormalizer', function(req, res, next) {
 
-    dataNormalizerCervical.getNormalizedData(req.body.firstname, req.body.surname);
+    //dataNormalizerCervical.getNormalizedData(req.body.firstname, req.body.surname);
+    dataNormalizerEndometrial.getNormalizedData(req.body.firstname, req.body.surname);
 
 });
 
