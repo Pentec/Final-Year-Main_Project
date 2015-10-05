@@ -445,13 +445,6 @@ var CervicalCancer = new Schema({
     completedBy: {type: String}
 });
 
-var forms = mongoose.model('forms', Form);
-var patient =  mongoose.model('patient', Patient);
-var statistics = mongoose.model('statistics', Statistics);
-var gynaecologySurgery = mongoose.model('gynaecologySurgery', GynaecologySurgery);
-var addmissionDischarge = mongoose.model('addmissionDischarge', AdmissionDischarge);
-var cervicalCancer = mongoose.model('cervicalCancer', CervicalCancer);
-
 var EndometrialCancer = new Schema({
 
     Name: {type: String, require: true, title: 'Name'},
@@ -670,6 +663,14 @@ var EndometrialCancer = new Schema({
     }
 });
 
+var forms = mongoose.model('forms', Form);
+var patient =  mongoose.model('patient', Patient);
+var statistics = mongoose.model('statistics', Statistics);
+var gynaecologySurgery = mongoose.model('gynaecologySurgery', GynaecologySurgery);
+var addmissionDischarge = mongoose.model('addmissionDischarge', AdmissionDischarge);
+var cervicalCancer = mongoose.model('cervicalCancer', CervicalCancer);
+var endometrialCancer = mongoose.model('endometrialCancer', EndometrialCancer);
+
 module.exports = {
 	forms: forms,
 	patient: patient,
@@ -677,5 +678,5 @@ module.exports = {
 	gynaecologySurgery: gynaecologySurgery,
 	addmissionDischarge: addmissionDischarge,
 	cervicalCancer: cervicalCancer,
-	EndometrialCancer: EndometrialCancer
+    endometrialCancer: endometrialCancer
 };
