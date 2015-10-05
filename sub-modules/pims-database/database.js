@@ -663,6 +663,78 @@ var EndometrialCancer = new Schema({
     }
 });
 
+var  OncologyFollowUpVisit = new Schema({
+
+    Name: {type: String, require: true, title: 'Name'},
+
+    HospitalNumber: {type: String, require: true, title: 'Hospital Number'},
+
+    DateOfVisit: {type: Date, require: true, title: 'Date of visit' },
+
+    ExaminedByDr: {type: String, require: true, title: 'Examined by Dr.'},
+
+    InitialDiagnosisAndStage: {type: String, require: true, title: 'Initial diagnosis and stage'},
+
+    DateDiagnosed: {type: Date, require: true, title: 'Date diagnosed' },
+
+    Complaints: {type: String, require: true, title: 'Complaints'},
+
+    ClinicalFindings : {type: String, require: true, title: 'Clinical findings'},
+
+    AdditionalNotes : {type: String, title: 'Additional notes'},
+
+    Plan:{
+        SpecialInvestigations:{type: String, require: true, title: 'Special investigations'},
+        Referral:{type: String, require: true, title: 'Referral'},
+        Treatment:{type: String, require: true, title: 'Treatment'}
+    },
+
+    NextFollowUpVisit : {type: String,  require: true, title: 'Next Follow-up visit'},
+
+    /*----Please complete after examination---*/
+
+    TimeFromPrimaryTreatment:{
+        months:{type: Number, title: 'months'},
+        years:{type: Number, title: 'years'}
+    },
+
+    LastKnownVitalStatusOfPatient:{
+        AliveUnknownDiseaseStatus: {type: Boolean, title: 'Alive (unknown disease status)'},
+        AliveNoEvidenceOfDisease: {type: Boolean, title: 'Alive and no evidence of disease'},
+        AliveWithDisease: {type: Boolean, title: 'Alive with disease'},
+        Dead: {type: Boolean, title: 'Dead'}
+    },
+
+    Relapse:{
+        Yes: {type: Boolean, title: 'Yes'},
+        No: {type: Boolean, title: 'No'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+    SiteOfRelapse:{
+        Local: {type: Boolean, title: 'Local'},
+        Metastatic: {type: Boolean, title: 'Metastatic'},
+        LocalAndMetastatic: {type: Boolean, title: 'Local and metastatic'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+    DateOfRelapseDiagnosis: {type: Date, title: 'Date of relapse diagnosis' },
+
+
+    /*--RT = Radiotherapy, CT = Chemotherapy, CRT = Chemoradiation, HT = Hormone Therapy)--*/
+    TreatmentAtRelapse:{
+        Nil: {type: Boolean, title: 'Nil'},
+        Surgery: {type: Boolean, title: 'Surgery'},
+        Radiotherapy : {type: Boolean, title: 'Radiotherapy'},
+        Chemotherapy: {type: Boolean, title: 'Chemotherapy'},
+        HT: {type: Boolean, title: 'HT'},
+        Surgery_RT : {type: Boolean, title: 'Surgery + RT'},
+        CT_RT: {type: Boolean, title: 'CT + RT'},
+        Other: {type: Boolean, title: 'Other'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    }
+});
+
 var forms = mongoose.model('forms', Form);
 var patient =  mongoose.model('patient', Patient);
 var statistics = mongoose.model('statistics', Statistics);
@@ -670,6 +742,7 @@ var gynaecologySurgery = mongoose.model('gynaecologySurgery', GynaecologySurgery
 var addmissionDischarge = mongoose.model('addmissionDischarge', AdmissionDischarge);
 var cervicalCancer = mongoose.model('cervicalCancer', CervicalCancer);
 var endometrialCancer = mongoose.model('endometrialCancer', EndometrialCancer);
+var oncologyFollowUpVisit = mongoose.model('oncologyFollowUpVisit', OncologyFollowUpVisit);
 
 module.exports = {
 	forms: forms,
@@ -678,5 +751,6 @@ module.exports = {
 	gynaecologySurgery: gynaecologySurgery,
 	addmissionDischarge: addmissionDischarge,
 	cervicalCancer: cervicalCancer,
-    endometrialCancer: endometrialCancer
+    endometrialCancer: endometrialCancer,
+    oncologyFollowUpVisit: oncologyFollowUpVisit
 };
