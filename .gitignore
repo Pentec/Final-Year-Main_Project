@@ -211,7 +211,7 @@ public/stylesheets/bootstrap.css
 public/stylesheets/bootstrap.css
 public/stylesheets/bootstrap.min.css
 public/controllers/synaptic.js
-<<<<<<< HEAD
-=======
-Documentation/Architectural_Requirements/Auditability.tex
->>>>>>> a020a39653f02e038b3a568d3f5a88c77a53ec9d
+
+#Neural Network file
+lib/pims-neuralnetwork/trained/survive.json
+views/pims_neuralnet/testAIAll.jade

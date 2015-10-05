@@ -12,12 +12,20 @@ var MIN = -1; //Minimum value for scaling
  * @param1 name: Patient's name
  * @return {array} : The array of inputs nodes for the Neural Network
  */
-var getNormalizedData = function(name, surname) {
+var getNormalizedData = function(name, surname, callback) {
 
     cervical.findOne({Name: name}, function(err, patient){
-        if(!err) {
 
-            var dataArray;
+        if(err)
+        {
+            throw new Error('Database error: No such patient');
+            return callback(err);
+        }
+
+        if(patient) {
+
+            var dataArray,
+                returnArray = null;
 
             dataArray = [
                 normalizeDate(patient),
@@ -36,16 +44,23 @@ var getNormalizedData = function(name, surname) {
 
             ];
 
-            for(var i = 0; i < dataArray.length; i++)
-                console.log(dataArray[i] + " | ");
+            returnArray = [dataArray[0]];
 
-            return dataArray;
+            for(var i = 1; i < dataArray.length; i++){
+                //console.log(dataArray[i] + " | ");
+                //adds all values into an array; neural network input nodes are to be an array
+                returnArray = returnArray.concat([dataArray[i]]);
+            }
+
+            //console.log('returnArray ' + returnArray);
+            //return callback(dataArray);
+            return callback(returnArray);
 
         }
-        else
-        {
-            throw err;
+        else{
+            return callback(null);
         }
+
     });
 };
 
@@ -344,13 +359,17 @@ var normalizeDate = function(patient){
  * @returns {number}: the input value to be added in dataArray.
  */
 var normalizeCD4 = function(patient){
-
+    //normal CD4 count for HIV negative is 500-1500 cells/mm3; for HIV positive it can be around here or go down to even zero
     var cd4 = patient.HIV.CD4 ;
 
     if(patient.HIV.HIVStatus == 'N' || patient.HIV.HIVStatus == 'Negative' || patient.HIV.HIVStatus == 'negative')
         var value = (cd4/Math.pow(10,3.5));
-    else
-        var value = 1;
+    else{
+        //HIV status is positive, value to be returned is close to 1; Neural Network accepts decimal values
+        //because CD4 count can vary, this value has been accepted as a default
+        var value = 0.9998;
+    }
+
 
     return value;
 };
@@ -367,9 +386,9 @@ var normalizeHIV = function(patient){
     var value = 0;
 
     if(status == 'N' || status == 'Negative' || status == 'negative')
-        value = 1;
+        value = 0.9;
     else if(status == 'P' || status == 'Positive' || status == 'positive')
-        value = -1;
+        value = 0.1;
 
     return value;
 };

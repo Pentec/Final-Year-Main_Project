@@ -13,6 +13,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var userAuthentication = require('../controllers/authenticate.js');
 var dataNormalizerCervical = require('../controllers/dataNormalizers/dataNormalizerCervical.js');
+var nn = require('../lib/pims-neuralnetwork/testNN2.js');
+
 
 /**
  * The two variables in the global namespace called EmergencyCountGlobal and ElectiveCountGlobal.
@@ -30,6 +32,12 @@ var ElectiveCountGlobal;
  */
 var models = require('pims-database');
 
+/**
+ * A variable in the global namespace called 'cervCan'.
+ * enables access of the Cervical Cancer collection
+ * @type {cervicalCancer}
+ */
+var cervCan = models.cervicalCancer;
 /**
  * Required module d3 for the purpose of Statistical graphical representation.
  * Required module datejs for the purpose of time manipulation.
@@ -50,7 +58,7 @@ var login = require('../lib/pims-login/login.js');
  * It is for the PIMS notification functionality
  * @type {exports|module.exports}
  */
-var notification = require('pims-notification');
+var notification = require('../lib/pims-notification/notifications.js');
 
 
 /**
@@ -206,26 +214,6 @@ router.get('/login', function(req, res) {
  * @type {POST request}
  */
 router.post('/login', login.postLogin, function(req, res, next) {
-    /*sess = req.session;
-    //checks if login fields are empty
-    var username = req.body.username;
-    var password = req.body.password;
-    var sendData = "";
-
-    if(username == '' || password == '')
-    {
-        var pageErrors = "User name or password is empty.";
-        res.render('login', {
-            title: 'Kalafong PIMS',
-            message: pageErrors,
-            errors: {},
-            send: sendData
-
-        });
-        return;
-    }*/
-
-
 
 });
 
@@ -641,7 +629,7 @@ router.get('/forms', login.isLoggedIn, function(req, res, next) {
 
 
 /*View patient stats */
-router.get('/forms', isLoggedIn, function(req, res, next) {
+router.get('/forms', login.isLoggedIn, function(req, res, next) {
 
     sess=req.session;
 
@@ -768,41 +756,227 @@ router.post('/findPatient/sendEmail', login.isLoggedIn, function(req, res, next)
 });
 
 
+router.get('/neural', login.isLoggedIn, login.isAdmin, function(req, res, next){
+    res.render('pims_neuralnet/testAI');
+    return next();
 
-router.get('/neural', function(req, res, next){
-    //to collect the data from the statistics
-    //model and then send it in JSON format to the client-side AngularJS
+});
 
-    /*StatsAI.find(function(err, stats){
-       if(err)
-       {
-           return next(err);
-       }
+router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function(req, res, next){
+    var sendPatientName = {patient: req.body.patientNeural};
+    var sendPatientSurname = {patientLname: req.body.patientSNameNeural};
+    var sendCancerForm = {form: req.body.cancerforms};
+    var getFormVal = (sendCancerForm.form).split(':');
 
-       res.json(stats);
-    });*/
+    if(getFormVal[1] == "Cervical Cancer" && sendPatientName.patient != ""){
+        console.log('Cervical Cancer');
+        //data normalizer
+        var check = dataNormalizerCervical.getNormalizedData(sendPatientName.patient, '', function(array){
+            if(array != null){
+                nn.testNetwork(array, function(found){
+                    if(found){
+                        if(found >= 0.143){
+                            //most probably to live with cancer long time
+                            res.render('pims_neuralnet/testAI', {
+                                title: 'PIMS Neural Network',
+                                patientName: sendPatientName.patient,
+                                patientLName: sendPatientSurname.patientLname,
+                                outcome: "Survive",
+                                formName: getFormVal[1],
+                                year: "5 years"
+                            });
+                        }
+                        else{
+                            //most probably to die form cancer soon
+                            res.render('pims_neuralnet/testAI', {
+                                title: 'PIMS Neural Network',
+                                patientName: sendPatientName.patient,
+                                outcome: "Die",
+                                formName: getFormVal[1],
+                                year: "5 years"
+                            });
+                        }
+
+                    }
+                });
+            }
+            else{
+                throw new Error("Unable to process data");
+                err.status = 400;
+                return next(err);
+            }
+        });
+    }
+    else if(getFormVal[1] == "Endometrial Cancer"){
+        console.log('Endometrial Cancer');
+
+    }
+    else if(getFormVal[1] == "Fallopian Tube Cancer"){
+        console.log('Fallopian Tube Cancer');
+
+    }
+    else if(getFormVal[1] == "Ovarian Cancer"){
+        console.log('Ovarian Cancer');
+
+    }
+    else if(getFormVal[1] == "Vaginal Cancer"){
+        console.log('Vaginal Cancer');
+
+    }
+    else if(getFormVal[1] == "Vulva Cancer"){
+        console.log('Vulva Cancer');
+
+    }
+    else{
+        console.log("I don't know");
+        var err = new Error('Unable to process option');
+        err.status = 404;
+        return next(err);
+    }
+
+});
+
+
+router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function(req, res, next){
+    var sendCancerForm = {form: req.body.cancerforms};
+    console.log(sendCancerForm.form);
+    var getFormVal = (sendCancerForm.form).split(':');
+    var totalPatients = 0;
+    var countSurvive = 0;
+    var countDie = 0;
+
+    if(getFormVal[1] == "Cervical Cancer"){
+        console.log('Cervical Cancer');
+        //data normalizer; foreach name, aggregate data to get percentage of patients who are
+        // likely to die and percentage that are likely to live
+        cervCan.find({}, function(err, docs){
+            if(err){
+                var err = new Error('Unable to process data');
+                err.status = 400;
+                return next(err);
+            }
+            docs.forEach(function(doc){
+                console.log("hey " + doc.Name + " "+ doc.Surname);
+                //console.log('size '+ docs.length);
+                dataNormalizerCervical.getNormalizedData(doc.Name, doc.Surname, function(array){
+                    if(array == null){
+                        throw new Error('Array empty');
+                    }
+                    else{
+                        console.log('fetching '+ array);
+                        nn.testNetwork(array, function(found){
+                            if(found){
+                                totalPatients = docs.length;
+                                if(found >= 0.143){
+                                    //most probably to live with cancer long time
+                                    ++countSurvive;
+                                }
+                                else{
+                                    //most probably to die form cancer soon
+                                    ++countDie;
+                                }
+
+                                if(countDie + countSurvive == docs.length){
+                                    nn.calculatePercentage(totalPatients, countSurvive, countDie, function(value){
+                                        if(value.percentSurvive == 0 || value.percentDie == 0){
+                                            console.log('nothing');
+                                        }
+                                        else{
+                                            console.log(value.percentSurvive + "   " + value.percentDie);
+
+                                            res.render('pims_neuralnet/testAI', {
+                                                title: 'PIMS Neural Network',
+                                                die: value.percentSurvive,
+                                                survive: value.percentDie,
+                                                formName: getFormVal[1],
+                                                year: "5 years"
+                                            });
+                                        }
+                                    });
+
+                                    countDie = 0;
+                                    countSurvive = 0;
+                                }
+
+                            }
+                        });
+                    }
+                });
+            });
+
+        });
+
+    }
+    else if(getFormVal[1] == "Endometrial Cancer"){
+        console.log('Endometrial Cancer');
+
+    }
+    else if(getFormVal[1] == "Fallopian Tube Cancer"){
+        console.log('Fallopian Tube Cancer');
+
+    }
+    else if(getFormVal[1] == "Ovarian Cancer"){
+        console.log('Ovarian Cancer');
+
+    }
+    else if(getFormVal[1] == "Vaginal Cancer"){
+        console.log('Vaginal Cancer');
+
+    }
+    else if(getFormVal[1] == "Vulva Cancer"){
+        console.log('Vulva Cancer');
+
+    }
+    else{
+        console.log("I don't know");
+    }
+
+});
+
+
+
+//to train network,i should probably have a seperate train file
+//that will have functions that can be called after some set time.
+//------------------------------------------------------------------
+//at button onclick, NN wil train; only for admin access;
+// OR after some time period just call function
+router.get('/neuraltrain', function(req, res, next){
+    //var sendPatientName = {patient: req.body.patientNeural};
+
+    //console.log('Hello' + sendPatientName.patient);
+    cervCan.find({}, function(err, docs){
+        if(err){
+            throw err;
+        }
+        docs.forEach(function(doc){
+            console.log("hey " + doc.Name + " "+ doc.Surname);
+            //console.log('size '+ docs.length);
+            dataNormalizerCervical.getNormalizedData(doc.Name, doc.Surname, function(array){
+                if(array == null){
+                    throw new Error('Array empty');
+                }
+                else{
+                    console.log('fetching '+ array);
+                    //call train network
+                    /*nn.trainMany(array, docs.length,function(trained){
+                        if(trained){
+                            //propagate that NN is trained to UI
+                            //perhaps show how far training is; iterations maybe
+                        }
+                        else{
+                            //new Error(unable to train NN)
+                            //page 404
+                        }
+                    });*/
+                }
+            });
+
+        });
+
+    });
 
     res.render('pims_neuralnet/testAI');
 
 });
-
-var cervicalNeural = require('../controllers/dataNormalizers/dataNormalizerCervical');
-
-router.post('/neural', function(req, res, next){
-    var sendPatientName = {patient: req.body.patientNeural};
-
-    res.render('pims_neuralnet/testAIPost', {
-        title: 'PIMS Neural Network Page',
-        send: sendPatientName.patient
-    });
-    console.log('Hello' + sendPatientName.patient);
-    //cervicalNeural.getNormalizedData(req.body.patientNeural, '');
-
-});
-
-
-
-
-
 
 module.exports = router;

@@ -15,12 +15,11 @@ head
     script(src='bower_components/angular-touch/angular-touch.js')
     script(src='bower_components/angular-bootstrap/ui-bootstrap.min.js')
     script(src='http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js')
-    script(src='controllers/synaptic.js')
     script(src='controllers/testNN.js')
     script(type='text/ng-template', id='../../views/login')
     style.
         #neuralCanvas{ position: absolute; left: 0px; top: 0px;}
-        #NNDIv{ border-radius: 25px; background: #8AC007;}
+        #NNDIv{font-weight: bold;border-radius: 25px; background: #004B8F; width:80%; height: 500%; margin-left:auto; margin-right: auto; color:whitesmoke}
         .btn-custom {
             color: #fff;
             background-color: #004B8F;
@@ -43,35 +42,63 @@ body(data-ng-app='runAI', data-ng-controller='AIControl')
             div.row.text-center
                 div.col-md-6
                     p="Overall Patients"
-                    button.btn.btn-primary(data-ng-click='addNumber()') Start adding
-                    button.btn.btn-primary(data-ng-click='startTrain()') Start training
+                    br
+                    form.form-inline(novalidate, role="form", method="post", autocomplete="on", name="patientOverallForm", id="patientOverallForm", action="/neuralAll")
+                        div.form-group
+                            div.row.text-center
+                                label Choose a cancer type:
+                                br
+                                select.form-control(name='cancerforms', id='cancerforms', data-ng-model='patient.form', data-ng-options='form for form in cancerforms', data-style='btn-info')
+                            br
+                            br
+                            input.btn.btn-custom.btn-lg.btn-block(type="submit", value="Run Neural Network", name= "patientOverallSearch", id="patientOverallSearch", tabindex="5")
+                    div.row.text-center
+                        div.col-md-6.col-md-offset-3
+                            br
+                            | Run in
+                            strong
+                                |  {{patient.form}}
+                            |  Form
                 div.col-md-6
                     p="Individual Patients"
-                    form.form-inline(role="form", method="post", autocomplete="on", name="patientNeuralForm", id="patientNeuralForm", action="/neural")
+                    form.form-inline(novalidate, role="form", method="post", autocomplete="on", name="patientNeuralForm", id="patientNeuralForm", action="/neuralOne")
                         div.form-group
                             label#instruct(for="searchNNP") Enter the ID or name of the patient:
                             br
-                            input.form-control(type="text", placeholder="Patient Name", id="patientNeural", name="patientNeural", data-ng-model="patientNeural",autofocus required)
+                            input.form-control(type="text", placeholder="Patient Name", id="patientNeural", name="patientNeural", data-ng-model="patient.name",autofocus required)
                             br
                             br
-                            input.btn.btn-custom.btn-lg.btn-block(type="submit", value="Search", tabindex="5")
-
-                    // <button class="btn btn-primary" data-ng-click="train()">Start training</button>
-            div.row.text-center
-                div.col-md-12.col-md-offset-3
-                    | {{test}}
-                    br
-                    | {{startedTraining}}
-                    br
-                    | Search for Patient: {{patientNeural}}
+                            input.form-control(type="text", placeholder="Patient Surname", id="patientSNameNeural", name="patientSNameNeural", data-ng-model="patient.sname",autofocus required)
+                            br
+                            br
+                            div.row.text-center
+                                label Choose a cancer type:
+                                br
+                                select.form-control(name='cancerforms', id='cancerforms', data-ng-model='patient.form', data-ng-options='form for form in cancerforms', data-style='btn-info')
+                            br
+                            br
+                            input.btn.btn-custom.btn-lg.btn-block(type="submit", value="Run Neural Network", name= "patientNNSearch", id="patientNNSearch", tabindex="5")
+                    div.row.text-center
+                        div.col-md-6.col-md-offset-3
+                            | Search for Patient:
+                            strong
+                                | {{patient.name}} {{patient.sname}}
+                            br
+                            | In
+                            strong
+                                |  {{patient.form}}
+                            |  Form
 
             div.row.text-center#NNDIv
-                canvas#neuralCanvas
+                div.col-md-8.col-md-offset-3
+                    if(outcome)
+                        p= patientName + " with " + formName + " is likely to " + outcome + " from cancer within an average of "+ year
+                        br
+                    if(die && survive)
+                        p= die + " % of your patients with " + formName + " are likely to " + " die from cancer."
+                        br
+                        p= survive + " % of your patients with " + formName + " are likely to " + " survive having cancer."
 
-            div.row.text-center(data-ng-if="startedTraining")
-                strong Iterate:
-                span#iterate
-            hr(data-ng-show="startedTraining")
 
 
 
