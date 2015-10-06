@@ -735,6 +735,300 @@ var  OncologyFollowUpVisit = new Schema({
     }
 });
 
+var FallopianTubeCancer = new Schema({
+
+    HospitalNumber: {type: String, require: true, title: 'Hospital Number'},
+
+    DateOfBirth: {type: Date, require: true, title: 'Date of Birth' },
+
+    Age: {type: Number, require: true, title: 'Age'},
+
+    ID: {type: Number, require: true, title: 'ID number'},
+
+    Name: {type: String, require: true, title: 'Name'},
+
+    Surname: {type: String, require: true, title: 'Surname'},
+
+    DateOfDiagnosis: {type: Date, require: true, title: 'Date of diagnosis'},
+
+    HIVStatus: {type: String, title: 'HIV Status'},
+
+    CD4: {type: Number, title: 'CD4'},
+
+    figoStage: {
+        Ia: {type: Boolean, title: 'Ia'},
+        Ib: {type: Boolean, title: 'Ib'},
+        Ic: {type: Boolean, title: 'Ic'},
+        IIa: {type: Boolean, title: 'IIa'},
+        IIb: {type: Boolean, title: 'IIb'},
+        IIc: {type: Boolean, title: 'IIc'},
+        IIIa: {type: Boolean, title: 'IIIa'},
+        IIIb: {type: Boolean, title: 'IIIb'},
+        IIIc: {type: Boolean, title: 'IIIc'},
+        IV: {type: Boolean, title: 'IV'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+    //Site of distant matastases (when appropriate)
+    SiteOfDistantMatastases:{
+        PleuralEffusion: {type: Boolean, title: 'Pleural effusion'},
+        Liver: {type: Boolean, title: 'Liver'},
+        Brain: {type: Boolean, title: 'Brain'},
+        Othersite: {type: Boolean, title: 'Other site'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+
+    //Histology
+    Histology: {
+        Nohistology: {type: Boolean, title: 'No histology/Unclassifiable'},
+        Serousadenocarcinoma: {type: Boolean, title: 'Serous adenocarcinoma'},
+        Mucinousadenocarcinoma: {type: Boolean, title: 'Mucinous adenocarcinoma'},
+        Endometroidadenocarcinoma: {type: Boolean, title: 'Endometroid  adenocarcinoma'},
+        Clearcelladenocarcinoma: {type: Boolean, title: 'Clear cell adenocarcinoma'},
+        Adenoacanthoma : {type: Boolean, title: 'Adenoacanthoma'},
+        Adenosquamous : {type: Boolean, title: 'Adenosquamous'},
+        Undifferentiatedcarcinoma : {type: Boolean, title: 'Undifferentiated carcinoma'},
+        Unknown : {type: Boolean, title: 'Unknown'}
+    },
+
+
+    //Differentiation
+    Differentiation: {
+        Well: {type: Boolean, title: '1 (well)'},
+        Moderately: {type: Boolean, title: '2 (moderately)'},
+        Poorly: {type: Boolean, title: '3 (poorly)'}
+    },
+
+    //Treatments performed (RT = Radiotherapy, CT = Chemotherapy, CRT = Chemoradiation)
+    TreatmentPerformed:{
+        Nil: {type: Boolean, title: 'Nil'},
+        SurgeryAlone: {type: Boolean, title: 'Surgery alone'},
+        RTAlone: {type: Boolean, title: 'RT alone'},
+        NeoAdjuvantCTSurgery: {type: Boolean, title: 'Neo adjuvant CT + surgery'},
+        SurgeryAdjuvantRT: {type: Boolean, title: 'Surgery + adjuvant RT'},
+        SurgeryAdjuvantCT: {type: Boolean, title: 'Surgery + adjuvant CT'},
+        OtherNonStandardTreatments: {type: Boolean, title: 'Other non standard treatments'},
+        Unknown : {type: Boolean, title: 'Unknown'},
+        DateOfTreatment  : {type: Date, require: true, title: 'Date of treatment'}
+    },
+
+
+    //Type of surgery (LND: pelvic/paraortic l/node dissection; USO: Unilateral salping-oopherectomy; BSO: bilateral salpingo-oopherectomy)
+    TypeOfSurgery: {
+        USOwithoutLND: {type: Boolean, title: 'USO, without LND'},
+        USOwithLND: {type: Boolean, title: 'USO, with LND'},
+        BSOwithoutLND: {type: Boolean, title: 'BSO, without LND'},
+        BSOwithLND: {type: Boolean, title: 'BSO with LND'},
+        TAHBSOOmentectomymultiplebiopsiesnoLND: {type: Boolean, title: 'TAH, BSO, Omentectomy, multiple biopsies, no LND'},
+        TAHBSOomentectomymultiplebiopsieswithLND: {type: Boolean, title: 'TAH, BSO, omentectomy, multiple biopsies, with LND'},
+        ExplorativeLaparotomylaparoscopy : {type: Boolean, title: 'Explorative laparotomy/laparoscopy'},
+        Othertypeofsurgery : {type: Boolean, title: 'Other type of surgery (upper abdomen surgical procedures, GIT-, urological surgery'},
+        Unknown: {type: Boolean, title: 'Unknown'},
+        Other: {type: Boolean, title: 'Other'},
+        DateofSurgery : {type: Date, require: true, title: 'Date of Surgery'}
+    },
+
+
+    //Type of Radiotherapy
+    TypeofRadiotherapy: {
+        Intracavitary: {type: Boolean, title: 'Intracavitary'},
+        ExternalpelvicRT: {type: Boolean, title: 'External pelvic RT'},
+        Externalpelvicparaortic: {type: Boolean, title: 'External pelvic + paraortic'},
+        Externalpelvicintracavitary: {type: Boolean, title: 'External pelvic + intracavitary'},
+        Extpelvicparaorticintracavitary: {type: Boolean, title: 'Ext pelvic/paraortic + intracavitary'},
+        Intraperitonealradioisotopes: {type: Boolean, title: 'Intraperitoneal  radioisotopes'},
+        Other: {type: Boolean, title: 'Other'},
+        Unknown: {type: Boolean, title: 'Unknown'},
+        DateStarted: {type: Date, require: true, title: 'Date started'},
+        DateEnded: {type: Date, require: true, title: 'Date ended'}
+    },
+
+
+    //Type of Chemotherapy (CT = Chemotherapy, PC = platinum compound, Completed / uncompleted refers to full course)
+    TypeofChemotherapy: {
+        Type1: {type: Boolean, title: 'Single drug (unspecified) CT - uncompleted'},
+        Type2: {type: Boolean, title: 'Single drug (unspecified) CT - completed'},
+        Type3: {type: Boolean, title: 'Single drug CT + PC - uncompleted'},
+        Type4: {type: Boolean, title: 'Single drug CT + PC - completed'},
+        Type5: {type: Boolean, title: 'Single drug CT, no PC - uncompleted'},
+        Type6: {type: Boolean, title: 'Single drug CT, no PC - completed'},
+        Type7: {type: Boolean, title: 'Multiple drug (unspecified) CT - uncompleted'},
+        Type8: {type: Boolean, title: 'Multiple drug (unspecified) CT - completed'},
+        Type9: {type: Boolean, title: 'Multiple drug CT +PC + Taxane  - uncompleted'},
+        Type10: {type: Boolean, title: 'Multiple drug CT +PC + Taxane  - completed'},
+        Type11: {type: Boolean, title: 'Multiple drug CT, no PC, with Taxane  - uncompleted'},
+        Type12: {type: Boolean, title: 'Multiple drug CT, no PC, with Taxane  - completed'},
+        Type13: {type: Boolean, title: 'Multiple drug CT, + PC, without Taxane  - uncompleted'},
+        Type14: {type: Boolean, title: 'Multiple drug CT, + PC, without Taxane  - completed'},
+        Type15: {type: Boolean, title: 'Multiple drug CT, no PC, no Taxane  - uncompleted'},
+        Type16: {type: Boolean, title: 'Multiple drug CT, no PC, no Taxane  - completed'},
+        Unknown: {type: Boolean, title: 'Unknown'},
+        DateStarted: {type: Date, require: true, title: 'Date started' },
+        DateEnded: {type: Date, require: true, title: 'Date ended' }
+    },
+
+
+    //Response to treatment
+    ResponseToTreatment: {
+        Complete: {type: Boolean, title: 'Complete'},
+        Partial: {type: Boolean, title: 'Partial'},
+        StableDisease: {type: Boolean, title: 'Stable disease'},
+        ProgressiveDisease: {type: Boolean, title: 'Progressive disease'},
+        NotAssessable: {type: Boolean, title: 'Not assessable'},
+        Unknown: {type: Boolean, title: 'Unknown'},
+        DateOfAssessment: {type: Date, require: true, title: 'Date of assessment' }
+    },
+
+
+    //Surgical pathological evaluation
+    //Size of tumor outside Fallopian tube at opening of abdomen
+    SPETumorSize: {
+        NoMacroscopicDisease: {type: Boolean, title: 'No macroscopic disease'},
+        BTEThan2: {type: Boolean, title: '<=2cm'},
+        Between2And10: {type: Boolean, title: 'Between 2 and 10 cm'},
+        BT10: {type: Boolean, title: '>= 10cm'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+
+    },
+
+
+    //Diameter of residual implants (after surgery)
+    SPEtumorsizeAS: {
+        NoMacroscopicResDisease: {type: Boolean, title: 'No microscopic residual disease'},
+        LT05: {type: Boolean, title: '< 0.5cm'},
+        Between05And1: {type: Boolean, title: 'Between 0.5 and 1 cm'},
+        Between1and2: {type: Boolean, title: 'Between 1 and 2 cm'},
+        BT2: {type: Boolean, title: '>2cm'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+
+    //Lymph node involvement in upfront surgery (histologically)
+    LymphNodeInvolvementAtSurgery: {
+        Notevaluated: {type: Boolean, title: 'Not evaluated'},
+        PosNodes: {type: Boolean, title: 'Pos nodes'},
+        NegNodes: {type: Boolean, title: 'Neg nodes'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+
+    //Nodes involved
+    Nodesinvolved: {
+        Onlypelvic: {type: Boolean, title: 'Pelvic  + paraortic'},
+        PelvicParaorticInguinal: {type: Boolean, title: 'Pelvic  + paraortic + inguinal'},
+        OnlyInguinal: {type: Boolean, title: 'Only inguinal'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+
+    //Number of nodes examined
+    NumberOfNodesExamined: {
+        Pelvic: {type: Number, title: 'Inguinal'},
+        PelvicParaortic: {type: Number, title: 'Pelvic/paraortic '}
+    },
+
+
+    //Number of nodes positive
+    NumberOfNodesPositive : {
+        Pelvic: {type: Number, title: 'Inguinal'},
+        PelvicParaortic: {type: Number, title: 'Pelvic/paraortic '}
+    },
+
+
+    //Cytology (Presence of malignant cells)
+    Cytology: {
+        NotEvaluated: {type: Boolean, title: 'Not evaluated'},
+        Positive: {type: Boolean, title: 'Positive'},
+        Negative: {type: Boolean, title: 'Negative'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+    //Second surgery
+    SecondSurgery: {
+        IntervalDebulking: {type: Boolean, title: 'Interval debulking'},
+        SecondLook: {type: Boolean, title: 'Second look'},
+        SecondSurgicalEffort: {type: Boolean, title: 'Second surgical effort'},
+        Unknown: {type: Boolean, title: 'Unknown'},
+        DateOfSecondSurgery: {type: Date, require: true, title: 'Date of 2nd surgery'}
+    },
+
+
+    //Status at second surgery
+    StatusAtSecondSurgery: {
+        CompleteRemission: {type: Boolean, title: 'Complete remission'},
+        MicroscopicDisease: {type: Boolean, title: 'Microscopic disease'},
+        NoSingleImplant: {type: Boolean, title: 'No single implant > 1cm'},
+        ImplantsBT1: {type: Boolean, title: 'Implants > 1cm'},
+        PosRetroperNodes: {type: Boolean, title: 'Positive retroperitoneal nodes'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+
+    //Status after second surgery
+    StatusAfterSecondSurgery: {
+        NoMacroscopicDiseaseLeft: {type: Boolean, title: 'No macroscopic disease left after surgery'},
+        MacroscopicDiseaseLT1: {type: Boolean, title: 'Macroscopic disease <1cm left after surgery'},
+        MacroscopicDiseaseBT1: {type: Boolean, title: 'Macroscopic disease >1cm left after surgery'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+
+    //Relapse
+        Relapse: {
+            Yes: {type: Boolean, title: 'Yes'},
+            No: {type: Boolean, title: 'No'},
+            Unknown: {type: Boolean, title: 'Unknown'},
+            DateOfRelapseDiagnosis: {type: Date, require: true, title: 'Date of relapse diagnosis'}
+        },
+
+
+    //Site of relapse
+    SiteOfRelapse:
+    {
+        Local: {type: Boolean, title: 'Local'},
+        Metastatic: {type: Boolean, title: 'Metastatic'},
+        LocalAndmetastatic: {type: Boolean, title: 'Local and metastatic'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+
+    //Treatment at relapse (RT = Radiotherapy, CT = Chemotherapy, CRT = Chemoradiation, HT = Hormone Therapy )
+    TreatmentAtRelapse: {
+        Local: {type: Boolean, title: 'Nil'},
+        Surgery: {type: Boolean, title: 'Surgery'},
+        RT: {type: Boolean, title: 'RT'},
+        CT: {type: Boolean, title: 'CT'},
+        CT: {type: Boolean, title: 'HT'},
+        RT: {type: Boolean, title: 'Surgery + RT'},
+        CTRT: {type: Boolean, title: 'CT + RT'},
+        Other: {type: Boolean, title: 'Other'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+
+    //Follow-up
+    DateOfFolllowup: {type: Date, require: true, title: 'Date of Follow-up'},
+
+    LastKnownVitalStatus: {
+        AliveUnknownDiseaseStatus: {type: Boolean, title: 'Alive (unknown disease status)'},
+        AliveAndNoEvidenceOfDisease: {type: Boolean, title: 'Alive and no evidence of disease'},
+        AliveWithDisease: {type: Boolean, title: 'Alive with disease'},
+        Dead: {type: Boolean, title: 'Dead'}
+    },
+
+    //Death
+    CauseOfDeath: {
+        FallTubeCa: {type: Boolean, title: 'Fallopian tube ca'},
+        OtherPrimaryCancer: {type: Boolean, title: 'Other primary cancer'},
+        Treatmentrelatedcause: {type: Boolean, title: 'Treatment related cause'},
+        IntercurrentDisease: {type: Boolean, title: 'Intercurrent disease'},
+        UnknownCauses: {type: Boolean, title: 'Unknown causes'},
+        DateOfDeath: {type: Date, require: true, title: 'Date of Death'}
+    }
+});
+
+
 var forms = mongoose.model('forms', Form);
 var patient =  mongoose.model('patient', Patient);
 var statistics = mongoose.model('statistics', Statistics);

@@ -20,6 +20,7 @@ var gynaecology_surgery = require('./routes/forms/gynaecology_surgery');
 var addmission_discharge = require('./routes/forms/addmission_discharge');
 var cervical_cancer = require('./routes/forms/cervical_cancer');
 var endometrial_cancer = require('./routes/forms/endometrial_cancer');
+//var fallopian_tube_cancer = require('./routes/forms/fallopian_tube_cancer');
 
 var app = express();
 
@@ -98,9 +99,14 @@ app.get('/cervical_cancer', function(req, res) {
 app.get('/endometrial_cancer', function(req, res) {
     res.sendfile(html_dir + 'endometrial_cancer.html');
 });
+app.get('/fallopian_tube_cancer', function(req, res) {
+    res.sendfile(html_dir + 'fallopian_tube_cancer.html');
+});
+
 app.get('/vaginal_cancer', function(req, res) {
     res.sendfile(html_dir + 'vaginal_cancer.html');
 });
+
 //end of html routing
 
 
