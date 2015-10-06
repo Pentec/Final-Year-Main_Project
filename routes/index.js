@@ -14,7 +14,11 @@ var LocalStrategy = require('passport-local').Strategy;
 var submodules = "../sub-modules/";
 var userAuthentication = require('../controllers/authenticate.js');
 var dataNormalizerCervical = require('../controllers/dataNormalizers/dataNormalizerCervical.js');
+
+var nn = require(submodules + 'pims-neuralnetwork/testNN2.js');
+
 var dataNormalizerEndometrial = require('../controllers/dataNormalizers/dataNormalizerEndometrial.js');
+
 
 /**
  * The two variables in the global namespace called EmergencyCountGlobal and ElectiveCountGlobal.
@@ -32,6 +36,14 @@ var ElectiveCountGlobal;
  */
 var models = require(submodules + 'pims-database/database');
 
+/**
+ * A variable in the global namespace called 'cervCan'.
+ * enables access of the Cervical Cancer collection
+ * @type {cervicalCancer}
+ */
+var cervCan = models.cervicalCancer;
+
+var endometrial = models.endometrialCancer;
 /**
  * Required module d3 for the purpose of Statistical graphical representation.
  * Required module datejs for the purpose of time manipulation.
@@ -62,6 +74,10 @@ var https = require('https');
  */
 var userModel = require('../models/userModel.js');
 var User = userModel.user;
+
+//var statsAIModel = require('../models/statisticsModel.js');
+//var StatsAI = statsAIModel.statistics;
+
 var Form = models.forms;
 var GS = models.gynaecologySurgery;
 var AD = models.addmissionDischarge;
@@ -74,147 +90,6 @@ var AD = models.addmissionDischarge;
 var sess;
 
 
-/**
- * A variable in the global namespace called 'SECRET'.
- * It captures the secret key for Google reCAPTCHA
- * @type {string}
- */
-var SECRET = "6Lc9mAsTAAAAAOyPr1IUrfH30n-YoT1m_f4u0KIf";
-
-
-/**
- * @function verifyRecaptcha
- * This function verifies the two keys pertaining to the Google reCAPTCHA add-on
- * @param secretKey
- * @param callback
- */
-var verifyRecaptcha = function (secretKey, callback){
-    https.get("https://www.google.com/recaptcha/api/siteverify?secret=" + SECRET + "&response=" + secretKey, function(res){
-        var data = "";
-        res.on('data', function(text){
-            data += text.toString();
-        });
-
-        res.on('end', function(){
-            try {
-                var jsonData = JSON.parse(data);
-                callback(jsonData.success);
-            } catch(e) {
-                callback(false);
-            }
-        });
-    });
-};
-
-
-
-/**
- * @function 
- * This helper function verifies if a user is logged in whilst accessing
- * the url endpoints of the system. If a user is authenticated, they are
- * allowed to proceed to the next page, otherwise they are requested
- * to login and thus redirected to the login page.
- * @param req
- * @param res
- * @param next
- * @returns {next()}
- */
- 
- 
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
-
-    if (!req.isAuthenticated())
-    {
-        req.session.messages = "You need to login to view this page";
-        res.redirect('/login');
-    }
-    next();
-
-
-}; 
-
-
-/**
- * @function postLogin
- * This helper function handles the authentication of the Login form post.
- * It makes use of the Passport.js Local Strategy in order to authenticate
- * a users credentials. The req.logIn function used here is provided by
- * Passport.js and authenticates the user. A local function 'checkAdmin',
- * provided by the pims-login private module checks for a users access
- * rights and depending on that, they are redirected to a particular page.
- * @param req
- * @param res
- * @param next
- */
-
-function postLogin(req, res, next)
-{
-    passport.authenticate('local', function(err, user, info){
-        if(err){
-            return next(err);
-        }
-
-        if(!user){
-            sess.messages = info.message;
-            return res.redirect('/login');
-        }
-
-        req.logIn(user, function(err){
-            if(err){
-                sess.messages = "Error";
-                return next(err);
-            }
-
-            sess.messages = "Login Success!!";
-            sess.username = req.body.username;
-            sess.password = req.body.password;
-
-            login.checkAdmin(req.body.username, req.body.password, function(isAdmin)
-            {
-                if(req.user.username && req.user.password)
-                {
-                    if(isAdmin)
-                    {
-                        verifyRecaptcha(req.body['g-recaptcha-response'], function(success){
-                             if(success){
-                                 res.redirect('/myAdminSpace');
-                                 res.end("Recaptchaed!!!");
-                             }
-                             else
-                             {
-                                 res.redirect('/login');
-                                 res.end("Captcha failed sorry");
-
-                             }
-                         });
-                    }
-                    else
-                    {
-                        verifyRecaptcha(req.body['g-recaptcha-response'], function(success){
-                             if(success){
-                                 res.redirect('/mySpace');
-                                 res.end("Recaptchaed!!!");
-                             }
-                             else
-                             {
-                                 res.redirect('/login');
-                                 res.end("Captcha failed sorry");
-                             }
-                         });
-                    }
-                }
-                else
-                {
-                    res.redirect('/login');
-                }
-            });
-
-        })
-
-    })(req, res, next);
-};
 
 /**
  * Route that invokes the /splash action
@@ -252,7 +127,7 @@ router.get('/', function(req, res, next){
  * Sends back the index page which is temporarily the 'countdown' page
  * @type {GET request}
  */
-router.get('/home', isLoggedIn, function(req, res, next) {
+router.get('/home', login.isLoggedIn, function(req, res, next) {
     sess = req.session;
     res.render('index', { title: 'Kalafong PIMS' });
 });
@@ -265,7 +140,7 @@ router.get('/home', isLoggedIn, function(req, res, next) {
  * Sends back the myAdminSpace page
  * @type {GET request}
  */
-router.get('/myAdminSpace', isLoggedIn, function(req, res, next) {
+router.get('/myAdminSpace', login.isLoggedIn, login.isAdmin, function(req, res, next) {
 
     sess=req.session;
 
@@ -285,7 +160,7 @@ router.get('/myAdminSpace', isLoggedIn, function(req, res, next) {
  * Sends back the index page which is temporarily the 'countdown' page
  * @type {GET request}
  */
-router.get('/mySpace', isLoggedIn, function(req, res, next) {
+router.get('/mySpace', login.isLoggedIn, login.isNotAdmin, function(req, res, next) {
     sess=req.session;
 
     if(req.user)
@@ -345,27 +220,7 @@ router.get('/login', function(req, res) {
  * If the username and password is empty it redirects the user back to login page.
  * @type {POST request}
  */
-router.post('/login', postLogin, function(req, res, next) {
-    sess = req.session;
-    //checks if login fields are empty
-    var username = req.body.username;
-    var password = req.body.password;
-    var sendData = "";
-
-    if(username == '' || password == '')
-    {
-        var pageErrors = "User name or password is empty.";
-        res.render('login', {
-            title: 'Kalafong PIMS',
-            message: pageErrors,
-            errors: {},
-            send: sendData
-
-        });
-        return;
-    }
-
-
+router.post('/login', login.postLogin, function(req, res, next) {
 
 });
 
@@ -381,7 +236,7 @@ router.get('/logout', function(req,res){
 });
 
 /* Add New User page */
-router.get('/addUser', isLoggedIn, function(req, res, next) {
+router.get('/addUser', login.isLoggedIn, function(req, res, next) {
     sess=req.session;
 
     if(req.user)
@@ -395,7 +250,7 @@ router.get('/addUser', isLoggedIn, function(req, res, next) {
 });
 
 /* Settings page */
-router.get('/editProfile', isLoggedIn, function(req, res, next) {
+router.get('/editProfile', login.isLoggedIn, function(req, res, next) {
     sess=req.session;
 
     if(req.user)
@@ -414,7 +269,7 @@ router.get('/editProfile', isLoggedIn, function(req, res, next) {
 });
 
 /* Add New User to database from add user page */
-router.post('/updateProfile', isLoggedIn, function(req, res) {
+router.post('/updateProfile', login.isLoggedIn, function(req, res) {
 
     sess=req.session;
 
@@ -447,7 +302,7 @@ router.post('/updateProfile', isLoggedIn, function(req, res) {
 
 
 /* Add New User to database from add user page */
-router.post('/create', isLoggedIn, function(req, res) {
+router.post('/create', login.isLoggedIn, function(req, res) {
 
     sess=req.session;
 
@@ -468,7 +323,7 @@ router.post('/create', isLoggedIn, function(req, res) {
 });
 
 /* GET form builder page page. */
-router.get('/viewForms', isLoggedIn, function(req, res, next) {
+router.get('/viewForms', login.isLoggedIn, function(req, res, next) {
 
     sess=req.session;
 
@@ -485,7 +340,7 @@ router.get('/viewForms', isLoggedIn, function(req, res, next) {
 });
 
 /* GET form builder page page. */
-router.get('/form', isLoggedIn, function(req, res, next) {
+router.get('/form', login.isLoggedIn, function(req, res, next) {
 
     sess=req.session;
 
@@ -501,7 +356,7 @@ router.get('/form', isLoggedIn, function(req, res, next) {
 });
 
 /* Save the form obj into the database. */
-router.post('/formsave', isLoggedIn, function(req, res) {
+router.post('/formsave', login.isLoggedIn, function(req, res) {
 
     sess=req.session;
 
@@ -527,7 +382,7 @@ router.post('/formsave', isLoggedIn, function(req, res) {
 
 
 /*View Stats */
-router.get('/stats', isLoggedIn, function(req, res, next) {
+router.get('/stats', login.isLoggedIn, login.isAdmin, function(req, res, next) {
    sess=req.session;
 	var EmergencyCount;
 	var ElectiveCount;
@@ -802,7 +657,7 @@ router.post('/findSelectedQuery', function(req, res, next) {
 });
 
 /*View patient stats */
-router.get('/forms', isLoggedIn, function(req, res, next) {
+router.get('/forms', login.isLoggedIn, function(req, res, next) {
 
     sess=req.session;
 
@@ -818,7 +673,7 @@ router.get('/forms', isLoggedIn, function(req, res, next) {
 
 
 /*View patient stats */
-router.get('/forms', isLoggedIn, function(req, res, next) {
+router.get('/forms', login.isLoggedIn, function(req, res, next) {
 
     sess=req.session;
 
@@ -833,17 +688,19 @@ router.get('/forms', isLoggedIn, function(req, res, next) {
 });
 
 //forms
-router.get('/forms', isLoggedIn, function(req, res, next) {
+router.get('/forms', login.isLoggedIn, function(req, res, next) {
 
     sess=req.session;
 
     if(req.user)
     {
         res.render('forms', { title: 'FormSelect' });
+        return next();
     }
     else
     {
         res.redirect('/login');
+        return next();
     }
 
 });
@@ -852,7 +709,7 @@ router.get('/forms', isLoggedIn, function(req, res, next) {
 
 
 /* GET patient page*/
-router.get('/findPatient', isLoggedIn, function(req, res, next) {
+router.get('/findPatient', login.isLoggedIn, function(req, res, next) {
 
     sess=req.session;
 
@@ -865,23 +722,24 @@ router.get('/findPatient', isLoggedIn, function(req, res, next) {
             errors: {},
             send: sendEmail
         });
+        return next();
     }
     else
     {
         res.redirect('/login');
+        return next();
     }
 
 });
 
 
 /*POST patient page.*/
-router.post('/findPatient/sendNotification', isLoggedIn, function(req, res, next) {
+router.post('/findPatient/sendNotification', login.isLoggedIn, function(req, res, next) {
 
     sess=req.session;
 
     if(req.user)
     {
-        console.log('Yaaaaay ' + req.user);
         var patientid = req.body.patientid;
 
         notification.findPatient(patientid, function(found) {
@@ -909,16 +767,18 @@ router.post('/findPatient/sendNotification', isLoggedIn, function(req, res, next
                 });
             }
         });
+        return next();
     }
     else
     {
         res.redirect('/login');
+        return next();
     }
 
 
 });
 
-router.post('/findPatient/sendEmail', isLoggedIn, function(req, res, next) {
+router.post('/findPatient/sendEmail', login.isLoggedIn, function(req, res, next) {
 
     sess=req.session;
 
@@ -929,24 +789,335 @@ router.post('/findPatient/sendEmail', isLoggedIn, function(req, res, next) {
         var emailMsg =JSON.stringify(req.body.forMailing.message);
         var patientid =JSON.stringify(req.body.forMailing.name);
         notification.sendEmail(recipientAdr, emailMsg, patientid);
+        return next();
     }
     else
     {
         res.redirect('/login');
+        return next();
     }
 
 });
 
-var AI = require(submodules + 'pims-neuralnetwork/neuralnetwork');
-router.get('/testAI', function(req, res){
-    //var AI = require("../neuralnetwork");
-    //C:\Users\Ruth\Documents\GitHub\Main\Pentec_PIMS\lib\pims-neuralnetwork\UnitTests\test.json
-    var ai = new AI('./lib/pims-neuralnetwork/UnitTests/test.json');
-    ai.train();
+
+router.get('/neural', login.isLoggedIn, login.isAdmin, function(req, res, next){
+    res.render('pims_neuralnet/testAI');
+
+});
+
+router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function(req, res, next){
+    var sendPatientName = {patient: req.body.patientNeural};
+    var sendPatientSurname = {patientLname: req.body.patientSNameNeural};
+    var sendCancerForm = {form: req.body.cancerforms};
+    var getFormVal = (sendCancerForm.form).split(':');
+
+    if(getFormVal[1] == "Cervical Cancer" && sendPatientName.patient != ""){
+        //data normalizer
+        var check = dataNormalizerCervical.getNormalizedData(sendPatientName.patient, '', function(array){
+            if(array != null){
+                nn.testNetwork(array, function(found){
+                    if(found){
+                        if(found >= 0.143){
+                            //most probably to live with cancer long time
+                            res.render('pims_neuralnet/testAI', {
+                                title: 'PIMS Neural Network',
+                                patientName: sendPatientName.patient,
+                                patientLName: sendPatientSurname.patientLname,
+                                outcome: "Survive",
+                                formName: getFormVal[1],
+                                year: "5 years"
+                            });
+                        }
+                        else{
+                            //most probably to die form cancer soon
+                            res.render('pims_neuralnet/testAI', {
+                                title: 'PIMS Neural Network',
+                                patientName: sendPatientName.patient,
+                                outcome: "Die",
+                                formName: getFormVal[1],
+                                year: "5 years"
+                            });
+                        }
+
+                    }
+                });
+            }
+            else{
+                throw new Error("Unable to process data");
+                err.status = 400;
+                return next(err);
+            }
+        });
+    }
+    else if(getFormVal[1] == "Endometrial Cancer"){
+        console.log('Endometrial Cancer');
+        //data normalizer
+        var check = dataNormalizerEndometrial.getNormalizedData(sendPatientName.patient, sendPatientSurname.patientLname, function(array){
+            if(array != null){
+                nn.testNetwork(array, function(found){
+                    if(found){
+                        if(found >= 0.143){
+                            //most probably to live with cancer long time
+                            res.render('pims_neuralnet/testAI', {
+                                title: 'PIMS Neural Network',
+                                patientName: sendPatientName.patient,
+                                patientLName: sendPatientSurname.patientLname,
+                                outcome: "Survive",
+                                formName: getFormVal[1],
+                                year: "5 years"
+                            });
+                        }
+                        else{
+                            //most probably to die form cancer soon
+                            res.render('pims_neuralnet/testAI', {
+                                title: 'PIMS Neural Network',
+                                patientName: sendPatientName.patient,
+                                outcome: "Die",
+                                formName: getFormVal[1],
+                                year: "5 years"
+                            });
+                        }
+
+                    }
+                });
+            }
+            else{
+                throw new Error("Unable to process data");
+                err.status = 400;
+                return next(err);
+            }
+        });
+
+    }
+    else if(getFormVal[1] == "Fallopian Tube Cancer"){
+        console.log('Fallopian Tube Cancer');
+
+    }
+    else if(getFormVal[1] == "Ovarian Cancer"){
+        console.log('Ovarian Cancer');
+
+    }
+    else if(getFormVal[1] == "Vaginal Cancer"){
+        console.log('Vaginal Cancer');
+
+    }
+    else if(getFormVal[1] == "Vulva Cancer"){
+        console.log('Vulva Cancer');
+
+    }
+    else{
+        console.log("I don't know");
+        var err = new Error('Unable to process option');
+        err.status = 404;
+        return next(err);
+    }
+
+});
+
+
+router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function(req, res, next){
+    var sendCancerForm = {form: req.body.cancerforms};
+    var getFormVal = (sendCancerForm.form).split(':');
+    var totalPatients = 0;
+    var countSurvive = 0;
+    var countDie = 0;
+
+    if(getFormVal[1] == "Cervical Cancer"){
+        //data normalizer; foreach name, aggregate data to get percentage of patients who are
+        // likely to die and percentage that are likely to live
+        cervCan.find({}, function(err, docs){
+            if(err){
+                var err = new Error('Unable to process data');
+                err.status = 400;
+                return next(err);
+            }
+            docs.forEach(function(doc){
+                //console.log("hey " + doc.Name + " "+ doc.Surname);
+                //console.log('size '+ docs.length);
+                dataNormalizerCervical.getNormalizedData(doc.Name, doc.Surname, function(array){
+                    if(array == null){
+                        throw new Error('Array empty');
+                    }
+                    else{
+                        //console.log('fetching '+ array);
+                        nn.testNetwork(array, function(found){
+                            if(found){
+                                totalPatients = docs.length;
+                                if(found >= 0.143){
+                                    //most probably to live with cancer long time
+                                    ++countSurvive;
+                                }
+                                else{
+                                    //most probably to die form cancer soon
+                                    ++countDie;
+
+                                }
+
+                                if((countDie + countSurvive) == totalPatients){
+                                    console.log('Why!!!!!!!!1');
+                                    nn.calculatePercentage(totalPatients, countSurvive, countDie, function(value){
+                                        if(value.percentSurvive == 0 && value.percentDie == 0){
+                                            console.log('nothing');
+                                        }
+                                        else{
+                                            console.log(value.percentSurvive + "   " + value.percentDie);
+
+                                            res.render('pims_neuralnet/testAI', {
+                                                title: 'PIMS Neural Network',
+                                                die: value.percentDie,
+                                                survive: value.percentSurvive,
+                                                formName: getFormVal[1],
+                                                year: "5 years"
+                                            });
+                                            countDie = 0;
+                                            countSurvive = 0;
+
+                                        }
+                                    });
+
+
+                                }
+
+                            }
+                        });
+                    }
+                });
+            });
+
+        });
+
+    }
+    else if(getFormVal[1] == "Endometrial Cancer"){
+        console.log('Endometrial Cancer');
+        endometrial.find({}, function(err, docs){
+            if(err){
+                var err = new Error('Unable to process data');
+                err.status = 400;
+                return next(err);
+            }
+            docs.forEach(function(doc){
+                //console.log("hey " + doc.Name + " "+ doc.Surname);
+                //console.log('size '+ docs.length);
+                dataNormalizerEndometrial.getNormalizedData(doc.Name, doc.Surname, function(array){
+                    if(array == null){
+                        throw new Error('Array empty');
+                    }
+                    else{
+                        //console.log('fetching '+ array);
+                        nn.testNetwork(array, function(found){
+                            if(found){
+                                totalPatients = docs.length;
+                                if(found >= 0.143){
+                                    //most probably to live with cancer long time
+                                    ++countSurvive;
+                                }
+                                else{
+                                    //most probably to die form cancer soon
+                                    ++countDie;
+
+                                }
+
+                                if((countDie + countSurvive) == totalPatients){
+                                    console.log('Why!!!!!!!!1');
+                                    nn.calculatePercentage(totalPatients, countSurvive, countDie, function(value){
+                                        if(value.percentSurvive == 0 && value.percentDie == 0){
+                                            console.log('nothing');
+                                        }
+                                        else{
+                                            console.log(value.percentSurvive + "   " + value.percentDie);
+
+                                            res.render('pims_neuralnet/testAI', {
+                                                title: 'PIMS Neural Network',
+                                                die: value.percentDie,
+                                                survive: value.percentSurvive,
+                                                formName: getFormVal[1],
+                                                year: "5 years"
+                                            });
+                                            countDie = 0;
+                                            countSurvive = 0;
+
+                                        }
+                                    });
+
+
+                                }
+
+                            }
+                        });
+                    }
+                });
+            });
+
+        });
+
+    }
+    else if(getFormVal[1] == "Fallopian Tube Cancer"){
+        console.log('Fallopian Tube Cancer');
+
+    }
+    else if(getFormVal[1] == "Ovarian Cancer"){
+        console.log('Ovarian Cancer');
+
+    }
+    else if(getFormVal[1] == "Vaginal Cancer"){
+        console.log('Vaginal Cancer');
+
+    }
+    else if(getFormVal[1] == "Vulva Cancer"){
+        console.log('Vulva Cancer');
+
+    }
+    else{
+        console.log("I don't know");
+    }
+
 
 });
 
 
 
+//to train network,i should probably have a seperate train file
+//that will have functions that can be called after some set time.
+//------------------------------------------------------------------
+//at button onclick, NN wil train; only for admin access;
+// OR after some time period just call function
+router.get('/neuraltrain', function(req, res, next){
+    //var sendPatientName = {patient: req.body.patientNeural};
+
+    //console.log('Hello' + sendPatientName.patient);
+    cervCan.find({}, function(err, docs){
+        if(err){
+            throw err;
+        }
+        docs.forEach(function(doc){
+            console.log("hey " + doc.Name + " "+ doc.Surname);
+            //console.log('size '+ docs.length);
+            dataNormalizerCervical.getNormalizedData(doc.Name, doc.Surname, function(array){
+                if(array == null){
+                    throw new Error('Array empty');
+                }
+                else{
+                    console.log('fetching '+ array);
+                    //call train network
+                    /*nn.trainMany(array, docs.length,function(trained){
+                        if(trained){
+                            //propagate that NN is trained to UI
+                            //perhaps show how far training is; iterations maybe
+                        }
+                        else{
+                            //new Error(unable to train NN)
+                            //page 404
+                        }
+                    });*/
+                }
+            });
+
+        });
+
+    });
+
+    res.render('pims_neuralnet/testAI');
+
+});
 
 module.exports = router;

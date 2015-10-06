@@ -1,0 +1,80 @@
+doctype html
+html(data-ng-app="runAI")
+head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title Synaptic Neural Network
+    link(href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet")
+    script(src='bower_components/jquery/dist/jquery.js')
+    script(src='bower_components/angular/angular.js')
+    script(src='bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='bower_components/angular-animate/angular-animate.js')
+    script(src='bower_components/angular-cookies/angular-cookies.js')
+    script(src='bower_components/angular-resource/angular-resource.js')
+    script(src='bower_components/angular-sanitize/angular-sanitize.js')
+    script(src='bower_components/angular-touch/angular-touch.js')
+    script(src='bower_components/angular-bootstrap/ui-bootstrap.min.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js')
+    script(src='controllers/synaptic.js')
+    script(src='controllers/testNN.js')
+    style.
+        #neuralCanvas {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        #NNDIv {
+            border-radius: 25px;
+            background: #8AC007;
+        }
+
+        .btn-custom {
+            color: #fff;
+            background-color: #004B8F;
+        }
+
+        .btn-custom:hover,
+        .btn-custom:focus {
+            color: #fff;
+        }
+
+        #neuralnet .btn.btn-custom {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+body(data-ng-app='runAI', data-ng-controller='AIControl')
+    section#neuralnet
+        div.container-fluid
+            div.row.text-center
+                div.col-md-6
+                    p="Overall Patients"
+                    button.btn.btn-primary(data-ng-click='addNumber()') Start adding
+                    button.btn.btn-primary(data-ng-click='startTrain()') Start training
+                div.col-md-6
+                    p="Individual Patients"
+                    form.form-inline(role="form", method="post", autocomplete="on", name="patientNeuralForm", id="patientNeuralForm", action="/neural")
+                        div.form-group
+                            label#instruct(for="{{patientNeural}}") Enter the ID or name of the patient:
+                            br
+                            input.form-control(type="text", value = '#{send}', id="patientNeural", name="patientNeural", data-ng-model="patientNeural",autofocus required)
+                            br
+                            br
+                            input.btn.btn-custom.btn-lg.btn-block(type="submit", value="Search", tabindex="5")
+                    button.btn.btn-custom(data-ng-click='startTrain()') Start training
+                    br
+                    button.btn.btn-custom(data-ng-click='stopTrain()') stop training
+                    // <button class="btn btn-primary" data-ng-click="train()">Start training</button>
+            div.row.text-center
+                div.col-md-12.col-md-offset-3
+                    | {{test}}
+                    br
+                    | {{startedTraining}}
+                    br
+                    | Search for Patient: {{patientNeural}}
+            div.row.text-center#NNDIv
+                canvas#neuralCanvas
+            div.row.text-center(data-ng-if="startedTraining")
+                strong Iterate:
+                span#iterate
+            hr(data-ng-show="startedTraining")

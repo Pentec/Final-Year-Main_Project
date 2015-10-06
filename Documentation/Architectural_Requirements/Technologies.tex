@@ -113,6 +113,12 @@ Meld is a widely used AOP library for JavaScript. It allows for one to add to or
 	\item System traceability				
 \end{itemize}
 
+\subsection{Package Managers}
+\subsubsection{NPM}
+We use npm for our server-side dependencies
+\subsubsection{Bower}
+We use bower to manage our client-side dependencies, in particular Angularjs, as this package manager helps to make it easier to obtain and manage the many Angularjs components needed for our Neural Network front-end.
+
 
 \subsubsection{Winston logging}
 Winston is a widely used multi-transport async logging library for Node.js which will allow for all user operations, server requests as well as errors to be logged to a file stored on the server. The purpose of logging (strategy: \ref{sec:logging}) is to ensure system auditability (strategy: \ref{sec:auditability}). The logging functionality will be injected through aspects so as to not have the logging functions inter-woven through the code; thereby decoupling the logging functionality form the core system functionality. The use of aspects will make the logging functionality flexible and maintainable.

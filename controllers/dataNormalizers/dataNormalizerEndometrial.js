@@ -13,39 +13,54 @@ var MIN = -1; //Minimum value for scaling
  * @param1 name: Patient's name
  * @return {array} : The array of inputs nodes for the Neural Network
  */
-var getNormalizedData = function(name, surname) {
+var getNormalizedData = function(name, surname, callback) {
 
-    endometrial.findOne({Name: "Gwen"}, function(err, patient){
+    endometrial.findOne({Name: name}, function(err, patient){
         if(!err) {
 
-            var dataArray;
+            if(patient){
+                var dataArray,
+                    returnArray = null;
 
-            dataArray = [
-                normalizeAge(patient),
-                normalizeHIV(patient),
-                normalizeCD4(patient),
-                normalizeFigoStage(patient),
-                normalizeOfDistantMetastase(patient),
-                normalizeHistology(patient),
-                normalizeDifferentiation(patient),
-                normalizeprimaryTreatment(patient),
-                normalizetypeOfSurgery(patient),
-                normalizetypeOfRadiotherapy(patient),
-                normalizeresponseToTreatment(patient),
-                normalizeRelapse(patient),
-                normalizelastKnownVitalStatus(patient)
+                dataArray = [
+                    normalizeAge(patient),
+                    normalizeHIV(patient),
+                    normalizeCD4(patient),
+                    normalizeFigoStage(patient),
+                    normalizeOfDistantMetastase(patient),
+                    normalizeHistology(patient),
+                    normalizeDifferentiation(patient),
+                    normalizeprimaryTreatment(patient),
+                    normalizetypeOfSurgery(patient),
+                    normalizetypeOfRadiotherapy(patient),
+                    normalizeresponseToTreatment(patient),
+                    normalizeRelapse(patient),
+                    normalizelastKnownVitalStatus(patient)
 
-            ];
+                ];
 
-            for(var i = 0; i < dataArray.length; i++)
-                console.log(dataArray[i] + " | ");
+                returnArray = [dataArray[0]];
 
-            return dataArray;
+                for(var i = 1; i < dataArray.length; i++){
+                    //console.log(dataArray[i] + " | ");
+                    //adds all values into an array; neural network input nodes are to be an array
+                    returnArray = returnArray.concat([dataArray[i]]);
+                }
+
+
+                //return dataArray;
+                return callback(returnArray);
+            }
+            else{
+                return callback(null);
+            }
+
 
         }
         else
         {
-            throw err;
+            throw new Error('Database error: No such patient');
+            return callback(err);
         }
     });
 };

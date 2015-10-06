@@ -117,6 +117,42 @@ build/Release
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules
 
+# Client-side Dependency directory
+# http://blog.silvabox.com/should-you-commit-bower-components-to-git/
+
+# ignore contents of bower_components
+bower_components/*
+
+# unignore certain component folders below
+!bower_components/angular
+bower_components/angular/*
+!bower_components/angular-animate
+bower_components/angular-animate/*
+!bower_components/angular-bootstrap
+bower_components/angular-bootstrap/*
+bower_components/angular-cookies/*
+bower_components/angular-mocks/*
+!bower_components/angular-resource
+bower_components/angular-resource/*
+!bower_components/angular-route
+bower_components/angular-route/*
+bower_components/angular-sanitize/*
+bower_components/angular-touch/*
+!bower_components/angular-ui-router
+bower_components/angular-ui-router/*
+!bower_components/animate.css
+bower_components/animate.css/*
+!bower_components/bootstrap
+!bower_components/bootstrap/dist
+!bower_components/bootstrap/less
+!bower_components/bootstrap/js
+!bower_components/bootstrap/fonts
+bower_components/bootstrap/*
+!bower_components/jquery
+!bower_components/jquery/dist
+bower_components/jquery/*
+
+
 Core Implementation/public/dist/formbuilder.css
 Core Implementation/public/dist/formbuilder.js
 Core Implementation/public/vendor/css/vendor.css
@@ -175,6 +211,11 @@ public/stylesheets/bootstrap.css
 public/stylesheets/bootstrap.css
 public/stylesheets/bootstrap.min.css
 public/controllers/synaptic.js
+
+#Neural Network file
+lib/pims-neuralnetwork/trained/survive.json
+views/pims_neuralnet/testAIAll.jade
+
 Documentation/Architectural_Requirements/Auditability.tex
 public/javascripts/libs
 public/libs

@@ -1,4 +1,111 @@
-extends layout
+doctype html
+html(data-ng-app="runAI")
+head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title Synaptic Neural Network
+    link(href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet")
+    script(src='bower_components/jquery/dist/jquery.js')
+    script(src='bower_components/angular/angular.js')
+    script(src='bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='bower_components/angular-animate/angular-animate.js')
+    script(src='bower_components/angular-cookies/angular-cookies.js')
+    script(src='bower_components/angular-resource/angular-resource.js')
+    script(src='bower_components/angular-sanitize/angular-sanitize.js')
+    script(src='bower_components/angular-touch/angular-touch.js')
+    script(src='bower_components/angular-bootstrap/ui-bootstrap.min.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js')
+    script(src='controllers/testNN.js')
+    script(type='text/ng-template', id='../../views/login')
+    style.
+        #neuralCanvas{ position: absolute; left: 0px; top: 0px;}
+        #NNDIv{font-weight: bold;border-radius: 25px; background: #004B8F; width:80%; height: 500%; margin-left:auto; margin-right: auto; color:whitesmoke}
+        .btn-custom {
+            color: #fff;
+            background-color: #004B8F;
+        }
+
+        .btn-custom:hover,
+        .btn-custom:focus {
+            color: #fff;
+        }
+
+        #neuralnet .btn.btn-custom {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
 block content
-   script(src='/dist/synaptic.js')
+body(data-ng-app='runAI', data-ng-controller='AIControl')
+    section#neuralnet
+        div.container-fluid
+            div.row.text-center
+                div.col-md-6
+                    p="Overall Patients"
+                    br
+                    form.form-inline(novalidate, role="form", method="post", autocomplete="on", name="patientOverallForm", id="patientOverallForm", action="/neuralAll")
+                        div.form-group
+                            div.row.text-center
+                                label Choose a cancer type:
+                                br
+                                select.form-control(name='cancerforms', id='cancerforms', data-ng-model='patient.form', data-ng-options='form for form in cancerforms', data-style='btn-info')
+                            br
+                            br
+                            input.btn.btn-custom.btn-lg.btn-block(type="submit", value="Run Neural Network", name= "patientOverallSearch", id="patientOverallSearch", tabindex="5")
+                    div.row.text-center
+                        div.col-md-6.col-md-offset-3
+                            br
+                            | Run in
+                            strong
+                                |  {{patient.form}}
+                            |  Form
+                div.col-md-6
+                    p="Individual Patients"
+                    form.form-inline(novalidate, role="form", method="post", autocomplete="on", name="patientNeuralForm", id="patientNeuralForm", action="/neuralOne")
+                        div.form-group
+                            label#instruct(for="searchNNP") Enter the ID or name of the patient:
+                            br
+                            input.form-control(type="text", placeholder="Patient Name", id="patientNeural", name="patientNeural", data-ng-model="patient.name",autofocus required)
+                            br
+                            br
+                            input.form-control(type="text", placeholder="Patient Surname", id="patientSNameNeural", name="patientSNameNeural", data-ng-model="patient.sname",autofocus required)
+                            br
+                            br
+                            div.row.text-center
+                                label Choose a cancer type:
+                                br
+                                select.form-control(name='cancerforms', id='cancerforms', data-ng-model='patient.form', data-ng-options='form for form in cancerforms', data-style='btn-info')
+                            br
+                            br
+                            input.btn.btn-custom.btn-lg.btn-block(type="submit", value="Run Neural Network", name= "patientNNSearch", id="patientNNSearch", tabindex="5")
+                    div.row.text-center
+                        div.col-md-6.col-md-offset-3
+                            | Search for Patient:
+                            strong
+                                | {{patient.name}} {{patient.sname}}
+                            br
+                            | In
+                            strong
+                                |  {{patient.form}}
+                            |  Form
+
+            div.row.text-center#NNDIv
+                div.col-md-8.col-md-offset-3
+                    if(outcome == "Survive")
+                        p= patientName + " with " + formName + " is likely to " + outcome + " from cancer"
+                        br
+                    if(outcome == "Die")
+                        p= patientName + " with " + formName + " is likely to " + outcome + " from cancer within an average of "+ year
+                        br
+                    if(die || survive)
+                        p= die + " % of your patients with " + formName + " are likely to " + " die from cancer."
+                        br
+                        p= survive + " % of your patients with " + formName + " are likely to " + " survive having cancer."
+
+
+
+
+
+
+
 
