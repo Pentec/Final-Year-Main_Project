@@ -4,6 +4,13 @@
  License Information at <http://www.fusioncharts.com/license>
 */
 
+var globalData;
+function CollectDataFromClient(data)
+{
+	globalData =  data;		
+	alert(globalData);
+}
+
 var managementData = {
     yearlySalesSummaryCategories: [{
         "label": "None"

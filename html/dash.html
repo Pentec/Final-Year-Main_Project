@@ -23,6 +23,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>PIMS Dashboard</title>
     <!-- Include CSS files -->
+	 <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <!-- Include layout file for dashboard -->
     <link rel="stylesheet" type="text/css" href="css/layout.css" />
@@ -50,32 +51,23 @@
 
 	<script>
 		
-		  $.ajax({
-                                    type: 'POST',
-                                    url: '/dataNormalizer',
-                                    beforeSend: function(xhr){
-                                        $("#search").html("<img src='/images/loader.gif' height = '30px' />");
-                                    },
-                                    data: JSON.stringify({
-                                        forQuerin g: {
-                                            start: startDate,
-                                            end: endDate,
-                                            periodQuery: period,
-                                            statsQuery: stats
-                                        }
+	$( document ).ready(function() {
 
-										}),
-                                    success: function (data, textStatus, jqXHR){
-                                    
-									$("#search").html("Query");
-                                        var res = JSON.parse(jqXHR.responseText);
-                                        var resBus = JSON.stringify(res.myStatsArry);
-                                        updateGraph(res.myStatsArry, "Test");
-
-										},
-                                    dataType: "json",
-                                    contentType: "application/json"
+			$.ajax({
+						type: 'POST',
+						url: '/fetchDataFromDB',
+						success: function (data, textStatus, jqXHR){
+						
+						  var res = JSON.parse(jqXHR.responseText);
+						  var resBus = JSON.stringify(res);
+                          CollectDataFromClient(resBus);
+						 
+							
+							},
+						dataType: "json",
+						contentType: "application/json"
                 });
+});
 		
 	</script>
 	
