@@ -1,12 +1,41 @@
 {
   "name": "Pentec_PIMS",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/Pentec/Pentec_PIMS",
-  "description": "All angular related information to be kept here",
+  "authors": [
+    "u11310856 <taustin.swim@gmail.com>",
+    "lizjoseph <u10075268@tuks.co.za",
+    "lindelo <olednil@gmail.com>",
+    "RuthOjo <ruthojo93@gmail.com>",
+    "MariaQumayo <mariaqumayo38@gmail.com>"
+  ],
+  "description": "Client-side dependencies with AngularJS.",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
   "license": "MIT",
   "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
   "dependencies": {
-    "angular": "latest",
-    "angular-perfect-scrollbar": "~0.0.4"
+    "angular": "~1.4.5",
+    "angular-animate": "~1.4.5",
+    "angular-bootstrap": "~0.13.4",
+    "angular-cookies": "~1.4.5",
+    "angular-mocks": "~1.4.5",
+    "angular-perfect-scrollbar": "~0.0.4",
+    "angular-resource": "~1.4.5",
+    "angular-route": "~1.4.5",
+    "angular-sanitize": "~1.4.5",
+    "angular-touch": "~1.4.5",
+    "animate.css": "~3.4.0",
+    "bootstrap": "~3.3.5"
+  },
+  "devDependencies": {
+    "angular-ui-router": "~0.2.15"
   }
 }

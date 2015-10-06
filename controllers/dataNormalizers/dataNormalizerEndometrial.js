@@ -1,7 +1,7 @@
 var express = require('express');
 var submodules = "../../sub-modules/";
 var models = require(submodules + 'pims-database/database');
-var cervical = models.cervicalCancer;
+var endometrial = models.endometrialCancer;
 
 
 var MAX = 1; //Maximum value for scaling
@@ -15,51 +15,53 @@ var MIN = -1; //Minimum value for scaling
  */
 var getNormalizedData = function(name, surname, callback) {
 
-    cervical.findOne({Name: name}, function(err, patient){
+    endometrial.findOne({Name: name}, function(err, patient){
+        if(!err) {
 
-        if(err)
+            if(patient){
+                var dataArray,
+                    returnArray = null;
+
+                dataArray = [
+                    normalizeAge(patient),
+                    normalizeHIV(patient),
+                    normalizeCD4(patient),
+                    normalizeFigoStage(patient),
+                    normalizeOfDistantMetastase(patient),
+                    normalizeHistology(patient),
+                    normalizeDifferentiation(patient),
+                    normalizeprimaryTreatment(patient),
+                    normalizetypeOfSurgery(patient),
+                    normalizetypeOfRadiotherapy(patient),
+                    normalizeresponseToTreatment(patient),
+                    normalizeRelapse(patient),
+                    normalizelastKnownVitalStatus(patient)
+
+                ];
+
+                returnArray = [dataArray[0]];
+
+                for(var i = 1; i < dataArray.length; i++){
+                    //console.log(dataArray[i] + " | ");
+                    //adds all values into an array; neural network input nodes are to be an array
+                    returnArray = returnArray.concat([dataArray[i]]);
+                }
+
+
+                //return dataArray;
+                return callback(returnArray);
+            }
+            else{
+                return callback(null);
+            }
+
+
+        }
+        else
         {
             throw new Error('Database error: No such patient');
             return callback(err);
         }
-
-        if(patient) {
-
-            var dataArray,
-                returnArray = null;
-
-            dataArray = [
-                normalizeAge(patient),
-                normalizeHIV(patient),
-                normalizeCD4(patient),
-                normalizeFigoStage(patient),
-                normalizeOfDistantMetastase(patient),
-                normalizeHistology(patient),
-                normalizeDifferentiation(patient),
-                normalizeprimaryTreatment(patient),
-                normalizetypeOfSurgery(patient),
-                normalizetypeOfRadiotherapy(patient),
-                normalizeresponseToTreatment(patient),
-                normalizeRelapse(patient),
-                normalizelastKnownVitalStatus(patient)
-
-            ];
-
-            returnArray = [dataArray[0]];
-
-            for(var i = 1; i < dataArray.length; i++){
-                //console.log(dataArray[i] + " | ");
-                //adds all values into an array; neural network input nodes are to be an array
-                returnArray = returnArray.concat([dataArray[i]]);
-            }
-            //return callback(dataArray);
-            return callback(returnArray);
-
-        }
-        else{
-            return callback(null);
-        }
-
     });
 };
 
@@ -72,29 +74,29 @@ var normalizeFigoStage =  function(patient){
 
     var value = 0;
 
-    if(patient.figoStage.Ia1 == true)
+    if(patient.figoStage.Ia == true)
         value = 1/12;
-    else if(patient.figoStage.Ia2 == true)
+    else if(patient.figoStage.Ib == true)
         value = 2/12;
-    else if(patient.figoStage.Ib1 == true)
+    else if(patient.figoStage.Ic == true)
         value = 3/12;
-    else if(patient.figoStage.Ib2 == true)
+    else if(patient.figoStage.IIa == true)
         value = 4/12;
-    else if(patient.figoStage.IIa1 == true)
-        value = 5/12;
-    else if(patient.figoStage.IIa2 == true)
-        value = 6/12;
     else if(patient.figoStage.IIb == true)
-        value = 7/12;
+        value = 5/12;
     else if(patient.figoStage.IIIa == true)
-        value = 8/12;
+        value = 6/12;
     else if(patient.figoStage.IIIb == true)
-        value = 9/12;
+        value = 7/12;
+    else if(patient.figoStage.IIIc == true)
+        value = 8/12;
     else if(patient.figoStage.IVa == true)
-        value = 10/12;
+        value = 9/12;
     else if(patient.figoStage.IVb == true)
-        value = 11/12;
+        value = 10/12;
     else if(patient.figoStage.Unknown == true)
+        value = 11/12;
+    else if(patient.figoStage.StageUnavailable == true)
         value = 12/12;
 
     return ((value - MIN)/(MAX - MIN));
@@ -109,22 +111,24 @@ var normalizeOfDistantMetastase =  function(patient){
 
     var value = 0;
 
-    if(patient.siteOfDistantMetastase.Nil == true)
-        value = 1/8;
-    else if(patient.siteOfDistantMetastase.Lung == true)
-        value = 2/8;
-    else if(patient.siteOfDistantMetastase.Liver == true)
-        value = 3/8;
-    else if(patient.siteOfDistantMetastase.Bowel == true)
-        value = 4/8;
-    else if(patient.siteOfDistantMetastase.Bone == true)
-        value = 5/8;
-    else if(patient.siteOfDistantMetastase.Brain == true)
-        value = 6/8;
-    else if(patient.siteOfDistantMetastase.Other == true)
-        value = 7/8;
-    else if(patient.siteOfDistantMetastase.Unknown == true)
-        value = 8/8;
+    if(patient.Metastase.Nil == true)
+        value = 1/9;
+    else if(patient.Metastase.UterineSerosa == true)
+        value = 2/9;
+    else if(patient.Metastase.Vagina == true)
+        value = 3/9;
+    else if(patient.Metastase.Adnexa == true)
+        value = 4/9;
+    else if(patient.Metastase.BladdeBowelMucosa == true)
+        value = 5/9;
+    else if(patient.Metastase.IntraAbdominal == true)
+        value = 6/9;
+    else if(patient.Metastase.InguinalNodes == true)
+        value = 7/9;
+    else if(patient.Metastase.Distant == true)
+        value = 8/9;
+    else if(patient.Metastase.Unknown == true)
+        value = 8/9;
 
     return ((value - MIN)/(MAX - MIN));
 };
@@ -138,18 +142,24 @@ var normalizeHistology =  function(patient){
 
     var value = 0;
 
-    if(patient.Histology.Squamous == true)
-        value = 1/6;
-    else if(patient.Histology.Adeno == true)
-        value = 2/6;
+    if(patient.Histology.NilUnclassifiable == true)
+        value = 1/9;
+    else if(patient.Histology.EndometrioidAdeno == true)
+        value = 2/9;
     else if(patient.Histology.Adenosquamous == true)
-        value = 3/6;
+        value = 3/9;
     else if(patient.Histology.Clearcell == true)
-        value = 4/6;
+        value = 4/9;
+    else if(patient.Histology.MucinousAdeno == true)
+        value = 5/9;
+    else if(patient.Histology.PapillarySerous == true)
+        value = 6/9;
+    else if(patient.Histology.Squamous == true)
+        value = 7/9;
     else if(patient.Histology.Other == true)
-        value = 5/6;
+        value = 8/9;
     else if(patient.Histology.Unknown == true)
-        value = 6/6;
+        value = 9/9;
 
     return ((value - MIN)/(MAX - MIN));
 };
@@ -169,6 +179,8 @@ var normalizeDifferentiation =  function(patient){
         value = 2/3;
     else if(patient.Differentiation.Poorly == true)
         value = 3/3;
+    else if(patient.Differentiation.Unknown == true)
+        value = 4/4;
 
     return ((value - MIN)/(MAX - MIN));
 };
@@ -182,26 +194,22 @@ var normalizeprimaryTreatment =  function(patient){
 
     var value = 0;
 
-    if(patient.primaryTreatment.Nil == true)
-        value = 1/10;
-    else if(patient.primaryTreatment.SurgeryAlone == true)
-        value = 2/10;
-    else if(patient.primaryTreatment.RTAlone == true)
-        value = 3/10;
-    else if(patient.primaryTreatment.NeoAdjuvantCTSurgery == true)
-        value = 4/10;
-    else if(patient.primaryTreatment.SurgeryAdjuvantRTCRT == true)
-        value = 5/10;
-    else if(patient.primaryTreatment.SurgeryAdjuvantCT == true)
-        value = 6/10;
-    else if(patient.primaryTreatment.Chemoradiation == true)
-        value = 7/10;
-    else if(patient.primaryTreatment.CTAlone == true)
-        value = 8/10;
-    else if(patient.primaryTreatment.Unknown == true)
-        value = 9/10;
-    else if(patient.primaryTreatment.Other == true)
-        value = 10/10;
+    if(patient.primaryTreatmentPerformed.Nil == true)
+        value = 1/8;
+    else if(patient.primaryTreatmentPerformed.SurgeryAlone == true)
+        value = 2/8;
+    else if(patient.primaryTreatmentPerformed.SurgeryAdjuvantRT == true)
+        value = 3/8;
+    else if(patient.primaryTreatmentPerformed.SurgeryAdjuvantCT == true)
+        value = 4/8;
+    else if(patient.primaryTreatmentPerformed.AdjuvantHT == true)
+        value = 5/8;
+    else if(patient.primaryTreatmentPerformed.HormonalPrimaryTherapy == true)
+        value = 6/8;
+    else if(patient.primaryTreatmentPerformed.Other == true)
+        value = 7/8;
+    else if(patient.primaryTreatmentPerformed.Unknown == true)
+        value = 8/8;
 
     return ((value - MIN)/(MAX - MIN));
 };
@@ -215,36 +223,24 @@ var normalizetypeOfSurgery =  function(patient){
 
     var value = 0;
 
-    if(patient.typeOfSurgery.Conization == true)
-        value = 1/15;
-    else if(patient.typeOfSurgery.AmputationOfCervix == true)
-        value = 2/15;
-    else if(patient.typeOfSurgery.RTNoLND == true)
-        value = 3/15;
-    else if(patient.typeOfSurgery.RTwithLND == true)
-        value = 4/15;
-    else if(patient.typeOfSurgery.TAHnoLND == true)
-        value = 5/15;
-    else if(patient.typeOfSurgery.TAHwithLND == true)
-        value = 6/15;
-    else if(patient.typeOfSurgery.VHnoLND == true)
-        value = 7/15;
-    else if(patient.typeOfSurgery.VHwithLND == true)
-        value = 8/15;
-    else if(patient.typeOfSurgery.RHnoLND == true)
-        value = 9/15;
-    else if(patient.typeOfSurgery.RHwithLND == true)
-        value = 10/15;
-    else if(patient.typeOfSurgery.RadVHnoLND == true)
-        value = 11/15;
-    else if(patient.typeOfSurgery.RadVHwithLND == true)
-        value = 12/15;
-    else if(patient.typeOfSurgery.AnyKindOfExenteration == true)
-        value = 13/15;
+    if(patient.typeOfSurgery.SimpleAbdHystNoLND == true)
+        value = 1/9;
+    else if(patient.typeOfSurgery.SimpleAbdHystWithLND == true)
+        value = 2/9;
+    else if(patient.typeOfSurgery.SimpleVagHystNoLND == true)
+        value = 3/9;
+    else if(patient.typeOfSurgery.SimpleVagHystWithLND == true)
+        value = 4/9;
+    else if(patient.typeOfSurgery.RadicalAbdHystNoLND == true)
+        value = 5/9;
+    else if(patient.typeOfSurgery.RadicalAbdHystWithLND == true)
+        value = 6/9;
+    else if(patient.typeOfSurgery.AnyKindOfexenteration == true)
+        value = 7/9;
     else if(patient.typeOfSurgery.Unknown == true)
-        value = 14/15;
+        value = 8/9;
     else if(patient.typeOfSurgery.Other == true)
-        value = 15/15;
+        value = 9/9;
 
     return ((value - MIN)/(MAX - MIN));
 };
@@ -326,13 +322,13 @@ var normalizelastKnownVitalStatus =  function(patient){
 
     var value = 0;
 
-    if(patient.lastKnownVitalStatus.AliveUnknownDiseaseStatus == true)
+    if(patient.LastKnownVitalStatus.AliveUnknownDiseaseStatus == true)
         value = 1/4;
-    else if(patient.lastKnownVitalStatus.AliveAndNoEvidenceOfDisease == true)
+    else if(patient.LastKnownVitalStatus.AliveAndNoEvidenceOfDisease == true)
         value = 2/4;
-    else if(patient.lastKnownVitalStatus.AliveWithDisease == true)
+    else if(patient.LastKnownVitalStatus.AliveWithDisease == true)
         value = 3/4;
-    else if(patient.lastKnownVitalStatus.Dead == true)
+    else if(patient.LastKnownVitalStatus.Dead == true)
         value = 4/4;
 
     return ((value - MIN)/(MAX - MIN));
@@ -363,17 +359,13 @@ var normalizeAge = function(patient){
  * @returns {number}: the input value to be added in dataArray.
  */
 var normalizeCD4 = function(patient){
-    //normal CD4 count for HIV negative is 500-1500 cells/mm3; for HIV positive it can be around here or go down to even zero
-    var cd4 = patient.HIV.CD4 ;
 
-    if(patient.HIV.HIVStatus == 'P' || patient.HIV.HIVStatus == 'Positive' || patient.HIV.HIVStatus == 'positive')
+    var cd4 = patient.CD4 ;
+
+    if(patient.HIVStatus.Positive == true)
         var value = (cd4/Math.pow(10,3.5));
-    else{
-        //HIV status is positive, value to be returned is close to 1; Neural Network accepts decimal values
-        //because CD4 count can vary, this value has been accepted as a default
-        var value = 0.9998;
-    }
-
+    else
+        var value = 1;
 
     return value;
 };
@@ -385,14 +377,12 @@ var normalizeCD4 = function(patient){
  */
 var normalizeHIV = function(patient){
 
-    var status = patient.HIV.HIVStatus;
-
     var value = 0;
 
-    if(status == 'N' || status == 'Negative' || status == 'negative')
-        value = 0.9;
-    else if(status == 'P' || status == 'Positive' || status == 'positive')
-        value = 0.1;
+    if(patient.HIVStatus.Negative == true)
+        value = 1;
+    else if (patient.HIVStatus.Positive == true)
+        value = -1;
 
     return value;
 };

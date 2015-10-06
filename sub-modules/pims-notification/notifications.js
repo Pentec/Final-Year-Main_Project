@@ -70,6 +70,8 @@ var sendEmail = function(email, msg, patientname){
 
 }
 
-module.exports.findPatient = findPatient;
-module.exports.sendEmail = sendEmail;
+module.exports = {
+    findPatient: findPatient,
+    sendEmail: sendEmail
+}
 

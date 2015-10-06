@@ -51,7 +51,7 @@ block content
                     li.sub.statisticstab
                         a(href='\dash.html') Dashboard
                     li#Predict
-                        a(Href='#') Predict
+                        a(Href='/neural') Predict
                 ul.nav.navbar-nav.navbar-right
                     li.nobar.has-sub#settings
                         a(href='#')
@@ -64,3 +64,4 @@ block content
                     input.form-control(type='text', placeholder='Search')
     div.content
         block mainContent
+            //a(href='#/neural/{{userID._id}}') Neural Network
