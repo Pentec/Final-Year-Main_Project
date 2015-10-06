@@ -60,7 +60,7 @@ app.use('/findSelectedQuery', routes);
 app.use('/create', routes);
 app.use('/profile', routes);
 app.use('/add', routes);
-app.use('/stats', stats);  //for html rms
+app.use('/fetchDataFromMongo', routes);  //for html rms
 app.use('/gynaecology_surgery', gynaecology_surgery);
 app.use('/addmission_discharge', addmission_discharge);
 app.use('/cervical_cancer', cervical_cancer);

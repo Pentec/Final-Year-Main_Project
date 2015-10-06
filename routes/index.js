@@ -465,6 +465,16 @@ router.post('/create', isLoggedIn, function(req, res) {
 
 });
 
+router.post('/fetchDataFromMongo', function(req, res, next) {
+
+
+console.log("I was here");
+res.redirect('/dash');
+
+
+});
+
+
 /* GET form builder page page. */
 router.get('/viewForms', isLoggedIn, function(req, res, next) {
 
