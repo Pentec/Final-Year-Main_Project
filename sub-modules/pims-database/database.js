@@ -777,10 +777,10 @@ var VaginalCancer = new Schema({
         Unknown: {type: Boolean, title: 'Unknown'}
     },
 
-    InvolvedVaginalSites{
-            UpperThird:{type:Bollean, title:'Upper third'},
-            MiddleThird:{type:Bollean, title:'Middle third'},
-            LowerThird:{type:Bollean, title:'Lower third'},
+    InvolvedVaginalSites: {
+            UpperThird:{type:Boolean, title:'Upper third'},
+            MiddleThird:{type:Boolean, title:'Middle third'},
+            LowerThird:{type:Boolean, title:'Lower third'},
             Unknown: {type: Boolean, title: 'Unknown'}
     },
 
@@ -894,7 +894,7 @@ var VaginalCancer = new Schema({
         NNotEvaluated: {type: Boolean, title: 'Not evaluated'},
         PosNodes: {type: Boolean, title: 'Pos nodes'},
         NegNodes: {type: Boolean, title: 'Neg nodes'},
-        Unknown: {type: Boolean, title: 'Unknown'}
+        Unknown: {type: Boolean, title: 'Unknown'},
 
     /*(paraortic = distant metastases)*/
         NodesInvolved: {
@@ -985,6 +985,6 @@ module.exports = {
 	addmissionDischarge: addmissionDischarge,
 	cervicalCancer: cervicalCancer,
     endometrialCancer: endometrialCancer,
-    oncologyFollowUpVisit: oncologyFollowUpVisit
+    oncologyFollowUpVisit: oncologyFollowUpVisit,
     vaginalCancer: vaginalCancer
 };

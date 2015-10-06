@@ -1,6 +1,10 @@
 /*---------------------------------------------*/
 
 
+.options{
+    min-height: 314px;
+}
+
 img.link:hover {
 	-ms-transform: rotate(7deg); /* IE 9*/
     -webkit-transform: rotate(7deg); 
