@@ -2,6 +2,7 @@
 .area {
     position: relative;
     margin: 0px auto;
+    margin-top: 85px;
     padding: 0px;
     height: 100%;
     overflow: hidden;
@@ -10,12 +11,13 @@
 .graphbox {
     min-width: 1050px;
     width: 80%;
-    margin-top: 90px;
+    margin-top: 5px;
     border-radius: 5px;
     border: 2px solid #d6d6d6;
     background-color: white;
     padding: 0;
     position: relative;
+    margin-bottom: 100px;
 }
 
 @media (max-width: 767px) {
