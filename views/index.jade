@@ -44,8 +44,12 @@ block content
                                 a(href='#', tabindex='-1') Ovarian Cancer
                                 a(href='/vaginal_cancer.html', tabindex='-1') Vaginal Cancer
                                 a(href='#', tabindex='-1') Vulva Cancer
-                    li#statisticstab
-                        a(href='/stats') Statistics
+                    li.has-sub#statisticstab
+                        a(href='#' role='button') Statistics
+                    li.sub.statisticstab
+                        a(href='\stats') Query
+                    li.sub.statisticstab
+                        a(href='\dash.html') Dashboard
                     li#Predict
                         a(Href='/neural') Predict
                 ul.nav.navbar-nav.navbar-right
