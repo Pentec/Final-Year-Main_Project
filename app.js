@@ -13,7 +13,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
 var users = require('./routes/users'); 
-var stats = require('./routes/stats');//stats route
+var fetchDataFromDB = require('./routes/fetchDataFromDB');//stats route
 
 //schemas
 var gynaecology_surgery = require('./routes/forms/gynaecology_surgery');
@@ -61,7 +61,7 @@ app.use('/findSelectedQuery', routes);
 app.use('/create', routes);
 app.use('/profile', routes);
 app.use('/add', routes);
-app.use('/stats', stats);  //for html rms
+app.use('/fetchDataFromDB', fetchDataFromDB);  //for html rms
 app.use('/gynaecology_surgery', gynaecology_surgery);
 app.use('/addmission_discharge', addmission_discharge);
 app.use('/cervical_cancer', cervical_cancer);

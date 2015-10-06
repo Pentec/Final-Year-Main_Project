@@ -1,0 +1,394 @@
+/*
+ FusionCharts JavaScript Library
+ Copyright FusionCharts Technologies LLP
+ License Information at <http://www.fusioncharts.com/license>
+*/
+/* Common CSS Styles section begins */
+
+body {
+    background: #F9F9F9;
+}
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+.clearboth {
+    clear: both;
+}
+.text-right {
+    text-align: right;
+}
+/* Common CSS Styles section ends */
+
+#wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, Verdana;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+}
+/* Header section begins */
+
+.header {
+    padding: 11px 0 9px 0;
+    overflow: hidden;
+    border-bottom: 1px solid #979797;
+}
+.ie6 .header {
+    height: 44px;
+}
+.logo {
+    float: left;
+    padding-right: 25px;
+}
+.download-code-link {
+    background-color: #594883;
+    border-radius: 2px;
+    color: #fff;
+    float: right;
+    font-size: 13px;
+    margin: 5px 0;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+/* Header section ends */
+
+#container {
+    padding: 10px;
+}
+/* Dashboard title section begins */
+
+#fflogo {
+    width: 400px;
+    margin-bottom: 30px;
+    background: url('/images/newlogo.png');
+    height: 100px;
+    background-repeat: no-repeat;
+    margin-left: 41px;
+}
+/* Logo Section */
+
+.logo-container {
+    width: 191px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    background-image: url("../img/logo@2x.png");
+    background-size: 109px 41px;
+}
+/* Dashboard & Sidebar Section */
+
+#dashboard-content {
+    width: 100%;
+}
+#sidebar {
+    position: absolute;
+    width: 189px;
+    height: 166px;
+    padding: 16px 0 24px 0;
+    border: 1px solid #D4D4D4;
+    border-right: none;
+    margin-top: 10px;
+    box-shadow: inset -15px 0 35px rgba(0, 0, 0, 0.10);
+    background-color: #FFF;
+    -moz-box-shadow: inset -15px 0 35px rgba(0, 0, 0, 0.10);
+    -webkit-box-shadow: inset -15px 0 35px rgba(0, 0, 0, 0.10);
+}
+#profile-pic {
+    margin: 0 9px 15px 10px;
+}
+#profile-name {
+    font-family: "LucidaGrande", Helvetica, Arial, Verdana;
+    font-size: 12px;
+    color: #333333;
+    line-height: 15px;
+    margin-top: 10px;
+}
+#main-menu {
+    width: 169px;
+    height: 12px;
+    padding: 10px;
+    background: #F6F6F6;
+    border-top: 1px solid #D4D4D4;
+    border-bottom: 1px solid #D4D4D4;
+}
+#main-menu h4 {
+    font-family: "LucidaGrande", Helvetica, Arial, Verdana;
+    font-size: 13px;
+    color: #000000;
+    line-height: 16px;
+    margin-left: 9px;
+}
+#main-menu-icon {
+    width: 14px;
+    height: 14px;
+}
+#down-arrow {
+    background-position: -15px 0;
+    width: 10px;
+    height: 6px;
+    margin-top: 5px;
+}
+.icon {
+    background: url('../img/icons.png') no-repeat 0 0;
+}
+#sub-menu {
+    width: 180px;
+    padding: 8px 0 0 10px;
+    list-style: none;
+}
+#sub-menu li {
+    margin: 10px 0;
+}
+#sub-menu li a {
+    font-family: "LucidaGrande", Helvetica, Arial, Verdana;
+    font-size: 13px;
+    color: #666666;
+    line-height: 16px;
+    text-decoration: none;
+    display: block;
+}
+#sub-menu li a.active {
+    font-family: "LucidaGrande-Bold", Helvetica, Arial, Verdana;
+    color: #333333;
+}
+.chart-content {
+    width: 988px;
+    padding: 8px 0 15px 0;
+    background: #FFFFFF;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    -webkit-box-shadow: 8px 2px 18px 2px rgba(229, 231, 232, 0.91);
+    box-shadow: 8px 2px 18px 2px rgba(229, 231, 232, 0.91);
+}
+.chart-category {
+    width: 473px;
+    border-right: 1px dotted #4A4A4A;
+    padding: 8px 10px 20px 10px;
+    height: 350px;
+    margin-bottom: 32px;
+}
+.chart-category.no-border {
+    border-right: none;
+}
+.chart-category.full-width {
+    width: 968px;
+    clear: both;
+    border-right: none;
+}
+select {
+    width: 92px;
+    height: 20px;
+    margin-left: 20px;
+    margin-top: -2px;
+    background-image: -o-linear-gradient(-89deg, #FFFFFF 0%, #CCCCCC 100%);
+    background-image: -moz-linear-gradient(-89deg, #FFFFFF 0%, #CCCCCC 100%);
+    background-image: -ms-linear-gradient(-89deg, #FFFFFF 0%, #CCCCCC 100%);
+    background-image: linear-gradient(-179deg, #FFFFFF 0%, #CCCCCC 100%);
+    border: 1px solid #979797;
+}
+.chart-category-heading {
+    font-family: "LucidaGrande-Bold", Helvetica, Arial, Verdana;
+    font-size: 15px;
+    color: #000000;
+    line-height: 18px;
+    margin-bottom: 10px;
+}
+.divider {
+    width: 100%;
+    height: 1px;
+    border-top: 1px solid #979797;
+}
+.chart-category .single-half {
+    width: 235px;
+}
+.tabs-wrapper {
+    width: 988px;
+    min-height: 400px;
+    border: 1px solid #D4D4D4;
+    float: right;
+}
+/* Dashboard title section ends */
+/* Footer section begins */
+
+.footer {
+    padding: 14px 0px 23px 0;
+    font-family: Verdana, sans-serif;
+    font-size: 10px;
+    color: #666;
+    line-height: 15px;
+    width: 100%;
+    margin-left: 190px;
+}
+.footer a {
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #333;
+}
+/* Footer section ends */
+
+.hidden {
+    display: none;
+}
+/* modal Section */
+
+.modal {
+    border: 2px solid #fff;
+    background: #f5f5f5;
+    z-index: 1;
+    padding: 20px;
+    width: 968px;
+    position: absolute;
+}
+#modal-inner {
+    margin-top: 35px !important;
+}
+#modalWrapper {
+    z-index: 0;
+    visibility: hidden;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+#modalWrapper h3 {
+    position: absolute;
+    padding: 20px 25px;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.close-modal {
+    position: relative;
+    margin-top: 20px;
+    font-size: 20px;
+    float: right;
+    color: #666;
+    text-decoration: none;
+    font-weight: bold;
+}
+a#close-modal:visited, a#close-modal:hover, a#close-modal:focus {
+    color: #666;
+    text-decoration: none;
+    font-weight: bold;
+}
+.drill-caption {
+    float: right;
+    background: #FFFFFF;
+    color: #666;
+    font-style: italic;
+    font-family: serif;
+    padding-top: 5px;
+}
+.drill-caption-wrapper {
+    overflow: hidden;
+    background: #FFFFFF;
+}
+.modal-body, .modal-header {
+    position: relative;
+    top: 5%;
+    width: 980px;
+    margin: 0px auto;
+}
+.modal-header {
+    z-index: 9999999999;
+}
+/* Table Section */
+
+table {
+    width: 100%;
+    overflow: auto;
+}
+table thead {
+    background: #f5f5f5;
+}
+table thead tr th {
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+table tbody tr td {
+    padding: 10px;
+}
+.table {
+    height: 100%;
+    overflow: auto;
+}
+.top-level-select-filter {
+    margin-top: 15px;
+    float: right;
+}
+table tbody tr.odd-row {
+    background: #EEEEEE;
+}
+.top-level-select-filter select {
+    margin-left: 5px;
+}
+#loader {
+    text-align: center;
+    position: relative;
+    top: 175px;
+}
+/* Custom Tooltip Styles */
+
+div.tooltip-border {
+    padding-top: 5px;
+    border-bottom: 1px solid #888888;
+}
+div.tooltip-content {
+    padding-top: 5px;
+}
+/* IE7 specific styles */
+
+.ie8 #modalWrapper, .ie7 #modalWrapper, .ie6 #modalWrapper {
+    background: url('../img/overlay.png') repeat;
+}
+.ie7 #modal-title, .ie7 #close-modal {
+    top: 40px;
+}
+.ie7 #modalWrapper, .ie6 #modalWrapper {
+    left: 0px;
+}
+.ie6 body, .ie6 html {
+    height: 100%;
+    width: 100%;
+}
+.ie6 #modalWrapper {
+    position: absolute;
+    z-index: 0;
+}
+.ie6 #modal-title, .ie6 #close-modal {
+    top: 40px;
+}
+.ie6 select#global_year_filter {
+    margin-top: 0px;
+}
+.ie6 #sidebar {
+    border-right: 1px solid #D4D4D4;
+}
+.ie6 .chart-content {
+    margin-right: -1px;
+}
+.ie6 .top-customers-table {
+    width: 460px;
+}
+.ie6 .top-level-select-filter span {
+    position: relative;
+    top: -3px;
+}
+.ie6 #sub-menu {
+    padding-top: 20px;
+}
+.ie6 .tabs-wrapper {
+    width: 987px;
+}
+.ie6 #sidebar {
+    padding-bottom: 0px;
+}
