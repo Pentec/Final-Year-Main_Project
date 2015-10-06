@@ -8,7 +8,7 @@
 }
 
 .graphbox {
-    min-width: 1210px;
+    min-width: 1050px;
     width: 80%;
     margin-top: 90px;
     border-radius: 5px;
@@ -54,6 +54,7 @@
 
 .graph-interaction h2 {
     margin: 0;
+    font-size: 24px;
 }
 
 .graph-interaction {
@@ -81,10 +82,12 @@
 .stats-section {
     padding: 4%;
     position: relative;
+    padding-bottom: 1%;
 }
 
 .overall-stats {
     padding-right: 15%;
+    padding-bottom: 1%;
 }
 
 .form-group {
@@ -101,7 +104,7 @@
     font-size: 14px;
     height: 100%;
     font-weight: 700;
-    padding: 13px;
+    padding: 10px;
     margin: 0;
     box-sizing: border-box;
     display: inline-block;
@@ -132,7 +135,7 @@ div.cs-skin-elastic{
     color: #fff;
     background-color: #0462b7;
     border: none;
-    padding: 13px;
+    padding: 10px;
     border-radius: 0;
     height: 100%;
     vertical-align: middle;
@@ -160,11 +163,15 @@ div.cs-skin-elastic{
     font-size: 14px;
     height: 100%;
     font-weight: 700;
-    padding: 13px;
+    padding: 10px;
     margin: 0;
     box-sizing: border-box;
     display: inline-block;
     border-radius: 0;
+}
+
+#mainQuery .form-group{
+    line-height: 1.0
 }
 
 /*------------------------------------------Options-------------------------------*/
@@ -177,7 +184,6 @@ div.cs-skin-elastic{
 
 .stats-section .input-group input:hover {
     transform: scale(1, 1.1);
-
 }
 
 .blue {
