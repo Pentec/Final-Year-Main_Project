@@ -7,9 +7,9 @@
 var ratio = 0.54;
 var x, y, xAxis, yAxis, parseDate, path, data, svg, yAxisName;
 
-x = function (x) {
+/*x = function (x) {
     return x;
-};
+};*/
 
 $(document).ready(function () {
     init();
@@ -50,7 +50,7 @@ function createGraph(data, yAxisName) {
 
     xAxis = d3.svg.axis()
         .scale(x)
-        .orient("bottom").ticks(3);
+        .orient("bottom").ticks(10);
 
     yAxis = d3.svg.axis()
         .scale(y)
@@ -61,7 +61,7 @@ function createGraph(data, yAxisName) {
         })
         .y(function (d) {
             return y(d.close);
-        }).interpolate("linear");
+        });
 
     svg = d3.select(".graph").append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -73,12 +73,18 @@ function createGraph(data, yAxisName) {
         d.date = parseDate(d.date);
         d.close = +d.close;
     });
+
     x.domain(d3.extent(data, function (d) {
         return d.date;
     }));
-    y.domain(d3.extent(data, function (d) {
+    var minMax = d3.extent(data, function (d) {
         return d.close;
-    }));
+    })
+    minMax[0] -= minMax[1] * 0.2;
+    if(minMax[0]<0)
+        minMax[0]=0;
+    minMax[1] += minMax[1] * 0.2;
+    y.domain(minMax);
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
@@ -111,9 +117,14 @@ function updateGraph(data, yAxisName) {
     x.domain(d3.extent(data, function (d) {
         return d.date;
     }));
-    y.domain(d3.extent(data, function (d) {
+    var minMax = d3.extent(data, function (d) {
         return d.close;
-    }));
+    })
+    minMax[0] -= minMax[1] * 0.2;
+    if(minMax[0]<0)
+        minMax[0]=0;
+    minMax[1] += minMax[1] * 0.2;
+    y.domain(minMax);
 
     var svg = d3.select(".graph").transition();
 
@@ -138,7 +149,7 @@ function submit() {
 }
 
 function anim() {
-    alert("running");
+    var tempData = $.extend(true, [], data);
     var json = [
         {
             "date": "07-12-2012",
@@ -225,33 +236,76 @@ function anim() {
     json.sort(function (a, b) {
         return new Date(a.date).getTime() - new Date(b.date).getTime();
     });
-    alert(JSON.stringify(json));
-    json.forEach(function (d) {
-        d.date = parseDate(d.date);
-        d.close = +d.close;
-        data.push(data.shift);
-        alert("running");
-        svg.selectAll("path")
-            .data([data])
-            .attr("transform", "translate(" + x(1) + ")")
-            .attr("d", line)
-            .interrupt()
-            .transition()
-            .ease("linear")
-            .duration(1000)
-            .attr("transform", "translate(" + x(0) + ")");
-    });
+    updateGraph(json, "prediction");
 }
 
 function init() {
+    $('.area').perfectScrollbar();
     [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function (el) {
         new SelectFx(el);
     });
     var dummyData = [{date: '01-06-2011', close: 0}, {date: '03-06-2011', close: 0}];
-    createGraph(dummyData, 'Admissions');
+    createGraph(dummyData, 'Number of Admissions');
     var dummyData = [{date: '01-06-2011', close: 5}, {date: '03-06-2011', close: 11}, {
         date: '03-06-2011',
         close: 12
     }, {date: '12-26-2011', close: 14}];
-    updateGraph(dummyData, 'Test');
+
+    $('#StartDate').daterangepicker(
+        {
+            locale: {
+                format: 'YYYY-MM-DD'
+            },
+            startDate: '2014-01-01',
+            endDate: '2014-12-31',
+            opens: 'left',
+            "applyClass": "btn-block btn-custom btn-top",
+            "cancelClass": "btn-block btn-bottom"
+        },
+        function (start, end, label) {
+            startDate = start.format('YYYY-MM-DD');
+            endDate = end.format('YYYY-MM-DD');
+        });
+    $("#mainQuery").on("submit", function (e) {
+        e.preventDefault();
+        var period = $('#TypeOfSearch :selected').text();
+        var stats = $('#TypeOfQuery :selected').text();
+        query(startDate, endDate, period, stats);
+    });
+    query("2014-01-01", "2014-02-28", "Monthly", "Number of Admissions");
+    //var one = #{elCount};
+    //var two =
+    //#{emCount}
+    //var data = [{value: one, color: "#dbba34"}, {value: two, color: "#c62f29"}];
+    //var canvas = document.getElementById("hours");
+    //var ctx = canvas.getContext("2d");
+    //new Chart(ctx).Doughnut(data);
+
+}
+
+function query(startDate, endDate, period, stats) {
+    $.ajax({
+        type: 'POST',
+        url: '/findSelectedQuery',
+        beforeSend: function (xhr) {
+            $("#search").html("<img src='/images/loader.gif' height = '30px' />");
+        },
+        data: JSON.stringify({
+            forQuering: {
+                start: startDate,
+                end: endDate,
+                periodQuery: period,
+                statsQuery: stats
+            }
+        }),
+        success: function (data, textStatus, jqXHR) {
+            $("#search").html("Query");
+            var res = JSON.parse(jqXHR.responseText);
+            var resBus = JSON.stringify(res.myStatsArry);
+            updateGraph(res.myStatsArry, stats);
+            //window.location = '/statistics.html?myObject=' + resBus;
+        },
+        dataType: "json",
+        contentType: "application/json"
+    });
 }
