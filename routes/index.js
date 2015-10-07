@@ -421,6 +421,7 @@ router.get('/stats', login.isLoggedIn, login.isAdmin, function (req, res, next) 
                                 GS.count({"typeOfProcedure.Emergency": true}, function (err, EmergencyCount) {
                                     GS.count({"typeOfProcedure.Elective": true}, function (err, ElectiveCount) {
                                         res.render('stats', {
+                                            title: "Statistics",
                                             avgAge: average,
                                             avgStay: averageStay,
                                             elCount: ElectiveCount,

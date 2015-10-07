@@ -75,6 +75,9 @@
     stroke: steelblue;
     stroke-width: 1.5;
 }
+svg{
+    background-color: white;
+}
 
 .date {
     position: relative;

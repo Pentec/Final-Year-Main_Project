@@ -16,6 +16,7 @@ block extFiles
     script(src="/libs/perfect-scrollbar/min/perfect-scrollbar.min.js")
     script(src='/javascripts/app.js')
     link(rel='stylesheet', href='/stylesheets/stats.css')
+    script(src='/javascripts/saveSvgAsPng.js')
     script(src='/javascripts/stats.js')
 block mainContent
     .area
@@ -84,5 +85,5 @@ block mainContent
                         .btn-group
                             button(type="button" onclick="anim()").btn.btn-custom Predict
                         .btn-group
-                            button(type="button").btn.btn-custom.blue Save as PDF
+                            button(type="button" onclick="saveAsPNG()").btn.btn-custom.blue Save as PNG
 

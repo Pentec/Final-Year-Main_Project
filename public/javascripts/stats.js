@@ -66,6 +66,7 @@ function createGraph(data, yAxisName) {
     svg = d3.select(".graph").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
+        .attr("class", "john")
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -308,4 +309,8 @@ function query(startDate, endDate, period, stats) {
         dataType: "json",
         contentType: "application/json"
     });
+}
+
+function saveAsPNG(){
+    saveSvgAsPng(document.getElementsByClassName("john")[0], "Graph.png");
 }
