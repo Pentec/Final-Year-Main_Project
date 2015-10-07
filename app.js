@@ -20,7 +20,8 @@ var gynaecology_surgery = require('./routes/forms/gynaecology_surgery');
 var addmission_discharge = require('./routes/forms/addmission_discharge');
 var cervical_cancer = require('./routes/forms/cervical_cancer');
 var endometrial_cancer = require('./routes/forms/endometrial_cancer');
-//var fallopian_tube_cancer = require('./routes/forms/fallopian_tube_cancer');
+var fallopian_tube_cancer = require('./routes/forms/fallopian_tube_cancer');
+var oncology_follow_up = require('./routes/forms/oncology_follow_up');
 
 var app = express();
 
@@ -66,6 +67,8 @@ app.use('/gynaecology_surgery', gynaecology_surgery);
 app.use('/addmission_discharge', addmission_discharge);
 app.use('/cervical_cancer', cervical_cancer);
 app.use('/endometrial_cancer',endometrial_cancer);
+app.use('/fallopian_tube_cancer', fallopian_tube_cancer);
+app.use('/oncology_follow_up',oncology_follow_up);
 app.use(scribe.express.logger());
 app.use('/logs', scribe.webPanel());
 app.use('/dataNormalizer', routes);
@@ -101,6 +104,10 @@ app.get('/endometrial_cancer', function(req, res) {
 });
 app.get('/fallopian_tube_cancer', function(req, res) {
     res.sendfile(html_dir + 'fallopian_tube_cancer.html');
+});
+
+app.get('oncology_follow_up', function(req, res) {
+    res.sendfile(html_dir + 'oncology_follow_up.html');
 });
 
 app.get('/vaginal_cancer', function(req, res) {
