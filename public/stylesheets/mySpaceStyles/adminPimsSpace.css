@@ -113,9 +113,15 @@ img.link.rotate{
     color: #002240;
 }
 
-@media (max-height: 500px){
+@media (max-height: 600px){
     #myCarousel{
         margin-top: 100px;
+    }
+}
+
+@media (max-width: 780px){
+    #myCarousel{
+        margin-top: 150px;
     }
 }
 
