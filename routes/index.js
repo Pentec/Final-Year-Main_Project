@@ -144,7 +144,7 @@ router.get('/myAdminSpace', login.isLoggedIn, login.isAdmin, function (req, res,
     sess = req.session;
 
     if (req.user) {
-        res.render('pims_space/myAdminSpace', {title: 'My PIMS Space'});
+        res.render('pims_space/myAdminSpace', {title: 'My PIMS Space', active : 'home'});
     }
     else {
         res.redirect('/login');
@@ -162,7 +162,7 @@ router.get('/mySpace', login.isLoggedIn, login.isNotAdmin, function (req, res, n
     sess = req.session;
 
     if (req.user) {
-        res.render('pims_space/mySpace', {title: 'My PIMS Space'});
+        res.render('pims_space/mySpace', {title: 'My PIMS Space', active: 'home'});
     }
     else {
         res.redirect('/login');
@@ -234,7 +234,7 @@ router.get('/addUser', login.isLoggedIn, function (req, res, next) {
     sess = req.session;
 
     if (req.user) {
-        res.render('addUser', {title: 'Kalafong PIMS - Add New User'});
+        res.render('addUser', {title: 'Kalafong PIMS - Add New User', active: 'user'});
     }
     else {
         res.redirect('/login');
@@ -250,7 +250,7 @@ router.get('/editProfile', login.isLoggedIn, function (req, res, next) {
         User.find({username: "Leon"}, function (err, users) {
             res.render(
                 'editProfile',
-                {title: 'Edit Your Profile', user: users[0]}
+                {title: 'Edit Your Profile', user: users[0], active: 'editProfile'}
             );
         });
     }
@@ -421,10 +421,12 @@ router.get('/stats', login.isLoggedIn, login.isAdmin, function (req, res, next) 
                                 GS.count({"typeOfProcedure.Emergency": true}, function (err, EmergencyCount) {
                                     GS.count({"typeOfProcedure.Elective": true}, function (err, ElectiveCount) {
                                         res.render('stats', {
+                                            title: "Statistics",
                                             avgAge: average,
                                             avgStay: averageStay,
                                             elCount: ElectiveCount,
-                                            emCount: EmergencyCount
+                                            emCount: EmergencyCount,
+                                            active: 'stats'
                                         });
                                     });
                                 });
