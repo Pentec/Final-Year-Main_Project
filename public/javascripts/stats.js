@@ -5,38 +5,19 @@
  * Function that creates the graph on page load;
  */
 var ratio = 0.54;
-var dummyData = [{date: '01-06-2011', close: 0}, {date: '03-06-2011', close: 0}, {
-    date: '03-06-2011',
-    close: 0
-}, {date: '12-26-2011', close: 0}];
-var x, y, xAxis, yAxis, parseDate, path, data, svg;
+var x, y, xAxis, yAxis, parseDate, path, data, svg, yAxisName;
 
-x = function(x){
+x = function (x) {
     return x;
 };
 
 $(document).ready(function () {
-    [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function (el) {
-        new SelectFx(el);
-    });
-    createGraph(dummyData, 'Admissions');
-    dummyData = [{date: '01-06-2011', close: 5}, {date: '03-06-2011', close: 11}, {
-        date: '03-06-2011',
-        close: 12
-    }, {date: '12-26-2011', close: 14}];
-    updateGraph(dummyData, 'Test');
+    init();
 });
 
-/**
- *
- */
 $(window).resize(function () {
-    /*set data here*/
-    dummyData = [{date: '01-06-2011', close: 5}, {date: '03-06-2011', close: 11}, {
-        date: '03-06-2011',
-        close: 12
-    }, {date: '12-26-2011', close: 14}];
-    createGraph(dummyData, 'Admissions');
+    var tempData = $.extend(true, [], data);
+    createGraph(tempData, yAxisName);
 });
 
 function pageSetup() {
@@ -49,8 +30,8 @@ function pageSetup() {
 
 function createGraph(data, yAxisName) {
     pageSetup();
+    this.data = $.extend(true, [], data);
     $(".graph").empty();
-
     //Margins
     var width = $(".graph-wrapper").width() - 10;
     var height = $(".graphbox").height();
@@ -74,7 +55,6 @@ function createGraph(data, yAxisName) {
     yAxis = d3.svg.axis()
         .scale(y)
         .orient("left").ticks(10);
-
     line = d3.svg.line()
         .x(function (d) {
             return x(d.date);
@@ -93,7 +73,6 @@ function createGraph(data, yAxisName) {
         d.date = parseDate(d.date);
         d.close = +d.close;
     });
-    this.data = data;
     x.domain(d3.extent(data, function (d) {
         return d.date;
     }));
@@ -111,6 +90,7 @@ function createGraph(data, yAxisName) {
         .append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 6)
+        .attr("class", 'ylabel')
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         .text(yAxisName);
@@ -119,14 +99,15 @@ function createGraph(data, yAxisName) {
         .datum(data)
         .attr("class", "line")
         .attr("d", line);
+    this.yAxisName = yAxisName;
 }
 
 function updateGraph(data, yAxisName) {
+    this.data = $.extend(true, [], data);
     data.forEach(function (d) {
         d.date = parseDate(d.date);
         d.close = +d.close;
     });
-    this.data = data;
     x.domain(d3.extent(data, function (d) {
         return d.date;
     }));
@@ -146,13 +127,17 @@ function updateGraph(data, yAxisName) {
     svg.select(".y.axis")
         .duration(750)
         .call(yAxis);
+    svg.select(".ylabel").text(yAxisName);
+
+
+    this.yAxisName = yAxisName;
 }
 
-function submit(){
+function submit() {
     $("#mainQuery").submit();
 }
 
-function anim(){
+function anim() {
     alert("running");
     var json = [
         {
@@ -237,7 +222,7 @@ function anim(){
         }
     ];
 
-    json.sort(function(a, b){
+    json.sort(function (a, b) {
         return new Date(a.date).getTime() - new Date(b.date).getTime();
     });
     alert(JSON.stringify(json));
@@ -256,4 +241,17 @@ function anim(){
             .duration(1000)
             .attr("transform", "translate(" + x(0) + ")");
     });
+}
+
+function init() {
+    [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function (el) {
+        new SelectFx(el);
+    });
+    var dummyData = [{date: '01-06-2011', close: 0}, {date: '03-06-2011', close: 0}];
+    createGraph(dummyData, 'Admissions');
+    var dummyData = [{date: '01-06-2011', close: 5}, {date: '03-06-2011', close: 11}, {
+        date: '03-06-2011',
+        close: 12
+    }, {date: '12-26-2011', close: 14}];
+    updateGraph(dummyData, 'Test');
 }
