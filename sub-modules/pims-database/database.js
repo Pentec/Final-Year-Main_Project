@@ -810,10 +810,10 @@ var VaginalCancer = new Schema({
     },
 
     Differentiation: {
-        Well: {type: Boolean, title: '1 (well)'},
-        Moderately: {type: Boolean, title: '2 (moderately)'},
-        Poorly: {type: Boolean, title: '3 (poorly)'},
-       Unknown : {type: Boolean, title: 'Unknown'}
+        Well: {type: Boolean, title:'1 (well)'},
+        Moderately: {type: Boolean, title:'2 (moderately)'},
+        Poorly: {type: Boolean, title:'3 (poorly)'},
+       Unknown : {type: Boolean, title:'Unknown'}
     },
 
 
@@ -958,7 +958,7 @@ var VaginalCancer = new Schema({
 
     /*Death*/
     causeOfDeath :{
-        VulvaCarcinoma: {type: Boolean, title: 'Vulva carcinoma'},
+        VaginalCa: {type: Boolean, title: 'Vaginal ca'},
         Otherprimarycancer: {type: Boolean, title: 'Other primary cancer'},
         Treatmentrelatedcause: {type: Boolean, title: 'Treatment related cause'},
         IntercurrentDisease: {type: Boolean, title: 'Intercurrent disease'},
