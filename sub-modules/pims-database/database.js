@@ -842,10 +842,10 @@ var VaginalCancer = new Schema({
     
     /*--( LND= inguinal/pelvic/paraortic lymphadenectomy)--*/
     typeOfSurgery: {
-        WideLocalExcisionWithLND: {type: Boolean, title: 'Lazer excision'},
-        WideLocalExcisionNoLND: {type: Boolean, title: 'Electroresection'},
-        SimpleVulvectomyWithLND: {type: Boolean, title: 'Local tumor resection'},
-        SimpleVulvectmyNoLND: {type: Boolean, title: 'Partial vaginectomy'},
+        LazerExcision: {type: Boolean, title: 'Lazer excision'},
+        Electroresection: {type: Boolean, title: 'Electroresection'},
+        LocalTumorResection: {type: Boolean, title: 'Local tumor resection'},
+        PartialVaginectomy: {type: Boolean, title: 'Partial vaginectomy'},
         RadicalVulvectomyNoLND: {type: Boolean, title: 'Radical vulvectomy, no LND'},
         TAH_BSOOmentectomy_multipleBiopsiesWithLND: {type: Boolean, title: 'TAH, BSO, Omentectomy, multiple biopsies with LND'},
         RadicalVulvectomyWithLND : {type: Boolean, title: 'Radical vulvectomy with LND'},
