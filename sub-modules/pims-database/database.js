@@ -810,10 +810,10 @@ var VaginalCancer = new Schema({
     },
 
     Differentiation: {
-        Well: {type: Boolean, title: '1 (well)'},
-        Moderately: {type: Boolean, title: '2 (moderately)'},
-        Poorly: {type: Boolean, title: '3 (poorly)'},
-       Unknown : {type: Boolean, title: 'Unknown'}
+        Well: {type: Boolean, title:'1 (well)'},
+        Moderately: {type: Boolean, title:'2 (moderately)'},
+        Poorly: {type: Boolean, title:'3 (poorly)'},
+       Unknown : {type: Boolean, title:'Unknown'}
     },
 
 
@@ -1250,15 +1250,17 @@ var FallopianTubeCancer = new Schema({
         Dead: {type: Boolean, title: 'Dead'}
     },
 
-    //Death
-    CauseOfDeath: {
-        FallTubeCa: {type: Boolean, title: 'Fallopian tube ca'},
-        OtherPrimaryCancer: {type: Boolean, title: 'Other primary cancer'},
+
+    /*Death*/
+    causeOfDeath :{
+        VaginalCa: {type: Boolean, title: 'Vaginal ca'},
+        Otherprimarycancer: {type: Boolean, title: 'Other primary cancer'},
         Treatmentrelatedcause: {type: Boolean, title: 'Treatment related cause'},
         IntercurrentDisease: {type: Boolean, title: 'Intercurrent disease'},
         UnknownCauses: {type: Boolean, title: 'Unknown causes'},
         DateOfDeath: {type: Date, require: true, title: 'Date of Death'}
     }
+
 });
 
 var forms = mongoose.model('forms', Form);
