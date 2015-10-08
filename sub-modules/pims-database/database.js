@@ -1780,9 +1780,239 @@ typeOfSurgery: {
 
 /*/////////////////////////////////// GTN  /////////////////////////////*/
 
+var GTNCancer = new Schema({
+
+    Name: {type: String, require: true, title: 'Name'},
+
+    Surname: {type: String, require: true, title: 'Surname'},
+
+    HospitalNumber: {type: String, require: true, title: 'Hospital Number'},
+
+    ID: {type: Number, require: true, title: 'ID number'},
+
+    DateOfBirth: {type: Date, require: true, title: 'Date of Birth' },
+    
+   CellPhone:{
+        First: {type: Number, require: true, title: 'Phone number'},
+        Alternative: {type: Number, require: true, title: 'Alternative number'}
+    },
+
+    DateOfDiagnosis: {type: Date, require: true, title: 'Date of diagnosis'},
+
+    HIVStatus:{
+        Negative: {type: Boolean, title: 'HIV Negative'},
+  	    Positive: {type: Boolean, title: 'HIV Positive'},
+  	    CD4: {type: Number, title: 'CD4 Count:'}
+    },
+    
+    figoStage: {
+        I: {type: Boolean, title: 'I'},
+        II: {type: Boolean, title: 'II'},
+  	    III: {type: Boolean, title: 'III'},
+  	    IV: {type: Boolean, title: 'IV'},
+  	    Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+    SiteOfDistantMetastase: {
+	      Nil: {type: Boolean, title: 'Nil'},
+        Skin: {type: Boolean, title: 'Skin'},
+  	    Bone: {type: Boolean, title: 'Bone'},
+  	    Lungs: {type: Boolean, title: 'Lungs'},
+  	    Liver: {type: Boolean, title: 'Liver'},
+  	    Brain: {type: Boolean, title: 'Brain'},
+        LymphNodesOtherThanFemoralAndInguinal: {type: Boolean, title: 'Lymph nodes other than femoral and inguinal'},
+        Other: {type: Boolean, title: 'Other'},
+        Unknown : {type: Boolean, title: 'Unknown'}
+    },
+    
+     RiskFactors:{
+        Age:{
+           LT40 :{type: Boolean, title: '<40'},
+           GTE40:{type: Boolean, title: '≥40'},
+           Unknown:{type: Boolean, title: 'Unknown'}
+        },
+
+        AntecedentPregnancy:{
+           Mole :{type: Boolean, title:'Mole'},
+           Abortion:{type: Boolean, title: 'Abortion'},
+           Term:{type: Boolean, title:'Term'},
+           Unknown:{type: Boolean, title:'Unknown'}
+        },
+
+        IntervalMonthsFromIndexPregnancy:{
+           GT4 :{type: Boolean, title: '<4'},
+           FourTo6:{type: Boolean, title: '4 - 6'},
+           SevenTo12:{type: Boolean, title: '7 - 12'},
+           GTE13:{type: Boolean, title: '≥ 13'},
+           Unknown:{type: Boolean, title: 'Unknown'}
+        },
+
+         PretreatmentSerumHCG:{
+           GT10expo3:{type: Boolean, title: '<10^3'},
+           Tenexpo3ToGT10expo4:{type: Boolean, title: '10^3 - <10^4'},
+           Tenexpo4ToGT10expo5:{type: Boolean, title: '10^4 - <10^5'},
+           GTE10expo5:{type: Boolean, title: '≥ 10^5'},
+           Unknown:{type: Boolean, title: 'Unknown'}
+        },
+
+        
+      LargestTumorSizeIncludingUterusCm:{
+           LT3:{type: Boolean, title: '<3'},
+           ThreeToLT5:{type: Boolean, title: '3-<5'},
+           GTE25:{type: Boolean, title: '≥5'},
+           Unknown:{type: Boolean, title: 'Unknown'}
+        },
+
+        
+      SiteOfMetastases:{
+           NoneLung :{type: Boolean, title: 'None,Lung'},
+           SpleenKidney:{type: Boolean, title: 'Spleen, kidney'},
+           GastroIntestinal:{type: Boolean, title: 'Gastro-intestinal'},
+           LiverBrain:{type: Boolean, title: 'Liver, brain'},
+           Unknown:{type: Boolean, title: 'Unknown'}
+        },
+        
+
+      NumberOfMetastases:{
+           Nil :{type: Boolean, title: 'Nil'},
+           OneTo4:{type: Boolean, title: '1 – 4'},
+           FiveTo8:{type: Boolean, title: '5 – 8'},
+           Unknown:{type: Boolean, title: 'Unknown'}
+        },
+        
+
+      PreviousFailedChemotherapy:{
+           NoPreviousFailed :{type: Boolean, title: 'No previous failed'},
+           SingleDrug:{type: Boolean, title: 'Single drug'},
+           Unknown:{type: Boolean, title: 'Unknown'}
+        }
+        
+    },
+    
+
+	Histology: {
+        NoHistology: {type: Boolean, title: 'No histology'},
+        CompleteHydatiformMole: {type: Boolean, title: 'Complete hydatiform mole'},
+        PartialHydatiformMole: {type: Boolean, title: 'Partial hydatiform mole'},
+        Choriocarcinoma: {type: Boolean, title: 'Choriocarcinoma '},
+        EpithelioidTrtophoblasticTumor: {type: Boolean, title: 'Epithelioid trophoblastic tumor'},
+        PlacentalSiterophoblasticTumor: {type: Boolean, title: 'Placental site  trophoblastic tumor'},
+	    UnclassifiedTrophoblasticLesion: {type: Boolean, title: 'Unclassified trophoblastic lesion'},
+        Unknown : {type: Boolean, title: 'Unknown'}
+    },
+    
+
+/*(applicable to trophoblastic tumors arising in ectopic sites)*/
+    PrimarySite : {
+        Trophoblastic: {type: Boolean, title: 'Trophoblastic'},
+        OvarianMole: {type: Boolean, title: 'Ovarian'},
+        Tube: {type: Boolean, title: 'Tube'},
+        Abdominal: {type: Boolean, title: 'Abdominal '},
+        OtherSite: {type: Boolean, title: 'Other site'}, 
+        Unknown : {type: Boolean, title: 'Unknown'}
+    },
 
 
+/*for known GTN*/
+    PreviousChemotherapy  : {
+        NoPriorChemotherapy: {type: Boolean, title: 'No prior chemotherapy'},
+        SingleAgentChemotherapy: {type: Boolean, title: 'Single agent chemotherapy'},
+        MultipleAgentChemotherapy: {type: Boolean, title: 'Multiple agent chemotherapy'}, 
+        Unknown : {type: Boolean, title: 'Unknown'}
+    },
 
+/*(RT = Radiotherapy, CT = Chemotherapy)*/
+    PrimaryTreatmentsPerformed  : {
+        Nil: {type: Boolean, title: 'Nil'},
+        Chemotherapy: {type: Boolean, title: 'Chemotherapy'},
+        SurgeryOnly: {type: Boolean, title: 'Surgery only'},
+        ChemotherapySurgery: {type: Boolean, title: 'Chemotherapy + surgery '},
+        Unknown : {type: Boolean, title: 'Unknown'},
+        DateOfTreatment: {type: Boolean, title: 'Date of treatment'}
+    },
+
+
+ /*--(LND = lymp hadenectomy)--*/
+    typeOfSurgery: {
+        AbdominalAndElvicSurgeryhysterectomyDebulkingEexcludingDAndC: {type: Boolean, title:'Abdominal and/or pelvic surgery (hysterectomy/debulking)(excluding D&C)'},
+        LobectomyLung: {type: Boolean, title: 'Lobectomy lung'},
+        Craniotomy: {type: Boolean, title: 'Craniotomy'},
+        Other: {type: Boolean, title: 'Other'},
+        DateOfSurgery: {type: Boolean, title: 'Date of surgery'}
+    },
+
+/*--CT = Chemotherapy--*/
+    typeOfChemotherapy:{
+        OneCourseSingleAgentCT: {type: String, title: '1 course single agent CT'},
+        TwoOrMoreCoursesSingleAgentCT: {type: String, title: '2 or more courses single agent CT'},
+        OneCourseMultipleAgentCT: {type: String, title: '1 course multiple agent CT'},
+        TwoOrMoreCoursesMultipleAgentCT: {type: String, title: '2 or more courses multiple agent CT'},
+        Unknown: {type: String, title: 'Unknown'},
+        DateStarted: {type: Date, require: true, title: 'Date started' },
+        DateEnded: {type: Date, require: true, title: 'Date ended' }
+    },
+
+
+    ResponseToTreatment: {
+        Complete: {type: Boolean, title: 'Complete'},
+        Partial: {type: Boolean, title: 'Partial'},
+        StableDisease: {type: Boolean, title: 'Stable disease'},
+        ProgressiveDisease: {type: Boolean, title: 'Progressive disease'},
+        Unknown : {type: Boolean, title: 'Unknown'},
+        DateOfAssessment: {type: Boolean, title: 'Date of assessable'}
+    },
+
+
+    Relapse: {
+        Yes: {type: Boolean, title: 'Yes '},
+        No: {type: Boolean, title: 'No'},
+        Unknown : {type: Boolean, title: 'Unknown'},
+        DateOfRelapseDiagnosis: {type: Boolean, title: 'Date relapse diagnosis'}
+    },
+
+
+    SiteOfRelapse:{
+        Local:{type: Boolean, title: 'Local'},
+        Metastatic:{type: Boolean, title: 'Metastatic'},
+        LocalAndMetastatic:{type: Boolean, title: 'Local and metastatic'},
+        Unknown:{type: Boolean, title: 'Unknown'}
+    },
+
+    /*---(RT = Radiotherapy, CT = Chemotherapy, CRT = Chemoradiation, HT = Hormone Therapy)---*/   
+    TreatmentAtRelapse: {
+        Nil: {type: Boolean, title: 'Nil'},
+        Surgery: {type: Boolean, title: 'Surgery'},
+        RT: {type: Boolean, title: 'RT'},
+        CT: {type: Boolean, title: 'CT'},
+        HT: {type: Boolean, title: 'HT'},
+        SurgeryRT: {type: Boolean, title: 'Surgery + RT'},
+        CTRT: {type: Boolean, title: 'CT + RT'},
+        Other: {type: Boolean, title: 'Other'},
+        Unknown: {type: Boolean, title: 'Unknown'}
+    },
+
+
+    /*Follow up*/
+    DateOfFolllowup: {type: Date, require: true, title: 'Date of Follow-up'},
+    
+    LastKnownVitalStatus: {
+        AliveUnknownDiseaseStatus: {type: Boolean, title: 'Alive (unknown disease status)'},
+        AliveAndNoEvidenceOfDisease: {type: Boolean, title: 'Alive and no evidence of disease'},
+        AliveWithDisease: {type: Boolean, title: 'Alive with disease'},
+        Dead: {type: Boolean, title: 'Dead'}
+    },
+        
+    /*Death*/
+    causeOfDeath :{
+        OtherPrimaryCancera: {type: Boolean, title: 'GTN or metastases'},
+        Otherprimarycancer: {type: Boolean, title: 'Other primary cancer'},
+        Treatmentrelatedcause: {type: Boolean, title: 'Treatment related cause'},
+        IntercurrentDisease: {type: Boolean, title: 'Intercurrent disease'},
+        UnknownCauses: {type: Boolean, title: 'Unknown causes'},
+        DateOfDeath: {type: Date, require: true, title: 'Date of Death'}
+    }
+
+});
 
 
 /*/////////////////////////////////// HISTEROCOPYDATASHEET /////////////////////////////*/
@@ -1900,9 +2130,8 @@ var fallopianTubeCancer = mongoose.model('fallopianTubeCancer', FallopianTubeCan
 var vaginalCancer= mongoose.model('vaginalCancer', VaginalCancer);
 var vulvaCancer= mongoose.model('vulvaCancer', VulvaCancer);
 var overianCancer= mongoose.model('overianCancer', OverianCancer);
-
+var gTNCancer= mongoose.model('gTNCancer', GTNCancer);
 var hysteroscopyDataSheet= mongoose.model('hysteroscopyDataSheet', HysteroscopyDataSheet);
-
 
 
 module.exports = {
@@ -1918,5 +2147,6 @@ module.exports = {
     vaginalCancer: vaginalCancer,
     vulvaCancer: vulvaCancer,
     overianCancer: OverianCancer,
+    gTNCancer: GTNCancer,
     hysteroscopyDataSheet: HysteroscopyDataSheet
 };
