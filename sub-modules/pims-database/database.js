@@ -204,6 +204,9 @@ var AdmissionDischarge = new Schema({
     completedBy: {type: String}
 });
 
+
+
+/*//////////////////////////////////////CERVICAL CANCER///////////////////////////////////*/
 var CervicalCancer = new Schema({
 
 	Name: {type: String, require: true, title: 'Name'},
@@ -664,6 +667,9 @@ var EndometrialCancer = new Schema({
         DateOfDeath: {type: Date, require: true, title: 'Date of Death'}
     }
 });
+
+
+/*//////////////////////////// ONCOLOGYFOLLOWUPVISIT ////////////////////////////////////////*/
 
 var  OncologyFollowUpVisit = new Schema({
 
@@ -2115,6 +2121,733 @@ var HysteroscopyDataSheet = new Schema({
 	
 });
 
+/*////////////////////////////////CRITICAL INCIDENT/////////////////////////////////////*/
+var GynaeCritical_Incident_DataCollection = new Schema({
+
+	PatName: {type: String, require: true, title: 'Patient name'},
+	
+	Age: {type: Number, require: true, title: 'Age'},
+	
+	HospitalNum: {type: Number, require: true, title: 'Hospital number'},
+	
+	DateOfIncident: {type: Date, require: true, title: 'Date of incident' },
+	
+	Firm: {type: String, require: true, title: 'Firm'},
+	
+	HIVStatus: {type: String, title: 'HIV Status'}, 
+	
+	Parity: {type: Number, require: true, title: 'Parity'},
+	
+	Grav: {type: Number, require: true, title: 'Grav'},
+	
+	Admission:
+	{
+		Elective: {type: Boolean, title: 'Elective'}, 
+		Emergency: {type: Boolean, title: 'Emergency'}, 
+		Oncology: {type: Boolean, title: 'Oncology'}
+	}, 
+	
+	Hospital:
+	{
+		Kalafong: {type: Boolean, title: 'Kalafong'}, 
+		PAH: {type: Boolean, title: 'PAH'}
+	},
+	
+	/*IntentionOfTreatmentOnAdmission*/
+	IntentionOfTreatmentOnAdmission:
+	{
+		Surgical: {type: Boolean, title: 'Surgical'}, 
+		Medical: {type: Boolean, title: 'Medical'}, 
+		Palliative: {type: Boolean, title: 'Palliative'}
+	},
+	
+	/*Problems, diagnosis and stages */
+	PrimaryGynaecologialProblems: {type: String, require: true, title: 'Primary Gynaecologial Problem'},
+	Oncology: {type: String, require: true, title: 'Oncology:Diagnosis and stage'},
+	
+	AssociatedMedProblems: {type: String, require: true, title: 'Associated medical problems'},
+	Oncology: {type: String, require: true, title: 'Oncology: Diagnosis and stage'},
+	
+	SurgicalProceduresAndDatesDone: {type: String, require: true, title: 'Surgical procedures and dates done'},
+	Oncology: {type: String, require: true, title: 'Oncology: Diagnosis and stage'},
+	
+	
+	/*CRITICAL INCIDENT*/
+	Event:{
+		Death: {
+		TickBlock: {type: Boolean, title: 'Tick block'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		ICUadmission: {
+		TickBlock: {type: Boolean, title: 'ICU admission'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		PulmonarymbolismDVT: {
+		TickBlock: {type: Boolean, title: 'Pulmonary embolism/DVT'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		RepeatLap: {
+		TickBlock: {type: Boolean, title: 'Repeat laparotomies(specify reason)'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		UnplannedSurgery: {
+		TickBlock: {type: Boolean, title: 'Unplanned surgery'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		BloodTransfusion: {
+		TickBlock: {type: Boolean, title: 'Blood transfusion > 4 units'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		OrganDysfunction: {
+		TickBlock: {type: Boolean, title: 'Organ dysfunction post surgery'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		Fistula: {Properties:{
+		TickBlock: {type: Boolean, title: 'Fistula and other organ damage'}, 
+		Details: {type: String, title: 'Specify details'}}},
+		
+		DelayedDiagnosis: {
+		TickBlock: {type: Boolean, title: 'Delayed diagnosis'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		Death: {
+		TickBlock: {type: Boolean, title: 'Tick block'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		OmissionOfProcedure: {
+		TickBlock: {type: Boolean, title: 'Omission of procedure'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		EmergencyHysterec: {
+		TickBlock: {type: Boolean, title: 'Emergency hysterectomy'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		PostOp: {
+		TickBlock: {type: Boolean, title: 'Post-op complications requiring surgery'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		WoundSepsis: {
+		TickBlock: {type: Boolean, title: 'Wound sepsis post-op requireing surgery'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		AnaestheticComplications: {
+		TickBlock: {type: Boolean, title: 'Anaesthetic complications'}, 
+		Details: {type: String, title: 'Specify details'}},
+	},
+	
+	/*MODIFIABLE FACTORS*/
+	/*---Modifiable Factors (tick type and leave where problem occured)----*/
+	/*PatientOrientatedProblems*/
+		PatientOrientatedProblems: 
+		{
+		LackOfInfo: {type: Boolean, title: 'Lack of information'}, 
+		NoAvoidableFactors: {type: Boolean, title: 'No avoidable factors'}
+		},
+		
+	/*--If either of the above opetions has been selected, do not complete bellow---*/
+		IfNoneSelected: 
+		{
+		DelayInSeeingHelp: {type: Boolean, title: 'Delay in seeking medical help'}, 
+		UnsafeAbortion: {type: Boolean, title: 'Unsafe abortion'},
+		FamilyProblem: {type: Boolean, title: 'Family problem'}, 
+		CoumminityProblem: {type: Boolean, title: 'Community problem'},
+		Other: {type: String, title: 'Other(specify)'}
+		},
+		
+	/*---Emergency Care Problem: (tick type and level where problem occured)---*/
+		PatientAgeGroup: 
+		{
+		PregnancyRelated: {type: Boolean, title: 'Pregnancy related'}, 
+		ReproductiveYears: {type: Boolean, title: 'Reproductive years'},
+		PeriMenopausal: {type: Boolean, title: 'Peri -menopausal'}, 
+		PostMenopausal: {type: Boolean, title: 'Post-menopausaal'}
+		},
+		
+		Resuscitation: 
+		{
+		LackOfInfo :{type: Boolean, title: 'Lack of information'}, 
+		NoAvoidableFactor: {type: Boolean, title: 'no avoidable factor'}
+		},
+		
+	/*---If either of the above options has been selected, do not complete bellow--*/
+		DoNotCompleteIfAboveSelected: 
+		{
+		AirwaysProblem: {type: Boolean, title: 'Airways problem'}, 
+		BreathingProblem: {type: Boolean, title: 'Breathing problem'},
+		CirculationProblem: {type: Boolean, title: 'Circulation problem'}, 
+		DrugProblem: {type: Boolean, title: 'Drug problem'},
+		InvestigationProblem: {type: Boolean, title: 'Investigation problem'}, 
+		MonitoringProblem: {type: Boolean, title: 'Monitoring problem'}
+		},
+		
+	/*--OncologyRelated--*/
+	OncologyRelated:
+	{
+		DelayInDiagnosis_a: 
+		{
+		PatientRelated: {type: Boolean, title: 'Patient related'}, 
+		Screening: {type: Boolean, title: 'Screening / Diagnostic test not'},
+		Perfomed: {type: Boolean, title: 'Perfomed'}, 
+		DelayInReferral: {type: Boolean, title: 'Delay in referral to tertiary institute'}
+		},
+		
+		InappropriateFacility_b: 
+		{
+		PalliativeCare: {type: Boolean, title: 'Palliative care in 2°/3° hosp'}
+		},
+	},
+		
+	/*--LevelOfSurgeryPerformed--*/
+	LevelOfSurgeryPerformed: 
+		{
+		Registrar: {type: Boolean, title: 'Registrar'}, 
+		Consultant: {type: Boolean, title: 'Consultant'},
+		Intern: {type: Boolean, title: 'Intern'}, 
+		Midwife: {type: Boolean, title: 'Midwife (mwa)'}
+		},
+		
+	/*AdministrativeProblems*/	
+	AdministrativeProblems: 
+		{
+		LackOfInfo: {type: Boolean, title: 'Lack of information'}, 
+		NoAvoidableFactors: {type: Boolean, title: 'No avoidable factors'}
+		},
+	
+		/*---If either of the above options has been selected, do not complete bellow---*/
+	TransportProblemsHome_Institut: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	TransportProblemsInstitut_Institut: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	BarriersToEntry: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	LackOfAccessibility: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	LackOfHealCareFacilities_ICUBeds: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	LackOfHealthCareFacilities_EquipmentDrugsBlood: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	LackOfPersonnel: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	LackOfAppropriatelyTrainedStaff: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	TheatreEquipNotAvailable: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	CommunicationProblem: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	OtherAdministrativeProblems: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	Specify: 
+		{
+		Primary: {type: String, title: 'Specify'}, 
+		},
+		
+	/*--Medical Care--*/
+	MedicalCare: 
+		{
+		LackOfInfo: {type: Boolean, title: 'Lack of information'}, 
+		NoAvoidableFactors: {type: Boolean, title: 'No avoidable factors'}
+		},
+		
+/*---If either of the above options has been selected, do not complete bellow---*/
+	InitialAssessment: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},		
+		
+	ProblemReconitiaon_dx: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+	
+	DelayInReferringPt: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	MxAtInappropriateLevel: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	IncorrectMx: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	SubStandardMx_CorrectDx: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	MonitoringProblem_NotInfrequentlyDone: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	MonitoringProblem_ProlongedABN_OBS_WithNoAction: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	SurgicalComplications: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	AnaestheticProblem_ProOptEValuationNotSufficient: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	Treatment_MedicationNotGiven: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	Summary: {type: String, title: 'Patient name'},
+	
+	NameOfRegistrar_print: {type: String, title: 'Patient name'},
+});
+var GynaeCritical_Incident_DataCollection = new Schema({
+
+	PatName: {type: String, require: true, title: 'Patient name'},
+	
+	Age: {type: Number, require: true, title: 'Age'},
+	
+	HospitalNum: {type: Number, require: true, title: 'Hospital number'},
+	
+	DateOfIncident: {type: Date, require: true, title: 'Date of incident' },
+	
+	Firm: {type: String, require: true, title: 'Firm'},
+	
+	HIVStatus: {type: String, title: 'HIV Status'}, 
+	
+	Parity: {type: Number, require: true, title: 'Parity'},
+	
+	Grav: {type: Number, require: true, title: 'Grav'},
+	
+	Admission:
+	{
+		Elective: {type: Boolean, title: 'Elective'}, 
+		Emergency: {type: Boolean, title: 'Emergency'}, 
+		Oncology: {type: Boolean, title: 'Oncology'}
+	}, 
+	
+	Hospital:
+	{
+		Kalafong: {type: Boolean, title: 'Kalafong'}, 
+		PAH: {type: Boolean, title: 'PAH'}
+	},
+	
+	/*IntentionOfTreatmentOnAdmission*/
+	IntentionOfTreatmentOnAdmission:
+	{
+		Surgical: {type: Boolean, title: 'Surgical'}, 
+		Medical: {type: Boolean, title: 'Medical'}, 
+		Palliative: {type: Boolean, title: 'Palliative'}
+	},
+	
+	/*Problems, diagnosis and stages */
+	PrimaryGynaecologialProblems: {type: String, require: true, title: 'Primary Gynaecologial Problem'},
+	Oncology: {type: String, require: true, title: 'Oncology:Diagnosis and stage'},
+	
+	AssociatedMedProblems: {type: String, require: true, title: 'Associated medical problems'},
+	Oncology: {type: String, require: true, title: 'Oncology: Diagnosis and stage'},
+	
+	SurgicalProceduresAndDatesDone: {type: String, require: true, title: 'Surgical procedures and dates done'},
+	Oncology: {type: String, require: true, title: 'Oncology: Diagnosis and stage'},
+	
+	
+	/*CRITICAL INCIDENT*/
+	Event:{
+		Death: {
+		TickBlock: {type: Boolean, title: 'Tick block'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		ICUadmission: {
+		TickBlock: {type: Boolean, title: 'ICU admission'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		PulmonarymbolismDVT: {
+		TickBlock: {type: Boolean, title: 'Pulmonary embolism/DVT'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		RepeatLap: {
+		TickBlock: {type: Boolean, title: 'Repeat laparotomies(specify reason)'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		UnplannedSurgery: {
+		TickBlock: {type: Boolean, title: 'Unplanned surgery'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		BloodTransfusion: {
+		TickBlock: {type: Boolean, title: 'Blood transfusion > 4 units'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		OrganDysfunction: {
+		TickBlock: {type: Boolean, title: 'Organ dysfunction post surgery'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		Fistula: {Properties:{
+		TickBlock: {type: Boolean, title: 'Fistula and other organ damage'}, 
+		Details: {type: String, title: 'Specify details'}}},
+		
+		DelayedDiagnosis: {
+		TickBlock: {type: Boolean, title: 'Delayed diagnosis'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		Death: {
+		TickBlock: {type: Boolean, title: 'Tick block'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		OmissionOfProcedure: {
+		TickBlock: {type: Boolean, title: 'Omission of procedure'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		EmergencyHysterec: {
+		TickBlock: {type: Boolean, title: 'Emergency hysterectomy'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		PostOp: {
+		TickBlock: {type: Boolean, title: 'Post-op complications requiring surgery'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		WoundSepsis: {
+		TickBlock: {type: Boolean, title: 'Wound sepsis post-op requireing surgery'}, 
+		Details: {type: String, title: 'Specify details'}},
+		
+		AnaestheticComplications: {
+		TickBlock: {type: Boolean, title: 'Anaesthetic complications'}, 
+		Details: {type: String, title: 'Specify details'}},
+	},
+	
+	/*MODIFIABLE FACTORS*/
+	/*---Modifiable Factors (tick type and leave where problem occured)----*/
+	/*PatientOrientatedProblems*/
+		PatientOrientatedProblems: 
+		{
+		LackOfInfo: {type: Boolean, title: 'Lack of information'}, 
+		NoAvoidableFactors: {type: Boolean, title: 'No avoidable factors'}
+		},
+		
+	/*--If either of the above opetions has been selected, do not complete bellow---*/
+		IfNoneSelected: 
+		{
+		DelayInSeeingHelp: {type: Boolean, title: 'Delay in seeking medical help'}, 
+		UnsafeAbortion: {type: Boolean, title: 'Unsafe abortion'},
+		FamilyProblem: {type: Boolean, title: 'Family problem'}, 
+		CoumminityProblem: {type: Boolean, title: 'Community problem'},
+		Other: {type: String, title: 'Other(specify)'}
+		},
+		
+	/*---Emergency Care Problem: (tick type and level where problem occured)---*/
+		PatientAgeGroup: 
+		{
+		PregnancyRelated: {type: Boolean, title: 'Pregnancy related'}, 
+		ReproductiveYears: {type: Boolean, title: 'Reproductive years'},
+		PeriMenopausal: {type: Boolean, title: 'Peri -menopausal'}, 
+		PostMenopausal: {type: Boolean, title: 'Post-menopausaal'}
+		},
+		
+		Resuscitation: 
+		{
+		LackOfInfo :{type: Boolean, title: 'Lack of information'}, 
+		NoAvoidableFactor: {type: Boolean, title: 'no avoidable factor'}
+		},
+		
+	/*---If either of the above options has been selected, do not complete bellow--*/
+		DoNotCompleteIfAboveSelected: 
+		{
+		AirwaysProblem: {type: Boolean, title: 'Airways problem'}, 
+		BreathingProblem: {type: Boolean, title: 'Breathing problem'},
+		CirculationProblem: {type: Boolean, title: 'Circulation problem'}, 
+		DrugProblem: {type: Boolean, title: 'Drug problem'},
+		InvestigationProblem: {type: Boolean, title: 'Investigation problem'}, 
+		MonitoringProblem: {type: Boolean, title: 'Monitoring problem'}
+		},
+		
+	/*--OncologyRelated--*/
+	OncologyRelated:
+	{
+		DelayInDiagnosis_a: 
+		{
+		PatientRelated: {type: Boolean, title: 'Patient related'}, 
+		Screening: {type: Boolean, title: 'Screening / Diagnostic test not'},
+		Perfomed: {type: Boolean, title: 'Perfomed'}, 
+		DelayInReferral: {type: Boolean, title: 'Delay in referral to tertiary institute'}
+		},
+		
+		InappropriateFacility_b: 
+		{
+		PalliativeCare: {type: Boolean, title: 'Palliative care in 2°/3° hosp'}
+		},
+	},
+		
+	/*--LevelOfSurgeryPerformed--*/
+	LevelOfSurgeryPerformed: 
+		{
+		Registrar: {type: Boolean, title: 'Registrar'}, 
+		Consultant: {type: Boolean, title: 'Consultant'},
+		Intern: {type: Boolean, title: 'Intern'}, 
+		Midwife: {type: Boolean, title: 'Midwife (mwa)'}
+		},
+		
+	/*AdministrativeProblems*/	
+	AdministrativeProblems: 
+		{
+		LackOfInfo: {type: Boolean, title: 'Lack of information'}, 
+		NoAvoidableFactors: {type: Boolean, title: 'No avoidable factors'}
+		},
+	
+		/*---If either of the above options has been selected, do not complete bellow---*/
+	TransportProblemsHome_Institut: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	TransportProblemsInstitut_Institut: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	BarriersToEntry: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	LackOfAccessibility: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	LackOfHealCareFacilities_ICUBeds: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	LackOfHealthCareFacilities_EquipmentDrugsBlood: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	LackOfPersonnel: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	LackOfAppropriatelyTrainedStaff: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	TheatreEquipNotAvailable: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	CommunicationProblem: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	OtherAdministrativeProblems: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	Specify: 
+		{
+		Primary: {type: String, title: 'Specify'}, 
+		},
+		
+	/*--Medical Care--*/
+	MedicalCare: 
+		{
+		LackOfInfo: {type: Boolean, title: 'Lack of information'}, 
+		NoAvoidableFactors: {type: Boolean, title: 'No avoidable factors'}
+		},
+		
+/*---If either of the above options has been selected, do not complete bellow---*/
+	InitialAssessment: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},		
+		
+	ProblemReconitiaon_dx: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+	
+	DelayInReferringPt: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	MxAtInappropriateLevel: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	IncorrectMx: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	SubStandardMx_CorrectDx: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	MonitoringProblem_NotInfrequentlyDone: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	MonitoringProblem_ProlongedABN_OBS_WithNoAction: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	SurgicalComplications: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	AnaestheticProblem_ProOptEValuationNotSufficient: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	Treatment_MedicationNotGiven: 
+		{
+		Primary: {type: Boolean, title: 'Primary'}, 
+		Secondary: {type: Boolean, title: 'Secondary'},
+		Tertiary: {type: Boolean, title: 'Tertiary'}
+		},
+		
+	Summary: {type: String, title: 'Patient name'},
+	
+	NameOfRegistrar_print: {type: String, title: 'Patient name'},
+});
 
 var forms = mongoose.model('forms', Form);
 var patient =  mongoose.model('patient', Patient);
@@ -2132,6 +2865,7 @@ var vulvaCancer= mongoose.model('vulvaCancer', VulvaCancer);
 var overianCancer= mongoose.model('overianCancer', OverianCancer);
 var gTNCancer= mongoose.model('gTNCancer', GTNCancer);
 var hysteroscopyDataSheet= mongoose.model('hysteroscopyDataSheet', HysteroscopyDataSheet);
+var gynaeCritical_Incident_DataCollection = mongoose.model('gynaeCritical_Incident_DataCollection', GynaeCritical_Incident_DataCollection);
 
 
 module.exports = {
@@ -2148,5 +2882,6 @@ module.exports = {
     vulvaCancer: vulvaCancer,
     overianCancer: OverianCancer,
     gTNCancer: GTNCancer,
-    hysteroscopyDataSheet: HysteroscopyDataSheet
+    hysteroscopyDataSheet: HysteroscopyDataSheet,
+    gynaeCritical_Incident_DataCollection: GynaeCritical_Incident_DataCollection
 };
