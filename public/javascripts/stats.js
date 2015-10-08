@@ -66,7 +66,7 @@ function createGraph(data, yAxisName) {
     svg = d3.select(".graph").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
-        .attr("class", "john")
+        .attr("class", "graphimage")
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -312,5 +312,5 @@ function query(startDate, endDate, period, stats) {
 }
 
 function saveAsPNG(){
-    saveSvgAsPng(document.getElementsByClassName("john")[0], "Graph.png");
+    saveSvgAsPng(document.getElementsByClassName("graphimage")[0], "Graph.png");
 }
