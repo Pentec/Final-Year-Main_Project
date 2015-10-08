@@ -1778,7 +1778,112 @@ typeOfSurgery: {
 	
 });
 
+/*/////////////////////////////////// GTN  /////////////////////////////*/
 
+
+
+
+
+
+/*/////////////////////////////////// HISTEROCOPYDATASHEET /////////////////////////////*/
+var HysteroscopyDataSheet = new Schema({
+	
+	DateOfVisit: {type: Date, require: true, title: 'Date of visit' },
+	
+	 HospitalNumber: {type: String, require: true, title: 'Hospital Number'},
+	
+	Age: {type: Number, require: true, title: 'Name'},
+	
+	Name: {type: String, require: true, title: 'Name'},
+	
+	Surname: {type: String, require: true, title: 'Name'},
+	
+	P: {type: Number , title: 'Parity'},
+	G: {type: Number, title: 'Gravidity'},
+	M: {type: Number, title: 'Miscarriage'},
+	E: {type: Number, title: 'Ectopic pregnancy'},
+	
+	HIV:{
+        Negative: {type: Boolean, title: 'HIV Negative'},
+		Positive: {type: Boolean, title: 'HIV Positive'},
+		Decline: {type: Boolean, title: 'Decline'},
+		Unknown: {type: Boolean, title: 'Unknown'},
+		CD4: {type: Number, title: 'CD4 Count:'}
+	},
+	
+	CoMorbidities : {
+        Hypertension: {type: Boolean, title: 'Hypertension'},
+        IDDM: {type: Boolean, title: 'IDDM'},
+        NIDDM: {type: Boolean, title: 'NIDDM'},
+        IHD: {type: Boolean, title: 'IHD'},
+        Obesity: {type: Boolean, title: 'Obesity'}
+	},
+	
+	/*FINDINGS AT HYSTEROSCOPY*/
+	
+	EndocervicalCanal : {
+        Normal: {type: Boolean, title: 'Normal'},
+        Stenotic : {type: Boolean, title: 'Stenotic'},
+        Polyps: {type: Boolean, title: 'Polyps'},
+        SuspiciousLesion: {type: Boolean, title: 'Suspicious lesion'}
+	},
+	
+	UterineCavity : {
+        Normal: {type: Boolean, title: 'Normal'},
+        Adhesions : {type: Boolean, title: 'Adhesions'},
+        Polyps: {type: Boolean, title: 'Polyps'},
+        Atrophy: {type: Boolean, title: 'Atrophy'},
+        Hyperplasia: {type: Boolean, title: 'Hyperplasia'},
+        Fibroid: {type: Boolean, title: 'Fibroid'},
+        Suspicious : {type: Boolean, title: 'Suspicious'},
+        Septum: {type: Boolean, title: 'Septum'}
+	},
+	
+	Fibroid : {
+        Position : {type: String , title: 'Position'},
+        Size : {type: Number, title: 'Size'}
+	},
+	
+	Polyp : {
+        Position : {type: String , title: 'Position'},
+        Size : {type: Number, title: 'Size'}
+	},
+	
+	ProceduresPerformedAtTimeOfOfficeHysteroscopy: {
+        Nil: {type: Boolean, title: 'Nil'},
+        RemovalIUCD : {type: Boolean, title: 'Removal IUCD'},
+        Biopsy: {type: Boolean, title: 'Biopsy'},
+        Polypectomy: {type: Boolean, title: 'Polypectomy'},
+        Myomectomy : {type: Boolean, title: 'Myomectomy'},
+        Essure: {type: Boolean, title: 'Essure'},
+        EndometrialAblation : {type: Boolean, title: 'Endometrial ablation'},
+        Other: {type: String, title: 'Other'}
+	},
+	
+	DiagnosisMadeAfterHysteroscopy: {type: String, require: true, title: 'Diagnosis made after hysteroscopy'},
+	
+	/*PLANNED MANAGEMENT*/
+	
+	NoFurtherTreatment : {
+        NoTreatmentRequired : {type: Boolean , title: 'No treatment required'},
+        TreatedAtTimeOfOfficeHysteroscopy: {type: Boolean, title: 'Treated at time of office hysteroscopy'}
+	},
+	
+	ReferralFor: {
+        OperativeHysteroscopyUnderGA: {type: Boolean, title: 'Operative hysteroscopy under GA'},
+        Hysterectomy : {type: Boolean, title: 'Hysterectomy'},
+        Mirena: {type: Boolean, title: 'Mirena'},
+        DiagnosticHysterectomy: {type: Boolean, title: 'Diagnostic hysterectomy'},
+        EndometrialAblation: {type: Boolean, title: 'Endometrial ablation'}
+	},
+	
+	DurationOfProcedure: {type: String, require: true, title: 'Duration of procedure:  '},
+	
+	PainScoreOutOf10: {type: String, require: true, title: 'Pain score out of 10'},
+	
+	Comments: {type: String, require: true, title: 'Comments'}
+	
+});
 
 
 var forms = mongoose.model('forms', Form);
@@ -1796,6 +1901,8 @@ var vaginalCancer= mongoose.model('vaginalCancer', VaginalCancer);
 var vulvaCancer= mongoose.model('vulvaCancer', VulvaCancer);
 var overianCancer= mongoose.model('overianCancer', OverianCancer);
 
+var hysteroscopyDataSheet= mongoose.model('hysteroscopyDataSheet', HysteroscopyDataSheet);
+
 
 
 module.exports = {
@@ -1810,5 +1917,6 @@ module.exports = {
     fallopianTubeCancer: fallopianTubeCancer,
     vaginalCancer: vaginalCancer,
     vulvaCancer: vulvaCancer,
+
     overianCancer: OverianCancer
 };
