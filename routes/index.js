@@ -19,6 +19,8 @@ var nn = require(submodules + 'pims-neuralnetwork/testNN2.js');
 
 var dataNormalizerEndometrial = require('../controllers/dataNormalizers/dataNormalizerEndometrial.js');
 
+var dataNormalizerFallopianTube = require('../controllers/dataNormalizers/dataNormalizerFallopianTube.js');
+
 
 /**
  * The two variables in the global namespace called EmergencyCountGlobal and ElectiveCountGlobal.
@@ -103,7 +105,7 @@ router.get('/splash', function (req, res, next) {
 router.get('/dataNormalizer', function (req, res, next) {
 
     //dataNormalizerCervical.getNormalizedData(req.body.firstname, req.body.surname);
-    dataNormalizerEndometrial.getNormalizedData(req.body.firstname, req.body.surname);
+    dataNormalizerFallopianTube.getNormalizedData(req.body.firstname, req.body.surname);
 
 });
 
