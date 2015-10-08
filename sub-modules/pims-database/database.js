@@ -1401,7 +1401,7 @@ var VulvaCancer = new Schema({
     
     SurgicalPathologicalEvaluation:{
 	    MaximumTumorDiameterInMm :{type:Number, title:'Maximum tumor diameter in mm'},                                      
-	    MaximumDepthOfInvisionInMm :{type:Number, title:'Maximum depth of invasion in mm'},
+	    MaximumDepthOfInvisionInMm :{type:Number, title:'Maximum depth of invasion in mm'}
     },
     
 
@@ -1780,7 +1780,7 @@ typeOfSurgery: {
 		IntercurrentDisease: {type: Boolean, title: 'Intercurrent disease'},
 		UnknownCauses: {type: Boolean, title: 'Unknown causes'},
 		DateOfDeath: {type: Date, require: true, title: 'Date of Death'}
-	},
+	}
 	
 });
 
@@ -2232,7 +2232,7 @@ var GynaeCritical_Incident_DataCollection = new Schema({
 		
 		AnaestheticComplications: {
 		TickBlock: {type: Boolean, title: 'Anaesthetic complications'}, 
-		Details: {type: String, title: 'Specify details'}},
+		Details: {type: String, title: 'Specify details'}}
 	},
 	
 	/*MODIFIABLE FACTORS*/
@@ -2294,7 +2294,7 @@ var GynaeCritical_Incident_DataCollection = new Schema({
 		InappropriateFacility_b: 
 		{
 		PalliativeCare: {type: Boolean, title: 'Palliative care in 2°/3° hosp'}
-		},
+		}
 	},
 		
 	/*--LevelOfSurgeryPerformed--*/
@@ -2393,7 +2393,7 @@ var GynaeCritical_Incident_DataCollection = new Schema({
 		
 	Specify: 
 		{
-		Primary: {type: String, title: 'Specify'}, 
+		Primary: {type: String, title: 'Specify'}
 		},
 		
 	/*--Medical Care--*/
@@ -2483,7 +2483,7 @@ var GynaeCritical_Incident_DataCollection = new Schema({
 		
 	Summary: {type: String, title: 'Patient name'},
 	
-	NameOfRegistrar_print: {type: String, title: 'Patient name'},
+	NameOfRegistrar_print: {type: String, title: 'Patient name'}
 });
 var GynaeCritical_Incident_DataCollection = new Schema({
 
@@ -2595,7 +2595,7 @@ var GynaeCritical_Incident_DataCollection = new Schema({
 		
 		AnaestheticComplications: {
 		TickBlock: {type: Boolean, title: 'Anaesthetic complications'}, 
-		Details: {type: String, title: 'Specify details'}},
+		Details: {type: String, title: 'Specify details'}}
 	},
 	
 	/*MODIFIABLE FACTORS*/
@@ -2657,7 +2657,7 @@ var GynaeCritical_Incident_DataCollection = new Schema({
 		InappropriateFacility_b: 
 		{
 		PalliativeCare: {type: Boolean, title: 'Palliative care in 2°/3° hosp'}
-		},
+		}
 	},
 		
 	/*--LevelOfSurgeryPerformed--*/
@@ -2756,7 +2756,7 @@ var GynaeCritical_Incident_DataCollection = new Schema({
 		
 	Specify: 
 		{
-		Primary: {type: String, title: 'Specify'}, 
+		Primary: {type: String, title: 'Specify'}
 		},
 		
 	/*--Medical Care--*/
@@ -2846,7 +2846,7 @@ var GynaeCritical_Incident_DataCollection = new Schema({
 		
 	Summary: {type: String, title: 'Patient name'},
 	
-	NameOfRegistrar_print: {type: String, title: 'Patient name'},
+	NameOfRegistrar_print: {type: String, title: 'Patient name'}
 });
 
 var forms = mongoose.model('forms', Form);
