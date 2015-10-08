@@ -1917,6 +1917,6 @@ module.exports = {
     fallopianTubeCancer: fallopianTubeCancer,
     vaginalCancer: vaginalCancer,
     vulvaCancer: vulvaCancer,
-
-    overianCancer: OverianCancer
+    overianCancer: OverianCancer,
+    hysteroscopyDataSheet: HysteroscopyDataSheet
 };
