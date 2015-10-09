@@ -1249,7 +1249,7 @@ var submitVaginalCancer = function(formData){//VagC
 
         Surname: changedString.Surname,
 
-        HospitalNumber: changedString.Surname,
+        HospitalNumber: changedString.HospitalNumber,
 
         ID:changedString.ID,
 
