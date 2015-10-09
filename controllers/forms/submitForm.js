@@ -1260,6 +1260,9 @@ var submitVaginalCancer = function(formData){//VagC
 
 };
 
+
+
+
 var submitVulvaCancer = function (formData) {//VulC
 
     var jsonString = JSON.stringify(formData.body);
@@ -1272,9 +1275,236 @@ var submitVulvaCancer = function (formData) {//VulC
 
     var Form = new VulC({
 
+    Name:changedString.Name,
 
+    Surname:changedString.Surname,
 
-    });
+    HospitalNumber:changedString.HospitalNumber,
+
+    ID: changedString.ID,
+
+    DateOfBirth:changedString.DateOfBirth,
+    
+   CellPhone:{
+        First: changedString.CellPhoneFirst,
+        Alternative: changedString.CellPhoneAlternative
+    },
+
+    DateOfDiagnosis: changedString.DateOfDiagnosis,
+
+    HIVStatus:{
+        Negative: changedString.HIVStatusNegative,
+        CD4: changedString.HIVStatusCD4
+    },
+    
+    figoStage: {
+        Ia: changedString.figoStageIa,
+        Ib: changedString.figoStageIb,
+        II: changedString.figoStageII,
+        III: changedString.figoStageIII,
+        IVa: changedString.figoStageIVa,
+        IVb: changedString.figoStageIVb,
+        Unknown: changedString.figoStageUnknown
+    },
+
+    SiteOfDistantMetastase: {
+        Nil: changedString.SiteOfDistantMetastaseNil,
+        Skin: changedString.SiteOfDistantMetastaseSkin,
+        Bone: changedString.SiteOfDistantMetastaseBone,
+        Lungs: changedString.SiteOfDistantMetastaseLungs,
+        Liver: changedString.SiteOfDistantMetastaseLiver,
+        Brain: changedString.SiteOfDistantMetastaseBrain,
+        LymphNodesOtherThanFemoralAndInguinal:changedString.LymphNodesOtherThanFemoralAndInguinal,
+        Other: changedString.SiteOfDistantMetastaseOther,
+        Unknown:changedString.SiteOfDistantMetastaseUnknown
+    },
+    
+    Histology: {
+        NilUnclassifiable: changedString.HistologyNilUnclassifiable,
+        SquamousInSitu:changedString.HistologySquamousInSitu,
+        Verrucous: changedString.HistologyVerrucous,
+        BasalCell: changedString.HistologyBasalCell,
+        Squamous: changedString.HistologySquamous,
+        BartholinGlandAdeno: changedString.HistologyBartholinGlandAdeno,
+        Adenocarcinoma: changedString.HistologyAdenocarcinoma,
+        Other: changedString.HistologyOther,
+        Unknown : changedString.HistologyUnknown
+    },
+    
+    Differentiation: {
+        Well: changedString.DifferentiationWell,
+        Moderately: changedString.DifferentiationModerately,
+        Poorly: changedString.DifferentiationPoorly,
+        Unknown : changedString.DifferentiationUnknown
+    },
+    
+        /*---(RT = Radiotherapy, CT = Chemotherapy, CRT = Chemoradiation)--*/    
+    PrimaryTreatmentPerformed : {
+        Nil: changedString.PrimaryTreatmentPerformedNil,
+        SurgeryAlone: changedString.PrimaryTreatmentPerformedSurgeryAlone,
+        RTAlone: changedString.PrimaryTreatmentPerformedRTAlone,
+        RTFollowedBySurgeryWithin60Days: changedString.PrimaryTreatmentPerformedRTFollowedBySurgeryWithin60Days,
+        NeoAdjuvantCTAndSurgery: changedString.PrimaryTreatmentPerformedNeoAdjuvantCTAndSurgery,
+        SurgeryAdjuvantRT: changedString.PrimaryTreatmentPerformedSurgeryAdjuvantRT,
+        SurgeryAdjuvantCT: changedString.PrimaryTreatmentPerformedSurgeryAdjuvantCT,
+        Other : changedString.PrimaryTreatmentPerformedOther,
+        CRT : changedString.PrimaryTreatmentPerformedCRT,
+        Unknown : changedString.PrimaryTreatmentPerformedUnknown,
+        DateofTreatment : changedString.PrimaryTreatmentPerformedDateofTreatment
+    },
+    
+    
+            /*--(LND = lymp hadenectomy)--*/
+    typeOfSurgery: {
+        WideLocalExcisionWithLND: changedString. typeOfSurgeryWideLocalExcisionWithLND,
+        WideLocalExcisionNoLND: changedString.typeOfSurgeryWideLocalExcisionNoLND,
+        SimpleVulvectomyWithLND: changedString.typeOfSurgerySimpleVulvectomyWithLND,
+        SimpleVulvectmyNoLND: changedString.typeOfSurgerySimpleVulvectmyNoLND,
+        RadicalVulvectomyNoLND: changedString.typeOfSurgeryRadicalVulvectomyNoLND,
+        RadicalVulvectomyWithLND: changedString.typeOfSurgeryRadicalVulvectomyWithLND,
+        AnyKindOfExenteration : changedString.typeOfSurgeryAnyKindOfExenteration,
+        Other : changedString.typeOfSurgeryOther,
+        Unknown: changedString.typeOfSurgeryUnknown,
+        DateofSurgery : changedString.typeOfSurgeryDateofSurgery
+    },
+
+        typeOfRadiotherapy:{
+        Intracavitary: changedString.typeOfRadiotherapyIntracavitary,
+        ExternalRT: changedString.typeOfRadiotherapyExternalRT,
+        ExternalIntracavitary: typeOfRadiotherapyExternalIntracavitary,
+        Other: changedString.typeOfRadiotherapyOther,
+        Unknown: changedString.typeOfRadiotherapyUnknown,
+        DateStarted: changedString.typeOfRadiotherapyDateStarted,
+        DateEnded: changedString.typeOfRadiotherapyDateEnded
+    },
+    
+    typeOfChemotherapy:{
+        SpecifyTypeAndDrugs: changedString.typeOfChemotherapySpecifyTypeAndDrugs,
+        DateStarted: changedString.typeOfChemotherapyDateStarted,
+        DateEnded: changedString.typeOfChemotherapyDateEnded
+    },
+    
+    responseToTreatment: {
+        Complete: changedString.responseToTreatmentComplete,
+        Partial: changedString.responseToTreatmentPartial,
+        StableDisease: changedString.responseToTreatmentStableDisease,
+        ProgressiveDisease: changedString.responseToTreatmentProgressiveDisease,
+        NotAssessable: changedString.responseToTreatmentNotAssessable,
+        Unknown: changedString.responseToTreatmentUnknown,
+        DateOfAssessment: changedString.responseToTreatmentDateOfAssessment
+    },
+    
+    SurgicalPathologicalEvaluation:{
+        MaximumTumorDiameterInMm :changedString.SurgicalPathologicalEvaluationMaximumTumorDiameterInMm,                                    
+        MaximumDepthOfInvisionInMm :changedString.SurgicalPathologicalEvaluationMaximumDepthOfInvisionInMm
+    },
+    
+
+AssociatedLesions: {
+        None: changedString.AssociatedLesionsNone,
+        VINIII: changedString.AssociatedLesionsVINIII,
+        LichenSclerosis: changedString.AssociatedLesionsLichenSclerosis,
+        VINIIILichenSclerosis: changedString.AssociatedLesionsVINIIILichenSclerosis,
+        Other: changedString.AssociatedLesionsOther,
+        Unknown: changedString.AssociatedLesionsUnknown
+    },
+    
+    HPVTest: {
+        NotTested:Unknown: changedString.HPVTestNotTested,
+        Pos:Unknown: changedString.HPVTestPos,
+        Neg: Unknown: changedString.HPVTestNeg,
+        Unknown: changedString.HPVTestUnknown
+    },
+    
+    LymphnodeInvolvementAtSurgery:{
+        SentinelNodeDetection:{
+            NotPerformed:changedString.LymphnodeInvolvementAtSurgerySentinelNodeDetectionNotPerformed,
+            NoPos:changedString.LymphnodeInvolvementAtSurgerySentinelNodeDetectionNoPos,
+            YesNeg:changedString.LymphnodeInvolvementAtSurgerySentinelNodeDetectionYesNeg,
+            Unknown:changedString.LymphnodeInvolvementAtSurgerySentinelNodeDetectionUnknown
+            },
+            
+        HistologicallyProvenInvolvement :{
+            NotEvaluated :changedString.LymphnodeInvolvementAtSurgeryHistologicallyProvenInvolvementNotEvaluated,
+            PositiveNodes:changedString.LymphnodeInvolvementAtSurgeryHistologicallyProvenInvolvementPositiveNodes,
+            NegativeNodes:changedString.LymphnodeInvolvementAtSurgeryHistologicallyProvenInvolvementNegativeNodes,
+            Unknown:changedString.LymphnodeInvolvementAtSurgeryHistologicallyProvenInvolvementUnknown
+            },
+            
+        NodesInvolved :{
+            OnlyPelvic:changedString.LymphnodeInvolvementAtSurgeryNodesInvolvedOnlyPelvic,
+            PelviInguinal:changedString.LymphnodeInvolvementAtSurgeryNodesInvolvedPelviInguinal,
+            OnlyInguinal:changedString.LymphnodeInvolvementAtSurgeryNodesInvolvedOnlyInguinal,
+            Unknown: changedString.LymphnodeInvolvementAtSurgeryNodesInvolvedUnknown
+            },
+            
+        NumberOfNodesExamined : {
+            Pelvic : changedString.LymphnodeInvolvementAtSurgeryNumberOfNodesExaminedPelvic,
+            Paraortic: changedString.LymphnodeInvolvementAtSurgeryNumberOfNodesExaminedParaortic
+        },
+        
+        NumberOfNodesPositive : {
+            Pelvic: changedString.LymphnodeInvolvementAtSurgeryNumberOfNodesPositivePelvic,
+            Inguinal: changedString.LymphnodeInvolvementAtSurgeryNumberOfNodesPositiveInguinal
+        },
+        
+        InguinalNodes_involvementCharacteristics:{
+            UnilateralIntracapsular:{changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsUnilateralIntracapsular,
+            UnilateralExtracapsular:changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsUnilateralExtracapsular,
+            BilateralIntracapsular:changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsBilateralIntracapsular,
+            BilateralExtracapsular:changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsBilateralExtracapsular,
+            Unknown:changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsUnknown
+        }
+    },
+    
+    Relapse: {
+        Yes: changedString.RelapseYes,
+        No: changedString.RelapseNo,
+        Unknown: changedString.RelapseUnknown,
+        DateOfRelapseDiagnosis: changedString.RelapseDateOfRelapseDiagnosis
+    }, 
+    
+    SiteOfRelapse:{
+        Local: changedString.SiteOfRelapseLocal,
+        Metastatic:changedString.SiteOfRelapseMetastatic,
+        LocalAndMetastatic:changedString.SiteOfRelapseLocalAndMetastatic,
+        Unknown: changedString.SiteOfRelapseUnknown
+    },
+    
+         /*---(RT = Radiotherapy, CT = Chemotherapy, CRT = Chemoradiation, HT = Hormone Therapy)---*/   
+    TreatmentAtRelapse: {
+        Nil: changedString.TreatmentAtRelapseNil,
+        Surgery: changedString.TreatmentAtRelapseSurgery,
+        RT: changedString.TreatmentAtRelapseRT,
+        CT: changedString.TreatmentAtRelapseCT,
+        SurgeryRT: changedString.TreatmentAtRelapseSurgeryRT,
+        CTRT: changedString.TreatmentAtRelapseCTRT,
+        Other: changedString.TreatmentAtRelapseOther,
+        Unknown: changedString.TreatmentAtRelapseUnknown
+    },
+
+    /*Follow up*/
+    
+    DateOfFolllowup: changedString.DateOfFolllowup,
+    
+    LastKnownVitalStatus: {
+        AliveUnknownDiseaseStatus: changedString.LastKnownVitalStatusAliveUnknownDiseaseStatus,
+        AliveAndNoEvidenceOfDisease: changedString.LastKnownVitalStatusAliveAndNoEvidenceOfDisease,
+        AliveWithDisease: changedString.LastKnownVitalStatusAliveWithDisease,
+        Dead: changedString.LastKnownVitalStatusAliveUnknownDiseaseStatusDead
+    },
+        
+    /*Death*/
+    causeOfDeath :{
+        VulvaCarcinoma: changedString.causeOfDeathVulvaCarcinoma,
+        Otherprimarycancer: changedString.causeOfDeathOtherprimarycancer,
+        Treatmentrelatedcause: changedString.causeOfDeathTreatmentrelatedcause,
+        IntercurrentDisease: changedString.causeOfDeathIntercurrentDisease,
+        UnknownCauses: changedString.causeOfDeathUnknownCauses,
+        DateOfDeath: changedString.causeOfDeathDateOfDeath
+    }
+
+});
 
     Form.save(function(err){
         if(err) {
@@ -1286,6 +1516,12 @@ var submitVulvaCancer = function (formData) {//VulC
     });
 
 };
+
+
+
+
+
+
 
 module.exports = {
     submitGynaecologySurgery: submitGynaecologySurgery,
