@@ -1387,7 +1387,7 @@ var submitVulvaCancer = function (formData) {//VulC
         typeOfRadiotherapy:{
         Intracavitary: changedString.typeOfRadiotherapyIntracavitary,
         ExternalRT: changedString.typeOfRadiotherapyExternalRT,
-        ExternalIntracavitary: typeOfRadiotherapyExternalIntracavitary,
+        ExternalIntracavitary: changedString.typeOfRadiotherapyExternalIntracavitary,
         Other: changedString.typeOfRadiotherapyOther,
         Unknown: changedString.typeOfRadiotherapyUnknown,
         DateStarted: changedString.typeOfRadiotherapyDateStarted,
