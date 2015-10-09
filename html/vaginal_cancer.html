@@ -129,16 +129,24 @@
                     }
                 }
             },
-            "TumorSize": {
+            "TumorSizeB4": {
                 "type": "object",
                 "properties": {
-                    "MaxTumorDiameter": {
-                        "type": "number",
-                        "title": "Max tumor diameter (mm)"
+                    "NotAssessed": {
+                        "type": "boolean",
+                        "title": "Not assessed"
                     },
-                    "MaxDepthOfInvasion": {
-                        "type": "number",
-                        "title": "Max depth of invasion (mm)"
+                    "LTE2cm": {
+                        "type": "boolean",
+                        "title": "= 2cm"
+                    },
+                    "GT2cm": {
+                        "type": "boolean",
+                        "title": "> 2cm"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
                     }
                 }
             },
@@ -472,6 +480,19 @@
                         "type": "date",
                         "require": true,
                         "title": "Date of assessment"
+                    }
+                }
+            },
+            "TumorSize": {
+                "type": "object",
+                "properties": {
+                    "MaxTumorDiameter": {
+                        "type": "number",
+                        "title": "Max tumor diameter (mm)"
+                    },
+                    "MaxDepthOfInvasion": {
+                        "type": "number",
+                        "title": "Max depth of invasion (mm)"
                     }
                 }
             },

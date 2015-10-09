@@ -780,7 +780,7 @@ var VaginalCancer = new Schema({
     },
 
     /*(whatever clinically assessed)*/
-    TumorSize: {
+    TumorSizeB4: {
         NotAssessed: {type: Boolean, title: 'Not assessed'},
         LTE2cm: {type: Boolean, title: '≤ 2cm'},
         GT2cm: {type: Boolean, title: '> 2cm'},
