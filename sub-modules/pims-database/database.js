@@ -814,7 +814,6 @@ var VaginalCancer = new Schema({
         Endometroid: {type: Boolean, title: 'Endometroid'},
         ClearCell: {type: Boolean, title: 'Clear cell'},
         Undifferentiated: {type: Boolean, title: 'Undifferentiated'},
-        ClearCell: {type: Boolean, title: 'Clear cell'},
         Other: {type: Boolean, title: 'Other'},
         Unknown : {type: Boolean, title: 'Unknown'}
     },
