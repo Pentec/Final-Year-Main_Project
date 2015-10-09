@@ -113,9 +113,15 @@ img.link.rotate{
     color: #002240;
 }
 
-@media (max-height: 500px){
+@media (max-height: 600px){
     #myCarousel{
         margin-top: 100px;
+    }
+}
+
+@media (max-width: 780px){
+    #myCarousel{
+        margin-top: 150px;
     }
 }
 
@@ -305,4 +311,35 @@ img.link.rotate{
     100% {
         transform: translateX(-200%);
     }
+}
+
+footer{
+    background-color: #001f41;
+    bottom: 0;
+    box-shadow: 0 -1px 2px #001f41;
+    height: 45px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 100000;
+    padding: 15px;
+
+}
+
+footer h2{
+    color: #EEEEEE;
+    font-size: 14px;
+    font-weight: normal;
+    display: inline;
+    padding-right: 20px;
+}
+
+footer h2 i{
+    font-style:normal;
+    color:#888;
+}
+
+footer a.tzine,a.tzine:visited{
+    color: #999999;
+    font-size: 14px;
 }

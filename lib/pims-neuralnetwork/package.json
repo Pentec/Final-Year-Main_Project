@@ -1,0 +1,27 @@
+{
+  "name": "pims-neuralnetwork",
+  "version": "0.0.1",
+  "description": "A neural network that determines the admission length of a patient.",
+  "main": "neuralnetwork.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pentec/pims-neuralnetwork.git"
+  },
+  "keywords": [
+    "AI",
+    "neuralnetwork",
+    "PIMS"
+  ],
+  "author": "Pentec",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pentec/pims-neuralnetwork/issues"
+  },
+  "homepage": "https://github.com/Pentec/pims-neuralnetwork",
+  "dependencies": {
+    "synaptic": "^1.0.1"
+  }
+}

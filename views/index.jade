@@ -11,19 +11,21 @@ block content
                         span.glyphicon.glyphicon-align-justify(style="color:#004B8F")
             #navbar.collapse.navbar-collapse
                 ul.nav.navbar-nav.navbar-left
-                    li.active
-                        a(href="/myAdminSpace") Home
-                    li.has-sub#usersub
-                        a(href='#' role='button') Users
+                    if(active == "home")
+                        li.active
+                            a(href="/myAdminSpace") Home
+                    else
+                        li
+                            a(href="/myAdminSpace") Home
+                    if(active == "user")
+                        li.has-sub#usersub.active
+                            a(href='#' role='button') Users
+                    else
+                        li.has-sub#usersub
+                            a(href='#' role='button') Users
                     li.sub.usersub
                         a(href='/addUser') Add User
-                    li.sub.usersub
-                        a(href='#') Remove User
-                    li#formtab.has-sub
-                        a(href='') Forms
-                    li.sub.formtab
-                        a(href="") Add form
-                    li.dropdown.sub.formtab
+                    li#formtab.dropdown
                         a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Forms
                             span.caret
                         ul.dropdown-menu
@@ -38,14 +40,18 @@ block content
                             li
                                 a(href='/cervical_cancer.html', tabindex='-1') Cervical Cancer
                                 a(href='/endometrial_cancer.html', tabindex='-1') Endomentrial Cancer
-                                a(href='#', tabindex='-1') Fallopian Tube Cancer
-                                a(href='#', tabindex='-1') Follow-Up
+                                a(href='/fallopian_tube_cancer.html', tabindex='-1') Fallopian Tube Cancer
+                                a(href='/oncology_follow_up.html', tabindex='-1') Follow-Up
                                 a(href='#', tabindex='-1') Gestational Trophoblastic Disease
                                 a(href='#', tabindex='-1') Ovarian Cancer
                                 a(href='/vaginal_cancer.html', tabindex='-1') Vaginal Cancer
                                 a(href='#', tabindex='-1') Vulva Cancer
-                    li.has-sub#statisticstab
-                        a(href='#' role='button') Statistics
+                    if(active == 'stats')
+                        li.has-sub#statisticstab.active
+                            a(href='#' role='button') Statistics
+                    else
+                        li.has-sub#statisticstab
+                            a(href='#' role='button') Statistics
                     li.sub.statisticstab
                         a(href='\stats') Query
                     li.sub.statisticstab
@@ -56,12 +62,16 @@ block content
                     li.nobar.has-sub#settings
                         a(href='#')
                             img(alt="Settings" src='/images/settings.png' height="40px")
-                    li.sub.settings
-                        a(href="/editProfile") Edit Profile
+                    if(active=="editProfile")
+                        li.sub.settings.active
+                            a(href="/editProfile") Edit Profile
+                    else
+                        li.sub.settings
+                            a(href="/editProfile") Edit Profile
                     li.sub.settings
                         a(href="/logout") Logout
-                form.navbar-form.navbar-right.search-form(role='search')
-                    input.form-control(type='text', placeholder='Search')
+                //form.navbar-form.navbar-right.search-form(role='search')
+                //    input.form-control(type='text', placeholder='Search')
     div.content
         block mainContent
             //a(href='#/neural/{{userID._id}}') Neural Network

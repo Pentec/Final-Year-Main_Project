@@ -5,6 +5,8 @@ var AD = models.addmissionDischarge;
 var GS = models.gynaecologySurgery;
 var CC = models.cervicalCancer;
 var EC = models.endometrialCancer;
+var FP = models.fallopianTubeCancer;
+var OC = models.oncologyFollowUpVisit
 
 var submitAdmissionDischarge = function(formData) {
 
@@ -710,9 +712,420 @@ var submitEndometrialCancer = function(formData){
     });
 };
 
+var submitFallopianTubeCancer = function(formData){
+    var jsonString = JSON.stringify(formData.body);
+    var changedString = jsonString.replace(/([./])/g, "");
+
+    console.log(changedString);
+    console.log(JSON.parse(changedString));
+
+    var changedString = JSON.parse(changedString);
+
+    var Form = new FP({
+
+        HospitalNumber: changedString.HospitalNumber,
+
+        DateOfBirth: changedString.DateOfBirth,
+
+        Age: changedString.Age,
+
+        ID: changedString.ID,
+
+        Name: changedString.Name,
+
+        Surname: changedString.Surname,
+
+        DateOfDiagnosis: changedString.DateOfDiagnosis,
+
+        HIVStatus: changedString.HIVStatus,
+
+        CD4: changedString.CD4,
+
+        figoStage: {
+            Ia: changedString.figoStageIa,
+            Ib: changedString.figoStageIb,
+            Ic: changedString.figoStageIc,
+            IIa: changedString.figoStageIIa,
+            IIb: changedString.figoStageIIb,
+            IIc: changedString.figoStageIIc,
+            IIIa: changedString.figoStageIIIa,
+            IIIb: changedString.figoStageIIIb,
+            IIIc: changedString.figoStageIIIc,
+            IV: changedString.figoStageIV,
+            Unknown: changedString.figoStageUnknown
+        },
+
+        //Site of distant matastases (when appropriate)
+        SiteOfDistantMatastases:{
+            PleuralEffusion: changedString.SiteOfDistantMatastasesPleuralEffusion,
+            Liver: changedString.SiteOfDistantMatastasesLiver,
+            Brain: changedString.SiteOfDistantMatastasesBrain,
+            Othersite: changedString.SiteOfDistantMatastasesOthersite,
+            Unknown: changedString.SiteOfDistantMatastasesUnknown
+        },
+
+
+        //Histology
+        Histology: {
+            Nohistology: changedString.HistologyNohistology,
+            Serousadenocarcinoma: changedString.HistologySerousadenocarcinoma,
+            Mucinousadenocarcinoma: changedString.HistologyMucinousadenocarcinoma,
+            Endometroidadenocarcinoma: changedString.HistologyEndometroidadenocarcinoma,
+            Clearcelladenocarcinoma: changedString.HistologyClearcelladenocarcinoma,
+            Adenoacanthoma : changedString.HistologyAdenoacanthoma,
+            Adenosquamous : changedString.HistologyAdenosquamous,
+            Undifferentiatedcarcinoma : changedString.HistologyUndifferentiatedcarcinoma,
+            Unknown : changedString.HistologyUnknown
+        },
+
+
+        //Differentiation
+        Differentiation: {
+            Well:changedString.DifferentiationWell,
+            Moderately: changedString.DifferentiationModerately,
+            Poorly: changedString.DifferentiationPoorly
+        },
+
+        //Treatments performed (RT = Radiotherapy, CT = Chemotherapy, CRT = Chemoradiation)
+        TreatmentPerformed:{
+            Nil: changedString.TreatmentPerformedNil,
+            SurgeryAlone: changedString.TreatmentPerformedSurgeryAlone,
+            RTAlone: changedString.TreatmentPerformedRTAlone,
+            NeoAdjuvantCTSurgery: changedString.TreatmentPerformedNeoAdjuvantCTSurgery,
+            SurgeryAdjuvantRT: changedString.TreatmentPerformedSurgeryAdjuvantRT,
+            SurgeryAdjuvantCT: changedString.TreatmentPerformedSurgeryAdjuvantCT,
+            OtherNonStandardTreatments: changedString.TreatmentPerformedOtherNonStandardTreatments,
+            Unknown : changedString.TreatmentPerformedUnknown,
+            DateOfTreatment  : changedString.TreatmentPerformedDateOfTreatment
+        },
+
+
+        //Type of surgery (LND: pelvic/paraortic l/node dissection; USO: Unilateral salping-oopherectomy; BSO: bilateral salpingo-oopherectomy)
+        TypeOfSurgery: {
+            USOwithoutLND: changedString.TypeOfSurgeryUSOwithoutLND,
+            USOwithLND: changedString.TypeOfSurgeryUSOwithLND,
+            BSOwithoutLND: changedString.TypeOfSurgeryBSOwithoutLND,
+            BSOwithLND: changedString.TypeOfSurgeryBSOwithLND,
+            TAHBSOOmentectomymultiplebiopsiesnoLND: changedString.TypeOfSurgeryTAHBSOOmentectomymultiplebiopsiesnoLND,
+            TAHBSOomentectomymultiplebiopsieswithLND: changedString.TypeOfSurgeryTAHBSOomentectomymultiplebiopsieswithLND,
+            ExplorativeLaparotomylaparoscopy : changedString.TypeOfSurgeryExplorativeLaparotomylaparoscopy,
+            Othertypeofsurgery :changedString.TypeOfSurgeryOthertypeofsurgery,
+            Unknown:changedString.TypeOfSurgeryUnknown,
+            Other: changedString.TypeOfSurgeryOther,
+            DateofSurgery : changedString.TypeOfSurgeryDateofSurgery
+        },
+
+
+        //Type of Radiotherapy
+        TypeofRadiotherapy: {
+            Intracavitary: changedString.TypeofRadiotherapyIntracavitary,
+            ExternalpelvicRT: changedString.TypeofRadiotherapyExternalpelvicRT,
+            Externalpelvicparaortic: changedString.TypeofRadiotherapyExternalpelvicparaortic,
+            Externalpelvicintracavitary: changedString.TypeofRadiotherapyExternalpelvicintracavitary,
+            Extpelvicparaorticintracavitary: changedString.TypeofRadiotherapyExtpelvicparaorticintracavitary,
+            Intraperitonealradioisotopes: changedString.TypeofRadiotherapyIntraperitonealradioisotopes,
+            Other: changedString.TypeofRadiotherapyOther,
+            Unknown: changedString.TypeofRadiotherapyUnknown,
+            DateStarted: changedString.TypeofRadiotherapyDateStarted,
+            DateEnded: changedString.TypeofRadiotherapyDateEnded
+        },
+
+
+        //Type of Chemotherapy (CT = Chemotherapy, PC = platinum compound, Completed / uncompleted refers to full course)
+        TypeofChemotherapy: {
+            Type1: changedString.TypeofChemotherapyType1,
+            Type2: changedString.TypeofChemotherapyType2,
+            Type3: changedString.TypeofChemotherapyType3,
+            Type4: changedString.TypeofChemotherapyType4,
+            Type5: changedString.TypeofChemotherapyType5,
+            Type6: changedString.TypeofChemotherapyType6,
+            Type7: changedString.TypeofChemotherapyType7,
+            Type8: changedString.TypeofChemotherapyType8,
+            Type9: changedString.TypeofChemotherapyType9,
+            Type10: changedString.TypeofChemotherapyType10,
+            Type11: changedString.TypeofChemotherapyType11,
+            Type12: changedString.TypeofChemotherapyType12,
+            Type13: changedString.TypeofChemotherapyType13,
+            Type14: changedString.TypeofChemotherapyType14,
+            Type15: changedString.TypeofChemotherapyType15,
+            Type16: changedString.TypeofChemotherapyType16,
+            Unknown: changedString.TypeofChemotherapyUnknown,
+            DateStarted: changedString.TypeofChemotherapyDateStarted,
+            DateEnded: changedString.TypeofChemotherapyDateEnded
+        },
+
+
+        //Response to treatment
+        ResponseToTreatment: {
+            Complete: changedString.ResponseToTreatmentComplete,
+            Partial: changedString.ResponseToTreatmentPartial,
+            StableDisease: changedString.ResponseToTreatmentStableDisease,
+            ProgressiveDisease: changedString.ResponseToTreatmentProgressiveDisease,
+            NotAssessable: changedString.ResponseToTreatmentNotAssessable,
+            Unknown: changedString.ResponseToTreatmentUnknown,
+            DateOfAssessment: changedString.ResponseToTreatmentDateOfAssessment
+        },
+
+
+        //Surgical pathological evaluation
+        //Size of tumor outside Fallopian tube at opening of abdomen
+        SPETumorSize: {
+            NoMacroscopicDisease: changedString.SPETumorSizeNoMacroscopicDisease,
+            BTEThan2: changedString.SPETumorSizeBTEThan2,
+            Between2And10: changedString.SPETumorSizeBetween2And10,
+            BT10: changedString.SPETumorSizeBT10,
+            Unknown: changedString.SPETumorSizeUnknown
+        },
+
+
+        //Diameter of residual implants (after surgery)
+        SPEtumorsizeAS: {
+            NoMacroscopicResDisease: changedString.SPEtumorsizeASNoMacroscopicResDisease,
+            LT05: changedString.SPEtumorsizeASLT05,
+            Between05And1: changedString.SPEtumorsizeASBetween05And1,
+            Between1and2: changedString.SPEtumorsizeASBetween1and2,
+            BT2: changedString.SPEtumorsizeASBT2,
+            Unknown: changedString.SPEtumorsizeASUnknown
+        },
+
+
+        //Lymph node involvement in upfront surgery (histologically)
+        LymphNodeInvolvementAtSurgery: {
+            Notevaluated: changedString.LymphNodeInvolvementAtSurgeryNotevaluated,
+            PosNodes: changedString.LymphNodeInvolvementAtSurgeryPosNodes,
+            NegNodes: changedString.LymphNodeInvolvementAtSurgeryNegNodes,
+            Unknown: changedString.LymphNodeInvolvementAtSurgeryUnknown
+        },
+
+
+        //Nodes involved
+        Nodesinvolved: {
+            Onlypelvic: changedString.NodesinvolvedOnlypelvic,
+            PelvicParaorticInguinal: changedString.NodesinvolvedPelvicParaorticInguinal,
+            OnlyInguinal: changedString.NodesinvolvedOnlyInguinal,
+            Unknown: changedString.NodesinvolvedUnknown
+        },
+
+
+        //Number of nodes examined
+        NumberOfNodesExamined: {
+            Pelvic: changedString.NumberOfNodesExaminedPelvic,
+            PelvicParaortic: changedString.NumberOfNodesExaminedPelvicParaortic
+        },
+
+
+        //Number of nodes positive
+        NumberOfNodesPositive : {
+            Pelvic: changedString.NumberOfNodesPositivePelvic,
+            PelvicParaortic: changedString.NumberOfNodesPositivePelvicParaortic
+        },
+
+
+        //Cytology (Presence of malignant cells)
+        Cytology: {
+            NotEvaluated: changedString.CytologyNotEvaluated,
+            Positive: changedString.CytologyPositive,
+            Negative: changedString.CytologyNegative,
+            Unknown: changedString.CytologyUnknown
+        },
+
+        //Second surgery
+        SecondSurgery: {
+            IntervalDebulking: changedString.SecondSurgeryIntervalDebulking,
+            SecondLook: changedString.SecondSurgerySecondLook,
+            SecondSurgicalEffort: changedString.SecondSurgerySecondSurgicalEffort,
+            Unknown: changedString.SecondSurgeryUnknown,
+            DateOfSecondSurgery: changedString.SecondSurgeryDateOfSecondSurgery
+        },
+
+
+        //Status at second surgery
+        StatusAtSecondSurgery: {
+            CompleteRemission: changedString.StatusAtSecondSurgeryCompleteRemission,
+            MicroscopicDisease: changedString.StatusAtSecondSurgeryMicroscopicDisease,
+            NoSingleImplant: changedString.StatusAtSecondSurgeryNoSingleImplant,
+            ImplantsBT1: changedString.StatusAtSecondSurgeryImplantsBT1,
+            PosRetroperNodes: changedString.StatusAtSecondSurgeryPosRetroperNodes,
+            Unknown: changedString.StatusAtSecondSurgeryUnknown
+        },
+
+
+        //Status after second surgery
+        StatusAfterSecondSurgery: {
+            NoMacroscopicDiseaseLeft: changedString.StatusAfterSecondSurgeryNoMacroscopicDiseaseLeft,
+            MacroscopicDiseaseLT1:changedString.StatusAfterSecondSurgeryMacroscopicDiseaseLT1,
+            MacroscopicDiseaseBT1: changedString.StatusAfterSecondSurgeryMacroscopicDiseaseBT1,
+            Unknown: changedString.StatusAfterSecondSurgeryUnknown
+        },
+
+
+        //Relapse
+        Relapse: {
+            Yes: changedString.RelapseYes,
+            No: changedString.RelapseNo,
+            Unknown: changedString.RelapseUnknown,
+            DateOfRelapseDiagnosis: changedString.RelapseDateOfRelapseDiagnosis
+        },
+
+
+        //Site of relapse
+        SiteOfRelapse:
+        {
+            Local: changedString.SiteOfRelapseLocal,
+            Metastatic: changedString.SiteOfRelapseMetastatic,
+            LocalAndmetastatic: changedString.SiteOfRelapseLocalAndmetastatic,
+            Unknown: changedString.SiteOfRelapseUnknown
+        },
+
+
+        //Treatment at relapse (RT = Radiotherapy, CT = Chemotherapy, CRT = Chemoradiation, HT = Hormone Therapy )
+        TreatmentAtRelapse: {
+            Local: changedString.TreatmentAtRelapseLocal,
+            Surgery: changedString.TreatmentAtRelapseSurgery,
+            RT: changedString.TreatmentAtRelapseRT,
+            CT: changedString.TreatmentAtRelapseCT,
+            HT: changedString.TreatmentAtRelapseHT,
+            SurgeryRT: changedString.TreatmentAtRelapseSurgeryRT,
+            CTRT: changedString.TreatmentAtRelapseCTRT,
+            Other: changedString.TreatmentAtRelapseOther,
+            Unknown: changedString.TreatmentAtRelapseUnknown
+        },
+
+
+        //Follow-up
+        DateOfFolllowup: changedString.DateOfFolllowup,
+
+        LastKnownVitalStatus: {
+            AliveUnknownDiseaseStatus: changedString.LastKnownVitalStatusAliveUnknownDiseaseStatus,
+            AliveAndNoEvidenceOfDisease: changedString.LastKnownVitalStatusAliveAndNoEvidenceOfDisease,
+            AliveWithDisease: changedString.LastKnownVitalStatusAliveWithDisease,
+            Dead: changedString.LastKnownVitalStatusDead
+        },
+
+        //Death
+        CauseOfDeath: {
+            FallTubeCa: changedString.CauseOfDeathFallTubeCa,
+            OtherPrimaryCancer: changedString.CauseOfDeathOtherPrimaryCancer,
+            Treatmentrelatedcause: changedString.CauseOfDeathTreatmentrelatedcause,
+            IntercurrentDisease: changedString.CauseOfDeathIntercurrentDisease,
+            UnknownCauses: changedString.CauseOfDeathUnknownCauses,
+            DateOfDeath:changedString.CauseOfDeathDateOfDeath
+        }
+
+    });
+
+
+    Form.save(function(err){
+        if(err) {
+            throw err;
+            console.log('An error occurred while trying to add data');
+        }
+        else{console.log('The data has been saved.');
+        }
+    });
+};
+
+
+var submitOncologyFollowUp = function(formData) {
+
+    var jsonString = JSON.stringify(formData.body);
+    var changedString = jsonString.replace(/([./])/g, "");
+
+    console.log(changedString);
+    console.log(JSON.parse(changedString));
+
+    var changedString = JSON.parse(changedString);
+
+    var Form = new OC({
+
+        Name: changedString.Name,
+
+        HospitalNumber:changedString.HospitalNumber,
+
+        DateOfVisit: changedString.DateOfVisit,
+
+        ExaminedByDr: changedString.ExaminedByDr,
+
+        InitialDiagnosisAndStage: changedString.InitialDiagnosisAndStage,
+
+        DateDiagnosed: changedString.DateDiagnosed,
+
+        Complaints: changedString.Complaints,
+
+        ClinicalFindings : changedString.ClinicalFindings,
+
+        AdditionalNotes :changedString.AdditionalNotes ,
+
+        Plan:{
+            SpecialInvestigations:changedString.PlanSpecialInvestigations,
+            Referral:changedString.PlanReferral,
+            Treatment: changedString.PlanTreatment
+        },
+
+        NextFollowUpVisit : changedString.NextFollowUpVisit ,
+
+        /*----Please complete after examination---*/
+
+        TimeFromPrimaryTreatment:{
+            months: changedString.TimeFromPrimaryTreatmentmonths,
+            years:changedString.TimeFromPrimaryTreatmentyears
+        },
+
+        LastKnownVitalStatusOfPatient:{
+            AliveUnknownDiseaseStatus: changedString.LastKnownVitalStatusOfPatientAliveUnknownDiseaseStatus ,
+            AliveNoEvidenceOfDisease: changedString.LastKnownVitalStatusOfPatientAliveNoEvidenceOfDisease ,
+            AliveWithDisease: changedString.LastKnownVitalStatusOfPatientAliveWithDisease,
+            Dead:changedString.LastKnownVitalStatusOfPatientDead
+        },
+
+        Relapse:{
+            Yes: changedString.RelapseYes,
+            No: changedString.RelapseNo,
+            Unknown: changedString.RelapseUnknown
+        },
+
+        SiteOfRelapse:{
+            Local: changedString.SiteOfRelapseLocal,
+            Metastatic: changedString.SiteOfRelapseMetastatic,
+            LocalAndMetastatic: changedString.SiteOfRelapseLocalAndMetastatic,
+            Unknown: changedString.SiteOfRelapseUnknown
+        },
+
+        DateOfRelapseDiagnosis: changedString.DateOfRelapseDiagnosis,
+
+
+        /*--RT = Radiotherapy, CT = Chemotherapy, CRT = Chemoradiation, HT = Hormone Therapy)--*/
+        TreatmentAtRelapse:{
+            Nil: changedString.TreatmentAtRelapseNil,
+            Surgery: changedString.TreatmentAtRelapseSurgery,
+            Radiotherapy : changedString.TreatmentAtRelapseRadiotherapy,
+            Chemotherapy: changedString.TreatmentAtRelapseChemotherapy,
+            HT: changedString.TreatmentAtRelapseHT,
+            Surgery_RT : changedString.TreatmentAtRelapseSurgery_RT,
+            CT_RT: changedString.TreatmentAtRelapseCT_RT,
+            Other: changedString.TreatmentAtRelapseOther,
+            Unknown:changedString.TreatmentAtRelapseUnknown
+        }
+
+    });
+
+    Form.save(function(err){
+        if(err) {
+            throw err;
+            console.log('An error occurred while trying to add data');
+        }
+        else{console.log('The data has been saved.');
+        }
+    });
+
+};
+
+
 module.exports = {
     submitGynaecologySurgery: submitGynaecologySurgery,
     submitAdmissionDischarge: submitAdmissionDischarge,
     submitCervicalCancer: submitCervicalCancer,
-    submitEndometrialCancer: submitEndometrialCancer
+    submitEndometrialCancer: submitEndometrialCancer,
+    submitFallopianTubeCancer: submitFallopianTubeCancer,
+    submitOncologyFollowUp: submitOncologyFollowUp
 };

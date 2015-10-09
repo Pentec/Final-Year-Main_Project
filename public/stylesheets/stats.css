@@ -59,6 +59,10 @@
     font-size: 24px;
 }
 
+.bar {
+    fill: steelblue;
+}
+
 .graph-interaction {
     font-size: 12px;
 }
@@ -70,10 +74,17 @@
     shape-rendering: crispEdges;
 }
 
+.tick line{
+    opacity: 0.2;
+}
+
 .line {
     fill: none;
     stroke: steelblue;
     stroke-width: 1.5;
+}
+svg{
+    background-color: white;
 }
 
 .date {
