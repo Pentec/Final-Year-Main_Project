@@ -69,12 +69,22 @@ app.use('/create', routes);
 app.use('/profile', routes);
 app.use('/add', routes);
 app.use('/fetchDataFromDB', fetchDataFromDB);  //for html rms
+
+//Form Controllers
 app.use('/gynaecology_surgery', gynaecology_surgery);
 app.use('/addmission_discharge', addmission_discharge);
 app.use('/cervical_cancer', cervical_cancer);
 app.use('/endometrial_cancer',endometrial_cancer);
 app.use('/fallopian_tube_cancer', fallopian_tube_cancer);
 app.use('/oncology_follow_up',oncology_follow_up);
+
+app.use('/critical_incident',critical_incident);
+app.use('/hysteroscopy', hysteroscopy);
+app.use('/gtn', gtn);
+app.use('/ovarian_cancer',ovarian_cancer);
+app.use('/vulva_cancer', vulva_cancer);
+app.use('/vaginal_cancer',vaginal_cancer);
+
 app.use(scribe.express.logger());
 app.use('/logs', scribe.webPanel());
 app.use('/dataNormalizer', routes);
