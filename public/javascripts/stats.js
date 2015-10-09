@@ -167,7 +167,9 @@ function createBarGraph(data, yAxisName) {
 
     yAxis = d3.svg.axis()
         .scale(y)
-        .orient("left").ticks(10);
+        .orient("left").ticks(10).innerTickSize(-width)
+        .outerTickSize(0)
+        .tickPadding(10);
 
     svg = d3.select(".graph").append("svg")
         .attr("width", width + margin.left + margin.right)

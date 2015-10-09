@@ -3,28 +3,41 @@ block content
     nav.navbar.navbar-findcond.navbar-fixed-top
         .container-fluid
             .navbar-header
-                a.nav.navbar-brand(href='/myAdminSpace')
-                    img(alt="Kalafong PIMS" src="/images/newlogo.png")
+                if(admin)
+                    a.nav.navbar-brand(href='/myAdminSpace')
+                        img(alt="Kalafong PIMS" src="/images/newlogo.png")
+                else
+                    a.nav.navbar-brand(href='/mySpace')
+                        img(alt="Kalafong PIMS" src="/images/newlogo.png")
                 button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar')
                     div
                         span.sr-only Toggle navigation
                         span.glyphicon.glyphicon-align-justify(style="color:#004B8F")
             #navbar.collapse.navbar-collapse
                 ul.nav.navbar-nav.navbar-left
-                    if(active == "home")
-                        li.active
-                            a(href="/myAdminSpace") Home
+                    if(admin)
+                        if(active == "home")
+                            li.active
+                                a(href="/myAdminSpace") Home
+                        else
+                            li
+                                a(href="/myAdminSpace") Home
                     else
-                        li
-                            a(href="/myAdminSpace") Home
-                    if(active == "user")
-                        li.has-sub#usersub.active
-                            a(href='#' role='button') Users
-                    else
-                        li.has-sub#usersub
-                            a(href='#' role='button') Users
-                    li.sub.usersub
-                        a(href='/addUser') Add User
+                        if(active == "home")
+                            li.active
+                                a(href="/mySpace") Home
+                        else
+                            li
+                                a(href="/mySpace") Home
+                    if(admin)
+                        if(active == "user")
+                            li.has-sub#usersub.active
+                                a(href='#' role='button') Users
+                        else
+                            li.has-sub#usersub
+                                a(href='#' role='button') Users
+                        li.sub.usersub
+                            a(href='/addUser') Add User
                     li#formtab.dropdown
                         a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Forms
                             span.caret
@@ -46,30 +59,34 @@ block content
                                 a(href='#', tabindex='-1') Ovarian Cancer
                                 a(href='/vaginal_cancer.html', tabindex='-1') Vaginal Cancer
                                 a(href='#', tabindex='-1') Vulva Cancer
-                    if(active == 'stats')
-                        li.has-sub#statisticstab.active
-                            a(href='#' role='button') Statistics
-                    else
-                        li.has-sub#statisticstab
-                            a(href='#' role='button') Statistics
-                    li.sub.statisticstab
-                        a(href='\stats') Query
-                    li.sub.statisticstab
-                        a(href='\dash.html') Dashboard
-                    li#Predict
-                        a(Href='/neural') Predict
+                    if(admin)
+                        if(active == 'stats')
+                            li.has-sub#statisticstab.active
+                                a(href='#' role='button') Statistics
+                        else
+                            li.has-sub#statisticstab
+                                a(href='#' role='button') Statistics
+                        li.sub.statisticstab
+                            a(href='\stats') Query
+                        li.sub.statisticstab
+                            a(href='\dash.html') Dashboard
+                        li#Predict
+                            a(Href='/neural') Predict
                 ul.nav.navbar-nav.navbar-right
                     li.nobar.has-sub#settings
                         a(href='#')
                             img(alt="Settings" src='/images/settings.png' height="40px")
-                    if(active=="editProfile")
-                        li.sub.settings.active
-                            a(href="/editProfile") Edit Profile
-                    else
-                        li.sub.settings
-                            a(href="/editProfile") Edit Profile
+                    if(admin)
+                        if(active=="editProfile")
+                            li.sub.settings.active
+                                a(href="/editProfile") Edit Profile
+                        else
+                            li.sub.settings
+                                a(href="/editProfile") Edit Profile
                     li.sub.settings
                         a(href="/logout") Logout
+
+
                 //form.navbar-form.navbar-right.search-form(role='search')
                 //    input.form-control(type='text', placeholder='Search')
     div.content
