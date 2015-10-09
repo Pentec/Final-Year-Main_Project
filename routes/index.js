@@ -23,6 +23,7 @@ var dataNormalizerFallopianTube = require('../controllers/dataNormalizers/dataNo
 var dataNormalizerVulva = require('../controllers/dataNormalizers/dataNormalizerVulva.js');
 var dataNormalizerVaginal = require('../controllers/dataNormalizers/dataNormalizerVaginal.js');
 var dataNormalizerOvarian = require('../controllers/dataNormalizers/dataNormalizerOvarian.js');
+var dataNormalizerGTN = require('../controllers/dataNormalizers/dataNormalizerGTN.js');
 
 
 /**
@@ -108,7 +109,7 @@ router.get('/splash', function (req, res, next) {
 router.get('/dataNormalizer', function (req, res, next) {
 
     //dataNormalizerCervical.getNormalizedData(req.body.firstname, req.body.surname);
-    dataNormalizerOvarian.getNormalizedData(req.body.firstname, req.body.surname);
+    dataNormalizerGTN.getNormalizedData(req.body.firstname, req.body.surname);
 
 });
 

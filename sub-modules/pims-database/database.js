@@ -1943,16 +1943,16 @@ var GTNCancer = new Schema({
         LobectomyLung: {type: Boolean, title: 'Lobectomy lung'},
         Craniotomy: {type: Boolean, title: 'Craniotomy'},
         Other: {type: Boolean, title: 'Other'},
-        DateOfSurgery: {type: Boolean, title: 'Date of surgery'}
+        DateOfSurgery: {type: Date, title: 'Date of surgery'}
     },
 
 /*--CT = Chemotherapy--*/
     typeOfChemotherapy:{
-        OneCourseSingleAgentCT: {type: String, title: '1 course single agent CT'},
-        TwoOrMoreCoursesSingleAgentCT: {type: String, title: '2 or more courses single agent CT'},
-        OneCourseMultipleAgentCT: {type: String, title: '1 course multiple agent CT'},
-        TwoOrMoreCoursesMultipleAgentCT: {type: String, title: '2 or more courses multiple agent CT'},
-        Unknown: {type: String, title: 'Unknown'},
+        OneCourseSingleAgentCT: {type: Boolean, title: '1 course single agent CT'},
+        TwoOrMoreCoursesSingleAgentCT: {type: Boolean, title: '2 or more courses single agent CT'},
+        OneCourseMultipleAgentCT: {type: Boolean, title: '1 course multiple agent CT'},
+        TwoOrMoreCoursesMultipleAgentCT: {type: Boolean, title: '2 or more courses multiple agent CT'},
+        Unknown: {type: Boolean, title: 'Unknown'},
         DateStarted: {type: Date, require: true, title: 'Date started' },
         DateEnded: {type: Date, require: true, title: 'Date ended' }
     },
