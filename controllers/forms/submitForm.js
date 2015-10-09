@@ -1247,6 +1247,22 @@ var submitVaginalCancer = function(formData){//VagC
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     });
 
     Form.save(function(err){
@@ -1410,10 +1426,10 @@ AssociatedLesions: {
     },
     
     HPVTest: {
-        NotTested:Unknown: changedString.HPVTestNotTested,
-        Pos:Unknown: changedString.HPVTestPos,
-        Neg: Unknown: changedString.HPVTestNeg,
-        Unknown: changedString.HPVTestUnknown
+        NotTested:changedString.HPVTestNotTested,
+        Pos:changedString.HPVTestPos,
+        Neg:changedString.HPVTestNeg,
+        Unknown:changedString.HPVTestUnknown
     },
     
     LymphnodeInvolvementAtSurgery:{
@@ -1449,11 +1465,19 @@ AssociatedLesions: {
         },
         
         InguinalNodes_involvementCharacteristics:{
-            UnilateralIntracapsular:{changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsUnilateralIntracapsular,
-            UnilateralExtracapsular:changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsUnilateralExtracapsular,
-            BilateralIntracapsular:changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsBilateralIntracapsular,
-            BilateralExtracapsular:changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsBilateralExtracapsular,
-            Unknown:changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsUnknown
+            UnilateralIntracapsular:changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsUnilateralIntracapsular,
+                UnilateralExtracapsular
+        :
+            changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsUnilateralExtracapsular,
+                BilateralIntracapsular
+        :
+            changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsBilateralIntracapsular,
+                BilateralExtracapsular
+        :
+            changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsBilateralExtracapsular,
+                Unknown
+        :
+            changedString.LymphnodeInvolvementAtSurgeryInguinalNodes_involvementCharacteristicsUnknown
         }
     },
     
