@@ -6,7 +6,13 @@ var GS = models.gynaecologySurgery;
 var CC = models.cervicalCancer;
 var EC = models.endometrialCancer;
 var FP = models.fallopianTubeCancer;
-var OC = models.oncologyFollowUpVisit
+var OC = models.oncologyFollowUpVisit;
+var VagC = models.vaginalCancer;
+var VulC = models.vulvaCancer;
+var OvaC = models.overianCancer;
+var GTN = models.GTNCancer;
+var Hyst = models.hysteroscopyDataSheet;
+var CritInd = models.gynaeCritical_Incident_DataCollection;
 
 var submitAdmissionDischarge = function(formData) {
 
@@ -1120,6 +1126,166 @@ var submitOncologyFollowUp = function(formData) {
 
 };
 
+var submitCriticalIncident = function(formData){ //CritInd
+
+    var jsonString = JSON.stringify(formData.body);
+    var changedString = jsonString.replace(/([./])/g, "");
+
+    console.log(changedString);
+    console.log(JSON.parse(changedString));
+
+    var changedString = JSON.parse(changedString);
+
+    var Form = new CritInd({
+
+
+
+    });
+
+    Form.save(function(err){
+        if(err) {
+            throw err;
+            console.log('An error occurred while trying to add data');
+        }
+        else{console.log('The data has been saved.');
+        }
+    });
+
+};
+
+var submitGTN = function (formData) { // GTN
+
+    var jsonString = JSON.stringify(formData.body);
+    var changedString = jsonString.replace(/([./])/g, "");
+
+    console.log(changedString);
+    console.log(JSON.parse(changedString));
+
+    var changedString = JSON.parse(changedString);
+
+    var Form = new GTN({
+
+
+
+    });
+
+    Form.save(function(err){
+        if(err) {
+            throw err;
+            console.log('An error occurred while trying to add data');
+        }
+        else{console.log('The data has been saved.');
+        }
+    });
+
+};
+
+var submitHysteroscopy = function(formData){ //Hyst
+
+    var jsonString = JSON.stringify(formData.body);
+    var changedString = jsonString.replace(/([./])/g, "");
+
+    console.log(changedString);
+    console.log(JSON.parse(changedString));
+
+    var changedString = JSON.parse(changedString);
+
+    var Form = new Hyst({
+
+
+
+    });
+
+    Form.save(function(err){
+        if(err) {
+            throw err;
+            console.log('An error occurred while trying to add data');
+        }
+        else{console.log('The data has been saved.');
+        }
+    });
+
+};
+
+var submitOvarianCancer = function(formData){//OvaC
+
+    var jsonString = JSON.stringify(formData.body);
+    var changedString = jsonString.replace(/([./])/g, "");
+
+    console.log(changedString);
+    console.log(JSON.parse(changedString));
+
+    var changedString = JSON.parse(changedString);
+
+    var Form = new OvaC({
+
+
+
+    });
+
+    Form.save(function(err){
+        if(err) {
+            throw err;
+            console.log('An error occurred while trying to add data');
+        }
+        else{console.log('The data has been saved.');
+        }
+    });
+};
+
+var submitVaginalCancer = function(formData){//VagC
+
+    var jsonString = JSON.stringify(formData.body);
+    var changedString = jsonString.replace(/([./])/g, "");
+
+    console.log(changedString);
+    console.log(JSON.parse(changedString));
+
+    var changedString = JSON.parse(changedString);
+
+    var Form = new VagC({
+
+
+
+    });
+
+    Form.save(function(err){
+        if(err) {
+            throw err;
+            console.log('An error occurred while trying to add data');
+        }
+        else{console.log('The data has been saved.');
+        }
+    });
+
+};
+
+var submitVulvaCancer = function (formData) {//VulC
+
+    var jsonString = JSON.stringify(formData.body);
+    var changedString = jsonString.replace(/([./])/g, "");
+
+    console.log(changedString);
+    console.log(JSON.parse(changedString));
+
+    var changedString = JSON.parse(changedString);
+
+    var Form = new VulC({
+
+
+
+    });
+
+    Form.save(function(err){
+        if(err) {
+            throw err;
+            console.log('An error occurred while trying to add data');
+        }
+        else{console.log('The data has been saved.');
+        }
+    });
+
+};
 
 module.exports = {
     submitGynaecologySurgery: submitGynaecologySurgery,
@@ -1127,5 +1293,11 @@ module.exports = {
     submitCervicalCancer: submitCervicalCancer,
     submitEndometrialCancer: submitEndometrialCancer,
     submitFallopianTubeCancer: submitFallopianTubeCancer,
-    submitOncologyFollowUp: submitOncologyFollowUp
+    submitOncologyFollowUp: submitOncologyFollowUp,
+    submitCriticalIncident: submitCriticalIncident,
+    submitGTN: submitGTN,
+    submitHysteroscopy: submitHysteroscopy,
+    submitOvarianCancer: submitOvarianCancer,
+    submitVaginalCancer: submitVaginalCancer,
+    submitVulvaCancer: submitVulvaCancer
 };

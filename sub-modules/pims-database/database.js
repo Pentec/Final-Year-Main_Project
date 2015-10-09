@@ -1329,7 +1329,7 @@ var VulvaCancer = new Schema({
         Verrucous: {type: Boolean, title: 'Verrucous'},
         BasalCell: {type: Boolean, title: 'Basal cell'},
         Squamous: {type: Boolean, title: 'Squamous'},
-        BartholinGlandAdeno: {type: Boolean, title: 'Bartholin�s gland adeno/squamous '},
+        BartholinGlandAdeno: {type: Boolean, title: 'Bartholins gland adeno/squamous'},
 	    Adenocarcinoma: {type: Boolean, title: 'Adenocarcinoma'},
         Other: {type: Boolean, title: 'Other'},
         Unknown : {type: Boolean, title: 'Unknown'}
@@ -1349,7 +1349,7 @@ var VulvaCancer = new Schema({
 	    RTAlone: {type: Boolean, title: 'RT alone'},
 	    RTFollowedBySurgeryWithin60Days: {type: Boolean, title: 'RT followed by surgery within 60 days'},
 	    NeoAdjuvantCTAndSurgery: {type: Boolean, title: 'Neo adjuvant CT + surgery'},
-	    urgeryAdjuvantRT: {type: Boolean, title: 'Surgery + adjuvant RT'},
+	    SurgeryAdjuvantRT: {type: Boolean, title: 'Surgery + adjuvant RT'},
 	    SurgeryAdjuvantCT: {type: Boolean, title: 'Surgery + adjuvant CT'},
 	    Other : {type: Boolean, title: 'Other non standard treatments'},
 	    CRT : {type: Boolean, title: 'CRT'},
@@ -2863,7 +2863,7 @@ var fallopianTubeCancer = mongoose.model('fallopianTubeCancer', FallopianTubeCan
 var vaginalCancer= mongoose.model('vaginalCancer', VaginalCancer);
 var vulvaCancer= mongoose.model('vulvaCancer', VulvaCancer);
 var overianCancer= mongoose.model('overianCancer', OverianCancer);
-var gTNCancer= mongoose.model('gTNCancer', GTNCancer);
+var GTNCancer= mongoose.model('gTNCancer', GTNCancer);
 var hysteroscopyDataSheet= mongoose.model('hysteroscopyDataSheet', HysteroscopyDataSheet);
 var gynaeCritical_Incident_DataCollection = mongoose.model('gynaeCritical_Incident_DataCollection', GynaeCritical_Incident_DataCollection);
 
@@ -2880,8 +2880,8 @@ module.exports = {
     fallopianTubeCancer: fallopianTubeCancer,
     vaginalCancer: vaginalCancer,
     vulvaCancer: vulvaCancer,
-    overianCancer: OverianCancer,
-    gTNCancer: GTNCancer,
-    hysteroscopyDataSheet: HysteroscopyDataSheet,
-    gynaeCritical_Incident_DataCollection: GynaeCritical_Incident_DataCollection
+    overianCancer: overianCancer,
+    GTNCancer: GTNCancer,
+    hysteroscopyDataSheet: hysteroscopyDataSheet,
+    gynaeCritical_Incident_DataCollection: gynaeCritical_Incident_DataCollection
 };
