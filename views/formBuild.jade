@@ -1,0 +1,50 @@
+//
+   Created by Ruth on 2015-07-03.
+doctype html
+html
+block head
+    head
+        //title= FormBuilder
+        meta(name='description' content="")
+        block style
+            link(rel='stylesheet', href='/vendor/css/vendor.css')
+            link(rel='stylesheet', href='/dist/formbuilder.css')
+            style.
+                *
+                {
+                box-sizing: border-box;
+                }
+                body {
+                    background-color: #fff;
+                    font-family: sans-serif;
+                }
+                .fb-main {
+                    background-color: #fff;
+                    border-radius: 5px;
+                    min-height: 600px;
+                }
+                input[type=text] {
+                height: 26px;
+                    margin-bottom: 3px;
+                }
+                select {
+                    margin-bottom: 5px;
+                    font-size: 40px;
+                }
+
+    body
+        block content
+            div#formbuilder
+            block script
+                  script(src='/vendor/js/vendor.js')
+                  script(src='/dist/formbuilder.js')
+                  script.
+                     
+                      $(function(){
+                          var form = new Formbuilder({selector: '#formbuilder'});
+                            form.on('save', function(payload){
+                                var one = payload;
+                       $.ajax({type: 'POST',url: '/formsave',data: one});
+                                   
+                          })
+                      });

@@ -1,21 +1,94 @@
 extends layout
 block content
-    div#sidebar
-        div#sidebar-nav
-            div.sidebar-avatar
-                img(src='images/physician_avatar.png' width="100px").img-circle.img-responsive.center-block
-                p.sidebartext   Department <br />of <br />Something
-            div.sidebar-links
-                ul.nav.nav-stacked.navTab
-                    li
-                        a(href="/add") Add New User
-                    li
-                        a(href='/login') Login
-                    li
-                        a(href='#') Link 3
-            div.sidebar-settings
-                ul.nav.nav-stacked
-                    li
-                        img(src="images/settings.png" width="50px").img-responsive.center-block
-                    li v0.1
+    nav.navbar.navbar-findcond.navbar-fixed-top
+        .container-fluid
+            .navbar-header
+                if(notAdmin)
+                    a.nav.navbar-brand(href='/mySpace')
+                        img(alt="Kalafong PIMS" src="/images/newlogo.png")
+                else
+                    a.nav.navbar-brand(href='/myAdminSpace')
+                        img(alt="Kalafong PIMS" src="/images/newlogo.png")
+                button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar')
+                    div
+                        span.sr-only Toggle navigation
+                        span.glyphicon.glyphicon-align-justify(style="color:#004B8F")
+            #navbar.collapse.navbar-collapse
+                ul.nav.navbar-nav.navbar-left
+                    if(notAdmin)
+                        if(active == "home")
+                            li.active
+                                a(href="/mySpace") Home
+                        else
+                            li
+                                a(href="/mySpace") Home
+                    else
+                        if(active == "home")
+                            li.active
+                                a(href="/myAdminSpace") Home
+                        else
+                            li
+                                a(href="/myAdminSpace") Home
+                    if(!notAdmin)
+                        if(active == "user")
+                            li.has-sub#usersub.active
+                                a(href='#' role='button') Users
+                        else
+                            li.has-sub#usersub
+                                a(href='#' role='button') Users
+                        li.sub.usersub
+                            a(href='/addUser') Add User
+                    li#formtab.dropdown
+                        a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Forms
+                            span.caret
+                        ul.dropdown-menu
+                            li
+                                a(href='/gynae_surgery.html', tabindex='-1') Gynaecology Surgery
+                            li
+                                a(href='/addmission_discharge.html', tabindex='-1') Gynaecology Admission and Discharge
+                            li
+                                a(href='/Hysteroscopy.html', tabindex='-1') Office Hysteroscopy
+                            li
+                                a(href='/critical_incidence.html', tabindex='-1') Data Form
+                            li
+                                a(href='/cervical_cancer.html', tabindex='-1') Cervical Cancer
+                                a(href='/endometrial_cancer.html', tabindex='-1') Endomentrial Cancer
+                                a(href='/fallopian_tube_cancer.html', tabindex='-1') Fallopian Tube Cancer
+                                a(href='/oncology_follow_up.html', tabindex='-1') Follow-Up
+                                a(href='/GTN.html', tabindex='-1') Gestational Trophoblastic Disease
+                                a(href='/ovarian_cancer.html', tabindex='-1') Ovarian Cancer
+                                a(href='/vaginal_cancer.html', tabindex='-1') Vaginal Cancer
+                                a(href='/vulva_cancer.html', tabindex='-1') Vulva Cancer
+                    if(!notAdmin)
+                        if(active == 'stats')
+                            li.has-sub#statisticstab.active
+                                a(href='#' role='button') Statistics
+                        else
+                            li.has-sub#statisticstab
+                                a(href='#' role='button') Statistics
+                        li.sub.statisticstab
+                            a(href='\stats') Query
+                        li.sub.statisticstab
+                            a(href='\dash.html') Dashboard
+                        li#Predict
+                            a(Href='/neural') Predict
+                ul.nav.navbar-nav.navbar-right
+                    li.nobar.has-sub#settings
+                        a(href='#')
+                            img(alt="Settings" src='/images/settings.png' height="40px")
+                    if(!notAdmin)
+                        if(active=="editProfile")
+                            li.sub.settings.active
+                                a(href="/editProfile") Edit Profile
+                        else
+                            li.sub.settings
+                                a(href="/editProfile") Edit Profile
+                    li.sub.settings
+                        a(href="/logout") Logout
+
+
+                //form.navbar-form.navbar-right.search-form(role='search')
+                //    input.form-control(type='text', placeholder='Search')
     div.content
+        block mainContent
+            //a(href='#/neural/{{userID._id}}') Neural Network

@@ -7,8 +7,11 @@
 \usepackage{epstopdf}
 \usepackage{rotating}
 \usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
 
 \DeclareGraphicsExtensions{.png,.eps,.jpg}
+\setcounter{secnumdepth}{5}
 
 \begin{document}
 %\title and intro
@@ -18,36 +21,10 @@
 \tableofcontents
 \newpage
 
-
-\section{Use Case Diagram}
-\includegraphics[width=\linewidth]{./Graphics/PIMSUseCase}
-\pagebreak
-
-
-\section{Domain Model}
-%\begin{sidewaysfigure}
-\includegraphics[width=\linewidth]{./Graphics/ClassDiagramRefined}
-%\end{sidewaysfigure}
-\pagebreak
-
 %\Intro
 \input{./introduction.tex}
 
-%\UserDynamics - Maria
-\input{./userHandeling.tex}
-
-%Form Use case - Ruth
-\input{./FormUsecase.tex}
-
-%Patient Details (Admin use cases) - Lindelo
-\input{./PatientDetails.tex}
-
-% CRUDUser - Lindelo
-\input{./CRUDUser.tex}
-
-%Authorization - Trevor
-\input{./Authorization.tex}
-
+\input{./appReqAndDes}
 
 
 \end{document}

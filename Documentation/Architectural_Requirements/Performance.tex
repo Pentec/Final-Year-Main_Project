@@ -1,0 +1,16 @@
+\subsubsection*{Description}
+This requirement pertains to how well the system responds to some action(s) execution within a set time interval. This is measured by system latency (time taken to respond to some event(s)) or throughput (number of events executed within a given amount of time).
+		
+\subsubsection*{Justification}
+Performance is an important requirement, as the lack of it will influence other system quality requirements. For instance, if the system does not respond in a timely manner it would affect system responsiveness and usability \ref{sec:usability}. The PIMS system will be used by multiple medical staff at a time, as such it needs to respond to user events with minimal latency.
+	
+	
+\subsubsection*{Mechanism}
+	\begin{itemize}
+		\item High hardware and software tolerance: the system must continue to operate, even if a server lags or one software component is not working. The lagging of a server may result in performance at a reduced level but the system must still be operational with some level of throughput.
+		\item By using fewer computationally expensive hashing algorithms for data encryption, the effect of security measures on performance will be lessened.	 
+		\item The system should give user feedback if a background process is operational. For instance if an AJAX POST request is being sent in the background, the user must be given a system busy indicator so that they know their request is still being processed.
+		\item Caching of database objects: The system must cache any frequently used database objects so that any user tasks that require database processing will respond quicker. This is particularly important when there is an increses in database requests.
+\end{itemize}
+
+

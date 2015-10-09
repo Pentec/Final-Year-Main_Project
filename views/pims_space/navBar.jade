@@ -1,0 +1,21 @@
+extends ../layout
+block content
+    nav.navbar.navbar-default
+        .container-fluid
+            .navbar-header
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.nav.navbar-brand(href='/')
+                    img(src='images/newlogo.png', width="250px").img-rounded
+            #myNavbar.collapse.navbar-collapse
+                ul.nav.navbar-nav.navbar-right
+                    li
+                        a(href='/myAdminSpace')
+                            span.glyphicon.glyphicon-user
+                            |  My PIMS Space
+                    li
+                        a(href='/logout')
+                            span.glyphicon.glyphicon-log-out
+                            |  Logout

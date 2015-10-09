@@ -1,0 +1,345 @@
+/*---------------------------------------------*/
+
+
+.options{
+    min-height: 314px;
+}
+
+img.link:hover {
+	-ms-transform: rotate(7deg); /* IE 9*/
+    -webkit-transform: rotate(7deg); 
+    transform: rotate(20deg);
+	transition: transform 1000ms ease;
+}
+
+.hasOptions img{
+    backface-visibility: hidden;
+    animation-name: rotateMenu;
+    -webkit-animation-name: rotateMenu;
+
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+}
+
+.options ul a:hover, .options ul a:focus{
+    background-color: #002240;
+}
+
+.options.show{
+    display: inline-block;
+}
+
+.options{
+    float: left;
+    display:none;
+    width: 256px;
+    text-align: center;
+    animation-name: rotateMenu;
+    -webkit-animation-name: rotateMenu;
+
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+}
+
+.options.rotate{
+    transform: rotateY(-90deg);
+    transition: transform 500ms ease;
+}
+
+@keyframes rotateMenu {
+    0% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+@-webkit-keyframes rotateMenu{
+    0% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+.options div{
+    min-width: 200px; padding-top: 50px; display: inline-block;
+}
+
+.form-menu > li > a{
+    width: 100%;
+    background-color: #004B8F;
+    border-radius: 0;
+    color: white;
+    border-bottom: 1px solid #002240;
+}
+
+.form-menu > li > a{
+
+}
+
+img.link.rotate{
+    transform: rotateY(180deg);
+}
+
+#myCarousel{
+    margin-top: 15%;
+}
+
+.carousel-control.left{
+    background-image: none;
+}
+
+.carousel-control.right{
+    background-image: none;
+}
+
+.carousel-control{
+    color: #004B8F;
+    opacity: 1.0;
+    text-shadow: none;
+}
+
+.carousel-control:hover span,
+.carousel-control:focus span{
+    color: #002240;
+}
+
+@media (max-height: 600px){
+    #myCarousel{
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 780px){
+    #myCarousel{
+        margin-top: 150px;
+    }
+}
+
+.item a{
+    float: left;
+}
+
+.carousel-inner{
+    text-align: center;
+}
+
+.carousel-inner > .active{
+    display: inline-block;
+}
+
+.item.active.slideInRight{
+    display: inline-block;
+    animation-name: slideInRight;
+    -webkit-animation-name: slideInRight;
+
+    animation-duration: 0.8s;
+    -webkit-animation-duration: 0.8s;
+
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+
+    visibility: visible !important;
+}
+
+.item.prevo.slideInRight{
+    display: inline-block;
+    animation-name: slideOutRight;
+    -webkit-animation-name: slideOutRight;
+
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+.item.active.slideInLeft{
+    display: inline-block;
+    animation-name: slideInLeft;
+    -webkit-animation-name: slideInLeft;
+
+    animation-duration: 0.8s;
+    -webkit-animation-duration: 0.8s;
+
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+
+    visibility: visible !important;
+}
+
+.item.prevo.slideInLeft{
+    display: inline-block;
+    animation-name: slideOutLeft;
+    -webkit-animation-name: slideOutLeft;
+
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+.item.active{
+    display: none;
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(-200%);
+    }
+    50%{
+        transform: translateX(4%);
+    }
+    65%{
+        transform: translateX(-2%);
+    }
+    80%{
+        transform: translateX(2%);
+    }
+    95%{
+        transform: translateX(-1%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@-webkit-keyframes slideInRight{
+    0% {
+        transform: translateX(-200%);
+    }
+    50%{
+        transform: translateX(4%);
+    }
+    65%{
+        transform: translateX(-2%);
+    }
+    80%{
+        transform: translateX(2%);
+    }
+    95%{
+        transform: translateX(-1%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideOutRight {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+@-webkit-keyframes slideOutRight{
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(200%);
+    }
+    50%{
+        transform: translateX(-4%);
+    }
+    65%{
+        transform: translateX(2%);
+    }
+    80%{
+        transform: translateX(-2%);
+    }
+    95%{
+        transform: translateX(1%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@-webkit-keyframes slideInLeft{
+    0% {
+        transform: translateX(200%);
+    }
+    50%{
+        transform: translateX(-4%);
+    }
+    65%{
+        transform: translateX(2%);
+    }
+    80%{
+        transform: translateX(-2%);
+    }
+    95%{
+        transform: translateX(1%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideOutLeft {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+@-webkit-keyframes slideOutLeft{
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+footer{
+    background-color: #001f41;
+    bottom: 0;
+    box-shadow: 0 -1px 2px #001f41;
+    height: 45px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 100000;
+    padding: 15px;
+
+}
+
+footer h2{
+    color: #EEEEEE;
+    font-size: 14px;
+    font-weight: normal;
+    display: inline;
+    padding-right: 20px;
+}
+
+footer h2 i{
+    font-style:normal;
+    color:#888;
+}
+
+footer a.tzine,a.tzine:visited{
+    color: #999999;
+    font-size: 14px;
+}

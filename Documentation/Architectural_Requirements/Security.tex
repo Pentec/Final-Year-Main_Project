@@ -1,19 +1,11 @@
-\subsection{Security}
-\subsubsection{Description}
-This is the most critical requirement for the patient information management system. Patient's information should not only be 
-confidential, but levels of user authorisation must exist. The existing information should not be modifiable by users that have no 
-access to the information; this also applies to outside intruders.
-\subsubsection{Justification}
+%security
+\subsubsection*{Description}
+This is a very important requirement for the PIMS. Patient's information should not only be confidential, but levels of user authorisation must exist. The existing information should not be modifiable by users that have no access to the information; this also applies to outside intruders.
+\subsubsection*{Justification}
 The whole system should not be penetrable by an intruder; the general public should not have access to any of the information about the patients. The system should also make sure that each user can only access the attributes that applies to them.
-\subsubsection{Mechanism}
-	\begin{enumerate}
-		\item Strategy:
-		
-		 	\begin{itemize}
-		 	\item Encryption: Patient data is confidential and should be encrypted. Not every patient has to be encrypted, but 
-		 	the data should not imply to which patient it belongs to. The patient's personal information could be encrypted instead 			of all the attributes.
-		 	\item Authorization: A user's access level and identity needs to be determined before they can access the system. 
-		 	\item Store log information: Although this applies to audibility, it helps to know the nature of a security threat.   					If new threats are noted, more security features can be implemented.
-		 	\end{itemize}
-
-	\end{enumerate}
+\subsubsection*{Mechanism}	
+		 \begin{itemize}
+		 	\item Encryption: User passwords and patient data are confidential and should be encrypted. The patient data will be anonymized by ensuring the data should not allude to which patient it belongs to. The patient's personal information like names will be encrypted to cater for this.
+		 	\item Authentication and Authorization: A user's identity and access rights needs to be determined before they can access the system resources. 
+		 	\item Store log information: Although this applies to auditability \ref{sec:auditability}, it helps to know the nature of a security threat. If new system threats are noted, more security features can be implemented.
+		 \end{itemize}

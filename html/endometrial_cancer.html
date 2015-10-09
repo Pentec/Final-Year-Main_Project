@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Endometrial Cancer</title>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
+      <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap.css"/>
+      <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
+      <script type="text/javascript" src="/deps/underscore.js"></script>
+      <script type="text/javascript" src="/deps/opt/jsv.js"></script>
+      <script type="text/javascript" src="/lib/jsonform.js"></script>
+      <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+  </head>
+  <body>
+
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <a href="/" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
+          </div>
+          <div>
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/editProfile">My PIMS Space</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+    <br>
+    <br>
+
+
+    <div class = "container">
+
+        <h1 class="page-header"> Endometrial Cancer</h1>
+	<br>
+	<form class="form-inline" role="form" method = "POST" action = "/endometrial_cancer" enctype="application/json"></form>
+    </div>
+    <script type="text/javascript">
+      $('form').jsonForm({
+        schema: {
+            "Name": {
+                "type": "string",
+                "require": true,
+                "title": "Name"
+            },
+            "Surname": {
+                "type": "string",
+                "require": true,
+                "title": "Surname"
+            },
+            "HospitalNumber": {
+                "type": "string",
+                "require": true,
+                "title": "Hospital Number"
+            },
+            "ID": {
+                "type": "number",
+                "require": true,
+                "title": "ID number"
+            },
+            "DateOfBirth": {
+                "type": "date",
+                "require": true,
+                "title": "Date of Birth"
+            },
+            "DateOfDiagnosis": {
+                "type": "date",
+                "require": true,
+                "title": "Date of diagnosis"
+            },
+            "CellPhone": {
+                "type": "object",
+                "properties": {
+                    "First": {
+                        "type": "number",
+                        "require": true,
+                        "title": "Phone number"
+                    },
+                    "Alternative": {
+                        "type": "number",
+                        "require": true,
+                        "title": "Alternative number"
+                    }
+                }
+            },
+            "HIVStatus": {
+                "type": "object",
+                "properties": {
+                    "Negative": {
+                        "type": "boolean",
+                        "title": "HIV Negative"
+                    },
+                    "Positive": {
+                        "type": "boolean",
+                        "title": "HIV Positive"
+                    }
+                }
+            },
+            "CD4": {
+                "type": "number",
+                "title": "CD4 Count:"
+            },
+            "figoStage": {
+                "type": "object",
+                "properties": {
+                    "Ia": {
+                        "type": "boolean",
+                        "title": "Ia"
+                    },
+                    "Ib": {
+                        "type": "boolean",
+                        "title": "Ib"
+                    },
+                    "Ic": {
+                        "type": "boolean",
+                        "title": "Ic"
+                    },
+                    "IIa": {
+                        "type": "boolean",
+                        "title": "IIa"
+                    },
+                    "IIb": {
+                        "type": "boolean",
+                        "title": "IIb"
+                    },
+                    "IIIa": {
+                        "type": "boolean",
+                        "title": "IIIa"
+                    },
+                    "IIIb": {
+                        "type": "boolean",
+                        "title": "IIIb"
+                    },
+                    "IIIc": {
+                        "type": "boolean",
+                        "title": "IIIc"
+                    },
+                    "IVa": {
+                        "type": "boolean",
+                        "title": "IVa"
+                    },
+                    "IVb": {
+                        "type": "boolean",
+                        "title": "IVb"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    },
+                    "StageUnavailable": {
+                        "type": "boolean",
+                        "title": "Surgical stage unavailable"
+                    }
+                }
+            },
+            "Histology": {
+                "type": "object",
+                "properties": {
+                    "NilUnclassifiable": {
+                        "type": "boolean",
+                        "title": "Nil/unclassifiable"
+                    },
+                    "EndometrioidAdeno": {
+                        "type": "boolean",
+                        "title": "Endometrioid adeno"
+                    },
+                    "Adenosquamous": {
+                        "type": "boolean",
+                        "title": "Adenosquamous"
+                    },
+                    "Clearcell": {
+                        "type": "boolean",
+                        "title": "Clear cell"
+                    },
+                    "MucinousAdeno": {
+                        "type": "boolean",
+                        "title": "Mucinous adeno "
+                    },
+                    "PapillarySerous": {
+                        "type": "boolean",
+                        "title": "Papillary serous"
+                    },
+                    "Squamous": {
+                        "type": "boolean",
+                        "title": "Squamous"
+                    },
+                    "Other": {
+                        "type": "boolean",
+                        "title": "Other"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "Differentiation": {
+                "type": "object",
+                "properties": {
+                    "Well": {
+                        "type": "boolean",
+                        "title": "1 (well)"
+                    },
+                    "Moderately": {
+                        "type": "boolean",
+                        "title": "2 (moderately)"
+                    },
+                    "Poorly": {
+                        "type": "boolean",
+                        "title": "3 (poorly)"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "LymphovascularSpaceInvolvement": {
+                "type": "object",
+                "properties": {
+                    "Absent": {
+                        "type": "boolean",
+                        "title": "Absent"
+                    },
+                    "Present": {
+                        "type": "boolean",
+                        "title": "Present"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "primaryTreatmentPerformed": {
+                "type": "object",
+                "properties": {
+                    "Nil": {
+                        "type": "boolean",
+                        "title": "Nil"
+                    },
+                    "SurgeryAlone": {
+                        "type": "boolean",
+                        "title": "Surgery alone"
+                    },
+                    "SurgeryAdjuvantRT": {
+                        "type": "boolean",
+                        "title": "Surgery + adjuvant RT"
+                    },
+                    "SurgeryAdjuvantCT": {
+                        "type": "boolean",
+                        "title": "Surgery + adjuvant CT"
+                    },
+                    "AdjuvantHT": {
+                        "type": "boolean",
+                        "title": "Adjuvant HT"
+                    },
+                    "HormonalPrimaryTherapy": {
+                        "type": "boolean",
+                        "title": "Hormonal primary therapy"
+                    },
+                    "Other": {
+                        "type": "boolean",
+                        "title": "Other non standard treatments"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    },
+                    "DateofTreatment": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date of treatment"
+                    }
+                }
+            },
+            "typeOfSurgery": {
+                "type": "object",
+                "properties": {
+                    "SimpleAbdHystNoLND": {
+                        "type": "boolean",
+                        "title": "Simple abd hyst no LND"
+                    },
+                    "SimpleAbdHystWithLND": {
+                        "type": "boolean",
+                        "title": "Simple abd hyst with LND"
+                    },
+                    "SimpleVagHystNoLND": {
+                        "type": "boolean",
+                        "title": "Simple vag  hyst no LND"
+                    },
+                    "SimpleVagHystWithLND": {
+                        "type": "boolean",
+                        "title": "Simple vag  hyst with LND"
+                    },
+                    "RadicalAbdHystNoLND": {
+                        "type": "boolean",
+                        "title": "Radical abd hyst no LND"
+                    },
+                    "RadicalAbdHystWithLND": {
+                        "type": "boolean",
+                        "title": " Radical abd hyst with LND"
+                    },
+                    "AnyKindOfexenteration": {
+                        "type": "boolean",
+                        "title": "Any kind of exenteration"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    },
+                    "Other": {
+                        "type": "boolean",
+                        "title": "Other"
+                    },
+                    "DateofSurgery": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date of Surgery"
+                    }
+                }
+            },
+            "nodesInvolved": {
+                "type": "object",
+                "properties": {
+                    "Onlypelvic": {
+                        "type": "boolean",
+                        "title": "Only pelvic"
+                    },
+                    "Pelvicparaortic": {
+                        "type": "boolean",
+                        "title": "Pelvic + paraortic"
+                    },
+                    "Onlyparaortic": {
+                        "type": "boolean",
+                        "title": "Only paraortic"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "numberOfNodesExamined": {
+                "type": "object",
+                "properties": {
+                    "Pelvic": {
+                        "type": "number",
+                        "title": "Pelvic"
+                    },
+                    "Paraortic": {
+                        "type": "number",
+                        "title": "Paraortic"
+                    }
+                }
+            },
+            "numberOfNodesPositive": {
+                "type": "object",
+                "properties": {
+                    "Pelvic": {
+                        "type": "number",
+                        "title": "Pelvic"
+                    },
+                    "Paraortic": {
+                        "type": "number",
+                        "title": "Paraortic"
+                    }
+                }
+            },
+            "Cytology": {
+                "type": "object",
+                "properties": {
+                    "NotAvailable": {
+                        "type": "boolean",
+                        "title": "Not available"
+                    },
+                    "Negative": {
+                        "type": "boolean",
+                        "title": "Negative"
+                    },
+                    "Positive": {
+                        "type": "boolean",
+                        "title": "Positive"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "Metastase": {
+                "type": "object",
+                "properties": {
+                    "Nil": {
+                        "type": "boolean",
+                        "title": "Nil"
+                    },
+                    "UterineSerosa": {
+                        "type": "boolean",
+                        "title": "Uterine serosa"
+                    },
+                    "Vagina": {
+                        "type": "boolean",
+                        "title": "Vagina"
+                    },
+                    "Adnexa": {
+                        "type": "boolean",
+                        "title": "Adnexa"
+                    },
+                    "BladdeBowelMucosa": {
+                        "type": "boolean",
+                        "title": "Bladder/bowel mucosa"
+                    },
+                    "IntraAbdominal": {
+                        "type": "boolean",
+                        "title": "Intra abdominal"
+                    },
+                    "InguinalNodes": {
+                        "type": "boolean",
+                        "title": "Inguinal nodes "
+                    },
+                    "Distant": {
+                        "type": "boolean",
+                        "title": "Distant"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "typeOfRadiotherapy": {
+                "type": "object",
+                "properties": {
+                    "Intracavitary": {
+                        "type": "boolean",
+                        "title": "Intracavitary"
+                    },
+                    "ExternalPelvicRT": {
+                        "type": "boolean",
+                        "title": "External pelvic RT"
+                    },
+                    "ExternalPelvicParaortic": {
+                        "type": "boolean",
+                        "title": "External pelvic + paraortic"
+                    },
+                    "ExternalPelvicIntracavitary": {
+                        "type": "boolean",
+                        "title": "External pelvic + intracavitary"
+                    },
+                    "ExtpelvicParaortIntracavitary": {
+                        "type": "boolean",
+                        "title": "Ext pelvic paraortic + intracavitary"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    },
+                    "DateStarted": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date started"
+                    },
+                    "DateEnded": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date ended"
+                    }
+                }
+            },
+            "typeOfChemotherapy": {
+                "type": "object",
+                "properties": {
+                    "Chemotherapy": {
+                        "type": "string",
+                        "title": "Specify type and drugs"
+                    },
+                    "DateStarted": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date started"
+                    },
+                    "DateEnded": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date ended"
+                    }
+                }
+            },
+            "HormonalTreatment": {
+                "type": "object",
+                "properties": {
+                    "SingleDrug": {
+                        "type": "boolean",
+                        "title": "Single drug"
+                    },
+                    "MultipleDrug": {
+                        "type": "boolean",
+                        "title": "Multiple drug "
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    },
+                    "DateStarted": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date started"
+                    },
+                    "DateEnded": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date ended"
+                    }
+                }
+            },
+            "responseToTreatment": {
+                "type": "object",
+                "properties": {
+                    "Complete": {
+                        "type": "boolean",
+                        "title": "Complete"
+                    },
+                    "Partial": {
+                        "type": "boolean",
+                        "title": "Partial"
+                    },
+                    "StableDisease": {
+                        "type": "boolean",
+                        "title": "Stable disease"
+                    },
+                    "ProgressiveDisease": {
+                        "type": "boolean",
+                        "title": "Progressive disease"
+                    },
+                    "NotAssessable": {
+                        "type": "boolean",
+                        "title": "Not assessable"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    },
+                    "Dateofassessment": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date of assessment"
+                    }
+                }
+            },
+            "Relapse": {
+                "type": "object",
+                "properties": {
+                    "Yes": {
+                        "type": "boolean",
+                        "title": "Yes"
+                    },
+                    "No": {
+                        "type": "boolean",
+                        "title": "No"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    },
+                    "DateOfRelapseDiagnosis": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date of relapse diagnosis"
+                    }
+                }
+            },
+            "siteOfDistantMetastase": {
+                "type": "object",
+                "properties": {
+                    "Local": {
+                        "type": "boolean",
+                        "title": "Local"
+                    },
+                    "Metastatic": {
+                        "type": "boolean",
+                        "title": "Metastatic"
+                    },
+                    "LocalAndMetastatic": {
+                        "type": "boolean",
+                        "title": "Local and metastatic"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "TreatmentAtRelapse": {
+                "type": "object",
+                "properties": {
+                    "Nil": {
+                        "type": "boolean",
+                        "title": "Nil"
+                    },
+                    "Surgery": {
+                        "type": "boolean",
+                        "title": "Surgery"
+                    },
+                    "RT": {
+                        "type": "boolean",
+                        "title": "RT"
+                    },
+                    "CT": {
+                        "type": "boolean",
+                        "title": "CT"
+                    },
+                    "SurgeryRT": {
+                        "type": "boolean",
+                        "title": "Surgery + RT"
+                    },
+                    "CTRT": {
+                        "type": "boolean",
+                        "title": "CT + RT"
+                    },
+                    "HT": {
+                        "type": "boolean",
+                        "title": "HT"
+                    },
+                    "Other": {
+                        "type": "boolean",
+                        "title": "Other"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "DateOfFolllowup": {
+                "type": "date",
+                "require": true,
+                "title": "Date of Follow-up"
+            },
+            "LastKnownVitalStatus": {
+                "type": "object",
+                "properties": {
+                    "AliveUnknownDiseaseStatus": {
+                        "type": "boolean",
+                        "title": "Alive (unknown disease status)"
+                    },
+                    "AliveAndNoEvidenceOfDisease": {
+                        "type": "boolean",
+                        "title": "Alive and no evidence of disease"
+                    },
+                    "AliveWithDisease": {
+                        "type": "boolean",
+                        "title": "Alive with disease"
+                    },
+                    "Dead": {
+                        "type": "boolean",
+                        "title": "Dead"
+                    }
+                }
+            },
+            "causeOfDeath": {
+                "type": "object",
+                "properties": {
+                    "EndometrialCa": {
+                        "type": "boolean",
+                        "title": "Endometrial ca"
+                    },
+                    "Otherprimarycancer": {
+                        "type": "boolean",
+                        "title": "Other primary cancer"
+                    },
+                    "Treatmentrelatedcause": {
+                        "type": "boolean",
+                        "title": "Treatment related cause"
+                    },
+                    "Intercurrentdisease": {
+                        "type": "boolean",
+                        "title": "Intercurrent disease"
+                    },
+                    "Unknowncauses": {
+                        "type": "boolean",
+                        "title": "Unknown causes"
+                    },
+                    "DateOfDeath": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date of Death"
+                    }
+                }
+            }
+  }
+      });
+    </script>
+  </body>
+</html>

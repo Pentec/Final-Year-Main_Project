@@ -1,0 +1,204 @@
+/*-------------------------------------------------Graph Stuff--------------------------------------------*/
+.area {
+    position: relative;
+    margin: 0px auto;
+    margin-top: 85px;
+    padding: 0px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.graphbox {
+    min-width: 1050px;
+    width: 80%;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 2px solid #d6d6d6;
+    background-color: white;
+    padding: 0;
+    position: relative;
+    margin-bottom: 100px;
+}
+
+@media (max-width: 767px) {
+    .graph-box{
+        margin-top: 120px;
+    }
+}
+
+.graph-wrapper {
+    width: 72%;
+    height: 100%;
+    background-color: white;
+    float: left;
+}
+
+.graph-interaction {
+    position: relative;
+    color: #002240;
+    float: left;
+    width: 28%;
+    height: 100%;
+    border-left: 2px solid #d6d6d6;
+}
+
+.graph-interaction-header:first-child {
+    border-top: none;
+}
+
+.graph-interaction-header {
+    padding: 2%;
+    margin-top: 0;
+    padding-bottom: 6px;
+    border-top: 1px solid #d6d6d6;
+    border-bottom: 1px solid #d6d6d6;;
+}
+
+.graph-interaction h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.bar {
+    fill: steelblue;
+}
+
+.graph-interaction {
+    font-size: 12px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.tick line{
+    opacity: 0.2;
+}
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5;
+}
+svg{
+    background-color: white;
+}
+
+.date {
+    position: relative;
+}
+
+/*----------------------------------------------------Graph Form Stuff-----------------------------------------------*/
+.stats-section {
+    padding: 4%;
+    position: relative;
+    padding-bottom: 1%;
+}
+
+.overall-stats {
+    padding-right: 15%;
+    padding-bottom: 1%;
+}
+
+.form-group {
+    margin-bottom: 3%;
+}
+
+.form-group:last-child {
+    margin-bottom: 5%;
+}
+
+.btn-custom {
+    color: #fff;
+    background-color: #159d00;
+    font-size: 14px;
+    height: 100%;
+    font-weight: 700;
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 0;
+}
+
+.btn-custom-color {
+    color: #dedede;;
+}
+
+.btn-custom:hover {
+    color: #FFF;
+}
+
+.form-group.input-daterange {
+    position: relative
+}
+
+#mainQuery {
+    position: relative;
+}
+
+div.cs-skin-elastic{
+    font-size: 14px;
+}
+
+.date-custom {
+    color: #fff;
+    background-color: #0462b7;
+    border: none;
+    padding: 10px;
+    border-radius: 0;
+    height: 100%;
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-group i {
+    color: white;
+    position: absolute;
+    vertical-align: middle;
+    font-size: 14px;
+    z-index: 1;
+
+    right: 3.6%;
+    top: 35%;
+}
+
+.btn-top {
+    margin-top: 115%;
+}
+
+.btn-bottom {
+    background-color: #dedede;
+    font-size: 14px;
+    height: 100%;
+    font-weight: 700;
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 0;
+}
+
+#mainQuery .form-group{
+    line-height: 1.0
+}
+
+/*------------------------------------------Options-------------------------------*/
+
+.stats-section .input-group input {
+    width: 50%;
+    transition: all 0.2s linear;
+    border: 1px solid #dedede;
+}
+
+.stats-section .input-group input:hover {
+    transform: scale(1, 1.1);
+}
+
+.blue {
+    background-color: #0462B7;
+}

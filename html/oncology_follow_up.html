@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Oncology Follow-Up</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap.css"/>
+    <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/deps/underscore.js"></script>
+    <script type="text/javascript" src="/deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="/lib/jsonform.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="/" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+
+
+<div class = "container">
+
+    <h1 class="page-header">Oncology Follow-Up</h1>
+    <br>
+    <form class="form-inline" role="form" method = "POST" action = "/oncology_follow_up" enctype="application/json"></form>
+</div>
+<script type="text/javascript">
+      $('form').jsonForm({
+        schema: {
+
+            "Name": {
+                "type": "string",
+                "require": true,
+                "title": "Name"
+            },
+            "HospitalNumber": {
+                "type": "string",
+                "require": true,
+                "title": "Hospital Number"
+            },
+            "DateOfVisit": {
+                "type": "date",
+                "require": true,
+                "title": "Date of visit"
+            },
+            "ExaminedByDr": {
+                "type": "string",
+                "require": true,
+                "title": "Examined by Dr."
+            },
+            "InitialDiagnosisAndStage": {
+                "type": "string",
+                "require": true,
+                "title": "Initial diagnosis and stage"
+            },
+            "DateDiagnosed": {
+                "type": "date",
+                "require": true,
+                "title": "Date diagnosed"
+            },
+            "Complaints": {
+                "type": "textarea",
+                "require": true,
+                "title": "Complaints"
+            },
+            "ClinicalFindings": {
+                "type": "textarea",
+                "require": true,
+                "title": "Clinical findings"
+            },
+            "AdditionalNotes": {
+                "type": "textarea",
+                "title": "Additional notes"
+            },
+            "Plan": {
+                "type": "object",
+                "properties": {
+                    "SpecialInvestigations": {
+                        "type": "textarea",
+                        "require": true,
+                        "title": "Special investigations"
+                    },
+                    "Referral": {
+                        "type": "textarea",
+                        "require": true,
+                        "title": "Referral"
+                    },
+                    "Treatment": {
+                        "type": "textarea",
+                        "require": true,
+                        "title": "Treatment"
+                    }
+                }
+            },
+            "NextFollowUpVisit": {
+                "type": "string",
+                "require": true,
+                "title": "Next Follow-up visit"
+            },
+            "TimeFromPrimaryTreatment": {
+                "type": "object",
+                "properties": {
+                    "months": {
+                        "type": "number",
+                        "title": "months"
+                    },
+                    "years": {
+                        "type": "number",
+                        "title": "years"
+                    }
+                }
+            },
+            "LastKnownVitalStatusOfPatient": {
+                "type": "object",
+                "properties": {
+                    "AliveUnknownDiseaseStatus": {
+                        "type": "boolean",
+                        "title": "Alive (unknown disease status)"
+                    },
+                    "AliveNoEvidenceOfDisease": {
+                        "type": "boolean",
+                        "title": "Alive and no evidence of disease"
+                    },
+                    "AliveWithDisease": {
+                        "type": "boolean",
+                        "title": "Alive with disease"
+                    },
+                    "Dead": {
+                        "type": "boolean",
+                        "title": "Dead"
+                    }
+                }
+            },
+            "Relapse": {
+                "type": "object",
+                "properties": {
+                    "Yes": {
+                        "type": "boolean",
+                        "title": "Yes"
+                    },
+                    "No": {
+                        "type": "boolean",
+                        "title": "No"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "SiteOfRelapse": {
+                "type": "object",
+                "properties": {
+                    "Local": {
+                        "type": "boolean",
+                        "title": "Local"
+                    },
+                    "Metastatic": {
+                        "type": "boolean",
+                        "title": "Metastatic"
+                    },
+                    "LocalAndMetastatic": {
+                        "type": "boolean",
+                        "title": "Local and metastatic"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "DateOfRelapseDiagnosis": {
+                "type": "date",
+                "title": "Date of relapse diagnosis"
+            },
+            "TreatmentAtRelapse": {
+                "type": "object",
+                "properties": {
+                    "Nil": {
+                        "type": "boolean",
+                        "title": "Nil"
+                    },
+                    "Surgery": {
+                        "type": "boolean",
+                        "title": "Surgery"
+                    },
+                    "Radiotherapy": {
+                        "type": "boolean",
+                        "title": "Radiotherapy"
+                    },
+                    "Chemotherapy": {
+                        "type": "boolean",
+                        "title": "Chemotherapy"
+                    },
+                    "HT": {
+                        "type": "boolean",
+                        "title": "HT"
+                    },
+                    "Surgery_RT": {
+                        "type": "boolean",
+                        "title": "Surgery + RT"
+                    },
+                    "CT_RT": {
+                        "type": "boolean",
+                        "title": "CT + RT"
+                    },
+                    "Other": {
+                        "type": "boolean",
+                        "title": "Other"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            }
+  }
+      });
+    </script>
+  </body>
+</html>

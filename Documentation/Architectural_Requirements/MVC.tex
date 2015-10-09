@@ -1,0 +1,10 @@
+
+Model-View-Controller is an architectural pattern that divides software applications into three interconnected parts. \\ \par
+The controller is responsible for translating requests in to responses (Nadel, 2012). The controller 'inserts' the response back into the view, which could be html or it's equivalents. \par
+The view translates the response, from the controller, into a visual format for the client (Nadel, 2012). The view also sends requests to the controller. \par
+The model's task is to maintain state and give methods for changing this state. Typically, this layer can be decomposed to:
+\begin{itemize}
+\item Service layer - provides high-level logic for dependent parts of an application.
+\item Data access layer - services objects invoke this layer, which provides provides access to the persistence layer.
+\item Value object layer - provides data-oriented representations of terminal nodes in the model hierarchy.
+\end{itemize}

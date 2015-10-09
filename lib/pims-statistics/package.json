@@ -1,0 +1,36 @@
+{
+  "name": "pims-formbuilding",
+  "version": "0.0.1",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "main": "./statistics.js",
+  "_id": "pims-statistics@0.0.1",
+  "_shasum": "",
+  "_from": "pims-statistics@>=0.0.1",
+  "_npmVersion": "1.4.23",
+  "homepage": "https://github.com/Pentec/pims-statistics",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Pentec/pims-statistics.git"
+  },
+  "maintainers": [
+    {
+      "name": "Pentec",
+      "email": "pentecpims@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "",
+    "tarball": "http://localhost:4873/pims-statistics/-/pims-statistics-0.0.1.tgz"
+  },
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
+  "_resolved": "http://localhost:4873/pims-statistics/-/pims-statistics-0.0.1.tgz",
+  "readme": "README.md",
+  "bugs": {
+    "url": "https://github.com/Pentec/pims-statistics/issues"
+  },
+  "description": "README.md"
+}

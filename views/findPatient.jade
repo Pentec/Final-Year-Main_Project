@@ -1,0 +1,26 @@
+//
+   Created by Ruth on 2015-07-16.
+extends layout
+
+block content
+    div.jumbotron.center-block.banner
+        img#kalaLogo(src='images/KPTH_Logo.png', width="30%").img-responsive.center-block
+    //2= "Please enter the id of the patient that you wish to search for"
+    section#findPatient
+        div.container-fluid
+            div.row
+                div.col-xs-4.col-xs-offset-4#errordiv
+                    if (!send)
+                        .alert.alert-danger
+                            p= message
+                div.col-xs-12
+                    div.form-wrap.panel
+                        form(name="searchPatient", id="searchPatient", method="post", action="/findPatient/sendNotification")
+                            div.form-group.form-centered
+                                label#instruct(for="searchP") Enter the ID of the patient:
+                                input.form-control.patientinput(type="text", id="patientid", name="patientid", value="", placeholder="Patient ID / NAME", required)
+                            div.form-group.form-centered
+                                input.btn.btn-primary.btn-block(type="submit", value="Search", tabindex="5")
+
+                 //#{pageErrors}
+                //send email here

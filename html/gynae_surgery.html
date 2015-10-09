@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Gynaecology Surgery</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap.css"/>
+    <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/deps/underscore.js"></script>
+    <script type="text/javascript" src="/deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="/lib/jsonform.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="/" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
+        </div>
+        <div  class = "nav navbar-nav">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Abo - ASO
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">[O03.9] Abortion complete uncomplicated</a></li>
+                    <li><a href="#">[O07.5] Abortion incomplete sepsis (MODS)</a></li>
+                    <li><a href="#">[O07.5] Abortion incomplete septic</a>
+                    <li><a href="#">[O07.8] Abortion incomplete septic shock</a></li>
+                    <li><a href="#">[O03.4] Abortion incomplete uncomplicated</a></li>
+                    <li><a href="#">[O20.0] Abortion threatened</a></li>
+                    <li><a href="#">[N76.4] Abscess vulva</a></li>
+                    <li><a href="#">[N80.0] Adenomyosis</a></li>
+                    <li><a href="#">[D64.81] Anaemia due to chemotherapy</a></li>
+                    <li><a href="#">[D52] Anaemia folate deficiency</a></li>
+                    <li><a href="#">[D50] Anaemia iron deficiency</a></li>
+                    <li><a href="#">[O90.81] Anaemia postpartum</a></li>
+                    <li><a href="#">[N70.0] ASO / PID acute</a></li>
+                    <li><a href="#">[N70.1] ASO / PID chronic</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bar - Conc
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">[N75.1] Bartholin abscess</a></li>
+                    <li><a href="#">[N75.0] Bartholin cyst</a></li>
+                    <li><a href="#">[Z38.1] BBA singleton liveborn</a>
+                    <li><a href="#">[Z38.4] BBA twins liveborn</a></li>
+                    <li><a href="#">[O20.9] Bleeding early pregnancy </a></li>
+                    <li><a href="#">[O02.0] Blighted ovum</a></li>
+                    <li><a href="#">[B37.3] Candida vulvovaginal</a></li>
+                    <li><a href="#">[C80] Carcinoma unknown primary (CUP)</a></li>
+                    <li><a href="#">[N72] Cervicitis</a></li>
+                    <li><a href="#">[Z30.1] Contraception IUCD placement</a></li>
+                    <li><a href="#">[Z30.2] Contraception sterilization</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cyst - Endo
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">[N83.1] Cyst corpus luteum</a></li>
+                    <li><a href="#">[N83.0] Cyst ovarian follicle </a></li>
+                    <li><a href="#">[N83.2] Cyst simple</a>
+                    <li><a href="#">[N81.1] Cystocele</a></li>
+                    <li><a href="#">[F32.2] Depression</a></li>
+                    <li><a href="#">[O00.1] Ectopic pregnancy tubal</a></li>
+                    <li><a href="#">[N85.0] Endometrial hyperplasia</a></li>
+                    <li><a href="#">[N85.1] Endometrial hyperplasia with atypia</a></li>
+                    <li><a href="#">[N80.5] Endometriosis bowel</a></li>
+                    <li><a href="#">[N80.2] Endometriosis Fallopian tube</a></li>
+                    <li><a href="#">[N80.8] Endometriosis other</a></li>
+                    <li><a href="#">[N80.1] Endometriosis ovary</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Endo - HSIL
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">[N80.3] Endometriosis peritoneum</a></li>
+                    <li><a href="#">[N80.4] Endometriosis rectovaginal septum</a></li>
+                    <li><a href="#">[N80.6] Endometriosis skin scar</a>
+                    <li><a href="#">[N80.9] Endometriosis unspecified</a></li>
+                    <li><a href="#">[N71.9] Endometritis</a></li>
+                    <li><a href="#">[N92.0] Heavy menstrual bleeding</a></li>
+                    <li><a href="#">[N92.4] Heavy menstrual bleeding perimenopausal</a></li>
+                    <li><a href="#">[N92.2] Heavy menstrual bleeding puberty</a></li>
+                    <li><a href="#">[N92.1] Heavy non-cyclical uterine bleeding</a></li>
+                    <li><a href="#">[N87.1] HSIL CIN II</a></li>
+                    <li><a href="#">[N87.2] HSIL CIN III</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hym - Myo
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">[N89.6] Hymen rigid </a></li>
+                    <li><a href="#">[E78.0] Hypercholesterolaemia</a></li>
+                    <li><a href="#">[E03.9] Hypothyroidism</a>
+                    <li><a href="#">[N97.1] Infertility Fallopian tube</a></li>
+                    <li><a href="#">[N97.9] Infertility female</a></li>
+                    <li><a href="#">[N90.4] Lichen sclerosis</a></li>
+                    <li><a href="#">[N87.0] LSIL CIN I</a></li>
+                    <li><a href="#">[N95.1] Menopausal symptoms</a></li>
+                    <li><a href="#">[E98.41] Menopause post procedural</a></li>
+                    <li><a href="#">[O02.1] Missed abortion</a></li>
+                    <li><a href="#">[D25.1] Myoma intramural</a></li>
+                    <li><a href="#">[D25.9] Myoma unspecified</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Neop - Pelv
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">[C53.8] Neoplasm cervix</a></li>
+                    <li><a href="#">[C54.1] Neoplasm endometrium</a></li>
+                    <li><a href="#">[C57.0] Neoplasm fallopian tube</a>
+                    <li><a href="#">[C54.2] Neoplasm myometrium</a></li>
+                    <li><a href="#">[C56] Neoplasm ovary</a></li>
+                    <li><a href="#">[C52] Neoplasm vagina</a></li>
+                    <li><a href="#">[C51.8] Neoplasm vulva</a></li>
+                    <li><a href="#">[D39.1] Ovarian neoplasm uncertain behaviour</a></li>
+                    <li><a href="#">[N83.5] Ovarian torsion</a></li>
+                    <li><a href="#">[R10.2] Pelvic pain</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Peri - Stre
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">[O70.0] Perineum 1° tear</a></li>
+                    <li><a href="#">[O70.1] Perineum 2 ° tear</a></li>
+                    <li><a href="#">[O70.2] Perineum 3 ° tear</a>
+                    <li><a href="#">[N73.3] Peritonitis acute pelvic</a>
+                    <li><a href="#">[N84.1] Polyp cervix</a></li>
+                    <li><a href="#">[N84.0] Polyp endometrium</a></li>
+                    <li><a href="#">[N95.0] Postmenopausal bleeding</a></li>
+                    <li><a href="#">[N81.3] Procedentia</a></li>
+                    <li><a href="#">[I26] Pulmonary embolism</a></li>
+                    <li><a href="#">[N81.6] Rectocele</a></li>
+                    <li><a href="#">[O73] Retained products</a></li>
+                    <li><a href="#">[N71.9] Septic uterus</a></li>
+                    <li><a href="#">[R65.2] Severe sepsis</a></li>
+                    <li><a href="#">[Z30.2] Sterilization</a></li>
+                    <li><a href="#">[N39.3] Stress Urinary incontinence</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">TOP - Ute
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">[O07] TOP failed attempt</a></li>
+                    <li><a href="#">[Z33.2] TOP uncomplicated</a></li>
+                    <li><a href="#">[O04] TOP with complications</a>
+                    <li><a href="#">[A18.17] Tuberculosis female pelvic</a></li>
+                    <li><a href="#">[N76.6] Ulcer  vulva</a></li>
+                    <li><a href="#">[N76.5] Ulcer vagina</a></li>
+                    <li><a href="#">[N76.5] Ulceration vagina</a></li>
+                    <li><a href="#">[N76.6] Ulceration vulva</a></li>
+                    <li><a href="#">[N39.4] Urge urinary incontinence</a></li>
+                    <li><a href="#">[N81.2] Uterine prolapse</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Vagi - Woun
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">[N76.0] Vaginitis acute</a></li>
+                    <li><a href="#">[N89.0] VAIN I</a></li>
+                    <li><a href="#">[N89.1] VAIN II</a>
+                    <li><a href="#">[N89.2] VAIN III</a></li>
+                    <li><a href="#">[N99.3] Vault prolapse after hysterectomy</a></li>
+                    <li><a href="#">[N90.0] VIN I</a></li>
+                    <li><a href="#">[N90.1] VIN II</a></li>
+                    <li><a href="#">[N90.2] VIN III</a></li>
+                    <li><a href="#">[N76.4] Vulva abscess</a></li>
+                    <li><a href="#">[T81.4] Wound infection surgical</a></li>
+                </ul>
+            </li>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+
+
+<div class = "container">
+
+    <h1 class="page-header"> Gynaecology Surgery Form</h1>
+    <br>
+    <form class="form-inline" role="form" method = "POST" action = "/gynaecology_surgery" enctype="application/json"></form>
+</div>
+<script type="text/javascript">
+      $('form').jsonForm({
+        schema: {
+
+            "ProcedureDate": {
+                "type": "date",
+                "require": true,
+                "title": "Procedure Date"
+            },
+            "HospitalNumber": {
+                "type": "string",
+                "require": true,
+                "title": "Hospital Number"
+            },
+            "Age": {
+                "type": "number",
+                "require": true,
+                "title": "Age"
+            },
+            "Name": {
+                "type": "string",
+                "require": true,
+                "title": "Name"
+            },
+            "Surname": {
+                "type": "string",
+                "require": true,
+                "title": "Surname"
+            },
+            "P": {
+                "type": "number",
+                "title": "Parity"
+            },
+            "G": {
+                "type": "number",
+                "title": "Gravidity"
+            },
+            "M": {
+                "type": "number",
+                "title": "Miscarriage"
+            },
+            "E": {
+                "type": "number",
+                "title": "Ectopic pregnancy"
+            },
+            "HIV": {
+                "type": "object",
+                "properties": {
+                    "HIVStatus": {
+                        "type": "string",
+                        "title": "HIV Status"
+                    },
+                    "CD4": {
+                        "type": "number",
+                        "title": "CD4"
+                    }
+                }
+            },
+            "typeOfProcedure": {
+                "type": "object",
+                "properties": {
+                    "Elective": {
+                        "type": "boolean",
+                        "title": "Elective"
+                    },
+                    "Emergency": {
+                        "type": "boolean",
+                        "title": "Emergency"
+                    }
+                }
+            },
+            "firm": {
+                "type": "object",
+                "properties": {
+                    "G1": {
+                        "type": "boolean",
+                        "title": "G1"
+                    },
+                    "G2": {
+                        "type": "boolean",
+                        "title": "G2"
+                    },
+                    "G3": {
+                        "type": "boolean",
+                        "title": "G3"
+                    },
+                    "ONC": {
+                        "type": "boolean",
+                        "title": "ONC"
+                    }
+                }
+            },
+            "categoryOfProcedure": {
+                "type": "object",
+                "properties": {
+                    "Oncology": {
+                        "type": "boolean",
+                        "title": "Oncology"
+                    },
+                    "GeneralGynae": {
+                        "type": "boolean",
+                        "title": "General Gynaecology"
+                    },
+                    "Infertility": {
+                        "type": "boolean",
+                        "title": "Infertility"
+                    },
+                    "Urologynaecology": {
+                        "type": "boolean",
+                        "title": "Urologynaecology"
+                    }
+                }
+            },
+            "typeOfAccess": {
+                "type": "object",
+                "properties": {
+                    "OpenAbdomen": {
+                        "type": "boolean",
+                        "title": "Open Abdomen"
+                    },
+                    "Endoscopy": {
+                        "type": "boolean",
+                        "title": "Endoscopy"
+                    },
+                    "Vaginal": {
+                        "type": "boolean",
+                        "title": "Vaginal"
+                    }
+                }
+            },
+            "preOperICD10Codes": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "title": "Pre-Operative Diagnosis ICD Code:"
+                }
+            },
+            "performedBy": {
+                "type": "object",
+                "properties": {
+                    "Consultant": {
+                        "type": "boolean",
+                        "title": "Consultant"
+                    },
+                    "Fellow": {
+                        "type": "boolean",
+                        "title": "Fellow"
+                    },
+                    "Registrar": {
+                        "type": "boolean",
+                        "title": "Registrar"
+                    },
+                    "Intern": {
+                        "type": "boolean",
+                        "title": "Intern"
+                    }
+                }
+            },
+            "DygnosisNotOnICD10List": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "title": "Diagnosis if not on ICD 10 list"
+                }
+            },
+            "ProPerformedCode": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "title": "Procedure(s) Performed(Code) :"
+                }
+            },
+            "IntraOperativeComplications": {
+                "type": "object",
+                "properties": {
+                    "None": {
+                        "type": "boolean",
+                        "title": "None"
+                    },
+                    "BladderInjury": {
+                        "type": "boolean",
+                        "title": "Bladder Injury"
+                    },
+                    "BowelInjury": {
+                        "type": "boolean",
+                        "title": "Bowel Injury"
+                    },
+                    "BRUBT": {
+                        "type": "boolean",
+                        "title": "Bleeding requiring unplanned blood transfusion"
+                    },
+                    "ProcedureNotCompleted": {
+                        "type": "boolean",
+                        "title": "Procedure Not Completed"
+                    }
+                }
+            },
+            "OtherComplications": {
+                "type": "string",
+                "title": "Other Complications"
+            },
+            "isNotCompeleted": {
+                "type": "boolean",
+                "title"  : 'Complete form later?'
+            }
+
+    
+  }
+      });
+    </script>
+  </body>
+</html>

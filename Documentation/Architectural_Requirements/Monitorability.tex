@@ -1,0 +1,18 @@
+%Monitorability/Auditability
+	\subsubsection*{Description}
+		Information logs will be kept on each system request and response as well as error messages, which will allow for one to monitor the system and check how it is operating as a whole, as one will have easy access to the system logs to know what aspects of the system are responding well and which aspects are not. 
+	\subsubsection*{Justification}
+	\begin{itemize}
+		\item System monitorability is important, for the fact that the system will have multiple concurrent users and to prevent system failure or incorrect operations, the system must be monitored at regular intervals.	
+	\end{itemize}	
+	\subsubsection*{Mechanism}
+	 The audit logs will be in the following format:	
+		\begin{itemize}
+			\item log entry ID
+			\item userID of user requesting a service
+			\item date and time of request
+			\item the service that was requested
+			\item request and response of service
+		\end{itemize}
+		The audit log will be accessible via a \textit{.log} file on the server.
+		
