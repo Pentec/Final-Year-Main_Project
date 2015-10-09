@@ -1162,9 +1162,235 @@ var submitGTN = function (formData) { // GTN
     var changedString = JSON.parse(changedString);
 
     var Form = new GTN({
+        Name: changedString.Name,
+
+        Surname:changedString.Surname,
+
+        HospitalNumber:changedString.HospitalNumber,
+
+        ID: changedString.ID,
+
+        DateOfBirth: changedString.DateOfBirth,
+
+        CellPhone:{
+            First: changedString.CellPhoneFirst,
+            Alternative: changedString.CellPhoneAlternative
+        },
+
+        DateOfDiagnosis: changedString.DateOfDiagnosis,
+
+        HIVStatus:{
+            Negative: changedString.HIVStatusNegative,
+            Positive: changedString.HIVStatusPositive,
+            CD4:changedString.HIVStatusCD4
+        },
+
+        figoStage: {
+            I:changedString.figoStageI,
+            II: changedString.figoStageII,
+            III:changedString.figoStageIII,
+            IV: changedString.figoStageIV,
+            Unknown:changedString.figoStageUnknown
+        },
+
+        SiteOfDistantMetastase: {
+            Nil: changedString.SiteOfDistantMetastaseNil,
+            Skin: changedString.SiteOfDistantMetastaseSkin,
+            Bone: changedString.SiteOfDistantMetastaseBone,
+            Lungs: changedString.SiteOfDistantMetastaseLungs,
+            Liver: changedString.SiteOfDistantMetastaseLiver,
+            Brain: changedString.SiteOfDistantMetastaseBrain,
+            LymphNodesOtherThanFemoralAndInguinal: changedString.SiteOfDistantMetastaseLymphNodesOtherThanFemoralAndInguinal,
+            Other: changedString.SiteOfDistantMetastaseOther,
+            Unknown: changedString.SiteOfDistantMetastaseUnknown
+        },
+
+        RiskFactors:{
+            Age:{
+                LT40 :changedString.RiskFactorsAgeLT40,
+                GTE40:changedString.RiskFactorsAgeGTE40,
+                Unknown:changedString.RiskFactorsAgeUnknown
+            },
+
+            AntecedentPregnancy:{
+                Mole :changedString.RiskFactorsAntecedentPregnancyMole,
+                Abortion:changedString.RiskFactorsAntecedentPregnancyAbortion,
+                Term:changedString.RiskFactorsAntecedentPregnancyTerm,
+                Unknown:changedString.RiskFactorsAntecedentPregnancyUnknown
+            },
+
+            IntervalMonthsFromIndexPregnancy:{
+                GT4 :changedString.RiskFactorsIntervalMonthsFromIndexPregnancyGT4,
+                FourTo6:changedString.RiskFactorsIntervalMonthsFromIndexPregnancyFourTo6,
+                SevenTo12:changedString.RiskFactorsIntervalMonthsFromIndexPregnancySevenTo12,
+                GTE13:changedString.RiskFactorsIntervalMonthsFromIndexPregnancyGTE13,
+                Unknown:changedString.RiskFactorsIntervalMonthsFromIndexPregnancyUnknown
+            },
+
+            PretreatmentSerumHCG:{
+                GT10expo3:changedString.RiskFactorsPretreatmentSerumHCGGT10expo3,
+                Tenexpo3ToGT10expo4:changedString.RiskFactorsPretreatmentSerumHCGTenexpo3ToGT10expo4,
+                Tenexpo4ToGT10expo5:changedString.RiskFactorsPretreatmentSerumHCGTenexpo4ToGT10expo5,
+                GTE10expo5:changedString.RiskFactorsPretreatmentSerumHCGGTE10expo5,
+                Unknown:changedString.RiskFactorsPretreatmentSerumHCGUnknown
+            },
 
 
+            LargestTumorSizeIncludingUterusCm:{
+                LT3:changedString.RiskFactorsLargestTumorSizeIncludingUterusCmLT3,
+                ThreeToLT5:changedString.RiskFactorsLargestTumorSizeIncludingUterusCmThreeToLT5,
+                GTE25:changedString.RiskFactorsLargestTumorSizeIncludingUterusCmGTE25,
+                Unknown:changedString.RiskFactorsLargestTumorSizeIncludingUterusCmUnknown
+            },
 
+
+            SiteOfMetastases:{
+                NoneLung :changedString.RiskFactorsSiteOfMetastasesNoneLung,
+                SpleenKidney:changedString.RiskFactorsSiteOfMetastasesSpleenKidney,
+                GastroIntestinal:changedString.RiskFactorsSiteOfMetastasesGastroIntestinal,
+                LiverBrain:changedString.RiskFactorsSiteOfMetastasesLiverBrain,
+                Unknown:changedString.RiskFactorsSiteOfMetastasesUnknown
+            },
+
+
+            NumberOfMetastases:{
+                Nil :changedString.RiskFactorsNumberOfMetastasesNil,
+                OneTo4:changedString.RiskFactorsNumberOfMetastasesOneTo4,
+                FiveTo8:changedString.RiskFactorsNumberOfMetastasesFiveTo8,
+                Unknown:changedString.RiskFactorsNumberOfMetastasesUnknown
+            },
+
+
+            PreviousFailedChemotherapy:{
+                NoPreviousFailed :changedString.RiskFactorsPreviousFailedChemotherapyNoPreviousFailed,
+                SingleDrug:changedString.RiskFactorsPreviousFailedChemotherapySingleDrug,
+                Unknown:changedString.RiskFactorsPreviousFailedChemotherapyUnknown
+            }
+
+        },
+
+
+        Histology: {
+            NoHistology:changedString.HistologyNoHistology,
+            CompleteHydatiformMole: changedString.HistologyCompleteHydatiformMole,
+            PartialHydatiformMole: changedString.HistologyPartialHydatiformMole,
+            Choriocarcinoma:changedString.HistologyChoriocarcinoma,
+            EpithelioidTrtophoblasticTumor:changedString.HistologyEpithelioidTrtophoblasticTumor,
+            PlacentalSiterophoblasticTumor: changedString.HistologyPlacentalSiterophoblasticTumor,
+            UnclassifiedTrophoblasticLesion:changedString.HistologyUnclassifiedTrophoblasticLesion,
+            Unknown :changedString.HistologyUnknown
+        },
+
+
+        /*(applicable to trophoblastic tumors arising in ectopic sites)*/
+        PrimarySite : {
+            Trophoblastic:changedString.PrimarySiteTrophoblastic,
+            OvarianMole:changedString.PrimarySiteOvarianMole,
+            Tube: changedString.PrimarySiteTube,
+            Abdominal:changedString.PrimarySiteAbdominal,
+            OtherSite:changedString.PrimarySiteOtherSite,
+            Unknown : changedString.PrimarySiteUnknown
+        },
+
+
+        /*for known GTN*/
+        PreviousChemotherapy  : {
+            NoPriorChemotherapy: changedString.PreviousChemotherapyNoPriorChemotherapy,
+            SingleAgentChemotherapy:changedString.PreviousChemotherapySingleAgentChemotherapy,
+            MultipleAgentChemotherapy: changedString.PreviousChemotherapyMultipleAgentChemotherapy,
+            Unknown : changedString.PreviousChemotherapyUnknown
+        },
+
+        /*(RT = Radiotherapy, CT = Chemotherapy)*/
+        PrimaryTreatmentsPerformed  : {
+            Nil:changedString.PrimaryTreatmentsPerformedNil,
+            Chemotherapy:changedString.PrimaryTreatmentsPerformedChemotherapy,
+            SurgeryOnly:changedString.PrimaryTreatmentsPerformedSurgeryOnly,
+            ChemotherapySurgery:changedString.PrimaryTreatmentsPerformedChemotherapySurgery,
+            Unknown :changedString.PrimaryTreatmentsPerformedUnknown,
+            DateOfTreatment: changedString.PrimaryTreatmentsPerformedDateOfTreatment
+        },
+
+
+        /*--(LND = lymp hadenectomy)--*/
+        typeOfSurgery: {
+            AbdominalAndElvicSurgeryhysterectomyDebulkingEexcludingDAndC: changedString.typeOfSurgeryAbdominalAndElvicSurgeryhysterectomyDebulkingEexcludingDAndC,
+            LobectomyLung:changedString.typeOfSurgeryLobectomyLung,
+            Craniotomy:changedString.typeOfSurgeryCraniotomy,
+            Other:changedString.typeOfSurgeryOther,
+            DateOfSurgery:changedString.typeOfSurgeryDateOfSurgery
+        },
+
+        /*--CT = Chemotherapy--*/
+        typeOfChemotherapy:{
+            OneCourseSingleAgentCT: changedString.typeOfChemotherapyOneCourseSingleAgentCT,
+            TwoOrMoreCoursesSingleAgentCT:changedString.typeOfChemotherapyTwoOrMoreCoursesSingleAgentCT,
+            OneCourseMultipleAgentCT:changedString.typeOfChemotherapyOneCourseMultipleAgentCT,
+            TwoOrMoreCoursesMultipleAgentCT: changedString.typeOfChemotherapyTwoOrMoreCoursesMultipleAgentCT,
+            Unknown:changedString.typeOfChemotherapyUnknown,
+            DateStarted:changedString.typeOfChemotherapyDateStarted,
+            DateEnded:changedString.typeOfChemotherapyDateEnded
+        },
+
+
+        ResponseToTreatment: {
+            Complete:changedString.ResponseToTreatmentComplete,
+            Partial:changedString.ResponseToTreatmentPartial,
+            StableDisease:changedString.ResponseToTreatmentStableDisease,
+            ProgressiveDisease:changedString.ResponseToTreatmentProgressiveDisease,
+            Unknown: changedString.ResponseToTreatmentUnknown,
+            DateOfAssessment:changedString.ResponseToTreatmentDateOfAssessment
+        },
+
+
+        Relapse: {
+            Yes:changedString.RelapseYes,
+            No:changedString.RelapseNo,
+            Unknown :changedString.RelapseUnknown,
+            DateOfRelapseDiagnosis:changedString.RelapseDateOfRelapseDiagnosis
+        },
+
+
+        SiteOfRelapse:{
+            Local:changedString.SiteOfRelapseLocal,
+            Metastatic:changedString.SiteOfRelapseMetastatic,
+            LocalAndMetastatic:changedString.SiteOfRelapseLocalAndMetastatic,
+            Unknown:changedString.SiteOfRelapseUnknown
+        },
+
+        /*---(RT = Radiotherapy, CT = Chemotherapy, CRT = Chemoradiation, HT = Hormone Therapy)---*/
+        TreatmentAtRelapse: {
+            Nil:changedString.TreatmentAtRelapseNil,
+            Surgery:changedString.TreatmentAtRelapseSurgery,
+            RT:changedString.TreatmentAtRelapseRT,
+            CT:changedString.TreatmentAtRelapseCT,
+            HT:changedString.TreatmentAtRelapseHT,
+            SurgeryRT:changedString.TreatmentAtRelapseSurgeryRT,
+            CTRT:changedString.TreatmentAtRelapseCTRT,
+            Other:changedString.TreatmentAtRelapseOther,
+            Unknown:changedString.TreatmentAtRelapseUnknown
+        },
+
+
+        /*Follow up*/
+        DateOfFolllowup: changedString.DateOfFolllowup,
+
+        LastKnownVitalStatus: {
+            AliveUnknownDiseaseStatus: changedString.LastKnownVitalStatusAliveUnknownDiseaseStatus,
+            AliveAndNoEvidenceOfDisease:changedString.LastKnownVitalStatusAliveAndNoEvidenceOfDisease,
+            AliveWithDisease:changedString.LastKnownVitalStatusAliveWithDisease,
+            Dead:changedString.LastKnownVitalStatusDead
+        },
+
+        /*Death*/
+        causeOfDeath :{
+            OtherPrimaryCancera:changedString.causeOfDeathOtherPrimaryCancera,
+            Otherprimarycancer: changedString.causeOfDeathOtherprimarycancer,
+            Treatmentrelatedcause:changedString.causeOfDeathTreatmentrelatedcause,
+            IntercurrentDisease: changedString.causeOfDeathIntercurrentDisease,
+            UnknownCauses:changedString.causeOfDeathUnknownCauses,
+            DateOfDeath:changedString.causeOfDeathDateOfDeath
+        }
     });
 
     Form.save(function(err){
