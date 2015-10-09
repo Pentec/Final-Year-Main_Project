@@ -148,7 +148,7 @@ router.get('/myAdminSpace', login.isLoggedIn, login.isAdmin, function (req, res,
     if (req.user) {
         login.checkAdmin(req.user.username, req.user.password, function (isAdmin) {
             if (isAdmin) {
-                res.render('pims_space/myAdminSpace', {title: 'My PIMS Space', active : 'home', admin: login.isAdmin});
+                res.render('pims_space/myAdminSpace', {title: 'My PIMS Space', active : 'home', notAdmin: !login.isAdmin});
             }
             else {
                 res.redirect('/mySpace');
@@ -175,7 +175,7 @@ router.get('/mySpace', login.isLoggedIn, login.isNotAdmin, function (req, res, n
                 res.redirect('/myAdminSpace');
             }
             else {
-                res.render('pims_space/mySpace', {title: 'My PIMS Space', active: 'home', admin: !login.isNotAdmin});
+                res.render('pims_space/mySpace', {title: 'My PIMS Space', active: 'home', notAdmin: login.isNotAdmin});
             }
         });
     }
