@@ -146,7 +146,14 @@ router.get('/myAdminSpace', login.isLoggedIn, login.isAdmin, function (req, res,
     sess = req.session;
 
     if (req.user) {
-        res.render('pims_space/myAdminSpace', {title: 'My PIMS Space', active : 'home'});
+        login.checkAdmin(req.user.username, req.user.password, function (isAdmin) {
+            if (isAdmin) {
+                res.render('pims_space/myAdminSpace', {title: 'My PIMS Space', active : 'home', admin: login.isAdmin});
+            }
+            else {
+                res.redirect('/mySpace');
+            }
+        })
     }
     else {
         res.redirect('/login');
@@ -162,9 +169,15 @@ router.get('/myAdminSpace', login.isLoggedIn, login.isAdmin, function (req, res,
  */
 router.get('/mySpace', login.isLoggedIn, login.isNotAdmin, function (req, res, next) {
     sess = req.session;
-
     if (req.user) {
-        res.render('pims_space/mySpace', {title: 'My PIMS Space', active: 'home'});
+        login.checkAdmin(req.user.username, req.user.password, function (isAdmin) {
+            if (isAdmin) {
+                res.redirect('/myAdminSpace');
+            }
+            else {
+                res.render('pims_space/mySpace', {title: 'My PIMS Space', active: 'home', admin: !login.isNotAdmin});
+            }
+        });
     }
     else {
         res.redirect('/login');
@@ -182,7 +195,6 @@ router.get('/login', function (req, res) {
     sess = req.session;
     //user not logged in
     if (!req.user) {
-
         var sendData = {found: "hello"};
         res.render('login', {
             title: 'PIMS Login Page',
@@ -202,11 +214,8 @@ router.get('/login', function (req, res) {
             else {
                 res.redirect('/mySpace');
             }
-
         });
-
     }
-
 });
 
 

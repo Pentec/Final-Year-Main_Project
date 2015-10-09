@@ -16,6 +16,9 @@ $(function(){
 			message += " left until website is complete!";
 
 			note.html(message);
+			if(days==0 & hours == 0 && minutes == 0 && seconds == 0){
+				window.location = "/splash"
+			}
 		}
 	});
 });
