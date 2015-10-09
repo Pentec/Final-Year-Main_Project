@@ -10,7 +10,7 @@ var OC = models.oncologyFollowUpVisit;
 var VagC = models.vaginalCancer;
 var VulC = models.vulvaCancer;
 var OvaC = models.overianCancer;
-var GTN = models.GTNCancer;
+var GTN = models.gTNCancer;
 var Hyst = models.hysteroscopyDataSheet;
 var CritInd = models.gynaeCritical_Incident_DataCollection;
 

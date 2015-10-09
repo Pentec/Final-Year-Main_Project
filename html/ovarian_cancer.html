@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Ovarian Cancer</title>
+    <title>Ovarian Cancer Form</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap.css"/>
     <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
@@ -31,14 +31,839 @@
 
 <div class = "container">
 
-    <h1 class="page-header">Ovarian Cancer</h1>
+    <h1 class="page-header">Ovarian Cancer Form</h1>
     <br>
     <form class="form-inline" role="form" method = "POST" action = "/ovarian_cancer" enctype="application/json"></form>
 </div>
 <script type="text/javascript">
       $('form').jsonForm({
         schema: {
-
+            "Name": {
+                "type": "string",
+                "require": true,
+                "title": "Name"
+            },
+            "Surname": {
+                "type": "string",
+                "require": true,
+                "title": "Surname"
+            },
+            "HospitalNumber": {
+                "type": "string",
+                "require": true,
+                "title": "Hospital Number"
+            },
+            "ID": {
+                "type": "number",
+                "require": true,
+                "title": "ID number"
+            },
+            "DateOfBirth": {
+                "type": "date",
+                "require": true,
+                "title": "Date of Birth"
+            },
+            "DateOfDiagnosis": {
+                "type": "date",
+                "require": true,
+                "title": "Date of diagnosis"
+            },
+            "CellPhone": {
+                "type": "object",
+                "properties": {
+                    "First": {
+                        "type": "number",
+                        "require": true,
+                        "title": "Phone number"
+                    },
+                    "Alternative": {
+                        "type": "number",
+                        "require": true,
+                        "title": "Alternative number"
+                    }
+                }
+            },
+            "HIVStatus": {
+                "type": "object",
+                "properties": {
+                    "Negative": {
+                        "type": "boolean",
+                        "title": "HIV Negative"
+                    },
+                    "Positive": {
+                        "type": "boolean",
+                        "title": "HIV Positive"
+                    },
+                    "CD4": {
+                        "type": "number",
+                        "title": "CD4 Count:"
+                    }
+                }
+            },
+            "figoStage": {
+                "type": "object",
+                "properties": {
+                    "Ia": {
+                        "type": "boolean",
+                        "title": "Ia"
+                    },
+                    "Ib": {
+                        "type": "boolean",
+                        "title": "Ib"
+                    },
+                    "Ic": {
+                        "type": "boolean",
+                        "title": "Ic"
+                    },
+                    "IIa": {
+                        "type": "boolean",
+                        "title": "IIa"
+                    },
+                    "IIb": {
+                        "type": "boolean",
+                        "title": "IIb"
+                    },
+                    "IIc": {
+                        "type": "boolean",
+                        "title": "IIc"
+                    },
+                    "IIIa": {
+                        "type": "boolean",
+                        "title": "IIIa"
+                    },
+                    "IIIb": {
+                        "type": "boolean",
+                        "title": "IIIb"
+                    },
+                    "IIIc": {
+                        "type": "boolean",
+                        "title": "IIIc"
+                    },
+                    "IV": {
+                        "type": "boolean",
+                        "title": "IV"
+                    },
+                    "SurgicalStageUnavailable": {
+                        "type": "boolean",
+                        "title": "Surgical stage unavailable"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "SiteOfDistantMetastases": {
+                "type": "object",
+                "properties": {
+                    "PleuralEffusion": {
+                        "type": "boolean",
+                        "title": "Pleural effusion"
+                    },
+                    "Liver": {
+                        "type": "boolean",
+                        "title": "Liver"
+                    },
+                    "Brain": {
+                        "type": "boolean",
+                        "title": "Brain"
+                    },
+                    "OtherSite": {
+                        "type": "boolean",
+                        "title": "OtherSite"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "Histology": {
+                "type": "object",
+                "properties": {
+                    "NoHystologyUnclassifiable": {
+                        "type": "boolean",
+                        "title": "No histology/Unclassifiable"
+                    },
+                    "BorderlineSerousCystadenoma": {
+                        "type": "boolean",
+                        "title": "Borderline serous cystadenoma"
+                    },
+                    "BorderlineMusinousCystadenoma": {
+                        "type": "boolean",
+                        "title": "Borderline musinous  cystadenoma"
+                    },
+                    "BorderlineEndometroidCystadenoma": {
+                        "type": "boolean",
+                        "title": "Borderline endometroid cystadenoma"
+                    },
+                    "UndifferentiatedCarcinoma": {
+                        "type": "boolean",
+                        "title": "Undifferentiated carcinoma "
+                    },
+                    "MixedEpithelialTumor": {
+                        "type": "boolean",
+                        "title": "Mixed epithelial tumor"
+                    },
+                    "EndometroidCystadenocarcinoma": {
+                        "type": "boolean",
+                        "title": "Endometroid  cystadenocarcinoma"
+                    },
+                    "ClearCellCystadenocarcinoma": {
+                        "type": "boolean",
+                        "title": "Clear cell cystadenocarcinoma"
+                    },
+                    "SerousCystadenocarcinoma": {
+                        "type": "boolean",
+                        "title": "Serous cystadenocarcinoma"
+                    },
+                    "MucinousCystadenocarcinoma": {
+                        "type": "boolean",
+                        "title": "Mucinous cystadenocarcinoma"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "Differentiation": {
+                "type": "object",
+                "properties": {
+                    "Well": {
+                        "type": "boolean",
+                        "title": "1 (well)"
+                    },
+                    "Moderately": {
+                        "type": "boolean",
+                        "title": "2 (moderately)"
+                    },
+                    "Poorly": {
+                        "type": "boolean",
+                        "title": "3 (poorly)"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "TreatmentPerformed": {
+                "type": "object",
+                "properties": {
+                    "Nil": {
+                        "type": "boolean",
+                        "title": "Nil"
+                    },
+                    "SurgeryAlone": {
+                        "type": "boolean",
+                        "title": "Surgery alone"
+                    },
+                    "RTAlone": {
+                        "type": "boolean",
+                        "title": "RT alone"
+                    },
+                    "NeoAdjuvantCTAndSurgery": {
+                        "type": "boolean",
+                        "title": "Neo adjuvant CT + surgery"
+                    },
+                    "SurgeryAdjuvantRT": {
+                        "type": "boolean",
+                        "title": "Surgery + adjuvant RT"
+                    },
+                    "SurgeryAdjuvantCT": {
+                        "type": "boolean",
+                        "title": "Surgery + adjuvant CT"
+                    },
+                    "Other": {
+                        "type": "boolean",
+                        "title": "Other non standard treatments"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    },
+                    "DateofTreatment": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date of treatment"
+                    }
+                }
+            },
+            "typeOfSurgery": {
+                "type": "object",
+                "properties": {
+                    "USONoLND": {
+                        "type": "boolean",
+                        "title": "USO without LND"
+                    },
+                    "USOWithLND": {
+                        "type": "boolean",
+                        "title": "USO with LND"
+                    },
+                    "BSONoLND": {
+                        "type": "boolean",
+                        "title": "BSO without LND"
+                    },
+                    "BSOWithLND": {
+                        "type": "boolean",
+                        "title": "BSO with LND"
+                    },
+                    "multipleBiopsiesNoLND": {
+                        "type": "boolean",
+                        "title": "TAH, BSO, Omentectomy, multiple biopsies no LND"
+                    },
+                    "multipleBiopsiesWithLND": {
+                        "type": "boolean",
+                        "title": "TAH, BSO, Omentectomy, multiple biopsies with LND"
+                    },
+                    "ExplorativeLaparotomy": {
+                        "type": "boolean",
+                        "title": "Explorative laparotomy/laparoscopy"
+                    },
+                    "Other": {
+                        "type": "boolean",
+                        "title": "Other type of surgery (upper abdomen surgical procedures, GIT-, urological surgery"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    },
+                    "DateofSurgery": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date of Surgery"
+                    }
+                }
+            },
+            "typeOfRadiotherapy": {
+                "type": "object",
+                "properties": {
+                    "Intracavitary": {
+                        "type": "boolean",
+                        "title": "Intracavitary"
+                    },
+                    "ExternalPelvicRT": {
+                        "type": "boolean",
+                        "title": "External pelvic RT"
+                    },
+                    "ExternalPelvicParaortic": {
+                        "type": "boolean",
+                        "title": "External pelvic + paraortic"
+                    },
+                    "ExternalPelvicIntracavitary": {
+                        "type": "boolean",
+                        "title": "External pelvic + intracavitary"
+                    },
+                    "ExtpelvicParaortIntracavitary": {
+                        "type": "boolean",
+                        "title": "Ext pelvic/paraortic + intracavitary"
+                    },
+                    "IntraperitonealRadioisotopes": {
+                        "type": "boolean",
+                        "title": "Intraperitoneal  radioisotopes"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    },
+                    "Other": {
+                        "type": "boolean",
+                        "title": "Other"
+                    },
+                    "DateStarted": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date started"
+                    },
+                    "DateEnded": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date ended"
+                    }
+                }
+            },
+            "typeOfChemotherapy": {
+                "type": "object",
+                "properties": {
+                    "SingleDrugCTUncompleted": {
+                        "type": "string",
+                        "title": "Single drug (unspecified) CT - uncompleted"
+                    },
+                    "SingleDrugCTCompleted": {
+                        "type": "string",
+                        "title": "Single drug (unspecified) CT - completed"
+                    },
+                    "SingleDrugCTPlusePCUncompleted": {
+                        "type": "string",
+                        "title": "Single drug CT + PC - uncompleted"
+                    },
+                    "SingleDrugCTPlusPCCompleted": {
+                        "type": "string",
+                        "title": "Single drug CT + PC - completed"
+                    },
+                    "SingleDrugCTNoPCUncompleted": {
+                        "type": "string",
+                        "title": "Single drug CT, no PC - uncompleted"
+                    },
+                    "SingleDrugCTNoPCCompleted": {
+                        "type": "string",
+                        "title": "Single drug CT, no PC - completed"
+                    },
+                    "MultipleDrugCTUncompleted": {
+                        "type": "string",
+                        "title": "Multiple drug (unspecified) CT - uncompleted"
+                    },
+                    "MultipleDrugCTCompleted": {
+                        "type": "string",
+                        "title": "Multiple drug (unspecified) CT - completed"
+                    },
+                    "MultipleDrugCTPCTaxaneUncompleted": {
+                        "type": "string",
+                        "title": "Multiple drug CT +PC + Taxane  - uncompleted"
+                    },
+                    "MultipleDrugCTPCTaxaneCompleted": {
+                        "type": "string",
+                        "title": "Multiple drug CT +PC + Taxane  - completed"
+                    },
+                    "MultipleDrugCTNoPCWithTaxaneUncompleted": {
+                        "type": "string",
+                        "title": "Multiple drug CT, no PC, with Taxane  - uncompleted"
+                    },
+                    "MultipleDrugCTNoPCWithTaxaneCompleted": {
+                        "type": "string",
+                        "title": "Multiple drug CT, no PC, with Taxane  - completed"
+                    },
+                    "MultipleDrugCTPCWithoutTaxaneUncompleted": {
+                        "type": "string",
+                        "title": "Multiple drug CT, + PC, without Taxane  - uncompleted"
+                    },
+                    "MultipleDrugCTPCWithoutTaxaneCompleted": {
+                        "type": "string",
+                        "title": "Multiple drug CT, + PC, without Taxane  - completed"
+                    },
+                    "MultipleDrugCTNoPCNoTaxaneUncompleted": {
+                        "type": "string",
+                        "title": "Multiple drug CT, no PC, no Taxane  - uncompleted"
+                    },
+                    "MultipleDrugCTNoPCNoTaxaneCompleted": {
+                        "type": "string",
+                        "title": "Multiple drug CT, no PC, no Taxane  - completed"
+                    },
+                    "Unknown": {
+                        "type": "string",
+                        "title": "Unknown"
+                    },
+                    "DateStarted": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date started"
+                    },
+                    "DateEnded": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date ended"
+                    }
+                }
+            },
+            "responseToTreatment": {
+                "type": "object",
+                "properties": {
+                    "Complete": {
+                        "type": "boolean",
+                        "title": "Complete"
+                    },
+                    "Partial": {
+                        "type": "boolean",
+                        "title": "Partial"
+                    },
+                    "StableDisease": {
+                        "type": "boolean",
+                        "title": "Stable disease"
+                    },
+                    "ProgressiveDisease": {
+                        "type": "boolean",
+                        "title": "Progressive disease"
+                    },
+                    "NotAssessable": {
+                        "type": "boolean",
+                        "title": "Not assessable"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    },
+                    "DateOfAssessment": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date of assessment"
+                    }
+                }
+            },
+            "SizeOfTumorOutsideOvaryAtOpeningOfAbdomen": {
+                "type": "object",
+                "properties": {
+                    "NoMacroscopicDisease": {
+                        "type": "boolean",
+                        "title": "No macroscopic disease"
+                    },
+                    "LTE2cm": {
+                        "type": "boolean",
+                        "title": "=< 2cm"
+                    },
+                    "Between2And10": {
+                        "type": "boolean",
+                        "title": "Between 2 and 10 cm"
+                    },
+                    "GTE10cm": {
+                        "type": "boolean",
+                        "title": ">= 10cm"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "DiameterOfResidualImplantsAfterSurgery": {
+                "type": "object",
+                "properties": {
+                    "NoMicroscopicResidualDisease": {
+                        "type": "object",
+                        "properties": {
+                            "LT0_5cm": {
+                                "type": "boolean",
+                                "title": "< 0.5cm"
+                            },
+                            "GTE0_5cmLTE1cm": {
+                                "type": "boolean",
+                                "title": "= 0.5cm = 1cm"
+                            }
+                        }
+                    },
+                    "NoMacroscopicResidualDisease": {
+                        "type": "object",
+                        "properties": {
+                            "GT1cmLTE2cm": {
+                                "type": "boolean",
+                                "title": "> 1cm =  2cm"
+                            },
+                            "GT2cm": {
+                                "type": "boolean",
+                                "title": ">2cm"
+                            }
+                        }
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "LymphNodeInvolvementInUpfrontSurgery_histologically": {
+                "type": "object",
+                "properties": {
+                    "NotEvaluated": {
+                        "type": "boolean",
+                        "title": "Not evaluated"
+                    },
+                    "PosNodes": {
+                        "type": "boolean",
+                        "title": "Pos nodes"
+                    },
+                    "NegNodes": {
+                        "type": "boolean",
+                        "title": "Neg nodes"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "NodesInvolved": {
+                "type": "object",
+                "properties": {
+                    "OnlyPelvic": {
+                        "type": "boolean",
+                        "title": "Only pelvic"
+                    },
+                    "PelvicParaortic": {
+                        "type": "boolean",
+                        "title": "Pelvic + paraortic"
+                    },
+                    "OnlyParaortic": {
+                        "type": "boolean",
+                        "title": "Only paraortic"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "NumberOfNodesExamined": {
+                "type": "object",
+                "properties": {
+                    "Pelvic": {
+                        "type": "number",
+                        "title": "Pelvic"
+                    },
+                    "Paraortic": {
+                        "type": "number",
+                        "title": "Paraortic "
+                    }
+                }
+            },
+            "NumberOfNodesPositive": {
+                "type": "object",
+                "properties": {
+                    "Pelvic": {
+                        "type": "number",
+                        "title": "Pelvic"
+                    },
+                    "Paraortic": {
+                        "type": "number",
+                        "title": "Paraortic "
+                    }
+                }
+            },
+            "Cytology": {
+                "type": "object",
+                "properties": {
+                    "NotEvaluated": {
+                        "type": "boolean",
+                        "title": "Not evaluated"
+                    },
+                    "Positive": {
+                        "type": "boolean",
+                        "title": "Positive"
+                    },
+                    "Negative": {
+                        "type": "boolean",
+                        "title": "Negative"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "SecondSurgery": {
+                "type": "object",
+                "properties": {
+                    "DateOf2ndSurgery": {
+                        "type": "string",
+                        "title": "Date of 2nd surgery"
+                    },
+                    "IntervalDebulking": {
+                        "type": "boolean",
+                        "title": "Interval debulking"
+                    },
+                    "SecondLook": {
+                        "type": "boolean",
+                        "title": "Second look"
+                    },
+                    "SecondSurgicalEffort": {
+                        "type": "boolean",
+                        "title": "Second surgical effort"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "StatusAtSecondSurgery": {
+                "type": "object",
+                "properties": {
+                    "CompleteRemission": {
+                        "type": "string",
+                        "title": "Complete remission"
+                    },
+                    "MicroscopicDisease": {
+                        "type": "boolean",
+                        "title": "Microscopic disease"
+                    },
+                    "NoSingleImplantGrearterThan1cm": {
+                        "type": "boolean",
+                        "title": "No single implant > 1cm"
+                    },
+                    "ImplantsGreaterThan1cm": {
+                        "type": "boolean",
+                        "title": "Implants > 1cm"
+                    },
+                    "PosRetroperitonealNodes": {
+                        "type": "boolean",
+                        "title": "Pos retroperitoneal nodes"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "StatusAfterSecondSurgery": {
+                "type": "object",
+                "properties": {
+                    "NoMicroscopicDiseaseLeftAfterSurg": {
+                        "type": "string",
+                        "title": "No macroscopic disease left after surgery"
+                    },
+                    "MicroscopicDiseaseLeftBG1cm": {
+                        "type": "boolean",
+                        "title": "Macroscopic disease <1cm left after surgery"
+                    },
+                    "MicroscopicDiseaseLeftLT1cm": {
+                        "type": "boolean",
+                        "title": "Macroscopic disease >1cm left after surgery"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "Relapse": {
+                "type": "object",
+                "properties": {
+                    "Yes": {
+                        "type": "boolean",
+                        "title": "Yes"
+                    },
+                    "No": {
+                        "type": "boolean",
+                        "title": "No"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    },
+                    "DateOfRelapseDiagnosis": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date of relapse diagnosis"
+                    }
+                }
+            },
+            "SiteOfRelapse": {
+                "type": "object",
+                "properties": {
+                    "Local": {
+                        "type": "boolean",
+                        "title": "Local"
+                    },
+                    "Metastatic": {
+                        "type": "boolean",
+                        "title": "Metastatic"
+                    },
+                    "LocalAndMetastatic": {
+                        "type": "boolean",
+                        "title": "Local and metastatic"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "TreatmentAtRelapse": {
+                "type": "object",
+                "properties": {
+                    "Nil": {
+                        "type": "boolean",
+                        "title": "Nil"
+                    },
+                    "Surgery": {
+                        "type": "boolean",
+                        "title": "Surgery"
+                    },
+                    "RT": {
+                        "type": "boolean",
+                        "title": "RT"
+                    },
+                    "CT": {
+                        "type": "boolean",
+                        "title": "CT"
+                    },
+                    "HT": {
+                        "type": "boolean",
+                        "title": "HT"
+                    },
+                    "SurgeryRT": {
+                        "type": "boolean",
+                        "title": "Surgery + RT"
+                    },
+                    "CTRT": {
+                        "type": "boolean",
+                        "title": "CT + RT"
+                    },
+                    "Other": {
+                        "type": "boolean",
+                        "title": "Other"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    }
+                }
+            },
+            "DateOfFolllowup": {
+                "type": "date",
+                "require": true,
+                "title": "Date of Follow-up"
+            },
+            "LastKnownVitalStatus": {
+                "type": "object",
+                "properties": {
+                    "AliveUnknownDiseaseStatus": {
+                        "type": "boolean",
+                        "title": "Alive (unknown disease status)"
+                    },
+                    "AliveAndNoEvidenceOfDisease": {
+                        "type": "boolean",
+                        "title": "Alive and no evidence of disease"
+                    },
+                    "AliveWithDisease": {
+                        "type": "boolean",
+                        "title": "Alive with disease"
+                    },
+                    "Dead": {
+                        "type": "boolean",
+                        "title": "Dead"
+                    }
+                }
+            },
+            "causeOfDeath": {
+                "type": "object",
+                "properties": {
+                    "OvarianCa": {
+                        "type": "boolean",
+                        "title": "Ovarian ca"
+                    },
+                    "Otherprimarycancer": {
+                        "type": "boolean",
+                        "title": "Other primary cancer"
+                    },
+                    "Treatmentrelatedcause": {
+                        "type": "boolean",
+                        "title": "Treatment related cause"
+                    },
+                    "IntercurrentDisease": {
+                        "type": "boolean",
+                        "title": "Intercurrent disease"
+                    },
+                    "UnknownCauses": {
+                        "type": "boolean",
+                        "title": "Unknown causes"
+                    },
+                    "DateOfDeath": {
+                        "type": "date",
+                        "require": true,
+                        "title": "Date of Death"
+                    }
+                }
+            }
   }
       });
     </script>

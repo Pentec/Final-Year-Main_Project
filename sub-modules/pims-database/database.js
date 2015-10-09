@@ -780,7 +780,7 @@ var VaginalCancer = new Schema({
     },
 
     /*(whatever clinically assessed)*/
-    TumorSize: {
+    TumorSizeB4: {
         NotAssessed: {type: Boolean, title: 'Not assessed'},
         LTE2cm: {type: Boolean, title: '≤ 2cm'},
         GT2cm: {type: Boolean, title: '> 2cm'},
@@ -814,7 +814,6 @@ var VaginalCancer = new Schema({
         Endometroid: {type: Boolean, title: 'Endometroid'},
         ClearCell: {type: Boolean, title: 'Clear cell'},
         Undifferentiated: {type: Boolean, title: 'Undifferentiated'},
-        ClearCell: {type: Boolean, title: 'Clear cell'},
         Other: {type: Boolean, title: 'Other'},
         Unknown : {type: Boolean, title: 'Unknown'}
     },
@@ -1666,7 +1665,7 @@ typeOfSurgery: {
     },
     
        DiameterOfResidualImplantsAfterSurgery: {
-		NoMacroscopicResidualDisease: {
+		NoMicroscopicResidualDisease: {
 			LT0_5cm: {type: Boolean, title: '< 0.5cm'},
 			GTE0_5cmLTE1cm: {type: Boolean, title: '≥ 0.5cm ≤ 1cm'}
 	  },
@@ -1730,8 +1729,8 @@ typeOfSurgery: {
     
 	StatusAfterSecondSurgery: {
         NoMicroscopicDiseaseLeftAfterSurg: {type: String, title: 'No macroscopic disease left after surgery'},
-        MicroscopicDiseaseLeftTH1cm: {type: Boolean, title: 'Macroscopic disease <1cm left after surgery'},
-	    MicroscopicDiseaseLeftTH1cm: {type: Boolean, title: 'Macroscopic disease >1cm left after surgery'},
+        MicroscopicDiseaseLeftBG1cm: {type: Boolean, title: 'Macroscopic disease <1cm left after surgery'},
+	    MicroscopicDiseaseLeftLT1cm: {type: Boolean, title: 'Macroscopic disease >1cm left after surgery'},
         Unknown: {type: Boolean, title: 'Unknown'}
     },
     
@@ -2863,7 +2862,7 @@ var fallopianTubeCancer = mongoose.model('fallopianTubeCancer', FallopianTubeCan
 var vaginalCancer= mongoose.model('vaginalCancer', VaginalCancer);
 var vulvaCancer= mongoose.model('vulvaCancer', VulvaCancer);
 var overianCancer= mongoose.model('overianCancer', OverianCancer);
-var GTNCancer= mongoose.model('gTNCancer', GTNCancer);
+var gTNCancer= mongoose.model('gTNCancer', GTNCancer);
 var hysteroscopyDataSheet= mongoose.model('hysteroscopyDataSheet', HysteroscopyDataSheet);
 var gynaeCritical_Incident_DataCollection = mongoose.model('gynaeCritical_Incident_DataCollection', GynaeCritical_Incident_DataCollection);
 
@@ -2881,7 +2880,7 @@ module.exports = {
     vaginalCancer: vaginalCancer,
     vulvaCancer: vulvaCancer,
     overianCancer: overianCancer,
-    GTNCancer: GTNCancer,
+    gTNCancer: gTNCancer,
     hysteroscopyDataSheet: hysteroscopyDataSheet,
     gynaeCritical_Incident_DataCollection: gynaeCritical_Incident_DataCollection
 };
