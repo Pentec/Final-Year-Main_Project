@@ -2484,6 +2484,11 @@ var GynaeCritical_Incident_DataCollection = new Schema({
 	
 	NameOfRegistrar_print: {type: String, title: 'Patient name'}
 });
+
+
+
+
+/*//////////////////////////////GynaeCriticalIncident Data Collection//////////////////////////*/
 var GynaeCritical_Incident_DataCollection = new Schema({
 
 	PatName: {type: String, require: true, title: 'Patient name'},
