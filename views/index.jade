@@ -3,11 +3,11 @@ block content
     nav.navbar.navbar-findcond.navbar-fixed-top
         .container-fluid
             .navbar-header
-                if(admin)
-                    a.nav.navbar-brand(href='/myAdminSpace')
+                if(notAdmin)
+                    a.nav.navbar-brand(href='/mySpace')
                         img(alt="Kalafong PIMS" src="/images/newlogo.png")
                 else
-                    a.nav.navbar-brand(href='/mySpace')
+                    a.nav.navbar-brand(href='/myAdminSpace')
                         img(alt="Kalafong PIMS" src="/images/newlogo.png")
                 button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar')
                     div
@@ -15,21 +15,21 @@ block content
                         span.glyphicon.glyphicon-align-justify(style="color:#004B8F")
             #navbar.collapse.navbar-collapse
                 ul.nav.navbar-nav.navbar-left
-                    if(admin)
+                    if(notAdmin)
                         if(active == "home")
                             li.active
-                                a(href="/myAdminSpace") Home
+                                a(href="/mySpace") Home
                         else
                             li
-                                a(href="/myAdminSpace") Home
+                                a(href="/mySpace") Home
                     else
                         if(active == "home")
                             li.active
-                                a(href="/mySpace") Home
+                                a(href="/myAdminSpace") Home
                         else
                             li
-                                a(href="/mySpace") Home
-                    if(admin)
+                                a(href="/myAdminSpace") Home
+                    if(!notAdmin)
                         if(active == "user")
                             li.has-sub#usersub.active
                                 a(href='#' role='button') Users
@@ -59,7 +59,7 @@ block content
                                 a(href='/ovarian_cancer.html', tabindex='-1') Ovarian Cancer
                                 a(href='/vaginal_cancer.html', tabindex='-1') Vaginal Cancer
                                 a(href='/vulva_cancer.html', tabindex='-1') Vulva Cancer
-                    if(admin)
+                    if(!notAdmin)
                         if(active == 'stats')
                             li.has-sub#statisticstab.active
                                 a(href='#' role='button') Statistics
@@ -76,7 +76,7 @@ block content
                     li.nobar.has-sub#settings
                         a(href='#')
                             img(alt="Settings" src='/images/settings.png' height="40px")
-                    if(admin)
+                    if(!notAdmin)
                         if(active=="editProfile")
                             li.sub.settings.active
                                 a(href="/editProfile") Edit Profile
