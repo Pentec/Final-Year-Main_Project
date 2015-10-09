@@ -22,6 +22,12 @@ var cervical_cancer = require('./routes/forms/cervical_cancer');
 var endometrial_cancer = require('./routes/forms/endometrial_cancer');
 var fallopian_tube_cancer = require('./routes/forms/fallopian_tube_cancer');
 var oncology_follow_up = require('./routes/forms/oncology_follow_up');
+var critical_incident = require('./routes/forms/critical_incident');
+var hysteroscopy = require('./routes/forms/hysteroscopy');
+var gtn = require('./routes/forms/gtn');
+var ovarian_cancer = require('./routes/forms/ovarian_cancer');
+var vulva_cancer = require('./routes/forms/vulva_cancer');
+var vaginal_cancer = require('./routes/forms/vaginal_cancer');
 
 var app = express();
 
@@ -112,6 +118,26 @@ app.get('oncology_follow_up', function(req, res) {
 
 app.get('/vaginal_cancer', function(req, res) {
     res.sendfile(html_dir + 'vaginal_cancer.html');
+});
+
+app.get('/critical_incidence', function(req, res) {
+    res.sendfile(html_dir + 'critical_incidence.html');
+});
+
+app.get('/GTN', function(req, res) {
+    res.sendfile(html_dir + 'GTN.html');
+});
+
+app.get('/Hysteroscopy', function(req, res) {
+    res.sendfile(html_dir + 'Hysteroscopy.html');
+});
+
+app.get('/ovarian_cancer', function(req, res) {
+    res.sendfile(html_dir + 'ovarian_cancer.html');
+});
+
+app.get('/vulva_cancer', function(req, res) {
+    res.sendfile(html_dir + 'vulva_cancer.html');
 });
 
 //end of html routing

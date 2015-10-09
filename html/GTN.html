@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>GTN</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap.css"/>
+    <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/deps/underscore.js"></script>
+    <script type="text/javascript" src="/deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="/lib/jsonform.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="/" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/editProfile">My PIMS Space</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+
+
+<div class = "container">
+
+    <h1 class="page-header">GTN</h1>
+    <br>
+    <form class="form-inline" role="form" method = "POST" action = "/gtn" enctype="application/json"></form>
+</div>
+<script type="text/javascript">
+      $('form').jsonForm({
+        schema: {
+
+  }
+      });
+    </script>
+  </body>
+</html>
