@@ -1415,9 +1415,100 @@ var submitHysteroscopy = function(formData){ //Hyst
     var changedString = JSON.parse(changedString);
 
     var Form = new Hyst({
+        DateOfVisit: changedString.DateOfVisit,
 
+        HospitalNumber: changedString.HospitalNumber,
 
+        Age:changedString.Age,
 
+        Name:changedString.Name,
+
+        Surname: changedString.Surname,
+
+        P:changedString.P,
+        G:changedString.G,
+        M:changedString.M,
+        E:changedString.E,
+
+        HIV:{
+            Negative: changedString.HIVNegative,
+            Positive: changedString.HIVPositive,
+            Decline:changedString.HIVDecline,
+            Unknown:changedString.HIVUnknown,
+            CD4:changedString.HIVCD4
+        },
+
+        CoMorbidities : {
+            Hypertension: changedString.CoMorbiditiesHypertension,
+            IDDM: changedString.CoMorbiditiesIDDM,
+            NIDDM: changedString.CoMorbiditiesNIDDM,
+            IHD: changedString.CoMorbiditiesIHD,
+            Obesity:changedString.CoMorbiditiesObesity
+        },
+
+        /*FINDINGS AT HYSTEROSCOPY*/
+
+        EndocervicalCanal : {
+            Normal: changedString.EndocervicalCanalNormal,
+            Stenotic :changedString.EndocervicalCanalNormal,
+            Polyps:changedString.EndocervicalCanalNormal,
+            SuspiciousLesion:changedString.EndocervicalCanalNormal
+        },
+
+        UterineCavity : {
+            Normal: changedString.UterineCavityNormal,
+            Adhesions : changedString.UterineCavityAdhesions,
+            Polyps:changedString.UterineCavityPolyps,
+            Atrophy:changedString.UterineCavityAtrophy,
+            Hyperplasia:changedString.UterineCavityHyperplasia,
+            Fibroid: changedString.UterineCavityFibroid,
+            Suspicious:changedString.UterineCavitySuspicious,
+            Septum:changedString.UterineCavitySeptum
+        },
+
+        Fibroid:{
+            Position:changedString.FibroidPosition,
+            Size:changedString.FibroidSize
+        },
+
+        Polyp:{
+            Position:changedString.PolypPosition,
+            Size:changedString.PolypSize
+        },
+
+        ProceduresPerformedAtTimeOfOfficeHysteroscopy: {
+            Nil:changedString.ProceduresPerformedAtTimeOfOfficeHysteroscopyNil,
+            RemovalIUCD :changedString.ProceduresPerformedAtTimeOfOfficeHysteroscopyRemovalIUCD,
+            Biopsy:changedString.ProceduresPerformedAtTimeOfOfficeHysteroscopyBiopsy,
+            Polypectomy: changedString.ProceduresPerformedAtTimeOfOfficeHysteroscopyPolypectomy,
+            Myomectomy :changedString.ProceduresPerformedAtTimeOfOfficeHysteroscopyMyomectomy,
+            Essure:changedString.ProceduresPerformedAtTimeOfOfficeHysteroscopyEssure,
+            EndometrialAblation: changedString.ProceduresPerformedAtTimeOfOfficeHysteroscopyEndometrialAblation,
+            Other:changedString.ProceduresPerformedAtTimeOfOfficeHysteroscopyOther
+        },
+
+        DiagnosisMadeAfterHysteroscopy: changedString.DiagnosisMadeAfterHysteroscopy,
+
+        /*PLANNED MANAGEMENT*/
+
+        NoFurtherTreatment:{
+            NoTreatmentRequired:changedString.NoFurtherTreatmentNoTreatmentRequired,
+            TreatedAtTimeOfOfficeHysteroscopy: changedString.NoFurtherTreatmentTreatedAtTimeOfOfficeHysteroscopy
+        },
+
+        ReferralFor: {
+            OperativeHysteroscopyUnderGA:changedString.ReferralForOperativeHysteroscopyUnderGA,
+            Hysterectomy :changedString.ReferralForHysterectomy,
+            Mirena:changedString.ReferralForMirena,
+            DiagnosticHysterectomy:changedString.ReferralForDiagnosticHysterectomy,
+            EndometrialAblation:changedString.ReferralForEndometrialAblation
+        },
+
+        DurationOfProcedure:changedString.DurationOfProcedure,
+
+        PainScoreOutOf10:changedString.PainScoreOutOf10,
+
+        Comments:changedString.Comments
     });
 
     Form.save(function(err){
@@ -1732,7 +1823,6 @@ var submitVaginalCancer = function(formData){//VagC
     var changedString = JSON.parse(changedString);
 
     var Form = new VagC({
-///////////////////////////////////////////////////////////////////////////////////////
         Name:changedString.Name,
 
         Surname: changedString.Surname,
@@ -1961,8 +2051,6 @@ var submitVaginalCancer = function(formData){//VagC
             UnknownCauses:changedString.causeOfDeathUnknownCauses,
             DateOfDeath:changedString.causeOfDeathDateOfDeath
         }
-
-////////////////////////////////////////////////////////////////////////////////
     });
 
     Form.save(function(err){
@@ -2227,7 +2315,6 @@ AssociatedLesions: {
         UnknownCauses: changedString.causeOfDeathUnknownCauses,
         DateOfDeath: changedString.causeOfDeathDateOfDeath
     }
-
 });
 
     Form.save(function(err){
