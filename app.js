@@ -14,6 +14,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
 var users = require('./routes/users'); 
 var fetchDataFromDB = require('./routes/fetchDataFromDB');//stats route
+var survivalStats = require('./routes/getSurvivalStats');//survival stats route
 
 //schemas
 var gynaecology_surgery = require('./routes/forms/gynaecology_surgery');
@@ -69,6 +70,7 @@ app.use('/create', routes);
 app.use('/profile', routes);
 app.use('/add', routes);
 app.use('/fetchDataFromDB', fetchDataFromDB);  //for html rms
+app.use('/getSurvivalStats', survivalStats);  //for html rms
 
 //Form Controllers
 app.use('/gynaecology_surgery', gynaecology_surgery);

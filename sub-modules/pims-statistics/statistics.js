@@ -5,9 +5,164 @@
  */
 
 var submodules = "../sub-modules/";
-var models = require(submodules + 'pims-database/database');
+var models = require('../pims-database/database');
 var cervicalCancer = models.cervicalCancer;
 
+//pass cancer collection option
+/**/
+var getCervicalStageOne = function(callback){
+    console.log("getCervicalSurvival");
+
+    var arrSend = [];
+    var arrStageOne=[];
+
+
+    cervicalCancer.aggregate([
+        { $match: {$or: [{"figoStage.Ia1": true},//with cancer stage one
+            {"figoStage.Ia2": true},
+            {"figoStage.Ib1": true},
+            {"figoStage.Ib2": true}]} },
+        {$group: {
+            _id: null,
+            count: {$sum: 1}
+        }}
+    ], function(err, result){
+        if(err){
+            console.log("Error");
+            throw new Error('Database error: ' + err);
+            return callback(err);
+        }
+        else{
+
+            //arrStageOne[0] = result[0].count; //number of patients with stage one cancer
+            arrStageOne[0] = 250000; //number of patients with stage one cancer
+
+            //console.log("just checking " + arrSurvive[0]);
+            //Surgery
+            cervicalCancer.aggregate([
+                { $match: {$or: [{"primaryTreatment.SurgeryAlone": true},//with surgery treatment
+                {"primaryTreatment.SurgeryAdjuvantRTCRT": true},
+                {"primaryTreatment.SurgeryAdjuvantCT": true},
+                {"primaryTreatment.NeoAdjuvantCTSurgery": true}]}},
+                {$group: {
+                    _id: null,
+                    count: {$sum: 1}
+                }}
+            ], function(err, result){
+
+                if(err){
+                    console.log("Error");
+                    throw new Error('Database error: ' + err);
+                    return callback(err);
+                }
+                else{
+
+                    //arrStageOne[1] = result[0].count; //number of patients with surgery treatment
+                    arrStageOne[1] = 50000; //number of patients with surgery treatment
+
+                    //Radiotherapy
+                    cervicalCancer.aggregate([
+                        { $match: {$or: [{"primaryTreatment.RTAlone": true},//with surgery treatment
+                            {"primaryTreatment.SurgeryAdjuvantRTCRT": true}]}},
+                        {$group: {
+                            _id: null,
+                            count: {$sum: 1}
+                        }}
+                    ], function(err, result){
+
+                        if(err){
+                            console.log("Error");
+                            throw new Error('Database error: ' + err);
+                            return callback(err);
+                        }
+                        else{
+
+                            //arrStageOne[2] = result[0].count; //number of patients with Radiotherapy treatment
+                            arrStageOne[2] = 60000; //number of patients with Radiotherapy treatment
+
+                            //Chemotherapy
+                            cervicalCancer.aggregate([
+                                { $match: {$or: [{"primaryTreatment.CTAlone": true},//with Chemotherapy treatment
+                                    {"primaryTreatment.SurgeryAdjuvantRTCRT": true},
+                                    {"primaryTreatment.SurgeryAdjuvantCT": true},
+                                    {"primaryTreatment.Chemoradiation": true},
+                                    {"primaryTreatment.NeoAdjuvantCTSurgery": true}]}},
+                                {$group: {
+                                    _id: null,
+                                    count: {$sum: 1}
+                                }}
+                            ], function(err, result){
+
+                                if(err){
+                                    console.log("Error");
+                                    throw new Error('Database error: ' + err);
+                                    return callback(err);
+                                }
+                                else{
+
+                                    //arrStageOne[3] = result[0].count; //number of patients with Chemotherapy treatment
+                                    arrStageOne[3] = 90000; //number of patients with Chemotherapy treatment
+
+                                    arrSend[0] = arrStageOne;
+                                    arrSend[1] = "Ruthie!!";
+                                    //console.log("just checking " + arrSend[0][0]); //200000
+                                    return callback(arrStageOne);
+                                }
+
+                            });
+                        }
+
+                    });
+
+
+
+
+                }
+
+            });
+
+        }
+    });
+
+
+}
+
+
+var getCervicalSurvival = function(callback){
+    console.log("getCervicalSurvival");
+
+    var arrSend = [];
+    var arrSurvive=[];
+
+
+    cervicalCancer.aggregate([
+        { $match: {$or: [{"lastKnownVitalStatus.Dead": false}, {"lastKnownVitalStatus.AliveUnknownDiseaseStatus": true}, {"lastKnownVitalStatus.AliveAndNoEvidenceOfDisease": true}, {"lastKnownVitalStatus.AliveWithDisease": true}]} },
+        {$group: {
+            _id: null,
+            count: {$sum: 1}
+        }}
+    ], function(err, result){
+        if(err){
+            console.log("Error");
+            throw new Error('Database error: ' + err);
+            return callback(err);
+        }
+        else{
+            //arrSurvive[0] = result[0].count; //number of people not dead
+            arrSurvive[0] = 200000; //number of people not dead
+            //console.log("just checking " + arrSurvive[0]);
+
+            arrSend[0] = arrSurvive;
+            arrSend[1] = "Ruthie!!";
+            //console.log("just checking " + arrSend[0][0]);
+            return callback(arrSurvive);
+
+
+        }
+    });
+
+
+}
 
 /**
  * Gets the particular cancer collection for which to get number of patients
@@ -183,5 +338,8 @@ var concatArrayDataAll = function(patientID, callback){
     return graphArr;
 }
 
-//var tumourSize =  cervicalCancer.tumour
-//var surgery =
+
+module.exports = {
+    getCervicalSurvival: getCervicalSurvival,
+    getCervicalStageOne: getCervicalStageOne
+}
