@@ -76,12 +76,105 @@ GS.aggregate(
 
 								arr[0] = arrIntraOperative;
 								
-							  var myString = "LizJoseph";
-							  arr[1] = myString;
+AD.aggregate(
+		   [
+			 { $match : {"PostOperativeComplications.None": true } },
+			  {
+				  $group : { _id : null ,count: { $sum: 1 }} 
+			 
+			  }
+			  
+		   ] , function(err, myResultt)
+		   {	
+							arrPostOperative[0] = myResultt[0].count;
+AD.aggregate(
+		   [
+			 { $match : {"PostOperativeComplications.BladderInjury": true } },
+			  {
+				  $group : { _id : null ,count: { $sum: 1 }} 
+			 
+			  }
+			  
+		   ] , function(err, myResultt)
+		   {	
+				   arrPostOperative[1] = myResultt[0].count;		
+				   
+AD.aggregate(
+		   [
+			 { $match : {"PostOperativeComplications.BowelInjury": true } },
+			  {
+				  $group : { _id : null ,count: { $sum: 1 }} 
+			 
+			  }
+			  
+		   ] , function(err, myResultt)
+		   {	
+				   arrPostOperative[2] = myResultt[0].count;		
+				   
+AD.aggregate(
+		   [
+			 { $match : {"PostOperativeComplications.UretericInjury": true } },
+			  {
+				  $group : { _id : null ,count: { $sum: 1 }} 
+			 
+			  }
+			  
+		   ] , function(err, myResultt)
+		   {	
+				   arrPostOperative[3] = myResultt[0].count;
+AD.aggregate(
+		   [
+			 { $match : {"PostOperativeComplications.AnaestheticComplication": true } },
+			  {
+				  $group : { _id : null ,count: { $sum: 1 }} 
+			 
+			  }
+			  
+		   ] , function(err, myResultt)
+		   {	
+				   arrPostOperative[4] = myResultt[0].count;
+				   
+AD.aggregate(
+		   [
+			 { $match : {"PostOperativeComplications.ProcedureNotCompleted": true } },
+			  {
+				  $group : { _id : null ,count: { $sum: 1 }} 
+			 
+			  }
+			  
+		   ] , function(err, myResultt)
+		   {	
+				   arrPostOperative[5] = myResultt[0].count;
+AD.aggregate(
+		   [
+			 { $match : {"PostOperativeComplications.BRUBT": true } },
+			  {
+				  $group : { _id : null ,count: { $sum: 1 }} 
+			 
+			  }
+			  
+		   ] , function(err, myResultt)
+		   {	
+				   arrPostOperative[6] = myResultt[0].count;
+				   
+AD.aggregate(
+		   [
+			 { $match : {"PostOperativeComplications.VascularInjury": true } },
+			  {
+				  $group : { _id : null ,count: { $sum: 1 }} 
+			 
+			  }
+			  
+		   ] , function(err, myResultt)
+		   {	
+				   arrPostOperative[7] = myResultt[0].count;
+								
+							  console.log(arrPostOperative);
+							  arr[1] = arrPostOperative;
 							  res.json(arr);
 							  console.log("POST response sent.");
 			   
-		   });});});});});
+		   });});});});});}); });});});});});});});
 		  
 });
 
