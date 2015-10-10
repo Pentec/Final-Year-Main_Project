@@ -116,7 +116,7 @@ router.param('userID', function(req, res, next, id){
 });*/
 
 /**
- * @function
+ * @function isLoggedIn
  * This helper function verifies if a user is logged in whilst accessing
  * the url endpoints of the system. If a user is authenticated, they are
  * allowed to proceed to the next page, otherwise they are requested

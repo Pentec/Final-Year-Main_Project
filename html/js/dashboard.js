@@ -3,7 +3,10 @@
  Copyright FusionCharts Technologies LLP
  License Information at <http://www.fusioncharts.com/license>
 */
-
+function sendDataToGraph(data){
+    alert ("Survival " + data);
+    //call FusionCharts.ready()
+}
 FusionCharts.ready(function() {
 
     // Global / General Config
@@ -63,6 +66,26 @@ FusionCharts.ready(function() {
                     data: []
                 }]
             }
+        },
+
+
+        // Properties for survival chart
+        survivalDataTab: {
+            type: 'bar3d',
+            id: 'survivalDataTab',
+            width: '473',
+            height: '340',
+            dataFormat: 'json',
+            renderAt: 'survival-categories-tab-chart',
+            dataSource: {
+                chart: {
+                    numberPrefix: '%%',
+                    yAxisName: 'Patient Status (Percentage)',
+                    theme: 'management-3d'
+                },
+                data: []
+            }
+
         },
 
         // Properties for top sales performers chart
@@ -1428,6 +1451,15 @@ FusionCharts.ready(function() {
 
     // Sales Dashboard / Dashboard Tab 2
     dashboards.add('sales', function() {
+        // Config for Survival Chart.
+
+
+        /*var survivalDataTabChart,
+            survivalDataTabChartConfig = chartConfig.survivalDataTab,
+            survivalDataTabCategories = managementData.survivalDataTabCategories,
+            survivalDataTabData = managementData.survivalDataTabData;*/
+
+
 
         // Config for Top Categories by Sales Chart.
         var topCategoriesSalesTabChart,
@@ -1457,6 +1489,12 @@ FusionCharts.ready(function() {
             topMonthlySalesTabChartConfig = chartConfig.topMonthlySalesTab,
             topMonthlySalesData = managementData.topMonthlySalesTabData,
             topMonthlySalesTabCategories = managementData.topMonthlySalesTabCategories;
+
+
+        /* Top Survival Chart
+        chartDataSource.setData(survivalDataTabChartConfig.dataSource, survivalDataTabData[currentYear]);
+        survivalDataTabChart = new FusionCharts(survivalDataTabChartConfig);
+        survivalDataTabChart.render();*/
 
 
         // Top Sales Categories Chart
@@ -1498,6 +1536,14 @@ FusionCharts.ready(function() {
         /**
           * Event listeners for top monthly sales chart.
           */
+
+        /* Survival filter.
+         eventListeners.add('survival_data_tab_year_filter', 'change', function() {
+         var year = dom.queryCurrentValue('survival_data_tab_year_filter', this);
+
+         chartDataSource.setData(survivalDataTabChartConfig.dataSource, survivalDataTabData[year]);
+         survivalDataTabChart.setJSONData(survivalDataTabChartConfig.dataSource);
+         });*/
 
         // Year filter.
         eventListeners.add('top_monthly_sales_year_filter', 'change', function() {
@@ -1545,6 +1591,11 @@ FusionCharts.ready(function() {
     // KPI Dashboard / Dashboard Tab 3
     dashboards.add('kpi', function() {
 
+        var survivalDataTabChart,
+            survivalDataTabChartConfig = chartConfig.survivalDataTab,
+            survivalDataTabCategories = managementData.survivalDataTabCategories,
+            survivalDataTabData = managementData.survivalDataTabData;
+
         // Config for Cost of Inventory By Product Categories Chart
         var inventoryByProductCategoriesChart,
             inventoryByProductCategoriesChartConfig = chartConfig.inventoryByProductCategories,
@@ -1566,6 +1617,12 @@ FusionCharts.ready(function() {
             costOfGoodsSoldChartConfig = chartConfig.costOfGoodsSold,
             costOfGoodsSoldCategories = managementData.costOfGoodsSoldCategories,
             costOfGoodsSoldData = managementData.costOfGoodsSoldData;
+
+
+        // Top Survival Chart
+        chartDataSource.setData(survivalDataTabChartConfig.dataSource, survivalDataTabData[currentYear]);
+        survivalDataTabChart = new FusionCharts(survivalDataTabChartConfig);
+        survivalDataTabChart.render();
 
         // Inventory By Product Categories Chart
         chartDataSource.setData(inventoryByProductCategoriesChartConfig.dataSource, inventoryByProductCategoriesData);
@@ -1589,6 +1646,13 @@ FusionCharts.ready(function() {
         chartDataSource.setDataSetData(costOfGoodsSoldChartConfig.dataSource, costOfGoodsSoldData[currentYear]);
         costOfGoodsSoldChart = new FusionCharts(costOfGoodsSoldChartConfig);
         costOfGoodsSoldChart.render();
+
+        eventListeners.add('survival_data_tab_year_filter', 'change', function() {
+            var year = dom.queryCurrentValue('survival_data_tab_year_filter', this);
+
+            chartDataSource.setData(survivalDataTabChartConfig.dataSource, survivalDataTabData[year]);
+            survivalDataTabChart.setJSONData(survivalDataTabChartConfig.dataSource);
+        });
 
         /**
           * Year filter for inventory by categories chart.
@@ -1646,7 +1710,7 @@ FusionCharts.ready(function() {
         var ids = {
             summary: ['top_sales_performers_summary_year_filter', 'top_categories_summary_year_filter', 'top_revenues_country_year_filter', 'top_products_summary_year_filter', 'top_revenues_cities_summary_year_filter', 'top_customers_summary_year_filter'],
             sales: ['top_categories_sales_tab_year_filter', 'top_performers_sales_year_filter', 'top_monthly_sales_year_filter'],
-            kpi: ['inventory_by_categories_year_filter', 'cost_of_goods_sold_year_filter', 'average_shipping_time_year_filter', 'customer_satisfaction_year_filter']
+            kpi: ['survival_data_tab_year_filter', 'inventory_by_categories_year_filter', 'cost_of_goods_sold_year_filter', 'average_shipping_time_year_filter', 'customer_satisfaction_year_filter']
         };
 
 
@@ -1766,8 +1830,15 @@ FusionCharts.ready(function() {
 
         // Event Listeners for kpi link
         eventListeners.add('kpi-link', 'click', function(e) {
-            dashboards.show('kpi');
+            dashboards.show('kpi');//shows the kpi div that contains the multiple graphs
         });
+
+        /*Event Listeners for survivalStats link
+        eventListeners.add('getSurvivalStats', 'click', function(e) {
+            dashboards.show('survivalStats');
+        });*/
+
+        //<!--<li><a href="/getSurvivalStats" id="survivalStats">Survival Data</a>-->
 
         urlHandler();
 

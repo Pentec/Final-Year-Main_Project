@@ -10,8 +10,196 @@ function CollectDataFromClient(data)
 	globalData =  data;		
 	alert(globalData);
 }
+//may have to loop thru
+/*function sendDataToGraph(data){
+ alert ("Survival " + data);
+ //call FusionCharts.ready()
+ }*/
 
 var managementData = {
+    survivalDataTabCategories: {
+        "2014": {
+            "all": [{
+                "label": "Côte de Blaye"
+            }, {
+                "label": "Thüringer Rostbratwurst"
+            }, {
+                "label": "Mishi Kobe Niku"
+            }, {
+                "label": "Sir Rodney's Marmalade"
+            }, {
+                "label": "Carnarvon Tigers"
+            }, {
+                "label": "Raclette Courdavault"
+            }, {
+                "label": "Manjimup Dried Apples"
+            }, {
+                "label": "Tarte au sucre"
+            }, {
+                "label": "Ipoh Coffee"
+            }, {
+                "label": "Rössle Sauerkraut"
+            }]
+        },
+        "2013": {
+            "all": [{
+                "label": "Côte de Blaye"
+            }, {
+                "label": "Thüringer Rostbratwurst"
+            }, {
+                "label": "Mishi Kobe Niku"
+            }, {
+                "label": "Sir Rodney's Marmalade"
+            }, {
+                "label": "Carnarvon Tigers"
+            }, {
+                "label": "Raclette Courdavault"
+            }, {
+                "label": "Manjimup Dried Apples"
+            }, {
+                "label": "Tarte au sucre"
+            }, {
+                "label": "Ipoh Coffee"
+            }, {
+                "label": "Rössle Sauerkraut"
+            }]
+        },
+        "2012": {
+            "all": [{
+                "label": "Côte de Blaye"
+            }, {
+                "label": "Thüringer Rostbratwurst"
+            }, {
+                "label": "Mishi Kobe Niku"
+            }, {
+                "label": "Sir Rodney's Marmalade"
+            }, {
+                "label": "Carnarvon Tigers"
+            }, {
+                "label": "Raclette Courdavault"
+            }, {
+                "label": "Manjimup Dried Apples"
+            }, {
+                "label": "Tarte au sucre"
+            }, {
+                "label": "Ipoh Coffee"
+            }, {
+                "label": "Rössle Sauerkraut"
+            }]
+        }
+    },
+    survivalDataTabData: {
+        //wil; feed data and years from DB
+        "2014": [{
+            "data": [{
+                "label": "Dead",
+                "value": "256957.25000",
+                "link": "#sales"
+            }, {
+                "label": "Surgeries",
+                "value": "176918.92000",
+                "link": "#sales"
+            }, {
+                "label": "Meat/Poultry",
+                "value": "174995.20000",
+                "link": "#sales"
+            }, {
+                "label": "Dairy Products",
+                "value": "148607.60000",
+                "link": "#sales"
+            }, {
+                "label": "Condiments",
+                "value": "141611.45000",
+                "link": "#sales"
+            }, {
+
+                "label": "Seafood",
+                "value": "124437.27000",
+                "link": "#sales"
+            }, {
+
+                "label": "Produce",
+                "value": "71436.85000",
+                "link": "#sales"
+            }, {
+
+                "label": "Grains / Cereals",
+                "value": "65362.75000",
+                "link": "#sales"
+            }]
+        }],
+        "2013": [{
+            "data": [{
+                "label": "Beverages",
+                "value": "278908.00000",
+                "link": "#sales"
+            }, {
+                "label": "Meat/Poultry",
+                "value": "175454.25000",
+                "link": "#sales"
+            }, {
+                "label": "Confections",
+                "value": "172986.16000",
+                "link": "#sales"
+            }, {
+                "label": "Dairy Products",
+                "value": "167400.80000",
+                "link": "#sales"
+            }, {
+                "label": "Seafood",
+                "value": "145863.84000",
+                "link": "#sales"
+            }, {
+                "label": "Condiments",
+                "value": "135713.70000",
+                "link": "#sales"
+            }, {
+                "label": "Produce",
+                "value": "86443.35000",
+                "link": "#sales"
+            }, {
+                "label": "Grains/Cereals",
+                "value": "85307.75000",
+                "link": "#sales"
+            }]
+        }],
+        "2012": [{
+            "data": [{
+                "label": "Dairy Products",
+                "value": "135164.00000",
+                "link": "#sales"
+            }, {
+                "label": "Beverages",
+                "value": "123044.25000",
+                "link": "#sales"
+            }, {
+                "label": "Confections",
+                "value": "91525.68000",
+                "link": "#sales"
+            }, {
+                "label": "Meat/Poultry",
+                "value": "89595.78000",
+                "link": "#sales"
+            }, {
+                "label": "Seafood",
+                "value": "71428.83000",
+                "link": "#sales"
+            }, {
+                "label": "Grains/Cereals",
+                "value": "61267.00000",
+                "link": "#sales"
+            }, {
+                "label": "Condiments",
+                "value": "59164.95000",
+                "link": "#sales"
+            }, {
+                "label": "Produce",
+                "value": "51605.60000",
+                "link": "#sales"
+            }]
+        }]
+    },
+
     yearlySalesSummaryCategories: [{
         "label": "None"
     }, {
