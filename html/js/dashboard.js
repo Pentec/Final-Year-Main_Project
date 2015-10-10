@@ -115,8 +115,8 @@ function CollectDataFromClient(data)
             renderAt: 'top-sales-categories-chart',
             dataSource: {
                 chart: {
-                    yAxisName: 'Amount (In US $)',
-                    numberPrefix: '$',
+                    yAxisName: 'Number',
+                    numberPrefix: '',
                     theme: 'management-3d',
                     showValues: 0
                 },
@@ -1213,10 +1213,70 @@ function CollectDataFromClient(data)
             topSalesPerformersSummaryCategories = managementData.topSalesPerformersSummaryCategories,
             topSalesPerformersSummaryData = managementData.topSalesPerformersSummaryData;
 
-        // Config for Top Categories Chart.
+        // Config for Top Categories Chart. //postoperative
         var topSalesCategoriesChart,
             topSalesCategoriesSummaryChartConfig = chartConfig.topSalesCategoriesSummary,
-            topSalesCategoriesSummaryData = managementData.topSalesCategoriesSummaryData;
+            topSalesCategoriesSummaryData = {
+        "2014": {
+            "all": [{
+                "data": {
+                    "label": "None",
+                    "value":  globalData[1][0],
+                    "link": "#"
+
+                }
+            }, {
+                "data": {
+                    "label": "Bladder Injury",
+                    "value": globalData[1][1],
+                    "link": "#"
+
+                }
+            }, {
+                "data": {
+                    "label": "Bowel Injury",
+                    "value": globalData[1][2],
+                    "link": "#"
+
+                }
+            }, {
+                "data": {
+                    "label": "Ureteric Injury",
+                    "value": globalData[1][3],
+                    "link": "#"
+
+                }
+            }, {
+                "data": {
+                    "label": "Anaesthetic Complication",
+                    "value": globalData[1][4],
+                    "link": "#"
+
+                }
+            }, {
+                "data": {
+                    "label": "ProcedureNotCompleted",
+                    "value": globalData[1][5],
+                    "link": "#"
+
+                }
+            }, {
+                "data": {
+                    "label": "BRUBT",
+                    "value": globalData[1][6],
+                    "link": "#"
+
+                }
+            }, {
+                "data": {
+                    "label": "Vascular Injury",
+                    "value": globalData[1][7],
+                    "link": "#"
+
+                }
+            }]
+        }
+    };
 
         // Config for Top Products Chart.
         var topProductsSummaryChart,
@@ -1320,7 +1380,7 @@ function CollectDataFromClient(data)
            * Event Listeners for top products chart.
           */
 
-        // Year filter.
+        // Year filter
         eventListeners.add('top_products_summary_year_filter', 'change', function() {
             var year = dom.queryCurrentValue('top_products_summary_year_filter', this);
             var numberOfProducts = dom.getElementValue('top_products_summary_number_filter');

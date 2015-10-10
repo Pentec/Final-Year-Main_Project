@@ -1147,6 +1147,7 @@ var managementData = {
             }]
         }
     },
+
 	/*
 		PostOperativeComplications: {
 		None: {type: Boolean, title: 'None'},
@@ -1213,6 +1214,7 @@ var managementData = {
             }]
         }
     },
+
     topRevenuesCitiesSummaryData: {
         "2014": {
             "all": [{
