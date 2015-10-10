@@ -20,6 +20,10 @@ var nn = require(submodules + 'pims-neuralnetwork/testNN2.js');
 var dataNormalizerEndometrial = require('../controllers/dataNormalizers/dataNormalizerEndometrial.js');
 
 var dataNormalizerFallopianTube = require('../controllers/dataNormalizers/dataNormalizerFallopianTube.js');
+var dataNormalizerVulva = require('../controllers/dataNormalizers/dataNormalizerVulva.js');
+var dataNormalizerVaginal = require('../controllers/dataNormalizers/dataNormalizerVaginal.js');
+var dataNormalizerOvarian = require('../controllers/dataNormalizers/dataNormalizerOvarian.js');
+var dataNormalizerGTN = require('../controllers/dataNormalizers/dataNormalizerGTN.js');
 
 
 /**
@@ -105,7 +109,7 @@ router.get('/splash', function (req, res, next) {
 router.get('/dataNormalizer', function (req, res, next) {
 
     //dataNormalizerCervical.getNormalizedData(req.body.firstname, req.body.surname);
-    dataNormalizerFallopianTube.getNormalizedData(req.body.firstname, req.body.surname);
+    dataNormalizerGTN.getNormalizedData(req.body.firstname, req.body.surname);
 
 });
 
@@ -146,7 +150,14 @@ router.get('/myAdminSpace', login.isLoggedIn, login.isAdmin, function (req, res,
     sess = req.session;
 
     if (req.user) {
-        res.render('pims_space/myAdminSpace', {title: 'My PIMS Space', active : 'home'});
+        login.checkAdmin(req.user.username, req.user.password, function (isAdmin) {
+            if (isAdmin) {
+                res.render('pims_space/myAdminSpace', {title: 'My PIMS Space', active : 'home', notAdmin: !login.isAdmin});
+            }
+            else {
+                res.redirect('/mySpace');
+            }
+        })
     }
     else {
         res.redirect('/login');
@@ -162,9 +173,15 @@ router.get('/myAdminSpace', login.isLoggedIn, login.isAdmin, function (req, res,
  */
 router.get('/mySpace', login.isLoggedIn, login.isNotAdmin, function (req, res, next) {
     sess = req.session;
-
     if (req.user) {
-        res.render('pims_space/mySpace', {title: 'My PIMS Space', active: 'home'});
+        login.checkAdmin(req.user.username, req.user.password, function (isAdmin) {
+            if (isAdmin) {
+                res.redirect('/myAdminSpace');
+            }
+            else {
+                res.render('pims_space/mySpace', {title: 'My PIMS Space', active: 'home', notAdmin: login.isNotAdmin});
+            }
+        });
     }
     else {
         res.redirect('/login');
@@ -182,7 +199,6 @@ router.get('/login', function (req, res) {
     sess = req.session;
     //user not logged in
     if (!req.user) {
-
         var sendData = {found: "hello"};
         res.render('login', {
             title: 'PIMS Login Page',
@@ -202,11 +218,8 @@ router.get('/login', function (req, res) {
             else {
                 res.redirect('/mySpace');
             }
-
         });
-
     }
-
 });
 
 
