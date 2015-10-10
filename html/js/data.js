@@ -1147,7 +1147,6 @@ var managementData = {
             }]
         }
     },
-
 	/*
 		PostOperativeComplications: {
 		None: {type: Boolean, title: 'None'},
@@ -2502,10 +2501,10 @@ var managementData = {
             }]
         }]
     },
-    topPerformersSalesTabData: {
+    topPerformersSalesTabData: { //Mexican (just a key word to find this line)
         "2014": [{
             "data": {
-                "label": "Fuller",
+                "label": "Incomplete",
                 "value": "152924.82000",
                 "link": "#sales"
             }
@@ -2604,7 +2603,25 @@ var managementData = {
     }, {
         "label": "2014"
     }],
-    singleSalePerformerSalesTabData: {
+    singleSalePerformerSalesTabData: { //Peppers
+
+        "incomplete": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }]
+        }],
         "fuller": [{
             "data": [{
                 "value": "77058.81000"
@@ -2743,7 +2760,23 @@ var managementData = {
         }]
 
     },
-    employeeDetails: {
+    employeeDetails: { //Piglets
+
+        "incomplete":{
+            "name": "Incomplete"
+        },
+
+        "complete":{
+            "name": "Complete"
+        },
+        "threatening": {
+            "name": "Threatening"
+        },
+        "septic": {
+            "name": "Septic"
+        },
+
+        //////
         "fuller": {
             "name": "Andrew Fuller"
         },
