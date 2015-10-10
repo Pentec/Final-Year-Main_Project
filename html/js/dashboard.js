@@ -203,8 +203,8 @@ function CollectDataFromClient(data)
             renderAt: 'top-categories-sales-tab-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    yAxisName: 'Revenue (US $ in thousands)',
+                    numberPrefix: '',
+                    yAxisName: 'Number of Patients Diagnosed Per Cancer',
                     theme: 'management-3d'
                 },
                 data: []
@@ -222,9 +222,9 @@ function CollectDataFromClient(data)
             renderAt: 'top-performers-sales-tab-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Performers',
-                    yAxisName: 'Revenue (US $ in thousands)',
+                    numberPrefix: '',
+                    xAxisName: 'Diagnosis',
+                    yAxisName: 'Number of Patients Diagnosed',
                     theme: 'management-3d'
                 },
                 data: []
@@ -297,21 +297,21 @@ function CollectDataFromClient(data)
             dataFormat: 'json',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Year',
-                    pYAxisName: 'Amount (US $ in thousands)',
-                    sYAxisName: 'No. of orders',
+                    numberPrefix: '',
+                    xAxisName: 'Firm',
+                    pYAxisName: 'Number of Patients',
+                    sYAxisName: '',
                     theme: 'management-3d'
                 },
                 categories: [{
                     category: []
                 }],
                 dataset: [{
-                    seriesName: 'Amount',
+                    seriesName: 'Bar View',
                     renderAs: 'column3d',
                     data: []
                 }, {
-                    seriesName: 'No. of Orders',
+                    seriesName: 'Line View',
                     renderAs: 'line',
                     showValues: '0',
                     parentYAxis: 'S',
@@ -440,22 +440,22 @@ function CollectDataFromClient(data)
             dataFormat: 'json',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Products',
-                    pYAxisName: 'Revenue (US $ in thousands)',
-                    sYAxisName: 'Units Sold',
+                    numberPrefix: '',
+                    xAxisName: 'Last Known Vital Status',
+                    pYAxisName: 'Number of Patients',
+                    sYAxisName: '',
                     theme: 'management-3d'
                 },
                 categories: [{
                     category: []
                 }],
                 dataset: [{
-                    seriesName: 'Revenue',
+                    seriesName: 'Bar View',
                     renderAs: 'column3d',
                     showValues: '0',
                     data: []
                 }, {
-                    seriesName: 'Units Sold',
+                    seriesName: 'Line View',
                     renderAs: 'line',
                     showValues: '0',
                     parentYAxis: 'S',
@@ -1439,7 +1439,7 @@ function CollectDataFromClient(data)
 
             employeeSlug = dataHelpers.slugize(arguments[1]['categoryLabel']);
             chartDataSource.setDataSetData(singleSalePerformerSalesTabConfig.dataSource, singleSalePerformerSalesTabData[employeeSlug]);
-            viewHelpers.showModal('singleSalePerformerSalesTabChart', 'Sales Details of ' + employeeDetails[employeeSlug]['name'], singleSalePerformerSalesTabConfig, function(chart) {
+            viewHelpers.showModal('singleSalePerformerSalesTabChart', 'Number of Patients Per Firm For ' + employeeDetails[employeeSlug]['name'], singleSalePerformerSalesTabConfig, function(chart) {
                 chart.render();
             });
         }, true);
@@ -1485,7 +1485,7 @@ function CollectDataFromClient(data)
 
             chartDataSource.setCategories(categoryWiseSalesChartConfig.dataSource, categoryWiseSalesCategories[year][label]);
             chartDataSource.setDataSetData(categoryWiseSalesChartConfig.dataSource, categoryWiseSalesData[year][label]);
-            viewHelpers.showModal('categoryWiseSalesChart', arguments[1].categoryLabel + ' Sales', categoryWiseSalesChartConfig, function(chart) {
+            viewHelpers.showModal('categoryWiseSalesChart', arguments[1].categoryLabel + ' Vital Statuses', categoryWiseSalesChartConfig, function(chart) {
                 chart.render();
             });
         }, true);

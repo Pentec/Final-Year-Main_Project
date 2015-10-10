@@ -1031,99 +1031,112 @@ var managementData = {
             }
         }, {
             "data": {
-                "label": "Suyama",
+                "label": "Complete",
                 "value": "144772.94000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Peacock",
+                "label": "Threatening",
                 "value": "134881.25000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Callahan",
+                "label": "Septic",
                 "value": "132725.65000",
-                "link": "#sales"
-            }
-        }, {
-            "data": {
-                "label": "Dodsworth",
-                "value": "126226.60000",
                 "link": "#sales"
             }
         }],
         "2013": [{
             "data": {
-                "label": "Davolio",
+                "label": "ASO I",
                 "value": "174845.56000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Fuller",
+                "label": "ASO II",
                 "value": "166873.77000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Leverling",
+                "label": "ASO III",
                 "value": "159897.55000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Callahan",
+                "label": "ASO IV",
                 "value": "159205.32000",
                 "link": "#sales"
             }
-        }, {
-            "data": {
-                "label": "King",
-                "value": "148553.31000",
-                "link": "#sales"
-            }
         }],
+
         "2012": [{
             "data": {
-                "label": "Peacock",
+                "label": "Cervix",
                 "value": "140305.00000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Leverling",
+                "label": "Endometrium",
                 "value": "104474.78000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Davolio",
+                "label": "Ovarian",
                 "value": "97253.38000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Fuller",
+                "label": "Vulva",
                 "value": "77058.81000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "King",
+                "label": "Vagina",
                 "value": "71533.34000",
+                "link": "#sales"
+            }
+        },
+            {
+                "data": {
+                    "label": "Chorio / GTD",
+                    "value": "71533.34000",
+                    "link": "#sales"
+                }
+            }],
+        "2011": [{
+            "data": {
+                "label": "Ruptured",
+                "value": "140305.00000",
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Unruptured",
+                "value": "104474.78000",
                 "link": "#sales"
             }
         }]
     },
     singleSalePerformerSalesTabCategories: [{
-        "label": "2012"
+        "label": "G1"
     }, {
-        "label": "2013"
+        "label": "G2"
     }, {
-        "label": "2014"
-    }],
+        "label": "G3"
+    },
+        {
+            "label": "ONC"
+        }
+    ],
     singleSalePerformerSalesTabData: { //Peppers
 
         "incomplete": [{
@@ -1133,21 +1146,6 @@ var managementData = {
                 "value": "166873.77000"
             }, {
                 "value": "152924.82000"
-            }]
-        }, {
-            "data": [{
-                "value": "12"
-            }, {
-                "value": "40"
-            }, {
-                "value": "122"
-            }]
-        }],
-        "fuller": [{
-            "data": [{
-                "value": "77058.81000"
-            }, {
-                "value": "166873.77000"
             }, {
                 "value": "152924.82000"
             }]
@@ -1158,131 +1156,345 @@ var managementData = {
                 "value": "40"
             }, {
                 "value": "122"
+            }, {
+                "value": "122"
             }]
         }],
-        "suyama": [{
+
+
+        "complete": [{
             "data": [{
-                "value": "46255.69000"
+                "value": "77058.81000"
             }, {
-                "value": "83300.29000"
+                "value": "166873.77000"
             }, {
-                "value": "144772.94000"
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
             }]
         }, {
             "data": [{
                 "value": "12"
             }, {
-                "value": "31"
+                "value": "40"
             }, {
-                "value": "90"
-            }]
-        }],
-        "peacock": [{
-            "data": [{
-                "value": "140305.00000"
-            }, {
-                "value": "148496.39000"
-            }, {
-                "value": "134881.25000"
-            }]
-        }, {
-            "data": [{
-                "value": "28"
-            }, {
-                "value": "74"
+                "value": "122"
             }, {
                 "value": "122"
             }]
         }],
-        "callahan": [{
+
+
+        "threatening": [{
             "data": [{
-                "value": "68158.44000"
+                "value": "77058.81000"
             }, {
-                "value": "159205.32000"
+                "value": "166873.77000"
             }, {
-                "value": "132725.65000"
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
             }]
         }, {
             "data": [{
-                "value": "15"
+                "value": "12"
             }, {
-                "value": "55"
+                "value": "40"
             }, {
-                "value": "112"
+                "value": "122"
+            }, {
+                "value": "122"
             }]
         }],
-        "dodsworth": [{
+
+        "septic": [{
             "data": [{
-                "value": "28592.00000"
+                "value": "77058.81000"
             }, {
-                "value": "124034.28000"
+                "value": "166873.77000"
             }, {
-                "value": "126226.60000"
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
             }]
         }, {
             "data": [{
-                "value": "4"
+                "value": "12"
             }, {
-                "value": "17"
+                "value": "40"
             }, {
-                "value": "90"
+                "value": "122"
+            }, {
+                "value": "122"
             }]
         }],
-        "davolio": [{
+
+        /////////Sal
+        "aso_i": [{
             "data": [{
-                "value": "97253.38000"
+                "value": "77058.81000"
             }, {
-                "value": "174845.56000"
+                "value": "166873.77000"
             }, {
-                "value": "117867.02000"
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
             }]
         }, {
             "data": [{
-                "value": "17"
+                "value": "12"
             }, {
-                "value": "57"
+                "value": "40"
             }, {
-                "value": "120"
+                "value": "122"
+            }, {
+                "value": "122"
             }]
         }],
-        "leverling": [{
+
+        "aso_ii": [{
             "data": [{
-                "value": "104474.78000"
+                "value": "77058.81000"
             }, {
-                "value": "159897.55000"
+                "value": "166873.77000"
             }, {
-                "value": "112227.94000"
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
             }]
         }, {
             "data": [{
-                "value": "14"
+                "value": "12"
             }, {
-                "value": "64"
+                "value": "40"
             }, {
-                "value": "112"
+                "value": "122"
+            }, {
+                "value": "122"
             }]
         }],
-        "king": [{
+
+        "aso_iii": [{
             "data": [{
-                "value": "71533.34000"
+                "value": "77058.81000"
             }, {
-                "value": "148553.31000"
+                "value": "166873.77000"
             }, {
-                "value": "113017.48000"
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
             }]
         }, {
             "data": [{
-                "value": "11"
+                "value": "12"
             }, {
-                "value": "33"
+                "value": "40"
             }, {
-                "value": "107"
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "aso_iv": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        ////Oncology
+        "cervix": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        "endometrium": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        "ovarian": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "vulva": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "vagina": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "chorio_gtd": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "ruptured": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "unruptured":[{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
             }]
         }]
+
+
 
     },
     employeeDetails: { //Piglets
 
+        //Miscar
         "incomplete":{
             "name": "Incomplete"
         },
@@ -1296,6 +1508,45 @@ var managementData = {
         "septic": {
             "name": "Septic"
         },
+
+        //Salp
+        "aso_i":{
+            "name": "ASO I"
+        },
+
+        "aso_ii":{
+            "name": "ASO II"
+        },
+        "aso_iii": {
+            "name": "ASO III"
+        },
+        "aso_iv": {
+            "name": "ASO IV"
+        },
+
+        ////////Oncology
+        "cervix":{
+            "name": "Cervix"
+        },
+
+        "endometrium":{
+            "name": "Endometrium"
+        },
+        "ovarian": {
+            "name": "Ovarian"
+        },
+        "vulva": {
+            "name": "Vulva"
+        },
+        "vagina":{
+            "name": "Vagina"
+        },
+
+        "chorio_gtd":{
+            "name": "Chorio / GTD"
+        },
+
+
 
         //////
         "fuller": {
@@ -1321,6 +1572,15 @@ var managementData = {
         },
         "davolio": {
             "name": 'Nancy Davolio'
+        },
+
+
+        ///Ectotic
+        "ruptured": {
+            "name": 'Ruptured'
+        },
+        "unruptured": {
+            "name": 'Unruptured'
         }
     },
     productWiseSalesCategories: {
