@@ -125,23 +125,6 @@ function CollectDataFromClient(data)
 
         },
 
-        // Properties for top cities by sales chart
-        topRevenuesCitiesSummary: {
-            type: 'bar3d',
-            id: 'topRevenuesCitiesSummary',
-            width: '473',
-            height: '340',
-            dataFormat: 'json',
-            renderAt: 'top-revenues-cities-chart',
-            dataSource: {
-                chart: {
-                    yAxisName: 'Total Sales (US $ in thousands)',
-                    theme: 'management-3d'
-                },
-                data: []
-            }
-        },
-
         // Properties for top countries by revenue chart
         topRevenuesCountriesSummary: {
             type: 'mscolumn3dlinedy',
@@ -163,40 +146,6 @@ function CollectDataFromClient(data)
                 }],
                 dataset: [{
                     seriesName: 'Sales',
-                    renderAs: 'column3d',
-                    showValues: '0',
-                    data: []
-                }, {
-                    seriesName: 'Units Sold',
-                    renderAs: 'line',
-                    showValues: '0',
-                    parentYAxis: 'S',
-                    data: []
-                }]
-            }
-        },
-
-        // Properties for top customers chart
-        topCustomersSummary: {
-            type: 'mscolumn3dlinedy',
-            id: 'topCustomersSummary',
-            width: '473',
-            height: '340',
-            dataFormat: 'json',
-            renderAt: 'top-customers-chart',
-            dataSource: {
-                chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Customers',
-                    pYAxisName: 'Amount (US $ in thousands)',
-                    sYAxisName: 'Units Sold (In thousands)',
-                    theme: 'management-3d'
-                },
-                categories: [{
-                    category: []
-                }],
-                dataset: [{
-                    seriesName: 'Amount',
                     renderAs: 'column3d',
                     showValues: '0',
                     data: []
@@ -1290,18 +1239,6 @@ function CollectDataFromClient(data)
             topRevenuesCountriesSummaryCategories = managementData.topRevenuesCountriesSummaryCategories,
             topRevenuesCountriesSummaryData = managementData.topRevenuesCountriesSummaryData;
 
-        // Config for Top Cities by Sales Chart.
-        var topRevenuesCitiesSummaryChart,
-            topRevenuesCitiesSummaryChartConfig = chartConfig.topRevenuesCitiesSummary,
-            topRevenuesCitiesSummaryData = managementData.topRevenuesCitiesSummaryData;
-
-        // Config for Top Customers Chart.
-        var topCustomersSummaryChart,
-            topCustomersSummaryChartConfig = chartConfig.topCustomersSummary,
-            topCustomersSummaryCategories = managementData.topCustomersSummaryCategories,
-            topCustomersSummaryData = managementData.topCustomersSummaryData,
-            topCustomersTable;
-
         // Yearly Sales Chart
         chartDataSource.setCategories(yearlySalesChartConfig.dataSource, yearlySalesSummaryCategories);
         chartDataSource.setDataSetData(yearlySalesChartConfig.dataSource, yearlySalesSummaryData);
@@ -1334,22 +1271,6 @@ function CollectDataFromClient(data)
         chartDataSource.setDataSetData(topProductsSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(5, topProductsSummaryData[currentYear]));
         topProductsSummaryChart = new FusionCharts(topProductsSummaryChartConfig);
         topProductsSummaryChart.render();
-
-        // Top Revenues Cities Categories Chart
-        chartDataSource.setData(topRevenuesCitiesSummaryChartConfig.dataSource, dataHelpers.numberFilterData(5, topRevenuesCitiesSummaryData[currentYear]));
-        topRevenuesCitiesSummaryChart = new FusionCharts(topRevenuesCitiesSummaryChartConfig);
-        topRevenuesCitiesSummaryChart.render();
-
-        // Top Customers Summary
-        chartDataSource.setCategories(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(5, topCustomersSummaryCategories[currentYear]));
-        chartDataSource.setDataSetData(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(5, topCustomersSummaryData[currentYear]));
-        topCustomersTable = new TableComponent(topCustomersSummaryChartConfig, {
-            format: [{}, {
-                numberPrefix: '$'
-            }]
-        });
-        topCustomersSummaryChart = new FusionCharts(topCustomersSummaryChartConfig);
-        topCustomersSummaryChart.render();
 
 
          /**
@@ -1450,66 +1371,6 @@ function CollectDataFromClient(data)
             chartDataSource.setDataSetData(topRevenuesCountriesSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(numberOfCountires, topRevenuesCountriesSummaryData[year]));
 
             topRevenuesCountriesSummaryChart.setJSONData(topRevenuesCountriesSummaryChartConfig.dataSource);
-        });
-
-         /**
-           * Event Listeners for top cities by revenue chart.
-          */
-
-        // Year filter.
-        eventListeners.add('top_revenues_cities_summary_year_filter', 'change', function() {
-            var year = dom.queryCurrentValue('top_revenues_cities_summary_year_filter', this);
-            var numberOfCities = dom.getElementValue('top_revenues_cities_summary_number_filter');
-
-            chartDataSource.setData(topRevenuesCitiesSummaryChartConfig.dataSource, dataHelpers.numberFilterData(numberOfCities, topRevenuesCitiesSummaryData[year]));
-            topRevenuesCitiesSummaryChart.setJSONData(topRevenuesCitiesSummaryChartConfig.dataSource);
-        });
-
-        // Number filter.
-        eventListeners.add('top_revenues_cities_summary_number_filter', 'change', function() {
-            var numberOfCities = dom.queryCurrentValue('top_revenues_cities_summary_number_filter', this);
-            var year = dom.getElementValue('top_revenues_cities_summary_year_filter');
-
-            chartDataSource.setData(topRevenuesCitiesSummaryChartConfig.dataSource, dataHelpers.numberFilterData(numberOfCities, topRevenuesCitiesSummaryData[year]));
-            topRevenuesCitiesSummaryChart.setJSONData(topRevenuesCitiesSummaryChartConfig.dataSource);
-        });
-
-         /**
-           * Event Listeners for top customers chart.
-          */
-
-        // Year filter.
-        eventListeners.add('top_customers_summary_year_filter', 'change', function() {
-            var year = dom.queryCurrentValue('top_customers_summary_year_filter', this);
-            var numberOfCustomers = dom.getElementValue('top_customers_summary_number_filter');
-
-            chartDataSource.setCategories(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(numberOfCustomers, topCustomersSummaryCategories[year]));
-            chartDataSource.setDataSetData(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(numberOfCustomers, topCustomersSummaryData[year]));
-
-            if (numberOfCustomers === '10') {
-                topCustomersTable.render();
-            } else {
-                topCustomersTable.hide();
-                dom.getById(topCustomersSummaryChartConfig.renderAt).style.display = '';
-                topCustomersSummaryChart.setJSONData(topCustomersSummaryChartConfig.dataSource);
-            }
-        });
-
-        // Number filter.
-        eventListeners.add('top_customers_summary_number_filter', 'change', function() {
-            var numberOfCustomers = dom.queryCurrentValue('top_customers_summary_number_filter', this);
-            var year = dom.getElementValue('top_customers_summary_year_filter');
-
-            chartDataSource.setCategories(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(numberOfCustomers, topCustomersSummaryCategories[year]));
-            chartDataSource.setDataSetData(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(numberOfCustomers, topCustomersSummaryData[year]));
-
-            if (numberOfCustomers === '10') {
-                topCustomersTable.render();
-            } else {
-                topCustomersTable.hide();
-                dom.getById(topCustomersSummaryChartConfig.renderAt).style.display = 'block';
-                topCustomersSummaryChart.setJSONData(topCustomersSummaryChartConfig.dataSource);
-            }
         });
 
     });
