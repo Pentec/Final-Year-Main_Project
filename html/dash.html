@@ -23,7 +23,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>PIMS Dashboard</title>
     <!-- Include CSS files -->
-	 <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
+	  <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <!-- Include layout file for dashboard -->
     <link rel="stylesheet" type="text/css" href="css/layout.css" />
@@ -50,30 +50,29 @@
 	
 
 	<script>
-		
-	$( document ).ready(function() {
+	
+	
+$( document ).ready(function() {
 
 			$.ajax({
 						type: 'POST',
 						url: '/fetchDataFromDB',
 						success: function (data, textStatus, jqXHR){
-						
 						  var res = JSON.parse(jqXHR.responseText);
-						  var resBus = JSON.stringify(res);
-                          CollectDataFromClient(resBus);
-						 
-							
+						 // console.log("This is what it looks like " + res[0][0] );
+                          CollectDataFromClient(res);
 							},
 						dataType: "json",
 						contentType: "application/json"
                 });
 });
+			 
 		
 	</script>
 	
 </head>
 
-<body>
+<body id="page">
 
     <!-- Modal Window -->
     <div id="modalWrapper">
@@ -154,16 +153,64 @@
 
                         <div class="chart-content pull-right">
 
-                            <div class="chart-category full-width">
-                                <h2 class="chart-category-heading">Surgical Complications</h2>
+                            <div class="chart-category pull-left">
+                                <h2 class="chart-category-heading">Intra-operative Complications</h2>
                                 <div class="divider"></div>
 
                                 <!-- Yearly sales summary chart -->
                                 <div id="yearly-sales-chart" class="chart-category full-width"></div>
                             </div>
 							
-                            <div class="chart-category pull-right no-border">
-                                <h2 class="chart-category-heading pull-left">Top Sales Performers</h2>
+                        <div class="chart-category pull-right no-border">
+								
+								<h2 class="chart-category-heading pull-left">Post-Operative Complications</h2>
+
+                                <!-- Number filter for top categories chart -->
+                                <select class="pull-right" id="top_categories_summary_number_filter">
+                                    <option value="5">Top 5</option>
+                                    <option value="all">All</option>
+                                </select>
+
+                                <!-- Yearly filter for top categories chart -->
+                                <select class="pull-right" id="top_categories_summary_year_filter">
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                </select>
+
+                                <div class="divider clearboth"></div>
+
+                                <!-- Top sales categories chart -->
+                                <div id="top-sales-categories-chart"></div>
+                            </div>
+							
+							 <div class="chart-category full-width">
+                                <h2 class="chart-category-heading pull-left">Top Products</h2>
+
+                                <!-- Number filter for top products chart -->
+                                <select class="pull-right" id="top_products_summary_number_filter">
+                                    <option value="5">Top 5</option>
+                                    <option value="10">Top 10</option>
+                                </select>
+
+                                <!-- Yearly filter for top products chart -->
+                                <select class="pull-right" id="top_products_summary_year_filter">
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                </select>
+
+                                <div class="divider clearboth"></div>
+
+                                <!-- Top products chart -->
+                                <div id="top-products-chart"></div>
+
+                            </div>
+							
+							
+                            <div class="chart-category pull-left">
+							
+                                 <h2 class="chart-category-heading pull-left">Top Sales Performers</h2>
 
                                 <!-- Number filter for top sales performers chart -->
                                 <select class="pull-right" id="top_sales_performers_summary_number_filter" name="top_sales_performers_summary_number_filter">
@@ -185,27 +232,6 @@
 
                                 <!-- Top sales performers chart -->
                                 <div id="top-sales-performers-chart"></div>
-                            </div>
-                            <div class="chart-category pull-left">
-                                <h2 class="chart-category-heading pull-left">Top Categories</h2>
-
-                                <!-- Number filter for top categories chart -->
-                                <select class="pull-right" id="top_categories_summary_number_filter">
-                                    <option value="5">Top 5</option>
-                                    <option value="all">All</option>
-                                </select>
-
-                                <!-- Yearly filter for top categories chart -->
-                                <select class="pull-right" id="top_categories_summary_year_filter">
-                                    <option value="2014">2014</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2012">2012</option>
-                                </select>
-
-                                <div class="divider clearboth"></div>
-
-                                <!-- Top sales categories chart -->
-                                <div id="top-sales-categories-chart"></div>
 
 
                             </div>
@@ -235,28 +261,7 @@
                             </div>
 
 
-                            <div class="chart-category full-width">
-                                <h2 class="chart-category-heading pull-left">Top Products</h2>
-
-                                <!-- Number filter for top products chart -->
-                                <select class="pull-right" id="top_products_summary_number_filter">
-                                    <option value="5">Top 5</option>
-                                    <option value="10">Top 10</option>
-                                </select>
-
-                                <!-- Yearly filter for top products chart -->
-                                <select class="pull-right" id="top_products_summary_year_filter">
-                                    <option value="2014">2014</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2012">2012</option>
-                                </select>
-
-                                <div class="divider clearboth"></div>
-
-                                <!-- Top products chart -->
-                                <div id="top-products-chart"></div>
-
-                            </div>
+                           
 
                             <div class="chart-category pull-left">
                                 <h2 class="chart-category-heading pull-left">Top Cities By Sales</h2>
@@ -317,9 +322,9 @@
 
                         <div class="chart-content pull-right">
 
-
-                            <div class="chart-category pull-left">
-                                <h2 class="chart-category-heading pull-left">Top Categories By Sales</h2>
+						 <div class="chart-category pull-left">
+                         
+							<h2 class="chart-category-heading pull-left">Top Categories By Sales</h2>
 
                                 <!-- Yearly filter for top categories by sales chart -->
                                 <select class="pull-right" id="top_categories_sales_tab_year_filter">
@@ -337,8 +342,8 @@
 
                                 <!-- Top categories by sales chart -->
                                 <div id="top-categories-sales-tab-chart"></div>
-
                             </div>
+                           
 
 
 

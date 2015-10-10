@@ -199,60 +199,16 @@ var managementData = {
             }]
         }]
     },
-
-    yearlySalesSummaryCategories: [{
+   yearlySalesSummaryCategories: [{
         "label": "None"
     }, {
         "label": "Bladder injury"
     }, {
         "label": "Bowel injury"
     }, {
-        "label": "Ureteric injury"
+        "label": "BRUBT"
     }, {
-        "label": "Anaesthetic complication"
-    }, {
-        "label": "Procedure not completed"
-    }, {
-        "label": "Bleeding requiring unplanned blood transfusion"
-    }, {
-        "label": "Vascular injury"
-    }],
-    yearlySalesSummaryData: [{
-        "data": [{
-            "value": "68"
-        }, {
-            "value": "12"
-        }, {
-            "value": "11"
-        }, {
-            "value": "68"
-        }, {
-            "value": "10"
-        }, {
-            "value": "11"
-        }, {
-            "value": "5"
-        }, {
-            "value": "16"
-        }]
-    }, {
-        "data": [{
-            "value": "68"
-        }, {
-            "value": "12"
-        }, {
-            "value": "11"
-        }, {
-            "value": "68"
-        }, {
-            "value": "10"
-        }, {
-            "value": "11"
-        }, {
-            "value": "5"
-        }, {
-            "value": "16"
-        }]
+        "label": "ProcedureNotCompleted"
     }],
     topProductsSummaryCategories: {
         "2014": {
@@ -1383,6 +1339,18 @@ var managementData = {
             }]
         }
     },
+	/*
+		PostOperativeComplications: {
+		None: {type: Boolean, title: 'None'},
+		BladderInjury: {type: Boolean, title: 'Bladder injury'},
+		BowelInjury: {type: Boolean, title: 'Bowel injury'},
+		UretericInjury: {type: Boolean, title: 'Ureteric injury'},
+		AnaestheticComplication: {type: Boolean, title: 'Anaesthetic complication'},
+		ProcedureNotCompleted: {type: Boolean, title: 'Procedure not completed'},
+		BRUBT: {type: Boolean, title: 'Bleeding requiring unplanned blood transfusion'},
+		VascularInjury: {type: Boolean, title: 'Vascular injury'}
+	},
+	*/
     topSalesCategoriesSummaryData: {
         "2014": {
             "all": [{

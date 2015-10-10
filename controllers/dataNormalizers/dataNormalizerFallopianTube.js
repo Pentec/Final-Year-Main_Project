@@ -1,7 +1,7 @@
 var express = require('express');
 var submodules = "../../sub-modules/";
 var models = require(submodules + 'pims-database/database');
-var endometrial = models.endometrialCancer;
+var fallopianTube = models.fallopianTubeCancer;
 
 
 var MAX = 1; //Maximum value for scaling
@@ -15,7 +15,7 @@ var MIN = -1; //Minimum value for scaling
  */
 var getNormalizedData = function(name, surname, callback) {
 
-    endometrial.findOne({Name: name}, function(err, patient){
+    fallopianTube.findOne({Name: "Joan"}, function(err, patient){
         if(!err) {
 
             if(patient){
@@ -84,20 +84,18 @@ var normalizeFigoStage =  function(patient){
         value = 4/12;
     else if(patient.figoStage.IIb == true)
         value = 5/12;
-    else if(patient.figoStage.IIIa == true)
+    else if(patient.figoStage.IIc == true)
         value = 6/12;
-    else if(patient.figoStage.IIIb == true)
+    else if(patient.figoStage.IIIa == true)
         value = 7/12;
-    else if(patient.figoStage.IIIc == true)
+    else if(patient.figoStage.IIIb == true)
         value = 8/12;
-    else if(patient.figoStage.IVa == true)
+    else if(patient.figoStage.IIIc == true)
         value = 9/12;
-    else if(patient.figoStage.IVb == true)
+    else if(patient.figoStage.IV == true)
         value = 10/12;
     else if(patient.figoStage.Unknown == true)
         value = 11/12;
-    else if(patient.figoStage.StageUnavailable == true)
-        value = 12/12;
 
     return ((value - MIN)/(MAX - MIN));
 };
@@ -111,24 +109,16 @@ var normalizeOfDistantMetastase =  function(patient){
 
     var value = 0;
 
-    if(patient.Metastase.Nil == true)
+    if(patient.SiteOfDistantMatastases.PleuralEffusion == true)
         value = 1/9;
-    else if(patient.Metastase.UterineSerosa == true)
+    else if(patient.SiteOfDistantMatastases.Liver == true)
         value = 2/9;
-    else if(patient.Metastase.Vagina == true)
+    else if(patient.SiteOfDistantMatastases.Brain == true)
         value = 3/9;
-    else if(patient.Metastase.Adnexa == true)
+    else if(patient.SiteOfDistantMatastases.Othersite == true)
         value = 4/9;
-    else if(patient.Metastase.BladdeBowelMucosa == true)
+    else if(patient.SiteOfDistantMatastases.Unknown == true)
         value = 5/9;
-    else if(patient.Metastase.IntraAbdominal == true)
-        value = 6/9;
-    else if(patient.Metastase.InguinalNodes == true)
-        value = 7/9;
-    else if(patient.Metastase.Distant == true)
-        value = 8/9;
-    else if(patient.Metastase.Unknown == true)
-        value = 9/9;
 
     return ((value - MIN)/(MAX - MIN));
 };
@@ -142,21 +132,21 @@ var normalizeHistology =  function(patient){
 
     var value = 0;
 
-    if(patient.Histology.NilUnclassifiable == true)
+    if(patient.Histology.Nohistology == true)
         value = 1/9;
-    else if(patient.Histology.EndometrioidAdeno == true)
+    else if(patient.Histology.Serousadenocarcinoma == true)
         value = 2/9;
-    else if(patient.Histology.Adenosquamous == true)
+    else if(patient.Histology.Mucinousadenocarcinoma == true)
         value = 3/9;
-    else if(patient.Histology.Clearcell == true)
+    else if(patient.Histology.Endometroidadenocarcinoma == true)
         value = 4/9;
-    else if(patient.Histology.MucinousAdeno == true)
+    else if(patient.Histology.Clearcelladenocarcinoma == true)
         value = 5/9;
-    else if(patient.Histology.PapillarySerous == true)
+    else if(patient.Histology.Adenoacanthoma == true)
         value = 6/9;
-    else if(patient.Histology.Squamous == true)
+    else if(patient.Histology.Adenosquamous == true)
         value = 7/9;
-    else if(patient.Histology.Other == true)
+    else if(patient.Histology.Undifferentiatedcarcinoma == true)
         value = 8/9;
     else if(patient.Histology.Unknown == true)
         value = 9/9;
@@ -179,8 +169,6 @@ var normalizeDifferentiation =  function(patient){
         value = 2/3;
     else if(patient.Differentiation.Poorly == true)
         value = 3/3;
-    else if(patient.Differentiation.Unknown == true)
-        value = 4/4;
 
     return ((value - MIN)/(MAX - MIN));
 };
@@ -194,21 +182,21 @@ var normalizeprimaryTreatment =  function(patient){
 
     var value = 0;
 
-    if(patient.primaryTreatmentPerformed.Nil == true)
+    if(patient.TreatmentPerformed.Nil == true)
         value = 1/8;
-    else if(patient.primaryTreatmentPerformed.SurgeryAlone == true)
+    else if(patient.TreatmentPerformed.SurgeryAlone == true)
         value = 2/8;
-    else if(patient.primaryTreatmentPerformed.SurgeryAdjuvantRT == true)
+    else if(patient.TreatmentPerformed.RTAlone == true)
         value = 3/8;
-    else if(patient.primaryTreatmentPerformed.SurgeryAdjuvantCT == true)
+    else if(patient.TreatmentPerformed.NeoAdjuvantCTSurgery == true)
         value = 4/8;
-    else if(patient.primaryTreatmentPerformed.AdjuvantHT == true)
+    else if(patient.TreatmentPerformed.SurgeryAdjuvantRT == true)
         value = 5/8;
-    else if(patient.primaryTreatmentPerformed.HormonalPrimaryTherapy == true)
+    else if(patient.TreatmentPerformed.SurgeryAdjuvantCT == true)
         value = 6/8;
-    else if(patient.primaryTreatmentPerformed.Other == true)
+    else if(patient.TreatmentPerformed.OtherNonStandardTreatments == true)
         value = 7/8;
-    else if(patient.primaryTreatmentPerformed.Unknown == true)
+    else if(patient.TreatmentPerformed.Unknown == true)
         value = 8/8;
 
     return ((value - MIN)/(MAX - MIN));
@@ -223,23 +211,23 @@ var normalizetypeOfSurgery =  function(patient){
 
     var value = 0;
 
-    if(patient.typeOfSurgery.SimpleAbdHystNoLND == true)
+    if(patient.TypeOfSurgery.USOwithoutLND == true)
         value = 1/9;
-    else if(patient.typeOfSurgery.SimpleAbdHystWithLND == true)
+    else if(patient.TypeOfSurgery.USOwithLND == true)
         value = 2/9;
-    else if(patient.typeOfSurgery.SimpleVagHystNoLND == true)
+    else if(patient.TypeOfSurgery.BSOwithoutLND == true)
         value = 3/9;
-    else if(patient.typeOfSurgery.SimpleVagHystWithLND == true)
+    else if(patient.TypeOfSurgery.BSOwithLND == true)
         value = 4/9;
-    else if(patient.typeOfSurgery.RadicalAbdHystNoLND == true)
+    else if(patient.TypeOfSurgery.TAHBSOOmentectomymultiplebiopsiesnoLND == true)
         value = 5/9;
-    else if(patient.typeOfSurgery.RadicalAbdHystWithLND == true)
+    else if(patient.TypeOfSurgery.TAHBSOomentectomymultiplebiopsieswithLND == true)
         value = 6/9;
-    else if(patient.typeOfSurgery.AnyKindOfexenteration == true)
+    else if(patient.TypeOfSurgery.ExplorativeLaparotomylaparoscopy == true)
         value = 7/9;
-    else if(patient.typeOfSurgery.Unknown == true)
+    else if(patient.TypeOfSurgery.Unknown == true)
         value = 8/9;
-    else if(patient.typeOfSurgery.Other == true)
+    else if(patient.TypeOfSurgery.Other == true)
         value = 9/9;
 
     return ((value - MIN)/(MAX - MIN));
@@ -254,18 +242,22 @@ var normalizetypeOfRadiotherapy =  function(patient){
 
     var value = 0;
 
-    if(patient.typeOfRadiotherapy.Intracavitary == true)
-        value = 1/6;
-    else if(patient.typeOfRadiotherapy.ExternalPelvicRT == true)
-        value = 2/6;
-    else if(patient.typeOfRadiotherapy.ExternalPelvicParaortic == true)
-        value = 3/6;
-    else if(patient.typeOfRadiotherapy.ExternalPelvicIntracavitary == true)
-        value = 4/6;
-    else if(patient.typeOfRadiotherapy.ExtpelvicParaortIntracavitary == true)
-        value = 5/6;
-    else if(patient.typeOfRadiotherapy.Unknown == true)
-        value = 6/6;
+    if(patient.TypeofRadiotherapy.Intracavitary == true)
+        value = 1/8;
+    else if(patient.TypeofRadiotherapy.ExternalpelvicRT == true)
+        value = 2/8;
+    else if(patient.TypeofRadiotherapy.Externalpelvicparaortic == true)
+        value = 3/8;
+    else if(patient.TypeofRadiotherapy.Externalpelvicintracavitary == true)
+        value = 4/8;
+    else if(patient.TypeofRadiotherapy.Extpelvicparaorticintracavitary == true)
+        value = 5/8;
+    else if(patient.TypeofRadiotherapy.Intraperitonealradioisotopes == true)
+        value = 6/8;
+    else if(patient.TypeofRadiotherapy.Other == true)
+        value = 7/8;
+    else if(patient.TypeofRadiotherapy.Unknown == true)
+        value = 8/8;
 
     return ((value - MIN)/(MAX - MIN));
 };
@@ -279,17 +271,17 @@ var normalizeresponseToTreatment =  function(patient){
 
     var value = 0;
 
-    if(patient.responseToTreatment.Complete == true)
+    if(patient.ResponseToTreatment.Complete == true)
         value = 1/6;
-    else if(patient.responseToTreatment.Partial == true)
+    else if(patient.ResponseToTreatment.Partial == true)
         value = 2/6;
-    else if(patient.responseToTreatment.StableDisease == true)
+    else if(patient.ResponseToTreatment.StableDisease == true)
         value = 3/6;
-    else if(patient.responseToTreatment.ProgressiveDisease == true)
+    else if(patient.ResponseToTreatment.ProgressiveDisease == true)
         value = 4/6;
-    else if(patient.responseToTreatment.NotAssessable == true)
+    else if(patient.ResponseToTreatment.NotAssessable == true)
         value = 5/6;
-    else if(patient.responseToTreatment.Unknown == true)
+    else if(patient.ResponseToTreatment.Unknown == true)
         value = 6/6;
 
     return ((value - MIN)/(MAX - MIN));
@@ -362,7 +354,7 @@ var normalizeCD4 = function(patient){
 
     var cd4 = patient.CD4 ;
 
-    if(patient.HIVStatus.Positive == true)
+    if(patient.HIVStatus == 'P' || patient.HIVStatus == 'Positive' || patient.HIVStatus == 'positive')
         var value = (cd4/Math.pow(10,3.5));
     else
         var value = 0.9998;
@@ -379,9 +371,9 @@ var normalizeHIV = function(patient){
 
     var value = 0;
 
-    if(patient.HIVStatus.Negative == true)
+    if(patient.HIVStatus == 'N' || patient.HIVStatus == 'Negative' || patient.HIVStatus == 'negative')
         value = 0.9;
-    else if (patient.HIVStatus.Positive == true)
+    else if(patient.HIVStatus == 'P' || patient.HIVStatus == 'Positive' || patient.HIVStatus == 'positive')
         value = 0.1;
 
     return value;

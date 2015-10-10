@@ -7,7 +7,13 @@ function sendDataToGraph(data){
     alert ("Survival " + data);
     //call FusionCharts.ready()
 }
-FusionCharts.ready(function() {
+
+function CollectDataFromClient(data)
+{
+	globalData = data;
+
+ FusionCharts.ready(function() {
+
 
     // Global / General Config
     var app,
@@ -46,9 +52,9 @@ FusionCharts.ready(function() {
                 chart: {
                     xAxisName: 'Name of Complications',
                     theme: 'management-3d',
-                    numberPrefix: '#',
+                    numberPrefix: '',
                     pYAxisName: 'Number of Surgical Complications',
-                    sYAxisName: 'Units Sold (In thousands)'
+                    sYAxisName: ''
                 },
                 categories: [{
                     category: []
@@ -59,7 +65,7 @@ FusionCharts.ready(function() {
                     showValues: '0',
                     data: []
                 }, {
-                    seriesName: 'Units Sold',
+                    seriesName: 'Complications',
                     parentYAxis: 'S',
                     renderAs: 'line',
                     showValues: '0',
@@ -1200,7 +1206,34 @@ FusionCharts.ready(function() {
         var yearlySalesChart,
             yearlySalesChartConfig = chartConfig.yearlySalesSummary,
             yearlySalesSummaryCategories = managementData.yearlySalesSummaryCategories,
-            yearlySalesSummaryData = managementData.yearlySalesSummaryData;
+            yearlySalesSummaryData = [{"data": [{
+            "value": globalData[0][0]
+        }, {
+            "value": globalData[0][1]
+        }, {
+            "value": globalData[0][2]
+        }, {
+            "value": globalData[0][3]
+        }, {
+            "value": globalData[0][4]
+        }, {
+            "value": globalData[0][5]
+        }]
+    }, {
+        "data": [{
+            "value": globalData[0][0]
+        }, {
+            "value": globalData[0][1]
+        }, {
+            "value": globalData[0][2]
+        }, {
+            "value": globalData[0][3]
+        }, {
+            "value": globalData[0][4]
+        }, {
+            "value": globalData[0][5]
+        }]
+    }];
 
         // Config for Top Sales Performers Chart.
         var topSalesPerformers,
@@ -1845,3 +1878,4 @@ FusionCharts.ready(function() {
     });
 
 });
+}

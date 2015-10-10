@@ -59,6 +59,10 @@
     font-size: 24px;
 }
 
+.bar {
+    fill: steelblue;
+}
+
 .graph-interaction {
     font-size: 12px;
 }
@@ -68,6 +72,10 @@
     fill: none;
     stroke: #000;
     shape-rendering: crispEdges;
+}
+
+.tick line{
+    opacity: 0.2;
 }
 
 .line {

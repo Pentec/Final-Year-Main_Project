@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hystercopy</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap.css"/>
+    <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/deps/underscore.js"></script>
+    <script type="text/javascript" src="/deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="/lib/jsonform.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="/" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/editProfile">My PIMS Space</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+
+
+<div class = "container">
+
+    <h1 class="page-header">Hystercopy</h1>
+    <br>
+    <form class="form-inline" role="form" method = "POST" action = "/hysteroscopy" enctype="application/json"></form>
+</div>
+<script type="text/javascript">
+      $('form').jsonForm({
+        schema: {
+            "DateOfVisit": {
+                "type": "date",
+                "require": true,
+                "title": "Date of visit"
+            },
+            "HospitalNumber": {
+                "type": "string",
+                "require": true,
+                "title": "Hospital Number"
+            },
+            "Age": {
+                "type": "number",
+                "require": true,
+                "title": "Age"
+            },
+            "Name": {
+                "type": "string",
+                "require": true,
+                "title": "Name"
+            },
+            "Surname": {
+                "type": "string",
+                "require": true,
+                "title": "Surname"
+            },
+            "P": {
+                "type": "number",
+                "title": "Parity"
+            },
+            "G": {
+                "type": "number",
+                "title": "Gravidity"
+            },
+            "M": {
+                "type": "number",
+                "title": "Miscarriage"
+            },
+            "E": {
+                "type": "number",
+                "title": "Ectopic pregnancy"
+            },
+            "HIV": {
+                "type": "object",
+                "properties": {
+                    "Negative": {
+                        "type": "boolean",
+                        "title": "HIV Negative"
+                    },
+                    "Positive": {
+                        "type": "boolean",
+                        "title": "HIV Positive"
+                    },
+                    "Decline": {
+                        "type": "boolean",
+                        "title": "Decline"
+                    },
+                    "Unknown": {
+                        "type": "boolean",
+                        "title": "Unknown"
+                    },
+                    "CD4": {
+                        "type": "number",
+                        "title": "CD4 Count:"
+                    }
+                }
+            },
+            "CoMorbidities": {
+                "type": "object",
+                "properties": {
+                    "Hypertension": {
+                        "type": "boolean",
+                        "title": "Hypertension"
+                    },
+                    "IDDM": {
+                        "type": "boolean",
+                        "title": "IDDM"
+                    },
+                    "NIDDM": {
+                        "type": "boolean",
+                        "title": "NIDDM"
+                    },
+                    "IHD": {
+                        "type": "boolean",
+                        "title": "IHD"
+                    },
+                    "Obesity": {
+                        "type": "boolean",
+                        "title": "Obesity"
+                    }
+                }
+            },
+            "EndocervicalCanal": {
+                "type": "object",
+                "properties": {
+                    "Normal": {
+                        "type": "boolean",
+                        "title": "Normal"
+                    },
+                    "Stenotic": {
+                        "type": "boolean",
+                        "title": "Stenotic"
+                    },
+                    "Polyps": {
+                        "type": "boolean",
+                        "title": "Polyps"
+                    },
+                    "SuspiciousLesion": {
+                        "type": "boolean",
+                        "title": "Suspicious lesion"
+                    }
+                }
+            },
+            "UterineCavity": {
+                "type": "object",
+                "properties": {
+                    "Normal": {
+                        "type": "boolean",
+                        "title": "Normal"
+                    },
+                    "Adhesions": {
+                        "type": "boolean",
+                        "title": "Adhesions"
+                    },
+                    "Polyps": {
+                        "type": "boolean",
+                        "title": "Polyps"
+                    },
+                    "Atrophy": {
+                        "type": "boolean",
+                        "title": "Atrophy"
+                    },
+                    "Hyperplasia": {
+                        "type": "boolean",
+                        "title": "Hyperplasia"
+                    },
+                    "Fibroid": {
+                        "type": "boolean",
+                        "title": "Fibroid"
+                    },
+                    "Suspicious": {
+                        "type": "boolean",
+                        "title": "Suspicious"
+                    },
+                    "Septum": {
+                        "type": "boolean",
+                        "title": "Septum"
+                    }
+                }
+            },
+            "Fibroid": {
+                "type": "object",
+                "properties": {
+                    "Position": {
+                        "type": "string",
+                        "title": "Position"
+                    },
+                    "Size": {
+                        "type": "number",
+                        "title": "Size"
+                    }
+                }
+            },
+            "Polyp": {
+                "type": "object",
+                "properties": {
+                    "Position": {
+                        "type": "string",
+                        "title": "Position"
+                    },
+                    "Size": {
+                        "type": "number",
+                        "title": "Size"
+                    }
+                }
+            },
+            "ProceduresPerformedAtTimeOfOfficeHysteroscopy": {
+                "type": "object",
+                "properties": {
+                    "Nil": {
+                        "type": "boolean",
+                        "title": "Nil"
+                    },
+                    "RemovalIUCD": {
+                        "type": "boolean",
+                        "title": "Removal IUCD"
+                    },
+                    "Biopsy": {
+                        "type": "boolean",
+                        "title": "Biopsy"
+                    },
+                    "Polypectomy": {
+                        "type": "boolean",
+                        "title": "Polypectomy"
+                    },
+                    "Myomectomy": {
+                        "type": "boolean",
+                        "title": "Myomectomy"
+                    },
+                    "Essure": {
+                        "type": "boolean",
+                        "title": "Essure"
+                    },
+                    "EndometrialAblation": {
+                        "type": "boolean",
+                        "title": "Endometrial ablation"
+                    },
+                    "Other": {
+                        "type": "string",
+                        "title": "Other"
+                    }
+                }
+            },
+            "DiagnosisMadeAfterHysteroscopy": {
+                "type": "string",
+                "require": true,
+                "title": "Diagnosis made after hysteroscopy"
+            },
+            "NoFurtherTreatment": {
+                "type": "object",
+                "properties": {
+                    "NoTreatmentRequired": {
+                        "type": "boolean",
+                        "title": "No treatment required"
+                    },
+                    "TreatedAtTimeOfOfficeHysteroscopy": {
+                        "type": "boolean",
+                        "title": "Treated at time of office hysteroscopy"
+                    }
+                }
+            },
+            "ReferralFor": {
+                "type": "object",
+                "properties": {
+                    "OperativeHysteroscopyUnderGA": {
+                        "type": "boolean",
+                        "title": "Operative hysteroscopy under GA"
+                    },
+                    "Hysterectomy": {
+                        "type": "boolean",
+                        "title": "Hysterectomy"
+                    },
+                    "Mirena": {
+                        "type": "boolean",
+                        "title": "Mirena"
+                    },
+                    "DiagnosticHysterectomy": {
+                        "type": "boolean",
+                        "title": "Diagnostic hysterectomy"
+                    },
+                    "EndometrialAblation": {
+                        "type": "boolean",
+                        "title": "Endometrial ablation"
+                    }
+                }
+            },
+            "DurationOfProcedure": {
+                "type": "string",
+                "require": true,
+                "title": "Duration of procedure:  "
+            },
+            "PainScoreOutOf10": {
+                "type": "string",
+                "require": true,
+                "title": "Pain score out of 10"
+            },
+            "Comments": {
+                "type": "string",
+                "require": true,
+                "title": "Comments"
+            }
+  }
+      });
+    </script>
+  </body>
+</html>

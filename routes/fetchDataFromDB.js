@@ -8,48 +8,81 @@ var GS = models.gynaecologySurgery;
 var AD = models.addmissionDischarge;
 
 
+
 router.post('/', function(req, res) {
-	
- console.log("This actually Works"); 
- var arr=[];
+
+var arr = [];
+ var arrIntraOperative=[];
+  var arrPostOperative=[];
  
+
   GS.aggregate(
 		   [
-			 { $match : {"typeOfProcedure.Emergency": true } },
+			 { $match : {"IntraOperativeComplications.None": true } },
 			  {
-				  $group : { _id : { month: { $month: "$ProcedureDate" }, day: { $dayOfMonth: "$ProcedureDate" }, year: { $year: "$ProcedureDate" }} ,count: { $sum: 1 } ,  ourDate: { $first: "$ProcedureDate"  } } 
+				  $group : { _id : null ,count: { $sum: 1 } } 
 			  
 			  }
 			  
 		   ] , function(err, myResult)
 		   {
-			   var num = myResult.length;
-			   
-			   for (var i = 0; i < num; i++) { 
-						
-							 var newElement = {};
-								newElement['value'] = myResult[i].count.toString();
-								arr.push(newElement);
-							
-						}
-						
-						  
-						   arr.sort(function(a,b){
-								if (a.date < b.date)
-									return -1;
-								  if (a.date > b.date)
-									return 1;
-								  return 0;
-								});
-							
-							  console.log(arr);
+			  arrIntraOperative[0] = myResult[0].count;
+			  
+GS.aggregate(
+		   [
+			 { $match : {"IntraOperativeComplications.BladderInjury": true } },
+			  {
+				  $group : { _id : null ,count: { $sum: 1 } } 
+			  
+			  }
+			  
+		   ] , function(err, myResult)
+		   {
+				 arrIntraOperative[1] = myResult[0].count;
+				 
+GS.aggregate(
+		   [
+			 { $match : {"IntraOperativeComplications.BowelInjury": true } },
+			  {
+				  $group : { _id : null ,count: { $sum: 1 } } 
+			  
+			  }
+			  
+		   ] , function(err, myResult)
+		   {
+				 arrIntraOperative[2] = myResult[0].count;
+GS.aggregate(
+		   [
+			 { $match : {"IntraOperativeComplications.BRUBT": true } },
+			  {
+				  $group : { _id : null ,count: { $sum: 1 } } 
+			  
+			  }
+			  
+		   ] , function(err, myResult)
+		   {
+				 arrIntraOperative[3] = myResult[0].count;
+GS.aggregate(
+		   [
+			 { $match : {"IntraOperativeComplications.ProcedureNotCompleted": true } },
+			  {
+				  $group : { _id : null ,count: { $sum: 1 } } 
+			  
+			  }
+			  
+		   ] , function(err, myResult)
+		   {
+				 arrIntraOperative[4] = myResult[0].count;
+
+								arr[0] = arrIntraOperative;
+								
+							  var myString = "LizJoseph";
+							  arr[1] = myString;
 							  res.json(arr);
 							  console.log("POST response sent.");
 			   
-		   }
-		);
-
-
+		   });});});});});
+		  
 });
 
 module.exports = router;
