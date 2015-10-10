@@ -302,35 +302,31 @@ function CollectDataFromClient(data)
                     category: []
                 }],
                 dataset: [{
-                    seriesName: 'Beverages',
+                    seriesName: 'Fallopian Tube Cancer',
                     renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Condiments',
+                    seriesName: 'Vulva Cancer',
                     renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Confections',
+                    seriesName: 'Endometrial Cancer',
                     renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Dairy Products',
+                    seriesName: 'Cervical Cancer',
+                    renderAs: 'line',
+                    data: []
+                },  {
+                    seriesName: 'Ovarian Cancer',
                     renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Grains / Cereals',
+                    seriesName: 'Gestational Throphoblastic Disease',
                     renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Meat / Poultry',
-                    renderAs: 'line',
-                    data: []
-                }, {
-                    seriesName: 'Produce',
-                    renderAs: 'line',
-                    data: []
-                }, {
-                    seriesName: 'Seafood',
+                    seriesName: 'Vaginal Cancer',
                     renderAs: 'line',
                     data: []
                 }, {

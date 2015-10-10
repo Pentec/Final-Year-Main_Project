@@ -1163,175 +1163,50 @@ var managementData = {
         "2014": {
             "all": [{
                 "data": {
-                    "label": "Beverages",
+                    "label": "Fallopian Tube Cancer",
                     "value": "256957.25000",
                     "link": "#"
 
                 }
             }, {
                 "data": {
-                    "label": "Confections",
+                    "label": "Endometrial Cancer",
                     "value": "176918.92000",
                     "link": "#"
 
                 }
             }, {
                 "data": {
-                    "label": "Meat/Poultry",
+                    "label": "Ovarian Cancer",
                     "value": "174995.20000",
                     "link": "#"
 
                 }
             }, {
                 "data": {
-                    "label": "Dairy Products",
+                    "label": "Cervical Cancer",
                     "value": "148607.60000",
                     "link": "#"
 
                 }
             }, {
                 "data": {
-                    "label": "Condiments",
+                    "label": "Vulva Cancer",
                     "value": "141611.45000",
                     "link": "#"
 
                 }
             }, {
                 "data": {
-                    "label": "Seafood",
+                    "label": "Vaginal Cancer",
                     "value": "124437.27000",
                     "link": "#"
 
                 }
             }, {
                 "data": {
-                    "label": "Produce",
+                    "label": "Gestational Throphoblastic Disease",
                     "value": "71436.85000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Grains/Cereals",
-                    "value": "65362.75000",
-                    "link": "#"
-
-                }
-            }]
-        },
-        "2013": {
-            "all": [{
-                "data": {
-                    "label": "Beverages",
-                    "value": "278908.00000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Meat/Poultry",
-                    "value": "175454.25000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Confections",
-                    "value": "172986.16000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Dairy Products",
-                    "value": "167400.80000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Seafood",
-                    "value": "145863.84000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Condiments",
-                    "value": "135713.70000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Produce",
-                    "value": "86443.35000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Grains/Cereals",
-                    "value": "85307.75000",
-                    "link": "#"
-
-                }
-            }]
-        },
-        "2012": {
-            "all": [{
-                "data": {
-                    "label": "Dairy Products",
-                    "value": "135164.00000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Beverages",
-                    "value": "123044.25000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Confections",
-                    "value": "91525.68000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Meat/Poultry",
-                    "value": "89595.78000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Seafood",
-                    "value": "71428.83000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Grains/Cereals",
-                    "value": "61267.00000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Condiments",
-                    "value": "59164.95000",
-                    "link": "#"
-
-                }
-            }, {
-                "data": {
-                    "label": "Produce",
-                    "value": "51605.60000",
                     "link": "#"
 
                 }
@@ -2575,163 +2450,52 @@ var managementData = {
     },
     topCategoriesSalesTabCategories: {
         "2014": [{
-            "label": "Beverages"
+            "label": "Fallopian Tube Cancer"
         }, {
-            "label": "Confections"
+            "label": "Endometrial Cancer"
         }, {
-            "label": "Meat/Poultry"
+            "label": "Ovarian Cancer"
         }, {
-            "label": "Dairy Products"
+            "label": "Cervical Cancer"
         }, {
-            "label": "Condiments"
+            "label": "Vulva Cancer"
         }, {
-            "label": "Seafood"
+            "label": "Vaginal Cancer"
         }, {
-            "label": "Produce"
-        }, {
-            "label": "Grains/Cereals"
-        }],
-        "2013": [{
-            "label": "Beverages"
-        }, {
-            "label": "Meat/Poultry"
-        }, {
-            "label": "Confections"
-        }, {
-            "label": "Dairy Products"
-        }, {
-            "label": "Seafood"
-        }, {
-            "label": "Condiments"
-        }, {
-            "label": "Produce"
-        }, {
-            "label": "Grains/Cereals"
-        }],
-        "2012": [{
-            "label": "Dairy Products"
-        }, {
-            "label": "Beverages"
-        }, {
-            "label": "Confections"
-        }, {
-            "label": "Meat/Poultry"
-        }, {
-            "label": "Seafood"
-        }, {
-            "label": "Grains/Cereals"
-        }, {
-            "label": "Condiments"
-        }, {
-            "label": "Produce"
-        }, ]
+            "label": "Gestational Throphoblastic Disease"
+        }]
     },
     topCategoriesSalesTabData: {
         "2014": [{
             "data": [{
-                "label": "Beverages",
+                "label": "Fallopian Tube Cancer",
                 "value": "256957.25000",
                 "link": "#sales"
             }, {
-                "label": "Confections",
+                "label": "Endometrial Cancer",
                 "value": "176918.92000",
                 "link": "#sales"
             }, {
-                "label": "Meat/Poultry",
+                "label": "Ovarian Cancer",
                 "value": "174995.20000",
                 "link": "#sales"
             }, {
-                "label": "Dairy Products",
+                "label": "Cervical Cancer",
                 "value": "148607.60000",
                 "link": "#sales"
             }, {
-                "label": "Condiments",
+                "label": "Vulva Cancer",
                 "value": "141611.45000",
                 "link": "#sales"
             }, {
 
-                "label": "Seafood",
+                "label": "Vaginal Cancer",
                 "value": "124437.27000",
                 "link": "#sales"
             }, {
 
-                "label": "Produce",
+                "label": "Gestational Throphoblastic Disease",
                 "value": "71436.85000",
-                "link": "#sales"
-            }, {
-
-                "label": "Grains / Cereals",
-                "value": "65362.75000",
-                "link": "#sales"
-            }]
-        }],
-        "2013": [{
-            "data": [{
-                "label": "Beverages",
-                "value": "278908.00000",
-                "link": "#sales"
-            }, {
-                "label": "Meat/Poultry",
-                "value": "175454.25000",
-                "link": "#sales"
-            }, {
-                "label": "Confections",
-                "value": "172986.16000",
-                "link": "#sales"
-            }, {
-                "label": "Dairy Products",
-                "value": "167400.80000",
-                "link": "#sales"
-            }, {
-                "label": "Seafood",
-                "value": "145863.84000",
-                "link": "#sales"
-            }, {
-                "label": "Condiments",
-                "value": "135713.70000",
-                "link": "#sales"
-            }, {
-                "label": "Produce",
-                "value": "86443.35000",
-                "link": "#sales"
-            }, {
-                "label": "Grains/Cereals",
-                "value": "85307.75000",
-                "link": "#sales"
-            }]
-        }],
-        "2012": [{
-            "data": [{
-                "label": "Dairy Products",
-                "value": "135164.00000",
-                "link": "#sales"
-            }, {
-                "label": "Beverages",
-                "value": "123044.25000",
-                "link": "#sales"
-            }, {
-                "label": "Confections",
-                "value": "91525.68000",
-                "link": "#sales"
-            }, {
-                "label": "Meat/Poultry",
-                "value": "89595.78000",
-                "link": "#sales"
-            }, {
-                "label": "Seafood",
-                "value": "71428.83000",
-                "link": "#sales"
-            }, {
-                "label": "Grains/Cereals",
-                "value": "61267.00000",
-                "link": "#sales"
-            }, {
-                "label": "Condiments",
-                "value": "59164.95000",
-                "link": "#sales"
-            }, {
-                "label": "Produce",
-                "value": "51605.60000",
                 "link": "#sales"
             }]
         }]
@@ -3005,44 +2769,20 @@ var managementData = {
     },
     productWiseSalesCategories: {
         "2014": {
-            "beverages": [{
-                "label": "Chai",
-                "toolText": "Chai"
+            "fallopian_tube_cancer": [{
+                "label": "Alive (unknown disease status)",
+                "toolText": "Alive (unknown disease status)"
             }, {
-                "label": "Chang",
-                "toolText": "Chang"
+                "label": "Alive and no evidence of disease",
+                "toolText": "Alive and no evidence of disease"
             }, {
-                "label": "Chartreu...",
-                "toolText": "Chartreuse verte"
+                "label": "Alive with disease",
+                "toolText": "Alive with disease"
             }, {
-                "label": "Côte de...",
-                "toolText": "Côte de Blaye"
-            }, {
-                "label": "Guaraná...",
-                "toolText": "Guaraná Fantástica"
-            }, {
-                "label": "Ipoh Cof...",
-                "toolText": "Ipoh Coffee"
-            }, {
-                "label": "Lakkalik...",
-                "toolText": "Lakkalikööri"
-            }, {
-                "label": "Laughing...",
-                "toolText": "Laughing Lumberjack Lager"
-            }, {
-                "label": "Outback ...",
-                "toolText": "Outback Lager"
-            }, {
-                "label": "Rhönbräu ...",
-                "toolText": "Rhönbräu Klosterbier"
-            }, {
-                "label": "Sasquatc...",
-                "toolText": "Sasquatch Ale"
-            }, {
-                "label": "Steeleye...",
-                "toolText": "Steeleye Stout"
+                "label": "Dead",
+                "toolText": "Dead"
             }],
-            "confections": [{
+            "endometrial_cancer": [{
                 "label": "Chocolad...",
                 "toolText": "Chocolade"
             }, {
@@ -3054,35 +2794,8 @@ var managementData = {
             }, {
                 "label": "NuNuCa N...",
                 "toolText": "NuNuCa Nuß-Nougat-Creme"
-            }, {
-                "label": "Pavlova",
-                "toolText": "Pavlova"
-            }, {
-                "label": "Schoggi ...",
-                "toolText": "Schoggi Schokolade"
-            }, {
-                "label": "Scottish...",
-                "toolText": "Scottish Longbreads"
-            }, {
-                "label": "Sir Rodn...",
-                "toolText": "Sir Rodney's Marmalade"
-            }, {
-                "label": "Sir Rodn...",
-                "toolText": "Sir Rodney's Scones"
-            }, {
-                "label": "Tarte au...",
-                "toolText": "Tarte au sucre"
-            }, {
-                "label": "Teatime ...",
-                "toolText": "Teatime Chocolate Biscuits"
-            }, {
-                "label": "Valkoine...",
-                "toolText": "Valkoinen suklaa"
-            }, {
-                "label": "Zaanse k...",
-                "toolText": "Zaanse koeken"
             }],
-            "meat_poultry": [{
+            "ovarian_cancer": [{
                 "label": "Alice Mu...",
                 "toolText": "Alice Mutton"
             }, {
@@ -3094,14 +2807,8 @@ var managementData = {
             }, {
                 "label": "Perth Pa...",
                 "toolText": "Perth Pasties"
-            }, {
-                "label": "Thüring...",
-                "toolText": "Thüringer Rostbratwurst"
-            }, {
-                "label": "Tourtiè...",
-                "toolText": "Tourtière"
             }],
-            "dairy_products": [{
+            "cervical_cancer": [{
                 "label": "Camember...",
                 "toolText": "Camembert Pierrot"
             }, {
@@ -3113,26 +2820,8 @@ var managementData = {
             }, {
                 "label": "Gorgonzo...",
                 "toolText": "Gorgonzola Telino"
-            }, {
-                "label": "Gudbrand...",
-                "toolText": "Gudbrandsdalsost"
-            }, {
-                "label": "Mascarpo...",
-                "toolText": "Mascarpone Fabioli"
-            }, {
-                "label": "Mozzarel...",
-                "toolText": "Mozzarella di Giovanni"
-            }, {
-                "label": "Queso Ca...",
-                "toolText": "Queso Cabrales"
-            }, {
-                "label": "Queso Ma...",
-                "toolText": "Queso Manchego La Pastora"
-            }, {
-                "label": "Raclette...",
-                "toolText": "Raclette Courdavault"
             }],
-            "condiments": [{
+            "vulva_cancer": [{
                 "label": "Aniseed ...",
                 "toolText": "Aniseed Syrup"
             }, {
@@ -3144,32 +2833,8 @@ var managementData = {
             }, {
                 "label": "Genen Sh...",
                 "toolText": "Genen Shouyu"
-            }, {
-                "label": "Grandma'...",
-                "toolText": "Grandma's Boysenberry Spread"
-            }, {
-                "label": "Gula Mal...",
-                "toolText": "Gula Malacca"
-            }, {
-                "label": "Louisian...",
-                "toolText": "Louisiana Fiery Hot Pepper Sauce"
-            }, {
-                "label": "Louisian...",
-                "toolText": "Louisiana Hot Spiced Okra"
-            }, {
-                "label": "Northwoo...",
-                "toolText": "Northwoods Cranberry Sauce"
-            }, {
-                "label": "Original...",
-                "toolText": "Original Frankfurter grüne Soße"
-            }, {
-                "label": "Sirop d'...",
-                "toolText": "Sirop d'érable"
-            }, {
-                "label": "Vegie-sp...",
-                "toolText": "Vegie-spread"
             }],
-            "seafood": [{
+            "vaginal_cancer": [{
                 "label": "Boston C...",
                 "toolText": "Boston Crab Meat"
             }, {
@@ -3181,32 +2846,8 @@ var managementData = {
             }, {
                 "label": "Gravad l...",
                 "toolText": "Gravad lax"
-            }, {
-                "label": "Ikura",
-                "toolText": "Ikura"
-            }, {
-                "label": "Inlagd S...",
-                "toolText": "Inlagd Sill"
-            }, {
-                "label": "Jack's N...",
-                "toolText": "Jack's New England Clam Chowder"
-            }, {
-                "label": "Konbu",
-                "toolText": "Konbu"
-            }, {
-                "label": "Nord-Ost...",
-                "toolText": "Nord-Ost Matjeshering"
-            }, {
-                "label": "Röd Kav...",
-                "toolText": "Röd Kaviar"
-            }, {
-                "label": "Røgede ...",
-                "toolText": "Røgede sild"
-            }, {
-                "label": "Spegesil...",
-                "toolText": "Spegesild"
             }],
-            "produce": [{
+            "gestational_throphoblastic_disease": [{
                 "label": "Longlife...",
                 "toolText": "Longlife Tofu"
             }, {
@@ -3218,543 +2859,20 @@ var managementData = {
             }, {
                 "label": "Tofu",
                 "toolText": "Tofu"
-            }, {
-                "label": "Uncle Bo...",
-                "toolText": "Uncle Bob's Organic Dried Pears"
-            }],
-            "grains_cereals": [{
-                "label": "Filo Mix",
-                "toolText": "Filo Mix"
-            }, {
-                "label": "Gnocchi ...",
-                "toolText": "Gnocchi di nonna Alice"
-            }, {
-                "label": "Gustaf's...",
-                "toolText": "Gustaf's Knäckebröd"
-            }, {
-                "label": "Ravioli ...",
-                "toolText": "Ravioli Angelo"
-            }, {
-                "label": "Singapor...",
-                "toolText": "Singaporean Hokkien Fried Mee"
-            }, {
-                "label": "Tunnbrö...",
-                "toolText": "Tunnbröd"
-            }, {
-                "label": "Wimmers ...",
-                "toolText": "Wimmers gute Semmelknödel"
-            }]
-        },
-        "2013": {
-            "beverages": [{
-                "label": "Chai",
-                "toolText": "Chai"
-            }, {
-                "label": "Chang",
-                "toolText": "Chang"
-            }, {
-                "label": "Chartreu...",
-                "toolText": "Chartreuse verte"
-            }, {
-                "label": "Côte de...",
-                "toolText": "Côte de Blaye"
-            }, {
-                "label": "Guaraná...",
-                "toolText": "Guaraná Fantástica"
-            }, {
-                "label": "Ipoh Cof...",
-                "toolText": "Ipoh Coffee"
-            }, {
-                "label": "Lakkalik...",
-                "toolText": "Lakkalikööri"
-            }, {
-                "label": "Laughing...",
-                "toolText": "Laughing Lumberjack Lager"
-            }, {
-                "label": "Outback ...",
-                "toolText": "Outback Lager"
-            }, {
-                "label": "Rhönbr�...",
-                "toolText": "Rhönbräu Klosterbier"
-            }, {
-                "label": "Sasquatc...",
-                "toolText": "Sasquatch Ale"
-            }, {
-                "label": "Steeleye...",
-                "toolText": "Steeleye Stout"
-            }],
-            "meat_poultry": [{
-                "label": "Alice Mu...",
-                "toolText": "Alice Mutton"
-            }, {
-                "label": "Mishi Ko...",
-                "toolText": "Mishi Kobe Niku"
-            }, {
-                "label": "Pâté c...",
-                "toolText": "Pâté chinois"
-            }, {
-                "label": "Perth Pa...",
-                "toolText": "Perth Pasties"
-            }, {
-                "label": "Thüring...",
-                "toolText": "Thüringer Rostbratwurst"
-            }, {
-                "label": "Tourtiè...",
-                "toolText": "Tourtière"
-            }],
-            "confections": [{
-                "label": "Chocolad...",
-                "toolText": "Chocolade"
-            }, {
-                "label": "Gumbär ...",
-                "toolText": "Gumbär Gummibärchen"
-            }, {
-                "label": "Maxilaku",
-                "toolText": "Maxilaku"
-            }, {
-                "label": "NuNuCa N...",
-                "toolText": "NuNuCa Nuß-Nougat-Creme"
-            }, {
-                "label": "Pavlova",
-                "toolText": "Pavlova"
-            }, {
-                "label": "Schoggi ...",
-                "toolText": "Schoggi Schokolade"
-            }, {
-                "label": "Scottish...",
-                "toolText": "Scottish Longbreads"
-            }, {
-                "label": "Sir Rodn...",
-                "toolText": "Sir Rodney's Marmalade"
-            }, {
-                "label": "Sir Rodn...",
-                "toolText": "Sir Rodney's Scones"
-            }, {
-                "label": "Tarte au...",
-                "toolText": "Tarte au sucre"
-            }, {
-                "label": "Teatime ...",
-                "toolText": "Teatime Chocolate Biscuits"
-            }, {
-                "label": "Valkoine...",
-                "toolText": "Valkoinen suklaa"
-            }, {
-                "label": "Zaanse k...",
-                "toolText": "Zaanse koeken"
-            }],
-            "dairy_products": [{
-                "label": "Camember...",
-                "toolText": "Camembert Pierrot"
-            }, {
-                "label": "Fløtemy...",
-                "toolText": "Fløtemysost"
-            }, {
-                "label": "Geitost",
-                "toolText": "Geitost"
-            }, {
-                "label": "Gorgonzo...",
-                "toolText": "Gorgonzola Telino"
-            }, {
-                "label": "Gudbrand...",
-                "toolText": "Gudbrandsdalsost"
-            }, {
-                "label": "Mascarpo...",
-                "toolText": "Mascarpone Fabioli"
-            }, {
-                "label": "Mozzarel...",
-                "toolText": "Mozzarella di Giovanni"
-            }, {
-                "label": "Queso Ca...",
-                "toolText": "Queso Cabrales"
-            }, {
-                "label": "Queso Ma...",
-                "toolText": "Queso Manchego La Pastora"
-            }, {
-                "label": "Raclette...",
-                "toolText": "Raclette Courdavault"
-            }],
-            "seafood": [{
-                "label": "Boston C...",
-                "toolText": "Boston Crab Meat"
-            }, {
-                "label": "Carnarvo...",
-                "toolText": "Carnarvon Tigers"
-            }, {
-                "label": "Escargot...",
-                "toolText": "Escargots de Bourgogne"
-            }, {
-                "label": "Gravad l...",
-                "toolText": "Gravad lax"
-            }, {
-                "label": "Ikura",
-                "toolText": "Ikura"
-            }, {
-                "label": "Inlagd S...",
-                "toolText": "Inlagd Sill"
-            }, {
-                "label": "Jack's N...",
-                "toolText": "Jack's New England Clam Chowder"
-            }, {
-                "label": "Konbu",
-                "toolText": "Konbu"
-            }, {
-                "label": "Nord-Ost...",
-                "toolText": "Nord-Ost Matjeshering"
-            }, {
-                "label": "Röd Kav...",
-                "toolText": "Röd Kaviar"
-            }, {
-                "label": "Røgede ...",
-                "toolText": "Røgede sild"
-            }, {
-                "label": "Spegesil...",
-                "toolText": "Spegesild"
-            }],
-            "condiments": [{
-                "label": "Aniseed ...",
-                "toolText": "Aniseed Syrup"
-            }, {
-                "label": "Chef Ant...",
-                "toolText": "Chef Anton's Cajun Seasoning"
-            }, {
-                "label": "Chef Ant...",
-                "toolText": "Chef Anton's Gumbo Mix"
-            }, {
-                "label": "Genen Sh...",
-                "toolText": "Genen Shouyu"
-            }, {
-                "label": "Grandma'...",
-                "toolText": "Grandma's Boysenberry Spread"
-            }, {
-                "label": "Gula Mal...",
-                "toolText": "Gula Malacca"
-            }, {
-                "label": "Louisian...",
-                "toolText": "Louisiana Fiery Hot Pepper Sauce"
-            }, {
-                "label": "Louisian...",
-                "toolText": "Louisiana Hot Spiced Okra"
-            }, {
-                "label": "Northwoo...",
-                "toolText": "Northwoods Cranberry Sauce"
-            }, {
-                "label": "Original...",
-                "toolText": "Original Frankfurter grüne Soße"
-            }, {
-                "label": "Sirop d'...",
-                "toolText": "Sirop d'érable"
-            }, {
-                "label": "Vegie-sp...",
-                "toolText": "Vegie-spread"
-            }],
-            "produce": [{
-                "label": "Longlife...",
-                "toolText": "Longlife Tofu"
-            }, {
-                "label": "Manjimup...",
-                "toolText": "Manjimup Dried Apples"
-            }, {
-                "label": "Rössle ...",
-                "toolText": "Rössle Sauerkraut"
-            }, {
-                "label": "Tofu",
-                "toolText": "Tofu"
-            }, {
-                "label": "Uncle Bo...",
-                "toolText": "Uncle Bob's Organic Dried Pears"
-            }, ],
-            "grains_cereals": [{
-                "label": "Filo Mix",
-                "toolText": "Filo Mix"
-            }, {
-                "label": "Gnocchi ...",
-                "toolText": "Gnocchi di nonna Alice"
-            }, {
-                "label": "Gustaf's...",
-                "toolText": "Gustaf's Knäckebröd"
-            }, {
-                "label": "Ravioli ...",
-                "toolText": "Ravioli Angelo"
-            }, {
-                "label": "Singapor...",
-                "toolText": "Singaporean Hokkien Fried Mee"
-            }, {
-                "label": "Tunnbrö...",
-                "toolText": "Tunnbröd"
-            }, {
-                "label": "Wimmers ...",
-                "toolText": "Wimmers gute Semmelknödel"
-            }]
-        },
-        "2012": {
-            "beverages": [{
-                "label": "Chai",
-                "toolText": "Chai"
-            }, {
-                "label": "Chang",
-                "toolText": "Chang"
-            }, {
-                "label": "Chartreu...",
-                "toolText": "Chartreuse verte"
-            }, {
-                "label": "Côte de...",
-                "toolText": "Côte de Blaye"
-            }, {
-                "label": "Guaraná...",
-                "toolText": "Guaraná Fantástica"
-            }, {
-                "label": "Ipoh Cof...",
-                "toolText": "Ipoh Coffee"
-            }, {
-                "label": "Lakkalik...",
-                "toolText": "Lakkalikööri"
-            }, {
-                "label": "Laughing...",
-                "toolText": "Laughing Lumberjack Lager"
-            }, {
-                "label": "Outback ...",
-                "toolText": "Outback Lager"
-            }, {
-                "label": "Rhönbr�...",
-                "toolText": "Rhönbräu Klosterbier"
-            }, {
-                "label": "Sasquatc...",
-                "toolText": "Sasquatch Ale"
-            }, {
-                "label": "Steeleye...",
-                "toolText": "Steeleye Stout"
-            }],
-            "meat_poultry": [{
-                "label": "Alice Mu...",
-                "toolText": "Alice Mutton"
-            }, {
-                "label": "Mishi Ko...",
-                "toolText": "Mishi Kobe Niku"
-            }, {
-                "label": "Pâté c...",
-                "toolText": "Pâté chinois"
-            }, {
-                "label": "Perth Pa...",
-                "toolText": "Perth Pasties"
-            }, {
-                "label": "Thüring...",
-                "toolText": "Thüringer Rostbratwurst"
-            }, {
-                "label": "Tourtiè...",
-                "toolText": "Tourtière"
-            }],
-            "confections": [{
-                "label": "Chocolad...",
-                "toolText": "Chocolade"
-            }, {
-                "label": "Gumbär ...",
-                "toolText": "Gumbär Gummibärchen"
-            }, {
-                "label": "Maxilaku",
-                "toolText": "Maxilaku"
-            }, {
-                "label": "NuNuCa N...",
-                "toolText": "NuNuCa Nuß-Nougat-Creme"
-            }, {
-                "label": "Pavlova",
-                "toolText": "Pavlova"
-            }, {
-                "label": "Schoggi ...",
-                "toolText": "Schoggi Schokolade"
-            }, {
-                "label": "Scottish...",
-                "toolText": "Scottish Longbreads"
-            }, {
-                "label": "Sir Rodn...",
-                "toolText": "Sir Rodney's Marmalade"
-            }, {
-                "label": "Sir Rodn...",
-                "toolText": "Sir Rodney's Scones"
-            }, {
-                "label": "Tarte au...",
-                "toolText": "Tarte au sucre"
-            }, {
-                "label": "Teatime ...",
-                "toolText": "Teatime Chocolate Biscuits"
-            }, {
-                "label": "Valkoine...",
-                "toolText": "Valkoinen suklaa"
-            }, {
-                "label": "Zaanse k...",
-                "toolText": "Zaanse koeken"
-            }],
-            "dairy_products": [{
-                "label": "Camember...",
-                "toolText": "Camembert Pierrot"
-            }, {
-                "label": "Fløtemy...",
-                "toolText": "Fløtemysost"
-            }, {
-                "label": "Geitost",
-                "toolText": "Geitost"
-            }, {
-                "label": "Gorgonzo...",
-                "toolText": "Gorgonzola Telino"
-            }, {
-                "label": "Gudbrand...",
-                "toolText": "Gudbrandsdalsost"
-            }, {
-                "label": "Mascarpo...",
-                "toolText": "Mascarpone Fabioli"
-            }, {
-                "label": "Mozzarel...",
-                "toolText": "Mozzarella di Giovanni"
-            }, {
-                "label": "Queso Ca...",
-                "toolText": "Queso Cabrales"
-            }, {
-                "label": "Queso Ma...",
-                "toolText": "Queso Manchego La Pastora"
-            }, {
-                "label": "Raclette...",
-                "toolText": "Raclette Courdavault"
-            }],
-            "seafood": [{
-                "label": "Boston C...",
-                "toolText": "Boston Crab Meat"
-            }, {
-                "label": "Carnarvo...",
-                "toolText": "Carnarvon Tigers"
-            }, {
-                "label": "Escargot...",
-                "toolText": "Escargots de Bourgogne"
-            }, {
-                "label": "Gravad l...",
-                "toolText": "Gravad lax"
-            }, {
-                "label": "Ikura",
-                "toolText": "Ikura"
-            }, {
-                "label": "Inlagd S...",
-                "toolText": "Inlagd Sill"
-            }, {
-                "label": "Jack's N...",
-                "toolText": "Jack's New England Clam Chowder"
-            }, {
-                "label": "Konbu",
-                "toolText": "Konbu"
-            }, {
-                "label": "Nord-Ost...",
-                "toolText": "Nord-Ost Matjeshering"
-            }, {
-                "label": "Röd Kav...",
-                "toolText": "Röd Kaviar"
-            }, {
-                "label": "Røgede ...",
-                "toolText": "Røgede sild"
-            }, {
-                "label": "Spegesil...",
-                "toolText": "Spegesild"
-            }],
-            "condiments": [{
-                "label": "Aniseed ...",
-                "toolText": "Aniseed Syrup"
-            }, {
-                "label": "Chef Ant...",
-                "toolText": "Chef Anton's Cajun Seasoning"
-            }, {
-                "label": "Chef Ant...",
-                "toolText": "Chef Anton's Gumbo Mix"
-            }, {
-                "label": "Genen Sh...",
-                "toolText": "Genen Shouyu"
-            }, {
-                "label": "Grandma'...",
-                "toolText": "Grandma's Boysenberry Spread"
-            }, {
-                "label": "Gula Mal...",
-                "toolText": "Gula Malacca"
-            }, {
-                "label": "Louisian...",
-                "toolText": "Louisiana Fiery Hot Pepper Sauce"
-            }, {
-                "label": "Louisian...",
-                "toolText": "Louisiana Hot Spiced Okra"
-            }, {
-                "label": "Northwoo...",
-                "toolText": "Northwoods Cranberry Sauce"
-            }, {
-                "label": "Original...",
-                "toolText": "Original Frankfurter grüne Soße"
-            }, {
-                "label": "Sirop d'...",
-                "toolText": "Sirop d'érable"
-            }, {
-                "label": "Vegie-sp...",
-                "toolText": "Vegie-spread"
-            }],
-            "produce": [{
-                "label": "Longlife...",
-                "toolText": "Longlife Tofu"
-            }, {
-                "label": "Manjimup...",
-                "toolText": "Manjimup Dried Apples"
-            }, {
-                "label": "Rössle ...",
-                "toolText": "Rössle Sauerkraut"
-            }, {
-                "label": "Tofu",
-                "toolText": "Tofu"
-            }, {
-                "label": "Uncle Bo...",
-                "toolText": "Uncle Bob's Organic Dried Pears"
-            }],
-            "grains_cereals": [{
-                "label": "Filo Mix",
-                "toolText": "Filo Mix"
-            }, {
-                "label": "Gnocchi ...",
-                "toolText": "Gnocchi di nonna Alice"
-            }, {
-                "label": "Gustaf's...",
-                "toolText": "Gustaf's Knäckebröd"
-            }, {
-                "label": "Ravioli ...",
-                "toolText": "Ravioli Angelo"
-            }, {
-                "label": "Singapor...",
-                "toolText": "Singaporean Hokkien Fried Mee"
-            }, {
-                "label": "Tunnbrö...",
-                "toolText": "Tunnbröd"
-            }, {
-                "label": "Wimmers ...",
-                "toolText": "Wimmers gute Semmelknödel"
             }]
         }
     },
     productWiseSalesData: {
         "2014": {
-            "beverages": [{
+            "fallopian_tube_cancer": [{
                 "data": [{
-                    "value": "10890"
+                    "value": "10890" //Alive unknown disease
                 }, {
-                    "value": "11077"
+                    "value": "11077" //Alive and no evidence of disease
                 }, {
-                    "value": "8208"
+                    "value": "8208" // Alive with disease
                 }, {
-                    "value": "162843"
-                }, {
-                    "value": "1773"
-                }, {
-                    "value": "18676"
-                }, {
-                    "value": "9468"
-                }, {
-                    "value": "6678"
-                }, {
-                    "value": "8280"
-                }, {
-                    "value": "2410"
-                }, {
-                    "value": "8302"
-                }, {
-                    "value": "8352"
+                    "value": "162843" //Dead
                 }]
             }, {
                 "data": [{
@@ -3769,33 +2887,9 @@ var managementData = {
                 }, {
                     "tooltext": "Côte de Blaye, Units Sold : 618",
                     "value": "618"
-                }, {
-                    "tooltext": "Guaraná Fantástica, Units Sold : 394",
-                    "value": "394"
-                }, {
-                    "tooltext": "Ipoh Coffee, Units Sold : 406",
-                    "value": "406"
-                }, {
-                    "tooltext": "Lakkalikööri, Units Sold : 526",
-                    "value": "526"
-                }, {
-                    "tooltext": "Laughing Lumberjack Lager, Units Sold : 477",
-                    "value": "477"
-                }, {
-                    "tooltext": "Outback Lager, Units Sold : 552",
-                    "value": "552"
-                }, {
-                    "tooltext": "Rhönbräu Klosterbier, Units Sold : 311",
-                    "value": "311"
-                }, {
-                    "tooltext": "Sasquatch Ale, Units Sold : 593",
-                    "value": "593"
-                }, {
-                    "tooltext": "Steeleye Stout, Units Sold : 464",
-                    "value": "464"
                 }]
             }],
-            "confections": [{
+            "endometrial_cancer": [{
                 "data": [{
                     "value": "5623"
                 }, {
@@ -3804,24 +2898,6 @@ var managementData = {
                     "value": "7340"
                 }, {
                     "value": "9324"
-                }, {
-                    "value": "11308"
-                }, {
-                    "value": "20545"
-                }, {
-                    "value": "7175"
-                }, {
-                    "value": "43092"
-                }, {
-                    "value": "4850"
-                }, {
-                    "value": "31059"
-                }, {
-                    "value": "4030"
-                }, {
-                    "value": "8076"
-                }, {
-                    "value": "3449"
                 }]
             }, {
                 "data": [{
@@ -3836,36 +2912,9 @@ var managementData = {
                 }, {
                     "tooltext": "NuNuCa Nuß-Nougat-Creme, Units Sold : 666",
                     "value": "666"
-                }, {
-                    "tooltext": "Pavlova, Units Sold : 648",
-                    "value": "648"
-                }, {
-                    "tooltext": "Schoggi Schokolade, Units Sold : 468",
-                    "value": "468"
-                }, {
-                    "tooltext": "Scottish Longbreads, Units Sold : 574",
-                    "value": "574"
-                }, {
-                    "tooltext": "Sir Rodney's Marmalade, Units Sold : 532",
-                    "value": "532"
-                }, {
-                    "tooltext": "Sir Rodney's Scones, Units Sold : 485",
-                    "value": "485"
-                }, {
-                    "tooltext": "Tarte au sucre, Units Sold : 630",
-                    "value": "630"
-                }, {
-                    "tooltext": "Teatime Chocolate Biscuits, Units Sold : 438",
-                    "value": "438"
-                }, {
-                    "tooltext": "Valkoinen suklaa, Units Sold : 497",
-                    "value": "497"
-                }, {
-                    "tooltext": "Zaanse koeken, Units Sold : 363",
-                    "value": "363"
                 }]
             }],
-            "meat_poultry": [{
+            "ovarian_cancer": [{
                 "data": [{
                     "value": "17823"
                 }, {
@@ -3874,10 +2923,6 @@ var managementData = {
                     "value": "10176"
                 }, {
                     "value": "17023"
-                }, {
-                    "value": "64990"
-                }, {
-                    "value": "4358"
                 }]
             }, {
                 "data": [{
@@ -3892,15 +2937,9 @@ var managementData = {
                 }, {
                     "tooltext": "Perth Pasties, Units Sold : 519",
                     "value": "519"
-                }, {
-                    "tooltext": "Thüringer Rostbratwurst, Units Sold : 525",
-                    "value": "525"
-                }, {
-                    "tooltext": "Tourtière, Units Sold : 585",
-                    "value": "585"
                 }]
             }],
-            "dairy_products": [{
+            "cervical_cancer": [{
                 "data": [{
                     "value": "15878"
                 }, {
@@ -3909,18 +2948,6 @@ var managementData = {
                     "value": "1318"
                 }, {
                     "value": "7900"
-                }, {
-                    "value": "14148"
-                }, {
-                    "value": "16224"
-                }, {
-                    "value": "16948"
-                }, {
-                    "value": "9030"
-                }, {
-                    "value": "19760"
-                }, {
-                    "value": "35255"
                 }]
             }, {
                 "data": [{
@@ -3935,27 +2962,9 @@ var managementData = {
                 }, {
                     "tooltext": "Gorgonzola Telino, Units Sold : 632",
                     "value": "632"
-                }, {
-                    "tooltext": "Gudbrandsdalsost, Units Sold : 393",
-                    "value": "393"
-                }, {
-                    "tooltext": "Mascarpone Fabioli, Units Sold : 507",
-                    "value": "507"
-                }, {
-                    "tooltext": "Mozzarella di Giovanni, Units Sold : 487",
-                    "value": "487"
-                }, {
-                    "tooltext": "Queso Cabrales, Units Sold : 430",
-                    "value": "430"
-                }, {
-                    "tooltext": "Queso Manchego La Pastora, Units Sold : 520",
-                    "value": "520"
-                }, {
-                    "tooltext": "Raclette Courdavault, Units Sold : 641",
-                    "value": "641"
                 }]
             }],
-            "condiments": [{
+            "vulva_cancer": [{
                 "data": [{
                     "value": "6940"
                 }, {
@@ -3964,22 +2973,6 @@ var managementData = {
                     "value": "13792"
                 }, {
                     "value": "9517"
-                }, {
-                    "value": "11650"
-                }, {
-                    "value": "10425"
-                }, {
-                    "value": "8525"
-                }, {
-                    "value": "8415"
-                }, {
-                    "value": "25360"
-                }, {
-                    "value": "6578"
-                }, {
-                    "value": "11828"
-                }, {
-                    "value": "17823"
                 }]
             }, {
                 "data": [{
@@ -3994,33 +2987,9 @@ var managementData = {
                 }, {
                     "tooltext": "Genen Shouyu, Units Sold : 614",
                     "value": "614"
-                }, {
-                    "tooltext": "Grandma's Boysenberry Spread, Units Sold : 466",
-                    "value": "466"
-                }, {
-                    "tooltext": "Gula Malacca, Units Sold : 536",
-                    "value": "536"
-                }, {
-                    "tooltext": "Louisiana Fiery Hot Pepper Sauce, Units Sold : 405",
-                    "value": "405"
-                }, {
-                    "tooltext": "Louisiana Hot Spiced Okra, Units Sold : 495",
-                    "value": "495"
-                }, {
-                    "tooltext": "Northwoods Cranberry Sauce, Units Sold : 634",
-                    "value": "634"
-                }, {
-                    "tooltext": "Original Frankfurter grüne Soße, Units Sold : 506",
-                    "value": "506"
-                }, {
-                    "tooltext": "Sirop d'érable, Units Sold : 415",
-                    "value": "415"
-                }, {
-                    "tooltext": "Vegie-spread, Units Sold : 406",
-                    "value": "406"
                 }]
             }],
-            "seafood": [{
+            "vaginal_cancer": [{
                 "data": [{
                     "value": "10838"
                 }, {
@@ -4029,22 +2998,6 @@ var managementData = {
                     "value": "7473"
                 }, {
                     "value": "12974"
-                }, {
-                    "value": "16058"
-                }, {
-                    "value": "9424"
-                }, {
-                    "value": "3484"
-                }, {
-                    "value": "2928"
-                }, {
-                    "value": "17295"
-                }, {
-                    "value": "6210"
-                }, {
-                    "value": "4655"
-                }, {
-                    "value": "5412"
                 }]
             }, {
                 "data": [{
@@ -4059,33 +3012,9 @@ var managementData = {
                 }, {
                     "tooltext": "Gravad lax, Units Sold : 499",
                     "value": "499"
-                }, {
-                    "tooltext": "Ikura, Units Sold : 518",
-                    "value": "518"
-                }, {
-                    "tooltext": "Inlagd Sill, Units Sold : 496",
-                    "value": "496"
-                }, {
-                    "tooltext": "Jack's New England Clam Chowder, Units Sold : 361",
-                    "value": "361"
-                }, {
-                    "tooltext": "Konbu, Units Sold : 488",
-                    "value": "488"
-                }, {
-                    "tooltext": "Nord-Ost Matjeshering, Units Sold : 668",
-                    "value": "668"
-                }, {
-                    "tooltext": "Röd Kaviar, Units Sold : 414",
-                    "value": "414"
-                }, {
-                    "tooltext": "Røgede sild, Units Sold : 490",
-                    "value": "490"
-                }, {
-                    "tooltext": "Spegesild, Units Sold : 451",
-                    "value": "451"
                 }]
             }],
-            "produce": [{
+            "gestational_throphoblastic_disease": [{
                 "data": [{
                     "value": "3220"
                 }, {
@@ -4094,8 +3023,6 @@ var managementData = {
                     "value": "23986"
                 }, {
                     "value": "9137"
-                }, {
-                    "value": "15060"
                 }]
             }, {
                 "data": [{
@@ -4110,948 +3037,46 @@ var managementData = {
                 }, {
                     "tooltext": "Tofu, Units Sold : 393",
                     "value": "393"
-                }, {
-                    "tooltext": "Uncle Bob's Organic Dried Pears, Units Sold : 502",
-                    "value": "502"
-                }]
-            }],
-            "grains_cereals": [{
-                "data": [{
-                    "value": "2702"
-                }, {
-                    "value": "18848"
-                }, {
-                    "value": "9555"
-                }, {
-                    "value": "9204"
-                }, {
-                    "value": "5544"
-                }, {
-                    "value": "4248"
-                }, {
-                    "value": "15262"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Filo Mix, Units Sold : 386",
-                    "value": "386"
-                }, {
-                    "tooltext": "Gnocchi di nonna Alice, Units Sold : 496",
-                    "value": "496"
-                }, {
-                    "tooltext": "Gustaf's Knäckebröd, Units Sold : 455",
-                    "value": "455"
-                }, {
-                    "tooltext": "Ravioli Angelo, Units Sold : 472",
-                    "value": "472"
-                }, {
-                    "tooltext": "Singaporean Hokkien Fried Mee, Units Sold : 396",
-                    "value": "396"
-                }, {
-                    "tooltext": "Tunnbröd, Units Sold : 472",
-                    "value": "472"
-                }, {
-                    "tooltext": "Wimmers gute Semmelknödel, Units Sold : 459",
-                    "value": "459"
-                }]
-            }]
-        },
-        "2013": {
-            "beverages": [{
-                "data": [{
-                    "value": "14346"
-                }, {
-                    "value": "15219"
-                }, {
-                    "value": "14022"
-                }, {
-                    "value": "155202"
-                }, {
-                    "value": "3960"
-                }, {
-                    "value": "24932"
-                }, {
-                    "value": "9792"
-                }, {
-                    "value": "5572"
-                }, {
-                    "value": "8250"
-                }, {
-                    "value": "6154"
-                }, {
-                    "value": "9814"
-                }, {
-                    "value": "11646"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Chai, Units Sold : 797",
-                    "value": "797"
-                }, {
-                    "tooltext": "Chang, Units Sold : 801",
-                    "value": "801"
-                }, {
-                    "tooltext": "Chartreuse verte, Units Sold : 779",
-                    "value": "779"
-                }, {
-                    "tooltext": "Côte de Blaye, Units Sold : 589",
-                    "value": "589"
-                }, {
-                    "tooltext": "Guaraná Fantástica, Units Sold : 880",
-                    "value": "880"
-                }, {
-                    "tooltext": "Ipoh Coffee, Units Sold : 542",
-                    "value": "542"
-                }, {
-                    "tooltext": "Lakkalikööri, Units Sold : 544",
-                    "value": "544"
-                }, {
-                    "tooltext": "Laughing Lumberjack Lager, Units Sold : 398",
-                    "value": "398"
-                }, {
-                    "tooltext": "Outback Lager, Units Sold : 550",
-                    "value": "550"
-                }, {
-                    "tooltext": "Rhönbräu Klosterbier, Units Sold : 794",
-                    "value": "794"
-                }, {
-                    "tooltext": "Sasquatch Ale, Units Sold : 701",
-                    "value": "701"
-                }, {
-                    "tooltext": "Steeleye Stout, Units Sold : 647",
-                    "value": "647"
-                }]
-            }],
-            "meat_poultry": [{
-                "data": [{
-                    "value": "22191"
-                }, {
-                    "value": "27839"
-                }, {
-                    "value": "16968"
-                }, {
-                    "value": "15744"
-                }, {
-                    "value": "89129"
-                }, {
-                    "value": "3583"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Alice Mutton, Units Sold : 569",
-                    "value": "569"
-                }, {
-                    "tooltext": "Mishi Kobe Niku, Units Sold : 287",
-                    "value": "287"
-                }, {
-                    "tooltext": "Pâté chinois, Units Sold : 707",
-                    "value": "707"
-                }, {
-                    "tooltext": "Perth Pasties, Units Sold : 480",
-                    "value": "480"
-                }, {
-                    "tooltext": "Thüringer Rostbratwurst, Units Sold : 720",
-                    "value": "720"
-                }, {
-                    "tooltext": "Tourtière, Units Sold : 481",
-                    "value": "481"
-                }]
-            }],
-            "confections": [{
-                "data": [{
-                    "value": "4973"
-                }, {
-                    "value": "16302"
-                }, {
-                    "value": "12080"
-                }, {
-                    "value": "7490"
-                }, {
-                    "value": "14239"
-                }, {
-                    "value": "18921"
-                }, {
-                    "value": "6325"
-                }, {
-                    "value": "31185"
-                }, {
-                    "value": "7380"
-                }, {
-                    "value": "37320"
-                }, {
-                    "value": "6228"
-                }, {
-                    "value": "5850"
-                }, {
-                    "value": "4693"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Chocolade, Units Sold : 390",
-                    "value": "390"
-                }, {
-                    "tooltext": "Gumbär Gummibärchen, Units Sold : 522",
-                    "value": "522"
-                }, {
-                    "tooltext": "Maxilaku, Units Sold : 604",
-                    "value": "604"
-                }, {
-                    "tooltext": "NuNuCa Nuß-Nougat-Creme, Units Sold : 535",
-                    "value": "535"
-                }, {
-                    "tooltext": "Pavlova, Units Sold : 816",
-                    "value": "816"
-                }, {
-                    "tooltext": "Schoggi Schokolade, Units Sold : 431",
-                    "value": "431"
-                }, {
-                    "tooltext": "Scottish Longbreads, Units Sold : 506",
-                    "value": "506"
-                }, {
-                    "tooltext": "Sir Rodney's Marmalade, Units Sold : 385",
-                    "value": "385"
-                }, {
-                    "tooltext": "Sir Rodney's Scones, Units Sold : 738",
-                    "value": "738"
-                }, {
-                    "tooltext": "Tarte au sucre, Units Sold : 757",
-                    "value": "757"
-                }, {
-                    "tooltext": "Teatime Chocolate Biscuits, Units Sold : 677",
-                    "value": "677"
-                }, {
-                    "tooltext": "Valkoinen suklaa, Units Sold : 360",
-                    "value": "360"
-                }, {
-                    "tooltext": "Zaanse koeken, Units Sold : 494",
-                    "value": "494"
-                }]
-            }],
-            "dairy_products": [{
-                "data": [{
-                    "value": "29172"
-                }, {
-                    "value": "11868"
-                }, {
-                    "value": "1438"
-                }, {
-                    "value": "10313"
-                }, {
-                    "value": "18288"
-                }, {
-                    "value": "13120"
-                }, {
-                    "value": "19001"
-                }, {
-                    "value": "11739"
-                }, {
-                    "value": "11818"
-                }, {
-                    "value": "40645"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Camembert Pierrot, Units Sold : 858",
-                    "value": "858"
-                }, {
-                    "tooltext": "Fløtemysost, Units Sold : 552",
-                    "value": "552"
-                }, {
-                    "tooltext": "Geitost, Units Sold : 575",
-                    "value": "575"
-                }, {
-                    "tooltext": "Gorgonzola Telino, Units Sold : 825",
-                    "value": "825"
-                }, {
-                    "tooltext": "Gudbrandsdalsost, Units Sold : 508",
-                    "value": "508"
-                }, {
-                    "tooltext": "Mascarpone Fabioli, Units Sold : 410",
-                    "value": "410"
-                }, {
-                    "tooltext": "Mozzarella di Giovanni, Units Sold : 546",
-                    "value": "546"
-                }, {
-                    "tooltext": "Queso Cabrales, Units Sold : 559",
-                    "value": "559"
-                }, {
-                    "tooltext": "Queso Manchego La Pastora, Units Sold : 311",
-                    "value": "311"
-                }, {
-                    "tooltext": "Raclette Courdavault, Units Sold : 739",
-                    "value": "739"
-                }]
-            }],
-            "seafood": [{
-                "data": [{
-                    "value": "13892"
-                }, {
-                    "value": "34750"
-                }, {
-                    "value": "8864"
-                }, {
-                    "value": "11154"
-                }, {
-                    "value": "22692"
-                }, {
-                    "value": "9709"
-                }, {
-                    "value": "6784"
-                }, {
-                    "value": "6486"
-                }, {
-                    "value": "14913"
-                }, {
-                    "value": "6315"
-                }, {
-                    "value": "3933"
-                }, {
-                    "value": "6372"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Boston Crab Meat, Units Sold : 755",
-                    "value": "755"
-                }, {
-                    "tooltext": "Carnarvon Tigers, Units Sold : 556",
-                    "value": "556"
-                }, {
-                    "tooltext": "Escargots de Bourgogne, Units Sold : 669",
-                    "value": "669"
-                }, {
-                    "tooltext": "Gravad lax, Units Sold : 429",
-                    "value": "429"
-                }, {
-                    "tooltext": "Ikura, Units Sold : 732",
-                    "value": "732"
-                }, {
-                    "tooltext": "Inlagd Sill, Units Sold : 511",
-                    "value": "511"
-                }, {
-                    "tooltext": "Jack's New England Clam Chowder, Units Sold : 703",
-                    "value": "703"
-                }, {
-                    "tooltext": "Konbu, Units Sold : 1081",
-                    "value": "1081"
-                }, {
-                    "tooltext": "Nord-Ost Matjeshering, Units Sold : 576",
-                    "value": "576"
-                }, {
-                    "tooltext": "Röd Kaviar, Units Sold : 421",
-                    "value": "421"
-                }, {
-                    "tooltext": "Røgede sild, Units Sold : 414",
-                    "value": "414"
-                }, {
-                    "tooltext": "Spegesild, Units Sold : 531",
-                    "value": "531"
-                }]
-            }],
-            "condiments": [{
-                "data": [{
-                    "value": "5080"
-                }, {
-                    "value": "8382"
-                }, {
-                    "value": "7451"
-                }, {
-                    "value": "2635"
-                }, {
-                    "value": "12700"
-                }, {
-                    "value": "7060"
-                }, {
-                    "value": "11283"
-                }, {
-                    "value": "6120"
-                }, {
-                    "value": "19600"
-                }, {
-                    "value": "7683"
-                }, {
-                    "value": "19580"
-                }, {
-                    "value": "28140"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Aniseed Syrup, Units Sold : 508",
-                    "value": "508"
-                }, {
-                    "tooltext": "Chef Anton's Cajun Seasoning, Units Sold : 381",
-                    "value": "381"
-                }, {
-                    "tooltext": "Chef Anton's Gumbo Mix, Units Sold : 349",
-                    "value": "349"
-                }, {
-                    "tooltext": "Genen Shouyu, Units Sold : 170",
-                    "value": "170"
-                }, {
-                    "tooltext": "Grandma's Boysenberry Spread, Units Sold : 508",
-                    "value": "508"
-                }, {
-                    "tooltext": "Gula Malacca, Units Sold : 363",
-                    "value": "363"
-                }, {
-                    "tooltext": "Louisiana Fiery Hot Pepper Sauce, Units Sold : 536",
-                    "value": "536"
-                }, {
-                    "tooltext": "Louisiana Hot Spiced Okra, Units Sold : 360",
-                    "value": "360"
-                }, {
-                    "tooltext": "Northwoods Cranberry Sauce, Units Sold : 490",
-                    "value": "490"
-                }, {
-                    "tooltext": "Original Frankfurter grüne Soße, Units Sold : 591",
-                    "value": "591"
-                }, {
-                    "tooltext": "Sirop d'érable, Units Sold : 687",
-                    "value": "687"
-                }, {
-                    "tooltext": "Vegie-spread, Units Sold : 641",
-                    "value": "641"
-                }]
-            }],
-            "produce": [{
-                "data": [{
-                    "value": "3140"
-                }, {
-                    "value": "39856"
-                }, {
-                    "value": "17146"
-                }, {
-                    "value": "6022"
-                }, {
-                    "value": "20280"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Longlife Tofu, Units Sold : 314",
-                    "value": "314"
-                }, {
-                    "tooltext": "Manjimup Dried Apples, Units Sold : 752",
-                    "value": "752"
-                }, {
-                    "tooltext": "Rössle Sauerkraut, Units Sold : 376",
-                    "value": "376"
-                }, {
-                    "tooltext": "Tofu, Units Sold : 259",
-                    "value": "259"
-                }, {
-                    "tooltext": "Uncle Bob's Organic Dried Pears, Units Sold : 676",
-                    "value": "676"
-                }]
-            }],
-            "grains_cereals": [{
-                "data": [{
-                    "value": "3612"
-                }, {
-                    "value": "22534"
-                }, {
-                    "value": "11970"
-                }, {
-                    "value": "7254"
-                }, {
-                    "value": "9912"
-                }, {
-                    "value": "4257"
-                }, {
-                    "value": "25769"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Filo Mix, Units Sold : 516",
-                    "value": "516"
-                }, {
-                    "tooltext": "Gnocchi di nonna Alice, Units Sold : 593",
-                    "value": "593"
-                }, {
-                    "tooltext": "Gustaf's Knäckebröd, Units Sold : 570",
-                    "value": "570"
-                }, {
-                    "tooltext": "Ravioli Angelo, Units Sold : 372",
-                    "value": "372"
-                }, {
-                    "tooltext": "Singaporean Hokkien Fried Mee, Units Sold : 708",
-                    "value": "708"
-                }, {
-                    "tooltext": "Tunnbröd, Units Sold : 473",
-                    "value": "473"
-                }, {
-                    "tooltext": "Wimmers gute Semmelknödel, Units Sold : 775",
-                    "value": "775"
-                }]
-            }]
-        },
-        "2012": {
-            "beverages": [{
-                "data": [{
-                    "value": "5742"
-                }, {
-                    "value": "7125"
-                }, {
-                    "value": "2790"
-                }, {
-                    "value": "65348"
-                }, {
-                    "value": "1850"
-                }, {
-                    "value": "10488"
-                }, {
-                    "value": "8676"
-                }, {
-                    "value": "868"
-                }, {
-                    "value": "6570"
-                }, {
-                    "value": "3976"
-                }, {
-                    "value": "2394"
-                }, {
-                    "value": "7218"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Chai, Units Sold : 319",
-                    "value": "319"
-                }, {
-                    "tooltext": "Chang, Units Sold : 375",
-                    "value": "375"
-                }, {
-                    "tooltext": "Chartreuse verte, Units Sold : 155",
-                    "value": "155"
-                }, {
-                    "tooltext": "Côte de Blaye, Units Sold : 248",
-                    "value": "248"
-                }, {
-                    "tooltext": "Guaraná Fantástica, Units Sold : 411",
-                    "value": "411"
-                }, {
-                    "tooltext": "Ipoh Coffee, Units Sold : 228",
-                    "value": "228"
-                }, {
-                    "tooltext": "Lakkalikööri, Units Sold : 482",
-                    "value": "482"
-                }, {
-                    "tooltext": "Laughing Lumberjack Lager, Units Sold : 62",
-                    "value": "62"
-                }, {
-                    "tooltext": "Outback Lager, Units Sold : 438",
-                    "value": "438"
-                }, {
-                    "tooltext": "Rhönbräu Klosterbier, Units Sold : 513",
-                    "value": "513"
-                }, {
-                    "tooltext": "Sasquatch Ale, Units Sold : 171",
-                    "value": "171"
-                }, {
-                    "tooltext": "Steeleye Stout, Units Sold : 401",
-                    "value": "401"
-                }]
-            }],
-            "meat_poultry": [{
-                "data": [{
-                    "value": "16341"
-                }, {
-                    "value": "8924"
-                }, {
-                    "value": "11856"
-                }, {
-                    "value": "15810"
-                }, {
-                    "value": "33052"
-                }, {
-                    "value": "3613"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Alice Mutton, Units Sold : 419",
-                    "value": "419"
-                }, {
-                    "tooltext": "Mishi Kobe Niku, Units Sold : 92",
-                    "value": "92"
-                }, {
-                    "tooltext": "Pâté chinois, Units Sold : 494",
-                    "value": "494"
-                }, {
-                    "tooltext": "Perth Pasties, Units Sold : 482",
-                    "value": "482"
-                }, {
-                    "tooltext": "Thüringer Rostbratwurst, Units Sold : 267",
-                    "value": "267"
-                }, {
-                    "tooltext": "Tourtière, Units Sold : 485",
-                    "value": "485"
-                }]
-            }],
-            "confections": [{
-                "data": [{
-                    "value": "1658"
-                }, {
-                    "value": "13460"
-                }, {
-                    "value": "3580"
-                }, {
-                    "value": "1358"
-                }, {
-                    "value": "8481"
-                }, {
-                    "value": "9658"
-                }, {
-                    "value": "4750"
-                }, {
-                    "value": "11016"
-                }, {
-                    "value": "5800"
-                }, {
-                    "value": "23171"
-                }, {
-                    "value": "2788"
-                }, {
-                    "value": "2681"
-                }, {
-                    "value": "3126"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Chocolade, Units Sold : 130",
-                    "value": "130"
-                }, {
-                    "tooltext": "Gumbär Gummibärchen, Units Sold : 431",
-                    "value": "431"
-                }, {
-                    "tooltext": "Maxilaku, Units Sold : 179",
-                    "value": "179"
-                }, {
-                    "tooltext": "NuNuCa Nuß-Nougat-Creme, Units Sold : 97",
-                    "value": "97"
-                }, {
-                    "tooltext": "Pavlova, Units Sold : 486",
-                    "value": "486"
-                }, {
-                    "tooltext": "Schoggi Schokolade, Units Sold : 220",
-                    "value": "220"
-                }, {
-                    "tooltext": "Scottish Longbreads, Units Sold : 380",
-                    "value": "380"
-                }, {
-                    "tooltext": "Sir Rodney's Marmalade, Units Sold : 136",
-                    "value": "136"
-                }, {
-                    "tooltext": "Sir Rodney's Scones, Units Sold : 580",
-                    "value": "580"
-                }, {
-                    "tooltext": "Tarte au sucre, Units Sold : 470",
-                    "value": "470"
-                }, {
-                    "tooltext": "Teatime Chocolate Biscuits, Units Sold : 303",
-                    "value": "303"
-                }, {
-                    "tooltext": "Valkoinen suklaa, Units Sold : 165",
-                    "value": "165"
-                }, {
-                    "tooltext": "Zaanse koeken, Units Sold : 329",
-                    "value": "329"
-                }]
-            }],
-            "dairy_products": [{
-                "data": [{
-                    "value": "25874"
-                }, {
-                    "value": "12621"
-                }, {
-                    "value": "1040"
-                }, {
-                    "value": "8388"
-                }, {
-                    "value": "16704"
-                }, {
-                    "value": "3136"
-                }, {
-                    "value": "13920"
-                }, {
-                    "value": "6069"
-                }, {
-                    "value": "8968"
-                }, {
-                    "value": "38445"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Camembert Pierrot, Units Sold : 761",
-                    "value": "761"
-                }, {
-                    "tooltext": "Fløtemysost, Units Sold : 587",
-                    "value": "587"
-                }, {
-                    "tooltext": "Geitost, Units Sold : 416",
-                    "value": "416"
-                }, {
-                    "tooltext": "Gorgonzola Telino, Units Sold : 671",
-                    "value": "671"
-                }, {
-                    "tooltext": "Gudbrandsdalsost, Units Sold : 464",
-                    "value": "464"
-                }, {
-                    "tooltext": "Mascarpone Fabioli, Units Sold : 98",
-                    "value": "98"
-                }, {
-                    "tooltext": "Mozzarella di Giovanni, Units Sold : 400",
-                    "value": "400"
-                }, {
-                    "tooltext": "Queso Cabrales, Units Sold : 289",
-                    "value": "289"
-                }, {
-                    "tooltext": "Queso Manchego La Pastora, Units Sold : 236",
-                    "value": "236"
-                }, {
-                    "tooltext": "Raclette Courdavault, Units Sold : 699",
-                    "value": "699"
-                }]
-            }],
-            "seafood": [{
-                "data": [{
-                    "value": "10948"
-                }, {
-                    "value": "16313"
-                }, {
-                    "value": "3604"
-                }, {
-                    "value": "728"
-                }, {
-                    "value": "9610"
-                }, {
-                    "value": "6726"
-                }, {
-                    "value": "4661"
-                }, {
-                    "value": "1020"
-                }, {
-                    "value": "6265"
-                }, {
-                    "value": "3840"
-                }, {
-                    "value": "3610"
-                }, {
-                    "value": "4104"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Boston Crab Meat, Units Sold : 595",
-                    "value": "595"
-                }, {
-                    "tooltext": "Carnarvon Tigers, Units Sold : 261",
-                    "value": "261"
-                }, {
-                    "tooltext": "Escargots de Bourgogne, Units Sold : 272",
-                    "value": "272"
-                }, {
-                    "tooltext": "Gravad lax, Units Sold : 28",
-                    "value": "28"
-                }, {
-                    "tooltext": "Ikura, Units Sold : 310",
-                    "value": "310"
-                }, {
-                    "tooltext": "Inlagd Sill, Units Sold : 354",
-                    "value": "354"
-                }, {
-                    "tooltext": "Jack's New England Clam Chowder, Units Sold : 483",
-                    "value": "483"
-                }, {
-                    "tooltext": "Konbu, Units Sold : 170",
-                    "value": "170"
-                }, {
-                    "tooltext": "Nord-Ost Matjeshering, Units Sold : 242",
-                    "value": "242"
-                }, {
-                    "tooltext": "Röd Kaviar, Units Sold : 256",
-                    "value": "256"
-                }, {
-                    "tooltext": "Røgede sild, Units Sold : 380",
-                    "value": "380"
-                }, {
-                    "tooltext": "Spegesild, Units Sold : 342",
-                    "value": "342"
-                }]
-            }],
-            "condiments": [{
-                "data": [{
-                    "value": "1700"
-                }, {
-                    "value": "5808"
-                }, {
-                    "value": "1089"
-                }, {
-                    "value": "1504"
-                }, {
-                    "value": "2500"
-                }, {
-                    "value": "7508"
-                }, {
-                    "value": "9009"
-                }, {
-                    "value": "2686"
-                }, {
-                    "value": "3360"
-                }, {
-                    "value": "5603"
-                }, {
-                    "value": "10716"
-                }, {
-                    "value": "7683"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Aniseed Syrup, Units Sold : 170",
-                    "value": "170"
-                }, {
-                    "tooltext": "Chef Anton's Cajun Seasoning, Units Sold : 264",
-                    "value": "264"
-                }, {
-                    "tooltext": "Chef Anton's Gumbo Mix, Units Sold : 51",
-                    "value": "51"
-                }, {
-                    "tooltext": "Genen Shouyu, Units Sold : 97",
-                    "value": "97"
-                }, {
-                    "tooltext": "Grandma's Boysenberry Spread, Units Sold : 100",
-                    "value": "100"
-                }, {
-                    "tooltext": "Gula Malacca, Units Sold : 386",
-                    "value": "386"
-                }, {
-                    "tooltext": "Louisiana Fiery Hot Pepper Sauce, Units Sold : 428",
-                    "value": "428"
-                }, {
-                    "tooltext": "Louisiana Hot Spiced Okra, Units Sold : 158",
-                    "value": "158"
-                }, {
-                    "tooltext": "Northwoods Cranberry Sauce, Units Sold : 84",
-                    "value": "84"
-                }, {
-                    "tooltext": "Original Frankfurter grüne Soße, Units Sold : 431",
-                    "value": "431"
-                }, {
-                    "tooltext": "Sirop d'érable, Units Sold : 376",
-                    "value": "376"
-                }, {
-                    "tooltext": "Vegie-spread, Units Sold : 175",
-                    "value": "175"
-                }]
-            }],
-            "produce": [{
-                "data": [{
-                    "value": "1500"
-                }, {
-                    "value": "17543"
-                }, {
-                    "value": "15778"
-                }, {
-                    "value": "7905"
-                }, {
-                    "value": "8880"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Longlife Tofu, Units Sold : 150",
-                    "value": "150"
-                }, {
-                    "tooltext": "Manjimup Dried Apples, Units Sold : 331",
-                    "value": "331"
-                }, {
-                    "tooltext": "Rössle Sauerkraut, Units Sold : 346",
-                    "value": "346"
-                }, {
-                    "tooltext": "Tofu, Units Sold : 340",
-                    "value": "340"
-                }, {
-                    "tooltext": "Uncle Bob's Organic Dried Pears, Units Sold : 296",
-                    "value": "296"
-                }]
-            }],
-            "grains_cereals": [{
-                "data": [{
-                    "value": "2170"
-                }, {
-                    "value": "34542"
-                }, {
-                    "value": "4179"
-                }, {
-                    "value": "2418"
-                }, {
-                    "value": "5838"
-                }, {
-                    "value": "2943"
-                }, {
-                    "value": "9177"
-                }, {
-                    "tooltext": "Filo Mix, Units Sold : 310",
-                    "value": "310"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Gnocchi di nonna Alice, Units Sold : 909",
-                    "value": "909"
-                }, {
-                    "tooltext": "Gustaf's Knäckebröd, Units Sold : 199",
-                    "value": "199"
-                }, {
-                    "tooltext": "Ravioli Angelo, Units Sold : 124",
-                    "value": "124"
-                }, {
-                    "tooltext": "Singaporean Hokkien Fried Mee, Units Sold : 417",
-                    "value": "417"
-                }, {
-                    "tooltext": "Tunnbröd, Units Sold : 327",
-                    "value": "327"
-                }, {
-                    "tooltext": "Wimmers gute Semmelknödel, Units Sold : 276",
-                    "value": "276"
                 }]
             }]
         }
     },
     inventoryByProductCategoriesCategories: [{
-        "label": "Seafood"
+        "label": "Vaginal Cancer"
     }, {
-        "label": "Beverages"
+        "label": "Fallopian Tube Cancer"
     }, {
-        "label": "Condiments"
+        "label": "Vulva Cancer"
     }, {
-        "label": "Dairy Products"
+        "label": "Cervical Cancer"
     }, {
-        "label": "Confections"
+        "label": "Endometrial Cancer"
     }, {
-        "label": "Meat/Poultry"
+        "label": "Ovarian Cancer"
     }, {
-        "label": "Grains/Cereals"
-    }, {
-        "label": "Produce"
+        "label": "Gestational Throphoblastic Disease"
     }],
     inventoryByProductCategoriesData: [{
         "data": [{
-            "label": "Seafood",
+            "label": "Vaginal Cancer",
             "value": "13010"
         }, {
-            "label": "Beverages",
+            "label": "Fallopian Tube Cancer",
             "value": "12480"
         }, {
-            "label": "Condiments",
+            "label": "Vulva Cancer",
             "value": "12024"
         }, {
-            "label": "Dairy Products",
+            "label": "Cervical Cancer",
             "value": "11271"
         }, {
-            "label": "Confections",
+            "label": "Endometrial Cancer",
             "value": "10392"
         }, {
-            "label": "Meat/Poultry",
+            "label": "Ovarian Cancer",
             "value": "5729"
         }, {
-            "label": "Grains/Cereals",
-            "value": "5595"
-        }, {
-            "label": "Produce",
+            "label": "Gestational Throphoblastic Disease",
             "value": "3549"
         }]
     }],
@@ -6215,306 +4240,268 @@ var managementData = {
     "topMonthlySalesTabData": {
         "2014": [{
             "data": [{
-                "tooltext": "Beverages, $28,232, Jan, 559 Units",
+                "tooltext": "Fallopian Tube Cancer, $28,232, Jan, 559 Units",
                 "value": "28232.50000"
             }, {
-                "tooltext": "Beverages, $26,882, Feb, 591 Units",
+                "tooltext": "Fallopian Tube Cancer, $26,882, Feb, 591 Units",
                 "value": "26882.50000"
             }, {
-                "tooltext": "Beverages, $26,146, Mar, 519 Units",
+                "tooltext": "Fallopian Tube Cancer, $26,146, Mar, 519 Units",
                 "value": "26146.50000"
             }, {
-                "tooltext": "Beverages, $14,817, Apr, 512 Units",
+                "tooltext": "Fallopian Tube Cancer, $14,817, Apr, 512 Units",
                 "value": "14817.00000"
             }, {
-                "tooltext": "Beverages, $21,292, May, 539 Units",
+                "tooltext": "Fallopian Tube Cancer, $21,292, May, 539 Units",
                 "value": "21292.50000"
             }, {
-                "tooltext": "Beverages, $16,521, Jun, 652 Units",
+                "tooltext": "Fallopian Tube Cancer, $16,521, Jun, 652 Units",
                 "value": "16521.25000"
             }, {
-                "tooltext": "Beverages, $27,814, Jul, 503 Units",
+                "tooltext": "Fallopian Tube Cancer, $27,814, Jul, 503 Units",
                 "value": "27814.75000"
             }, {
-                "tooltext": "Beverages, $19,981, Aug, 611 Units",
+                "tooltext": "Fallopian Tube Cancer, $19,981, Aug, 611 Units",
                 "value": "19981.25000"
             }, {
-                "tooltext": "Beverages, $13,447, Sep, 402 Units",
+                "tooltext": "Fallopian Tube Cancer, $13,447, Sep, 402 Units",
                 "value": "13447.00000"
             }, {
-                "tooltext": "Beverages, $30,582, Oct, 584 Units",
+                "tooltext": "Fallopian Tube Cancer, $30,582, Oct, 584 Units",
                 "value": "30582.00000"
             }, {
-                "tooltext": "Beverages, $27,272, Nov, 497 Units",
+                "tooltext": "Fallopian Tube Cancer, $27,272, Nov, 497 Units",
                 "value": "27272.50000"
             }, {
-                "tooltext": "Beverages, $3,967, Dec, 16 Units",
+                "tooltext": "Fallopian Tube Cancer, $3,967, Dec, 16 Units",
                 "value": "3967.50000"
             }]
         }, {
             "data": [{
-                "tooltext": "Condiments, $12,050, Jan, 595 Units",
+                "tooltext": "Vulva Cancer, $12,050, Jan, 595 Units",
                 "value": "12050.55000"
             }, {
-                "tooltext": "Condiments, $14,895, Feb, 634 Units",
+                "tooltext": "Vulva Cancer, $14,895, Feb, 634 Units",
                 "value": "14895.75000"
             }, {
-                "tooltext": "Condiments, $9,000, Mar, 499 Units",
+                "tooltext": "Vulva Cancer, $9,000, Mar, 499 Units",
                 "value": "9000.55000"
             }, {
-                "tooltext": "Condiments, $13,034, Apr, 558 Units",
+                "tooltext": "Vulva Cancer, $13,034, Apr, 558 Units",
                 "value": "13034.95000"
             }, {
-                "tooltext": "Condiments, $14,484, May, 576 Units",
+                "tooltext": "Vulva Cancer, $14,484, May, 576 Units",
                 "value": "14484.05000"
             }, {
-                "tooltext": "Condiments, $14,161, Jun, 614 Units",
+                "tooltext": "Vulva Cancer, $14,161, Jun, 614 Units",
                 "value": "14161.55000"
             }, {
-                "tooltext": "Condiments, $13,213, Jul, 546 Units",
+                "tooltext": "Vulva Cancer, $13,213, Jul, 546 Units",
                 "value": "13213.65000"
             }, {
-                "tooltext": "Condiments, $15,199, Aug, 655 Units",
+                "tooltext": "Vulva Cancer, $15,199, Aug, 655 Units",
                 "value": "15199.55000"
             }, {
-                "tooltext": "Condiments, $10,011, Sep, 477 Units",
+                "tooltext": "Vulva Cancer, $10,011, Sep, 477 Units",
                 "value": "10011.30000"
             }, {
-                "tooltext": "Condiments, $13,613, Oct, 610 Units",
+                "tooltext": "Vulva Cancer, $13,613, Oct, 610 Units",
                 "value": "13613.25000"
             }, {
-                "tooltext": "Condiments, $10,433, Nov, 492 Units",
+                "tooltext": "Vulva Cancer, $10,433, Nov, 492 Units",
                 "value": "10433.60000"
             }, {
-                "tooltext": "Condiments, $1,512, Dec, 50 Units",
+                "tooltext": "Vulva Cancer, $1,512, Dec, 50 Units",
                 "value": "1512.70000"
             }]
         }, {
             "data": [{
-                "tooltext": "Confections, $11,504, Jan, 513 Units",
+                "tooltext": "Endometrial Cancer, $11,504, Jan, 513 Units",
                 "value": "11504.28000"
             }, {
-                "tooltext": "Confections, $17,863, Feb, 680 Units",
+                "tooltext": "Endometrial Cancer, $17,863, Feb, 680 Units",
                 "value": "17863.12000"
             }, {
-                "tooltext": "Confections, $15,363, Mar, 543 Units",
+                "tooltext": "Endometrial Cancer, $15,363, Mar, 543 Units",
                 "value": "15363.21000"
             }, {
-                "tooltext": "Confections, $10,930, Apr, 567 Units",
+                "tooltext": "Endometrial Cancer, $10,930, Apr, 567 Units",
                 "value": "10930.41000"
             }, {
-                "tooltext": "Confections, $20,562, May, 597 Units",
+                "tooltext": "Endometrial Cancer, $20,562, May, 597 Units",
                 "value": "20562.53000"
             }, {
-                "tooltext": "Confections, $17,460, Jun, 626 Units",
+                "tooltext": "Endometrial Cancer, $17,460, Jun, 626 Units",
                 "value": "17460.22000"
             }, {
-                "tooltext": "Confections, $18,681, Jul, 732 Units",
+                "tooltext": "Endometrial Cancer, $18,681, Jul, 732 Units",
                 "value": "18681.61000"
             }, {
-                "tooltext": "Confections, $20,556, Aug, 753 Units",
+                "tooltext": "Endometrial Cancer, $20,556, Aug, 753 Units",
                 "value": "20556.10000"
             }, {
-                "tooltext": "Confections, $12,619, Sep, 458 Units",
+                "tooltext": "Endometrial Cancer, $12,619, Sep, 458 Units",
                 "value": "12619.28000"
             }, {
-                "tooltext": "Confections, $16,010, Oct, 648 Units",
+                "tooltext": "Endometrial Cancer, $16,010, Oct, 648 Units",
                 "value": "16010.37000"
             }, {
-                "tooltext": "Confections, $12,606, Nov, 544 Units",
+                "tooltext": "Endometrial Cancer, $12,606, Nov, 544 Units",
                 "value": "12606.79000"
             }, {
-                "tooltext": "Confections, $2,761, Dec, 122 Units",
+                "tooltext": "Endometrial Cancer, $2,761, Dec, 122 Units",
                 "value": "2761.00000"
             }]
         }, {
             "data": [{
-                "tooltext": "Dairy Products, $14,588, Jan, 488 Units",
+                "tooltext": "Cervical Cancer, $14,588, Jan, 488 Units",
                 "value": "14588.20000"
             }, {
-                "tooltext": "Dairy Products, $13,870, Feb, 483 Units",
+                "tooltext": "Cervical Cancer, $13,870, Feb, 483 Units",
                 "value": "13870.60000"
             }, {
-                "tooltext": "Dairy Products, $10,904, Mar, 471 Units",
+                "tooltext": "Cervical Cancer, $10,904, Mar, 471 Units",
                 "value": "10904.40000"
             }, {
-                "tooltext": "Dairy Products, $11,087, Apr, 359 Units",
+                "tooltext": "Cervical Cancer, $11,087, Apr, 359 Units",
                 "value": "11087.80000"
             }, {
-                "tooltext": "Dairy Products, $17,507, May, 537 Units",
+                "tooltext": "Cervical Cancer, $17,507, May, 537 Units",
                 "value": "17507.90000"
             }, {
-                "tooltext": "Dairy Products, $12,242, Jun, 472 Units",
+                "tooltext": "Cervical Cancer, $12,242, Jun, 472 Units",
                 "value": "12242.30000"
             }, {
-                "tooltext": "Dairy Products, $8,492, Jul, 337 Units",
+                "tooltext": "Cervical Cancer, $8,492, Jul, 337 Units",
                 "value": "8492.60000"
             }, {
-                "tooltext": "Dairy Products, $18,104, Aug, 636 Units",
+                "tooltext": "Cervical Cancer, $18,104, Aug, 636 Units",
                 "value": "18104.90000"
             }, {
-                "tooltext": "Dairy Products, $11,972, Sep, 365 Units",
+                "tooltext": "Cervical Cancer, $11,972, Sep, 365 Units",
                 "value": "11972.10000"
             }, {
-                "tooltext": "Dairy Products, $15,091, Oct, 505 Units",
+                "tooltext": "Cervical Cancer, $15,091, Oct, 505 Units",
                 "value": "15091.20000"
             }, {
-                "tooltext": "Dairy Products, $14,059, Nov, 489 Units",
+                "tooltext": "Cervical Cancer, $14,059, Nov, 489 Units",
                 "value": "14059.10000"
             }, {
-                "tooltext": "Dairy Products, $686, Dec, 27 Units",
+                "tooltext": "Cervical Cancer, $686, Dec, 27 Units",
                 "value": "686.50000"
             }]
-        }, {
+        },  {
             "data": [{
-                "tooltext": "Grains/Cereals, $6,074, Jan, 273 Units",
-                "value": "6074.25000"
-            }, {
-                "tooltext": "Grains/Cereals, $4,151, Feb, 232 Units",
-                "value": "4151.00000"
-            }, {
-                "tooltext": "Grains/Cereals, $5,332, Mar, 232 Units",
-                "value": "5332.00000"
-            }, {
-                "tooltext": "Grains/Cereals, $3,648, Apr, 212 Units",
-                "value": "3648.75000"
-            }, {
-                "tooltext": "Grains/Cereals, $6,256, May, 273 Units",
-                "value": "6256.25000"
-            }, {
-                "tooltext": "Grains/Cereals, $4,937, Jun, 256 Units",
-                "value": "4937.50000"
-            }, {
-                "tooltext": "Grains/Cereals, $4,881, Jul, 230 Units",
-                "value": "4881.25000"
-            }, {
-                "tooltext": "Grains/Cereals, $8,429, Aug, 337 Units",
-                "value": "8429.25000"
-            }, {
-                "tooltext": "Grains/Cereals, $7,916, Sep, 402 Units",
-                "value": "7916.25000"
-            }, {
-                "tooltext": "Grains/Cereals, $7,319, Oct, 359 Units",
-                "value": "7319.00000"
-            }, {
-                "tooltext": "Grains/Cereals, $5,577, Nov, 270 Units",
-                "value": "5577.25000"
-            }, {
-                "tooltext": "Grains/Cereals, $840, Dec, 60 Units",
-                "value": "840.00000"
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Meat/Poultry, $9,260, Jan, 247 Units",
+                "tooltext": "Ovarian Cancer, $9,260, Jan, 247 Units",
                 "value": "9260.15000"
             }, {
-                "tooltext": "Meat/Poultry, $16,732, Feb, 254 Units",
+                "tooltext": "Ovarian Cancer, $16,732, Feb, 254 Units",
                 "value": "16732.02000"
             }, {
-                "tooltext": "Meat/Poultry, $4,958, Mar, 158 Units",
+                "tooltext": "Ovarian Cancer, $4,958, Mar, 158 Units",
                 "value": "4958.00000"
             }, {
-                "tooltext": "Meat/Poultry, $12,497, Apr, 200 Units",
+                "tooltext": "Ovarian Cancer, $12,497, Apr, 200 Units",
                 "value": "12497.67000"
             }, {
-                "tooltext": "Meat/Poultry, $9,752, May, 287 Units",
+                "tooltext": "Ovarian Cancer, $9,752, May, 287 Units",
                 "value": "9752.56000"
             }, {
-                "tooltext": "Meat/Poultry, $16,959, Jun, 317 Units",
+                "tooltext": "Ovarian Cancer, $16,959, Jun, 317 Units",
                 "value": "16959.10000"
             }, {
-                "tooltext": "Meat/Poultry, $20,050, Jul, 314 Units",
+                "tooltext": "Ovarian Cancer, $20,050, Jul, 314 Units",
                 "value": "20050.20000"
             }, {
-                "tooltext": "Meat/Poultry, $26,100, Aug, 382 Units",
+                "tooltext": "Ovarian Cancer, $26,100, Aug, 382 Units",
                 "value": "26100.87000"
             }, {
-                "tooltext": "Meat/Poultry, $20,612, Sep, 289 Units",
+                "tooltext": "Ovarian Cancer, $20,612, Sep, 289 Units",
                 "value": "20612.76000"
             }, {
-                "tooltext": "Meat/Poultry, $19,577, Oct, 339 Units",
+                "tooltext": "Ovarian Cancer, $19,577, Oct, 339 Units",
                 "value": "19577.01000"
             }, {
-                "tooltext": "Meat/Poultry, $17,902, Nov, 343 Units",
+                "tooltext": "Ovarian Cancer, $17,902, Nov, 343 Units",
                 "value": "17902.70000"
             }, {
-                "tooltext": "Meat/Poultry, $592, Dec, 5 Units",
+                "tooltext": "Ovarian Cancer, $592, Dec, 5 Units",
                 "value": "592.16000"
             }]
         }, {
             "data": [{
-                "tooltext": "Produce, $5,763, Jan, 191 Units",
+                "tooltext": "Gestational Throphoblastic Disease, $5,763, Jan, 191 Units",
                 "value": "5763.30000"
             }, {
-                "tooltext": "Produce, $5,123, Feb, 141 Units",
+                "tooltext": "Gestational Throphoblastic Disease, $5,123, Feb, 141 Units",
                 "value": "5123.90000"
             }, {
-                "tooltext": "Produce, $10,050, Mar, 300 Units",
+                "tooltext": "Gestational Throphoblastic Disease, $10,050, Mar, 300 Units",
                 "value": "10050.85000"
             }, {
-                "tooltext": "Produce, $1,705, Apr, 79 Units",
+                "tooltext": "Gestational Throphoblastic Disease, $1,705, Apr, 79 Units",
                 "value": "1705.70000"
             }, {
-                "tooltext": "Produce, $7,609, May, 239 Units",
+                "tooltext": "Gestational Throphoblastic Disease, $7,609, May, 239 Units",
                 "value": "7609.75000"
             }, {
-                "tooltext": "Produce, $7,969, Jun, 219 Units",
+                "tooltext": "Gestational Throphoblastic Disease, $7,969, Jun, 219 Units",
                 "value": "7969.20000"
             }, {
-                "tooltext": "Produce, $6,573, Jul, 198 Units",
+                "tooltext": "Gestational Throphoblastic Disease, $6,573, Jul, 198 Units",
                 "value": "6573.80000"
             }, {
-                "tooltext": "Produce, $4,455, Aug, 138 Units",
+                "tooltext": "Gestational Throphoblastic Disease, $4,455, Aug, 138 Units",
                 "value": "4455.70000"
             }, {
-                "tooltext": "Produce, $7,222, Sep, 194 Units",
+                "tooltext": "Gestational Throphoblastic Disease, $7,222, Sep, 194 Units",
                 "value": "7222.95000"
             }, {
-                "tooltext": "Produce, $7,920, Oct, 231 Units",
+                "tooltext": "Gestational Throphoblastic Disease, $7,920, Oct, 231 Units",
                 "value": "7920.45000"
             }, {
-                "tooltext": "Produce, $6,723, Nov, 185 Units",
+                "tooltext": "Gestational Throphoblastic Disease, $6,723, Nov, 185 Units",
                 "value": "6723.25000"
             }, {
-                "tooltext": "Produce, $318, Dec, 6 Units",
+                "tooltext": "Gestational Throphoblastic Disease, $318, Dec, 6 Units",
                 "value": "318.00000"
             }]
         }, {
             "data": [{
-                "tooltext": "Seafood, $9,571, Jan, 550 Units",
+                "tooltext": "Vaginal Cancer, $9,571, Jan, 550 Units",
                 "value": "9571.15000"
             }, {
-                "tooltext": "Seafood, $15,309, Feb, 644 Units",
+                "tooltext": "Vaginal Cancer, $15,309, Feb, 644 Units",
                 "value": "15309.94000"
             }, {
-                "tooltext": "Seafood, $8,876, Mar, 472 Units",
+                "tooltext": "Vaginal Cancer, $8,876, Mar, 472 Units",
                 "value": "8876.65000"
             }, {
-                "tooltext": "Seafood, $11,849, Apr, 562 Units",
+                "tooltext": "Vaginal Cancer, $11,849, Apr, 562 Units",
                 "value": "11849.41000"
             }, {
-                "tooltext": "Seafood, $10,632, May, 585 Units",
+                "tooltext": "Vaginal Cancer, $10,632, May, 585 Units",
                 "value": "10632.93000"
             }, {
-                "tooltext": "Seafood, $17,241, Jun, 741 Units",
+                "tooltext": "Vaginal Cancer, $17,241, Jun, 741 Units",
                 "value": "17241.36000"
             }, {
-                "tooltext": "Seafood, $7,672, Jul, 466 Units",
+                "tooltext": "Vaginal Cancer, $7,672, Jul, 466 Units",
                 "value": "7672.07000"
             }, {
-                "tooltext": "Seafood, $12,716, Aug, 579 Units",
+                "tooltext": "Vaginal Cancer, $12,716, Aug, 579 Units",
                 "value": "12716.21000"
             }, {
-                "tooltext": "Seafood, $8,058, Sep, 366 Units",
+                "tooltext": "Vaginal Cancer, $8,058, Sep, 366 Units",
                 "value": "8058.41000"
             }, {
-                "tooltext": "Seafood, $9,239, Oct, 537 Units",
+                "tooltext": "Vaginal Cancer, $9,239, Oct, 537 Units",
                 "value": "9239.58000"
             }, {
-                "tooltext": "Seafood, $12,409, Nov, 440 Units",
+                "tooltext": "Vaginal Cancer, $12,409, Nov, 440 Units",
                 "value": "12409.65000"
             }, {
-                "tooltext": "Seafood, $859, Dec, 39 Units",
+                "tooltext": "Vaginal Cancer, $859, Dec, 39 Units",
                 "value": "859.91000"
             }]
         }, {
@@ -6554,786 +4541,6 @@ var managementData = {
             }, {
                 "value": "325",
                 "toolText": "Total Units sold in Dec : 325"
-            }]
-        }],
-        "2013": [{
-            "data": [{
-                "tooltext": "Beverages, $11,675, Jan, 498 Units",
-                "value": "11675.25000"
-            }, {
-                "tooltext": "Beverages, $28,558, Feb, 622 Units",
-                "value": "28558.00000"
-            }, {
-                "tooltext": "Beverages, $35,869, Mar, 834 Units",
-                "value": "35869.50000"
-            }, {
-                "tooltext": "Beverages, $28,729, Apr, 925 Units",
-                "value": "28729.25000"
-            }, {
-                "tooltext": "Beverages, $24,960, May, 1127 Units",
-                "value": "24960.00000"
-            }, {
-                "tooltext": "Beverages, $17,364, Jun, 562 Units",
-                "value": "17364.75000"
-            }, {
-                "tooltext": "Beverages, $16,646, Jul, 580 Units",
-                "value": "16646.00000"
-            }, {
-                "tooltext": "Beverages, $24,372, Aug, 568 Units",
-                "value": "24372.00000"
-            }, {
-                "tooltext": "Beverages, $35,939, Sep, 710 Units",
-                "value": "35939.75000"
-            }, {
-                "tooltext": "Beverages, $22,370, Oct, 616 Units",
-                "value": "22370.75000"
-            }, {
-                "tooltext": "Beverages, $21,602, Nov, 589 Units",
-                "value": "21602.25000"
-            }, {
-                "tooltext": "Beverages, $10,820, Dec, 391 Units",
-                "value": "10820.50000"
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Condiments, $6,252, Jan, 257 Units",
-                "value": "6252.60000"
-            }, {
-                "tooltext": "Condiments, $5,000, Feb, 269 Units",
-                "value": "5000.45000"
-            }, {
-                "tooltext": "Condiments, $6,727, Mar, 289 Units",
-                "value": "6727.20000"
-            }, {
-                "tooltext": "Condiments, $11,018, Apr, 378 Units",
-                "value": "11018.30000"
-            }, {
-                "tooltext": "Condiments, $10,737, May, 446 Units",
-                "value": "10737.50000"
-            }, {
-                "tooltext": "Condiments, $13,289, Jun, 585 Units",
-                "value": "13289.75000"
-            }, {
-                "tooltext": "Condiments, $14,312, Jul, 638 Units",
-                "value": "14312.25000"
-            }, {
-                "tooltext": "Condiments, $17,143, Aug, 617 Units",
-                "value": "17143.40000"
-            }, {
-                "tooltext": "Condiments, $14,628, Sep, 560 Units",
-                "value": "14628.30000"
-            }, {
-                "tooltext": "Condiments, $15,177, Oct, 640 Units",
-                "value": "15177.70000"
-            }, {
-                "tooltext": "Condiments, $11,183, Nov, 469 Units",
-                "value": "11183.55000"
-            }, {
-                "tooltext": "Condiments, $10,242, Dec, 436 Units",
-                "value": "10242.70000"
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Confections, $9,191, Jan, 471 Units",
-                "value": "9191.98000"
-            }, {
-                "tooltext": "Confections, $11,839, Feb, 440 Units",
-                "value": "11839.85000"
-            }, {
-                "tooltext": "Confections, $10,574, Mar, 475 Units",
-                "value": "10574.05000"
-            }, {
-                "tooltext": "Confections, $24,302, Apr, 880 Units",
-                "value": "24302.85000"
-            }, {
-                "tooltext": "Confections, $10,309, May, 538 Units",
-                "value": "10309.78000"
-            }, {
-                "tooltext": "Confections, $10,083, Jun, 414 Units",
-                "value": "10083.90000"
-            }, {
-                "tooltext": "Confections, $19,939, Jul, 733 Units",
-                "value": "19939.16000"
-            }, {
-                "tooltext": "Confections, $14,074, Aug, 682 Units",
-                "value": "14074.22000"
-            }, {
-                "tooltext": "Confections, $13,414, Sep, 508 Units",
-                "value": "13414.35000"
-            }, {
-                "tooltext": "Confections, $16,094, Oct, 559 Units",
-                "value": "16094.54000"
-            }, {
-                "tooltext": "Confections, $16,438, Nov, 704 Units",
-                "value": "16438.82000"
-            }, {
-                "tooltext": "Confections, $16,722, Dec, 811 Units",
-                "value": "16722.66000"
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Dairy Products, $10,590, Jan, 406 Units",
-                "value": "10590.50000"
-            }, {
-                "tooltext": "Dairy Products, $18,835, Feb, 562 Units",
-                "value": "18835.50000"
-            }, {
-                "tooltext": "Dairy Products, $11,889, Mar, 506 Units",
-                "value": "11889.50000"
-            }, {
-                "tooltext": "Dairy Products, $14,990, Apr, 581 Units",
-                "value": "14990.80000"
-            }, {
-                "tooltext": "Dairy Products, $36,452, May, 1005 Units",
-                "value": "36452.10000"
-            }, {
-                "tooltext": "Dairy Products, $8,864, Jun, 322 Units",
-                "value": "8864.50000"
-            }, {
-                "tooltext": "Dairy Products, $12,196, Jul, 433 Units",
-                "value": "12196.70000"
-            }, {
-                "tooltext": "Dairy Products, $11,643, Aug, 500 Units",
-                "value": "11643.50000"
-            }, {
-                "tooltext": "Dairy Products, $7,656, Sep, 281 Units",
-                "value": "7656.00000"
-            }, {
-                "tooltext": "Dairy Products, $6,880, Oct, 292 Units",
-                "value": "6880.70000"
-            }, {
-                "tooltext": "Dairy Products, $12,401, Nov, 458 Units",
-                "value": "12401.80000"
-            }, {
-                "tooltext": "Dairy Products, $14,999, Dec, 537 Units",
-                "value": "14999.20000"
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Grains/Cereals, $5,810, Jan, 202 Units",
-                "value": "5810.75000"
-            }, {
-                "tooltext": "Grains/Cereals, $12,517, Feb, 536 Units",
-                "value": "12517.75000"
-            }, {
-                "tooltext": "Grains/Cereals, $4,183, Mar, 219 Units",
-                "value": "4183.75000"
-            }, {
-                "tooltext": "Grains/Cereals, $3,510, Apr, 189 Units",
-                "value": "3510.50000"
-            }, {
-                "tooltext": "Grains/Cereals, $5,789, May, 297 Units",
-                "value": "5789.25000"
-            }, {
-                "tooltext": "Grains/Cereals, $10,504, Jun, 478 Units",
-                "value": "10504.50000"
-            }, {
-                "tooltext": "Grains/Cereals, $9,581, Jul, 444 Units",
-                "value": "9581.50000"
-            }, {
-                "tooltext": "Grains/Cereals, $7,089, Aug, 397 Units",
-                "value": "7089.75000"
-            }, {
-                "tooltext": "Grains/Cereals, $7,420, Sep, 336 Units",
-                "value": "7420.75000"
-            }, {
-                "tooltext": "Grains/Cereals, $6,872, Oct, 306 Units",
-                "value": "6872.75000"
-            }, {
-                "tooltext": "Grains/Cereals, $7,513, Nov, 340 Units",
-                "value": "7513.25000"
-            }, {
-                "tooltext": "Grains/Cereals, $4,513, Dec, 263 Units",
-                "value": "4513.25000"
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Meat/Poultry, $14,706, Jan, 259 Units",
-                "value": "14706.43000"
-            }, {
-                "tooltext": "Meat/Poultry, $3,965, Feb, 91 Units",
-                "value": "3965.17000"
-            }, {
-                "tooltext": "Meat/Poultry, $25,377, Mar, 344 Units",
-                "value": "25377.86000"
-            }, {
-                "tooltext": "Meat/Poultry, $4,203, Apr, 92 Units",
-                "value": "4203.66000"
-            }, {
-                "tooltext": "Meat/Poultry, $26,680, May, 531 Units",
-                "value": "26680.88000"
-            }, {
-                "tooltext": "Meat/Poultry, $13,850, Jun, 289 Units",
-                "value": "13850.65000"
-            }, {
-                "tooltext": "Meat/Poultry, $11,824, Jul, 196 Units",
-                "value": "11824.72000"
-            }, {
-                "tooltext": "Meat/Poultry, $13,188, Aug, 313 Units",
-                "value": "13188.16000"
-            }, {
-                "tooltext": "Meat/Poultry, $13,462, Sep, 283 Units",
-                "value": "13462.22000"
-            }, {
-                "tooltext": "Meat/Poultry, $11,383, Oct, 212 Units",
-                "value": "11383.41000"
-            }, {
-                "tooltext": "Meat/Poultry, $23,605, Nov, 359 Units",
-                "value": "23605.76000"
-            }, {
-                "tooltext": "Meat/Poultry, $13,205, Dec, 275 Units",
-                "value": "13205.33000"
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Produce, $13,047, Jan, 315 Units",
-                "value": "13047.15000"
-            }, {
-                "tooltext": "Produce, $1,639, Feb, 58 Units",
-                "value": "1639.00000"
-            }, {
-                "tooltext": "Produce, $1,202, Mar, 37 Units",
-                "value": "1202.80000"
-            }, {
-                "tooltext": "Produce, $13,168, Apr, 351 Units",
-                "value": "13168.00000"
-            }, {
-                "tooltext": "Produce, $15,073, May, 367 Units",
-                "value": "15073.00000"
-            }, {
-                "tooltext": "Produce, $4,898, Jun, 126 Units",
-                "value": "4898.30000"
-            }, {
-                "tooltext": "Produce, $5,790, Jul, 148 Units",
-                "value": "5790.50000"
-            }, {
-                "tooltext": "Produce, $5,717, Aug, 144 Units",
-                "value": "5717.40000"
-            }, {
-                "tooltext": "Produce, $5,261, Sep, 203 Units",
-                "value": "5261.20000"
-            }, {
-                "tooltext": "Produce, $7,427, Oct, 220 Units",
-                "value": "7427.40000"
-            }, {
-                "tooltext": "Produce, $4,894, Nov, 184 Units",
-                "value": "4894.30000"
-            }, {
-                "tooltext": "Produce, $8,324, Dec, 224 Units",
-                "value": "8324.30000"
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Seafood, $6,201, Jan, 274 Units",
-                "value": "6201.60000"
-            }, {
-                "tooltext": "Seafood, $14,394, Feb, 715 Units",
-                "value": "14394.60000"
-            }, {
-                "tooltext": "Seafood, $12,841, Mar, 584 Units",
-                "value": "12841.69000"
-            }, {
-                "tooltext": "Seafood, $9,902, Apr, 669 Units",
-                "value": "9902.09000"
-            }, {
-                "tooltext": "Seafood, $10,531, May, 646 Units",
-                "value": "10531.66000"
-            }, {
-                "tooltext": "Seafood, $9,224, Jun, 478 Units",
-                "value": "9224.93000"
-            }, {
-                "tooltext": "Seafood, $15,285, Jul, 763 Units",
-                "value": "15285.30000"
-            }, {
-                "tooltext": "Seafood, $10,009, Aug, 520 Units",
-                "value": "10009.03000"
-            }, {
-                "tooltext": "Seafood, $12,069, Sep, 678 Units",
-                "value": "12069.40000"
-            }, {
-                "tooltext": "Seafood, $16,146, Oct, 715 Units",
-                "value": "16146.48000"
-            }, {
-                "tooltext": "Seafood, $13,015, Nov, 644 Units",
-                "value": "13015.83000"
-            }, {
-                "tooltext": "Seafood, $16,241, Dec, 692 Units",
-                "value": "16241.23000"
-            }]
-        }, {
-            "data": [{
-                "value": "2682",
-                "toolText": "Total Units sold in Jan : 2,682"
-            }, {
-                "value": "3293",
-                "toolText": "Total Units sold in Feb : 3,293"
-            }, {
-                "value": "3288",
-                "toolText": "Total Units sold in Mar : 3,288"
-            }, {
-                "value": "4065",
-                "toolText": "Total Units sold in Apr : 4,065"
-            }, {
-                "value": "4957",
-                "toolText": "Total Units sold in May : 4,957"
-            }, {
-                "value": "3254",
-                "toolText": "Total Units sold in Jun : 3,254"
-            }, {
-                "value": "3935",
-                "toolText": "Total Units sold in Jul : 3,935"
-            }, {
-                "value": "3741",
-                "toolText": "Total Units sold in Aug : 3,741"
-            }, {
-                "value": "3559",
-                "toolText": "Total Units sold in Sep : 3,559"
-            }, {
-                "value": "3560",
-                "toolText": "Total Units sold in Oct : 3,560"
-            }, {
-                "value": "3747",
-                "toolText": "Total Units sold in Nov : 3,747"
-            }, {
-                "value": "3629",
-                "toolText": "Total Units sold in Dec : 3,629"
-            }]
-        }],
-        "2012": [{
-            "data": [{
-                "tooltext": "Beverages, $14,710, Jan, 305 Units",
-                "value": "14710.00000"
-            }, {
-                "tooltext": "Beverages, $30,280, Feb, 330 Units",
-                "value": "30280.50000"
-            }, {
-                "tooltext": "Beverages, $3,863, Mar, 220 Units",
-                "value": "3863.00000"
-
-            }, {
-                "tooltext": "Beverages, $13,505, Apr, 435 Units",
-                "value": "13505.00000"
-
-            }, {
-                "tooltext": "Beverages, $7,656, May, 304 Units",
-                "value": "7656.50000"
-
-            }, {
-                "tooltext": "Beverages, $15,654, Jun, 322 Units",
-                "value": "15654.00000"
-
-            }, {
-                "tooltext": "Beverages, $3,602, Jul, 313 Units",
-                "value": "3602.00000"
-
-            }, {
-                "tooltext": "Beverages, $8,343, Aug, 327 Units",
-                "value": "8343.50000"
-
-            }, {
-                "tooltext": "Beverages, $6,154, Sep, 334 Units",
-                "value": "6154.00000"
-
-            }, {
-                "tooltext": "Beverages, $6,198, Oct, 174 Units",
-                "value": "6198.75000"
-
-            }, {
-                "tooltext": "Beverages, $9,043, Nov, 491 Units",
-                "value": "9043.00000"
-
-            }, {
-                "tooltext": "Beverages, $4,034, Dec, 248 Units",
-                "value": "4034.00000"
-
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Condiments, $1,988, Jan, 82 Units",
-                "value": "1988.60000"
-
-            }, {
-                "tooltext": "Condiments, $5,593, Feb, 236 Units",
-                "value": "5593.50000"
-
-            }, {
-                "tooltext": "Condiments, $9,820, Mar, 428 Units",
-                "value": "9820.15000"
-
-            }, {
-                "tooltext": "Condiments, $2,000, Apr, 128 Units",
-                "value": "2000.90000"
-
-            }, {
-                "tooltext": "Condiments, $6,461, May, 281 Units",
-                "value": "6461.50000"
-
-            }, {
-                "tooltext": "Condiments, $5,728, Jun, 300 Units",
-                "value": "5728.80000"
-
-            }, {
-                "tooltext": "Condiments, $1,886, Jul, 95 Units",
-                "value": "1886.85000"
-
-            }, {
-                "tooltext": "Condiments, $6,798, Aug, 300 Units",
-                "value": "6798.70000"
-
-            }, {
-                "tooltext": "Condiments, $4,501, Sep, 206 Units",
-                "value": "4501.80000"
-
-            }, {
-                "tooltext": "Condiments, $3,748, Oct, 222 Units",
-                "value": "3748.90000"
-
-            }, {
-                "tooltext": "Condiments, $6,780, Nov, 270 Units",
-                "value": "6780.45000"
-
-            }, {
-                "tooltext": "Condiments, $3,854, Dec, 172 Units",
-                "value": "3854.80000"
-
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Confections, $8,196, Jan, 240 Units",
-                "value": "8196.85000"
-
-            }, {
-                "tooltext": "Confections, $10,246, Feb, 493 Units",
-                "value": "10246.61000"
-
-            }, {
-                "tooltext": "Confections, $11,033, Mar, 555 Units",
-                "value": "11033.93000"
-
-            }, {
-                "tooltext": "Confections, $3,790, Apr, 235 Units",
-                "value": "3790.20000"
-
-            }, {
-                "tooltext": "Confections, $12,257, May, 424 Units",
-                "value": "12257.65000"
-
-            }, {
-                "tooltext": "Confections, $7,997, Jun, 291 Units",
-                "value": "7997.50000"
-
-            }, {
-                "tooltext": "Confections, $2,494, Jul, 107 Units",
-                "value": "2494.40000"
-
-            }, {
-                "tooltext": "Confections, $6,968, Aug, 210 Units",
-                "value": "6968.03000"
-
-            }, {
-                "tooltext": "Confections, $8,025, Sep, 335 Units",
-                "value": "8025.30000"
-
-            }, {
-                "tooltext": "Confections, $7,192, Oct, 371 Units",
-                "value": "7192.50000"
-
-            }, {
-                "tooltext": "Confections, $8,051, Nov, 390 Units",
-                "value": "8051.55000"
-
-            }, {
-                "tooltext": "Confections, $5,271, Dec, 255 Units",
-                "value": "5271.16000"
-
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Dairy Products, $15,211, Jan, 653 Units",
-                "value": "15211.10000"
-
-            }, {
-                "tooltext": "Dairy Products, $8,490, Feb, 378 Units",
-                "value": "8490.00000"
-
-            }, {
-                "tooltext": "Dairy Products, $10,872, Mar, 318 Units",
-                "value": "10872.50000"
-
-            }, {
-                "tooltext": "Dairy Products, $9,005, Apr, 251 Units",
-                "value": "9005.50000"
-
-            }, {
-                "tooltext": "Dairy Products, $10,244, May, 291 Units",
-                "value": "10244.00000"
-
-            }, {
-                "tooltext": "Dairy Products, $11,491, Jun, 494 Units",
-                "value": "11491.50000"
-
-            }, {
-                "tooltext": "Dairy Products, $9,507, Jul, 405 Units",
-                "value": "9507.70000"
-
-            }, {
-                "tooltext": "Dairy Products, $13,570, Aug, 374 Units",
-                "value": "13570.10000"
-
-            }, {
-                "tooltext": "Dairy Products, $7,375, Sep, 256 Units",
-                "value": "7375.50000"
-
-            }, {
-                "tooltext": "Dairy Products, $12,054, Oct, 435 Units",
-                "value": "12054.00000"
-
-            }, {
-                "tooltext": "Dairy Products, $13,745, Nov, 422 Units",
-                "value": "13745.00000"
-
-            }, {
-                "tooltext": "Dairy Products, $13,597, Dec, 344 Units",
-                "value": "13597.10000"
-
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Grains/Cereals, $2,941, Jan, 128 Units",
-                "value": "2941.50000"
-
-            }, {
-                "tooltext": "Grains/Cereals, $4,572, Feb, 202 Units",
-                "value": "4572.75000"
-
-            }, {
-                "tooltext": "Grains/Cereals, $7,444, Mar, 246 Units",
-                "value": "7444.25000"
-
-            }, {
-                "tooltext": "Grains/Cereals, $4,187, Apr, 174 Units",
-                "value": "4187.50000"
-
-            }, {
-                "tooltext": "Grains/Cereals, $6,964, May, 240 Units",
-                "value": "6964.00000"
-
-            }, {
-                "tooltext": "Grains/Cereals, $2,551, Jun, 149 Units",
-                "value": "2551.50000"
-
-            }, {
-                "tooltext": "Grains/Cereals, $6,882, Jul, 292 Units",
-                "value": "6882.50000"
-
-            }, {
-                "tooltext": "Grains/Cereals, $4,780, Aug, 243 Units",
-                "value": "4780.00000"
-
-            }, {
-                "tooltext": "Grains/Cereals, $5,529, Sep, 204 Units",
-                "value": "5529.25000"
-
-            }, {
-                "tooltext": "Grains/Cereals, $5,755, Oct, 262 Units",
-                "value": "5755.75000"
-
-            }, {
-                "tooltext": "Grains/Cereals, $3,364, Nov, 108 Units",
-                "value": "3364.00000"
-
-            }, {
-                "tooltext": "Grains/Cereals, $6,294, Dec, 314 Units",
-                "value": "6294.00000"
-
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Meat/Poultry, $11,787, Jan, 309 Units",
-                "value": "11787.36000"
-
-            }, {
-                "tooltext": "Meat/Poultry, $5,722, Feb, 84 Units",
-                "value": "5722.29000"
-
-            }, {
-                "tooltext": "Meat/Poultry, $14,568, Mar, 515 Units",
-                "value": "14568.41000"
-
-            }, {
-                "tooltext": "Meat/Poultry, $4,093, Apr, 102 Units",
-                "value": "4093.42000"
-
-            }, {
-                "tooltext": "Meat/Poultry, $6,846, May, 93 Units",
-                "value": "6846.24000"
-
-            }, {
-                "tooltext": "Meat/Poultry, $3,548, Jun, 136 Units",
-                "value": "3548.05000"
-
-            }, {
-                "tooltext": "Meat/Poultry, $5,006, Jul, 130 Units",
-                "value": "5006.30000"
-
-            }, {
-                "tooltext": "Meat/Poultry, $4,902, Aug, 179 Units",
-                "value": "4902.30000"
-
-            }, {
-                "tooltext": "Meat/Poultry, $4,943, Sep, 105 Units",
-                "value": "4943.64000"
-
-            }, {
-                "tooltext": "Meat/Poultry, $12,406, Oct, 176 Units",
-                "value": "12406.54000"
-
-            }, {
-                "tooltext": "Meat/Poultry, $14,559, Nov, 372 Units",
-                "value": "14559.23000"
-
-            }, {
-                "tooltext": "Meat/Poultry, $1,212, Dec, 38 Units",
-                "value": "1212.00000"
-
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Produce, $4,604, Jan, 195 Units",
-                "value": "4604.85000"
-
-            }, {
-                "tooltext": "Produce, $3,622, Feb, 124 Units",
-                "value": "3622.95000"
-
-            }, {
-                "tooltext": "Produce, $3,379, Mar, 103 Units",
-                "value": "3379.20000"
-
-            }, {
-                "tooltext": "Produce, $4,597, Apr, 122 Units",
-                "value": "4597.80000"
-
-            }, {
-                "tooltext": "Produce, $6,137, May, 186 Units",
-                "value": "6137.10000"
-
-            }, {
-                "tooltext": "Produce, $3,481, Jun, 71 Units",
-                "value": "3481.20000"
-
-            }, {
-                "tooltext": "Produce, $6,231, Jul, 149 Units",
-                "value": "6231.00000"
-
-            }, {
-                "tooltext": "Produce, $1,650, Aug, 55 Units",
-                "value": "1650.00000"
-
-            }, {
-                "tooltext": "Produce, $4,455, Sep, 119 Units",
-                "value": "4455.00000"
-
-            }, {
-                "tooltext": "Produce, $2,887, Oct, 73 Units",
-                "value": "2887.25000"
-
-            }, {
-                "tooltext": "Produce, $7,291, Nov, 185 Units",
-                "value": "7291.00000"
-
-            }, {
-                "tooltext": "Produce, $3,268, Dec, 81 Units",
-                "value": "3268.25000"
-
-            }]
-        }, {
-            "data": [{
-                "tooltext": "Seafood, $4,280, Jan, 288 Units",
-                "value": "4280.97000"
-
-            }, {
-                "tooltext": "Seafood, $1,675, Feb, 104 Units",
-                "value": "1675.07000"
-
-            }, {
-                "tooltext": "Seafood, $3,776, Mar, 197 Units",
-                "value": "3776.42000"
-
-            }, {
-                "tooltext": "Seafood, $4,475, Apr, 175 Units",
-                "value": "4475.52000"
-
-            }, {
-                "tooltext": "Seafood, $4,557, May, 241 Units",
-                "value": "4557.30000"
-
-            }, {
-                "tooltext": "Seafood, $6,371, Jun, 401 Units",
-                "value": "6371.15000"
-
-            }, {
-                "tooltext": "Seafood, $3,477, Jul, 144 Units",
-                "value": "3477.25000"
-
-            }, {
-                "tooltext": "Seafood, $8,452, Aug, 366 Units",
-                "value": "8452.30000"
-
-            }, {
-                "tooltext": "Seafood, $8,997, Sep, 302 Units",
-                "value": "8997.20000"
-
-            }, {
-                "tooltext": "Seafood, $9,489, Oct, 630 Units",
-                "value": "9489.33000"
-
-            }, {
-                "tooltext": "Seafood, $7,206, Nov, 419 Units",
-                "value": "7206.47000"
-
-            }, {
-                "tooltext": "Seafood, $8,669, Dec, 426 Units",
-                "value": "8669.85000"
-
-            }]
-        }, {
-            "data": [{
-                "value": "2200",
-                "toolText": "Total Units sold in Jan : 2,200"
-            }, {
-                "value": "1951",
-                "toolText": "Total Units sold in Feb : 1,951"
-            }, {
-                "value": "2582",
-                "toolText": "Total Units sold in Mar : 2,582"
-            }, {
-                "value": "1622",
-                "toolText": "Total Units sold in Apr : 1,622"
-            }, {
-                "value": "2060",
-                "toolText": "Total Units sold in May : 2,060"
-            }, {
-                "value": "2164",
-                "toolText": "Total Units sold in Jun : 2,164"
-            }, {
-                "value": "1635",
-                "toolText": "Total Units sold in Jul : 1,635"
-            }, {
-                "value": "2054",
-                "toolText": "Total Units sold in Aug : 2,054"
-            }, {
-                "value": "1861",
-                "toolText": "Total Units sold in Sep : 1,861"
-            }, {
-                "value": "2343",
-                "toolText": "Total Units sold in Oct : 2,343"
-            }, {
-                "value": "2657",
-                "toolText": "Total Units sold in Nov : 2,657"
-            }, {
-                "value": "1878",
-                "toolText": "Total Units sold in Dec : 1,878"
             }]
         }]
     }
