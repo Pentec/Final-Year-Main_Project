@@ -243,21 +243,21 @@ var normalizetypeOfRadiotherapy =  function(patient){
     var value = 0;
 
     if(patient.TypeofRadiotherapy.Intracavitary == true)
-        value = 1/6;
+        value = 1/8;
     else if(patient.TypeofRadiotherapy.ExternalpelvicRT == true)
-        value = 2/6;
+        value = 2/8;
     else if(patient.TypeofRadiotherapy.Externalpelvicparaortic == true)
-        value = 3/6;
+        value = 3/8;
     else if(patient.TypeofRadiotherapy.Externalpelvicintracavitary == true)
-        value = 4/6;
+        value = 4/8;
     else if(patient.TypeofRadiotherapy.Extpelvicparaorticintracavitary == true)
-        value = 5/6;
+        value = 5/8;
     else if(patient.TypeofRadiotherapy.Intraperitonealradioisotopes == true)
-        value = 6/6;
+        value = 6/8;
     else if(patient.TypeofRadiotherapy.Other == true)
-        value = 5/6;
+        value = 7/8;
     else if(patient.TypeofRadiotherapy.Unknown == true)
-        value = 6/6;
+        value = 8/8;
 
     return ((value - MIN)/(MAX - MIN));
 };
@@ -357,7 +357,7 @@ var normalizeCD4 = function(patient){
     if(patient.HIVStatus == 'P' || patient.HIVStatus == 'Positive' || patient.HIVStatus == 'positive')
         var value = (cd4/Math.pow(10,3.5));
     else
-        var value = 1;
+        var value = 0.9998;
 
     return value;
 };
@@ -372,9 +372,9 @@ var normalizeHIV = function(patient){
     var value = 0;
 
     if(patient.HIVStatus == 'N' || patient.HIVStatus == 'Negative' || patient.HIVStatus == 'negative')
-        value = 1;
+        value = 0.9;
     else if(patient.HIVStatus == 'P' || patient.HIVStatus == 'Positive' || patient.HIVStatus == 'positive')
-        value = -1;
+        value = 0.1;
 
     return value;
 };
