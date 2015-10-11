@@ -4,7 +4,12 @@
  License Information at <http://www.fusioncharts.com/license>
 */
 
-FusionCharts.ready(function() {
+function CollectDataFromClient(data)
+{
+	globalData = data;
+
+ FusionCharts.ready(function() {
+	
 
     // Global / General Config
     var app,
@@ -43,9 +48,9 @@ FusionCharts.ready(function() {
                 chart: {
                     xAxisName: 'Name of Complications',
                     theme: 'management-3d',
-                    numberPrefix: '#',
+                    numberPrefix: '',
                     pYAxisName: 'Number of Surgical Complications',
-                    sYAxisName: 'Units Sold (In thousands)'
+                    sYAxisName: ''
                 },
                 categories: [{
                     category: []
@@ -56,7 +61,7 @@ FusionCharts.ready(function() {
                     showValues: '0',
                     data: []
                 }, {
-                    seriesName: 'Units Sold',
+                    seriesName: 'Complications',
                     parentYAxis: 'S',
                     renderAs: 'line',
                     showValues: '0',
@@ -110,31 +115,14 @@ FusionCharts.ready(function() {
             renderAt: 'top-sales-categories-chart',
             dataSource: {
                 chart: {
-                    yAxisName: 'Amount (In US $)',
-                    numberPrefix: '$',
+                    yAxisName: 'Number',
+                    numberPrefix: '',
                     theme: 'management-3d',
                     showValues: 0
                 },
                 data: []
             }
 
-        },
-
-        // Properties for top cities by sales chart
-        topRevenuesCitiesSummary: {
-            type: 'bar3d',
-            id: 'topRevenuesCitiesSummary',
-            width: '473',
-            height: '340',
-            dataFormat: 'json',
-            renderAt: 'top-revenues-cities-chart',
-            dataSource: {
-                chart: {
-                    yAxisName: 'Total Sales (US $ in thousands)',
-                    theme: 'management-3d'
-                },
-                data: []
-            }
         },
 
         // Properties for top countries by revenue chart
@@ -158,40 +146,6 @@ FusionCharts.ready(function() {
                 }],
                 dataset: [{
                     seriesName: 'Sales',
-                    renderAs: 'column3d',
-                    showValues: '0',
-                    data: []
-                }, {
-                    seriesName: 'Units Sold',
-                    renderAs: 'line',
-                    showValues: '0',
-                    parentYAxis: 'S',
-                    data: []
-                }]
-            }
-        },
-
-        // Properties for top customers chart
-        topCustomersSummary: {
-            type: 'mscolumn3dlinedy',
-            id: 'topCustomersSummary',
-            width: '473',
-            height: '340',
-            dataFormat: 'json',
-            renderAt: 'top-customers-chart',
-            dataSource: {
-                chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Customers',
-                    pYAxisName: 'Amount (US $ in thousands)',
-                    sYAxisName: 'Units Sold (In thousands)',
-                    theme: 'management-3d'
-                },
-                categories: [{
-                    category: []
-                }],
-                dataset: [{
-                    seriesName: 'Amount',
                     renderAs: 'column3d',
                     showValues: '0',
                     data: []
@@ -249,8 +203,8 @@ FusionCharts.ready(function() {
             renderAt: 'top-categories-sales-tab-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    yAxisName: 'Revenue (US $ in thousands)',
+                    numberPrefix: '',
+                    yAxisName: 'Number of Patients Diagnosed Per Cancer',
                     theme: 'management-3d'
                 },
                 data: []
@@ -268,9 +222,9 @@ FusionCharts.ready(function() {
             renderAt: 'top-performers-sales-tab-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Performers',
-                    yAxisName: 'Revenue (US $ in thousands)',
+                    numberPrefix: '',
+                    xAxisName: 'Diagnosis',
+                    yAxisName: 'Number of Patients Diagnosed',
                     theme: 'management-3d'
                 },
                 data: []
@@ -297,35 +251,31 @@ FusionCharts.ready(function() {
                     category: []
                 }],
                 dataset: [{
-                    seriesName: 'Beverages',
+                    seriesName: 'Fallopian Tube Cancer',
                     renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Condiments',
+                    seriesName: 'Vulva Cancer',
                     renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Confections',
+                    seriesName: 'Endometrial Cancer',
                     renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Dairy Products',
+                    seriesName: 'Cervical Cancer',
+                    renderAs: 'line',
+                    data: []
+                },  {
+                    seriesName: 'Ovarian Cancer',
                     renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Grains / Cereals',
+                    seriesName: 'Gestational Throphoblastic Disease',
                     renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Meat / Poultry',
-                    renderAs: 'line',
-                    data: []
-                }, {
-                    seriesName: 'Produce',
-                    renderAs: 'line',
-                    data: []
-                }, {
-                    seriesName: 'Seafood',
+                    seriesName: 'Vaginal Cancer',
                     renderAs: 'line',
                     data: []
                 }, {
@@ -347,21 +297,21 @@ FusionCharts.ready(function() {
             dataFormat: 'json',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Year',
-                    pYAxisName: 'Amount (US $ in thousands)',
-                    sYAxisName: 'No. of orders',
+                    numberPrefix: '',
+                    xAxisName: 'Firm',
+                    pYAxisName: 'Number of Patients',
+                    sYAxisName: '',
                     theme: 'management-3d'
                 },
                 categories: [{
                     category: []
                 }],
                 dataset: [{
-                    seriesName: 'Amount',
+                    seriesName: 'Bar View',
                     renderAs: 'column3d',
                     data: []
                 }, {
-                    seriesName: 'No. of Orders',
+                    seriesName: 'Line View',
                     renderAs: 'line',
                     showValues: '0',
                     parentYAxis: 'S',
@@ -490,22 +440,22 @@ FusionCharts.ready(function() {
             dataFormat: 'json',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Products',
-                    pYAxisName: 'Revenue (US $ in thousands)',
-                    sYAxisName: 'Units Sold',
+                    numberPrefix: '',
+                    xAxisName: 'Last Known Vital Status',
+                    pYAxisName: 'Number of Patients',
+                    sYAxisName: '',
                     theme: 'management-3d'
                 },
                 categories: [{
                     category: []
                 }],
                 dataset: [{
-                    seriesName: 'Revenue',
+                    seriesName: 'Bar View',
                     renderAs: 'column3d',
                     showValues: '0',
                     data: []
                 }, {
-                    seriesName: 'Units Sold',
+                    seriesName: 'Line View',
                     renderAs: 'line',
                     showValues: '0',
                     parentYAxis: 'S',
@@ -1177,7 +1127,34 @@ FusionCharts.ready(function() {
         var yearlySalesChart,
             yearlySalesChartConfig = chartConfig.yearlySalesSummary,
             yearlySalesSummaryCategories = managementData.yearlySalesSummaryCategories,
-            yearlySalesSummaryData = managementData.yearlySalesSummaryData;
+            yearlySalesSummaryData = [{"data": [{
+            "value": globalData[0][0]
+        }, {
+            "value": globalData[0][1]
+        }, {
+            "value": globalData[0][2]
+        }, {
+            "value": globalData[0][3]
+        }, {
+            "value": globalData[0][4]
+        }, {
+            "value": globalData[0][5]
+        }]
+    }, {
+        "data": [{
+            "value": globalData[0][0]
+        }, {
+            "value": globalData[0][1]
+        }, {
+            "value": globalData[0][2]
+        }, {
+            "value": globalData[0][3]
+        }, {
+            "value": globalData[0][4]
+        }, {
+            "value": globalData[0][5]
+        }]
+    }];
 
         // Config for Top Sales Performers Chart.
         var topSalesPerformers,
@@ -1185,10 +1162,70 @@ FusionCharts.ready(function() {
             topSalesPerformersSummaryCategories = managementData.topSalesPerformersSummaryCategories,
             topSalesPerformersSummaryData = managementData.topSalesPerformersSummaryData;
 
-        // Config for Top Categories Chart.
+        // Config for Top Categories Chart. //postoperative
         var topSalesCategoriesChart,
             topSalesCategoriesSummaryChartConfig = chartConfig.topSalesCategoriesSummary,
-            topSalesCategoriesSummaryData = managementData.topSalesCategoriesSummaryData;
+            topSalesCategoriesSummaryData = {
+        "2014": {
+            "all": [{
+                "data": {
+                    "label": "None",
+                    "value":  globalData[1][0],
+                    "link": "#"
+
+                }
+            }, {
+                "data": {
+                    "label": "Bladder Injury",
+                    "value": globalData[1][1],
+                    "link": "#"
+
+                }
+            }, {
+                "data": {
+                    "label": "Bowel Injury",
+                    "value": globalData[1][2],
+                    "link": "#"
+
+                }
+            }, {
+                "data": {
+                    "label": "Ureteric Injury",
+                    "value": globalData[1][3],
+                    "link": "#"
+
+                }
+            }, {
+                "data": {
+                    "label": "Anaesthetic Complication",
+                    "value": globalData[1][4],
+                    "link": "#"
+
+                }
+            }, {
+                "data": {
+                    "label": "ProcedureNotCompleted",
+                    "value": globalData[1][5],
+                    "link": "#"
+
+                }
+            }, {
+                "data": {
+                    "label": "BRUBT",
+                    "value": globalData[1][6],
+                    "link": "#"
+
+                }
+            }, {
+                "data": {
+                    "label": "Vascular Injury",
+                    "value": globalData[1][7],
+                    "link": "#"
+
+                }
+            }]
+        }
+    };
 
         // Config for Top Products Chart.
         var topProductsSummaryChart,
@@ -1201,18 +1238,6 @@ FusionCharts.ready(function() {
             topRevenuesCountriesSummaryChartConfig = chartConfig.topRevenuesCountriesSummary,
             topRevenuesCountriesSummaryCategories = managementData.topRevenuesCountriesSummaryCategories,
             topRevenuesCountriesSummaryData = managementData.topRevenuesCountriesSummaryData;
-
-        // Config for Top Cities by Sales Chart.
-        var topRevenuesCitiesSummaryChart,
-            topRevenuesCitiesSummaryChartConfig = chartConfig.topRevenuesCitiesSummary,
-            topRevenuesCitiesSummaryData = managementData.topRevenuesCitiesSummaryData;
-
-        // Config for Top Customers Chart.
-        var topCustomersSummaryChart,
-            topCustomersSummaryChartConfig = chartConfig.topCustomersSummary,
-            topCustomersSummaryCategories = managementData.topCustomersSummaryCategories,
-            topCustomersSummaryData = managementData.topCustomersSummaryData,
-            topCustomersTable;
 
         // Yearly Sales Chart
         chartDataSource.setCategories(yearlySalesChartConfig.dataSource, yearlySalesSummaryCategories);
@@ -1247,22 +1272,6 @@ FusionCharts.ready(function() {
         topProductsSummaryChart = new FusionCharts(topProductsSummaryChartConfig);
         topProductsSummaryChart.render();
 
-        // Top Revenues Cities Categories Chart
-        chartDataSource.setData(topRevenuesCitiesSummaryChartConfig.dataSource, dataHelpers.numberFilterData(5, topRevenuesCitiesSummaryData[currentYear]));
-        topRevenuesCitiesSummaryChart = new FusionCharts(topRevenuesCitiesSummaryChartConfig);
-        topRevenuesCitiesSummaryChart.render();
-
-        // Top Customers Summary
-        chartDataSource.setCategories(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(5, topCustomersSummaryCategories[currentYear]));
-        chartDataSource.setDataSetData(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(5, topCustomersSummaryData[currentYear]));
-        topCustomersTable = new TableComponent(topCustomersSummaryChartConfig, {
-            format: [{}, {
-                numberPrefix: '$'
-            }]
-        });
-        topCustomersSummaryChart = new FusionCharts(topCustomersSummaryChartConfig);
-        topCustomersSummaryChart.render();
-
 
          /**
            * Event Listeners for top sales performers chart.
@@ -1292,7 +1301,7 @@ FusionCharts.ready(function() {
            * Event Listeners for top products chart.
           */
 
-        // Year filter.
+        // Year filter
         eventListeners.add('top_products_summary_year_filter', 'change', function() {
             var year = dom.queryCurrentValue('top_products_summary_year_filter', this);
             var numberOfProducts = dom.getElementValue('top_products_summary_number_filter');
@@ -1364,66 +1373,6 @@ FusionCharts.ready(function() {
             topRevenuesCountriesSummaryChart.setJSONData(topRevenuesCountriesSummaryChartConfig.dataSource);
         });
 
-         /**
-           * Event Listeners for top cities by revenue chart.
-          */
-
-        // Year filter.
-        eventListeners.add('top_revenues_cities_summary_year_filter', 'change', function() {
-            var year = dom.queryCurrentValue('top_revenues_cities_summary_year_filter', this);
-            var numberOfCities = dom.getElementValue('top_revenues_cities_summary_number_filter');
-
-            chartDataSource.setData(topRevenuesCitiesSummaryChartConfig.dataSource, dataHelpers.numberFilterData(numberOfCities, topRevenuesCitiesSummaryData[year]));
-            topRevenuesCitiesSummaryChart.setJSONData(topRevenuesCitiesSummaryChartConfig.dataSource);
-        });
-
-        // Number filter.
-        eventListeners.add('top_revenues_cities_summary_number_filter', 'change', function() {
-            var numberOfCities = dom.queryCurrentValue('top_revenues_cities_summary_number_filter', this);
-            var year = dom.getElementValue('top_revenues_cities_summary_year_filter');
-
-            chartDataSource.setData(topRevenuesCitiesSummaryChartConfig.dataSource, dataHelpers.numberFilterData(numberOfCities, topRevenuesCitiesSummaryData[year]));
-            topRevenuesCitiesSummaryChart.setJSONData(topRevenuesCitiesSummaryChartConfig.dataSource);
-        });
-
-         /**
-           * Event Listeners for top customers chart.
-          */
-
-        // Year filter.
-        eventListeners.add('top_customers_summary_year_filter', 'change', function() {
-            var year = dom.queryCurrentValue('top_customers_summary_year_filter', this);
-            var numberOfCustomers = dom.getElementValue('top_customers_summary_number_filter');
-
-            chartDataSource.setCategories(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(numberOfCustomers, topCustomersSummaryCategories[year]));
-            chartDataSource.setDataSetData(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(numberOfCustomers, topCustomersSummaryData[year]));
-
-            if (numberOfCustomers === '10') {
-                topCustomersTable.render();
-            } else {
-                topCustomersTable.hide();
-                dom.getById(topCustomersSummaryChartConfig.renderAt).style.display = '';
-                topCustomersSummaryChart.setJSONData(topCustomersSummaryChartConfig.dataSource);
-            }
-        });
-
-        // Number filter.
-        eventListeners.add('top_customers_summary_number_filter', 'change', function() {
-            var numberOfCustomers = dom.queryCurrentValue('top_customers_summary_number_filter', this);
-            var year = dom.getElementValue('top_customers_summary_year_filter');
-
-            chartDataSource.setCategories(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(numberOfCustomers, topCustomersSummaryCategories[year]));
-            chartDataSource.setDataSetData(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(numberOfCustomers, topCustomersSummaryData[year]));
-
-            if (numberOfCustomers === '10') {
-                topCustomersTable.render();
-            } else {
-                topCustomersTable.hide();
-                dom.getById(topCustomersSummaryChartConfig.renderAt).style.display = 'block';
-                topCustomersSummaryChart.setJSONData(topCustomersSummaryChartConfig.dataSource);
-            }
-        });
-
     });
 
     // Sales Dashboard / Dashboard Tab 2
@@ -1490,7 +1439,7 @@ FusionCharts.ready(function() {
 
             employeeSlug = dataHelpers.slugize(arguments[1]['categoryLabel']);
             chartDataSource.setDataSetData(singleSalePerformerSalesTabConfig.dataSource, singleSalePerformerSalesTabData[employeeSlug]);
-            viewHelpers.showModal('singleSalePerformerSalesTabChart', 'Sales Details of ' + employeeDetails[employeeSlug]['name'], singleSalePerformerSalesTabConfig, function(chart) {
+            viewHelpers.showModal('singleSalePerformerSalesTabChart', 'Number of Patients Per Firm For ' + employeeDetails[employeeSlug]['name'], singleSalePerformerSalesTabConfig, function(chart) {
                 chart.render();
             });
         }, true);
@@ -1536,7 +1485,7 @@ FusionCharts.ready(function() {
 
             chartDataSource.setCategories(categoryWiseSalesChartConfig.dataSource, categoryWiseSalesCategories[year][label]);
             chartDataSource.setDataSetData(categoryWiseSalesChartConfig.dataSource, categoryWiseSalesData[year][label]);
-            viewHelpers.showModal('categoryWiseSalesChart', arguments[1].categoryLabel + ' Sales', categoryWiseSalesChartConfig, function(chart) {
+            viewHelpers.showModal('categoryWiseSalesChart', arguments[1].categoryLabel + ' Vital Statuses', categoryWiseSalesChartConfig, function(chart) {
                 chart.render();
             });
         }, true);
@@ -1774,3 +1723,4 @@ FusionCharts.ready(function() {
     });
 
 });
+}

@@ -9,7 +9,6 @@ block extFiles
     script(src='/javascripts/moment.js')
     script(src='/javascripts/daterangepicker/daterangepicker.js')
     script(src='/javascripts/d3/d3.min.js')
-    script(src='/javascripts/stats.js')
     script(src='/javascripts/fancySelectors/classie.js')
     script(src='/javascripts/fancySelectors/selectFx.js')
     script(src='/libs/angular/angular.min.js')
@@ -17,6 +16,8 @@ block extFiles
     script(src="/libs/perfect-scrollbar/min/perfect-scrollbar.min.js")
     script(src='/javascripts/app.js')
     link(rel='stylesheet', href='/stylesheets/stats.css')
+    script(src='/javascripts/saveSvgAsPng.js')
+    script(src='/javascripts/stats.js')
 block mainContent
     .area
         .container.graphbox
@@ -64,60 +65,6 @@ block mainContent
                             div.form-group
                                 button.btn.btn-custom.btn-block(type="Submit", value="submit", id="search" onclick="")
                                     | Query
-                        script.
-                            $('.area').perfectScrollbar();
-                            $('#StartDate').daterangepicker(
-                            {
-                                locale: {
-                                    format: 'YYYY-MM-DD'
-                                },
-                                startDate: '2014-01-01',
-                                endDate: '2014-12-31',
-                                opens: 'left',
-                                "applyClass": "btn-block btn-custom btn-top",
-                                "cancelClass" : "btn-block btn-bottom"
-                            },
-                            function (start, end, label) {
-                                startDate = start.format('YYYY-MM-DD');
-                                endDate = end.format('YYYY-MM-DD');
-                            });
-
-                            $("#mainQuery").on("submit", function (e) {
-                                e.preventDefault();
-                                var period = $('#TypeOfSearch :selected').text();
-                                var stats = $('#TypeOfQuery :selected').text();
-                                $.ajax({
-                                    type: 'POST',
-                                    url: '/findSelectedQuery',
-                                    beforeSend: function(xhr){
-                                        $("#search").html("<img src='/images/loader.gif' height = '30px' />");
-                                    },
-                                    data: JSON.stringify({
-                                        forQuering: {
-                                            start: startDate,
-                                            end: endDate,
-                                            periodQuery: period,
-                                            statsQuery: stats
-                                        }
-                                    }),
-                                    success: function (data, textStatus, jqXHR){
-                                        $("#search").html("Query");
-                                        var res = JSON.parse(jqXHR.responseText);
-                                        var resBus = JSON.stringify(res.myStatsArry);
-                                        updateGraph(res.myStatsArry, "Test");
-                                        //window.location = '/statistics.html?myObject=' + resBus;
-                                    },
-                                    dataType: "json",
-                                    contentType: "application/json"
-                                });
-                            });
-                            var one = #{elCount}; var two = #{emCount}
-                            var data = [{value : one,color : "#dbba34"},{value : two,color : "#c62f29"}];
-                            var canvas = document.getElementById("hours");
-                            var ctx = canvas.getContext("2d");
-                            new Chart(ctx).Doughnut(data);
-
-
                 .graph-interaction-header
                     h2 Statistics
                 .overall-stats.stats-section
@@ -132,11 +79,10 @@ block mainContent
                 .stats-section(style="height:30%;")
                     div(style="height:55%")
                         .input-group
-                            input(type="image", src="/images/bar.png")
-                            input(type="image", src="/images/line.png")
+                            input(type="image", src="/images/line.png", onclick="createLineGraph()")
+                            input(type="image", src="/images/bar.png", onclick="createBarGraph()")
                     .btn-group.btn-group-justified
                         .btn-group
-                            button(type="button" onclick="anim()").btn.btn-custom Predict
+                            button(type="button" onclick="predict()").btn.btn-custom Predict
                         .btn-group
-                            button(type="button").btn.btn-custom.blue Save as PDF
-
+                            button(type="button" onclick="saveAsPNG()").btn.btn-custom.blue Save as PNG

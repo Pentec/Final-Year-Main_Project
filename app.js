@@ -13,13 +13,23 @@ var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
-var users = require('./routes/users'); 
+var users = require('./routes/users');
 var stats = require('./routes/stats');//stats route
+var fetchDataFromDB = require('./routes/fetchDataFromDB');//stats route
+
 //schemas
 var gynaecology_surgery = require('./routes/forms/gynaecology_surgery');
 var addmission_discharge = require('./routes/forms/addmission_discharge');
 var cervical_cancer = require('./routes/forms/cervical_cancer');
 var endometrial_cancer = require('./routes/forms/endometrial_cancer');
+var fallopian_tube_cancer = require('./routes/forms/fallopian_tube_cancer');
+var oncology_follow_up = require('./routes/forms/oncology_follow_up');
+var critical_incident = require('./routes/forms/critical_incident');
+var hysteroscopy = require('./routes/forms/hysteroscopy');
+var gtn = require('./routes/forms/gtn');
+var ovarian_cancer = require('./routes/forms/ovarian_cancer');
+var vulva_cancer = require('./routes/forms/vulva_cancer');
+var vaginal_cancer = require('./routes/forms/vaginal_cancer');
 
 var app = express();
 
@@ -64,13 +74,27 @@ app.use('/findSelectedQuery', routes);
 app.use('/create', routes);
 app.use('/profile', routes);
 app.use('/add', routes);
-app.use('/fetchDataFromMongo', routes);  //for html rms
+app.use('/fetchDataFromDB', fetchDataFromDB);  //for html rms
+
+//Form Controllers
 app.use('/gynaecology_surgery', gynaecology_surgery);
 app.use('/addmission_discharge', addmission_discharge);
 app.use('/cervical_cancer', cervical_cancer);
 app.use('/endometrial_cancer',endometrial_cancer);
-//app.use(scribe.express.logger());
-//app.use('/logs', scribe.webPanel());
+
+
+app.use('/fallopian_tube_cancer', fallopian_tube_cancer);
+app.use('/oncology_follow_up',oncology_follow_up);
+
+app.use('/critical_incident',critical_incident);
+app.use('/hysteroscopy', hysteroscopy);
+app.use('/gtn', gtn);
+app.use('/ovarian_cancer',ovarian_cancer);
+app.use('/vulva_cancer', vulva_cancer);
+app.use('/vaginal_cancer',vaginal_cancer);
+
+/*app.use(scribe.express.logger());
+app.use('/logs', scribe.webPanel());*/
 app.use('/dataNormalizer', routes);
 
 
@@ -92,9 +116,38 @@ app.get('/cervical_cancer', function(req, res) {
 app.get('/endometrial_cancer', function(req, res) {
     res.sendfile(html_dir + 'endometrial_cancer.html');
 });
+app.get('/fallopian_tube_cancer', function(req, res) {
+    res.sendfile(html_dir + 'fallopian_tube_cancer.html');
+});
+
+app.get('oncology_follow_up', function(req, res) {
+    res.sendfile(html_dir + 'oncology_follow_up.html');
+});
+
 app.get('/vaginal_cancer', function(req, res) {
     res.sendfile(html_dir + 'vaginal_cancer.html');
 });
+
+app.get('/critical_incidence', function(req, res) {
+    res.sendfile(html_dir + 'critical_incidence.html');
+});
+
+app.get('/GTN', function(req, res) {
+    res.sendfile(html_dir + 'GTN.html');
+});
+
+app.get('/Hysteroscopy', function(req, res) {
+    res.sendfile(html_dir + 'Hysteroscopy.html');
+});
+
+app.get('/ovarian_cancer', function(req, res) {
+    res.sendfile(html_dir + 'ovarian_cancer.html');
+});
+
+app.get('/vulva_cancer', function(req, res) {
+    res.sendfile(html_dir + 'vulva_cancer.html');
+});
+
 //end of html routing
 
 
