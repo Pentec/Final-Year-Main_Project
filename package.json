@@ -42,8 +42,7 @@
     "serve-favicon": "~2.2.1",
     "synaptic": "^1.0.1",
     "unit.js": "^2.0.0",
-    "winston": "^1.0.2",
-    "unit.js": "^2.0.0"
+    "winston": "^1.0.2"
   },
   "devDependencies": {
     "chai": "^3.2.0",
