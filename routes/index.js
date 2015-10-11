@@ -88,7 +88,7 @@ var AD = models.addmissionDischarge;
  * @type {Session}
  */
 var sess;
-
+var logging = require('../utils/logging.js').logger();
 
 
 /**
@@ -181,6 +181,7 @@ router.get('/mySpace', login.isLoggedIn, login.isNotAdmin, function(req, res, ne
  */
 router.get('/login', function(req, res) {
     sess = req.session;
+
     //user not logged in
     if(!req.user){
 
@@ -198,8 +199,10 @@ router.get('/login', function(req, res) {
     else if(req.user) {//user already logged in, may help sessions
         login.checkAdmin(req.user.username, req.user.password, function(isAdmin)
         {
-                if(isAdmin)
+
+            if(isAdmin)
                 {
+
                     res.redirect('/myAdminSpace');
                 }
                 else
@@ -228,6 +231,7 @@ router.post('/login', login.postLogin, function(req, res, next) {
 router.get('/logout', function(req,res){
 
     if(req.isAuthenticated()){
+        logging.info("User ["+ req.user.username + "] is now logging out ");
         req.logout();
         req.session.messages = "Log out successful";
 
@@ -941,6 +945,7 @@ router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function(req, res, ne
             if(err){
                 var err = new Error('Unable to process data');
                 err.status = 400;
+                //logger.error("127.0.0.1 - there's no place like home");
                 return next(err);
             }
             docs.forEach(function(doc){

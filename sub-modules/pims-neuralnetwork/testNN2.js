@@ -190,7 +190,6 @@ var testNetwork = function(filename, callback){
 
 var calculatePercentage = function(total, survive, die, callback){
     var percentSurvive = 0, percentDie = 0;
-    console.log('in function '+ total);
 
     if(total <= 0)
     {
@@ -236,8 +235,6 @@ var trainNetwork = function(inputValuesArray, callback){
 
 
     //call activate and propagate
-
-    console.log('in training ');
     var checkOutput0 = 0;
 
     for(var i = 0; i < nTrials; i++){

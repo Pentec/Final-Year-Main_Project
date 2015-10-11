@@ -1,6 +1,7 @@
 var express = require('express');
-var scribe = require('scribe-js')(),
-    console = process.console;
+//var scribe = require('scribe-js')({createDefaultConsole : true}),
+    //console = scribe.console({logWriter : {rootPath : ".\\logs"}});
+
 var router = express.Router();
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -14,7 +15,6 @@ var LocalStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
 var users = require('./routes/users'); 
 var stats = require('./routes/stats');//stats route
-
 //schemas
 var gynaecology_surgery = require('./routes/forms/gynaecology_surgery');
 var addmission_discharge = require('./routes/forms/addmission_discharge');
@@ -29,6 +29,10 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
+
+// Uncomment to log morgan data to file
+//var logging = require('./utils/logging').logger();
+//app.use(logger('dev', { "stream": logging.stream }));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -65,21 +69,11 @@ app.use('/gynaecology_surgery', gynaecology_surgery);
 app.use('/addmission_discharge', addmission_discharge);
 app.use('/cervical_cancer', cervical_cancer);
 app.use('/endometrial_cancer',endometrial_cancer);
-app.use(scribe.express.logger());
-app.use('/logs', scribe.webPanel());
+//app.use(scribe.express.logger());
+//app.use('/logs', scribe.webPanel());
 app.use('/dataNormalizer', routes);
 
 
-//Make some logs
-console.addLogger('debug', 'yellow');
-console.addLogger('fun', 'red');
-
-console.time().fun('hello world');
-console.tag('This is a test').debug('A test');
-console.tag('An object').log({
-    a: 'b',
-    c: [1, 2, 3]
-});
 
 
 //This code below, until the next comment, serves for static html forms.
