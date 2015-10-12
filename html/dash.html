@@ -120,7 +120,7 @@ $( document ).ready(function() {
 
                 <div id="sidebar" class="pull-left">
                     <div id="profile-pic" class="pull-left">
-                        <img src="/images/snyman.jpg" alt="John Profile Pic"  style ="width:55px;height:55px;" title="John Profile Pic">
+                        <img src="/images/snyman.jpg" alt="User Profile Pic"  style ="width:55px;height:55px;" title="John Profile Pic">
                     </div>
                     <div id="profile-name" class="pull-left">
                         <p>Hello Leon</p>
@@ -257,60 +257,7 @@ $( document ).ready(function() {
                                 <div id="top-revenues-countries-chart"></div>
 
                             </div>
-
-
-                           
-
-                            <div class="chart-category pull-left">
-                                <h2 class="chart-category-heading pull-left">Top Cities By Sales</h2>
-
-                                <!-- Number filter for top cities by sales chart -->
-                                <select class="pull-right" id="top_revenues_cities_summary_number_filter">
-                                    <option value="5">Top 5</option>
-                                    <option value="10">Top 10</option>
-                                    <option value="all">All</option>
-                                </select>
-
-                                <!-- Yearly filter for top cities by sales chart -->
-                                <select class="pull-right" id="top_revenues_cities_summary_year_filter">
-                                    <option value="2014">2014</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2012">2012</option>
-                                </select>
-
-                                <div class="divider clearboth"></div>
-
-
-                                <!-- Top cities by sales chart -->
-                                <div id="top-revenues-cities-chart"></div>
-
-
-
-                            </div>
-
-                            <div class="chart-category pull-right no-border">
-                                <h2 class="chart-category-heading pull-left">Top Customers</h2>
-
-                                <!-- Number filter for top customers chart -->
-                                <select class="pull-right" id="top_customers_summary_number_filter">
-                                    <option value="5">Top 5</option>
-                                    <option value="10">Top 10</option>
-                                </select>
-
-                                <!-- Yearly filter for top customers chart -->
-                                <select class="pull-right" id="top_customers_summary_year_filter">
-                                    <option value="2014">2014</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2012">2012</option>
-                                </select>
-
-                                <div class="divider clearboth"></div>
-
-                                <!-- Top customer chart -->
-                                <div id="top-customers-chart"></div>
-                                <div id="top-customers-chart-table" class="table hidden top-customers-table"></div>
-
-                            </div>
+							
                         </div>
 
                     </div>
@@ -322,13 +269,11 @@ $( document ).ready(function() {
 
 						 <div class="chart-category pull-left">
                          
-							<h2 class="chart-category-heading pull-left">Top Categories By Sales</h2>
+							<h2 class="chart-category-heading pull-left">Number of Patients Per Cancer</h2>
 
                                 <!-- Yearly filter for top categories by sales chart -->
                                 <select class="pull-right" id="top_categories_sales_tab_year_filter">
-                                    <option value="2014">2014</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2012">2012</option>
+                                    <option value="2014">All</option>
                                 </select>
 
                                 <div class="divider clearboth"></div>
@@ -344,14 +289,15 @@ $( document ).ready(function() {
                            
 
                             <div class="chart-category pull-right no-border">
-                                <h2 class="chart-category-heading pull-left">Top Performers By Sales</h2>
+                                <h2 class="chart-category-heading pull-left">Gynaecology Admission Discharge Diagnoses </h2>
 
 
                                 <!-- Yearly filter for top performers by sales chart -->
                                 <select class="pull-right" id="top_performers_sales_year_filter">
-                                    <option value="2014">2014</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2012">2012</option>
+                                    <option value="2014">Miscarriage</option>
+                                    <option value="2013">Salpingitis</option>
+                                    <option value="2012">Oncology</option>
+                                    <option value="2011">Ectopic</option>
                                 </select>
 
                                 <div class="divider clearboth"></div>
@@ -367,7 +313,7 @@ $( document ).ready(function() {
                             </div>
 
                             <div class="chart-category full-width">
-                                <h2 class="chart-category-heading pull-left">Monthly Sales</h2>
+                                <h2 class="chart-category-heading pull-left">Monthly Statistics</h2>
 
                                 <!-- Yearly filter for monthly sales chart -->
                                 <select class="pull-right" id="top_monthly_sales_year_filter">

@@ -80,10 +80,10 @@ function CollectDataFromClient(data)
             renderAt: 'top-sales-performers-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
+                    numberPrefix: '',
                     xAxisName: 'Performers',
-                    pYAxisName: 'Sales (US $ in thousands)',
-                    sYAxisName: 'Units Sold (In thousands)',
+                    pYAxisName: 'Number of Patients',
+                    sYAxisName: 'Units Sold ',
                     theme: 'management-3d'
                 },
                 categories: [{
@@ -125,23 +125,6 @@ function CollectDataFromClient(data)
 
         },
 
-        // Properties for top cities by sales chart
-        topRevenuesCitiesSummary: {
-            type: 'bar3d',
-            id: 'topRevenuesCitiesSummary',
-            width: '473',
-            height: '340',
-            dataFormat: 'json',
-            renderAt: 'top-revenues-cities-chart',
-            dataSource: {
-                chart: {
-                    yAxisName: 'Total Sales (US $ in thousands)',
-                    theme: 'management-3d'
-                },
-                data: []
-            }
-        },
-
         // Properties for top countries by revenue chart
         topRevenuesCountriesSummary: {
             type: 'mscolumn3dlinedy',
@@ -152,9 +135,9 @@ function CollectDataFromClient(data)
             renderAt: 'top-revenues-countries-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
+                    numberPrefix: '',
                     xAxisName: 'Countries',
-                    pYAxisName: 'Sales (US $ in thousands)',
+                    pYAxisName: 'Number of Patients',
                     sYAxisName: 'Units Sold (In thousands)',
                     theme: 'management-3d'
                 },
@@ -163,40 +146,6 @@ function CollectDataFromClient(data)
                 }],
                 dataset: [{
                     seriesName: 'Sales',
-                    renderAs: 'column3d',
-                    showValues: '0',
-                    data: []
-                }, {
-                    seriesName: 'Units Sold',
-                    renderAs: 'line',
-                    showValues: '0',
-                    parentYAxis: 'S',
-                    data: []
-                }]
-            }
-        },
-
-        // Properties for top customers chart
-        topCustomersSummary: {
-            type: 'mscolumn3dlinedy',
-            id: 'topCustomersSummary',
-            width: '473',
-            height: '340',
-            dataFormat: 'json',
-            renderAt: 'top-customers-chart',
-            dataSource: {
-                chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Customers',
-                    pYAxisName: 'Amount (US $ in thousands)',
-                    sYAxisName: 'Units Sold (In thousands)',
-                    theme: 'management-3d'
-                },
-                categories: [{
-                    category: []
-                }],
-                dataset: [{
-                    seriesName: 'Amount',
                     renderAs: 'column3d',
                     showValues: '0',
                     data: []
@@ -220,9 +169,9 @@ function CollectDataFromClient(data)
             renderAt: 'top-products-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
+                    numberPrefix: '',
                     xAxisName: 'Products',
-                    pYAxisName: 'Amount (US $ in thousands)',
+                    pYAxisName: 'Number of Patients',
                     sYAxisName: 'Units Sold',
                     theme: 'management-3d'
                 },
@@ -254,8 +203,8 @@ function CollectDataFromClient(data)
             renderAt: 'top-categories-sales-tab-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    yAxisName: 'Revenue (US $ in thousands)',
+                    numberPrefix: '',
+                    yAxisName: 'Number of Patients Diagnosed Per Cancer',
                     theme: 'management-3d'
                 },
                 data: []
@@ -273,9 +222,9 @@ function CollectDataFromClient(data)
             renderAt: 'top-performers-sales-tab-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Performers',
-                    yAxisName: 'Revenue (US $ in thousands)',
+                    numberPrefix: '',
+                    xAxisName: 'Diagnosis',
+                    yAxisName: 'Number of Patients Diagnosed',
                     theme: 'management-3d'
                 },
                 data: []
@@ -292,10 +241,10 @@ function CollectDataFromClient(data)
             renderAt: 'top-monthly-sales-tab-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
+                    numberPrefix: '',
                     xAxisName: 'Month',
-                    pYAxisName: 'Amount (US $ in thousands)',
-                    sYAxisName: 'Total Units Sold (In thousands)',
+                    pYAxisName: 'Number of patients',
+                    sYAxisName: '',
                     theme: 'management-3d'
                 },
                 categories: [{
@@ -330,7 +279,7 @@ function CollectDataFromClient(data)
                     renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Total Units Sold',
+                    seriesName: 'Tot # of Patients',
                     renderAs: 'line',
                     dashed: '1',
                     parentYAxis: 'S',
@@ -348,21 +297,21 @@ function CollectDataFromClient(data)
             dataFormat: 'json',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Year',
-                    pYAxisName: 'Amount (US $ in thousands)',
-                    sYAxisName: 'No. of orders',
+                    numberPrefix: '',
+                    xAxisName: 'Firm',
+                    pYAxisName: 'Number of Patients',
+                    sYAxisName: '',
                     theme: 'management-3d'
                 },
                 categories: [{
                     category: []
                 }],
                 dataset: [{
-                    seriesName: 'Amount',
+                    seriesName: 'Bar View',
                     renderAs: 'column3d',
                     data: []
                 }, {
-                    seriesName: 'No. of Orders',
+                    seriesName: 'Line View',
                     renderAs: 'line',
                     showValues: '0',
                     parentYAxis: 'S',
@@ -378,9 +327,9 @@ function CollectDataFromClient(data)
             dataFormat: 'json',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
+                    numberPrefix: '',
                     xAxisName: 'Products',
-                    pYAxisName: 'Revenue (US $ in thousands)',
+                    pYAxisName: 'Number of Patients',
                     sYAxisName: 'Units Sold',
                     theme: 'management-3d'
                 },
@@ -411,9 +360,9 @@ function CollectDataFromClient(data)
             renderAt: 'inventory-by-product-categories-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
+                    numberPrefix: '',
                     xAxisName: 'Product Category',
-                    yAxisName: 'Cost of Inventory (US $ in thousands)',
+                    yAxisName: 'Number of Patients ',
                     theme: 'management-3d'
                 },
                 data: []
@@ -466,7 +415,7 @@ function CollectDataFromClient(data)
                 chart: {
                     xAxisName: 'Month',
                     yAxisName: 'In Percentage',
-                    numberPrefix: '$',
+                    numberPrefix: '',
                     theme: 'management-3d'
                 },
                 categories: [{
@@ -491,22 +440,22 @@ function CollectDataFromClient(data)
             dataFormat: 'json',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Products',
-                    pYAxisName: 'Revenue (US $ in thousands)',
-                    sYAxisName: 'Units Sold',
+                    numberPrefix: '',
+                    xAxisName: 'Last Known Vital Status',
+                    pYAxisName: 'Number of Patients',
+                    sYAxisName: '',
                     theme: 'management-3d'
                 },
                 categories: [{
                     category: []
                 }],
                 dataset: [{
-                    seriesName: 'Revenue',
+                    seriesName: 'Bar View',
                     renderAs: 'column3d',
                     showValues: '0',
                     data: []
                 }, {
-                    seriesName: 'Units Sold',
+                    seriesName: 'Line View',
                     renderAs: 'line',
                     showValues: '0',
                     parentYAxis: 'S',
@@ -1290,18 +1239,6 @@ function CollectDataFromClient(data)
             topRevenuesCountriesSummaryCategories = managementData.topRevenuesCountriesSummaryCategories,
             topRevenuesCountriesSummaryData = managementData.topRevenuesCountriesSummaryData;
 
-        // Config for Top Cities by Sales Chart.
-        var topRevenuesCitiesSummaryChart,
-            topRevenuesCitiesSummaryChartConfig = chartConfig.topRevenuesCitiesSummary,
-            topRevenuesCitiesSummaryData = managementData.topRevenuesCitiesSummaryData;
-
-        // Config for Top Customers Chart.
-        var topCustomersSummaryChart,
-            topCustomersSummaryChartConfig = chartConfig.topCustomersSummary,
-            topCustomersSummaryCategories = managementData.topCustomersSummaryCategories,
-            topCustomersSummaryData = managementData.topCustomersSummaryData,
-            topCustomersTable;
-
         // Yearly Sales Chart
         chartDataSource.setCategories(yearlySalesChartConfig.dataSource, yearlySalesSummaryCategories);
         chartDataSource.setDataSetData(yearlySalesChartConfig.dataSource, yearlySalesSummaryData);
@@ -1334,22 +1271,6 @@ function CollectDataFromClient(data)
         chartDataSource.setDataSetData(topProductsSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(5, topProductsSummaryData[currentYear]));
         topProductsSummaryChart = new FusionCharts(topProductsSummaryChartConfig);
         topProductsSummaryChart.render();
-
-        // Top Revenues Cities Categories Chart
-        chartDataSource.setData(topRevenuesCitiesSummaryChartConfig.dataSource, dataHelpers.numberFilterData(5, topRevenuesCitiesSummaryData[currentYear]));
-        topRevenuesCitiesSummaryChart = new FusionCharts(topRevenuesCitiesSummaryChartConfig);
-        topRevenuesCitiesSummaryChart.render();
-
-        // Top Customers Summary
-        chartDataSource.setCategories(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(5, topCustomersSummaryCategories[currentYear]));
-        chartDataSource.setDataSetData(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(5, topCustomersSummaryData[currentYear]));
-        topCustomersTable = new TableComponent(topCustomersSummaryChartConfig, {
-            format: [{}, {
-                numberPrefix: '$'
-            }]
-        });
-        topCustomersSummaryChart = new FusionCharts(topCustomersSummaryChartConfig);
-        topCustomersSummaryChart.render();
 
 
          /**
@@ -1452,66 +1373,6 @@ function CollectDataFromClient(data)
             topRevenuesCountriesSummaryChart.setJSONData(topRevenuesCountriesSummaryChartConfig.dataSource);
         });
 
-         /**
-           * Event Listeners for top cities by revenue chart.
-          */
-
-        // Year filter.
-        eventListeners.add('top_revenues_cities_summary_year_filter', 'change', function() {
-            var year = dom.queryCurrentValue('top_revenues_cities_summary_year_filter', this);
-            var numberOfCities = dom.getElementValue('top_revenues_cities_summary_number_filter');
-
-            chartDataSource.setData(topRevenuesCitiesSummaryChartConfig.dataSource, dataHelpers.numberFilterData(numberOfCities, topRevenuesCitiesSummaryData[year]));
-            topRevenuesCitiesSummaryChart.setJSONData(topRevenuesCitiesSummaryChartConfig.dataSource);
-        });
-
-        // Number filter.
-        eventListeners.add('top_revenues_cities_summary_number_filter', 'change', function() {
-            var numberOfCities = dom.queryCurrentValue('top_revenues_cities_summary_number_filter', this);
-            var year = dom.getElementValue('top_revenues_cities_summary_year_filter');
-
-            chartDataSource.setData(topRevenuesCitiesSummaryChartConfig.dataSource, dataHelpers.numberFilterData(numberOfCities, topRevenuesCitiesSummaryData[year]));
-            topRevenuesCitiesSummaryChart.setJSONData(topRevenuesCitiesSummaryChartConfig.dataSource);
-        });
-
-         /**
-           * Event Listeners for top customers chart.
-          */
-
-        // Year filter.
-        eventListeners.add('top_customers_summary_year_filter', 'change', function() {
-            var year = dom.queryCurrentValue('top_customers_summary_year_filter', this);
-            var numberOfCustomers = dom.getElementValue('top_customers_summary_number_filter');
-
-            chartDataSource.setCategories(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(numberOfCustomers, topCustomersSummaryCategories[year]));
-            chartDataSource.setDataSetData(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(numberOfCustomers, topCustomersSummaryData[year]));
-
-            if (numberOfCustomers === '10') {
-                topCustomersTable.render();
-            } else {
-                topCustomersTable.hide();
-                dom.getById(topCustomersSummaryChartConfig.renderAt).style.display = '';
-                topCustomersSummaryChart.setJSONData(topCustomersSummaryChartConfig.dataSource);
-            }
-        });
-
-        // Number filter.
-        eventListeners.add('top_customers_summary_number_filter', 'change', function() {
-            var numberOfCustomers = dom.queryCurrentValue('top_customers_summary_number_filter', this);
-            var year = dom.getElementValue('top_customers_summary_year_filter');
-
-            chartDataSource.setCategories(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(numberOfCustomers, topCustomersSummaryCategories[year]));
-            chartDataSource.setDataSetData(topCustomersSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(numberOfCustomers, topCustomersSummaryData[year]));
-
-            if (numberOfCustomers === '10') {
-                topCustomersTable.render();
-            } else {
-                topCustomersTable.hide();
-                dom.getById(topCustomersSummaryChartConfig.renderAt).style.display = 'block';
-                topCustomersSummaryChart.setJSONData(topCustomersSummaryChartConfig.dataSource);
-            }
-        });
-
     });
 
     // Sales Dashboard / Dashboard Tab 2
@@ -1521,7 +1382,41 @@ function CollectDataFromClient(data)
         var topCategoriesSalesTabChart,
             topCategoriesSalesTabChartConfig = chartConfig.topCategoriesSalesTab,
             topCategoriesSalesTabCategories = managementData.topCategoriesSalesTabCategories,
-            topCategoriesSalesTabData = managementData.topCategoriesSalesTabData;
+            topCategoriesSalesTabData = {
+        "2014": [{
+            "data": [{
+                "label": "Fallopian Tube Cancer",
+                "value":  globalData[2][0],
+                "link": "#sales"
+            }, {
+                "label": "Endometrial Cancer",
+                "value": globalData[2][1],
+                "link": "#sales"
+            }, {
+                "label": "Ovarian Cancer",
+                "value": globalData[2][2],
+                "link": "#sales"
+            }, {
+                "label": "Cervical Cancer",
+                "value": globalData[2][3],
+                "link": "#sales"
+            }, {
+                "label": "Vulva Cancer",
+                "value": globalData[2][4],
+                "link": "#sales"
+            }, {
+
+                "label": "Vaginal Cancer",
+                "value": globalData[2][5],
+                "link": "#sales"
+            }, {
+
+                "label": "Gestational Throphoblastic Disease",
+                "value": globalData[2][6],
+                "link": "#sales"
+            }]
+        }]
+    };
 
         // Config for Top Performers by Sales Chart.
         var topPerformersSalesTabChart,
@@ -1538,7 +1433,185 @@ function CollectDataFromClient(data)
         var categoryWiseSalesChart,
             categoryWiseSalesChartConfig = chartConfig.categoryWiseSales,
             categoryWiseSalesCategories = managementData.productWiseSalesCategories,
-            categoryWiseSalesData = managementData.productWiseSalesData;
+            categoryWiseSalesData =  {
+        "2014": {
+            "fallopian_tube_cancer": [{
+                "data": [{
+                    "value":  globalData[3][0] //Alive unknown disease
+                }, {
+                    "value": globalData[3][1] //Alive and no evidence of disease
+                }, {
+                    "value": globalData[3][2] // Alive with disease
+                }, {
+                    "value": globalData[3][3] //Dead
+                }]
+            }, {
+                "data": [{
+                    "tooltext": "Alive with unknown disease",
+                    "value":  globalData[3][0]
+                }, {
+                    "tooltext": "Alive and no evidence of disease",
+                    "value": globalData[3][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[3][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[3][3]
+                }]
+            }],
+            "endometrial_cancer": [{
+                "data": [{
+                    "value":  globalData[4][0]
+                }, {
+                    "value":  globalData[4][1]
+                }, {
+                    "value":  globalData[4][2]
+                }, {
+                    "value":  globalData[4][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[4][0]
+                }, {
+                    "tooltext": "Alive and no evidence of disease",
+                    "value": globalData[4][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value":  globalData[4][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value":  globalData[4][3]
+                }]
+            }],
+            "ovarian_cancer": [{
+                "data": [{
+                    "value":  globalData[5][0]
+                }, {
+                    "value": globalData[5][1]
+                }, {
+                    "value": globalData[5][2]
+                }, {
+                    "value": globalData[5][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[5][0]
+                }, {
+                    "tooltext": "Alive and no evidence of disease",
+                    "value": globalData[5][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[5][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[5][3]
+                }]
+            }],
+            "cervical_cancer": [{
+                "data": [{
+                    "value": globalData[6][0]
+                }, {
+                    "value": globalData[6][1]
+                }, {
+                    "value": globalData[6][2]
+                }, {
+                    "value": globalData[6][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[6][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[6][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[6][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[6][3]
+                }]
+            }],
+            "vulva_cancer": [{
+                "data": [{
+                    "value": globalData[7][0]
+                }, {
+                    "value": globalData[7][1]
+                }, {
+                    "value": globalData[7][2]
+                }, {
+                    "value": globalData[7][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[7][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[7][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[7][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[7][3]
+                }]
+            }],
+            "vaginal_cancer": [{
+                "data": [{
+                    "value": globalData[8][0]
+                }, {
+                    "value": globalData[8][1]
+                }, {
+                    "value": globalData[8][2]
+                }, {
+                    "value": globalData[8][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[8][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[8][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[8][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[8][3]
+                }]
+            }],
+            "gestational_throphoblastic_disease": [{
+                "data": [{
+                    "value":  globalData[9][0]
+                }, {
+                    "value": globalData[9][1]
+                }, {
+                    "value": globalData[9][2]
+                }, {
+                    "value": globalData[9][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[9][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[9][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[9][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[9][3]
+                }]
+            }]
+        }
+    };
 
         // Config for Monthly Sales Chart
         var topMonthlySalesTabChart,
@@ -1578,7 +1651,7 @@ function CollectDataFromClient(data)
 
             employeeSlug = dataHelpers.slugize(arguments[1]['categoryLabel']);
             chartDataSource.setDataSetData(singleSalePerformerSalesTabConfig.dataSource, singleSalePerformerSalesTabData[employeeSlug]);
-            viewHelpers.showModal('singleSalePerformerSalesTabChart', 'Sales Details of ' + employeeDetails[employeeSlug]['name'], singleSalePerformerSalesTabConfig, function(chart) {
+            viewHelpers.showModal('singleSalePerformerSalesTabChart', 'Number of Patients Per Firm For ' + employeeDetails[employeeSlug]['name'], singleSalePerformerSalesTabConfig, function(chart) {
                 chart.render();
             });
         }, true);
@@ -1624,7 +1697,7 @@ function CollectDataFromClient(data)
 
             chartDataSource.setCategories(categoryWiseSalesChartConfig.dataSource, categoryWiseSalesCategories[year][label]);
             chartDataSource.setDataSetData(categoryWiseSalesChartConfig.dataSource, categoryWiseSalesData[year][label]);
-            viewHelpers.showModal('categoryWiseSalesChart', arguments[1].categoryLabel + ' Sales', categoryWiseSalesChartConfig, function(chart) {
+            viewHelpers.showModal('categoryWiseSalesChart', arguments[1].categoryLabel + ' Vital Statuses', categoryWiseSalesChartConfig, function(chart) {
                 chart.render();
             });
         }, true);

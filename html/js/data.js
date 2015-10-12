@@ -136,77 +136,7 @@ var managementData = {
             }]
         }
     },
-    topCustomersSummaryCategories: {
-        "2014": {
-            "all": [{
-                "label": "White Clover Markets"
-            }, {
-                "label": "Ernst Handel"
-            }, {
-                "label": "QUICK-Stop"
-            }, {
-                "label": "Rattlesnake Canyon Grocery"
-            }, {
-                "label": "Furia Bacalhau e Frutos do Mar"
-            }, {
-                "label": "Victuailles en stock"
-            }, {
-                "label": "Save-a-lot Markets"
-            }, {
-                "label": "HILARIÓN-Abastos"
-            }, {
-                "label": "Split Rail Beer & Ale"
-            }, {
-                "label": "LINO-Delicateses"
-            }]
-        },
-        "2013": {
-            "all": [{
-                "label": "Ernst Handel"
-            }, {
-                "label": "QUICK-Stop"
-            }, {
-                "label": "Save-a-lot Markets"
-            }, {
-                "label": "Rattlesnake Canyon Grocery"
-            }, {
-                "label": "Hanari Carnes"
-            }, {
-                "label": "Hungry Owl All-Night Grocers"
-            }, {
-                "label": "White Clover Markets"
-            }, {
-                "label": "Königlich Essen"
-            }, {
-                "label": "Folk och fä HB"
-            }, {
-                "label": "Lehmanns Marktstand"
-            }]
-        },
-        "2012": {
-            "all": [{
-                "label": "Save-a-lot Markets"
-            }, {
-                "label": "QUICK-Stop"
-            }, {
-                "label": "Ernst Handel"
-            }, {
-                "label": "Mère Paillarde"
-            }, {
-                "label": "Hungry Owl All-Night Grocers"
-            }, {
-                "label": "Queen Cozinha"
-            }, {
-                "label": "Rattlesnake Canyon Grocery"
-            }, {
-                "label": "Berglunds snabbköp"
-            }, {
-                "label": "Simons bistro"
-            }, {
-                "label": "HILARIÓN-Abastos"
-            }]
-        }
-    },
+	
     topRevenuesCountriesSummaryData: {
         "2014": {
             "all": [{
@@ -549,181 +479,7 @@ var managementData = {
             }]
         }
     },
-    topCustomersSummaryData: {
-        "2014": {
-            "all": [{
-                data: [{
-                    "value": "58012.43000"
-                }, {
-                    "value": "43047.47000"
-                }, {
-                    "value": "40205.45000"
-                }, {
-                    "value": "39127.28000"
-                }, {
-                    "value": "31683.94000"
-                }, {
-                    "value": "28569.24000"
-                }, {
-                    "value": "28136.55000"
-                }, {
-                    "value": "26037.15000"
-                }, {
-                    "value": "25656.18000"
-                }, {
-                    "value": "25403.01000"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Units sold to White Clover Markets : 1652",
-                    "value": "1652"
-                }, {
-                    "tooltext": "Units sold to Ernst Handel : 1855",
-                    "value": "1855"
-                }, {
-                    "tooltext": "Units sold to QUICK-Stop : 1450",
-                    "value": "1450"
-                }, {
-                    "tooltext": "Units sold to Rattlesnake Canyon Grocery : 1126",
-                    "value": "1126"
-                }, {
-                    "tooltext": "Units sold to Furia Bacalhau e Frutos do Mar : 757",
-                    "value": "757"
-                }, {
-                    "tooltext": "Units sold to Victuailles en stock : 900",
-                    "value": "900"
-                }, {
-                    "tooltext": "Units sold to Save-a-lot Markets : 1021",
-                    "value": "1021"
-                }, {
-                    "tooltext": "Units sold to HILARIÓN-Abastos : 892",
-                    "value": "892"
-                }, {
-                    "tooltext": "Units sold to Split Rail Beer & Ale : 836",
-                    "value": "836"
-                }, {
-                    "tooltext": "Units sold to LINO-Delicateses : 750",
-                    "value": "750"
-                }]
-            }]
-        },
-        "2013": {
-            "all": [{
-                    data: [{
-                        "value": "105300.70000"
-                    }, {
-                        "value": "80791.27000"
-                    }, {
-                        "value": "59245.14000"
-                    }, {
-                        "value": "47239.74000"
-                    }, {
-                        "value": "38531.90000"
-                    }, {
-                        "value": "37710.29000"
-                    }, {
-                        "value": "33056.93000"
-                    }, {
-                        "value": "30544.20000"
-                    }, {
-                        "value": "29281.85000"
-                    }, {
-                        "value": "28306.14000"
-                    }]
-                }, {
-                    "data": [{
-                        "tooltext": "Units sold to Ernst Handel : 3440",
-                        "value": "3440"
-                    }, {
-                        "tooltext": "Units sold to QUICK-Stop : 2411",
-                        "value": "2411"
-                    }, {
-                        "tooltext": "Units sold to Save-a-lot Markets : 2525",
-                        "value": "2525"
-                    }, {
-                        "tooltext": "Units sold to Rattlesnake Canyon Grocery : 1531",
-                        "value": "1531"
-                    }, {
-                        "tooltext": "Units sold to Hanari Carnes : 875",
-                        "value": "875"
-                    }, {
-                        "tooltext": "Units sold to Hungry Owl All-Night Grocers : 866",
-                        "value": "866"
-                    }, {
-                        "tooltext": "Units sold to White Clover Markets : 1044",
-                        "value": "1044"
-                    }, {
-                        "tooltext": "Units sold to Königlich Essen : 850",
-                        "value": "850"
-                    }, {
-                        "tooltext": "Units sold to Folk och fä HB : 1095",
-                        "value": "1095"
-                    }, {
-                        "tooltext": "Units sold to Lehmanns Marktstand : 758",
-                        "value": "758"
-                    }]
-                }
-
-            ]
-        },
-        "2012": {
-            "all": [{
-                "data": [{
-                    "value": "70214.15000"
-                }, {
-                    "value": "63308.45000"
-                }, {
-                    "value": "48193.39000"
-                }, {
-                    "value": "29756.10000"
-                }, {
-                    "value": "28308.07000"
-                }, {
-                    "value": "25122.40000"
-                }, {
-                    "value": "22622.92000"
-                }, {
-                    "value": "17519.80000"
-                }, {
-                    "value": "16379.20000"
-                }, {
-                    "value": "15222.50000"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Units sold to Save-a-lot Markets : 2900",
-                    "value": "2900"
-                }, {
-                    "tooltext": "Units sold to QUICK-Stop : 2002",
-                    "value": "2002"
-                }, {
-                    "tooltext": "Units sold to Ernst Handel : 1733",
-                    "value": "1733"
-                }, {
-                    "tooltext": "Units sold to Mère Paillarde : 792",
-                    "value": "792"
-                }, {
-                    "tooltext": "Units sold to Hungry Owl All-Night Grocers : 1003",
-                    "value": "1003"
-                }, {
-                    "tooltext": "Units sold to Queen Cozinha : 604",
-                    "value": "604"
-                }, {
-                    "tooltext": "Units sold to Rattlesnake Canyon Grocery : 487",
-                    "value": "487"
-                }, {
-                    "tooltext": "Units sold to Berglunds snabbköp : 514",
-                    "value": "514"
-                }, {
-                    "tooltext": "Units sold to Simons bistro : 227",
-                    "value": "227"
-                }, {
-                    "tooltext": "Units sold to HILARIÓN-Abastos : 666",
-                    "value": "666"
-                }]
-            }]
-        }
-    },
+	
     topSalesPerformersSummaryCategories: {
         "2014": {
             "all": [{
@@ -1147,7 +903,6 @@ var managementData = {
             }]
         }
     },
-
 	/*
 		PostOperativeComplications: {
 		None: {type: Boolean, title: 'None'},
@@ -1215,1241 +970,6 @@ var managementData = {
         }
     },
 
-    topRevenuesCitiesSummaryData: {
-        "2014": {
-            "all": [{
-                "data": {
-                    "label": "Rio de Janeiro",
-                    "color": "",
-                    "value": "62029.75"
-                }
-            }, {
-                "data": {
-                    "label": "Seattle",
-                    "color": "",
-                    "value": "58012.43"
-                }
-            }, {
-                "data": {
-                    "label": "London",
-                    "color": "",
-                    "value": "55649.87"
-                }
-            }, {
-                "data": {
-                    "label": "Graz",
-                    "color": "",
-                    "value": "43047.47"
-                }
-            }, {
-                "data": {
-                    "label": "México D.F.",
-                    "color": "",
-                    "value": "41430.72"
-                }
-            }, {
-                "data": {
-                    "label": "São Paulo",
-                    "color": "",
-                    "value": "40412.16"
-                }
-            }, {
-                "data": {
-                    "label": "Cunewalde",
-                    "color": "",
-                    "value": "40205.45"
-                }
-            }, {
-                "data": {
-                    "label": "Albuquerque",
-                    "color": "",
-                    "value": "39127.28"
-                }
-            }, {
-                "data": {
-                    "label": "Lisboa",
-                    "color": "",
-                    "value": "36229.74"
-                }
-            }, {
-                "data": {
-                    "label": "Buenos Aires",
-                    "color": "",
-                    "value": "28993.71"
-                }
-            }, {
-                "data": {
-                    "label": "Lyon",
-                    "color": "",
-                    "value": "28569.24"
-                }
-            }, {
-                "data": {
-                    "label": "Boise",
-                    "color": "",
-                    "value": "28136.55"
-                }
-            }, {
-                "data": {
-                    "label": "San Cristóbal",
-                    "color": "",
-                    "value": "26037.15"
-                }
-            }, {
-                "data": {
-                    "label": "Lander",
-                    "color": "",
-                    "value": "25656.18"
-                }
-            }, {
-                "data": {
-                    "label": "I. de Margarita",
-                    "color": "",
-                    "value": "25403.01"
-                }
-            }, {
-                "data": {
-                    "label": "København",
-                    "color": "",
-                    "value": "23963.65"
-                }
-            }, {
-                "data": {
-                    "label": "Frankfurt a.M.",
-                    "color": "",
-                    "value": "23248.94"
-                }
-            }, {
-                "data": {
-                    "label": "Torino",
-                    "color": "",
-                    "value": "22800.36"
-                }
-            }, {
-                "data": {
-                    "label": "Cowes",
-                    "color": "",
-                    "value": "22736.38"
-                }
-            }, {
-                "data": {
-                    "label": "Brandenburg",
-                    "color": "",
-                    "value": "22538.91"
-                }
-            }, {
-                "data": {
-                    "label": "Stuttgart",
-                    "color": "",
-                    "value": "20462.27"
-                }
-            }, {
-                "data": {
-                    "label": "Oulu",
-                    "color": "",
-                    "value": "19860.45"
-                }
-            }, {
-                "data": {
-                    "label": "Montréal",
-                    "color": "",
-                    "value": "18842.97"
-                }
-            }, {
-                "data": {
-                    "label": "Anchorage",
-                    "color": "",
-                    "value": "18815.34"
-                }
-            }, {
-                "data": {
-                    "label": "Marseille",
-                    "color": "",
-                    "value": "18554.2"
-                }
-            }, {
-                "data": {
-                    "label": "Cork",
-                    "color": "",
-                    "value": "18233.57"
-                }
-            }, {
-                "data": {
-                    "label": "Strasbourg",
-                    "color": "",
-                    "value": "16673.14"
-                }
-            }, {
-                "data": {
-                    "label": "Eugene",
-                    "color": "",
-                    "value": "16200.35"
-                }
-            }, {
-                "data": {
-                    "label": "Münster",
-                    "color": "",
-                    "value": "15833.86"
-                }
-            }, {
-                "data": {
-                    "label": "Reggio Emilia",
-                    "color": "",
-                    "value": "15249.65"
-                }
-            }, {
-                "data": {
-                    "label": "Barcelona",
-                    "color": "",
-                    "value": "15182.85"
-                }
-            }, {
-                "data": {
-                    "label": "Stavern",
-                    "color": "",
-                    "value": "13974.15"
-                }
-            }, {
-                "data": {
-                    "label": "Århus",
-                    "color": "",
-                    "value": "13562.66"
-                }
-            }, {
-                "data": {
-                    "label": "Aachen",
-                    "color": "",
-                    "value": "13038.71"
-                }
-            }, {
-                "data": {
-                    "label": "Toulouse",
-                    "color": "",
-                    "value": "12178.95"
-                }
-            }, {
-                "data": {
-                    "label": "Barquisimeto",
-                    "color": "",
-                    "value": "11917.15"
-                }
-            }, {
-                "data": {
-                    "label": "Walla Walla",
-                    "color": "",
-                    "value": "11498.87"
-                }
-            }, {
-                "data": {
-                    "label": "Bergamo",
-                    "color": "",
-                    "value": "10964.15"
-                }
-            }, {
-                "data": {
-                    "label": "Sevilla",
-                    "color": "",
-                    "value": "10340.98"
-                }
-            }, {
-                "data": {
-                    "label": "Luleå",
-                    "color": "",
-                    "value": "10225.33"
-                }
-            }, {
-                "data": {
-                    "label": "Bräcke",
-                    "color": "",
-                    "value": "10104.67"
-                }
-            }, {
-                "data": {
-                    "label": "Köln",
-                    "color": "",
-                    "value": "9301.1"
-                }
-            }, {
-                "data": {
-                    "label": "Tsawassen",
-                    "color": "",
-                    "value": "9004.52"
-                }
-            }, {
-                "data": {
-                    "label": "Leipzig",
-                    "color": "",
-                    "value": "8545.12"
-                }
-            }, {
-                "data": {
-                    "label": "Berlin",
-                    "color": "",
-                    "value": "8287.3"
-                }
-            }, {
-                "data": {
-                    "label": "Nantes",
-                    "color": "",
-                    "value": "8271.85"
-                }
-            }, {
-                "data": {
-                    "label": "Kirkland",
-                    "color": "",
-                    "value": "7992"
-                }
-            }, {
-                "data": {
-                    "label": "Genève",
-                    "color": "",
-                    "value": "7520.3"
-                }
-            }, {
-                "data": {
-                    "label": "Mannheim",
-                    "color": "",
-                    "value": "7353"
-                }
-            }, {
-                "data": {
-                    "label": "Elgin",
-                    "color": "",
-                    "value": "7204"
-                }
-            }, {
-                "data": {
-                    "label": "Bruxelles",
-                    "color": "",
-                    "value": "6871.9"
-                }
-            }, {
-                "data": {
-                    "label": "Charleroi",
-                    "color": "",
-                    "value": "6714.54"
-                }
-            }, {
-                "data": {
-                    "label": "München",
-                    "color": "",
-                    "value": "6318.65"
-                }
-            }, {
-                "data": {
-                    "label": "Portland",
-                    "color": "",
-                    "value": "6297.1"
-                }
-            }, {
-                "data": {
-                    "label": "Paris",
-                    "color": "",
-                    "value": "6036.95"
-                }
-            }, {
-                "data": {
-                    "label": "Warszawa",
-                    "color": "",
-                    "value": "5996.96"
-                }
-            }, {
-                "data": {
-                    "label": "Butte",
-                    "color": "",
-                    "value": "5498"
-                }
-            }, {
-                "data": {
-                    "label": "Resende",
-                    "color": "",
-                    "value": "5444.45"
-                }
-            }, {
-                "data": {
-                    "label": "Versailles",
-                    "color": "",
-                    "value": "5173.65"
-                }
-            }, {
-                "data": {
-                    "label": "Reims",
-                    "color": "",
-                    "value": "4428"
-                }
-            }, {
-                "data": {
-                    "label": "Helsinki",
-                    "color": "",
-                    "value": "4173.25"
-                }
-            }, {
-                "data": {
-                    "label": "Salzburg",
-                    "color": "",
-                    "value": "3402.75"
-                }
-            }, {
-                "data": {
-                    "label": "Vancouver",
-                    "color": "",
-                    "value": "3031.1"
-                }
-            }, {
-                "data": {
-                    "label": "Caracas",
-                    "color": "",
-                    "value": "2941.64"
-                }
-            }, {
-                "data": {
-                    "label": "Bern",
-                    "color": "",
-                    "value": "2453.27"
-                }
-            }, {
-                "data": {
-                    "label": "Madrid",
-                    "color": "",
-                    "value": "2037"
-                }
-            }, {
-                "data": {
-                    "label": "Campinas",
-                    "color": "",
-                    "value": "1754.4"
-                }
-            }, {
-                "data": {
-                    "label": "Lille",
-                    "color": "",
-                    "value": "1227.97"
-                }
-            }, {
-                "data": {
-                    "label": "San Francisco",
-                    "color": "",
-                    "value": "1103.3"
-                }
-            }]
-        },
-        "2013": {
-            "all": [{
-                "data": {
-                    "label": "Graz",
-                    "color": "",
-                    "value": "105191.399997175"
-                }
-            }, {
-                "data": {
-                    "label": "Cunewalde",
-                    "color": "",
-                    "value": "80673.3199989242"
-                }
-            }, {
-                "data": {
-                    "label": "London",
-                    "color": "",
-                    "value": "70719.7199998018"
-                }
-            }, {
-                "data": {
-                    "label": "Rio de Janeiro",
-                    "color": "",
-                    "value": "63232.189999512"
-                }
-            }, {
-                "data": {
-                    "label": "Boise",
-                    "color": "",
-                    "value": "59037.2899977932"
-                }
-            }, {
-                "data": {
-                    "label": "Albuquerque",
-                    "color": "",
-                    "value": "47207.5799998713"
-                }
-            }, {
-                "data": {
-                    "label": "Cork",
-                    "color": "",
-                    "value": "37670.389999778"
-                }
-            }, {
-                "data": {
-                    "label": "São Paulo",
-                    "color": "",
-                    "value": "35882.9399991566"
-                }
-            }, {
-                "data": {
-                    "label": "Seattle",
-                    "color": "",
-                    "value": "33056.93"
-                }
-            }, {
-                "data": {
-                    "label": "Brandenburg",
-                    "color": "",
-                    "value": "30516.7499989092"
-                }
-            }, {
-                "data": {
-                    "label": "Bräcke",
-                    "color": "",
-                    "value": "29217.2999992281"
-                }
-            }, {
-                "data": {
-                    "label": "Frankfurt a.M.",
-                    "color": "",
-                    "value": "28291.8899994524"
-                }
-            }, {
-                "data": {
-                    "label": "Resende",
-                    "color": "",
-                    "value": "26275.6099999449"
-                }
-            }, {
-                "data": {
-                    "label": "Lander",
-                    "color": "",
-                    "value": "24605.51"
-                }
-            }, {
-                "data": {
-                    "label": "Buenos Aires",
-                    "color": "",
-                    "value": "24288.61"
-                }
-            }, {
-                "data": {
-                    "label": "Tsawassen",
-                    "color": "",
-                    "value": "24159.72"
-                }
-            }, {
-                "data": {
-                    "label": "San Cristóbal",
-                    "color": "",
-                    "value": "24125.3499995708"
-                }
-            }, {
-                "data": {
-                    "label": "México D.F.",
-                    "color": "",
-                    "value": "24010.62"
-                }
-            }, {
-                "data": {
-                    "label": "Köln",
-                    "color": "",
-                    "value": "23604.1799997586"
-                }
-            }, {
-                "data": {
-                    "label": "I. de Margarita",
-                    "color": "",
-                    "value": "23006.3599994516"
-                }
-            }, {
-                "data": {
-                    "label": "Reggio Emilia",
-                    "color": "",
-                    "value": "21109.8299998257"
-                }
-            }, {
-                "data": {
-                    "label": "Toulouse",
-                    "color": "",
-                    "value": "19078.9899997266"
-                }
-            }, {
-                "data": {
-                    "label": "Luleå",
-                    "color": "",
-                    "value": "18039.0099998942"
-                }
-            }, {
-                "data": {
-                    "label": "Eugene",
-                    "color": "",
-                    "value": "14931.7299998733"
-                }
-            }, {
-                "data": {
-                    "label": "Marseille",
-                    "color": "",
-                    "value": "14631.4999998465"
-                }
-            }, {
-                "data": {
-                    "label": "Charleroi",
-                    "color": "",
-                    "value": "14605.1499998212"
-                }
-            }, {
-                "data": {
-                    "label": "Århus",
-                    "color": "",
-                    "value": "14539.0899999531"
-                }
-            }, {
-                "data": {
-                    "label": "Lyon",
-                    "color": "",
-                    "value": "14470.0399993324"
-                }
-            }, {
-                "data": {
-                    "label": "Lisboa",
-                    "color": "",
-                    "value": "14160.7799999881"
-                }
-            }, {
-                "data": {
-                    "label": "München",
-                    "color": "",
-                    "value": "13833.6599998659"
-                }
-            }, {
-                "data": {
-                    "label": "Stavern",
-                    "color": "",
-                    "value": "13143.4"
-                }
-            }, {
-                "data": {
-                    "label": "Sevilla",
-                    "color": "",
-                    "value": "12711.4099999508"
-                }
-            }, {
-                "data": {
-                    "label": "Bern",
-                    "color": "",
-                    "value": "11796.2499997675"
-                }
-            }, {
-                "data": {
-                    "label": "Campinas",
-                    "color": "",
-                    "value": "11672.4099996424"
-                }
-            }, {
-                "data": {
-                    "label": "Anchorage",
-                    "color": "",
-                    "value": "11660.279999471"
-                }
-            }, {
-                "data": {
-                    "label": "Bergamo",
-                    "color": "",
-                    "value": "11614.2799995112"
-                }
-            }, {
-                "data": {
-                    "label": "København",
-                    "color": "",
-                    "value": "11428.3999999896"
-                }
-            }, {
-                "data": {
-                    "label": "Portland",
-                    "color": "",
-                    "value": "11039.66"
-                }
-            }, {
-                "data": {
-                    "label": "Stuttgart",
-                    "color": "",
-                    "value": "10311.6499999605"
-                }
-            }, {
-                "data": {
-                    "label": "Barquisimeto",
-                    "color": "",
-                    "value": "9823.75999982193"
-                }
-            }, {
-                "data": {
-                    "label": "Mannheim",
-                    "color": "",
-                    "value": "9552.08"
-                }
-            }, {
-                "data": {
-                    "label": "Strasbourg",
-                    "color": "",
-                    "value": "9077.98"
-                }
-            }, {
-                "data": {
-                    "label": "Madrid",
-                    "color": "",
-                    "value": "8984.53999988079"
-                }
-            }, {
-                "data": {
-                    "label": "Genève",
-                    "color": "",
-                    "value": "8944.48999928847"
-                }
-            }, {
-                "data": {
-                    "label": "Salzburg",
-                    "color": "",
-                    "value": "8868.99999982119"
-                }
-            }, {
-                "data": {
-                    "label": "Leipzig",
-                    "color": "",
-                    "value": "8849.05"
-                }
-            }, {
-                "data": {
-                    "label": "Bruxelles",
-                    "color": "",
-                    "value": "8767.72999957681"
-                }
-            }, {
-                "data": {
-                    "label": "Elgin",
-                    "color": "",
-                    "value": "8760.79"
-                }
-            }, {
-                "data": {
-                    "label": "Nantes",
-                    "color": "",
-                    "value": "8756.2"
-                }
-            }, {
-                "data": {
-                    "label": "Oulu",
-                    "color": "",
-                    "value": "7627.09999988675"
-                }
-            }, {
-                "data": {
-                    "label": "Helsinki",
-                    "color": "",
-                    "value": "7156.15"
-                }
-            }, {
-                "data": {
-                    "label": "Cowes",
-                    "color": "",
-                    "value": "6845.18"
-                }
-            }, {
-                "data": {
-                    "label": "Lille",
-                    "color": "",
-                    "value": "6829.5"
-                }
-            }, {
-                "data": {
-                    "label": "Warszawa",
-                    "color": "",
-                    "value": "6481.25"
-                }
-            }, {
-                "data": {
-                    "label": "Kirkland",
-                    "color": "",
-                    "value": "6396.6"
-                }
-            }, {
-                "data": {
-                    "label": "Barcelona",
-                    "color": "",
-                    "value": "6039.44"
-                }
-            }, {
-                "data": {
-                    "label": "Montréal",
-                    "color": "",
-                    "value": "4809.53"
-                }
-            }, {
-                "data": {
-                    "label": "Aachen",
-                    "color": "",
-                    "value": "4027.11"
-                }
-            }, {
-                "data": {
-                    "label": "Paris",
-                    "color": "",
-                    "value": "3369"
-                }
-            }, {
-                "data": {
-                    "label": "Torino",
-                    "color": "",
-                    "value": "3082.5"
-                }
-            }, {
-                "data": {
-                    "label": "Berlin",
-                    "color": "",
-                    "value": "2988.67999995232"
-                }
-            }, {
-                "data": {
-                    "label": "Münster",
-                    "color": "",
-                    "value": "2541.25"
-                }
-            }, {
-                "data": {
-                    "label": "Versailles",
-                    "color": "",
-                    "value": "2190.05"
-                }
-            }, {
-                "data": {
-                    "label": "Reims",
-                    "color": "",
-                    "value": "2169.5"
-                }
-            }, {
-                "data": {
-                    "label": "San Francisco",
-                    "color": "",
-                    "value": "1446.94999994561"
-                }
-            }, {
-                "data": {
-                    "label": "Caracas",
-                    "color": "",
-                    "value": "996.4"
-                }
-            }, {
-                "data": {
-                    "label": "Butte",
-                    "color": "",
-                    "value": "945"
-                }
-            }, {
-                "data": {
-                    "label": "Walla Walla",
-                    "color": "",
-                    "value": "760"
-                }
-            }, {
-                "data": {
-                    "label": "Vancouver",
-                    "color": "",
-                    "value": "187"
-                }
-            }]
-        },
-        "2012": {
-            "all": [{
-                "data": {
-                    "label": "Boise",
-                    "color": "",
-                    "value": "66530.6899974511"
-                }
-            }, {
-                "data": {
-                    "label": "Cunewalde",
-                    "color": "",
-                    "value": "61664.099997025"
-                }
-            }, {
-                "data": {
-                    "label": "Graz",
-                    "color": "",
-                    "value": "43908.879997475"
-                }
-            }, {
-                "data": {
-                    "label": "São Paulo",
-                    "color": "",
-                    "value": "27464.4499991909"
-                }
-            }, {
-                "data": {
-                    "label": "Cork",
-                    "color": "",
-                    "value": "26953.5999983571"
-                }
-            }, {
-                "data": {
-                    "label": "Montréal",
-                    "color": "",
-                    "value": "26459.3999992892"
-                }
-            }, {
-                "data": {
-                    "label": "London",
-                    "color": "",
-                    "value": "22830.8499990672"
-                }
-            }, {
-                "data": {
-                    "label": "Albuquerque",
-                    "color": "",
-                    "value": "19019.8499998607"
-                }
-            }, {
-                "data": {
-                    "label": "Luleå",
-                    "color": "",
-                    "value": "16641.3499998659"
-                }
-            }, {
-                "data": {
-                    "label": "México D.F.",
-                    "color": "",
-                    "value": "14822.4499994755"
-                }
-            }, {
-                "data": {
-                    "label": "København",
-                    "color": "",
-                    "value": "13538.899999851"
-                }
-            }, {
-                "data": {
-                    "label": "San Cristóbal",
-                    "color": "",
-                    "value": "13470.5999998406"
-                }
-            }, {
-                "data": {
-                    "label": "Rio de Janeiro",
-                    "color": "",
-                    "value": "13376.9799994934"
-                }
-            }, {
-                "data": {
-                    "label": "Marseille",
-                    "color": "",
-                    "value": "12414.3999992415"
-                }
-            }, {
-                "data": {
-                    "label": "München",
-                    "color": "",
-                    "value": "12388.2499997191"
-                }
-            }, {
-                "data": {
-                    "label": "Genève",
-                    "color": "",
-                    "value": "12037.5999998927"
-                }
-            }, {
-                "data": {
-                    "label": "Oulu",
-                    "color": "",
-                    "value": "11950.6499991238"
-                }
-            }, {
-                "data": {
-                    "label": "Salzburg",
-                    "color": "",
-                    "value": "11105.4499997705"
-                }
-            }, {
-                "data": {
-                    "label": "Frankfurt a.M.",
-                    "color": "",
-                    "value": "10785.9499995306"
-                }
-            }, {
-                "data": {
-                    "label": "Tsawassen",
-                    "color": "",
-                    "value": "10328.9999997199"
-                }
-            }, {
-                "data": {
-                    "label": "Seattle",
-                    "color": "",
-                    "value": "10201.3999984108"
-                }
-            }, {
-                "data": {
-                    "label": "Århus",
-                    "color": "",
-                    "value": "9748.24999966323"
-                }
-            }, {
-                "data": {
-                    "label": "Eugene",
-                    "color": "",
-                    "value": "9132.2999996461"
-                }
-            }, {
-                "data": {
-                    "label": "Bräcke",
-                    "color": "",
-                    "value": "8370.04999983758"
-                }
-            }, {
-                "data": {
-                    "label": "Strasbourg",
-                    "color": "",
-                    "value": "8350.44999948442"
-                }
-            }, {
-                "data": {
-                    "label": "Brandenburg",
-                    "color": "",
-                    "value": "8279.49999955073"
-                }
-            }, {
-                "data": {
-                    "label": "Lisboa",
-                    "color": "",
-                    "value": "8082.74999887943"
-                }
-            }, {
-                "data": {
-                    "label": "Bern",
-                    "color": "",
-                    "value": "7821.64999971986"
-                }
-            }, {
-                "data": {
-                    "label": "I. de Margarita",
-                    "color": "",
-                    "value": "7771.94999980628"
-                }
-            }, {
-                "data": {
-                    "label": "Lille",
-                    "color": "",
-                    "value": "7363.9"
-                }
-            }, {
-                "data": {
-                    "label": "Campinas",
-                    "color": "",
-                    "value": "7074.73"
-                }
-            }, {
-                "data": {
-                    "label": "Charleroi",
-                    "color": "",
-                    "value": "6354.54999918342"
-                }
-            }, {
-                "data": {
-                    "label": "Lander",
-                    "color": "",
-                    "value": "6338.19999968708"
-                }
-            }, {
-                "data": {
-                    "label": "Köln",
-                    "color": "",
-                    "value": "6081.89999990016"
-                }
-            }, {
-                "data": {
-                    "label": "Anchorage",
-                    "color": "",
-                    "value": "5868.5"
-                }
-            }, {
-                "data": {
-                    "label": "Lyon",
-                    "color": "",
-                    "value": "5519.39999988079"
-                }
-            }, {
-                "data": {
-                    "label": "Barquisimeto",
-                    "color": "",
-                    "value": "5298.59999940395"
-                }
-            }, {
-                "data": {
-                    "label": "Stuttgart",
-                    "color": "",
-                    "value": "5174.69999960959"
-                }
-            }, {
-                "data": {
-                    "label": "Toulouse",
-                    "color": "",
-                    "value": "4766.94999975413"
-                }
-            }, {
-                "data": {
-                    "label": "Sevilla",
-                    "color": "",
-                    "value": "3521.64999996424"
-                }
-            }, {
-                "data": {
-                    "label": "Resende",
-                    "color": "",
-                    "value": "3454.59999988824"
-                }
-            }, {
-                "data": {
-                    "label": "Bergamo",
-                    "color": "",
-                    "value": "3338.14999988824"
-                }
-            }, {
-                "data": {
-                    "label": "Reggio Emilia",
-                    "color": "",
-                    "value": "3192.79999982417"
-                }
-            }, {
-                "data": {
-                    "label": "Elgin",
-                    "color": "",
-                    "value": "3063.2"
-                }
-            }, {
-                "data": {
-                    "label": "Bruxelles",
-                    "color": "",
-                    "value": "2380"
-                }
-            }, {
-                "data": {
-                    "label": "Berlin",
-                    "color": "",
-                    "value": "2284.5"
-                }
-            }, {
-                "data": {
-                    "label": "Leipzig",
-                    "color": "",
-                    "value": "2261.4"
-                }
-            }, {
-                "data": {
-                    "label": "Münster",
-                    "color": "",
-                    "value": "2162.69999977648"
-                }
-            }, {
-                "data": {
-                    "label": "Cowes",
-                    "color": "",
-                    "value": "2113.9"
-                }
-            }, {
-                "data": {
-                    "label": "San Francisco",
-                    "color": "",
-                    "value": "2023.46999996722"
-                }
-            }, {
-                "data": {
-                    "label": "Portland",
-                    "color": "",
-                    "value": "2017.6"
-                }
-            }, {
-                "data": {
-                    "label": "Buenos Aires",
-                    "color": "",
-                    "value": "1804.1"
-                }
-            }, {
-                "data": {
-                    "label": "Stavern",
-                    "color": "",
-                    "value": "1758.4"
-                }
-            }, {
-                "data": {
-                    "label": "Nantes",
-                    "color": "",
-                    "value": "1407.1"
-                }
-            }, {
-                "data": {
-                    "label": "Butte",
-                    "color": "",
-                    "value": "1393.24"
-                }
-            }, {
-                "data": {
-                    "label": "Kirkland",
-                    "color": "",
-                    "value": "1333.3"
-                }
-            }, {
-                "data": {
-                    "label": "Warszawa",
-                    "color": "",
-                    "value": "1267"
-                }
-            }, {
-                "data": {
-                    "label": "Helsinki",
-                    "color": "",
-                    "value": "1174.35"
-                }
-            }, {
-                "data": {
-                    "label": "Mannheim",
-                    "color": "",
-                    "value": "1079.8"
-                }
-            }, {
-                "data": {
-                    "label": "Barcelona",
-                    "color": "",
-                    "value": "493.2"
-                }
-            }, {
-                "data": {
-                    "label": "Reims",
-                    "color": "",
-                    "value": "379.8"
-                }
-            }, {
-                "data": {
-                    "label": "Walla Walla",
-                    "color": "",
-                    "value": "357"
-                }
-            }, {
-                "data": {
-                    "label": "Vancouver",
-                    "color": "",
-                    "value": "335.5"
-                }
-            }, {
-                "data": {
-                    "label": "Torino",
-                    "color": "",
-                    "value": "231.3"
-                }
-            }, {
-                "data": {
-                    "label": "Aachen",
-                    "color": "",
-                    "value": "86.4"
-                }
-            }, {
-                "data": {
-                    "label": "Paris",
-                    "color": "",
-                    "value": "52.35"
-                }
-            }]
-        }
-    },
     topCategoriesSalesTabCategories: {
         "2014": [{
             "label": "Fallopian Tube Cancer"
@@ -2467,149 +987,131 @@ var managementData = {
             "label": "Gestational Throphoblastic Disease"
         }]
     },
-    topCategoriesSalesTabData: {
-        "2014": [{
-            "data": [{
-                "label": "Fallopian Tube Cancer",
-                "value": "256957.25000",
-                "link": "#sales"
-            }, {
-                "label": "Endometrial Cancer",
-                "value": "176918.92000",
-                "link": "#sales"
-            }, {
-                "label": "Ovarian Cancer",
-                "value": "174995.20000",
-                "link": "#sales"
-            }, {
-                "label": "Cervical Cancer",
-                "value": "148607.60000",
-                "link": "#sales"
-            }, {
-                "label": "Vulva Cancer",
-                "value": "141611.45000",
-                "link": "#sales"
-            }, {
-
-                "label": "Vaginal Cancer",
-                "value": "124437.27000",
-                "link": "#sales"
-            }, {
-
-                "label": "Gestational Throphoblastic Disease",
-                "value": "71436.85000",
-                "link": "#sales"
-            }]
-        }]
-    },
-    topPerformersSalesTabData: {
+    
+    topPerformersSalesTabData: { //Mexican (just a key word to find this line)
         "2014": [{
             "data": {
-                "label": "Fuller",
+                "label": "Incomplete",
                 "value": "152924.82000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Suyama",
+                "label": "Complete",
                 "value": "144772.94000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Peacock",
+                "label": "Threatening",
                 "value": "134881.25000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Callahan",
+                "label": "Septic",
                 "value": "132725.65000",
-                "link": "#sales"
-            }
-        }, {
-            "data": {
-                "label": "Dodsworth",
-                "value": "126226.60000",
                 "link": "#sales"
             }
         }],
         "2013": [{
             "data": {
-                "label": "Davolio",
+                "label": "ASO I",
                 "value": "174845.56000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Fuller",
+                "label": "ASO II",
                 "value": "166873.77000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Leverling",
+                "label": "ASO III",
                 "value": "159897.55000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Callahan",
+                "label": "ASO IV",
                 "value": "159205.32000",
                 "link": "#sales"
             }
-        }, {
-            "data": {
-                "label": "King",
-                "value": "148553.31000",
-                "link": "#sales"
-            }
         }],
+
         "2012": [{
             "data": {
-                "label": "Peacock",
+                "label": "Cervix",
                 "value": "140305.00000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Leverling",
+                "label": "Endometrium",
                 "value": "104474.78000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Davolio",
+                "label": "Ovarian",
                 "value": "97253.38000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "Fuller",
+                "label": "Vulva",
                 "value": "77058.81000",
                 "link": "#sales"
             }
         }, {
             "data": {
-                "label": "King",
+                "label": "Vagina",
                 "value": "71533.34000",
+                "link": "#sales"
+            }
+        },
+            {
+                "data": {
+                    "label": "Chorio / GTD",
+                    "value": "71533.34000",
+                    "link": "#sales"
+                }
+            }],
+        "2011": [{
+            "data": {
+                "label": "Ruptured",
+                "value": "140305.00000",
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Unruptured",
+                "value": "104474.78000",
                 "link": "#sales"
             }
         }]
     },
     singleSalePerformerSalesTabCategories: [{
-        "label": "2012"
+        "label": "G1"
     }, {
-        "label": "2013"
+        "label": "G2"
     }, {
-        "label": "2014"
-    }],
-    singleSalePerformerSalesTabData: {
-        "fuller": [{
+        "label": "G3"
+    },
+        {
+            "label": "ONC"
+        }
+    ],
+    singleSalePerformerSalesTabData: { //Peppers
+
+        "incomplete": [{
             "data": [{
                 "value": "77058.81000"
             }, {
                 "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
             }, {
                 "value": "152924.82000"
             }]
@@ -2620,130 +1122,399 @@ var managementData = {
                 "value": "40"
             }, {
                 "value": "122"
+            }, {
+                "value": "122"
             }]
         }],
-        "suyama": [{
+
+
+        "complete": [{
             "data": [{
-                "value": "46255.69000"
+                "value": "77058.81000"
             }, {
-                "value": "83300.29000"
+                "value": "166873.77000"
             }, {
-                "value": "144772.94000"
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
             }]
         }, {
             "data": [{
                 "value": "12"
             }, {
-                "value": "31"
+                "value": "40"
             }, {
-                "value": "90"
-            }]
-        }],
-        "peacock": [{
-            "data": [{
-                "value": "140305.00000"
-            }, {
-                "value": "148496.39000"
-            }, {
-                "value": "134881.25000"
-            }]
-        }, {
-            "data": [{
-                "value": "28"
-            }, {
-                "value": "74"
+                "value": "122"
             }, {
                 "value": "122"
             }]
         }],
-        "callahan": [{
+
+
+        "threatening": [{
             "data": [{
-                "value": "68158.44000"
+                "value": "77058.81000"
             }, {
-                "value": "159205.32000"
+                "value": "166873.77000"
             }, {
-                "value": "132725.65000"
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
             }]
         }, {
             "data": [{
-                "value": "15"
+                "value": "12"
             }, {
-                "value": "55"
+                "value": "40"
             }, {
-                "value": "112"
+                "value": "122"
+            }, {
+                "value": "122"
             }]
         }],
-        "dodsworth": [{
+
+        "septic": [{
             "data": [{
-                "value": "28592.00000"
+                "value": "77058.81000"
             }, {
-                "value": "124034.28000"
+                "value": "166873.77000"
             }, {
-                "value": "126226.60000"
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
             }]
         }, {
             "data": [{
-                "value": "4"
+                "value": "12"
             }, {
-                "value": "17"
+                "value": "40"
             }, {
-                "value": "90"
+                "value": "122"
+            }, {
+                "value": "122"
             }]
         }],
-        "davolio": [{
+
+        /////////Sal
+        "aso_i": [{
             "data": [{
-                "value": "97253.38000"
+                "value": "77058.81000"
             }, {
-                "value": "174845.56000"
+                "value": "166873.77000"
             }, {
-                "value": "117867.02000"
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
             }]
         }, {
             "data": [{
-                "value": "17"
+                "value": "12"
             }, {
-                "value": "57"
+                "value": "40"
             }, {
-                "value": "120"
+                "value": "122"
+            }, {
+                "value": "122"
             }]
         }],
-        "leverling": [{
+
+        "aso_ii": [{
             "data": [{
-                "value": "104474.78000"
+                "value": "77058.81000"
             }, {
-                "value": "159897.55000"
+                "value": "166873.77000"
             }, {
-                "value": "112227.94000"
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
             }]
         }, {
             "data": [{
-                "value": "14"
+                "value": "12"
             }, {
-                "value": "64"
+                "value": "40"
             }, {
-                "value": "112"
+                "value": "122"
+            }, {
+                "value": "122"
             }]
         }],
-        "king": [{
+
+        "aso_iii": [{
             "data": [{
-                "value": "71533.34000"
+                "value": "77058.81000"
             }, {
-                "value": "148553.31000"
+                "value": "166873.77000"
             }, {
-                "value": "113017.48000"
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
             }]
         }, {
             "data": [{
-                "value": "11"
+                "value": "12"
             }, {
-                "value": "33"
+                "value": "40"
             }, {
-                "value": "107"
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "aso_iv": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        ////Oncology
+        "cervix": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        "endometrium": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        "ovarian": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "vulva": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "vagina": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "chorio_gtd": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "ruptured": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "unruptured":[{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
             }]
         }]
 
+
+
     },
-    employeeDetails: {
+    employeeDetails: { //Piglets
+
+        //Miscar
+        "incomplete":{
+            "name": "Incomplete"
+        },
+
+        "complete":{
+            "name": "Complete"
+        },
+        "threatening": {
+            "name": "Threatening"
+        },
+        "septic": {
+            "name": "Septic"
+        },
+
+        //Salp
+        "aso_i":{
+            "name": "ASO I"
+        },
+
+        "aso_ii":{
+            "name": "ASO II"
+        },
+        "aso_iii": {
+            "name": "ASO III"
+        },
+        "aso_iv": {
+            "name": "ASO IV"
+        },
+
+        ////////Oncology
+        "cervix":{
+            "name": "Cervix"
+        },
+
+        "endometrium":{
+            "name": "Endometrium"
+        },
+        "ovarian": {
+            "name": "Ovarian"
+        },
+        "vulva": {
+            "name": "Vulva"
+        },
+        "vagina":{
+            "name": "Vagina"
+        },
+
+        "chorio_gtd":{
+            "name": "Chorio / GTD"
+        },
+
+
+
+        //////
         "fuller": {
             "name": "Andrew Fuller"
         },
@@ -2767,6 +1538,15 @@ var managementData = {
         },
         "davolio": {
             "name": 'Nancy Davolio'
+        },
+
+
+        ///Ectotic
+        "ruptured": {
+            "name": 'Ruptured'
+        },
+        "unruptured": {
+            "name": 'Unruptured'
         }
     },
     productWiseSalesCategories: {
@@ -2785,264 +1565,86 @@ var managementData = {
                 "toolText": "Dead"
             }],
             "endometrial_cancer": [{
-                "label": "Chocolad...",
-                "toolText": "Chocolade"
+                "label": "Alive (unknown disease status)",
+                "toolText": "Alive (unknown disease status)"
             }, {
-                "label": "Gumbär ...",
-                "toolText": "Gumbär Gummibärchen"
+                "label": "Alive and no evidence of disease",
+                "toolText": "Alive and no evidence of disease"
             }, {
-                "label": "Maxilaku",
-                "toolText": "Maxilaku"
+                "label": "Alive with disease",
+                "toolText": "Alive with disease"
             }, {
-                "label": "NuNuCa N...",
-                "toolText": "NuNuCa Nuß-Nougat-Creme"
+                "label": "Dead",
+                "toolText": "Dead"
             }],
             "ovarian_cancer": [{
-                "label": "Alice Mu...",
-                "toolText": "Alice Mutton"
+                "label": "Alive (unknown disease status)",
+                "toolText": "Alive (unknown disease status)"
             }, {
-                "label": "Mishi Ko...",
-                "toolText": "Mishi Kobe Niku"
+                "label": "Alive and no evidence of disease",
+                "toolText": "Alive and no evidence of disease"
             }, {
-                "label": "Pâté c...",
-                "toolText": "Pâté chinois"
+                "label": "Alive with disease",
+                "toolText": "Alive with disease"
             }, {
-                "label": "Perth Pa...",
-                "toolText": "Perth Pasties"
+                "label": "Dead",
+                "toolText": "Dead"
             }],
             "cervical_cancer": [{
-                "label": "Camember...",
-                "toolText": "Camembert Pierrot"
+                "label": "Alive (unknown disease status)",
+                "toolText": "Alive (unknown disease status)"
             }, {
-                "label": "Fløtemy...",
-                "toolText": "Fløtemysost"
+                "label": "Alive and no evidence of disease",
+                "toolText": "Alive and no evidence of disease"
             }, {
-                "label": "Geitost",
-                "toolText": "Geitost"
+                "label": "Alive with disease",
+                "toolText": "Alive with disease"
             }, {
-                "label": "Gorgonzo...",
-                "toolText": "Gorgonzola Telino"
+                "label": "Dead",
+                "toolText": "Dead"
             }],
             "vulva_cancer": [{
-                "label": "Aniseed ...",
-                "toolText": "Aniseed Syrup"
+                "label": "Alive (unknown disease status)",
+                "toolText": "Alive (unknown disease status)"
             }, {
-                "label": "Chef Ant...",
-                "toolText": "Chef Anton's Cajun Seasoning"
+                "label": "Alive and no evidence of disease",
+                "toolText": "Alive and no evidence of disease"
             }, {
-                "label": "Chef Ant...",
-                "toolText": "Chef Anton's Gumbo Mix"
+                "label": "Alive with disease",
+                "toolText": "Alive with disease"
             }, {
-                "label": "Genen Sh...",
-                "toolText": "Genen Shouyu"
+                "label": "Dead",
+                "toolText": "Dead"
             }],
             "vaginal_cancer": [{
-                "label": "Boston C...",
-                "toolText": "Boston Crab Meat"
+                "label": "Alive (unknown disease status)",
+                "toolText": "Alive (unknown disease status)"
             }, {
-                "label": "Carnarvo...",
-                "toolText": "Carnarvon Tigers"
+                "label": "Alive and no evidence of disease",
+                "toolText": "Alive and no evidence of disease"
             }, {
-                "label": "Escargot...",
-                "toolText": "Escargots de Bourgogne"
+                "label": "Alive with disease",
+                "toolText": "Alive with disease"
             }, {
-                "label": "Gravad l...",
-                "toolText": "Gravad lax"
+                "label": "Dead",
+                "toolText": "Dead"
             }],
             "gestational_throphoblastic_disease": [{
-                "label": "Longlife...",
-                "toolText": "Longlife Tofu"
+                "label": "Alive (unknown disease status)",
+                "toolText": "Alive (unknown disease status)"
             }, {
-                "label": "Manjimup...",
-                "toolText": "Manjimup Dried Apples"
+                "label": "Alive and no evidence of disease",
+                "toolText": "Alive and no evidence of disease"
             }, {
-                "label": "Rössle ...",
-                "toolText": "Rössle Sauerkraut"
+                "label": "Alive with disease",
+                "toolText": "Alive with disease"
             }, {
-                "label": "Tofu",
-                "toolText": "Tofu"
+                "label": "Dead",
+                "toolText": "Dead"
             }]
         }
     },
-    productWiseSalesData: {
-        "2014": {
-            "fallopian_tube_cancer": [{
-                "data": [{
-                    "value": "10890" //Alive unknown disease
-                }, {
-                    "value": "11077" //Alive and no evidence of disease
-                }, {
-                    "value": "8208" // Alive with disease
-                }, {
-                    "value": "162843" //Dead
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Chai, Units Sold : 605",
-                    "value": "605"
-                }, {
-                    "tooltext": "Chang, Units Sold : 583",
-                    "value": "583"
-                }, {
-                    "tooltext": "Chartreuse verte, Units Sold : 456",
-                    "value": "456"
-                }, {
-                    "tooltext": "Côte de Blaye, Units Sold : 618",
-                    "value": "618"
-                }]
-            }],
-            "endometrial_cancer": [{
-                "data": [{
-                    "value": "5623"
-                }, {
-                    "value": "21049"
-                }, {
-                    "value": "7340"
-                }, {
-                    "value": "9324"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Chocolade, Units Sold : 441",
-                    "value": "441"
-                }, {
-                    "tooltext": "Gumbär Gummibärchen, Units Sold : 674",
-                    "value": "674"
-                }, {
-                    "tooltext": "Maxilaku, Units Sold : 367",
-                    "value": "367"
-                }, {
-                    "tooltext": "NuNuCa Nuß-Nougat-Creme, Units Sold : 666",
-                    "value": "666"
-                }]
-            }],
-            "ovarian_cancer": [{
-                "data": [{
-                    "value": "17823"
-                }, {
-                    "value": "60625"
-                }, {
-                    "value": "10176"
-                }, {
-                    "value": "17023"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Alice Mutton, Units Sold : 457",
-                    "value": "457"
-                }, {
-                    "tooltext": "Mishi Kobe Niku, Units Sold : 625",
-                    "value": "625"
-                }, {
-                    "tooltext": "Pâté chinois, Units Sold : 424",
-                    "value": "424"
-                }, {
-                    "tooltext": "Perth Pasties, Units Sold : 519",
-                    "value": "519"
-                }]
-            }],
-            "cervical_cancer": [{
-                "data": [{
-                    "value": "15878"
-                }, {
-                    "value": "12148"
-                }, {
-                    "value": "1318"
-                }, {
-                    "value": "7900"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Camembert Pierrot, Units Sold : 467",
-                    "value": "467"
-                }, {
-                    "tooltext": "Fløtemysost, Units Sold : 565",
-                    "value": "565"
-                }, {
-                    "tooltext": "Geitost, Units Sold : 527",
-                    "value": "527"
-                }, {
-                    "tooltext": "Gorgonzola Telino, Units Sold : 632",
-                    "value": "632"
-                }]
-            }],
-            "vulva_cancer": [{
-                "data": [{
-                    "value": "6940"
-                }, {
-                    "value": "10758"
-                }, {
-                    "value": "13792"
-                }, {
-                    "value": "9517"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Aniseed Syrup, Units Sold : 694",
-                    "value": "694"
-                }, {
-                    "tooltext": "Chef Anton's Cajun Seasoning, Units Sold : 489",
-                    "value": "489"
-                }, {
-                    "tooltext": "Chef Anton's Gumbo Mix, Units Sold : 646",
-                    "value": "646"
-                }, {
-                    "tooltext": "Genen Shouyu, Units Sold : 614",
-                    "value": "614"
-                }]
-            }],
-            "vaginal_cancer": [{
-                "data": [{
-                    "value": "10838"
-                }, {
-                    "value": "27688"
-                }, {
-                    "value": "7473"
-                }, {
-                    "value": "12974"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Boston Crab Meat, Units Sold : 589",
-                    "value": "589"
-                }, {
-                    "tooltext": "Carnarvon Tigers, Units Sold : 443",
-                    "value": "443"
-                }, {
-                    "tooltext": "Escargots de Bourgogne, Units Sold : 564",
-                    "value": "564"
-                }, {
-                    "tooltext": "Gravad lax, Units Sold : 499",
-                    "value": "499"
-                }]
-            }],
-            "gestational_throphoblastic_disease": [{
-                "data": [{
-                    "value": "3220"
-                }, {
-                    "value": "20034"
-                }, {
-                    "value": "23986"
-                }, {
-                    "value": "9137"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Longlife Tofu, Units Sold : 322",
-                    "value": "322"
-                }, {
-                    "tooltext": "Manjimup Dried Apples, Units Sold : 378",
-                    "value": "378"
-                }, {
-                    "tooltext": "Rössle Sauerkraut, Units Sold : 526",
-                    "value": "526"
-                }, {
-                    "tooltext": "Tofu, Units Sold : 393",
-                    "value": "393"
-                }]
-            }]
-        }
-    },
+
     inventoryByProductCategoriesCategories: [{
         "label": "Vaginal Cancer"
     }, {
@@ -4509,40 +3111,40 @@ var managementData = {
         }, {
             "data": [{
                 "value": "3416",
-                "toolText": "Total Units sold in Jan : 3,416"
+                "toolText": "Total Number in Jan : 3,416"
             }, {
                 "value": "3659",
-                "toolText": "Total Units sold in Feb : 3,659"
+                "toolText": "Total Number in Feb : 3,659"
             }, {
                 "value": "3194",
-                "toolText": "Total Units sold in Mar : 3,194"
+                "toolText": "Total Number in Mar : 3,194"
             }, {
                 "value": "3049",
-                "toolText": "Total Units sold in Apr : 3,049"
+                "toolText": "Total Number in Apr : 3,049"
             }, {
                 "value": "3633",
-                "toolText": "Total Units sold in May : 3,633"
+                "toolText": "Total Number in May : 3,633"
             }, {
                 "value": "3897",
-                "toolText": "Total Units sold in Jun : 3,897"
+                "toolText": "Total Number in Jun : 3,897"
             }, {
                 "value": "3326",
-                "toolText": "Total Units sold in Jul : 3,326"
+                "toolText": "Total Number in Jul : 3,326"
             }, {
                 "value": "4091",
-                "toolText": "Total Units sold in Aug : 4,091"
+                "toolText": "Total Number in Aug : 4,091"
             }, {
                 "value": "2953",
-                "toolText": "Total Units sold in Sep : 2,953"
+                "toolText": "Total Number in Sep : 2,953"
             }, {
                 "value": "3813",
-                "toolText": "Total Units sold in Oct : 3,813"
+                "toolText": "Total Number in Oct : 3,813"
             }, {
                 "value": "3260",
-                "toolText": "Total Units sold in Nov : 3,260"
+                "toolText": "Total Number in Nov : 3,260"
             }, {
                 "value": "325",
-                "toolText": "Total Units sold in Dec : 325"
+                "toolText": "Total Number in Dec : 325"
             }]
         }]
     }

@@ -3,6 +3,9 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var https = require('https');
+var logging = require('../../utils/logging.js').logger();
+var meld = require('meld');
+
 
 var authenticate = function(username, password, callback) {
     var foundUser = false;
@@ -61,6 +64,23 @@ var checkAdmin = function(username, password, callback) {
 
 }
 
+checkAdmin = meld.before(checkAdmin, function() {
+    logging.info("checkAdmin service request | for User: [" + arguments[0] +  "]");
+
+});
+
+/*
+meld.afterReturning(checkAdmin, function(result) {
+    logging.info("Just testing after meld //////////////////***** " + result);
+
+});*/
+
+/*
+checkAdmin = meld.after(checkAdmin, function(result) {
+    logging.info("checkAdmin service reponse | " + result.valueOf());
+});*/
+
+
 
 
 
@@ -96,6 +116,8 @@ var verifyRecaptcha = function (secretKey, callback){
     });
 };
 
+
+
 /*
 router.param('userID', function(req, res, next, id){
     var query = User.findById(id);
@@ -116,7 +138,7 @@ router.param('userID', function(req, res, next, id){
 });*/
 
 /**
- * @function
+ * @function isLoggedIn
  * This helper function verifies if a user is logged in whilst accessing
  * the url endpoints of the system. If a user is authenticated, they are
  * allowed to proceed to the next page, otherwise they are requested
@@ -145,6 +167,12 @@ var isLoggedIn = function(req, res, next) {
 };
 
 
+isLoggedIn = meld.before(isLoggedIn, function() {
+
+    logging.info("isLoggedIn service request | User [" + arguments[0].user.username +  "] is logging in [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
+
+});
+
 
 var isAdmin = function(req, res, next) {
     if (req.isAuthenticated() && req.user.user_rights == '1')
@@ -170,6 +198,32 @@ var isAdmin = function(req, res, next) {
 };
 
 
+isAdmin = meld.before(isAdmin, function() {
+
+    logging.info("isAdmin service request | User["+ arguments[0].user.username +"] is admin [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
+
+});
+
+/*
+ meld.before(isAdmin, function(result) {
+ if(result == err){
+ logging.logger.error('You are not allowed to access this page');
+ }
+ else if(result == next){
+ logging.logger.info('Admin logged into page');
+ }
+
+ });
+
+ meld.after(isAdmin, function(result) {
+ if(result == err){
+ logging.logger.error('You are not allowed to access this page');
+ }
+ else if(result == next){
+ logging.logger.info('Admin logged into page');
+ }
+
+ });*/
 
 var isNotAdmin = function(req, res, next) {
     if (req.isAuthenticated() && req.user.user_rights == '2')
@@ -180,6 +234,7 @@ var isNotAdmin = function(req, res, next) {
     if (req.isAuthenticated() && req.user.user_rights != '2')
     {
         var err = new Error('You are not allowed to access this page');
+        logging.error('You are not allowed to access this page, non admin');
         err.status = 400;
         return next(err);
     }
@@ -193,6 +248,12 @@ var isNotAdmin = function(req, res, next) {
 
 
 };
+
+isNotAdmin = meld.before(isNotAdmin, function() {
+
+    logging.info("isNotAdmin service request | User ["+ arguments[0].user.username +"] is not admin [" + arguments[0].isAuthenticated() + " | " + arguments[0].user.user_rights + "] | "  + arguments[1]);
+
+});
 
 
 /**
@@ -295,6 +356,14 @@ var postLogin = function(req, res, next)
 
     })(req, res, next);
 };
+
+/*
+postLogin = meld.before(postLogin, function() {
+
+    logging.info("postLogin service request | "+ arguments[0].user.username +" is logging in  with Access Rights [" + arguments[0].user.user_rights + "] | "  + arguments[1]);
+
+});*/
+
 
 module.exports = {
     authenticate: authenticate,
