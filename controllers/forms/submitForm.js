@@ -1158,7 +1158,6 @@ var submitCriticalIncident = function(formData){ //CritInd
             Emergency:changedString.AdmissionElective,
             Oncology:changedString.AdmissionElective
         },
-
         Hospital:
         {
             Kalafong:changedString.HospitalKalafong,
