@@ -1430,7 +1430,185 @@ function CollectDataFromClient(data)
         var categoryWiseSalesChart,
             categoryWiseSalesChartConfig = chartConfig.categoryWiseSales,
             categoryWiseSalesCategories = managementData.productWiseSalesCategories,
-            categoryWiseSalesData = managementData.productWiseSalesData;
+            categoryWiseSalesData =  {
+        "2014": {
+            "fallopian_tube_cancer": [{
+                "data": [{
+                    "value":  globalData[3][0] //Alive unknown disease
+                }, {
+                    "value": globalData[3][1] //Alive and no evidence of disease
+                }, {
+                    "value": globalData[3][2] // Alive with disease
+                }, {
+                    "value": globalData[3][3] //Dead
+                }]
+            }, {
+                "data": [{
+                    "tooltext": "Alive with unknown disease",
+                    "value":  globalData[3][0]
+                }, {
+                    "tooltext": "Alive and no evidence of disease",
+                    "value": globalData[3][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[3][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[3][3]
+                }]
+            }],
+            "endometrial_cancer": [{
+                "data": [{
+                    "value":  globalData[4][0]
+                }, {
+                    "value":  globalData[4][1]
+                }, {
+                    "value":  globalData[4][2]
+                }, {
+                    "value":  globalData[4][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[4][0]
+                }, {
+                    "tooltext": "Alive and no evidence of disease",
+                    "value": globalData[4][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value":  globalData[4][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value":  globalData[4][3]
+                }]
+            }],
+            "ovarian_cancer": [{
+                "data": [{
+                    "value":  globalData[5][0]
+                }, {
+                    "value": globalData[5][1]
+                }, {
+                    "value": globalData[5][2]
+                }, {
+                    "value": globalData[5][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[5][0]
+                }, {
+                    "tooltext": "Alive and no evidence of disease",
+                    "value": globalData[5][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[5][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[5][3]
+                }]
+            }],
+            "cervical_cancer": [{
+                "data": [{
+                    "value": globalData[6][0]
+                }, {
+                    "value": globalData[6][1]
+                }, {
+                    "value": globalData[6][2]
+                }, {
+                    "value": globalData[6][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[6][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[6][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[6][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[6][3]
+                }]
+            }],
+            "vulva_cancer": [{
+                "data": [{
+                    "value": globalData[7][0]
+                }, {
+                    "value": globalData[7][1]
+                }, {
+                    "value": globalData[7][2]
+                }, {
+                    "value": globalData[7][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[7][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[7][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[7][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[7][3]
+                }]
+            }],
+            "vaginal_cancer": [{
+                "data": [{
+                    "value": globalData[8][0]
+                }, {
+                    "value": globalData[8][1]
+                }, {
+                    "value": globalData[8][2]
+                }, {
+                    "value": globalData[8][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[8][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[8][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[8][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[8][3]
+                }]
+            }],
+            "gestational_throphoblastic_disease": [{
+                "data": [{
+                    "value":  globalData[9][0]
+                }, {
+                    "value": globalData[9][1]
+                }, {
+                    "value": globalData[9][2]
+                }, {
+                    "value": globalData[9][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[9][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[9][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[9][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[9][3]
+                }]
+            }]
+        }
+    };
 
         // Config for Monthly Sales Chart
         var topMonthlySalesTabChart,

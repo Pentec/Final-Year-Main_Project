@@ -1775,7 +1775,7 @@ var managementData = {
             "name": 'Unruptured'
         }
     },
-    productWiseSalesCategories: {
+   productWiseSalesCategories: {
         "2014": {
             "fallopian_tube_cancer": [{
                 "label": "Alive (unknown disease status)",
@@ -1791,82 +1791,82 @@ var managementData = {
                 "toolText": "Dead"
             }],
             "endometrial_cancer": [{
-                "label": "Chocolad...",
-                "toolText": "Chocolade"
+                "label": "Alive (unknown disease status)",
+                "toolText": "Alive (unknown disease status)"
             }, {
-                "label": "Gumbär ...",
-                "toolText": "Gumbär Gummibärchen"
+                "label": "Alive and no evidence of disease",
+                "toolText": "Alive and no evidence of disease"
             }, {
-                "label": "Maxilaku",
-                "toolText": "Maxilaku"
+                "label": "Alive with disease",
+                "toolText": "Alive with disease"
             }, {
-                "label": "NuNuCa N...",
-                "toolText": "NuNuCa Nuß-Nougat-Creme"
+                "label": "Dead",
+                "toolText": "Dead"
             }],
             "ovarian_cancer": [{
-                "label": "Alice Mu...",
-                "toolText": "Alice Mutton"
+                "label": "Alive (unknown disease status)",
+                "toolText": "Alive (unknown disease status)"
             }, {
-                "label": "Mishi Ko...",
-                "toolText": "Mishi Kobe Niku"
+                "label": "Alive and no evidence of disease",
+                "toolText": "Alive and no evidence of disease"
             }, {
-                "label": "Pâté c...",
-                "toolText": "Pâté chinois"
+                "label": "Alive with disease",
+                "toolText": "Alive with disease"
             }, {
-                "label": "Perth Pa...",
-                "toolText": "Perth Pasties"
+                "label": "Dead",
+                "toolText": "Dead"
             }],
             "cervical_cancer": [{
-                "label": "Camember...",
-                "toolText": "Camembert Pierrot"
+                "label": "Alive (unknown disease status)",
+                "toolText": "Alive (unknown disease status)"
             }, {
-                "label": "Fløtemy...",
-                "toolText": "Fløtemysost"
+                "label": "Alive and no evidence of disease",
+                "toolText": "Alive and no evidence of disease"
             }, {
-                "label": "Geitost",
-                "toolText": "Geitost"
+                "label": "Alive with disease",
+                "toolText": "Alive with disease"
             }, {
-                "label": "Gorgonzo...",
-                "toolText": "Gorgonzola Telino"
+                "label": "Dead",
+                "toolText": "Dead"
             }],
             "vulva_cancer": [{
-                "label": "Aniseed ...",
-                "toolText": "Aniseed Syrup"
+                "label": "Alive (unknown disease status)",
+                "toolText": "Alive (unknown disease status)"
             }, {
-                "label": "Chef Ant...",
-                "toolText": "Chef Anton's Cajun Seasoning"
+                "label": "Alive and no evidence of disease",
+                "toolText": "Alive and no evidence of disease"
             }, {
-                "label": "Chef Ant...",
-                "toolText": "Chef Anton's Gumbo Mix"
+                "label": "Alive with disease",
+                "toolText": "Alive with disease"
             }, {
-                "label": "Genen Sh...",
-                "toolText": "Genen Shouyu"
+                "label": "Dead",
+                "toolText": "Dead"
             }],
             "vaginal_cancer": [{
-                "label": "Boston C...",
-                "toolText": "Boston Crab Meat"
+                "label": "Alive (unknown disease status)",
+                "toolText": "Alive (unknown disease status)"
             }, {
-                "label": "Carnarvo...",
-                "toolText": "Carnarvon Tigers"
+                "label": "Alive and no evidence of disease",
+                "toolText": "Alive and no evidence of disease"
             }, {
-                "label": "Escargot...",
-                "toolText": "Escargots de Bourgogne"
+                "label": "Alive with disease",
+                "toolText": "Alive with disease"
             }, {
-                "label": "Gravad l...",
-                "toolText": "Gravad lax"
+                "label": "Dead",
+                "toolText": "Dead"
             }],
             "gestational_throphoblastic_disease": [{
-                "label": "Longlife...",
-                "toolText": "Longlife Tofu"
+                "label": "Alive (unknown disease status)",
+                "toolText": "Alive (unknown disease status)"
             }, {
-                "label": "Manjimup...",
-                "toolText": "Manjimup Dried Apples"
+                "label": "Alive and no evidence of disease",
+                "toolText": "Alive and no evidence of disease"
             }, {
-                "label": "Rössle ...",
-                "toolText": "Rössle Sauerkraut"
+                "label": "Alive with disease",
+                "toolText": "Alive with disease"
             }, {
-                "label": "Tofu",
-                "toolText": "Tofu"
+                "label": "Dead",
+                "toolText": "Dead"
             }]
         }
     },
