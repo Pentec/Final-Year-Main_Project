@@ -1,0 +1,1 @@
+Stores all the system log files
