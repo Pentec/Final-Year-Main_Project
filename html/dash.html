@@ -46,8 +46,6 @@
     <script type="text/javascript" src="js/fusioncharts.theme.management-dashboard-3d.js"></script>
     <script type="text/javascript" src="js/data.js"></script>
     <script type="text/javascript" src="js/dashboard.js"></script>
-
-
     <![endif]-->
 	
 
@@ -67,9 +65,6 @@ $( document ).ready(function() {
 						dataType: "json",
 						contentType: "application/json"
                 });
-
-
-
 });
 			 
 		
@@ -125,7 +120,7 @@ $( document ).ready(function() {
 
                 <div id="sidebar" class="pull-left">
                     <div id="profile-pic" class="pull-left">
-                        <img src="/images/snyman.jpg" alt="John Profile Pic"  style ="width:55px;height:55px;" title="John Profile Pic">
+                        <img src="/images/snyman.jpg" alt="User Profile Pic"  style ="width:55px;height:55px;" title="John Profile Pic">
                     </div>
                     <div id="profile-name" class="pull-left">
                         <p>Hello Leon</p>
@@ -139,7 +134,7 @@ $( document ).ready(function() {
                         </li>
                         <li><a href="#sales" id="sales-link">Follow-up data</a>
                         </li>
-                        <li><a href="#kpi" id="kpi-link">Cervical Survival Data</a>
+                        <li><a href="#kpi" id="kpi-link">Survival Data</a>
                         </li>
                     </ul>
                 </div>
@@ -293,8 +288,6 @@ $( document ).ready(function() {
                             </div>
                            
 
-
-
                             <div class="chart-category pull-right no-border">
                                 <h2 class="chart-category-heading pull-left">Gynaecology Admission Discharge Diagnoses </h2>
 
@@ -320,7 +313,7 @@ $( document ).ready(function() {
                             </div>
 
                             <div class="chart-category full-width">
-                                <h2 class="chart-category-heading pull-left">Monthly Sales</h2>
+                                <h2 class="chart-category-heading pull-left">Monthly Statistics</h2>
 
                                 <!-- Yearly filter for monthly sales chart -->
                                 <select class="pull-right" id="top_monthly_sales_year_filter">
@@ -346,43 +339,6 @@ $( document ).ready(function() {
                     <div id="kpi-tab" class="hidden">
 
                         <div class="chart-content pull-right">
-
-
-<!------------------------------------------------------------------------------------------------------------------------------------------------------>
-<!------------------------------------------------------------------------------------------------------------------------------------------------------>
-<!----------------------------------------------------------MY tab-------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------------------------------------------------------------>
-<!------------------------------------------------------------------------------------------------------------------------------------------------------>
-
-
-                            <div class="chart-category pull-left">
-                                <h2 class="chart-category-heading pull-left">Survival Data</h2>
-
-                                <!-- Yearly filter for survival chart -->
-                                <select class="pull-right" id="survival_data_tab_year_filter">
-                                    <option value="2014">2014</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2012">2012</option>
-                                </select>
-
-                                <div class="divider clearboth"></div>
-
-
-                                <div class="drill-caption-wrapper">
-                                    <div class="drill-caption">Click on a column to view details</div>
-                                </div>
-
-                                <!-- Top categories by survival chart -->
-                                <div id="survival-categories-tab-chart"></div>
-
-                            </div>
-
-
-<!------------------------------------------------------------------------------------------------------------------------------------------------------>
-<!------------------------------------------------------------------------------------------------------------------------------------------------------>
-<!----------------------------------------------------------MY tab-------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------------------------------------------------------------>
-<!------------------------------------------------------------------------------------------------------------------------------------------------------>
 
                             <div class="chart-category pull-left">
 

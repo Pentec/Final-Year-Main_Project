@@ -4,201 +4,9 @@
  License Information at <http://www.fusioncharts.com/license>
 */
 
-var globalData;
-function CollectDataFromClient(data)
-{
-	globalData =  data;		
-	alert(globalData);
-}
-//may have to loop thru
-/*function sendDataToGraph(data){
- alert ("Survival " + data);
- //call FusionCharts.ready()
- }*/
+
 
 var managementData = {
-    survivalDataTabCategories: {
-        "2014": {
-            "all": [{
-                "label": "Côte de Blaye"
-            }, {
-                "label": "Thüringer Rostbratwurst"
-            }, {
-                "label": "Mishi Kobe Niku"
-            }, {
-                "label": "Sir Rodney's Marmalade"
-            }, {
-                "label": "Carnarvon Tigers"
-            }, {
-                "label": "Raclette Courdavault"
-            }, {
-                "label": "Manjimup Dried Apples"
-            }, {
-                "label": "Tarte au sucre"
-            }, {
-                "label": "Ipoh Coffee"
-            }, {
-                "label": "Rössle Sauerkraut"
-            }]
-        },
-        "2013": {
-            "all": [{
-                "label": "Côte de Blaye"
-            }, {
-                "label": "Thüringer Rostbratwurst"
-            }, {
-                "label": "Mishi Kobe Niku"
-            }, {
-                "label": "Sir Rodney's Marmalade"
-            }, {
-                "label": "Carnarvon Tigers"
-            }, {
-                "label": "Raclette Courdavault"
-            }, {
-                "label": "Manjimup Dried Apples"
-            }, {
-                "label": "Tarte au sucre"
-            }, {
-                "label": "Ipoh Coffee"
-            }, {
-                "label": "Rössle Sauerkraut"
-            }]
-        },
-        "2012": {
-            "all": [{
-                "label": "Côte de Blaye"
-            }, {
-                "label": "Thüringer Rostbratwurst"
-            }, {
-                "label": "Mishi Kobe Niku"
-            }, {
-                "label": "Sir Rodney's Marmalade"
-            }, {
-                "label": "Carnarvon Tigers"
-            }, {
-                "label": "Raclette Courdavault"
-            }, {
-                "label": "Manjimup Dried Apples"
-            }, {
-                "label": "Tarte au sucre"
-            }, {
-                "label": "Ipoh Coffee"
-            }, {
-                "label": "Rössle Sauerkraut"
-            }]
-        }
-    },
-    survivalDataTabData: {
-        //wil; feed data and years from DB
-        "2014": [{
-            "data": [{
-                "label": "Dead",
-                "value": "256957.25000",
-                "link": "#sales"
-            }, {
-                "label": "Surgeries",
-                "value": "176918.92000",
-                "link": "#sales"
-            }, {
-                "label": "Meat/Poultry",
-                "value": "174995.20000",
-                "link": "#sales"
-            }, {
-                "label": "Dairy Products",
-                "value": "148607.60000",
-                "link": "#sales"
-            }, {
-                "label": "Condiments",
-                "value": "141611.45000",
-                "link": "#sales"
-            }, {
-
-                "label": "Seafood",
-                "value": "124437.27000",
-                "link": "#sales"
-            }, {
-
-                "label": "Produce",
-                "value": "71436.85000",
-                "link": "#sales"
-            }, {
-
-                "label": "Grains / Cereals",
-                "value": "65362.75000",
-                "link": "#sales"
-            }]
-        }],
-        "2013": [{
-            "data": [{
-                "label": "Beverages",
-                "value": "278908.00000",
-                "link": "#sales"
-            }, {
-                "label": "Meat/Poultry",
-                "value": "175454.25000",
-                "link": "#sales"
-            }, {
-                "label": "Confections",
-                "value": "172986.16000",
-                "link": "#sales"
-            }, {
-                "label": "Dairy Products",
-                "value": "167400.80000",
-                "link": "#sales"
-            }, {
-                "label": "Seafood",
-                "value": "145863.84000",
-                "link": "#sales"
-            }, {
-                "label": "Condiments",
-                "value": "135713.70000",
-                "link": "#sales"
-            }, {
-                "label": "Produce",
-                "value": "86443.35000",
-                "link": "#sales"
-            }, {
-                "label": "Grains/Cereals",
-                "value": "85307.75000",
-                "link": "#sales"
-            }]
-        }],
-        "2012": [{
-            "data": [{
-                "label": "Dairy Products",
-                "value": "135164.00000",
-                "link": "#sales"
-            }, {
-                "label": "Beverages",
-                "value": "123044.25000",
-                "link": "#sales"
-            }, {
-                "label": "Confections",
-                "value": "91525.68000",
-                "link": "#sales"
-            }, {
-                "label": "Meat/Poultry",
-                "value": "89595.78000",
-                "link": "#sales"
-            }, {
-                "label": "Seafood",
-                "value": "71428.83000",
-                "link": "#sales"
-            }, {
-                "label": "Grains/Cereals",
-                "value": "61267.00000",
-                "link": "#sales"
-            }, {
-                "label": "Condiments",
-                "value": "59164.95000",
-                "link": "#sales"
-            }, {
-                "label": "Produce",
-                "value": "51605.60000",
-                "link": "#sales"
-            }]
-        }]
-    },
    yearlySalesSummaryCategories: [{
         "label": "None"
     }, {
@@ -1179,41 +987,7 @@ var managementData = {
             "label": "Gestational Throphoblastic Disease"
         }]
     },
-    topCategoriesSalesTabData: {
-        "2014": [{
-            "data": [{
-                "label": "Fallopian Tube Cancer",
-                "value": "256957.25000",
-                "link": "#sales"
-            }, {
-                "label": "Endometrial Cancer",
-                "value": "176918.92000",
-                "link": "#sales"
-            }, {
-                "label": "Ovarian Cancer",
-                "value": "174995.20000",
-                "link": "#sales"
-            }, {
-                "label": "Cervical Cancer",
-                "value": "148607.60000",
-                "link": "#sales"
-            }, {
-                "label": "Vulva Cancer",
-                "value": "141611.45000",
-                "link": "#sales"
-            }, {
-
-                "label": "Vaginal Cancer",
-                "value": "124437.27000",
-                "link": "#sales"
-            }, {
-
-                "label": "Gestational Throphoblastic Disease",
-                "value": "71436.85000",
-                "link": "#sales"
-            }]
-        }]
-    },
+    
     topPerformersSalesTabData: { //Mexican (just a key word to find this line)
         "2014": [{
             "data": {
@@ -1775,7 +1549,7 @@ var managementData = {
             "name": 'Unruptured'
         }
     },
-   productWiseSalesCategories: {
+    productWiseSalesCategories: {
         "2014": {
             "fallopian_tube_cancer": [{
                 "label": "Alive (unknown disease status)",
@@ -1870,185 +1644,7 @@ var managementData = {
             }]
         }
     },
-    productWiseSalesData: {
-        "2014": {
-            "fallopian_tube_cancer": [{
-                "data": [{
-                    "value": "10890" //Alive unknown disease
-                }, {
-                    "value": "11077" //Alive and no evidence of disease
-                }, {
-                    "value": "8208" // Alive with disease
-                }, {
-                    "value": "162843" //Dead
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Chai, Units Sold : 605",
-                    "value": "605"
-                }, {
-                    "tooltext": "Chang, Units Sold : 583",
-                    "value": "583"
-                }, {
-                    "tooltext": "Chartreuse verte, Units Sold : 456",
-                    "value": "456"
-                }, {
-                    "tooltext": "Côte de Blaye, Units Sold : 618",
-                    "value": "618"
-                }]
-            }],
-            "endometrial_cancer": [{
-                "data": [{
-                    "value": "5623"
-                }, {
-                    "value": "21049"
-                }, {
-                    "value": "7340"
-                }, {
-                    "value": "9324"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Chocolade, Units Sold : 441",
-                    "value": "441"
-                }, {
-                    "tooltext": "Gumbär Gummibärchen, Units Sold : 674",
-                    "value": "674"
-                }, {
-                    "tooltext": "Maxilaku, Units Sold : 367",
-                    "value": "367"
-                }, {
-                    "tooltext": "NuNuCa Nuß-Nougat-Creme, Units Sold : 666",
-                    "value": "666"
-                }]
-            }],
-            "ovarian_cancer": [{
-                "data": [{
-                    "value": "17823"
-                }, {
-                    "value": "60625"
-                }, {
-                    "value": "10176"
-                }, {
-                    "value": "17023"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Alice Mutton, Units Sold : 457",
-                    "value": "457"
-                }, {
-                    "tooltext": "Mishi Kobe Niku, Units Sold : 625",
-                    "value": "625"
-                }, {
-                    "tooltext": "Pâté chinois, Units Sold : 424",
-                    "value": "424"
-                }, {
-                    "tooltext": "Perth Pasties, Units Sold : 519",
-                    "value": "519"
-                }]
-            }],
-            "cervical_cancer": [{
-                "data": [{
-                    "value": "15878"
-                }, {
-                    "value": "12148"
-                }, {
-                    "value": "1318"
-                }, {
-                    "value": "7900"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Camembert Pierrot, Units Sold : 467",
-                    "value": "467"
-                }, {
-                    "tooltext": "Fløtemysost, Units Sold : 565",
-                    "value": "565"
-                }, {
-                    "tooltext": "Geitost, Units Sold : 527",
-                    "value": "527"
-                }, {
-                    "tooltext": "Gorgonzola Telino, Units Sold : 632",
-                    "value": "632"
-                }]
-            }],
-            "vulva_cancer": [{
-                "data": [{
-                    "value": "6940"
-                }, {
-                    "value": "10758"
-                }, {
-                    "value": "13792"
-                }, {
-                    "value": "9517"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Aniseed Syrup, Units Sold : 694",
-                    "value": "694"
-                }, {
-                    "tooltext": "Chef Anton's Cajun Seasoning, Units Sold : 489",
-                    "value": "489"
-                }, {
-                    "tooltext": "Chef Anton's Gumbo Mix, Units Sold : 646",
-                    "value": "646"
-                }, {
-                    "tooltext": "Genen Shouyu, Units Sold : 614",
-                    "value": "614"
-                }]
-            }],
-            "vaginal_cancer": [{
-                "data": [{
-                    "value": "10838"
-                }, {
-                    "value": "27688"
-                }, {
-                    "value": "7473"
-                }, {
-                    "value": "12974"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Boston Crab Meat, Units Sold : 589",
-                    "value": "589"
-                }, {
-                    "tooltext": "Carnarvon Tigers, Units Sold : 443",
-                    "value": "443"
-                }, {
-                    "tooltext": "Escargots de Bourgogne, Units Sold : 564",
-                    "value": "564"
-                }, {
-                    "tooltext": "Gravad lax, Units Sold : 499",
-                    "value": "499"
-                }]
-            }],
-            "gestational_throphoblastic_disease": [{
-                "data": [{
-                    "value": "3220"
-                }, {
-                    "value": "20034"
-                }, {
-                    "value": "23986"
-                }, {
-                    "value": "9137"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Longlife Tofu, Units Sold : 322",
-                    "value": "322"
-                }, {
-                    "tooltext": "Manjimup Dried Apples, Units Sold : 378",
-                    "value": "378"
-                }, {
-                    "tooltext": "Rössle Sauerkraut, Units Sold : 526",
-                    "value": "526"
-                }, {
-                    "tooltext": "Tofu, Units Sold : 393",
-                    "value": "393"
-                }]
-            }]
-        }
-    },
+
     inventoryByProductCategoriesCategories: [{
         "label": "Vaginal Cancer"
     }, {
@@ -3515,40 +3111,40 @@ var managementData = {
         }, {
             "data": [{
                 "value": "3416",
-                "toolText": "Total Units sold in Jan : 3,416"
+                "toolText": "Total Number in Jan : 3,416"
             }, {
                 "value": "3659",
-                "toolText": "Total Units sold in Feb : 3,659"
+                "toolText": "Total Number in Feb : 3,659"
             }, {
                 "value": "3194",
-                "toolText": "Total Units sold in Mar : 3,194"
+                "toolText": "Total Number in Mar : 3,194"
             }, {
                 "value": "3049",
-                "toolText": "Total Units sold in Apr : 3,049"
+                "toolText": "Total Number in Apr : 3,049"
             }, {
                 "value": "3633",
-                "toolText": "Total Units sold in May : 3,633"
+                "toolText": "Total Number in May : 3,633"
             }, {
                 "value": "3897",
-                "toolText": "Total Units sold in Jun : 3,897"
+                "toolText": "Total Number in Jun : 3,897"
             }, {
                 "value": "3326",
-                "toolText": "Total Units sold in Jul : 3,326"
+                "toolText": "Total Number in Jul : 3,326"
             }, {
                 "value": "4091",
-                "toolText": "Total Units sold in Aug : 4,091"
+                "toolText": "Total Number in Aug : 4,091"
             }, {
                 "value": "2953",
-                "toolText": "Total Units sold in Sep : 2,953"
+                "toolText": "Total Number in Sep : 2,953"
             }, {
                 "value": "3813",
-                "toolText": "Total Units sold in Oct : 3,813"
+                "toolText": "Total Number in Oct : 3,813"
             }, {
                 "value": "3260",
-                "toolText": "Total Units sold in Nov : 3,260"
+                "toolText": "Total Number in Nov : 3,260"
             }, {
                 "value": "325",
-                "toolText": "Total Units sold in Dec : 325"
+                "toolText": "Total Number in Dec : 325"
             }]
         }]
     }
