@@ -1421,13 +1421,469 @@ function CollectDataFromClient(data)
         // Config for Top Performers by Sales Chart.
         var topPerformersSalesTabChart,
             topPerformersSalesTabChartConfig = chartConfig.topPerformersSalesTab,
-            topPerformersSalesTabData = managementData.topPerformersSalesTabData;
+            topPerformersSalesTabData ={
+				//Mexican (just a key word to find this line)
+        "2014": [{
+            "data": {
+                "label": "Threatening",
+                "value": globalData[10][0],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Complete",
+                "value": globalData[10][1],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Incomplete",
+                "value": globalData[10][2],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Septic",
+                "value": globalData[10][3],
+                "link": "#sales"
+            }
+        }],
+        "2013": [{
+            "data": {
+                "label": "ASO I",
+                "value": globalData[11][0],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "ASO II",
+                "value": globalData[11][1],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "ASO III",
+                "value": globalData[11][2],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "ASO IV",
+                "value": globalData[11][3],
+                "link": "#sales"
+            }
+        }],
+		"2012": [{
+            "data": {
+                "label": "Ruptured",
+                "value": globalData[12][0],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Unruptured",
+                "value": globalData[12][0],
+                "link": "#sales"
+            }
+        }],
+
+        "2011": [{
+            "data": {
+                "label": "Cervix",
+                "value": globalData[13][0],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Endometrium",
+                "value": globalData[13][1],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Ovarian",
+                "value": globalData[13][2],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Vulva",
+                "value": globalData[13][3],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Vagina",
+                "value": globalData[13][4],
+                "link": "#sales"
+            }
+        },
+            {
+                "data": {
+                    "label": "Chorio / GTD",
+                    "value": globalData[13][5],
+                    "link": "#sales"
+                }
+            }]
+    };
 
         // Config for drilldown on top performers by sales chart.
         var singleSalePerformerSalesTabChart,
             singleSalePerformerSalesTabConfig = chartConfig.singleSalePerformerSalesTab,
             singleSalePerformerSalesTabCategories = managementData.singleSalePerformerSalesTabCategories,
-            singleSalePerformerSalesTabData = managementData.singleSalePerformerSalesTabData;
+            singleSalePerformerSalesTabData = { //Peppers
+
+        "incomplete": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+
+        "complete": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+
+        "threatening": [{
+            "data": [{
+                "value": globalData[14][0]
+            }, {
+                "value": globalData[14][1]
+            }, {
+                "value": globalData[14][2]
+            }, {
+                "value": globalData[14][3]
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        "septic": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        /////////Sal
+        "aso_i": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        "aso_ii": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        "aso_iii": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "aso_iv": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        ////Oncology
+        "cervix": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        "endometrium": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        "ovarian": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "vulva": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "vagina": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "chorio_gtd": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "ruptured": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "unruptured":[{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }]
+
+    };
 
         // Config for drilldown on top categories by sales chart.
         var categoryWiseSalesChart,
