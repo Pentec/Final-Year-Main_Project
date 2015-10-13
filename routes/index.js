@@ -831,7 +831,7 @@ router.post('/findPatient/sendEmail', login.isLoggedIn, function (req, res, next
 
 
 router.get('/neural', login.isLoggedIn, login.isAdmin, function (req, res, next) {
-    res.render('pims_neuralnet/testAI');
+    res.render('pims_neuralnet/testAI', {title: "Synaptic Neural Network", active: "predict"});
 });
 
 router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function (req, res, next) {
