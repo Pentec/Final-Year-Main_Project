@@ -86,7 +86,7 @@ body {
 #sidebar {
     position: absolute;
     width: 189px;
-    height: 166px;
+    height: 266px;
     padding: 16px 0 24px 0;
     border: 1px solid #D4D4D4;
     border-right: none;
@@ -108,7 +108,7 @@ body {
 }
 #main-menu {
     width: 169px;
-    height: 12px;
+    height: 12zpx;
     padding: 10px;
     background: #F6F6F6;
     border-top: 1px solid #D4D4D4;
