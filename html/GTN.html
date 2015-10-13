@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <a href="/" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
@@ -103,6 +103,7 @@
             },
             "figoStage": {
                 "type": "object",
+                "title": "Figo stage",
                 "properties": {
                     "I": {
                         "type": "boolean",
@@ -128,6 +129,7 @@
             },
             "SiteOfDistantMetastase": {
                 "type": "object",
+                "title": "Site of distant metastase",
                 "properties": {
                     "Nil": {
                         "type": "boolean",
@@ -172,6 +174,7 @@
                 "properties": {
                     "Age": {
                         "type": "object",
+                        "title": "Age",
                         "properties": {
                             "LT40": {
                                 "type": "boolean",
@@ -189,6 +192,7 @@
                     },
                     "AntecedentPregnancy": {
                         "type": "object",
+                        "title": "Antecedent Pregnancy",
                         "properties": {
                             "Mole": {
                                 "type": "boolean",
@@ -210,6 +214,8 @@
                     },
                     "IntervalMonthsFromIndexPregnancy": {
                         "type": "object",
+                        "title": "Interval months from index pregnancy",
+
                         "properties": {
                             "GT4": {
                                 "type": "boolean",
@@ -235,6 +241,7 @@
                     },
                     "PretreatmentSerumHCG": {
                         "type": "object",
+                        "title": "Pretreatment Serum HCG (iu/l)",
                         "properties": {
                             "GT10expo3": {
                                 "type": "boolean",
@@ -260,6 +267,7 @@
                     },
                     "LargestTumorSizeIncludingUterusCm": {
                         "type": "object",
+                        "title": "Largest tumor size including uterus (Cm)",
                         "properties": {
                             "LT3": {
                                 "type": "boolean",
@@ -281,6 +289,7 @@
                     },
                     "SiteOfMetastases": {
                         "type": "object",
+                        "title": "Site of metastases",
                         "properties": {
                             "NoneLung": {
                                 "type": "boolean",
@@ -306,6 +315,7 @@
                     },
                     "NumberOfMetastases": {
                         "type": "object",
+                        "title": "Number of metastases",
                         "properties": {
                             "Nil": {
                                 "type": "boolean",
@@ -327,6 +337,7 @@
                     },
                     "PreviousFailedChemotherapy": {
                         "type": "object",
+                        "title": "Previous failed chemotherapy",
                         "properties": {
                             "NoPreviousFailed": {
                                 "type": "boolean",
@@ -346,6 +357,7 @@
             },
             "Histology": {
                 "type": "object",
+                "title": "Histology",
                 "properties": {
                     "NoHistology": {
                         "type": "boolean",
@@ -383,6 +395,7 @@
             },
             "PrimarySite": {
                 "type": "object",
+                "title": "Primary site",
                 "properties": {
                     "Trophoblastic": {
                         "type": "boolean",
@@ -412,6 +425,7 @@
             },
             "PreviousChemotherapy": {
                 "type": "object",
+                "title": "Previous Chemotherapy",
                 "properties": {
                     "NoPriorChemotherapy": {
                         "type": "boolean",
@@ -433,6 +447,7 @@
             },
             "PrimaryTreatmentsPerformed": {
                 "type": "object",
+                "title": "Primary treatments performed",
                 "properties": {
                     "Nil": {
                         "type": "boolean",
@@ -462,6 +477,7 @@
             },
             "typeOfSurgery": {
                 "type": "object",
+                "tite": "Type of surgery",
                 "properties": {
                     "AbdominalAndElvicSurgeryhysterectomyDebulkingEexcludingDAndC": {
                         "type": "boolean",
@@ -487,6 +503,7 @@
             },
             "typeOfChemotherapy": {
                 "type": "object",
+                "title": "Type of chemotherapy",
                 "properties": {
                     "OneCourseSingleAgentCT": {
                         "type": "boolean",
@@ -522,6 +539,7 @@
             },
             "ResponseToTreatment": {
                 "type": "object",
+                "title": "Response to treatment",
                 "properties": {
                     "Complete": {
                         "type": "boolean",
@@ -551,6 +569,7 @@
             },
             "Relapse": {
                 "type": "object",
+                "title": "Relapse",
                 "properties": {
                     "Yes": {
                         "type": "boolean",
@@ -572,6 +591,7 @@
             },
             "SiteOfRelapse": {
                 "type": "object",
+                "title": "Site of relapse",
                 "properties": {
                     "Local": {
                         "type": "boolean",
@@ -593,6 +613,7 @@
             },
             "TreatmentAtRelapse": {
                 "type": "object",
+                "title": "Treatment at relapse",
                 "properties": {
                     "Nil": {
                         "type": "boolean",
@@ -639,6 +660,7 @@
             },
             "LastKnownVitalStatus": {
                 "type": "object",
+                "title": "Last known vital status",
                 "properties": {
                     "AliveUnknownDiseaseStatus": {
                         "type": "boolean",
@@ -660,6 +682,7 @@
             },
             "causeOfDeath": {
                 "type": "object",
+                "title": "Cause of Death",
                 "properties": {
                     "OtherPrimaryCancera": {
                         "type": "boolean",

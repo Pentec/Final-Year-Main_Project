@@ -2691,4 +2691,3 @@ var managementData = {
         }]
     }
 };
-module.exports = router;
