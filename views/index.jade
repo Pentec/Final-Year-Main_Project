@@ -70,8 +70,12 @@ block content
                             a(href='\stats') Query
                         li.sub.statisticstab
                             a(href='\dash.html') Dashboard
-                        li#Predict
-                            a(Href='/neural') Predict
+                        if(active == 'predict')
+                            li#Predict.active
+                                a(Href='/neural') Predict
+                        else
+                            li#Predict
+                                a(Href='/neural') Predict
                 ul.nav.navbar-nav.navbar-right
                     li.nobar.has-sub#settings
                         a(href='#')
@@ -83,7 +87,7 @@ block content
                         else
                             li.sub.settings
                                 a(href="/editProfile") Edit Profile
-                    li.sub.settings
+                    li
                         a(href="/logout") Logout
 
 
