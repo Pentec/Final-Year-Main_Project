@@ -12,20 +12,24 @@
     FusionCharts Version 3.8.0
     For further information about the folder structure of dashboard, please read the README.md file.
 -->
-<!--[if IE 6]>
-<html class="lt-ie9 lt-ie8 ie6"> <![endif]-->
-<!--[if IE 7]>
-<html class="lt-ie9 lt-ie8 ie7"> <![endif]-->
-<!--[if IE 8]>
-<html class="lt-ie9 ie8"> <![endif]-->
+<!--[if IE 6]> <html class="lt-ie9 lt-ie8 ie6"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9 ie8"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="">
 <!--<![endif]-->
 
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>PIMS Dashboard</title>
     <!-- Include CSS files -->
+	  <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <!-- Include layout file for dashboard -->
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+
+
+    <!-- Nav Bar-->
     <link rel="icon" type="image/png" href="/images/favicon.png">
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
@@ -33,18 +37,18 @@
     <link rel="stylesheet" href="/stylesheets/jqueryUI/jquery-ui.min.css">
     <link rel="stylesheet" href="/stylesheets/jqueryUI/jquery-ui.structure.min.css">
     <link rel="stylesheet" href="/stylesheets/jqueryUI/jquery-ui.theme.min.css">
+
     <script src="/javascripts/jquery-1.11.2.min.js"></script>
     <script src="/javascripts/jqueryUI/jquery-ui.min.js"></script>
     <script src="/javascripts/bootstrap.min.js"></script>
-    <!--script(src='/javascripts/npm.js')-->
-    <!--<script src="/javascripts/jsonform.js"></script>-->
-    <!--<script src="/javascripts/jsv.js"></script>-->
-    <!--<script src="/javascripts/underscore.js"></script>-->
+    <script src="/javascripts/jsonform.js"></script>
+    <script src="/javascripts/jsv.js"></script>
+    <script src="/javascripts/underscore.js"></script>
     <script src="/javascripts/navbar.js"></script>
-    <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
-    <!-- Include layout file for dashboard -->
-    <link rel="stylesheet" type="text/css" href="css/layout.css"/>
+
+
+    <!-- End of Nav Bar -->
+
 
     <!-- Include JS files-->
 
@@ -65,413 +69,363 @@
     <script type="text/javascript" src="js/data.js"></script>
     <script type="text/javascript" src="js/dashboard.js"></script>
     <![endif]-->
+	
 
+	<script>
+	
+	
+$( document ).ready(function() {
 
-    <script>
-
-
-        $(document).ready(function () {
-
-            $.ajax({
-                type: 'POST',
-                url: '/fetchDataFromDB',
-                success: function (data, textStatus, jqXHR) {
-                    var res = JSON.parse(jqXHR.responseText);
-                    // console.log("This is what it looks like " + res[0][0] );
-                    CollectDataFromClient(res);
-                },
-                dataType: "json",
-                contentType: "application/json"
-            });
-        });
-
-
-    </script>
-
+			$.ajax({
+						type: 'POST',
+						url: '/fetchDataFromDB',
+						success: function (data, textStatus, jqXHR){
+						  var res = JSON.parse(jqXHR.responseText);
+						 // console.log("This is what it looks like " + res[0][0] );
+                          CollectDataFromClient(res);
+							},
+						dataType: "json",
+						contentType: "application/json"
+                });
+});
+			 
+		
+	</script>
+	
 </head>
 
 <body id="page">
-<nav class="navbar navbar-findcond navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header"><a href="/myAdminSpace" class="nav navbar-brand"><img alt="Kalafong PIMS"
-                                                                                         src="/images/newlogo.png"></a>
+
+
+<nav class="navbar navbar-findcond navbar-fixed-top"><div class="container-fluid"><div class="navbar-header"><a href="/myAdminSpace" class="nav navbar-brand"><img alt="Kalafong PIMS" src="/images/newlogo.png"></a><button type="button" data-toggle="collapse" data-target="#navbar" class="navbar-toggle collapsed"><div><span class="sr-only">Toggle navigation</span><span style="color:#004B8F" class="glyphicon glyphicon-align-justify"></span></div></button></div><div id="navbar" class="collapse navbar-collapse"><ul class="nav navbar-nav navbar-left"><li><a href="/myAdminSpace">Home</a></li><li id="usersub" class="has-sub"><a href="#" role="button">Users</a></li><li class="sub usersub"><a href="/addUser">Add User</a></li><li id="formtab" class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">Forms<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="/gynae_surgery.html" tabindex="-1">Gynaecology Surgery</a></li><li><a href="/addmission_discharge.html" tabindex="-1">Gynaecology Admission and Discharge</a></li><li><a href="/Hysteroscopy.html" tabindex="-1">Office Hysteroscopy</a></li><li><a href="/critical_incidence.html" tabindex="-1">Data Form</a></li><li><a href="/cervical_cancer.html" tabindex="-1">Cervical Cancer</a><a href="/endometrial_cancer.html" tabindex="-1">Endomentrial Cancer</a><a href="/fallopian_tube_cancer.html" tabindex="-1">Fallopian Tube Cancer</a><a href="/oncology_follow_up.html" tabindex="-1">Follow-Up</a><a href="/GTN.html" tabindex="-1">Gestational Trophoblastic Disease</a><a href="/ovarian_cancer.html" tabindex="-1">Ovarian Cancer</a><a href="/vaginal_cancer.html" tabindex="-1">Vaginal Cancer</a><a href="/vulva_cancer.html" tabindex="-1">Vulva Cancer</a></li></ul></li><li id="statisticstab" class="has-sub"><a href="#" role="button">Statistics</a></li><li class="sub statisticstab"><a href="stats">Query</a></li><li class="sub statisticstab"><a href="dash.html">Dashboard</a></li><li id="Predict"><a Href="/neural">Predict</a></li></ul><ul class="nav navbar-nav navbar-right"><li id="settings" class="nobar has-sub"><a href="#"><img alt="Settings" src="/images/settings.png" height="40px"></a></li><li class="sub settings"><a href="/editProfile">Edit Profile</a></li><li class="sub settings"><a href="/logout">Logout</a></li></ul><!--form.navbar-form.navbar-right.search-form(role='search')--><!--    input.form-control(type='text', placeholder='Search')--></div></div></nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <!-- Modal Window -->
+    <div id="modalWrapper">
+
+        <div class="modal-header" id="modal-header">
+
+            <h3 id="modal-title"></h3>
+            <a id="close-modal" class="close-modal" href="#">&times;</a>
+
         </div>
-        <button type="button" data-toggle="collapse" data-target="#navbar" class="navbar-toggle collapsed">
-            <div><span class="sr-only">Toggle navigation</span><span style="color:#004B8F"
-                                                                     class="glyphicon glyphicon-align-justify"></span>
+
+        <div class="modal-body" id="modal-body">
+            <div class="modal" id='modal'>
             </div>
-        </button>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-left">
-                <li><a href="/myAdminSpace">Home</a></li>
-                <li id="usersub" class="has-sub"><a href="#" role="button">Users</a></li>
-                <li class="sub usersub"><a href="/addUser">Add User</a></li>
-                <li id="formtab" class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                                     aria-expanded="false" class="dropdown-toggle">Forms<span
-                        class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/gynae_surgery.html" tabindex="-1">Gynaecology Surgery</a></li>
-                        <li><a href="/addmission_discharge.html" tabindex="-1">Gynaecology Admission and Discharge</a>
+
+        </div>
+    </div>
+    <!-- End Modal Window -->
+
+    <!-- The top level wrapper for markup begins -->
+    <div id="wrapper">
+
+        <!-- Container for the dashboard begins -->
+        <div id="container">
+
+            <div id="dashboard-content">
+
+                <div id="sidebar" class="pull-left">
+                    <div id="profile-pic" class="pull-left">
+                        <img src="/images/snyman.jpg" alt="User Profile Pic"  style ="width:55px;height:55px;" title="John Profile Pic">
+                    </div>
+                    <div id="profile-name" class="pull-left">
+                        <p>Hello Leon</p>
+                    </div>
+
+                    <div id="main-menu" class="clearboth">
+                        <h4 class="pull-left">Dashboard</h4>
+                    </div>
+
+
+
+                    <ul id="sub-menu" class="pull-left">
+                        <li><a href="#summary" id="summary-link">Surgical Complications data</a>
                         </li>
-                        <li><a href="/Hysteroscopy.html" tabindex="-1">Office Hysteroscopy</a></li>
-                        <li><a href="/critical_incidence.html" tabindex="-1">Data Form</a></li>
-                        <li><a href="/cervical_cancer.html" tabindex="-1">Cervical Cancer</a><a
-                                href="/endometrial_cancer.html" tabindex="-1">Endomentrial Cancer</a><a
-                                href="/fallopian_tube_cancer.html" tabindex="-1">Fallopian Tube Cancer</a><a
-                                href="/oncology_follow_up.html" tabindex="-1">Follow-Up</a><a href="/GTN.html"
-                                                                                              tabindex="-1">Gestational
-                            Trophoblastic Disease</a><a href="/ovarian_cancer.html" tabindex="-1">Ovarian Cancer</a><a
-                                href="/vaginal_cancer.html" tabindex="-1">Vaginal Cancer</a><a href="/vulva_cancer.html"
-                                                                                               tabindex="-1">Vulva
-                            Cancer</a></li>
+                        <li><a href="#sales" id="sales-link">Follow-up data</a>
+                        </li>
+                        <li><a href="#kpi" id="kpi-link">Survival Data</a>
+                        </li>
                     </ul>
-                </li>
-                <li id="statisticstab" class="has-sub active"><a href="#" role="button">Statistics</a></li>
-                <li class="sub statisticstab"><a href="stats">Query</a></li>
-                <li class="sub statisticstab active"><a href="dash.html">Dashboard</a></li>
-                <li id="Predict"><a Href="/neural">Predict</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li id="settings" class="nobar has-sub"><a href="#"><img alt="Settings" src="/images/settings.png"
-                                                                         height="40px"></a></li>
-                <li class="sub settings"><a href="/editProfile">Edit Profile</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </ul>
-            <!--form.navbar-form.navbar-right.search-form(role='search')-->
-            <!--    input.form-control(type='text', placeholder='Search')-->
-        </div>
-    </div>
-</nav>
 
-<!-- Modal Window -->
-<div id="modalWrapper">
-
-    <div class="modal-header" id="modal-header">
-
-        <h3 id="modal-title"></h3>
-        <a id="close-modal" class="close-modal" href="#">&times;</a>
-
-    </div>
-
-    <div class="modal-body" id="modal-body">
-        <div class="modal" id='modal'>
-        </div>
-
-    </div>
-</div>
-<!-- End Modal Window -->
-
-<!-- The top level wrapper for markup begins -->
-<div id="wrapper">
-
-    <!-- Container for the dashboard begins -->
-    <div id="container">
-
-        <!-- Global year filter -->
-        <div class="top-level-select-filter" id="top-level-select-filter">
-            <span>View For Year:</span>
-            <select id="global_year_filter">
-                <option value="2014">2014</option>
-                <option value="2013">2013</option>
-                <option value="2012">2012</option>
-            </select>
-        </div>
-
-        <div id="dashboard-content">
-
-            <div id="sidebar" class="pull-left">
-                <div id="profile-pic" class="pull-left">
-                    <img src="/images/snyman.jpg" alt="User Profile Pic" style="width:55px;height:55px;"
-                         title="John Profile Pic">
-                </div>
-                <div id="profile-name" class="pull-left">
-                    <p>Hello Leon</p>
-                </div>
-                <div id="main-menu" class="clearboth">
-                    <div id="main-menu-icon" class="icon pull-left"></div>
-                    <h4 class="pull-left">Dashboard</h4>
-                </div>
-                <ul id="sub-menu">
-                    <li><a href="#summary" id="summary-link">Surgical Complications data</a>
-                    </li>
-                    <li><a href="#sales" id="sales-link">Follow-up data</a>
-                    </li>
-                    <li><a href="#kpi" id="kpi-link">Survival Data</a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Wrapper for tabs -->
-            <div class="tabs-wrapper">
-
-                <!-- Initial loader image -->
-                <div id="loader">
-                    <p>Loading...</p>
                 </div>
 
-                <!-- Summary Dashboard Tab -->
-                <div id="summary-tab" class="hidden">
+                <!-- Wrapper for tabs -->
+                <div class="tabs-wrapper">
+
+                    <!-- Initial loader image -->
+                    <div id="loader">
+                        <p>Please wait while the page is loading...</p>
+                    </div>
+
+                    <!-- Summary Dashboard Tab -->
+                    <div id="summary-tab" class="hidden">
 
 
-                    <div class="chart-content pull-right">
+                        <div class="chart-content pull-right">
 
-                        <div class="chart-category pull-left">
-                            <h2 class="chart-category-heading">Intra-operative Complications</h2>
+                            <div class="chart-category pull-left">
+                                <h2 class="chart-category-heading">Intra-operative Complications</h2>
+                                <div class="divider"></div>
 
-                            <div class="divider"></div>
-
-                            <!-- Yearly sales summary chart -->
-                            <div id="yearly-sales-chart" class="chart-category full-width"></div>
-                        </div>
-
+                                <!-- Yearly sales summary chart -->
+                                <div id="yearly-sales-chart" class="chart-category full-width"></div>
+                            </div>
+							
                         <div class="chart-category pull-right no-border">
+								
+								<h2 class="chart-category-heading pull-left">Post-Operative Complications</h2>
 
-                            <h2 class="chart-category-heading pull-left">Post-Operative Complications</h2>
+                                <!-- Number filter for top categories chart -->
+                                <select class="pull-right" id="top_categories_summary_number_filter">
+                                    <option value="5">Top 5</option>
+                                    <option value="all">All</option>
+                                </select>
 
-                            <!-- Number filter for top categories chart -->
-                            <select class="pull-right" id="top_categories_summary_number_filter">
-                                <option value="5">Top 5</option>
-                                <option value="all">All</option>
-                            </select>
+                                <!-- Yearly filter for top categories chart -->
+                                <select class="pull-right" id="top_categories_summary_year_filter">
+                                    <option value="2014">Total Years</option>
+                                </select>
 
-                            <!-- Yearly filter for top categories chart -->
-                            <select class="pull-right" id="top_categories_summary_year_filter">
-                                <option value="2014">Total Years</option>
-                            </select>
+                                <div class="divider clearboth"></div>
 
-                            <div class="divider clearboth"></div>
+                                <!-- Top sales categories chart -->
+                                <div id="top-sales-categories-chart"></div>
+                            </div>
+							
+							 <div class="chart-category full-width">
+                                <h2 class="chart-category-heading pull-left">Top Products</h2>
 
-                            <!-- Top sales categories chart -->
-                            <div id="top-sales-categories-chart"></div>
-                        </div>
+                                <!-- Number filter for top products chart -->
+                                <select class="pull-right" id="top_products_summary_number_filter">
+                                    <option value="5">Top 5</option>
+                                    <option value="10">Top 10</option>
+                                </select>
 
-                        <div class="chart-category full-width">
-                            <h2 class="chart-category-heading pull-left">Top Products</h2>
+                                <!-- Yearly filter for top products chart -->
+                                <select class="pull-right" id="top_products_summary_year_filter">
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                </select>
 
-                            <!-- Number filter for top products chart -->
-                            <select class="pull-right" id="top_products_summary_number_filter">
-                                <option value="5">Top 5</option>
-                                <option value="10">Top 10</option>
-                            </select>
+                                <div class="divider clearboth"></div>
 
-                            <!-- Yearly filter for top products chart -->
-                            <select class="pull-right" id="top_products_summary_year_filter">
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                                <option value="2012">2012</option>
-                            </select>
+                                <!-- Top products chart -->
+                                <div id="top-products-chart"></div>
 
-                            <div class="divider clearboth"></div>
+                            </div>
+							
+							
+                            <div class="chart-category pull-left">
+							
+                                 <h2 class="chart-category-heading pull-left">Top Sales Performers</h2>
 
-                            <!-- Top products chart -->
-                            <div id="top-products-chart"></div>
-
-                        </div>
-
-
-                        <div class="chart-category pull-left">
-
-                            <h2 class="chart-category-heading pull-left">Top Sales Performers</h2>
-
-                            <!-- Number filter for top sales performers chart -->
-                            <select class="pull-right" id="top_sales_performers_summary_number_filter"
-                                    name="top_sales_performers_summary_number_filter">
-                                <option value="3">Top 3</option>
-                                <option value="5">Top 5</option>
-                                <option value="all">All</option>
-                            </select>
-
-
-                            <!-- Yearly filter for top sales performers chart -->
-                            <select class="pull-right" id="top_sales_performers_summary_year_filter">
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                                <option value="2012">2012</option>
-                            </select>
+                                <!-- Number filter for top sales performers chart -->
+                                <select class="pull-right" id="top_sales_performers_summary_number_filter" name="top_sales_performers_summary_number_filter">
+                                    <option value="3">Top 3</option>
+                                    <option value="5">Top 5</option>
+                                    <option value="all">All</option>
+                                </select>
 
 
-                            <div class="divider clearboth"></div>
+                                <!-- Yearly filter for top sales performers chart -->
+                                <select class="pull-right" id="top_sales_performers_summary_year_filter">
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                </select>
 
-                            <!-- Top sales performers chart -->
-                            <div id="top-sales-performers-chart"></div>
+
+                                <div class="divider clearboth"></div>
+
+                                <!-- Top sales performers chart -->
+                                <div id="top-sales-performers-chart"></div>
 
 
-                        </div>
+                            </div>
 
-                        <div class="chart-category pull-right no-border">
-                            <h2 class="chart-category-heading pull-left">Top Countries By Revenue</h2>
+                            <div class="chart-category pull-right no-border">
+                                <h2 class="chart-category-heading pull-left">Top Countries By Revenue</h2>
 
-                            <!-- Number filter for top countries by revenue chart -->
-                            <select class="pull-right" id="top_revenues_country_number_filter">
-                                <option value="5">Top 5</option>
-                                <option value="10">Top 10</option>
-                                <!-- <option value="all">All</option> -->
-                            </select>
+                                <!-- Number filter for top countries by revenue chart -->
+                                <select class="pull-right" id="top_revenues_country_number_filter">
+                                    <option value="5">Top 5</option>
+                                    <option value="10">Top 10</option>
+                                    <!-- <option value="all">All</option> -->
+                                </select>
 
-                            <!-- Yearly filter for top countries by revenue chart -->
-                            <select class="pull-right" id="top_revenues_country_year_filter">
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                                <option value="2012">2012</option>
-                            </select>
+                                <!-- Yearly filter for top countries by revenue chart -->
+                                <select class="pull-right" id="top_revenues_country_year_filter">
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                </select>
 
-                            <div class="divider clearboth"></div>
+                                <div class="divider clearboth"></div>
 
-                            <!-- Top countries by revenue chart -->
-                            <div id="top-revenues-countries-chart"></div>
+                                <!-- Top countries by revenue chart -->
+                                <div id="top-revenues-countries-chart"></div>
 
+                            </div>
+							
                         </div>
 
                     </div>
 
-                </div>
+                    <!-- Sales Dashboard Tab -->
+                    <div id="sales-tab" class="hidden">
 
-                <!-- Sales Dashboard Tab -->
-                <div id="sales-tab" class="hidden">
+                        <div class="chart-content pull-right">
 
-                    <div class="chart-content pull-right">
+						 <div class="chart-category pull-left">
+                         
+							<h2 class="chart-category-heading pull-left">Number of Patients Per Cancer</h2>
 
-                        <div class="chart-category pull-left">
+                                <!-- Yearly filter for top categories by sales chart -->
+                                <select class="pull-right" id="top_categories_sales_tab_year_filter">
+                                    <option value="2014">All</option>
+                                </select>
 
-                            <h2 class="chart-category-heading pull-left">Number of Patients Per Cancer</h2>
-
-                            <!-- Yearly filter for top categories by sales chart -->
-                            <select class="pull-right" id="top_categories_sales_tab_year_filter">
-                                <option value="2014">All</option>
-                            </select>
-
-                            <div class="divider clearboth"></div>
+                                <div class="divider clearboth"></div>
 
 
-                            <div class="drill-caption-wrapper">
-                                <div class="drill-caption">Click on a colum to view details</div>
+                                <div class="drill-caption-wrapper">
+                                    <div class="drill-caption">Click on a colum to view details</div>
+                                </div>
+
+                                <!-- Top categories by sales chart -->
+                                <div id="top-categories-sales-tab-chart"></div>
+                            </div>
+                           
+
+                            <div class="chart-category pull-right no-border">
+                                <h2 class="chart-category-heading pull-left">Gynaecology Admission Discharge Diagnoses </h2>
+
+
+                                <!-- Yearly filter for top performers by sales chart -->
+                                <select class="pull-right" id="top_performers_sales_year_filter">
+                                    <option value="2014">Miscarriage</option>
+                                    <option value="2013">Salpingitis</option>
+                                    <option value="2012">Oncology</option>
+                                    <option value="2011">Ectopic</option>
+                                </select>
+
+                                <div class="divider clearboth"></div>
+
+
+                                <div class="drill-caption-wrapper">
+                                    <div class="drill-caption">Click on a colum to view details</div>
+                                </div>
+
+                                <!-- op performers by sales chart -->
+                                <div id="top-performers-sales-tab-chart"></div>
+
                             </div>
 
-                            <!-- Top categories by sales chart -->
-                            <div id="top-categories-sales-tab-chart"></div>
-                        </div>
+                            <div class="chart-category full-width">
+                                <h2 class="chart-category-heading pull-left">Monthly Statistics</h2>
+
+                                <!-- Yearly filter for monthly sales chart -->
+                                <select class="pull-right" id="top_monthly_sales_year_filter">
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                </select>
+
+                                <div class="divider clearboth"></div>
 
 
-                        <div class="chart-category pull-right no-border">
-                            <h2 class="chart-category-heading pull-left">Gynaecology Admission Discharge Diagnoses </h2>
+                                <!-- Top monthly sales chart -->
+                                <div id="top-monthly-sales-tab-chart"></div>
 
-
-                            <!-- Yearly filter for top performers by sales chart -->
-                            <select class="pull-right" id="top_performers_sales_year_filter">
-                                <option value="2014">Miscarriage</option>
-                                <option value="2013">Salpingitis</option>
-                                <option value="2012">Oncology</option>
-                                <option value="2011">Ectopic</option>
-                            </select>
-
-                            <div class="divider clearboth"></div>
-
-
-                            <div class="drill-caption-wrapper">
-                                <div class="drill-caption">Click on a colum to view details</div>
                             </div>
 
-                            <!-- op performers by sales chart -->
-                            <div id="top-performers-sales-tab-chart"></div>
+
 
                         </div>
-
-                        <div class="chart-category full-width">
-                            <h2 class="chart-category-heading pull-left">Monthly Statistics</h2>
-
-                            <!-- Yearly filter for monthly sales chart -->
-                            <select class="pull-right" id="top_monthly_sales_year_filter">
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                                <option value="2012">2012</option>
-                            </select>
-
-                            <div class="divider clearboth"></div>
-
-
-                            <!-- Top monthly sales chart -->
-                            <div id="top-monthly-sales-tab-chart"></div>
-
-                        </div>
-
-
                     </div>
-                </div>
 
-                <!-- KPI Dashboard Tab -->
-                <div id="kpi-tab" class="hidden">
+                    <!-- KPI Dashboard Tab -->
+                    <div id="kpi-tab" class="hidden">
 
-                    <div class="chart-content pull-right">
+                        <div class="chart-content pull-right">
 
-                        <div class="chart-category pull-left">
+                            <div class="chart-category pull-left">
 
-                            <!-- Yearly filter for cost of inventory by product categories chart -->
-                            <select class="pull-right" id="inventory_by_categories_year_filter">
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                                <option value="2012">2012</option>
-                            </select>
+                                <!-- Yearly filter for cost of inventory by product categories chart -->
+                                <select class="pull-right" id="inventory_by_categories_year_filter">
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                </select>
 
-                            <h2 class="chart-category-heading pull-left">Cost of Inventory by product categories</h2>
+                                <h2 class="chart-category-heading pull-left">Cost of Inventory by product categories</h2>
 
-                            <div class="divider clearboth"></div>
+                                <div class="divider clearboth"></div>
 
-                            <!-- Cost of Inventory by product categories chart -->
-                            <div id="inventory-by-product-categories-chart"></div>
+                                <!-- Cost of Inventory by product categories chart -->
+                                <div id="inventory-by-product-categories-chart"></div>
 
-                        </div>
+                            </div>
 
-                        <div class="chart-category pull-right no-border">
+                            <div class="chart-category pull-right no-border">
 
-                            <!-- Yearly filter for cost of goods sold chart -->
-                            <select class="pull-right" id="cost_of_goods_sold_year_filter">
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                                <option value="2012">2012</option>
-                            </select>
+                                <!-- Yearly filter for cost of goods sold chart -->
+                                <select class="pull-right" id="cost_of_goods_sold_year_filter">
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                </select>
 
-                            <h2 class="chart-category-heading pull-left">Cost Of Goods Sold</h2>
+                                <h2 class="chart-category-heading pull-left">Cost Of Goods Sold</h2>
 
-                            <div class="divider clearboth"></div>
+                                <div class="divider clearboth"></div>
 
-                            <!-- Cost of goods sold chart -->
-                            <div id="cost-of-goods-sold-chart"></div>
+                                <!-- Cost of goods sold chart -->
+                                <div id="cost-of-goods-sold-chart"></div>
 
-                        </div>
+                            </div>
 
-                        <div class="chart-category pull-left">
+                            <div class="chart-category pull-left">
 
-                            <!-- Yearly filter for average shipping time chart -->
-                            <select class="pull-right" id="average_shipping_time_year_filter">
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                                <option value="2012">2012</option>
-                            </select>
+                                <!-- Yearly filter for average shipping time chart -->
+                                <select class="pull-right" id="average_shipping_time_year_filter">
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                </select>
 
-                            <h2 class="chart-category-heading pull-left">Average Shipping Time</h2>
+                                <h2 class="chart-category-heading pull-left">Average Shipping Time</h2>
 
-                            <div class="divider clearboth"></div>
+                                <div class="divider clearboth"></div>
 
-                            <!-- Average shipping time chart -->
-                            <div id="average-shipping-time-chart"></div>
+                                <!-- Average shipping time chart -->
+                                <div id="average-shipping-time-chart"></div>
 
-                        </div>
+                            </div>
 
-                        <div class="chart-category pull-right no-border">
+                            <div class="chart-category pull-right no-border">
 
-                            <!-- Yearly filter for customer satisfaction chart -->
-                            <select class="pull-right" id="customer_satisfaction_year_filter">
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                                <option value="2012">2012</option>
-                            </select>
+                                <!-- Yearly filter for customer satisfaction chart -->
+                                <select class="pull-right" id="customer_satisfaction_year_filter">
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                </select>
 
-                            <h2 class="chart-category-heading pull-left">Customer Satisfaction</h2>
+                                <h2 class="chart-category-heading pull-left">Customer Satisfaction</h2>
 
-                            <div class="divider clearboth"></div>
+                                <div class="divider clearboth"></div>
 
-                            <!-- Customer satisfaction chart -->
-                            <div id="customer-satisfaction-chart"></div>
+                                <!-- Customer satisfaction chart -->
+                                <div id="customer-satisfaction-chart"></div>
+
+                            </div>
 
                         </div>
 
@@ -480,18 +434,16 @@
                 </div>
 
             </div>
+            <!-- Footer section begins 
+            <<div class="footer"><p>This dashboard application uses <a href="http://www.fusioncharts.com/download">FusionCharts Suite XT</a></p><p>&copy; 2015, FusionCharts. All rights reserved.</p></div>
+		-->
+	   </div>
+        <!-- Container for the dashboard ends -->
 
-        </div>
-        <!-- Footer section begins
-        <<div class="footer"><p>This dashboard application uses <a href="http://www.fusioncharts.com/download">FusionCharts Suite XT</a></p><p>&copy; 2015, FusionCharts. All rights reserved.</p></div>
-    -->
     </div>
-    <!-- Container for the dashboard ends -->
+    <!-- The top level wrapper for markup ends -->
 
-</div>
-<!-- The top level wrapper for markup ends -->
-
-<!-- Modal Hidden Charts -->
+    <!-- Modal Hidden Charts -->
 
 </body>
 
