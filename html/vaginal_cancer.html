@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <a href="/" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
@@ -102,6 +102,7 @@
             },
             "figoStage": {
                 "type": "object",
+                "title": "Figo stage",
                 "properties": {
                     "I": {
                         "type": "boolean",
@@ -131,6 +132,7 @@
             },
             "TumorSizeB4": {
                 "type": "object",
+                "title": "Tumor Size",
                 "properties": {
                     "NotAssessed": {
                         "type": "boolean",
@@ -152,6 +154,7 @@
             },
             "InvolvedVaginalSites": {
                 "type": "object",
+                "title": "Involved vaginal sites",
                 "properties": {
                     "UpperThird": {
                         "type": "boolean",
@@ -173,6 +176,7 @@
             },
             "SiteOfDistantMetastase": {
                 "type": "object",
+                "title": "Site of distant metastase",
                 "properties": {
                     "Nil": {
                         "type": "boolean",
@@ -210,6 +214,7 @@
             },
             "Histology": {
                 "type": "object",
+                "title": "Histology",
                 "properties": {
                     "NoBiopsy": {
                         "type": "boolean",
@@ -251,6 +256,7 @@
             },
             "Differentiation": {
                 "type": "object",
+                "title": "Differentiation",
                 "properties": {
                     "Well": {
                         "type": "boolean",
@@ -272,6 +278,7 @@
             },
             "LymphovascularSpaceInvolvement": {
                 "type": "object",
+                "title": "Lymphovascular space involvement",
                 "properties": {
                     "Absent": {
                         "type": "boolean",
@@ -289,6 +296,7 @@
             },
             "PrimaryTreatmentPerformed": {
                 "type": "object",
+                "title": "Primary treatment performed",
                 "properties": {
                     "Nil": {
                         "type": "boolean",
@@ -343,6 +351,7 @@
             },
             "typeOfSurgery": {
                 "type": "object",
+                "title": "Type of Surgery",
                 "properties": {
                     "LazerExcision": {
                         "type": "boolean",
@@ -393,6 +402,7 @@
             },
             "typeOfRadiotherapy": {
                 "type": "object",
+                "title": "Type of radiotherapy",
                 "properties": {
                     "Intracavitary": {
                         "type": "boolean",
@@ -432,9 +442,10 @@
             },
             "typeOfChemotherapy": {
                 "type": "object",
+                "title": "Type of chemotherapy",
                 "properties": {
                     "SpecifyTypeAndDrugs": {
-                        "type": "string",
+                        "type": "textarea",
                         "title": "Specify type and drugs"
                     },
                     "DateStarted": {
@@ -451,6 +462,7 @@
             },
             "ResponseToTreatment": {
                 "type": "object",
+                "title": "Response to treatment",
                 "properties": {
                     "Complete": {
                         "type": "boolean",
@@ -485,6 +497,7 @@
             },
             "TumorSize": {
                 "type": "object",
+                "title": "Tumor Size After Surgery",
                 "properties": {
                     "MaxTumorDiameter": {
                         "type": "number",
@@ -498,6 +511,7 @@
             },
             "LymphnodeInvolvementAtSurgery": {
                 "type": "object",
+                "title": "Lymphnode involvement at surgery",
                 "properties": {
                     "NNotEvaluated": {
                         "type": "boolean",
@@ -517,6 +531,7 @@
                     },
                     "NodesInvolved": {
                         "type": "object",
+                        "title": "Nodes involved",
                         "properties": {
                             "OnlyPelvic": {
                                 "type": "boolean",
@@ -538,6 +553,7 @@
                     },
                     "NumberOffNodesExamined": {
                         "type": "object",
+                        "title": "Number of nodes examined",
                         "properties": {
                             "Pelvic": {
                                 "type": "number",
@@ -551,6 +567,7 @@
                     },
                     "NumberOffNodesPositive": {
                         "type": "object",
+                        "title": "Number of nodes positive",
                         "properties": {
                             "Pelvic": {
                                 "type": "number",
@@ -566,6 +583,7 @@
             },
             "Relapse": {
                 "type": "object",
+                "title": "Relapse",
                 "properties": {
                     "Yes": {
                         "type": "boolean",
@@ -588,6 +606,7 @@
             },
             "SiteOfRelapse": {
                 "type": "object",
+                "title": "Site of relapse",
                 "properties": {
                     "Local": {
                         "type": "boolean",
@@ -609,6 +628,7 @@
             },
             "TreatmentAtRelapse": {
                 "type": "object",
+                "title": "Treatment at relapse",
                 "properties": {
                     "Nil": {
                         "type": "boolean",
@@ -655,6 +675,7 @@
             },
             "LastKnownVitalStatus": {
                 "type": "object",
+                "title": "Last known vital status",
                 "properties": {
                     "AliveUnknownDiseaseStatus": {
                         "type": "boolean",
@@ -676,6 +697,7 @@
             },
             "causeOfDeath": {
                 "type": "object",
+                "title": "Cause of death",
                 "properties": {
                     "VaginalCa": {
                         "type": "boolean",
