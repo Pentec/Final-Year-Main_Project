@@ -102,6 +102,7 @@
             },
             "figoStage": {
                 "type": "object",
+                "title": "Figo stage",
                 "properties": {
                     "Ia": {
                         "type": "boolean",
@@ -155,6 +156,7 @@
             },
             "SiteOfDistantMetastases": {
                 "type": "object",
+                "title": "Site of distant metastases",
                 "properties": {
                     "PleuralEffusion": {
                         "type": "boolean",
@@ -180,6 +182,7 @@
             },
             "Histology": {
                 "type": "object",
+                "title": "Histology",
                 "properties": {
                     "NoHystologyUnclassifiable": {
                         "type": "boolean",
@@ -229,6 +232,7 @@
             },
             "Differentiation": {
                 "type": "object",
+                "title": "Differentiation",
                 "properties": {
                     "Well": {
                         "type": "boolean",
@@ -250,6 +254,7 @@
             },
             "TreatmentPerformed": {
                 "type": "object",
+                "title": "Treatment performed",
                 "properties": {
                     "Nil": {
                         "type": "boolean",
@@ -292,6 +297,7 @@
             },
             "typeOfSurgery": {
                 "type": "object",
+                "title": "Type of surgery",
                 "properties": {
                     "USONoLND": {
                         "type": "boolean",
@@ -338,6 +344,7 @@
             },
             "typeOfRadiotherapy": {
                 "type": "object",
+                "title": "Type of radiotherapy",
                 "properties": {
                     "Intracavitary": {
                         "type": "boolean",
@@ -385,6 +392,7 @@
             },
             "typeOfChemotherapy": {
                 "type": "object",
+                "title": "Type of chemotherapy",
                 "properties": {
                     "SingleDrugCTUncompleted": {
                         "type": "boolean",
@@ -468,6 +476,7 @@
             },
             "responseToTreatment": {
                 "type": "object",
+                "title": "Response to treatment",
                 "properties": {
                     "Complete": {
                         "type": "boolean",
@@ -502,6 +511,7 @@
             },
             "SizeOfTumorOutsideOvaryAtOpeningOfAbdomen": {
                 "type": "object",
+                "title": "Size of tumor outside ovary at opening of abdomen",
                 "properties": {
                     "NoMacroscopicDisease": {
                         "type": "boolean",
@@ -527,9 +537,11 @@
             },
             "DiameterOfResidualImplantsAfterSurgery": {
                 "type": "object",
+               // "title": "Diameter of residual implants after surgery",
                 "properties": {
                     "NoMicroscopicResidualDisease": {
                         "type": "object",
+                        "title": "No microscopic residual disease",
                         "properties": {
                             "LT0_5cm": {
                                 "type": "boolean",
@@ -543,6 +555,7 @@
                     },
                     "NoMacroscopicResidualDisease": {
                         "type": "object",
+                        "title": "No macroscopic residual disease",
                         "properties": {
                             "GT1cmLTE2cm": {
                                 "type": "boolean",
@@ -562,6 +575,7 @@
             },
             "LymphNodeInvolvementInUpfrontSurgery_histologically": {
                 "type": "object",
+                "title": "LymphNode involvement in upfront surgery histologically",
                 "properties": {
                     "NotEvaluated": {
                         "type": "boolean",
@@ -583,6 +597,7 @@
             },
             "NodesInvolved": {
                 "type": "object",
+                "title": "Nodes involved",
                 "properties": {
                     "OnlyPelvic": {
                         "type": "boolean",
@@ -604,6 +619,7 @@
             },
             "NumberOfNodesExamined": {
                 "type": "object",
+                "title": "Number of nodes examined",
                 "properties": {
                     "Pelvic": {
                         "type": "number",
@@ -617,6 +633,7 @@
             },
             "NumberOfNodesPositive": {
                 "type": "object",
+                "title": "Number of nodes positive",
                 "properties": {
                     "Pelvic": {
                         "type": "number",
@@ -630,6 +647,7 @@
             },
             "Cytology": {
                 "type": "object",
+                "title": "Cytology",
                 "properties": {
                     "NotEvaluated": {
                         "type": "boolean",
@@ -651,6 +669,7 @@
             },
             "SecondSurgery": {
                 "type": "object",
+                "title": "Second surgery",
                 "properties": {
                     "DateOf2ndSurgery": {
                         "type": "string",
@@ -676,9 +695,10 @@
             },
             "StatusAtSecondSurgery": {
                 "type": "object",
+                "title": "Status at second surgery",
                 "properties": {
                     "CompleteRemission": {
-                        "type": "string",
+                        "type": "boolean",
                         "title": "Complete remission"
                     },
                     "MicroscopicDisease": {
@@ -705,9 +725,10 @@
             },
             "StatusAfterSecondSurgery": {
                 "type": "object",
+                "title": "Status after second surgery",
                 "properties": {
                     "NoMicroscopicDiseaseLeftAfterSurg": {
-                        "type": "string",
+                        "type": "boolean",
                         "title": "No macroscopic disease left after surgery"
                     },
                     "MicroscopicDiseaseLeftBG1cm": {
@@ -726,6 +747,7 @@
             },
             "Relapse": {
                 "type": "object",
+                "title": "Relapse",
                 "properties": {
                     "Yes": {
                         "type": "boolean",
@@ -748,6 +770,7 @@
             },
             "SiteOfRelapse": {
                 "type": "object",
+                "title": "Site of relapse",
                 "properties": {
                     "Local": {
                         "type": "boolean",
@@ -769,6 +792,7 @@
             },
             "TreatmentAtRelapse": {
                 "type": "object",
+                "title": "Treatment at relapse",
                 "properties": {
                     "Nil": {
                         "type": "boolean",
@@ -815,6 +839,7 @@
             },
             "LastKnownVitalStatus": {
                 "type": "object",
+                "title": "Last known vital status",
                 "properties": {
                     "AliveUnknownDiseaseStatus": {
                         "type": "boolean",
@@ -836,6 +861,7 @@
             },
             "causeOfDeath": {
                 "type": "object",
+                "title": "Cause of death",
                 "properties": {
                     "OvarianCa": {
                         "type": "boolean",
