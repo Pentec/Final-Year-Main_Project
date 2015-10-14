@@ -4,7 +4,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var https = require('https');
 var logging = require('../../utils/logging.js').logger();
-var meld = require('meld');
+//var meld = require('meld');
 
 
 var authenticate = function(username, password, callback) {
@@ -64,10 +64,10 @@ var checkAdmin = function(username, password, callback) {
 
 }
 
-checkAdmin = meld.before(checkAdmin, function() {
-    logging.info("checkAdmin service request | for User: [" + arguments[0] +  "]");
-
-});
+//checkAdmin = meld.before(checkAdmin, function() {
+//    logging.info("checkAdmin service request | for User: [" + arguments[0] +  "]");
+//
+//});
 
 /*
 meld.afterReturning(checkAdmin, function(result) {
@@ -167,11 +167,11 @@ var isLoggedIn = function(req, res, next) {
 };
 
 
-isLoggedIn = meld.before(isLoggedIn, function() {
-
-    logging.info("isLoggedIn service request | User [" + arguments[0].user.username +  "] is logging in [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
-
-});
+//isLoggedIn = meld.before(isLoggedIn, function() {
+//
+//    logging.info("isLoggedIn service request | User [" + arguments[0].user.username +  "] is logging in [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
+//
+//});
 
 
 var isAdmin = function(req, res, next) {
@@ -198,11 +198,11 @@ var isAdmin = function(req, res, next) {
 };
 
 
-isAdmin = meld.before(isAdmin, function() {
-
-    logging.info("isAdmin service request | User["+ arguments[0].user.username +"] is admin [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
-
-});
+//isAdmin = meld.before(isAdmin, function() {
+//
+//    logging.info("isAdmin service request | User["+ arguments[0].user.username +"] is admin [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
+//
+//});
 
 /*
  meld.before(isAdmin, function(result) {
@@ -249,11 +249,11 @@ var isNotAdmin = function(req, res, next) {
 
 };
 
-isNotAdmin = meld.before(isNotAdmin, function() {
-
-    logging.info("isNotAdmin service request | User ["+ arguments[0].user.username +"] is not admin [" + arguments[0].isAuthenticated() + " | " + arguments[0].user.user_rights + "] | "  + arguments[1]);
-
-});
+//isNotAdmin = meld.before(isNotAdmin, function() {
+//
+//    logging.info("isNotAdmin service request | User ["+ arguments[0].user.username +"] is not admin [" + arguments[0].isAuthenticated() + " | " + arguments[0].user.user_rights + "] | "  + arguments[1]);
+//
+//});
 
 
 /**

@@ -28,6 +28,28 @@
     <!-- Include layout file for dashboard -->
     <link rel="stylesheet" type="text/css" href="css/layout.css" />
 
+
+    <!-- Nav Bar-->
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/jqueryUI/jquery-ui.min.css">
+    <link rel="stylesheet" href="/stylesheets/jqueryUI/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="/stylesheets/jqueryUI/jquery-ui.theme.min.css">
+
+    <script src="/javascripts/jquery-1.11.2.min.js"></script>
+    <script src="/javascripts/jqueryUI/jquery-ui.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/jsonform.js"></script>
+    <script src="/javascripts/jsv.js"></script>
+    <script src="/javascripts/underscore.js"></script>
+    <script src="/javascripts/navbar.js"></script>
+
+
+    <!-- End of Nav Bar -->
+
+
     <!-- Include JS files-->
 
     <!--[if gt IE 9]><!-->
@@ -74,6 +96,13 @@ $( document ).ready(function() {
 
 <body id="page">
 
+
+<nav class="navbar navbar-findcond navbar-fixed-top"><div class="container-fluid"><div class="navbar-header"><a href="/myAdminSpace" class="nav navbar-brand"><img alt="Kalafong PIMS" src="/images/newlogo.png"></a><button type="button" data-toggle="collapse" data-target="#navbar" class="navbar-toggle collapsed"><div><span class="sr-only">Toggle navigation</span><span style="color:#004B8F" class="glyphicon glyphicon-align-justify"></span></div></button></div><div id="navbar" class="collapse navbar-collapse"><ul class="nav navbar-nav navbar-left"><li><a href="/myAdminSpace">Home</a></li><li id="usersub" class="has-sub"><a href="#" role="button">Users</a></li><li class="sub usersub"><a href="/addUser">Add User</a></li><li id="formtab" class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">Forms<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="/gynae_surgery.html" tabindex="-1">Gynaecology Surgery</a></li><li><a href="/addmission_discharge.html" tabindex="-1">Gynaecology Admission and Discharge</a></li><li><a href="/Hysteroscopy.html" tabindex="-1">Office Hysteroscopy</a></li><li><a href="/critical_incidence.html" tabindex="-1">Data Form</a></li><li><a href="/cervical_cancer.html" tabindex="-1">Cervical Cancer</a><a href="/endometrial_cancer.html" tabindex="-1">Endomentrial Cancer</a><a href="/fallopian_tube_cancer.html" tabindex="-1">Fallopian Tube Cancer</a><a href="/oncology_follow_up.html" tabindex="-1">Follow-Up</a><a href="/GTN.html" tabindex="-1">Gestational Trophoblastic Disease</a><a href="/ovarian_cancer.html" tabindex="-1">Ovarian Cancer</a><a href="/vaginal_cancer.html" tabindex="-1">Vaginal Cancer</a><a href="/vulva_cancer.html" tabindex="-1">Vulva Cancer</a></li></ul></li><li id="statisticstab" class="has-sub active"><a href="#" role="button">Statistics</a></li><li class="sub statisticstab"><a href="stats">Query</a></li><li class="sub statisticstab active"><a href="dash.html">Dashboard</a></li><li id="Predict"><a Href="/neural">Predict</a></li></ul><ul class="nav navbar-nav navbar-right"><li id="settings" class="nobar has-sub"><a href="#"><img alt="Settings" src="/images/settings.png" height="40px"></a></li><li class="sub settings"><a href="/editProfile">Edit Profile</a></li><li class="sub settings"><a href="/logout">Logout</a></li></ul><!--form.navbar-form.navbar-right.search-form(role='search')--><!--    input.form-control(type='text', placeholder='Search')--></div></div></nav>
+<br>
+<br>
+<br>
+<br>
+<br>
     <!-- Modal Window -->
     <div id="modalWrapper">
 
@@ -98,24 +127,6 @@ $( document ).ready(function() {
         <!-- Container for the dashboard begins -->
         <div id="container">
 
-            <!-- Global year filter -->
-            <div class="top-level-select-filter" id="top-level-select-filter">
-                <span>View For Year:</span>
-                <select id="global_year_filter">
-                    <option value="2014">2014</option>
-                    <option value="2013">2013</option>
-                    <option value="2012">2012</option>
-                </select>
-            </div>
-
-            <!-- Logo -->
-            <div class="logo-container">
-
-                 <a href="/myAdminSpace"><div id="fflogo"></div></a>
-
-
-            </div>
-
             <div id="dashboard-content">
 
                 <div id="sidebar" class="pull-left">
@@ -125,11 +136,14 @@ $( document ).ready(function() {
                     <div id="profile-name" class="pull-left">
                         <p>Hello Leon</p>
                     </div>
+
                     <div id="main-menu" class="clearboth">
-                        <div id="main-menu-icon" class="icon pull-left"></div>
                         <h4 class="pull-left">Dashboard</h4>
                     </div>
-                    <ul id="sub-menu">
+
+
+
+                    <ul id="sub-menu" class="pull-left">
                         <li><a href="#summary" id="summary-link">Surgical Complications data</a>
                         </li>
                         <li><a href="#sales" id="sales-link">Follow-up data</a>
@@ -137,6 +151,7 @@ $( document ).ready(function() {
                         <li><a href="#kpi" id="kpi-link">Survival Data</a>
                         </li>
                     </ul>
+
                 </div>
 
                 <!-- Wrapper for tabs -->
@@ -144,7 +159,7 @@ $( document ).ready(function() {
 
                     <!-- Initial loader image -->
                     <div id="loader">
-                        <p>Loading...</p>
+                        <p>Please wait while ninjas fetch the latest data for you...</p>
                     </div>
 
                     <!-- Summary Dashboard Tab -->
@@ -296,8 +311,8 @@ $( document ).ready(function() {
                                 <select class="pull-right" id="top_performers_sales_year_filter">
                                     <option value="2014">Miscarriage</option>
                                     <option value="2013">Salpingitis</option>
-                                    <option value="2012">Oncology</option>
-                                    <option value="2011">Ectopic</option>
+                                    <option value="2012">Ectopic</option>
+                                    <option value="2011">Oncology</option>
                                 </select>
 
                                 <div class="divider clearboth"></div>

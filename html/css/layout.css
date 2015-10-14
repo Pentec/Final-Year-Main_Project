@@ -25,6 +25,7 @@ body {
 #wrapper {
     width: 1200px;
     margin: 0 auto;
+    margin-top: 150px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, Verdana;
     font-size: 14px;
     position: relative;
@@ -61,22 +62,8 @@ body {
 }
 /* Dashboard title section begins */
 
-#fflogo {
-    width: 400px;
-    margin-bottom: 30px;
-    background: url('/images/newlogo.png');
-    height: 100px;
-    background-repeat: no-repeat;
-    margin-left: 41px;
-}
-/* Logo Section */
-
 .logo-container {
     width: 191px;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-    background-image: url("../img/logo@2x.png");
-    background-size: 109px 41px;
 }
 /* Dashboard & Sidebar Section */
 
@@ -86,7 +73,7 @@ body {
 #sidebar {
     position: absolute;
     width: 189px;
-    height: 166px;
+    height: 266px;
     padding: 16px 0 24px 0;
     border: 1px solid #D4D4D4;
     border-right: none;
@@ -108,7 +95,7 @@ body {
 }
 #main-menu {
     width: 169px;
-    height: 12px;
+    height: 12zpx;
     padding: 10px;
     background: #F6F6F6;
     border-top: 1px solid #D4D4D4;

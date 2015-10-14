@@ -1,9 +1,6 @@
 /**
  * @author Trevor Austin
  */
-/**
- * Function that creates the graph on page load;
- */
 var ratio = 0.54;
 var x, y, xAxis, yAxis, parseDate, path, data, svg, yAxisName;
 

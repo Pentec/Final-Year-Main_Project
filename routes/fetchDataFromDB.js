@@ -21,6 +21,7 @@ var arr = [];
 var arrIntraOperative=[];
 var arrPostOperative=[];
 var NumOfCancers=[];
+//Cancer arrays
 var FCA=[];
 var ECA=[];
 var OCA=[];
@@ -28,8 +29,36 @@ var CCA=[];
 var VUCA=[];
 var VCA=[];
 var GTNA=[];
- 
 
+//Arrays for surgical procedures
+
+//1
+var ONEMiscarriage = [];
+	var ONEthreatening = [];
+	var ONEcomplete = [];
+	var ONEincomplete = [];
+	var ONEseptic = [];
+//2
+var TWOSalpingitis = [];
+	var TWOASOI = [];
+	var TWOASOII = [];
+	var TWOASOIII = [];
+	var TWOASOIV = [];
+//3
+var THREEEctopic = [];
+	var THREERuptured = [];
+	var THREEUnruptured = [];
+//4
+var FOUROncology = [];
+	var FOURCervix = [];
+	var FOUREndometrium = [];
+	var FOUROvarian = [];
+	var FOURVulva = [];
+	var FOURVagina = [];
+	var FOURChorioGTD = [];
+
+	
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   GS.aggregate(
 		   [
 			 { $match : {"IntraOperativeComplications.None": true } },
@@ -181,6 +210,9 @@ AD.aggregate(
 			  
 		   ] , function(err, myResultt)
 		   {	
+		   
+	
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 				   arrPostOperative[7] = myResultt[0].count;
 				     arr[1] = arrPostOperative;			//Adding Post operative to array
 				   
@@ -222,7 +254,8 @@ AD.aggregate(
 			
 			arr[2] = NumOfCancers; 			//Adding NumOfCancers to array
 			
-			
+
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 			//Checking for Living status for each cancer
 			//Fallopian
 			FC.find( { "LastKnownVitalStatus.AliveAndNoEvidenceOfDisease" : { $exists : true }}, function(err, variableReturned)
@@ -404,12 +437,121 @@ AD.aggregate(
 				
 			// End of GTN
 			
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX			
+			
+			//Checking for Diagnosis
+			//Miscarriage
+			AD.find( { "Miscarriage.Threatening" : { $exists : true }}, function(err, myvar)
+			{	
+						
+						ONEMiscarriage[0] = myvar.length;
+					
+			AD.find({ "Miscarriage.Complete" : { $exists : true }} , function(err, myvar)
+			{	
+				
+						ONEMiscarriage[1] = myvar.length;
+					
+			AD.find( { "Miscarriage.Incomplete" : { $exists : true }}, function(err, myvar)
+			{	
+				
+						ONEMiscarriage[2] = myvar.length;
+					
+			AD.find( { "Miscarriage.Septic" : { $exists : true }} , function(err, myvar)
+			{	
+				
+						ONEMiscarriage[3] = myvar.length;
+					
+				
+				arr[10] = ONEMiscarriage;
+				
+			// End of Miscarriage
+
+			//Salpingitis
+			AD.find( { "Salpingitis.ASOI" : { $exists : true }} , function(err, myvar)
+			{	
+				
+						TWOSalpingitis[0] = myvar.length;
+					
+				AD.find({ "Salpingitis.ASOII" : { $exists : true }}, function(err, myvar)
+			{	
+				
+				
+						TWOSalpingitis[1] = myvar.length;
+					
+				AD.find( { "Salpingitis.ASOIII" : { $exists : true }}, function(err, myvar)
+			{	
+				
+				
+						TWOSalpingitis[2] = myvar.length;
+					
+				AD.find( { "Salpingitis.ASOIV" : { $exists : true }} , function(err, myvar)
+			{	
+				
+				
+						TWOSalpingitis[3] = myvar.length;
+					
+				
+				arr[11] = TWOSalpingitis;
+			// End of Salpingitis
+
+			//Ectopic
+			AD.find( { "Ectopic.Ruptured" : { $exists : true } }, function(err, myvar)
+			{	
+				
+				
+						THREEEctopic[0] = myvar.length;
+					
+				AD.find({ "Ectopic.Unruptured" : { $exists : true }}, function(err, myvar)
+			{	
+				
+						THREEEctopic[1] = myvar.length;
+					
+				
+				arr[12] = THREEEctopic;
+			// End of Ectopic
+
+			//Oncology
+		AD.find( { "Oncology.Cervix" : { $exists : true }}, function(err, myvar)
+			{	
+				
+						FOUROncology[0] = myvar.length;
+					
+		AD.find({ "Oncology.Endometrium" : { $exists : true }} , function(err, myvar)
+			{	
+				
+						FOUROncology[1] = myvar.length;
+					
+		AD.find( { "Oncology.Ovarian" : { $exists : true }} , function(err, myvar)
+			{	
+		
+						FOUROncology[2] = myvar.length;
+					
+		AD.find( { "Oncology.Vulva" : { $exists : true }} , function(err, myvar)
+			{	
+			
+						FOUROncology[3] = myvar.length;
+		AD.find( { "Oncology.Vagina" : { $exists : true }} , function(err, myvar)
+			{	
+		
+						FOUROncology[4] = myvar.length;
+					
+		AD.find( { "Oncology.ChorioGTD" : { $exists : true }} , function(err, myvar)
+			{	
+			
+						FOUROncology[5] = myvar.length;
+				
+				
+				arr[13] = FOUROncology;
+			// End of Oncology
+
+			
 							  res.json(arr);
 							  console.log("POST response sent.");
-			
+	
+			});});});}); });});});})  ;});});});});  });});});}); 
 			});});});});  });});});})  ;});});});});  });});});}); });});});});  });});});}); });});});});
 			});});});});});});});
 		   });});});});});});});});});});});});});
-		  
+
 });
 module.exports = router;
