@@ -4,7 +4,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var https = require('https');
 var logging = require('../../utils/logging.js').logger();
-//var meld = require('meld');
+var meld = require('meld');
 
 
 var authenticate = function(username, password, callback) {
@@ -64,10 +64,12 @@ var checkAdmin = function(username, password, callback) {
 
 }
 
-//checkAdmin = meld.before(checkAdmin, function() {
-//    logging.info("checkAdmin service request | for User: [" + arguments[0] +  "]");
-//
-//});
+checkAdmin = meld.before(checkAdmin, function() {
+    if(arguments[0].user != null)
+        logging.info("checkAdmin service request | for User: [" + arguments[0] +  "]");
+
+});
+
 
 /*
 meld.afterReturning(checkAdmin, function(result) {
@@ -167,11 +169,12 @@ var isLoggedIn = function(req, res, next) {
 };
 
 
-//isLoggedIn = meld.before(isLoggedIn, function() {
-//
-//    logging.info("isLoggedIn service request | User [" + arguments[0].user.username +  "] is logging in [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
-//
-//});
+isLoggedIn = meld.before(isLoggedIn, function() {
+    if(arguments[0].user != null)
+        logging.info("isLoggedIn service request | User [" + arguments[0].user.username +  "] is logging in [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
+
+});
+
 
 
 var isAdmin = function(req, res, next) {
@@ -198,11 +201,11 @@ var isAdmin = function(req, res, next) {
 };
 
 
-//isAdmin = meld.before(isAdmin, function() {
-//
-//    logging.info("isAdmin service request | User["+ arguments[0].user.username +"] is admin [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
-//
-//});
+isAdmin = meld.before(isAdmin, function() {
+    if(arguments[0].user != null)
+        logging.info("isAdmin service request | User["+ arguments[0].user.username +"] is admin [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
+
+});
 
 /*
  meld.before(isAdmin, function(result) {
@@ -233,9 +236,9 @@ var isNotAdmin = function(req, res, next) {
 
     if (req.isAuthenticated() && req.user.user_rights != '2')
     {
-        var err = new Error('You are not allowed to access this page');
-        logging.error('You are not allowed to access this page, non admin');
-        err.status = 400;
+        var err = new Error('Page Not Found');
+        logging.error('Error: Access of restricted page');
+        err.status = 404;
         return next(err);
     }
 
@@ -249,11 +252,13 @@ var isNotAdmin = function(req, res, next) {
 
 };
 
-//isNotAdmin = meld.before(isNotAdmin, function() {
-//
-//    logging.info("isNotAdmin service request | User ["+ arguments[0].user.username +"] is not admin [" + arguments[0].isAuthenticated() + " | " + arguments[0].user.user_rights + "] | "  + arguments[1]);
-//
-//});
+
+isNotAdmin = meld.before(isNotAdmin, function() {
+    if(arguments[0].user != null)
+        logging.info("isNotAdmin service request | User ["+ arguments[0].user.username +"] is not admin [" + arguments[0].isAuthenticated() + " | " + arguments[0].user.user_rights + "] | "  + arguments[1]);
+
+});
+
 
 
 /**
