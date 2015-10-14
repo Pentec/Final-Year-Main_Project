@@ -54,7 +54,7 @@ div.container
     margin: 0px;
 }
 #login .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 #login .btn.btn-custom {
@@ -133,6 +133,7 @@ footer h2 a{
 
 .recaptchaWrapper{
     text-align: center;
+    margin-bottom: 0;
 }
 
 .recaptcha{
