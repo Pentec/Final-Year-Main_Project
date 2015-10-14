@@ -4,13 +4,16 @@ var submitFunctions  = require('../../controllers/forms/submitForm');
 var saveFunctions  = require('../../controllers/forms/saveForm');
 
 router.post('/', function(req, res, next) {
-    if(req.body.isNotCompeleted == true)
-    {
 
+   var success =  submitFunctions.submitOncologyFollowUp(req);
+
+    if(!success){
+        res.redirect('/gynae_surgery.html');
     }
-    else
-    {
-     submitFunctions.submitOncologyFollowUp(req);
+
+    else{
+        res.redirect('/myAdminSpace');
     }
+
 });
 module.exports = router;
