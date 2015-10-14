@@ -51,7 +51,8 @@
     "datejs": "^1.0.0-rc3",
     "faker": "^3.0.1",
     "mocha": "^2.2.5",
-    "should": "^7.0.2"
+    "should": "^7.0.2",
+    "winston-loggly": "^1.1.0"
   },
   "description": "This repository contains all information related to our COS 301 main project.",
   "main": "app.js",

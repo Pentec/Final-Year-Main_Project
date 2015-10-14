@@ -17,6 +17,7 @@ head
     script(src='http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js')
     script(src='controllers/testNN.js')
     script(type='text/ng-template', id='../../views/login')
+    include ../index.jade
     style.
         #neuralCanvas{ position: absolute; left: 0px; top: 0px;}
         #NNDIv{font-weight: bold;border-radius: 25px; background: #004B8F; width:80%; height: 500%; margin-left:auto; margin-right: auto; color:whitesmoke}
@@ -34,7 +35,6 @@ head
             font-size: 14px;
             margin-bottom: 20px;
         }
-
 block content
 body(data-ng-app='runAI', data-ng-controller='AIControl')
     section#neuralnet
@@ -101,8 +101,6 @@ body(data-ng-app='runAI', data-ng-controller='AIControl')
                         p= die + " % of your patients with " + formName + " are likely to " + " die from cancer."
                         br
                         p= survive + " % of your patients with " + formName + " are likely to " + " survive having cancer."
-
-
 
 
 
