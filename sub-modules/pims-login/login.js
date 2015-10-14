@@ -70,6 +70,7 @@ checkAdmin = meld.before(checkAdmin, function() {
 
 });
 
+
 /*
 meld.afterReturning(checkAdmin, function(result) {
     logging.info("Just testing after meld //////////////////***** " + result);
@@ -139,7 +140,7 @@ router.param('userID', function(req, res, next, id){
 });*/
 
 /**
- * @function
+ * @function isLoggedIn
  * This helper function verifies if a user is logged in whilst accessing
  * the url endpoints of the system. If a user is authenticated, they are
  * allowed to proceed to the next page, otherwise they are requested
@@ -173,6 +174,7 @@ isLoggedIn = meld.before(isLoggedIn, function() {
         logging.info("isLoggedIn service request | User [" + arguments[0].user.username +  "] is logging in [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
 
 });
+
 
 
 var isAdmin = function(req, res, next) {
@@ -256,6 +258,7 @@ isNotAdmin = meld.before(isNotAdmin, function() {
         logging.info("isNotAdmin service request | User ["+ arguments[0].user.username +"] is not admin [" + arguments[0].isAuthenticated() + " | " + arguments[0].user.user_rights + "] | "  + arguments[1]);
 
 });
+
 
 
 /**

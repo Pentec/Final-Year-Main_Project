@@ -1719,7 +1719,7 @@ typeOfSurgery: {
     
     
         StatusAtSecondSurgery: {
-        CompleteRemission: {type: String, title: 'Complete remission'},
+        CompleteRemission: {type: Boolean, title: 'Complete remission'},
         MicroscopicDisease: {type: Boolean, title: 'Microscopic disease'},
         NoSingleImplantGrearterThan1cm: {type: Boolean, title: 'No single implant > 1cm'},
         ImplantsGreaterThan1cm :{type: Boolean, title: 'Implants > 1cm'},
@@ -1728,7 +1728,7 @@ typeOfSurgery: {
     },
     
 	StatusAfterSecondSurgery: {
-        NoMicroscopicDiseaseLeftAfterSurg: {type: String, title: 'No macroscopic disease left after surgery'},
+        NoMicroscopicDiseaseLeftAfterSurg: {type: Boolean, title: 'No macroscopic disease left after surgery'},
         MicroscopicDiseaseLeftBG1cm: {type: Boolean, title: 'Macroscopic disease <1cm left after surgery'},
 	    MicroscopicDiseaseLeftLT1cm: {type: Boolean, title: 'Macroscopic disease >1cm left after surgery'},
         Unknown: {type: Boolean, title: 'Unknown'}

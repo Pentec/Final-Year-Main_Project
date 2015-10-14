@@ -34,6 +34,7 @@ function CollectDataFromClient(data)
     /**
      * Properties of all charts
      */
+	 
     chartConfig = {
 
         // Properties for yearly sales chart
@@ -169,25 +170,22 @@ function CollectDataFromClient(data)
             renderAt: 'top-products-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
+                    numberPrefix: '',
                     xAxisName: 'Products',
-                    pYAxisName: 'Amount (US $ in thousands)',
-                    sYAxisName: 'Units Sold',
+                    pYAxisName: 'Number of Patients',
+                    sYAxisName: '',
                     theme: 'management-3d'
                 },
                 categories: [{
                     category: []
                 }],
                 dataset: [{
-                    seriesName: 'Amount',
-                    renderAs: 'column3d',
-                    showValues: '0',
+                    seriesName: 'G1',
+                    renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Units Sold',
+                    seriesName: 'G2',
                     renderAs: 'line',
-                    showValues: '0',
-                    parentYAxis: 'S',
                     data: []
                 }]
             }
@@ -241,10 +239,10 @@ function CollectDataFromClient(data)
             renderAt: 'top-monthly-sales-tab-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
+                    numberPrefix: '',
                     xAxisName: 'Month',
-                    pYAxisName: 'Amount (US $ in thousands)',
-                    sYAxisName: 'Total Units Sold (In thousands)',
+                    pYAxisName: 'Number of patients',
+                    sYAxisName: '',
                     theme: 'management-3d'
                 },
                 categories: [{
@@ -279,7 +277,7 @@ function CollectDataFromClient(data)
                     renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Total Units Sold',
+                    seriesName: 'Tot # of Patients',
                     renderAs: 'line',
                     dashed: '1',
                     parentYAxis: 'S',
@@ -1382,24 +1380,692 @@ function CollectDataFromClient(data)
         var topCategoriesSalesTabChart,
             topCategoriesSalesTabChartConfig = chartConfig.topCategoriesSalesTab,
             topCategoriesSalesTabCategories = managementData.topCategoriesSalesTabCategories,
-            topCategoriesSalesTabData = managementData.topCategoriesSalesTabData;
+            topCategoriesSalesTabData = {
+        "2014": [{
+            "data": [{
+                "label": "Fallopian Tube Cancer",
+                "value":  globalData[2][0],
+                "link": "#sales"
+            }, {
+                "label": "Endometrial Cancer",
+                "value": globalData[2][1],
+                "link": "#sales"
+            }, {
+                "label": "Ovarian Cancer",
+                "value": globalData[2][2],
+                "link": "#sales"
+            }, {
+                "label": "Cervical Cancer",
+                "value": globalData[2][3],
+                "link": "#sales"
+            }, {
+                "label": "Vulva Cancer",
+                "value": globalData[2][4],
+                "link": "#sales"
+            }, {
+
+                "label": "Vaginal Cancer",
+                "value": globalData[2][5],
+                "link": "#sales"
+            }, {
+
+                "label": "Gestational Throphoblastic Disease",
+                "value": globalData[2][6],
+                "link": "#sales"
+            }]
+        }]
+    };
 
         // Config for Top Performers by Sales Chart.
         var topPerformersSalesTabChart,
             topPerformersSalesTabChartConfig = chartConfig.topPerformersSalesTab,
-            topPerformersSalesTabData = managementData.topPerformersSalesTabData;
+            topPerformersSalesTabData = {
+				//Mexican (just a key word to find this line)
+        "2014": [{
+            "data": {
+                "label": "Threatening",
+                "value": 1,
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Complete",
+                "value": 2,
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Incomplete",
+                "value": 3,
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Septic",
+                "value": 4,
+                "link": "#sales"
+            }
+        }],
+        "2013": [{
+            "data": {
+                "label": "ASO I",
+                "value": 1,
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "ASO II",
+                "value": 5,
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "ASO III",
+                "value": 7,
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "ASO IV",
+                "value": 9,
+                "link": "#sales"
+            }
+        }],
+		"2012": [{
+            "data": {
+                "label": "Ruptured",
+                "value": 3,
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Unruptured",
+                "value": 6,
+                "link": "#sales"
+            }
+        }],
+
+        "2011": [{
+            "data": {
+                "label": "Cervix",
+                "value": 2,
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Endometrium",
+                "value": 4,
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Ovarian",
+                "value": 4,
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Vulva",
+                "value": 5,
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Vagina",
+                "value":7,
+                "link": "#sales"
+            }
+        },
+            {
+                "data": {
+                    "label": "Chorio / GTD",
+                    "value": 8,
+                    "link": "#sales"
+                }
+            }]
+    };
 
         // Config for drilldown on top performers by sales chart.
         var singleSalePerformerSalesTabChart,
             singleSalePerformerSalesTabConfig = chartConfig.singleSalePerformerSalesTab,
             singleSalePerformerSalesTabCategories = managementData.singleSalePerformerSalesTabCategories,
-            singleSalePerformerSalesTabData = managementData.singleSalePerformerSalesTabData;
+            singleSalePerformerSalesTabData =  { //Peppers
+
+        "incomplete": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+
+        "complete": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+
+        "threatening": [{
+            "data": [{
+                "value": 7
+            }, {
+                "value": 5
+            }, {
+                "value": 1
+            }, {
+                "value": 2
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        "septic": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        /////////Sal
+        "aso_i": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        "aso_ii": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        "aso_iii": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "aso_iv": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        ////Oncology
+        "cervix": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        "endometrium": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+
+        "ovarian": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "vulva": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "vagina": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "chorio_gtd": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "ruptured": [{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }],
+        "unruptured":[{
+            "data": [{
+                "value": "77058.81000"
+            }, {
+                "value": "166873.77000"
+            }, {
+                "value": "152924.82000"
+            }, {
+                "value": "152924.82000"
+            }]
+        }, {
+            "data": [{
+                "value": "12"
+            }, {
+                "value": "40"
+            }, {
+                "value": "122"
+            }, {
+                "value": "122"
+            }]
+        }]
+
+    };
 
         // Config for drilldown on top categories by sales chart.
         var categoryWiseSalesChart,
             categoryWiseSalesChartConfig = chartConfig.categoryWiseSales,
             categoryWiseSalesCategories = managementData.productWiseSalesCategories,
-            categoryWiseSalesData = managementData.productWiseSalesData;
+            categoryWiseSalesData =  {
+        "2014": {
+            "fallopian_tube_cancer": [{
+                "data": [{
+                    "value":  globalData[3][0] //Alive unknown disease
+                }, {
+                    "value": globalData[3][1] //Alive and no evidence of disease
+                }, {
+                    "value": globalData[3][2] // Alive with disease
+                }, {
+                    "value": globalData[3][3] //Dead
+                }]
+            }, {
+                "data": [{
+                    "tooltext": "Alive with unknown disease",
+                    "value":  globalData[3][0]
+                }, {
+                    "tooltext": "Alive and no evidence of disease",
+                    "value": globalData[3][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[3][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[3][3]
+                }]
+            }],
+            "endometrial_cancer": [{
+                "data": [{
+                    "value":  globalData[4][0]
+                }, {
+                    "value":  globalData[4][1]
+                }, {
+                    "value":  globalData[4][2]
+                }, {
+                    "value":  globalData[4][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[4][0]
+                }, {
+                    "tooltext": "Alive and no evidence of disease",
+                    "value": globalData[4][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value":  globalData[4][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value":  globalData[4][3]
+                }]
+            }],
+            "ovarian_cancer": [{
+                "data": [{
+                    "value":  globalData[5][0]
+                }, {
+                    "value": globalData[5][1]
+                }, {
+                    "value": globalData[5][2]
+                }, {
+                    "value": globalData[5][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[5][0]
+                }, {
+                    "tooltext": "Alive and no evidence of disease",
+                    "value": globalData[5][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[5][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[5][3]
+                }]
+            }],
+            "cervical_cancer": [{
+                "data": [{
+                    "value": globalData[6][0]
+                }, {
+                    "value": globalData[6][1]
+                }, {
+                    "value": globalData[6][2]
+                }, {
+                    "value": globalData[6][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[6][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[6][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[6][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[6][3]
+                }]
+            }],
+            "vulva_cancer": [{
+                "data": [{
+                    "value": globalData[7][0]
+                }, {
+                    "value": globalData[7][1]
+                }, {
+                    "value": globalData[7][2]
+                }, {
+                    "value": globalData[7][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[7][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[7][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[7][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[7][3]
+                }]
+            }],
+            "vaginal_cancer": [{
+                "data": [{
+                    "value": globalData[8][0]
+                }, {
+                    "value": globalData[8][1]
+                }, {
+                    "value": globalData[8][2]
+                }, {
+                    "value": globalData[8][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[8][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[8][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[8][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[8][3]
+                }]
+            }],
+            "gestational_throphoblastic_disease": [{
+                "data": [{
+                    "value":  globalData[9][0]
+                }, {
+                    "value": globalData[9][1]
+                }, {
+                    "value": globalData[9][2]
+                }, {
+                    "value": globalData[9][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[9][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[9][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[9][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[9][3]
+                }]
+            }]
+        }
+    };
 
         // Config for Monthly Sales Chart
         var topMonthlySalesTabChart,
