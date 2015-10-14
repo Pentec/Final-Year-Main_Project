@@ -117,20 +117,22 @@ var submitAdmissionDischarge = function(formData) {
     });
 
 
-    Form.save(function(err){
+    var success = Form.save(function(err){
         if(err) {
-            success = false;
+            return false;
         }
         else{
-            success = true;
+            return true;
         }
     });
 
-    return success;
+    return success ;
 };
 
 
 var submitGynaecologySurgery = function(formData) {
+
+    var success = false;
 
     var jsonString = JSON.stringify(formData.body);
     var changedString = jsonString.replace(/([./])/g, "");
@@ -207,7 +209,7 @@ var submitGynaecologySurgery = function(formData) {
     });
 
 
-   var success = Form.save(function(err){
+    var success = Form.save(function(err){
         if(err) {
             return false;
         }
@@ -221,6 +223,7 @@ var submitGynaecologySurgery = function(formData) {
 
 
 var submitCervicalCancer = function(formData) {
+
 
     var success = false;
     var jsonString = JSON.stringify(formData.body);
@@ -470,19 +473,22 @@ var submitCervicalCancer = function(formData) {
     });
 
 
-    Form.save(function(err){
+    var success = Form.save(function(err){
         if(err) {
-            success = false;
+            return false;
         }
         else{
-            success = true;
+            return true;
         }
     });
 
-    return success;
+    return success ;
 };
 
 var submitEndometrialCancer = function(formData){
+
+    var success = false;
+
     var jsonString = JSON.stringify(formData.body);
     var changedString = jsonString.replace(/([./])/g, "");
 
@@ -708,17 +714,22 @@ var submitEndometrialCancer = function(formData){
     });
 
 
-    Form.save(function(err){
+    var success = Form.save(function(err){
         if(err) {
-            throw err;
-            console.log('An error occurred while trying to add data');
+            return false;
         }
-        else{console.log('The data has been saved.');
+        else{
+            return true;
         }
     });
+
+    return success ;
 };
 
 var submitFallopianTubeCancer = function(formData){
+
+    var success = false;
+
     var jsonString = JSON.stringify(formData.body);
     var changedString = jsonString.replace(/([./])/g, "");
 
@@ -1019,18 +1030,23 @@ var submitFallopianTubeCancer = function(formData){
         }
 
     });
-    Form.save(function(err){
+
+    var success = Form.save(function(err){
         if(err) {
-            throw err;
-            console.log('An error occurred while trying to add data');
+            return false;
         }
-        else{console.log('The data has been saved.');
+        else{
+            return true;
         }
     });
+
+    return success ;
 };
 
 
 var submitOncologyFollowUp = function(formData) {
+
+    var success = false;
 
     var jsonString = JSON.stringify(formData.body);
     var changedString = jsonString.replace(/([./])/g, "");
@@ -1113,18 +1129,22 @@ var submitOncologyFollowUp = function(formData) {
 
     });
 
-    Form.save(function(err){
+    var success = Form.save(function(err){
         if(err) {
-            throw err;
-            console.log('An error occurred while trying to add data');
+            return false;
         }
-        else{console.log('The data has been saved.');
+        else{
+            return true;
         }
     });
+
+    return success ;
 
 };
 
 var submitCriticalIncident = function(formData){ //CritInd
+
+    var success = false;
 
     var jsonString = JSON.stringify(formData.body);
     var changedString = jsonString.replace(/([./])/g, "");
@@ -1499,18 +1519,22 @@ var submitCriticalIncident = function(formData){ //CritInd
 
     });
 
-    Form.save(function(err){
+    var success = Form.save(function(err){
         if(err) {
-            throw err;
-            console.log('An error occurred while trying to add data');
+            return false;
         }
-        else{console.log('The data has been saved.');
+        else{
+            return true;
         }
     });
+
+    return success ;
 
 };
 
 var submitGTN = function (formData) { // GTN
+
+    var success = false;
 
     var jsonString = JSON.stringify(formData.body);
     var changedString = jsonString.replace(/([./])/g, "");
@@ -1752,18 +1776,22 @@ var submitGTN = function (formData) { // GTN
         }
     });
 
-    Form.save(function(err){
+    var success = Form.save(function(err){
         if(err) {
-            throw err;
-            console.log('An error occurred while trying to add data');
+            return false;
         }
-        else{console.log('The data has been saved.');
+        else{
+            return true;
         }
     });
+
+    return success ;
 
 };
 
 var submitHysteroscopy = function(formData){ //Hyst
+
+    var success = false;
 
     var jsonString = JSON.stringify(formData.body);
     var changedString = jsonString.replace(/([./])/g, "");
@@ -1870,18 +1898,22 @@ var submitHysteroscopy = function(formData){ //Hyst
         Comments:changedString.Comments
     });
 
-    Form.save(function(err){
+    var success = Form.save(function(err){
         if(err) {
-            throw err;
-            console.log('An error occurred while trying to add data');
+            return false;
         }
-        else{console.log('The data has been saved.');
+        else{
+            return true;
         }
     });
+
+    return success ;
 
 };
 
 var submitOvarianCancer = function(formData){//OvaC
+
+    var success = false;
 
     var jsonString = JSON.stringify(formData.body);
     var changedString = jsonString.replace(/([./])/g, "");
@@ -2161,17 +2193,21 @@ var submitOvarianCancer = function(formData){//OvaC
         }
 });
 
-    Form.save(function(err){
+    var success = Form.save(function(err){
         if(err) {
-            throw err;
-            console.log('An error occurred while trying to add data');
+            return false;
         }
-        else{console.log('The data has been saved.');
+        else{
+            return true;
         }
     });
+
+    return success ;
 };
 
 var submitVaginalCancer = function(formData){//VagC
+
+    var success = false;
 
     var jsonString = JSON.stringify(formData.body);
     var changedString = jsonString.replace(/([./])/g, "");
@@ -2412,14 +2448,16 @@ var submitVaginalCancer = function(formData){//VagC
         }
     });
 
-    Form.save(function(err){
+    var success = Form.save(function(err){
         if(err) {
-            throw err;
-            console.log('An error occurred while trying to add data');
+            return false;
         }
-        else{console.log('The data has been saved.');
+        else{
+            return true;
         }
     });
+
+    return success ;
 
 };
 
@@ -2427,6 +2465,8 @@ var submitVaginalCancer = function(formData){//VagC
 
 
 var submitVulvaCancer = function (formData) {//VulC
+
+    var success = false;
 
     var jsonString = JSON.stringify(formData.body);
     var changedString = jsonString.replace(/([./])/g, "");
@@ -2676,14 +2716,16 @@ AssociatedLesions: {
     }
 });
 
-    Form.save(function(err){
+    var success = Form.save(function(err){
         if(err) {
-            throw err;
-            console.log('An error occurred while trying to add data');
+            return false;
         }
-        else{console.log('The data has been saved.');
+        else{
+            return true;
         }
     });
+
+    return success ;
 
 };
 
