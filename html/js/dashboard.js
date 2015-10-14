@@ -34,6 +34,7 @@ function CollectDataFromClient(data)
     /**
      * Properties of all charts
      */
+	 
     chartConfig = {
 
         // Properties for yearly sales chart
@@ -80,10 +81,10 @@ function CollectDataFromClient(data)
             renderAt: 'top-sales-performers-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '',
+                    numberPrefix: '$',
                     xAxisName: 'Performers',
-                    pYAxisName: 'Number of Patients',
-                    sYAxisName: 'Units Sold ',
+                    pYAxisName: 'Sales (US $ in thousands)',
+                    sYAxisName: 'Units Sold (In thousands)',
                     theme: 'management-3d'
                 },
                 categories: [{
@@ -135,9 +136,9 @@ function CollectDataFromClient(data)
             renderAt: 'top-revenues-countries-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '',
+                    numberPrefix: '$',
                     xAxisName: 'Countries',
-                    pYAxisName: 'Number of Patients',
+                    pYAxisName: 'Sales (US $ in thousands)',
                     sYAxisName: 'Units Sold (In thousands)',
                     theme: 'management-3d'
                 },
@@ -172,22 +173,19 @@ function CollectDataFromClient(data)
                     numberPrefix: '',
                     xAxisName: 'Products',
                     pYAxisName: 'Number of Patients',
-                    sYAxisName: 'Units Sold',
+                    sYAxisName: '',
                     theme: 'management-3d'
                 },
                 categories: [{
                     category: []
                 }],
                 dataset: [{
-                    seriesName: 'Amount',
-                    renderAs: 'column3d',
-                    showValues: '0',
+                    seriesName: 'G1',
+                    renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Units Sold',
+                    seriesName: 'G2',
                     renderAs: 'line',
-                    showValues: '0',
-                    parentYAxis: 'S',
                     data: []
                 }]
             }
@@ -327,9 +325,9 @@ function CollectDataFromClient(data)
             dataFormat: 'json',
             dataSource: {
                 chart: {
-                    numberPrefix: '',
+                    numberPrefix: '$',
                     xAxisName: 'Products',
-                    pYAxisName: 'Number of Patients',
+                    pYAxisName: 'Revenue (US $ in thousands)',
                     sYAxisName: 'Units Sold',
                     theme: 'management-3d'
                 },
@@ -360,9 +358,9 @@ function CollectDataFromClient(data)
             renderAt: 'inventory-by-product-categories-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '',
+                    numberPrefix: '$',
                     xAxisName: 'Product Category',
-                    yAxisName: 'Number of Patients ',
+                    yAxisName: 'Cost of Inventory (US $ in thousands)',
                     theme: 'management-3d'
                 },
                 data: []
@@ -415,7 +413,7 @@ function CollectDataFromClient(data)
                 chart: {
                     xAxisName: 'Month',
                     yAxisName: 'In Percentage',
-                    numberPrefix: '',
+                    numberPrefix: '$',
                     theme: 'management-3d'
                 },
                 categories: [{
@@ -1421,68 +1419,68 @@ function CollectDataFromClient(data)
         // Config for Top Performers by Sales Chart.
         var topPerformersSalesTabChart,
             topPerformersSalesTabChartConfig = chartConfig.topPerformersSalesTab,
-            topPerformersSalesTabData ={
+            topPerformersSalesTabData = {
 				//Mexican (just a key word to find this line)
         "2014": [{
             "data": {
                 "label": "Threatening",
-                "value": globalData[10][0],
+                "value": 1,
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Complete",
-                "value": globalData[10][1],
+                "value": 2,
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Incomplete",
-                "value": globalData[10][2],
+                "value": 3,
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Septic",
-                "value": globalData[10][3],
+                "value": 4,
                 "link": "#sales"
             }
         }],
         "2013": [{
             "data": {
                 "label": "ASO I",
-                "value": globalData[11][0],
+                "value": 1,
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "ASO II",
-                "value": globalData[11][1],
+                "value": 5,
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "ASO III",
-                "value": globalData[11][2],
+                "value": 7,
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "ASO IV",
-                "value": globalData[11][3],
+                "value": 9,
                 "link": "#sales"
             }
         }],
 		"2012": [{
             "data": {
                 "label": "Ruptured",
-                "value": globalData[12][0],
+                "value": 3,
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Unruptured",
-                "value": globalData[12][0],
+                "value": 6,
                 "link": "#sales"
             }
         }],
@@ -1490,38 +1488,38 @@ function CollectDataFromClient(data)
         "2011": [{
             "data": {
                 "label": "Cervix",
-                "value": globalData[13][0],
+                "value": 2,
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Endometrium",
-                "value": globalData[13][1],
+                "value": 4,
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Ovarian",
-                "value": globalData[13][2],
+                "value": 4,
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Vulva",
-                "value": globalData[13][3],
+                "value": 5,
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Vagina",
-                "value": globalData[13][4],
+                "value":7,
                 "link": "#sales"
             }
         },
             {
                 "data": {
                     "label": "Chorio / GTD",
-                    "value": globalData[13][5],
+                    "value": 8,
                     "link": "#sales"
                 }
             }]
@@ -1531,7 +1529,7 @@ function CollectDataFromClient(data)
         var singleSalePerformerSalesTabChart,
             singleSalePerformerSalesTabConfig = chartConfig.singleSalePerformerSalesTab,
             singleSalePerformerSalesTabCategories = managementData.singleSalePerformerSalesTabCategories,
-            singleSalePerformerSalesTabData = { //Peppers
+            singleSalePerformerSalesTabData =  { //Peppers
 
         "incomplete": [{
             "data": [{
@@ -1581,13 +1579,13 @@ function CollectDataFromClient(data)
 
         "threatening": [{
             "data": [{
-                "value": globalData[14][0]
+                "value": 7
             }, {
-                "value": globalData[14][1]
+                "value": 5
             }, {
-                "value": globalData[14][2]
+                "value": 1
             }, {
-                "value": globalData[14][3]
+                "value": 2
             }]
         }, {
             "data": [{
