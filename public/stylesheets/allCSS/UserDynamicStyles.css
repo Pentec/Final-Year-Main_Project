@@ -1,0 +1,119 @@
+body{
+    background-image: url("../images/sign-up.jpg");
+    background-repeat: no-repeat;
+    background-position: right 10% bottom;
+    background-size: 50%;
+
+}
+.banner{
+    margin-top: 50px;
+    padding: 1px;
+}
+
+.loginForm{
+    background-color: white;
+}
+
+/*    --------------------------------------------------
+	:: Login Section
+	-------------------------------------------------- */
+div.container
+{
+    color: #f5f5f5;
+    width: auto;
+    height: 66%;
+}
+
+#login {
+    padding-top: 60px;
+}
+#login .form-wrap {
+    width: 30%;
+    margin: 0 auto;
+}
+#login h1 {
+    color: #004B8F;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 15px;
+    padding-top: 0px;
+    margin: 0px;
+}
+#login .form-group {
+    margin-bottom: 25px;
+}
+
+#login .btn.btn-custom {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+#login .forget {
+    font-size: 14px;
+    text-align: center;
+    display: block;
+}
+
+/*    --------------------------------------------------
+	:: Inputs & Buttons
+	-------------------------------------------------- */
+.form-control {
+    color: #212121;
+}
+
+.form-control::-webkit-input-placeholder {
+    font-size: 14px;
+}
+
+.form-control:-moz-placeholder { /* Firefox 18- */
+    font-size: 14px;}
+
+.form-control::-moz-placeholder {  /* Firefox 19+ */
+    font-size: 14px;}
+
+.form-control:-ms-input-placeholder {
+    font-size: 14px;}
+.btn-custom {
+    color: #fff;
+    background-color: #004B8F;
+}
+.btn-custom:hover,
+.btn-custom:focus {
+    color: #fff;
+}
+
+/*    --------------------------------------------------
+    :: Footer
+	-------------------------------------------------- */
+footer{
+    background-color: #001f41;
+    bottom: 0;
+    box-shadow: 0 -1px 2px #001f41;
+    height: 45px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 100000;
+    padding: 15px;
+}
+
+footer h2{
+    color: #EEEEEE;
+    font-size: 14px;
+    font-weight: normal;
+    display: inline;
+}
+
+footer h2 a{
+    margin: 0px;
+    padding: 0px;
+}
+
+.panel{
+    border-color: black;
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    padding: 2%;
+    background-color: rgba(255,255,255, 0.9);
+}

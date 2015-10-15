@@ -2,16 +2,13 @@ extends layout
 block extFiles
     script(src='javascripts/loginPassword.js')
     link(rel="stylesheet", href="/stylesheets/login.css")
-    script(src='https://www.google.com/recaptcha/api.js')
     script.
-        function recaptchaCallback() {
-            $('#btn-login').removeAttr('disabled');
+        function myFunction() {
+            window.location.href ="/myAdminSpace";
         };
-        $("#warningdiv").fadeTo(2000, 500).slideUp(500, function () {
-            $("#warningdiv").alert('close');
-        });
-
-        $("#g-recaptcha-response").width(550);
+        function myLogOutFunction() {
+            window.location.href="/splash";
+        };
 block content
     div.jumbotron.center.banner
         div.inner
@@ -19,29 +16,21 @@ block content
     section#login
         div.container-fluid
             div.row
+                        
                 div.col-xs-4.col-xs-offset-4#warningdiv
                     .alert.alert-info.fadein
-                        button.close(data-dismiss="alert", type="button") x
-                        p= "Please check the recaptcha box before logging in"
-                div.col-xs-4.col-xs-offset-4#errordiv
-                    if (!send)
-                        .alert.alert-danger
-                            button.close(data-dismiss="alert", type="button") x
-                            p= message
-                div.col-xs-12
-                    div.form-wrap.panel
-                        h1 Login with your username
-                        form(role="form", method="post", autocomplete="off", name="loginform", id="loginform", action="/login")
-                            div.form-group
-                                input.form-control#username(type="text", placeholder="Username", name="username", autofocus)
-                            div.form-group
-                                input.form-control#password(type="password", placeholder="Password", name="password")
-                                .hide-show
-                                   span Show Password
-                            input.btn.btn-custom.btn-lg.btn-block#btn-login(type="submit", value="Log In" disabled)
-                            div.form-group.recaptchaWrapper
-                                div.g-recaptcha(data-callback="recaptchaCallback" data-sitekey="6Lc9mAsTAAAAADbZqkl2r7pEenxsAccFzN540Anm").recaptcha
-                        a.forget Forgot your password?
+                        //button.close(data-dismiss="alert", type="button")
+                        br
+                        br
+                        h1 Form Saved for later Completion!
+                        br
+                        br
+                        p= "Note: Form will expire in 60 minutes"
+                            input.btn.btn-custom.btn-lg.btn-block#spacePage(type="submit", value="PIMS Space" onclick="myFunction()")
+                            input.btn.btn-custom.btn-lg.btn-block#LogOut(type="submit", value="Log Out" onclick="myLogOutFunction()")
+                        br
+                        br
+                        br
     footer.text-center.center-block
         h2 Back to&nbsp;
         a(href="/splash") Home

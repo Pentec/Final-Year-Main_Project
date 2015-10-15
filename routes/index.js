@@ -106,6 +106,35 @@ router.get('/splash', function (req, res, next) {
     res.render('splash', {title: 'Kalafong PIMS'});
 });
 
+
+
+//get FormSubmitted page
+router.get('/FormSubmited', function (req, res, next) {
+    //sess = req.session;
+    res.render('FormSubmited', {title: 'FormSubmitted'});
+});
+
+//get FormSavedForLater page
+router.get('/FormSaved', function (req, res, next) {
+    //sess = req.session;
+    res.render('FormSaved', {title: 'FormSaved'});
+});
+
+//get mySubmittedForms page
+router.get('/mySubmittedForms', function (req, res, next) {
+    //sess = req.session;
+    res.render('mySubmittedForms', {title: 'mySubmittedForms'});
+});
+
+//get mySubmittedForms page
+router.get('/myIncompleteForms', function (req, res, next) {
+    //sess = req.session;
+    res.render('myIncompleteForms', {title: 'myIncompleteForms'});
+});
+
+
+
+
 router.get('/dataNormalizer', function (req, res, next) {
 
     //dataNormalizerCervical.getNormalizedData(req.body.firstname, req.body.surname);

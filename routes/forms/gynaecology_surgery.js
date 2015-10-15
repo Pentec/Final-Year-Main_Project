@@ -10,24 +10,22 @@ router.post('/', function(req, res, next) {
        // res.redirect('/splash');
    // }
 
-
-
-
-
     if(req.body.isNotCompeleted == true)
+   {
+       // saveFunctions.saveGynaecologySurgery(req, req.session.username);
+       res.redirect('/FormSaved');
+   }
+else
     {
-        saveFunctions.saveGynaecologySurgery(req, req.session.username);
-    else
-    {
-    var success = submitFunctions.submitGynaecologySurgery(req);
-   console.log(success);
+   // var success = submitFunctions.submitGynaecologySurgery(req);
+        // console.log(success);
 
-    if(!success){
-        res.redirect('/gynae_surgery.html');
-    }
-    else{
-        res.redirect('/myAdminSpace');
+   // if(!success){
+        //res.redirect('/myAdminSpace');
+   // }
+   // else{
+        res.redirect('/FormSubmited');
 	}
-    }
+    
 });
 module.exports = router;
