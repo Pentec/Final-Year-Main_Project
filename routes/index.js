@@ -844,7 +844,7 @@ router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function (req, res, n
         //data normalizer
         var check = dataNormalizerCervical.getNormalizedData(sendPatientName.patient, '', function (array) {
             if (array != null) {
-                nn.testNetwork(array, function (found) {
+                nn.testNetwork(req, array, function (found) {
                     if (found) {
                         if (found >= 0.143) {
                             //most probably to live with cancer long time
@@ -883,7 +883,7 @@ router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function (req, res, n
         //data normalizer
         var check = dataNormalizerEndometrial.getNormalizedData(sendPatientName.patient, sendPatientSurname.patientLname, function (array) {
             if (array != null) {
-                nn.testNetwork(array, function (found) {
+                nn.testNetwork(req, array, function (found) {
                     if (found) {
                         if (found >= 0.143) {
                             //most probably to live with cancer long time
@@ -964,54 +964,57 @@ router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function (req, res, n
             docs.forEach(function (doc) {
                 //console.log("hey " + doc.Name + " "+ doc.Surname);
                 //console.log('size '+ docs.length);
-                dataNormalizerCervical.getNormalizedData(doc.Name, doc.Surname, function (array) {
-                    if (array == null) {
-                        throw new Error('Array empty');
-                    }
-                    else {
-                        //console.log('fetching '+ array);
-                        nn.testNetwork(array, function (found) {
-                            if (found) {
-                                totalPatients = docs.length;
-                                if (found >= 0.143) {
-                                    //most probably to live with cancer long time
-                                    ++countSurvive;
-                                }
-                                else {
-                                    //most probably to die form cancer soon
-                                    ++countDie;
+                if(doc.Name != null && doc != null){
+                    dataNormalizerCervical.getNormalizedData(doc.Name, doc.Surname, function (array) {
+                        if (array == null) {
+                            throw new Error('Array empty');
+                        }
+                        else {
+                            //console.log('fetching '+ array);
+                            nn.testNetwork(req, array, function (found) {
+                                if (found) {
+                                    totalPatients = docs.length;
+                                    if (found >= 0.143) {
+                                        //most probably to live with cancer long time
+                                        ++countSurvive;
+                                    }
+                                    else {
+                                        //most probably to die form cancer soon
+                                        ++countDie;
+
+                                    }
+
+                                    if ((countDie + countSurvive) == totalPatients) {
+                                        console.log('Why!!!!!!!!1');
+                                        nn.calculatePercentage(req, totalPatients, countSurvive, countDie, function (value) {
+                                            if (value.percentSurvive == 0 && value.percentDie == 0) {
+                                                console.log('nothing');
+                                            }
+                                            else {
+                                                console.log(value.percentSurvive + "   " + value.percentDie);
+
+                                                res.render('pims_neuralnet/testAI', {
+                                                    title: 'PIMS Neural Network',
+                                                    die: value.percentDie,
+                                                    survive: value.percentSurvive,
+                                                    formName: getFormVal[1],
+                                                    year: "5 years"
+                                                });
+                                                countDie = 0;
+                                                countSurvive = 0;
+
+                                            }
+                                        });
+
+
+                                    }
 
                                 }
+                            });
+                        }
+                    });
+                }
 
-                                if ((countDie + countSurvive) == totalPatients) {
-                                    console.log('Why!!!!!!!!1');
-                                    nn.calculatePercentage(totalPatients, countSurvive, countDie, function (value) {
-                                        if (value.percentSurvive == 0 && value.percentDie == 0) {
-                                            console.log('nothing');
-                                        }
-                                        else {
-                                            console.log(value.percentSurvive + "   " + value.percentDie);
-
-                                            res.render('pims_neuralnet/testAI', {
-                                                title: 'PIMS Neural Network',
-                                                die: value.percentDie,
-                                                survive: value.percentSurvive,
-                                                formName: getFormVal[1],
-                                                year: "5 years"
-                                            });
-                                            countDie = 0;
-                                            countSurvive = 0;
-
-                                        }
-                                    });
-
-
-                                }
-
-                            }
-                        });
-                    }
-                });
             });
 
         });
@@ -1028,54 +1031,57 @@ router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function (req, res, n
             docs.forEach(function (doc) {
                 //console.log("hey " + doc.Name + " "+ doc.Surname);
                 //console.log('size '+ docs.length);
-                dataNormalizerEndometrial.getNormalizedData(doc.Name, doc.Surname, function (array) {
-                    if (array == null) {
-                        throw new Error('Array empty');
-                    }
-                    else {
-                        //console.log('fetching '+ array);
-                        nn.testNetwork(array, function (found) {
-                            if (found) {
-                                totalPatients = docs.length;
-                                if (found >= 0.143) {
-                                    //most probably to live with cancer long time
-                                    ++countSurvive;
-                                }
-                                else {
-                                    //most probably to die form cancer soon
-                                    ++countDie;
+                if(doc.Name != null && doc != null){
+                    dataNormalizerEndometrial.getNormalizedData(doc.Name, doc.Surname, function (array) {
+                        if (array == null) {
+                            throw new Error('Array empty');
+                        }
+                        else {
+                            //console.log('fetching '+ array);
+                            nn.testNetwork(req,array, function (found) {
+                                if (found) {
+                                    totalPatients = docs.length;
+                                    if (found >= 0.143) {
+                                        //most probably to live with cancer long time
+                                        ++countSurvive;
+                                    }
+                                    else {
+                                        //most probably to die form cancer soon
+                                        ++countDie;
+
+                                    }
+
+                                    if ((countDie + countSurvive) == totalPatients) {
+                                        console.log('Why!!!!!!!!1');
+                                        nn.calculatePercentage(req, totalPatients, countSurvive, countDie, function (value) {
+                                            if (value.percentSurvive == 0 && value.percentDie == 0) {
+                                                console.log('nothing');
+                                            }
+                                            else {
+                                                console.log(value.percentSurvive + "   " + value.percentDie);
+
+                                                res.render('pims_neuralnet/testAI', {
+                                                    title: 'PIMS Neural Network',
+                                                    die: value.percentDie,
+                                                    survive: value.percentSurvive,
+                                                    formName: getFormVal[1],
+                                                    year: "5 years"
+                                                });
+                                                countDie = 0;
+                                                countSurvive = 0;
+
+                                            }
+                                        });
+
+
+                                    }
 
                                 }
+                            });
+                        }
+                    });
+                }
 
-                                if ((countDie + countSurvive) == totalPatients) {
-                                    console.log('Why!!!!!!!!1');
-                                    nn.calculatePercentage(totalPatients, countSurvive, countDie, function (value) {
-                                        if (value.percentSurvive == 0 && value.percentDie == 0) {
-                                            console.log('nothing');
-                                        }
-                                        else {
-                                            console.log(value.percentSurvive + "   " + value.percentDie);
-
-                                            res.render('pims_neuralnet/testAI', {
-                                                title: 'PIMS Neural Network',
-                                                die: value.percentDie,
-                                                survive: value.percentSurvive,
-                                                formName: getFormVal[1],
-                                                year: "5 years"
-                                            });
-                                            countDie = 0;
-                                            countSurvive = 0;
-
-                                        }
-                                    });
-
-
-                                }
-
-                            }
-                        });
-                    }
-                });
             });
 
         });
@@ -1128,7 +1134,7 @@ router.get('/neuraltrain', function (req, res, next) {
                 else {
                     console.log('fetching ' + array);
                     //call train network
-                    /*nn.trainMany(array, docs.length,function(trained){
+                    /*nn.trainMany(req, array, docs.length,function(trained){
                      if(trained){
                      //propagate that NN is trained to UI
                      //perhaps show how far training is; iterations maybe
