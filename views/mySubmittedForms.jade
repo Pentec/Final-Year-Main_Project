@@ -1,0 +1,39 @@
+extends layout
+block extFiles
+    script(src='javascripts/loginPassword.js')
+    link(rel="stylesheet", href="/stylesheets/UserDynamicStyles.css")
+    script.
+        function myFunction() {
+            window.location.href ="/myAdminSpace";
+        };
+        function myLogOutFunction() {
+            window.location.href="/splash";
+        };
+block content
+    div.jumbotron.center.banner
+        div.inner
+            img(src='images/newlogo.png', width="350px").img-responsive.center-block
+    section#login
+        div.container-fluid
+            div.row
+                        
+                div.col-xs-4.col-xs-offset-4#warningdiv
+                    .alert.alert-info.fadein
+                        //button.close(data-dismiss="alert", type="button")
+                        br
+                        br
+                        h1 My Submitted
+                        br
+                        p= "Addmission Discharge Datasheet"
+                        p= "Gynae Surgery Form"
+                        p= "Hysteroscopy Datasheet"
+                        p= "Oncology Follow Up"
+                        p= "Ovarian  Cancer Form"
+                        p= "Endometrial Cancer Form"
+                        p= " "
+                            input.btn.btn-custom.btn-lg.btn-block#spacePage(type="submit", value="Back to PIMS Space" onclick="myFunction()")
+                        br
+                        br
+    footer.text-center.center-block
+        h2 Back to&nbsp;
+        a(href="/splash") Home
