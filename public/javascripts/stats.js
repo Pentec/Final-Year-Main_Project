@@ -153,7 +153,7 @@ function createBarGraph(data, yAxisName) {
     parseDate = d3.time.format("%m-%d-%Y").parse;
 
     x = d3.scale.ordinal()
-        .rangeRoundBands([0, width],.05);
+        .rangeRoundBands([0, width], .05);
 
     y = d3.scale.linear()
         .range([height, 0]);
@@ -270,7 +270,7 @@ function updateLineGraph(data, yAxisName) {
     svg.select(".title").text(yAxisName);
 }
 
-function updateBarGraph(data, yAxisName){
+function updateBarGraph(data, yAxisName) {
     this.data = $.extend(true, [], data);
     this.yAxisName = yAxisName;
     var height = $(".graphbox").height();
@@ -375,7 +375,11 @@ function query(startDate, endDate, period, stats) {
         type: 'POST',
         url: '/findSelectedQuery',
         beforeSend: function (xhr) {
-            $("#search").html("<img src='/images/loader.gif' height = '30px' />");
+            if (beg) {
+                pageSetup();
+                $(".graph").height($(".graph-wrapper").height());
+            } else
+                $("#search").html("<img src='/images/loader.gif' height = '30px' />");
         },
         data: JSON.stringify({
             forQuering: {
@@ -389,11 +393,11 @@ function query(startDate, endDate, period, stats) {
             $("#search").html("Query");
             var res = JSON.parse(jqXHR.responseText);
             var resBus = JSON.stringify(res.myStatsArry);
-            if(beg){
+            if (beg) {
                 beg = false;
                 createLineGraph(res.myStatsArry, stats);
-            }else{
-                if(bar)
+            } else {
+                if (bar)
                     createBarGraph(res.myStatsArry, stats);
                 else
                     updateLineGraph(res.myStatsArry, stats);
