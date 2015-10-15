@@ -14,7 +14,7 @@ var config = {
     // individual password, so larger is better. however, larger also means longer
     // to hash the password. tune so that hashing the password takes about a
     // second
-    iterations: 7000
+    iterations: 1000 //make to 7000 later
 };
 
 
