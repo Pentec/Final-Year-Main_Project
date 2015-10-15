@@ -6,11 +6,6 @@ var saveFunctions  = require('../../controllers/forms/saveForm');
 router.post('/', function(req, res, next) {
 
 
-   // if(onSubmitValid() == true){
-
-       // res.redirect('/splash');
-   // }
-
     if(req.body.isNotCompeleted == true)
    {
        // saveFunctions.saveGynaecologySurgery(req, req.session.username);
