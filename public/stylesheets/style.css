@@ -143,7 +143,8 @@ nav.navbar-findcond ul.navbar-nav li.settings a{
     background-color: #004B8F;
 }
 
-nav.navbar-findcond ul.navbar-nav li.settings a:hover{
+nav.navbar-findcond ul.navbar-nav li.settings a:hover,
+nav.navbar-findcond ul.navbar-nav li.settings a:focus{
     background-color: #004B8F;
 }
 
