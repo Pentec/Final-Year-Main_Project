@@ -106,6 +106,10 @@ router.get('/splash', function (req, res, next) {
     res.render('splash', {title: 'Kalafong PIMS'});
 });
 
+//get Video Tutorial
+router.get('/video_tutorial', function (req, res, next) {
+    res.render('video_tutorial', {title: 'PIMS Video Tutorial'});
+});
 
 
 //get FormSubmitted page
