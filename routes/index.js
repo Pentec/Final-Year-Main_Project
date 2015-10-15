@@ -107,6 +107,35 @@ router.get('/splash', function (req, res, next) {
     res.render('splash', {title: 'Kalafong PIMS'});
 });
 
+
+
+//get FormSubmitted page
+router.get('/FormSubmited', function (req, res, next) {
+    //sess = req.session;
+    res.render('FormSubmited', {title: 'FormSubmitted'});
+});
+
+//get FormSavedForLater page
+router.get('/FormSaved', function (req, res, next) {
+    //sess = req.session;
+    res.render('FormSaved', {title: 'FormSaved'});
+});
+
+//get mySubmittedForms page
+router.get('/mySubmittedForms', function (req, res, next) {
+    //sess = req.session;
+    res.render('mySubmittedForms', {title: 'mySubmittedForms'});
+});
+
+//get mySubmittedForms page
+router.get('/myIncompleteForms', function (req, res, next) {
+    //sess = req.session;
+    res.render('myIncompleteForms', {title: 'myIncompleteForms'});
+});
+
+
+
+
 router.get('/dataNormalizer', function (req, res, next) {
 
     //dataNormalizerCervical.getNormalizedData(req.body.firstname, req.body.surname);
@@ -202,7 +231,74 @@ router.get('/login', function (req, res) {
     //user not logged in
     if (!req.user) {
         var sendData = {found: "hello"};
-        res.render('login', {
+        res.render('login/login', {
+            title: 'PIMS Login Page',
+            user: req.user,
+            message: sess.messages,
+            errors: {},
+            send: sendData
+        });
+        sess.messages = null;
+
+    }
+    else if(req.user) {//user already logged in, may help sessions
+        login.checkAdmin(req.user.username, req.user.password, function(isAdmin)
+        {
+
+            if(isAdmin)
+                {
+
+                    res.redirect('/myAdminSpace');
+                }
+                else
+                {
+                    res.redirect('/mySpace');
+                }
+        });
+    }
+});
+
+
+router.get('/loginR', function (req, res) {
+    sess = req.session;
+
+    //user not logged in
+    if (!req.user) {
+        var sendData = {found: "hello"};
+        res.render('login/rssLogin', {
+            title: 'PIMS Login Page',
+            user: req.user,
+            message: sess.messages,
+            errors: {},
+            send: sendData
+        });
+        sess.messages = null;
+
+    }
+    else if(req.user) {//user already logged in, may help sessions
+        login.checkAdmin(req.user.username, req.user.password, function(isAdmin)
+        {
+
+            if(isAdmin)
+                {
+
+                    res.redirect('/myAdminSpace');
+                }
+                else
+                {
+                    res.redirect('/mySpace');
+                }
+        });
+    }
+});
+
+router.get('/loginI', function (req, res) {
+    sess = req.session;
+
+    //user not logged in
+    if (!req.user) {
+        var sendData = {found: "hello"};
+        res.render('login/intLogin', {
             title: 'PIMS Login Page',
             user: req.user,
             message: sess.messages,

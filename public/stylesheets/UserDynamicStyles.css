@@ -1,5 +1,5 @@
 body{
-    background-image: url("../images/background.gif");
+    background-image: url("../images/signUp.jpg");
     background-repeat: no-repeat;
     background-position: right 10% center;
     background-size: contain;
@@ -27,8 +27,8 @@ body{
 }
 
 /*    --------------------------------------------------
-	:: Login Section
-	-------------------------------------------------- */
+    :: Login Section
+    -------------------------------------------------- */
 div.container
 {
     color: #f5f5f5;
@@ -68,8 +68,8 @@ div.container
 }
 
 /*    --------------------------------------------------
-	:: Inputs & Buttons
-	-------------------------------------------------- */
+    :: Inputs & Buttons
+    -------------------------------------------------- */
 .form-control {
     color: #212121;
 }
@@ -97,7 +97,7 @@ div.container
 
 /*    --------------------------------------------------
     :: Footer
-	-------------------------------------------------- */
+    -------------------------------------------------- */
 footer{
     background-color: #002240;
     bottom: 0;
@@ -138,17 +138,4 @@ footer h2 a{
 
 .recaptcha{
     display: inline-block;
-}
-
-.pink:focus{
-    border-color: #C5699D;
-    -webkit-box-shadow: 0px 0px 5px 1px #C5699D;
-    -moz-box-shadow: 0px 0px 5px 1px #C5699D;
-    box-shadow: 0px 0px 5px 1px #C5699D;
-}
-.tur:focus{
-    border-color: #3BC0C5;
-    -webkit-box-shadow: 0px 0px 5px 1px #3BC0C5;
-    -moz-box-shadow: 0px 0px 5px 1px #3BC0C5;
-    box-shadow: 0px 0px 5px 1px #3BC0C5;
 }

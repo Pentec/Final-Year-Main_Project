@@ -1,0 +1,46 @@
+extends ../layout
+block extFiles
+   script(src='javascripts/loginPassword.js')
+   link(rel="stylesheet", href="/stylesheets/login.css")
+   script(src='https://www.google.com/recaptcha/api.js')
+   script.
+      function recaptchaCallback() {
+         $('#btn-login').removeAttr('disabled');
+      };
+      $("#warningdiv").fadeTo(2000, 500).slideUp(500, function () {
+         $("#warningdiv").alert('close');
+      });
+      $("#g-recaptcha-response").width(550);
+block content
+   div.jumbotron.center.banner(style="background-color:#C54784")
+      div.inner
+         img(src='images/logoR.png', width="350px").img-responsive.center-block
+   section#login
+      div.container-fluid
+         div.row
+            div.col-xs-4.col-xs-offset-4#warningdiv
+               .alert.alert-info.fadein(style="border-color: #870845; background-color:rgba(197, 105, 157, 0.95); background-image: none; color: white;")
+                  button.close(data-dismiss="alert", type="button", style="color:white") x
+                  p= "Please check the recaptcha box before logging in"
+            div.col-xs-4.col-xs-offset-4#errordiv
+               if (!send)
+                  .alert.alert-danger
+                     button.close(data-dismiss="alert", type="button") x
+                     p= message
+            div.col-xs-12
+               div.form-wrap.panel
+                  h1(style="color:#C54784") Login with your username
+                  form(role="form", method="post", autocomplete="off", name="loginform", id="loginform", action="/login")
+                     div.form-group
+                        input.pink.form-control#username(type="text", placeholder="Username", name="username", autofocus)
+                     div.form-group
+                        input.pink.form-control#password(type="password", placeholder="Password", name="password")
+                        .hide-show
+                           span Show Password
+                     input.btn.btn-custom.btn-lg.btn-block#btn-login(type="submit", value="Log In", disabled, style="background-color:#C54784")
+                     div.form-group.recaptchaWrapper
+                        div.g-recaptcha(data-callback="recaptchaCallback" data-sitekey="6Lc9mAsTAAAAADbZqkl2r7pEenxsAccFzN540Anm").recaptcha
+   footer.text-center.center-block(style="background-color:#870845; border-color:#C54784")
+      h2 Back to&nbsp;
+      a(href="/splash" style="color:#C54784") Home
+

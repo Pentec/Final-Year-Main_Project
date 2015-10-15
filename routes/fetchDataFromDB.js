@@ -438,9 +438,7 @@ AD.aggregate(
 			// End of GTN
 			
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX			
-			
-			
-
+		
 			
 							  res.json(arr);
 							  console.log("POST response sent.");
@@ -449,6 +447,6 @@ AD.aggregate(
 			});});});});  });});});})  ;});});});});  });});});}); });});});});  });});});}); });});});});
 			});});});});});});});
 		   });});});});});});});});});});});});});
-		  
+
 });
 module.exports = router;

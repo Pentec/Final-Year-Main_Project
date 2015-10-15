@@ -2,6 +2,7 @@
  * Created by Trevor on 2015/10/07.
  */
 var lastClicked = null;
+var prevWidth = null;
 $(function(){
     init();
 });
@@ -89,12 +90,13 @@ function rotate(clas){
 
 
 function init(){
-
+    var width = $(document).width();
+    if(width == prevWidth){
+        return;
+    }
     var pills  = $(".item").children();
     var totalPills = $(".item > a").length + $(".item > ul").length;
     $(".item").remove();
-    var width = $(document).width();
-
     switch(true){
         case width < 600:
             createItems(totalPills, pills, totalPills);
@@ -131,6 +133,11 @@ function init(){
         rotate("activities");
 
     });
+    $("#statistics").click(function (event) {
+        event.preventDefault();
+        rotate("statistics");
+
+   });
     $(".options").mouseleave(function () {
         var recentlyClicked = lastClicked;
         $('.options.' + recentlyClicked).addClass("rotate");
@@ -142,6 +149,7 @@ function init(){
             }, 450
         );
     });
+    prevWidth = width;
 }
 
 function createItems(noOfItems, pills, totalPills){

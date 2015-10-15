@@ -129,7 +129,7 @@ trainMany = meld.before(trainMany, function() {
  * @param filename
  */
 var testNetwork = function(req, filename, callback){
-    fs.readFile('./sub-modules/pims-neuralnetwork/trained/survive.json', 'utf8', function(err, data){
+    fs.readFile('../sub-modules/pims-neuralnetwork/trained/survive.json', 'utf8', function(err, data){
         if(err){
             throw err;
             return callback(false);

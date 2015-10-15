@@ -7,6 +7,7 @@
 function CollectDataFromClient(data)
 {
 	globalData = data;
+	console.log(globalData);
 
  FusionCharts.ready(function() {
 	
@@ -2376,7 +2377,8 @@ function CollectDataFromClient(data)
 
         // Event Listeners for sales link
         eventListeners.add('sales-link', 'click', function(e) {
-            dashboards.show('sales');
+            
+			dashboards.show('sales');
         });
 
         // Event Listeners for kpi link
