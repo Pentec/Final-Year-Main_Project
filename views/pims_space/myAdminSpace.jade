@@ -56,9 +56,16 @@ block mainContent
                 a(href='editProfile')
                     img.link(src='images/mySpaceIcons/profile.png')
                     h3               Profile
-                a(href='stats')
+                a(href='#')#statistics.hasOptions
                     img.link(src='images/mySpaceIcons/stats.png')
                     h3             Statistics
+                div.options.statistics
+                    div
+                        ul.nav.nav-pills.nav-stacked.form-menu
+                            li
+                                a(href='/dash.html', tabindex='-1') Dashboard
+                            li
+                                a(href='/stats', tabindex='-1') Query           
                 a(href='addUser')
                     img.link(src='images/mySpaceIcons/AddUser.png')
                     h3             Add user
