@@ -1,44 +1,66 @@
 extends ../index
 block extFiles
-    link(rel='stylesheet', href='/stylesheets/mySpaceStyles/mySpace.css')
+    link(rel='stylesheet', href='/stylesheets/mySpaceStyles/adminPimsSpace.css')
+    script(src='javascripts/space/myAdminSpace.js')
 block mainContent
-    div.container
-        div.spaceHeader
-            h2.headingPims MY PIMS SPACE
-        br
-        br
-        table.table.table-condensed
-            thead
-                tr
-                    th
-                        a(href='#')
-                            img.link(src='images/mySpaceIcons/activities.png', title='My Activities').col-xs-12.col-lg-6
-                    th
-                        .dropdown
-                            a(href="#", data-toggle="dropdown").dropdown-toggle
-                                img.link(src='images/mySpaceIcons/Forms.png', title='Forms').col-xs-12.col-lg-8
-                            ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu')
-                                li
-                                    a(href='/gynae_surgery.html', tabindex='-1') Gynaecology Surgery
-                                li
-                                    a(href='/addmission_discharge.html', tabindex='-1') Gynaecology Admission and Discharge
-                                li
-                                    a(href='/Hysteroscopy.html', tabindex='-1') Office Hysteroscopy
-                                li.divider
-                                li
-                                    a(href='/critical_incidence.html', tabindex='-1') Data Form
-                                        li.divider
-                                li
-                                    a(href='/cervical_cancer.html', tabindex='-1') Cervical Cancer
-                                    a(href='/endometrial_cancer.html', tabindex='-1') Endomentrial Cancer
-                                    a(href='/fallopian_tube_cancer.html', tabindex='-1') Fallopian Tube Cancer
-                                    a(href='/oncology_follow_up.html', tabindex='-1') Follow-Up
-                                    a(href='/GTN.html', tabindex='-1') Gestational Trophoblastic Disease
-                                    a(href='/ovarian_cancer.html', tabindex='-1') Ovarian Cancer
-                                    a(href='/vaginal_cancer.html', tabindex='-1') Vaginal Cancer
-                                    a(href='/vulva_cancer.html', tabindex='-1') Vulva Cancer
-                        script.
-                            $('.dropdown-toggle').dropdown()
-                    th
-                        a(href='#')
-                            img.link(src='images/mySpaceIcons/tutorial.png', title='Tutorial').col-xs-12.col-lg-6
+    #myCarousel.carousel(data-interval="10000000000000" data-keyboard="false")
+        // Wrapper for slides
+        .carousel-inner(role="listbox")
+            .item.slideInRight.active
+                a(href='#')#activities.hasOptions
+                    img.link(src='images/mySpaceIcons/activities.png')
+                    h3 My Activities
+                div.options.activities
+                    div
+                        ul.nav.nav-pills.nav-stacked.form-menu
+                            li
+                                a(href='/myIncompleteForms', tabindex='-1') Incomplete Form
+                            li
+                                a(href='/mySubmittedForms', tabindex='-1') Submitted Forms
+                a(href='#')#formIcon.hasOptions
+                    img.link(src='images/mySpaceIcons/Forms.png')
+                    h3  Forms
+                div.options.formIcon
+                    div
+                        ul.nav.nav-pills.nav-stacked.form-menu
+                            li
+                                a(href='/gynae_surgery.html', tabindex='-1') Gynaecology Surgery
+                            li
+                                a(href='/addmission_discharge.html', tabindex='-1') Gynaecology Admission and Discharge
+                            li
+                                a(href='/Hysteroscopy.html', tabindex='-1') Office Hysteroscopy
+                            li
+                                a(href='/critical_incidence.html', tabindex='-1') Data Form
+                            li
+                                a(href='cervical_cancer.html', tabindex='-1') Cervical Cancer
+                                a(href='/endometrial_cancer.html', tabindex='-1') Endomentrial Cancer
+                                a(href='/fallopian_tube_cancer.html', tabindex='-1') Fallopian Tube Cancer
+                                a(href='/oncology_follow_up.html', tabindex='-1') Follow-Up
+                                a(href='/GTN.html', tabindex='-1') Gestational Trophoblastic Disease
+                                a(href='/ovarian_cancer.html', tabindex='-1') Ovarian Cancer
+                                a(href='/vaginal_cancer.html', tabindex='-1') Vaginal Cancer
+                                a(href='/vulva_cancer.html', tabindex='-1') Vulva Cancer
+                a(href='#')#tutorial.hasOptions
+                    img.link(src='images/mySpaceIcons/tutorial.png')
+                    h3 Tutorial
+                div.options.tutorial
+                    div
+                        ul.nav.nav-pills.nav-stacked.form-menu
+                            li
+                                a(href='/#', tabindex='-1') images
+                            li
+                                a(href='/#', tabindex='-1') Video
+                            li
+                                a(href='/#', tabindex='-1') User Manual
+
+                a(href='stats')
+                a(href='addUser')
+            // Left and right controls
+            //a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+                span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+                span.sr-only Previous
+            //a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
+                span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+                span.sr-only Next
+    footer.text-center.center-block
+        h2 Pentec PIMS &copy;
