@@ -1,0 +1,17 @@
+extends index
+block extFiles
+    link(rel='stylesheet', href='/stylesheets/mySpaceStyles/adminPimsSpace.css')
+    link(rel='stylesheet', href='/stylesheets/video.css')
+block mainContent
+    section#login
+        br
+        wbr
+        div.container-fluid#videoDiv
+            div.row
+                div.col-xs-4.col-xs-offset-4
+                    br
+                    wbr
+                    h1 PIMS Video Tutorial
+                    iframe(width='768', height='432', src='https://www.ilosvideos.com/vv/?v=8EaT0ohtEW4E').center-block
+    footer.text-center.center-block
+        h2 Pentec PIMS &copy;
