@@ -50,7 +50,7 @@ function createLineGraph(data, yAxisName) {
         width = width - margin.left - margin.right,
         height = height - margin.top - margin.bottom;
 
-    parseDate = d3.time.format("%m-%d-%Y").parse;
+    parseDate = d3.time.format("%d-%m-%Y").parse;
 
     x = d3.time.scale()
         .range([0, width]);
@@ -150,7 +150,7 @@ function createBarGraph(data, yAxisName) {
         width = width - margin.left - margin.right,
         height = height - margin.top - margin.bottom;
 
-    parseDate = d3.time.format("%m-%d-%Y").parse;
+    parseDate = d3.time.format("%d-%m-%Y").parse;
 
     x = d3.scale.ordinal()
         .rangeRoundBands([0, width], .05);
@@ -359,7 +359,7 @@ function init() {
         var stats = $('#TypeOfQuery :selected').text();
         query(startDate, endDate, period, stats);
     });
-    query("2014-01-01", "2014-02-28", "Monthly", "Number of Admissions");
+    query("2014-01-01", "2014-02-28", "Daily", "Number of Admissions");
     //var one = #{elCount};
     //var two =
     //#{emCount}
