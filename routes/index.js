@@ -13,6 +13,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var submodules = "../sub-modules/";
 var userAuthentication = require('../controllers/authenticate.js');
+var userController = require('../controllers/userAuthControl');
 var dataNormalizerCervical = require('../controllers/dataNormalizers/dataNormalizerCervical.js');
 
 var nn = require(submodules + 'pims-neuralnetwork/testNN2.js');
@@ -111,6 +112,39 @@ router.get('/splash', function (req, res, next) {
     res.render('splash', {title: 'Kalafong PIMS'});
 });
 
+//get Video Tutorial
+router.get('/video_tutorial', function (req, res, next) {
+    res.render('video_tutorial', {title: 'PIMS Video Tutorial'});
+});
+
+
+//get FormSubmitted page
+router.get('/FormSubmited', function (req, res, next) {
+    //sess = req.session;
+    res.render('FormSubmited', {title: 'FormSubmitted'});
+});
+
+//get FormSavedForLater page
+router.get('/FormSaved', function (req, res, next) {
+    //sess = req.session;
+    res.render('FormSaved', {title: 'FormSaved'});
+});
+
+//get mySubmittedForms page
+router.get('/mySubmittedForms', function (req, res, next) {
+    //sess = req.session;
+    res.render('mySubmittedForms', {title: 'mySubmittedForms'});
+});
+
+//get mySubmittedForms page
+router.get('/myIncompleteForms', function (req, res, next) {
+    //sess = req.session;
+    res.render('myIncompleteForms', {title: 'myIncompleteForms'});
+});
+
+
+
+
 router.get('/dataNormalizer', function (req, res, next) {
 
     //dataNormalizerCervical.getNormalizedData(req.body.firstname, req.body.surname);
@@ -206,7 +240,7 @@ router.get('/login', function (req, res) {
     //user not logged in
     if (!req.user) {
         var sendData = {found: "hello"};
-        res.render('login', {
+        res.render('login/login', {
             title: 'PIMS Login Page',
             user: req.user,
             message: sess.messages,
@@ -220,6 +254,72 @@ router.get('/login', function (req, res) {
         login.checkAdmin(req.user.username, req.user.password, function(isAdmin)
         {
 
+            if(isAdmin)
+                {
+
+                    res.redirect('/myAdminSpace');
+                }
+                else
+                {
+                    res.redirect('/mySpace');
+                }
+        });
+    }
+});
+
+
+router.get('/loginR', function (req, res) {
+    sess = req.session;
+
+    //user not logged in
+    if (!req.user) {
+        var sendData = {found: "hello"};
+        res.render('login/rssLogin', {
+            title: 'PIMS Login Page',
+            user: req.user,
+            message: sess.messages,
+            errors: {},
+            send: sendData
+        });
+        sess.messages = null;
+
+    }
+    else if(req.user) {//user already logged in, may help sessions
+        login.checkAdmin(req.user.username, req.user.password, function(isAdmin)
+        {
+
+            if(isAdmin)
+                {
+
+                    res.redirect('/myAdminSpace');
+                }
+                else
+                {
+                    res.redirect('/mySpace');
+                }
+        });
+    }
+});
+
+router.get('/loginI', function (req, res) {
+    sess = req.session;
+
+    //user not logged in
+    if (!req.user) {
+        var sendData = {found: "hello"};
+        res.render('login/intLogin', {
+            title: 'PIMS Login Page',
+            user: req.user,
+            message: sess.messages,
+            errors: {},
+            send: sendData
+        });
+        sess.messages = null;
+
+    }
+    else if(req.user) {//user already logged in, may help sessions
+        login.checkAdmin(req.user.username, req.user.password, function(isAdmin)
+        {
             if(isAdmin)
                 {
 
@@ -297,9 +397,12 @@ router.post('/updateProfile', login.isLoggedIn, function (req, res) {
                 contact.username = req.body.username;
                 contact.email = req.body.email;
                 contact.surname = req.body.surname;
-                contact.department = req.body.department;
+                contact.department = req.body.department;//add hashing code here
                 if (req.body.password == req.body.confirmpassword && req.body.password != "") {
                     contact.password = req.body.confirmpassword;
+                    contact.passwordSalt = req.body.confirmpassword;
+                    contact.passwordHash = req.body.confirmpassword;
+
                 }
                 contact.save(function (err) {
                     res.redirect('editProfile');
@@ -322,19 +425,36 @@ router.post('/create', login.isLoggedIn, function (req, res) {
     sess = req.session;
 
     if (req.user) {
-        new User({
-            username: req.body.username,
-            surname: req.body.surname,
-            email: req.body.email,
-            user_rights: req.body.user_rights,
-            password: req.body.password,
-            department: req.body.department,
-            staff_type: req.body.staff_type
-        })
-            .save(function (err, users) {
-                console.log("New user added");
-                res.redirect('addUser');
+        var userN = req.body.username;
+        var pswd = req.body.password;
+
+
+        if(userN != "" || pswd != ""){//add new user
+            userController.saltHashGen(false, "", userN, pswd, function(hashed){
+                new User({
+                    username: userN,
+                    surname: req.body.surname,
+                    email: req.body.email,
+                    user_rights: req.body.user_rights,
+                    password: pswd,
+                    passwordSalt: hashed.sendSalt,
+                    passwordHash: hashed.sendHash,
+                    department: req.body.department,
+                    staff_type: req.body.staff_type
+                })
+                    .save(function (err, users) {
+                        console.log("New user added");
+                        res.redirect('/addUser');
+                    });
             });
+        }
+        else{
+            //send message for validation
+            console.log("empty fields");
+        }
+
+
+
     }
     else {
         res.redirect('/login');
@@ -499,9 +619,27 @@ router.post('/findSelectedQuery', function (req, res, next) {
         checkAdmission(period, stats, startDate, endDate);
     }
 
-
+    function checkPeriod(period, info){
+        if(period=='"Daily"')
+            return {
+                month: {$month: info},
+                day: {$dayOfMonth: info},
+                year: {$year: info}
+            };
+        else if(period=='"Monthly"'){
+            return {
+                month: {$month: info},
+                year: {$year: info}
+            };
+        }else{
+            return {
+                year: {$year: info}
+            };
+        }
+    }
     function checkEmergency(period, stats, startDate, endDate) {
-
+        var p = checkPeriod(period, "$ProcedureDate");
+        console.log(p);
         GS.aggregate(
             [
                 {
@@ -513,13 +651,14 @@ router.post('/findSelectedQuery', function (req, res, next) {
 
                 {
                     $group: {
-                        _id: {
-                            month: {$month: "$ProcedureDate"},
-                            day: {$dayOfMonth: "$ProcedureDate"},
-                            year: {$year: "$ProcedureDate"}
-                        }, count: {$sum: 1}, ourDate: {$first: "$ProcedureDate"}
+                        _id: p, count: {$sum: 1}, ourDate: {$first: "$ProcedureDate"}
                     }
 
+                },
+                {
+                    $sort: {
+                        "ourDate" : 1
+                    }
                 }
 
             ], function (err, myResult) {
@@ -534,14 +673,6 @@ router.post('/findSelectedQuery', function (req, res, next) {
 
                 }
                 console.log(arr);
-
-                arr.sort(function (a, b) {
-                    if (a.date < b.date)
-                        return -1;
-                    if (a.date > b.date)
-                        return 1;
-                    return 0;
-                });
                 var resBody = {myStatsArry: arr};
                 console.log(resBody);
                 res.json(resBody);
@@ -553,6 +684,7 @@ router.post('/findSelectedQuery', function (req, res, next) {
     }
 
     function checkElective(period, stats, startDate, endDate) {
+        var p = checkPeriod(period, "$ProcedureDate");
         GS.aggregate(
             [
                 {
@@ -564,13 +696,14 @@ router.post('/findSelectedQuery', function (req, res, next) {
 
                 {
                     $group: {
-                        _id: {
-                            month: {$month: "$ProcedureDate"},
-                            day: {$dayOfMonth: "$ProcedureDate"},
-                            year: {$year: "$ProcedureDate"}
-                        }, count: {$sum: 1}, ourDate: {$first: "$ProcedureDate"}
+                        _id: p, count: {$sum: 1}, ourDate: {$first: "$ProcedureDate"}
                     }
 
+                },
+                {
+                    $sort: {
+                        "ourDate" : 1
+                    }
                 }
 
             ], function (err, myResult) {
@@ -586,15 +719,6 @@ router.post('/findSelectedQuery', function (req, res, next) {
                 }
 
                 console.log(arrTwo);
-
-                arrTwo.sort(function (a, b) {
-                    if (a.date < b.date)
-                        return -1;
-                    if (a.date > b.date)
-                        return 1;
-                    return 0;
-                });
-
                 var resBody = {myStatsArry: arrTwo};
                 console.log(resBody);
                 res.json(resBody);
@@ -604,8 +728,8 @@ router.post('/findSelectedQuery', function (req, res, next) {
         );
     }
 
-
     function checkAdmission(period, stats, startDate, endDate) {
+        var p = checkPeriod(period, "$DateofAdmission");
 
 
         AD.aggregate(
@@ -613,13 +737,14 @@ router.post('/findSelectedQuery', function (req, res, next) {
                 {$match: {"DateofAdmission": {'$gte': new Date(startDate), '$lte': new Date(endDate)}}},
                 {
                     $group: {
-                        _id: {
-                            month: {$month: "$DateofAdmission"},
-                            day: {$dayOfMonth: "$DateofAdmission"},
-                            year: {$year: "$DateofAdmission"}
-                        }, count: {$sum: 1}, ourDate: {$first: "$DateofAdmission"}
+                        _id: p, count: {$sum: 1}, ourDate: {$first: "$DateofAdmission"}
                     }
 
+                },
+                {
+                    $sort: {
+                        "ourDate" : 1
+                    }
                 }
 
             ], function (err, myResult) {
@@ -635,14 +760,6 @@ router.post('/findSelectedQuery', function (req, res, next) {
 
                 }
                 console.log(arrThree);
-
-                arrThree.sort(function (a, b) {
-                    if (a.date < b.date)
-                        return -1;
-                    if (a.date > b.date)
-                        return 1;
-                    return 0;
-                });
                 var resBody = {myStatsArry: arrThree};
                 console.log(resBody);
                 res.json(resBody);
@@ -659,19 +776,21 @@ router.post('/findSelectedQuery', function (req, res, next) {
     }
 
     function checkHosPeriod(period, stats, startDate, endDate) {
-
+        var p = checkPeriod(period, "$DateofDischarge");
+        console.log(p);
         AD.aggregate(
             [
                 {$match: {"DateofDischarge": {'$gte': new Date(startDate), '$lte': new Date(endDate)}}},
                 {
                     $group: {
-                        _id: {
-                            month: {$month: "$DateofDischarge"},
-                            day: {$dayOfMonth: "$DateofDischarge"},
-                            year: {$year: "$DateofDischarge"}
-                        }, count: {$sum: 1}, ourDate: {$first: "$DateofDischarge"}
+                        _id: p, count: {$sum: 1}, ourDate: {$first: "$DateofDischarge"}
                     }
 
+                },
+                {
+                    $sort: {
+                        "ourDate" : 1
+                    }
                 }
 
             ], function (err, myResult) {
@@ -687,14 +806,6 @@ router.post('/findSelectedQuery', function (req, res, next) {
 
                 }
                 console.log(arrFour);
-
-                arrFour.sort(function (a, b) {
-                    if (a.date < b.date)
-                        return -1;
-                    if (a.date > b.date)
-                        return 1;
-                    return 0;
-                });
                 var resBody = {myStatsArry: arrFour};
                 console.log(resBody);
                 res.json(resBody);
@@ -836,7 +947,8 @@ router.post('/findPatient/sendEmail', login.isLoggedIn, function (req, res, next
 
 
 router.get('/neural', login.isLoggedIn, login.isAdmin, function (req, res, next) {
-    res.render('pims_neuralnet/testAI');
+    res.render('pims_neuralnet/testAI', {title: "Synaptic Neural Network", active: "predict"});
+
 });
 
 router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function (req, res, next) {
@@ -849,7 +961,7 @@ router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function (req, res, n
         //data normalizer
         var check = dataNormalizerCervical.getNormalizedData(sendPatientName.patient, '', function (array) {
             if (array != null) {
-                nn.testNetwork(array, function (found) {
+                nn.testNetwork(req, array, function (found) {
                     if (found) {
                         if (found >= 0.143) {
                             //most probably to live with cancer long time
@@ -888,7 +1000,7 @@ router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function (req, res, n
         //data normalizer
         var check = dataNormalizerEndometrial.getNormalizedData(sendPatientName.patient, sendPatientSurname.patientLname, function (array) {
             if (array != null) {
-                nn.testNetwork(array, function (found) {
+                nn.testNetwork(req, array, function (found) {
                     if (found) {
                         if (found >= 0.143) {
                             //most probably to live with cancer long time
@@ -1113,54 +1225,57 @@ router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function (req, res, n
             docs.forEach(function (doc) {
                 //console.log("hey " + doc.Name + " "+ doc.Surname);
                 //console.log('size '+ docs.length);
-                dataNormalizerCervical.getNormalizedData(doc.Name, doc.Surname, function (array) {
-                    if (array == null) {
-                        throw new Error('Array empty');
-                    }
-                    else {
-                        //console.log('fetching '+ array);
-                        nn.testNetwork(array, function (found) {
-                            if (found) {
-                                totalPatients = docs.length;
-                                if (found >= 0.143) {
-                                    //most probably to live with cancer long time
-                                    ++countSurvive;
-                                }
-                                else {
-                                    //most probably to die form cancer soon
-                                    ++countDie;
+                if(doc.Name != null && doc != null){
+                    dataNormalizerCervical.getNormalizedData(doc.Name, doc.Surname, function (array) {
+                        if (array == null) {
+                            throw new Error('Array empty');
+                        }
+                        else {
+                            //console.log('fetching '+ array);
+                            nn.testNetwork(req, array, function (found) {
+                                if (found) {
+                                    totalPatients = docs.length;
+                                    if (found >= 0.143) {
+                                        //most probably to live with cancer long time
+                                        ++countSurvive;
+                                    }
+                                    else {
+                                        //most probably to die form cancer soon
+                                        ++countDie;
+
+                                    }
+
+                                    if ((countDie + countSurvive) == totalPatients) {
+                                        console.log('Why!!!!!!!!1');
+                                        nn.calculatePercentage(req, totalPatients, countSurvive, countDie, function (value) {
+                                            if (value.percentSurvive == 0 && value.percentDie == 0) {
+                                                console.log('nothing');
+                                            }
+                                            else {
+                                                console.log(value.percentSurvive + "   " + value.percentDie);
+
+                                                res.render('pims_neuralnet/testAI', {
+                                                    title: 'PIMS Neural Network',
+                                                    die: value.percentDie,
+                                                    survive: value.percentSurvive,
+                                                    formName: getFormVal[1],
+                                                    year: "5 years"
+                                                });
+                                                countDie = 0;
+                                                countSurvive = 0;
+
+                                            }
+                                        });
+
+
+                                    }
 
                                 }
+                            });
+                        }
+                    });
+                }
 
-                                if ((countDie + countSurvive) == totalPatients) {
-                                    console.log('Why!!!!!!!!1');
-                                    nn.calculatePercentage(totalPatients, countSurvive, countDie, function (value) {
-                                        if (value.percentSurvive == 0 && value.percentDie == 0) {
-                                            console.log('nothing');
-                                        }
-                                        else {
-                                            console.log(value.percentSurvive + "   " + value.percentDie);
-
-                                            res.render('pims_neuralnet/testAI', {
-                                                title: 'PIMS Neural Network',
-                                                die: value.percentDie,
-                                                survive: value.percentSurvive,
-                                                formName: getFormVal[1],
-                                                year: "5 years"
-                                            });
-                                            countDie = 0;
-                                            countSurvive = 0;
-
-                                        }
-                                    });
-
-
-                                }
-
-                            }
-                        });
-                    }
-                });
             });
 
         });
@@ -1177,54 +1292,57 @@ router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function (req, res, n
             docs.forEach(function (doc) {
                 //console.log("hey " + doc.Name + " "+ doc.Surname);
                 //console.log('size '+ docs.length);
-                dataNormalizerEndometrial.getNormalizedData(doc.Name, doc.Surname, function (array) {
-                    if (array == null) {
-                        throw new Error('Array empty');
-                    }
-                    else {
-                        //console.log('fetching '+ array);
-                        nn.testNetwork(array, function (found) {
-                            if (found) {
-                                totalPatients = docs.length;
-                                if (found >= 0.143) {
-                                    //most probably to live with cancer long time
-                                    ++countSurvive;
-                                }
-                                else {
-                                    //most probably to die form cancer soon
-                                    ++countDie;
+                if(doc.Name != null && doc != null){
+                    dataNormalizerEndometrial.getNormalizedData(doc.Name, doc.Surname, function (array) {
+                        if (array == null) {
+                            throw new Error('Array empty');
+                        }
+                        else {
+                            //console.log('fetching '+ array);
+                            nn.testNetwork(req,array, function (found) {
+                                if (found) {
+                                    totalPatients = docs.length;
+                                    if (found >= 0.143) {
+                                        //most probably to live with cancer long time
+                                        ++countSurvive;
+                                    }
+                                    else {
+                                        //most probably to die form cancer soon
+                                        ++countDie;
+
+                                    }
+
+                                    if ((countDie + countSurvive) == totalPatients) {
+                                        console.log('Why!!!!!!!!1');
+                                        nn.calculatePercentage(req, totalPatients, countSurvive, countDie, function (value) {
+                                            if (value.percentSurvive == 0 && value.percentDie == 0) {
+                                                console.log('nothing');
+                                            }
+                                            else {
+                                                console.log(value.percentSurvive + "   " + value.percentDie);
+
+                                                res.render('pims_neuralnet/testAI', {
+                                                    title: 'PIMS Neural Network',
+                                                    die: value.percentDie,
+                                                    survive: value.percentSurvive,
+                                                    formName: getFormVal[1],
+                                                    year: "5 years"
+                                                });
+                                                countDie = 0;
+                                                countSurvive = 0;
+
+                                            }
+                                        });
+
+
+                                    }
 
                                 }
+                            });
+                        }
+                    });
+                }
 
-                                if ((countDie + countSurvive) == totalPatients) {
-                                    console.log('Why!!!!!!!!1');
-                                    nn.calculatePercentage(totalPatients, countSurvive, countDie, function (value) {
-                                        if (value.percentSurvive == 0 && value.percentDie == 0) {
-                                            console.log('nothing');
-                                        }
-                                        else {
-                                            console.log(value.percentSurvive + "   " + value.percentDie);
-
-                                            res.render('pims_neuralnet/testAI', {
-                                                title: 'PIMS Neural Network',
-                                                die: value.percentDie,
-                                                survive: value.percentSurvive,
-                                                formName: getFormVal[1],
-                                                year: "5 years"
-                                            });
-                                            countDie = 0;
-                                            countSurvive = 0;
-
-                                        }
-                                    });
-
-
-                                }
-
-                            }
-                        });
-                    }
-                });
             });
 
         });
@@ -1519,7 +1637,7 @@ router.get('/neuraltrain', function (req, res, next) {
                 else {
                     console.log('fetching ' + array);
                     //call train network
-                    /*nn.trainMany(array, docs.length,function(trained){
+                    /*nn.trainMany(req, array, docs.length,function(trained){
                      if(trained){
                      //propagate that NN is trained to UI
                      //perhaps show how far training is; iterations maybe

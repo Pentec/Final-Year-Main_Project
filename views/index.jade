@@ -70,12 +70,26 @@ block content
                             a(href='\stats') Query
                         li.sub.statisticstab
                             a(href='\dash.html') Dashboard
-                        li#Predict
-                            a(Href='/neural') Predict
+                        if(active == 'predict')
+                            li#Predict.active
+                                a(Href='/neural') Predict
+                        else
+                            li#Predict
+                                a(Href='/neural') Predict
                 ul.nav.navbar-nav.navbar-right
                     li.nobar.has-sub#settings
                         a(href='#')
                             img(alt="Settings" src='/images/settings.png' height="40px")
+                    li.sub.settings.dropdown
+                        a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Tutorial
+                            span.caret
+                        ul.dropdown-menu
+                            li
+                                a(href='/#', tabindex='-1') Images
+                            li
+                                a(href='/#', tabindex='-1') Video
+                            li
+                                a(href='/docs/UserManual.pdf') User Manual
                     if(!notAdmin)
                         if(active=="editProfile")
                             li.sub.settings.active
@@ -83,7 +97,7 @@ block content
                         else
                             li.sub.settings
                                 a(href="/editProfile") Edit Profile
-                    li.sub.settings
+                    li
                         a(href="/logout") Logout
 
 

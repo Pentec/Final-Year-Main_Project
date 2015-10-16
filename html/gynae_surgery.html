@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Gynaecology Surgery</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/formStyles.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap.css"/>
     <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
@@ -13,12 +14,14 @@
 </head>
 <body>
 
-<nav class="navbar navbar-fixed-top">
+<nav class = "navbar-fixed-top" id = "form-nav">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="/" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
+            <a href="/myAdminSpace" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
         </div>
         <div  class = "nav navbar-nav">
+            <li class="dropdown">
+            </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Abo - ASO
                     <span class="caret"></span></a>
@@ -222,26 +225,31 @@
             },
             "P": {
                 "type": "number",
-                "title": "Parity"
+                "title": "Parity",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "G": {
                 "type": "number",
-                "title": "Gravidity"
+                "title": "Gravidity",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "M": {
                 "type": "number",
-                "title": "Miscarriage"
+                "title": "Miscarriage",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "E": {
                 "type": "number",
-                "title": "Ectopic pregnancy"
+                "title": "Ectopic pregnancy",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "HIV": {
                 "type": "object",
                 "properties": {
                     "HIVStatus": {
                         "type": "string",
-                        "title": "HIV Status"
+                        "title": "HIV Status",
+                        "enum": ["Negative", "Positive"]
                     },
                     "CD4": {
                         "type": "number",
@@ -251,6 +259,7 @@
             },
             "typeOfProcedure": {
                 "type": "object",
+                "title": "Type of procedure",
                 "properties": {
                     "Elective": {
                         "type": "boolean",
@@ -264,6 +273,7 @@
             },
             "firm": {
                 "type": "object",
+                "title": "Firm",
                 "properties": {
                     "G1": {
                         "type": "boolean",
@@ -285,6 +295,7 @@
             },
             "categoryOfProcedure": {
                 "type": "object",
+                "title": "Category of procedure",
                 "properties": {
                     "Oncology": {
                         "type": "boolean",
@@ -306,6 +317,7 @@
             },
             "typeOfAccess": {
                 "type": "object",
+                "title": "Type of access",
                 "properties": {
                     "OpenAbdomen": {
                         "type": "boolean",
@@ -330,6 +342,7 @@
             },
             "performedBy": {
                 "type": "object",
+                "title": "Peformed by",
                 "properties": {
                     "Consultant": {
                         "type": "boolean",
@@ -365,6 +378,7 @@
             },
             "IntraOperativeComplications": {
                 "type": "object",
+                "title": "Intra-operative complications",
                 "properties": {
                     "None": {
                         "type": "boolean",

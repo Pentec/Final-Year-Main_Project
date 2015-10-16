@@ -219,3 +219,5 @@ views/pims_neuralnet/testAIAll.jade
 Documentation/Architectural_Requirements/Auditability.tex
 public/javascripts/libs
 public/libs
+*.html
+*.js

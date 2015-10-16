@@ -4,14 +4,13 @@
  License Information at <http://www.fusioncharts.com/license>
 */
 
-
-
 function CollectDataFromClient(data)
 {
 	globalData = data;
+	console.log(globalData);
 
  FusionCharts.ready(function() {
-
+	
 
     // Global / General Config
     var app,
@@ -37,6 +36,7 @@ function CollectDataFromClient(data)
     /**
      * Properties of all charts
      */
+	 
     chartConfig = {
 
         // Properties for yearly sales chart
@@ -73,26 +73,6 @@ function CollectDataFromClient(data)
             }
         },
 
-
-        // Properties for survival chart
-        survivalDataTab: {
-            type: 'bar3d',
-            id: 'survivalDataTab',
-            width: '473',
-            height: '340',
-            dataFormat: 'json',
-            renderAt: 'survival-categories-tab-chart',
-            dataSource: {
-                chart: {
-                    numberPrefix: '',
-                    yAxisName: 'Patient Status (Percentage)',
-                    theme: 'management-3d'
-                },
-                data: []
-            }
-
-        },
-
         // Properties for top sales performers chart
         topSalesPerformersSummary: {
             type: 'mscolumn3dlinedy',
@@ -103,25 +83,24 @@ function CollectDataFromClient(data)
             renderAt: 'top-sales-performers-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Performers',
-                    pYAxisName: 'Sales (US $ in thousands)',
-                    sYAxisName: 'Units Sold (In thousands)',
+                    numberPrefix: '',
+                    xAxisName: 'Firms',
+                    pYAxisName: 'Number of Patients',
+                    sYAxisName: '',
                     theme: 'management-3d'
                 },
                 categories: [{
                     category: []
                 }],
                 dataset: [{
-                    seriesName: 'Sales',
-                    renderAs: 'column3d',
+                    seriesName: 'G1',
+                    renderAs: 'line',
                     showValues: '0',
                     data: []
                 }, {
-                    seriesName: 'Units Sold',
+                    seriesName: 'G2',
                     renderAs: 'line',
                     showValues: '0',
-                    parentYAxis: 'S',
                     data: []
                 }]
             }
@@ -139,6 +118,7 @@ function CollectDataFromClient(data)
             dataSource: {
                 chart: {
                     yAxisName: 'Number',
+					xAxisName: 'Injuries',
                     numberPrefix: '',
                     theme: 'management-3d',
                     showValues: 0
@@ -158,56 +138,22 @@ function CollectDataFromClient(data)
             renderAt: 'top-revenues-countries-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Countries',
-                    pYAxisName: 'Sales (US $ in thousands)',
-                    sYAxisName: 'Units Sold (In thousands)',
+                    numberPrefix: '',
+                    xAxisName: 'Firms',
+                    pYAxisName: 'Number of Patients',
+                    sYAxisName: '',
                     theme: 'management-3d'
                 },
                 categories: [{
                     category: []
                 }],
                 dataset: [{
-                    seriesName: 'Sales',
-                    renderAs: 'column3d',
-                    showValues: '0',
-                    data: []
-                }, {
-                    seriesName: 'Units Sold',
+                    seriesName: 'G3',
                     renderAs: 'line',
                     showValues: '0',
-                    parentYAxis: 'S',
-                    data: []
-                }]
-            }
-        },
-
-        // Properties for top products chart
-        topProductsSummary: {
-            type: 'mscolumn3dlinedy',
-            id: 'topProductsSummary',
-            width: '968',
-            height: '340',
-            dataFormat: 'json',
-            renderAt: 'top-products-chart',
-            dataSource: {
-                chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Products',
-                    pYAxisName: 'Amount (US $ in thousands)',
-                    sYAxisName: 'Units Sold',
-                    theme: 'management-3d'
-                },
-                categories: [{
-                    category: []
-                }],
-                dataset: [{
-                    seriesName: 'Amount',
-                    renderAs: 'column3d',
-                    showValues: '0',
                     data: []
                 }, {
-                    seriesName: 'Units Sold',
+                    seriesName: 'Oncology',
                     renderAs: 'line',
                     showValues: '0',
                     parentYAxis: 'S',
@@ -264,10 +210,10 @@ function CollectDataFromClient(data)
             renderAt: 'top-monthly-sales-tab-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
+                    numberPrefix: '',
                     xAxisName: 'Month',
-                    pYAxisName: 'Amount (US $ in thousands)',
-                    sYAxisName: 'Total Units Sold (In thousands)',
+                    pYAxisName: 'Number of patients',
+                    sYAxisName: '',
                     theme: 'management-3d'
                 },
                 categories: [{
@@ -302,7 +248,7 @@ function CollectDataFromClient(data)
                     renderAs: 'line',
                     data: []
                 }, {
-                    seriesName: 'Total Units Sold',
+                    seriesName: 'Tot # of Patients',
                     renderAs: 'line',
                     dashed: '1',
                     parentYAxis: 'S',
@@ -651,7 +597,7 @@ function CollectDataFromClient(data)
             }
 
             var charts = getElementsByClassName('div', 'fusioncharts-container');
-            var chartsLength = charts.length
+            var chartsLength = charts.length;
 
             for (i = 0; i < chartsLength; i++) {
                 charts[i].style.position = '';
@@ -871,9 +817,8 @@ function CollectDataFromClient(data)
         self.hide = function() {
             dom.getById(self.config.renderAt + '-table').style.display = 'none';
         };
-    };
-
-    /**
+    }
+     /**
      * Consists of all the dashboards.
      */
     dashboards = {
@@ -1250,11 +1195,6 @@ function CollectDataFromClient(data)
         }
     };
 
-        // Config for Top Products Chart.
-        var topProductsSummaryChart,
-            topProductsSummaryChartConfig = chartConfig.topProductsSummary,
-            topProductsSummaryCategories = managementData.topProductsSummaryCategories,
-            topProductsSummaryData = managementData.topProductsSummaryData;
 
         // Config for Top Countries by Revenue Chart.
         var topRevenuesCountriesSummaryChart,
@@ -1289,11 +1229,8 @@ function CollectDataFromClient(data)
         topRevenuesCountriesSummaryChart = new FusionCharts(topRevenuesCountriesSummaryChartConfig);
         topRevenuesCountriesSummaryChart.render();
 
-        // Top Products Chart
-        chartDataSource.setCategories(topProductsSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(5, topProductsSummaryCategories[currentYear]));
-        chartDataSource.setDataSetData(topProductsSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(5, topProductsSummaryData[currentYear]));
-        topProductsSummaryChart = new FusionCharts(topProductsSummaryChartConfig);
-        topProductsSummaryChart.render();
+
+	
 
 
          /**
@@ -1320,30 +1257,8 @@ function CollectDataFromClient(data)
             topSalesPerformersChart.setJSONData(topSalesPerformersChartConfig.dataSource);
         });
 
-         /**
-           * Event Listeners for top products chart.
-          */
-
-        // Year filter
-        eventListeners.add('top_products_summary_year_filter', 'change', function() {
-            var year = dom.queryCurrentValue('top_products_summary_year_filter', this);
-            var numberOfProducts = dom.getElementValue('top_products_summary_number_filter');
-
-            chartDataSource.setCategories(topProductsSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(numberOfProducts, topProductsSummaryCategories[year]));
-            chartDataSource.setDataSetData(topProductsSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(numberOfProducts, topProductsSummaryData[year]));
-            topProductsSummaryChart.setJSONData(topProductsSummaryChartConfig.dataSource);
-        });
-
-        // Number filter.
-        eventListeners.add('top_products_summary_number_filter', 'change', function() {
-            var numberOfProducts = dom.queryCurrentValue('top_products_summary_number_filter', this);
-            var year = dom.getElementValue('top_products_summary_year_filter');
-
-            chartDataSource.setCategories(topProductsSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(numberOfProducts, topProductsSummaryCategories[year]));
-            chartDataSource.setDataSetData(topProductsSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(numberOfProducts, topProductsSummaryData[year]));
-            topProductsSummaryChart.setJSONData(topProductsSummaryChartConfig.dataSource);
-        });
-
+       
+		
         /**
           * Event Listeners for top categories chart.
           */
@@ -1400,38 +1315,697 @@ function CollectDataFromClient(data)
 
     // Sales Dashboard / Dashboard Tab 2
     dashboards.add('sales', function() {
-        // Config for Survival Chart.
-
-
-        /*var survivalDataTabChart,
-            survivalDataTabChartConfig = chartConfig.survivalDataTab,
-            survivalDataTabCategories = managementData.survivalDataTabCategories,
-            survivalDataTabData = managementData.survivalDataTabData;*/
-
-
 
         // Config for Top Categories by Sales Chart.
         var topCategoriesSalesTabChart,
             topCategoriesSalesTabChartConfig = chartConfig.topCategoriesSalesTab,
             topCategoriesSalesTabCategories = managementData.topCategoriesSalesTabCategories,
-            topCategoriesSalesTabData = managementData.topCategoriesSalesTabData;
+            topCategoriesSalesTabData = {
+        "2014": [{
+            "data": [{
+                "label": "Fallopian Tube Cancer",
+                "value":  globalData[2][0],
+                "link": "#sales"
+            }, {
+                "label": "Endometrial Cancer",
+                "value": globalData[2][1],
+                "link": "#sales"
+            }, {
+                "label": "Ovarian Cancer",
+                "value": globalData[2][2],
+                "link": "#sales"
+            }, {
+                "label": "Cervical Cancer",
+                "value": globalData[2][3],
+                "link": "#sales"
+            }, {
+                "label": "Vulva Cancer",
+                "value": globalData[2][4],
+                "link": "#sales"
+            }, {
+
+                "label": "Vaginal Cancer",
+                "value": globalData[2][5],
+                "link": "#sales"
+            }, {
+
+                "label": "Gestational Throphoblastic Disease",
+                "value": globalData[2][6],
+                "link": "#sales"
+            }]
+        }]
+    };
 
         // Config for Top Performers by Sales Chart.
         var topPerformersSalesTabChart,
             topPerformersSalesTabChartConfig = chartConfig.topPerformersSalesTab,
-            topPerformersSalesTabData = managementData.topPerformersSalesTabData;
+            topPerformersSalesTabData = {
+				//Mexican (just a key word to find this line)
+        "2014": [{
+            "data": {
+                "label": "Threatening",
+                "value": globalData[10][0],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Complete",
+                "value": globalData[10][1],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Incomplete",
+                "value": globalData[10][2],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Septic",
+                "value": globalData[10][3],
+                "link": "#sales"
+            }
+        }],
+        "2013": [{
+            "data": {
+                "label": "ASO I",
+                "value": globalData[11][0],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "ASO II",
+                "value": globalData[11][1],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "ASO III",
+                "value": globalData[11][2],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "ASO IV",
+                "value":globalData[11][3],
+                "link": "#sales"
+            }
+        }],
+		"2012": [{
+            "data": {
+                "label": "Ruptured",
+                "value": globalData[12][0],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Unruptured",
+                "value": globalData[12][1],
+                "link": "#sales"
+            }
+        }],
+
+        "2011": [{
+            "data": {
+                "label": "Cervix",
+                "value": globalData[13][0],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Endometrium",
+                "value":  globalData[13][1],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Ovarian",
+                "value":  globalData[13][2],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Vulva",
+                "value":  globalData[13][3],
+                "link": "#sales"
+            }
+        }, {
+            "data": {
+                "label": "Vagina",
+                "value": globalData[13][4],
+                "link": "#sales"
+            }
+        },
+            {
+                "data": {
+                    "label": "Chorio / GTD",
+                    "value":  globalData[13][5],
+                    "link": "#sales"
+                }
+            }]
+    };
 
         // Config for drilldown on top performers by sales chart.
         var singleSalePerformerSalesTabChart,
             singleSalePerformerSalesTabConfig = chartConfig.singleSalePerformerSalesTab,
             singleSalePerformerSalesTabCategories = managementData.singleSalePerformerSalesTabCategories,
-            singleSalePerformerSalesTabData = managementData.singleSalePerformerSalesTabData;
+            singleSalePerformerSalesTabData =  { //Peppers
+
+        "incomplete": [{
+            "data": [{
+                "value": globalData[16][0]
+            }, {
+                "value": globalData[16][1]
+            }, {
+                "value": globalData[16][2]
+            }, {
+                "value": globalData[16][3]
+            }]
+        }, {
+            "data": [{
+                "value": globalData[16][0]
+            }, {
+                "value": globalData[16][1]
+            }, {
+                "value": globalData[16][2]
+            }, {
+                "value": globalData[16][3]
+            }]
+        }],
+
+
+        "complete": [{
+            "data": [{
+                "value": globalData[15][0]
+            }, {
+                "value": globalData[15][1]
+            }, {
+                "value": globalData[15][2]
+            }, {
+                "value": globalData[15][3]
+            }]
+        }, {
+            "data": [{
+                "value": globalData[15][0]
+            }, {
+                "value": globalData[15][1]
+            }, {
+                "value": globalData[15][2]
+            }, {
+                "value": globalData[15][3]
+            }]
+        }],
+
+
+        "threatening": [{
+            "data": [{
+                "value": globalData[14][0]
+            }, {
+                "value": globalData[14][1]
+            }, {
+                "value": globalData[14][2]
+            }, {
+                "value": globalData[14][3]
+            }]
+        }, {
+            "data": [{
+                "value": globalData[14][0]
+            }, {
+                "value": globalData[14][1]
+            }, {
+                "value": globalData[14][2]
+            }, {
+                "value": globalData[14][3]
+            }]
+        }],
+
+        "septic": [{
+            "data": [{
+                "value": globalData[17][0]
+            }, {
+                "value": globalData[17][1]
+            }, {
+                "value": globalData[17][2]
+            }, {
+                "value": globalData[17][3]
+            }]
+        }, {
+            "data": [{
+                "value": globalData[17][0]
+            }, {
+                "value": globalData[17][1]
+            }, {
+                "value": globalData[17][2]
+            }, {
+                "value": globalData[17][3]
+            }]
+        }],
+
+        /////////Sal
+        "aso_i": [{
+            "data": [{
+                "value":  globalData[18][0]
+            }, {
+                "value":  globalData[18][1]
+            }, {
+                "value":  globalData[18][2]
+            }, {
+                "value":  globalData[18][3]
+            }]
+        }, {
+            "data": [{
+                "value":  globalData[18][0]
+            }, {
+                "value":  globalData[18][1]
+            }, {
+                "value":  globalData[18][2]
+            }, {
+                "value":  globalData[18][3]
+            }]
+        }],
+
+        "aso_ii": [{
+            "data": [{
+                "value":  globalData[19][0]
+            }, {
+                "value":  globalData[19][1]
+            }, {
+                "value":  globalData[19][2]
+            }, {
+                "value":  globalData[19][3]
+            }]
+        }, {
+            "data": [{
+                "value":  globalData[19][0]
+            }, {
+                "value":  globalData[19][1]
+            }, {
+                "value":  globalData[19][2]
+            }, {
+                "value":  globalData[19][3]
+            }]
+        }],
+
+        "aso_iii": [{
+            "data": [{
+                "value":  globalData[20][0]
+            }, {
+                "value":  globalData[20][1]
+            }, {
+                "value":  globalData[20][2]
+            }, {
+                "value":  globalData[20][3]
+            }]
+        }, {
+            "data": [{
+                "value":  globalData[20][0]
+            }, {
+                "value":  globalData[20][1]
+            }, {
+                "value":  globalData[20][2]
+            }, {
+                "value":  globalData[20][3]
+            }]
+        }],
+        "aso_iv": [{
+            "data": [{
+                "value":  globalData[21][0]
+            }, {
+                "value":  globalData[21][1]
+            }, {
+                "value":  globalData[21][2]
+            }, {
+                "value":  globalData[21][3]
+            }]
+        }, {
+            "data": [{
+                "value":  globalData[21][0]
+            }, {
+                "value":  globalData[21][1]
+            }, {
+                "value":  globalData[21][2]
+            }, {
+                "value":  globalData[21][3]
+            }]
+        }],
+
+        ////Oncology
+        "cervix": [{
+            "data": [{
+                "value":  globalData[24][0]
+            }, {
+                "value":  globalData[24][1]
+            }, {
+                "value":  globalData[24][2]
+            }, {
+                "value":  globalData[24][3]
+            }]
+        }, {
+            "data": [{
+                "value":  globalData[24][0]
+            }, {
+                "value":  globalData[24][1]
+            }, {
+                "value":  globalData[24][2]
+            }, {
+                "value":  globalData[24][3]
+            }]
+        }],
+
+        "endometrium": [{
+            "data": [{
+                "value":  globalData[25][0]
+            }, {
+                "value":  globalData[25][1]
+            }, {
+                "value":  globalData[25][2]
+            }, {
+                "value":  globalData[25][3]
+            }]
+        }, {
+            "data": [{
+                "value":  globalData[25][0]
+            }, {
+                "value":  globalData[25][1]
+            }, {
+                "value":  globalData[25][2]
+            }, {
+                "value":  globalData[25][3]
+            }]
+        }],
+
+        "ovarian": [{
+            "data": [{
+                "value":  globalData[26][0]
+            }, {
+                "value":  globalData[26][1]
+            }, {
+                "value":  globalData[26][2]
+            }, {
+                "value":  globalData[26][3]
+            }]
+        }, {
+            "data": [{
+                "value":  globalData[26][0]
+            }, {
+                "value":  globalData[26][1]
+            }, {
+                "value":  globalData[26][2]
+            }, {
+                "value":  globalData[26][3]
+            }]
+        }],
+        "vulva": [{
+            "data": [{
+                "value":  globalData[27][0]
+            }, {
+                "value":  globalData[27][1]
+            }, {
+                "value":  globalData[27][2]
+            }, {
+                "value":  globalData[27][3]
+            }]
+        }, {
+            "data": [{
+                "value":  globalData[27][0]
+            }, {
+                "value":  globalData[27][1]
+            }, {
+                "value":  globalData[27][2]
+            }, {
+                "value":  globalData[27][3]
+            }]
+        }],
+        "vagina": [{
+            "data": [{
+                "value":  globalData[28][0]
+            }, {
+                "value":  globalData[28][1]
+            }, {
+                "value":  globalData[28][2]
+            }, {
+                "value":  globalData[28][3]
+            }]
+        }, {
+            "data": [{
+                "value":  globalData[28][0]
+            }, {
+                "value":  globalData[28][1]
+            }, {
+                "value":  globalData[28][2]
+            }, {
+                "value":  globalData[28][3]
+            }]
+        }],
+        "chorio_gtd": [{
+            "data": [{
+                "value":  globalData[29][0]
+            }, {
+                "value":  globalData[29][1]
+            }, {
+                "value":  globalData[29][2]
+            }, {
+                "value":  globalData[29][3]
+            }]
+        }, {
+            "data": [{
+                "value":  globalData[29][0]
+            }, {
+                "value":  globalData[29][1]
+            }, {
+                "value":  globalData[29][2]
+            }, {
+                "value":  globalData[29][3]
+            }]
+        }],
+        "ruptured": [{
+            "data": [{
+                "value":  globalData[22][0]
+            }, {
+                "value":  globalData[22][1]
+            }, {
+                "value":  globalData[22][2]
+            }, {
+                "value":  globalData[22][3]
+            }]
+        }, {
+            "data": [{
+                "value":  globalData[22][0]
+            }, {
+                "value":  globalData[22][1]
+            }, {
+                "value":  globalData[22][2]
+            }, {
+                "value":  globalData[22][3]
+            }]
+        }],
+        "unruptured":[{
+            "data": [{
+                "value":  globalData[23][0]
+            }, {
+                "value":  globalData[23][1]
+            }, {
+                "value":  globalData[23][2]
+            }, {
+                "value":  globalData[23][3]
+            }]
+        }, {
+            "data": [{
+                "value":  globalData[23][0]
+            }, {
+                "value":  globalData[23][1]
+            }, {
+                "value":  globalData[23][2]
+            }, {
+                "value":  globalData[23][3]
+            }]
+        }]
+
+    };
 
         // Config for drilldown on top categories by sales chart.
         var categoryWiseSalesChart,
             categoryWiseSalesChartConfig = chartConfig.categoryWiseSales,
             categoryWiseSalesCategories = managementData.productWiseSalesCategories,
-            categoryWiseSalesData = managementData.productWiseSalesData;
+            categoryWiseSalesData =  {
+        "2014": {
+            "fallopian_tube_cancer": [{
+                "data": [{
+                    "value":  globalData[3][0] //Alive unknown disease
+                }, {
+                    "value": globalData[3][1] //Alive and no evidence of disease
+                }, {
+                    "value": globalData[3][2] // Alive with disease
+                }, {
+                    "value": globalData[3][3] //Dead
+                }]
+            }, {
+                "data": [{
+                    "tooltext": "Alive with unknown disease",
+                    "value":  globalData[3][0]
+                }, {
+                    "tooltext": "Alive and no evidence of disease",
+                    "value": globalData[3][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[3][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[3][3]
+                }]
+            }],
+            "endometrial_cancer": [{
+                "data": [{
+                    "value":  globalData[4][0]
+                }, {
+                    "value":  globalData[4][1]
+                }, {
+                    "value":  globalData[4][2]
+                }, {
+                    "value":  globalData[4][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[4][0]
+                }, {
+                    "tooltext": "Alive and no evidence of disease",
+                    "value": globalData[4][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value":  globalData[4][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value":  globalData[4][3]
+                }]
+            }],
+            "ovarian_cancer": [{
+                "data": [{
+                    "value":  globalData[5][0]
+                }, {
+                    "value": globalData[5][1]
+                }, {
+                    "value": globalData[5][2]
+                }, {
+                    "value": globalData[5][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[5][0]
+                }, {
+                    "tooltext": "Alive and no evidence of disease",
+                    "value": globalData[5][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[5][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[5][3]
+                }]
+            }],
+            "cervical_cancer": [{
+                "data": [{
+                    "value": globalData[6][0]
+                }, {
+                    "value": globalData[6][1]
+                }, {
+                    "value": globalData[6][2]
+                }, {
+                    "value": globalData[6][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[6][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[6][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[6][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[6][3]
+                }]
+            }],
+            "vulva_cancer": [{
+                "data": [{
+                    "value": globalData[7][0]
+                }, {
+                    "value": globalData[7][1]
+                }, {
+                    "value": globalData[7][2]
+                }, {
+                    "value": globalData[7][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[7][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[7][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[7][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[7][3]
+                }]
+            }],
+            "vaginal_cancer": [{
+                "data": [{
+                    "value": globalData[8][0]
+                }, {
+                    "value": globalData[8][1]
+                }, {
+                    "value": globalData[8][2]
+                }, {
+                    "value": globalData[8][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[8][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[8][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[8][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[8][3]
+                }]
+            }],
+            "gestational_throphoblastic_disease": [{
+                "data": [{
+                    "value":  globalData[9][0]
+                }, {
+                    "value": globalData[9][1]
+                }, {
+                    "value": globalData[9][2]
+                }, {
+                    "value": globalData[9][3]
+                }]
+            }, {
+                "data": [{
+                    "tooltext":  "Alive with unknown disease",
+                    "value": globalData[9][0]
+                }, {
+                    "tooltext":  "Alive and no evidence of disease",
+                    "value": globalData[9][1]
+                }, {
+                    "tooltext": "Alive with disease",
+                    "value": globalData[9][2]
+                }, {
+                    "tooltext": "Dead",
+                    "value": globalData[9][3]
+                }]
+            }]
+        }
+    };
 
         // Config for Monthly Sales Chart
         var topMonthlySalesTabChart,
@@ -1480,14 +2054,6 @@ function CollectDataFromClient(data)
           * Event listeners for top monthly sales chart.
           */
 
-        /* Survival filter.
-         eventListeners.add('survival_data_tab_year_filter', 'change', function() {
-         var year = dom.queryCurrentValue('survival_data_tab_year_filter', this);
-
-         chartDataSource.setData(survivalDataTabChartConfig.dataSource, survivalDataTabData[year]);
-         survivalDataTabChart.setJSONData(survivalDataTabChartConfig.dataSource);
-         });*/
-
         // Year filter.
         eventListeners.add('top_monthly_sales_year_filter', 'change', function() {
             var year = dom.queryCurrentValue('top_monthly_sales_year_filter', this);
@@ -1533,7 +2099,6 @@ function CollectDataFromClient(data)
 
     // KPI Dashboard / Dashboard Tab 3
     dashboards.add('kpi', function() {
-
         /*var survivalDataTabChart,
             survivalDataTabChartConfig = chartConfig.survivalDataTab,
             survivalDataTabCategories = managementData.survivalDataTabCategories,
@@ -1561,12 +2126,6 @@ function CollectDataFromClient(data)
             costOfGoodsSoldCategories = managementData.costOfGoodsSoldCategories,
             costOfGoodsSoldData = managementData.costOfGoodsSoldData;
 
-
-        // Top Survival Chart
-        chartDataSource.setData(survivalDataTabChartConfig.dataSource, survivalDataTabData[currentYear]);
-        survivalDataTabChart = new FusionCharts(survivalDataTabChartConfig);
-        survivalDataTabChart.render();
-
         // Inventory By Product Categories Chart
         chartDataSource.setData(inventoryByProductCategoriesChartConfig.dataSource, inventoryByProductCategoriesData);
         inventoryByProductCategoriesChart = new FusionCharts(inventoryByProductCategoriesChartConfig);
@@ -1589,6 +2148,7 @@ function CollectDataFromClient(data)
         chartDataSource.setDataSetData(costOfGoodsSoldChartConfig.dataSource, costOfGoodsSoldData[currentYear]);
         costOfGoodsSoldChart = new FusionCharts(costOfGoodsSoldChartConfig);
         costOfGoodsSoldChart.render();
+
 
         /*eventListeners.add('survival_data_tab_year_filter', 'change', function() {
             var year = dom.queryCurrentValue('survival_data_tab_year_filter', this);
@@ -1727,7 +2287,7 @@ function CollectDataFromClient(data)
         var pattern = /MSIE (\d+\.\d+);/;
 
         if (pattern.test(window.navigator.userAgent)) {
-            var ieversion = new Number(RegExp.$1)
+            var ieversion = Number(RegExp.$1);
 
             return ieversion;
         }
@@ -1768,35 +2328,15 @@ function CollectDataFromClient(data)
 
         // Event Listeners for sales link
         eventListeners.add('sales-link', 'click', function(e) {
-            dashboards.show('sales');
+			
+            
+			dashboards.show('sales');
         });
 
         // Event Listeners for kpi link
         eventListeners.add('kpi-link', 'click', function(e) {
-            //e.preventDefault();
-            $.ajax({
-                type: 'POST',
-                url: '/getSurvivalStats',
-                success: function (data, textStatus, jqXHR){
-                    var res = JSON.parse(jqXHR.responseText);
-                    //console.log("This is what it looks like " + res.arrSend[0] );
-                    sendDataToGraph(res);
-                },
-                dataType: "json",
-                contentType: "application/json"
-            });
-            //sendDataToGraph("hello");
-            dashboards.show('kpi');//shows the kpi div that contains the multiple graphs
-
-
+            dashboards.show('kpi');
         });
-
-        /*Event Listeners for survivalStats link
-        eventListeners.add('getSurvivalStats', 'click', function(e) {
-            dashboards.show('survivalStats');
-        });*/
-
-        //<!--<li><a href="/getSurvivalStats" id="survivalStats">Survival Data</a>-->
 
         urlHandler();
 
@@ -4047,3 +4587,4 @@ function sendDataToGraph(surviveData){
 
     });
 }
+

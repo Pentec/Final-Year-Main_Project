@@ -379,6 +379,13 @@ var normalizeHIV = function(patient){
     return value;
 };
 
+/**
+ * @function Gets patients age using the date of birth
+ * @param birth_day The day of birth
+ * @param birth_month The month of birth
+ * @param birth_year The year of birth
+ * @returns {number} Returns the age in a number
+ */
 function getPatientAge(birth_day,birth_month,birth_year)
 {
     var today_date = new Date();

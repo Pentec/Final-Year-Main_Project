@@ -955,24 +955,24 @@ var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<div class=\'fb-edit-section-header\'>Options</div>\n\n';
- if (typeof includeBlank !== 'undefined'){ ;
-__p += '\n  <label>\n    <input type=\'checkbox\' data-rv-checked=\'model.' +
+  if (typeof includeBlank !== 'undefined') {
+    __p += '\n  <label>\n    <input type=\'checkbox\' data-rv-checked=\'model.' +
 ((__t = ( Formbuilder.options.mappings.INCLUDE_BLANK )) == null ? '' : __t) +
 '\' />\n    Include blank\n  </label>\n';
- } ;
-__p += '\n\n<div class=\'option\' data-rv-each-option=\'model.' +
+ }
+  __p += '\n\n<div class=\'option\' data-rv-each-option=\'model.' +
 ((__t = ( Formbuilder.options.mappings.OPTIONS )) == null ? '' : __t) +
 '\'>\n  <input type="checkbox" class=\'js-default-updated\' data-rv-checked="option:checked" />\n  <input type="text" data-rv-input="option:label" class=\'option-label-input\' />\n  <a class="js-add-option ' +
 ((__t = ( Formbuilder.options.BUTTON_CLASS )) == null ? '' : __t) +
 '" title="Add Option"><i class=\'fa fa-plus-circle\'></i></a>\n  <a class="js-remove-option ' +
 ((__t = ( Formbuilder.options.BUTTON_CLASS )) == null ? '' : __t) +
 '" title="Remove Option"><i class=\'fa fa-minus-circle\'></i></a>\n</div>\n\n';
- if (typeof includeOther !== 'undefined'){ ;
-__p += '\n  <label>\n    <input type=\'checkbox\' data-rv-checked=\'model.' +
+  if (typeof includeOther !== 'undefined') {
+    __p += '\n  <label>\n    <input type=\'checkbox\' data-rv-checked=\'model.' +
 ((__t = ( Formbuilder.options.mappings.INCLUDE_OTHER )) == null ? '' : __t) +
 '\' />\n    Include "other"\n  </label>\n';
- } ;
-__p += '\n\n<div class=\'fb-bottom-add\'>\n  <a class="js-add-option ' +
+ }
+  __p += '\n\n<div class=\'fb-bottom-add\'>\n  <a class="js-add-option ' +
 ((__t = ( Formbuilder.options.BUTTON_CLASS )) == null ? '' : __t) +
 '">Add option</a>\n</div>\n';
 
@@ -1026,26 +1026,26 @@ var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<div class=\'fb-tab-pane active\' id=\'addField\'>\n  <div class=\'fb-add-field-types\'>\n    <div class=\'section\'>\n      ';
- _.each(_.sortBy(Formbuilder.inputFields, 'order'), function(f){ ;
-__p += '\n        <a data-field-type="' +
+  _.each(_.sortBy(Formbuilder.inputFields, 'order'), function (f) {
+    __p += '\n        <a data-field-type="' +
 ((__t = ( f.field_type )) == null ? '' : __t) +
 '" class="' +
 ((__t = ( Formbuilder.options.BUTTON_CLASS )) == null ? '' : __t) +
 '">\n          ' +
 ((__t = ( f.addButton )) == null ? '' : __t) +
 '\n        </a>\n      ';
- }); ;
-__p += '\n    </div>\n\n    <div class=\'section\'>\n      ';
- _.each(_.sortBy(Formbuilder.nonInputFields, 'order'), function(f){ ;
-__p += '\n        <a data-field-type="' +
+ });
+  __p += '\n    </div>\n\n    <div class=\'section\'>\n      ';
+  _.each(_.sortBy(Formbuilder.nonInputFields, 'order'), function (f) {
+    __p += '\n        <a data-field-type="' +
 ((__t = ( f.field_type )) == null ? '' : __t) +
 '" class="' +
 ((__t = ( Formbuilder.options.BUTTON_CLASS )) == null ? '' : __t) +
 '">\n          ' +
 ((__t = ( f.addButton )) == null ? '' : __t) +
 '\n        </a>\n      ';
- }); ;
-__p += '\n    </div>\n  </div>\n</div>\n';
+ });
+  __p += '\n    </div>\n  </div>\n</div>\n';
 
 }
 return __p
@@ -1159,10 +1159,10 @@ with (obj) {
 __p += '<label>\n  <span>' +
 ((__t = ( Formbuilder.helpers.simple_format(rf.get(Formbuilder.options.mappings.LABEL)) )) == null ? '' : __t) +
 '\n  ';
- if (rf.get(Formbuilder.options.mappings.REQUIRED)) { ;
-__p += '\n    <abbr title=\'required\'>*</abbr>\n  ';
- } ;
-__p += '\n</label>\n';
+  if (rf.get(Formbuilder.options.mappings.REQUIRED)) {
+    __p += '\n    <abbr title=\'required\'>*</abbr>\n  ';
+ }
+  __p += '\n</label>\n';
 
 }
 return __p

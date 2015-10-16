@@ -1,7 +1,8 @@
 //Maybe have it as an AI class
 var synaptic = require('synaptic'), // this line is not needed in the browser
-    fs = require('fs');//,
-    //cervicalNeural = require('../controllers/dataNormalizers/dataNormalizerCervical');
+    fs = require('fs'),
+    logging = require('../../utils/logging.js').logger(),
+    meld = require('meld');
 var Neuron = synaptic.Neuron,
     Layer = synaptic.Layer,
     Network = synaptic.Network,
@@ -52,7 +53,7 @@ var writeNetworkToFile = function(JsonNetwork){
     console.log('done writing');
     //    myPercept = null
 
-}
+};
 
 
 var checkNumPatients = 0;
@@ -110,7 +111,13 @@ var trainMany = function(inputValuesArray, numPatients, callback){
     return callback(doneTraining);
     //will return output values when testing network
     //will return output values when testing network
-}
+};
+
+trainMany = meld.before(trainMany, function() {
+    if(arguments[0].user != null)
+        logging.info("pims-neuralnetwork module | trainMany service request | for User: [" + arguments[0].user.username +  "] | with Access rights [" + arguments[0].user.user_rights + "]");
+
+});
 
 
 
@@ -121,8 +128,8 @@ var trainMany = function(inputValuesArray, numPatients, callback){
  *
  * @param filename
  */
-var testNetwork = function(filename, callback){
-    fs.readFile('./sub-modules/pims-neuralnetwork/trained/survive.json', 'utf8', function(err, data){
+var testNetwork = function(req, filename, callback){
+    fs.readFile('../sub-modules/pims-neuralnetwork/trained/survive.json', 'utf8', function(err, data){
         if(err){
             throw err;
             return callback(false);
@@ -186,9 +193,16 @@ var testNetwork = function(filename, callback){
 
         }
     });
-}
+};
 
-var calculatePercentage = function(total, survive, die, callback){
+
+testNetwork = meld.before(testNetwork, function() {
+    if(arguments[0].user != null)
+        logging.info("pims-neuralnetwork module | testNetwork service request | for User: [" + arguments[0].user.username +  "] | with Access rights [" + arguments[0].user.user_rights + "]");
+
+});
+
+var calculatePercentage = function(req, total, survive, die, callback){
     var percentSurvive = 0, percentDie = 0;
 
     if(total <= 0)
@@ -196,7 +210,7 @@ var calculatePercentage = function(total, survive, die, callback){
         var allPercent = {
             percentSurvive: 0,
             percentDie : 0
-        }
+        };
         return callback(allPercent);
     }
     else{
@@ -207,7 +221,7 @@ var calculatePercentage = function(total, survive, die, callback){
             var allPercent = {
                 percentSurvive: percentSurvive,
                 percentDie : percentDie
-            }
+            };
 
             return callback(allPercent);
         }
@@ -215,15 +229,19 @@ var calculatePercentage = function(total, survive, die, callback){
             var allPercent = {
                 percentSurvive: 0,
                 percentDie : 0
-            }
+            };
 
             return callback(allPercent);
         }
-
-
     }
 
-}
+};
+
+calculatePercentage = meld.before(calculatePercentage, function() {
+    if(arguments[0].user != null)
+        logging.info("pims-neuralnetwork module | calculatePercentage service request | for User: [" + arguments[0].user.username +  "] | with Access rights [" + arguments[0].user.user_rights + "]");
+
+});
 
 
 /**
@@ -271,7 +289,19 @@ var trainNetwork = function(inputValuesArray, callback){
     return callback(checkOutput0);
     //will return output values when testing network
 
-}
+};
+
+
+trainNetwork = meld.before(trainNetwork, function() {
+    if(arguments[0].user != null)
+        logging.info("pims-neuralnetwork module | trainNetwork service request | for User: [" + arguments[0].user.username +  "] | with Access rights [" + arguments[0].user.user_rights + "]");
+
+});
+
+
+
+
+
 
 
 
@@ -281,7 +311,7 @@ module.exports = {
     trainMany: trainMany,
     trainNetwork: trainNetwork,
     testNetwork: testNetwork
-}
+};
 
 
 

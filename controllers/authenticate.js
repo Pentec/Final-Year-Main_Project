@@ -1,9 +1,9 @@
 var passport = require('passport'),
-    BasicStrategy = require('passport-http').BasicStrategy;
     LocalStrategy = require('passport-local').Strategy;
 
 var userModel = require('../models/userModel.js');
 var User = userModel.user;
+
 
 passport.serializeUser(function(user, done){
    done(null, user.id);
@@ -26,8 +26,8 @@ passport.deserializeUser(function(id, done){
 
 passport.use(new LocalStrategy({
         username: 'username',
-        password: 'password'/*,
-        passReqToCallback: true*/
+        password: 'password'
+        //passReqToCallback: true
     },
     function(username, password, done){
         User.findOne({'username' : username},
@@ -62,7 +62,6 @@ var userAuthenticated = function userAuthenticated(req, res, next){
     res.redirect('/login');
 };
 
-
 /**
  *
  * @param user
@@ -85,4 +84,15 @@ var passwordValid = function(user, password){
 
 };
 
-module.exports.userAuthenticated = userAuthenticated;
+
+
+
+
+//module.exports.userAuthenticated = userAuthenticated;
+module.exports = {
+    userAuthenticated: userAuthenticated
+    //generateInitVector: generateInitVector,
+    //encrypt: encrypt,
+    //decrypt: decrypt
+
+};

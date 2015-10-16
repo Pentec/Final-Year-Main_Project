@@ -2133,7 +2133,7 @@ var exports = exports || this,
 		this.message = message;
 		this.description = message;  //IE
 		this.details = details;
-	}
+	};
 	InitializationError.prototype = new Error();
 	InitializationError.prototype.constructor = InitializationError;
 	InitializationError.prototype.name = "InitializationError";

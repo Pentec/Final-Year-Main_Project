@@ -36,7 +36,7 @@ var findPatient = function(patientid, callback) {
 
     });
 
-}
+};
 
 
 var sendEmail = function(email, msg, patientname){
@@ -55,7 +55,7 @@ var sendEmail = function(email, msg, patientname){
         subject: 'Kalafong PIMS Patient Follow Up Visit', // Subject line
         text: msg, // pass message here
 
-    }
+    };
 
     transporter.sendMail(mailOptions, function(err, info){
         if(err) {
@@ -68,10 +68,10 @@ var sendEmail = function(email, msg, patientname){
 
     });
 
-}
+};
 
 module.exports = {
     findPatient: findPatient,
     sendEmail: sendEmail
-}
+};
 

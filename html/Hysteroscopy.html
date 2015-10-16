@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Hystercopy</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/formStyles.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap.css"/>
     <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
@@ -13,15 +14,10 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<nav class = "navbar-fixed-top" id = "form-nav">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="/" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
-        </div>
-        <div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/editProfile">My PIMS Space</a></li>
-            </ul>
+            <a href="/myAdminSpace" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
         </div>
     </div>
 </nav>
@@ -65,22 +61,27 @@
             },
             "P": {
                 "type": "number",
-                "title": "Parity"
+                "title": "Parity",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "G": {
                 "type": "number",
-                "title": "Gravidity"
+                "title": "Gravidity",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "M": {
                 "type": "number",
-                "title": "Miscarriage"
+                "title": "Miscarriage",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "E": {
                 "type": "number",
-                "title": "Ectopic pregnancy"
+                "title": "Ectopic pregnancy",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "HIV": {
                 "type": "object",
+                "title": "HIV Data",
                 "properties": {
                     "Negative": {
                         "type": "boolean",
@@ -106,6 +107,7 @@
             },
             "CoMorbidities": {
                 "type": "object",
+                "title": "Co-morbidities",
                 "properties": {
                     "Hypertension": {
                         "type": "boolean",
@@ -131,6 +133,7 @@
             },
             "EndocervicalCanal": {
                 "type": "object",
+                "title": "Endocervical canal",
                 "properties": {
                     "Normal": {
                         "type": "boolean",
@@ -152,6 +155,7 @@
             },
             "UterineCavity": {
                 "type": "object",
+                "title": "Uterine cavity",
                 "properties": {
                     "Normal": {
                         "type": "boolean",
@@ -189,6 +193,7 @@
             },
             "Fibroid": {
                 "type": "object",
+                "title": "Fibroid",
                 "properties": {
                     "Position": {
                         "type": "string",
@@ -202,6 +207,7 @@
             },
             "Polyp": {
                 "type": "object",
+                "title": "Polyp",
                 "properties": {
                     "Position": {
                         "type": "string",
@@ -215,6 +221,7 @@
             },
             "ProceduresPerformedAtTimeOfOfficeHysteroscopy": {
                 "type": "object",
+                "title": "Procedures performed at time of office hysteroscopy",
                 "properties": {
                     "Nil": {
                         "type": "boolean",
@@ -257,6 +264,7 @@
             },
             "NoFurtherTreatment": {
                 "type": "object",
+                "title": "No further treatment",
                 "properties": {
                     "NoTreatmentRequired": {
                         "type": "boolean",
@@ -270,6 +278,7 @@
             },
             "ReferralFor": {
                 "type": "object",
+                "title": "Referral for",
                 "properties": {
                     "OperativeHysteroscopyUnderGA": {
                         "type": "boolean",
@@ -301,10 +310,11 @@
             "PainScoreOutOf10": {
                 "type": "string",
                 "require": true,
-                "title": "Pain score out of 10"
+                "title": "Pain score out of 10",
+                "enum": ["0", "1", "2", "3","4","5","6","7","8","9","10"]
             },
             "Comments": {
-                "type": "string",
+                "type": "textarea",
                 "require": true,
                 "title": "Comments"
             }

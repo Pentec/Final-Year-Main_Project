@@ -6,12 +6,16 @@ var https = require('https');
 var logging = require('../../utils/logging.js').logger();
 var meld = require('meld');
 
+var userModel = require('../../models/userModel.js');
+var User = userModel.user;
+var userController = require('../../controllers/userAuthControl.js');
+
+
 
 var authenticate = function(username, password, callback) {
     var foundUser = false;
-
-    var user = mongoose.model('users');
-    user.findOne({username: username, password: password}, function(err, found){
+    //var user = mongoose.model('users');
+    User.findOne({username: username, password: password}, function(err, found){
         if(err) {
             console.log("DB error");
             callback(err);
@@ -30,44 +34,89 @@ var authenticate = function(username, password, callback) {
 
     });
 
-}
+};
 
+var saveUser = function(callback){
+    var tester = new User({
+        username: "justin",
+        surname: "Liver",
+        email: "liver@gmail.com",
+        profile_pic: "",
+        user_rights: 2,
+        password: "",
+        passwordSalt: "",
+        passwordHash: "",
+        department: "Obs",
+        staff_type: "Intern"
+    });
 
+    tester.save(function(err){
+        if(err){
+            console.log ('Error on save!');
+            return callback(err);
+        }
+        else{
+            console.log('Saved!');
+            return callback(true);
+        }
+    });
+
+};
+
+/**
+ *
+ * @param username
+ * @param password
+ * @param callback
+ */
 var checkAdmin = function(username, password, callback) {
     var isAdmin = false;
 
-    var user = mongoose.model('users');
-    user.findOne({username: username, password: password}, function(err, found){
-        if(err) {
-            console.log("DB error");
-            callback(err);
+    //check if password is valid
+    checkValidPassword(username, password, function(valid){
+        console.log("just checkin "+ valid.passHash);
+        if(valid.hashed == true) {
+            //change to password hash
+            console.log("correct pswd");
+            User.findOne({username: username, passwordHash: valid.passHash}, function(err, found){
+                if(err) {
+                    console.log("DB error");
+                    callback(err);
+                }
+
+                if(found) {
+                    if(found.user_rights == 1)
+                    {
+                        isAdmin = true;
+                        return callback(isAdmin);
+
+                    }
+                    else
+                    {
+                        isAdmin = false;
+                        return callback(isAdmin);
+                    }
+
+
+                }
+
+            });
         }
-
-        if(found) {
-
-            if(found.user_rights == 1)
-            {
-                isAdmin = true;
-                return callback(isAdmin);
-
-            }
-            else
-            {
-                isAdmin = false;
-                return callback(isAdmin);
-            }
-
+        else{
+            console.log("invalid password");
 
         }
 
     });
 
-}
+};
 
 checkAdmin = meld.before(checkAdmin, function() {
-    logging.info("checkAdmin service request | for User: [" + arguments[0] +  "]");
+    if(arguments[0].user != null)
+        logging.info("checkAdmin service request | for User: [" + arguments[0] +  "]");
 
 });
+
 
 /*
 meld.afterReturning(checkAdmin, function(result) {
@@ -168,10 +217,11 @@ var isLoggedIn = function(req, res, next) {
 
 
 isLoggedIn = meld.before(isLoggedIn, function() {
-
-    logging.info("isLoggedIn service request | User [" + arguments[0].user.username +  "] is logging in [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
+    if(arguments[0].user != null)
+        logging.info("isLoggedIn service request | User [" + arguments[0].user.username +  "] is logging in [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
 
 });
+
 
 
 var isAdmin = function(req, res, next) {
@@ -182,9 +232,14 @@ var isAdmin = function(req, res, next) {
 
     if (req.isAuthenticated() && req.user.user_rights != '1')
     {
-        var err = new Error('You are not allowed to access this page');
+        logging.error('isAdmin service request | Error: Access of restricted page /myAdminSpace');
+        /*var err = new Error('You are not allowed to access this page');
         err.status = 400;
-        return next(err);
+        return next(err);*/
+        if(req.user.user_rights == '2')
+        {
+            res.redirect('/mySpace');
+        }
     }
 
     if (!req.isAuthenticated())
@@ -199,8 +254,8 @@ var isAdmin = function(req, res, next) {
 
 
 isAdmin = meld.before(isAdmin, function() {
-
-    logging.info("isAdmin service request | User["+ arguments[0].user.username +"] is admin [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
+    if(arguments[0].user != null)
+        logging.info("isAdmin service request | User["+ arguments[0].user.username +"] is admin [" + arguments[0].isAuthenticated() + "] | "  + arguments[1]);
 
 });
 
@@ -233,10 +288,15 @@ var isNotAdmin = function(req, res, next) {
 
     if (req.isAuthenticated() && req.user.user_rights != '2')
     {
-        var err = new Error('You are not allowed to access this page');
-        logging.error('You are not allowed to access this page, non admin');
-        err.status = 400;
-        return next(err);
+
+        logging.error('isNotAdmin service request | Error: Access of restricted page /mySpace');
+        /*var err = new Error('Page Not Found');
+        err.status = 404;*/
+        if(req.user.user_rights == '1')
+        {
+            res.redirect('/myAdminSpace');
+        }
+        //return next(err);
     }
 
     if (!req.isAuthenticated())
@@ -249,11 +309,13 @@ var isNotAdmin = function(req, res, next) {
 
 };
 
-isNotAdmin = meld.before(isNotAdmin, function() {
 
-    logging.info("isNotAdmin service request | User ["+ arguments[0].user.username +"] is not admin [" + arguments[0].isAuthenticated() + " | " + arguments[0].user.user_rights + "] | "  + arguments[1]);
+isNotAdmin = meld.before(isNotAdmin, function() {
+    if(arguments[0].user != null)
+        logging.info("isNotAdmin service request | User ["+ arguments[0].user.username +"] is not admin [" + arguments[0].isAuthenticated() + " | " + arguments[0].user.user_rights + "] | "  + arguments[1]);
 
 });
+
 
 
 /**
@@ -312,6 +374,7 @@ var postLogin = function(req, res, next)
             sess.username = req.body.username;
             sess.password = req.body.password;*/
 
+
             checkAdmin(req.body.username, req.body.password, function(isAdmin)
             {
                 if(req.user.username && req.user.password)
@@ -352,6 +415,7 @@ var postLogin = function(req, res, next)
                 }
             });
 
+
         })
 
     })(req, res, next);
@@ -363,6 +427,78 @@ postLogin = meld.before(postLogin, function() {
     logging.info("postLogin service request | "+ arguments[0].user.username +" is logging in  with Access Rights [" + arguments[0].user.user_rights + "] | "  + arguments[1]);
 
 });*/
+var runUser = function() {
+
+        userController.saltHashGen(username, password, function(hashed){
+            console.log("hashing and salting " + hashed.sendSalt + "  " + hashed.sendHash);
+
+            //update data
+            /*User.update({username: "a"}, {passwordSalt : hashed.sendSalt }, {passwordHash : hashed.sendHash }, {multi:true}, function(err, numberAffected){
+             console.log("update " + numberAffected);
+             });*/
+            found.passwordSalt = hashed.sendSalt;
+            found.passwordHash = hashed.sendHash;
+            count = 0;
+            found.save();
+        });
+
+};
+
+
+var checkValidPassword = function(username, password, callback){
+
+    //hashing password from UI
+    console.log("in checkValidPassword");
+
+    User.findOne({username: username}, function(err, found){
+        if(err){
+            console.log("DB Error: "+ err);
+            return callback(err);
+        }
+
+        if(found){
+            console.log("found User");
+            userController.saltHashGen(true, found.passwordSalt, username, password, function(hashed){
+                if(hashed != null){
+                    if(hashed.sendHash == found.passwordHash){
+                        var send = {
+                            hashed: true,
+                            passHash: found.passwordHash
+                        };
+                        return callback(send); //and password hash value
+                    }
+                    else{
+                        var send = {
+                            hashed: false,
+                            passHash: null
+                        };
+
+                        return callback(send);
+                    }
+
+                }
+                else{
+                    console.log("hashed is null");
+                }
+            });
+        }
+        else{
+            console.log("no such person");
+            var send = {
+                hashed: false,
+                passHash: null
+            };
+
+            return callback(send);
+        }
+
+
+    });
+
+
+
+};
+
 
 
 module.exports = {
@@ -373,4 +509,5 @@ module.exports = {
     isNotAdmin: isNotAdmin,
     isAdmin: isAdmin,
     verifyRecaptcha: verifyRecaptcha
-}
+
+};

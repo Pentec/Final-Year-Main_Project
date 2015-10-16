@@ -903,7 +903,7 @@
 
         return tinycolor(color);
 
-    }
+    };
 
     // Given a string or object, convert that input to RGB
     // Possible string inputs:
@@ -1231,7 +1231,7 @@
         slices = slices || 30;
 
         var hsl = tinycolor(color).toHsl();
-        var part = 360 / slices
+        var part = 360 / slices;
         var ret = [tinycolor(color)];
 
         hsl.h *= 360;

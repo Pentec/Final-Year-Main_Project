@@ -467,7 +467,7 @@ var FoldMode = exports.FoldMode = function() {};
         var line = session.getLine(row);
         var startColumn = column || line.length;
         var startLevel = line.match(re)[0].length;
-        var maxRow = session.getLength()
+        var maxRow = session.getLength();
         
         while (++row < maxRow) {
             line = session.getLine(row);

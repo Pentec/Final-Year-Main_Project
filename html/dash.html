@@ -46,8 +46,6 @@
     <script type="text/javascript" src="js/fusioncharts.theme.management-dashboard-3d.js"></script>
     <script type="text/javascript" src="js/data.js"></script>
     <script type="text/javascript" src="js/dashboard.js"></script>
-
-
     <![endif]-->
 
 
@@ -61,15 +59,12 @@ $( document ).ready(function() {
 						url: '/fetchDataFromDB',
 						success: function (data, textStatus, jqXHR){
 						  var res = JSON.parse(jqXHR.responseText);
-						 // console.log("This is what it looks like " + res[0][0] );
                           CollectDataFromClient(res);
 							},
 						dataType: "json",
 						contentType: "application/json"
                 });
-
-
-
+				
 });
 			 
 		
@@ -118,14 +113,13 @@ $( document ).ready(function() {
 
                  <a href="/myAdminSpace"><div id="fflogo"></div></a>
 
-
             </div>
 
             <div id="dashboard-content">
 
                 <div id="sidebar" class="pull-left">
                     <div id="profile-pic" class="pull-left">
-                        <img src="/images/snyman.jpg" alt="John Profile Pic"  style ="width:55px;height:55px;" title="John Profile Pic">
+                        <img src="/images/snyman.jpg" alt="User Profile Pic"  style ="width:55px;height:55px;" title="John Profile Pic">
                     </div>
                     <div id="profile-name" class="pull-left">
                         <p>Hello Leon</p>
@@ -139,7 +133,7 @@ $( document ).ready(function() {
                         </li>
                         <li><a href="#sales" id="sales-link">Follow-up data</a>
                         </li>
-                        <li><a href="#kpi" id="kpi-link">Cervical Survival Data</a>
+                        <li><a href="#kpi" id="kpi-link">Survival Data</a>
                         </li>
                     </ul>
                 </div>
@@ -187,33 +181,13 @@ $( document ).ready(function() {
                                 <div id="top-sales-categories-chart"></div>
                             </div>
 							
-							 <div class="chart-category full-width">
-                                <h2 class="chart-category-heading pull-left">Top Products</h2>
-
-                                <!-- Number filter for top products chart -->
-                                <select class="pull-right" id="top_products_summary_number_filter">
-                                    <option value="5">Top 5</option>
-                                    <option value="10">Top 10</option>
-                                </select>
-
-                                <!-- Yearly filter for top products chart -->
-                                <select class="pull-right" id="top_products_summary_year_filter">
-                                    <option value="2014">2014</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2012">2012</option>
-                                </select>
-
-                                <div class="divider clearboth"></div>
-
-                                <!-- Top products chart -->
-                                <div id="top-products-chart"></div>
-
-                            </div>
 							
 							
+							
+		  <!--------------------------------------------------------------------------------------------------------------->
                             <div class="chart-category pull-left">
 							
-                                 <h2 class="chart-category-heading pull-left">Top Sales Performers</h2>
+                                 <h2 class="chart-category-heading pull-left">Admissions per firms(G1/G2)</h2>
 
                                 <!-- Number filter for top sales performers chart -->
                                 <select class="pull-right" id="top_sales_performers_summary_number_filter" name="top_sales_performers_summary_number_filter">
@@ -225,9 +199,7 @@ $( document ).ready(function() {
 
                                 <!-- Yearly filter for top sales performers chart -->
                                 <select class="pull-right" id="top_sales_performers_summary_year_filter">
-                                    <option value="2014">2014</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2012">2012</option>
+                                    <option value="2014">Total Years</option>
                                 </select>
 
 
@@ -240,22 +212,21 @@ $( document ).ready(function() {
                             </div>
 
                             <div class="chart-category pull-right no-border">
-                                <h2 class="chart-category-heading pull-left">Top Countries By Revenue</h2>
+                                <h2 class="chart-category-heading pull-left">Admissions per firm(G3/Oncology)</h2>
 
                                 <!-- Number filter for top countries by revenue chart -->
                                 <select class="pull-right" id="top_revenues_country_number_filter">
                                     <option value="5">Top 5</option>
-                                    <option value="10">Top 10</option>
+                                    <option value="10">Top 12</option>
                                     <!-- <option value="all">All</option> -->
                                 </select>
 
-                                <!-- Yearly filter for top countries by revenue chart -->
+                                <!-- Yearly filter for top countries by revenue chart-->
                                 <select class="pull-right" id="top_revenues_country_year_filter">
-                                    <option value="2014">2014</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2012">2012</option>
+                                    <option value="2014">Total Years</option>
                                 </select>
-
+								 
+								 
                                 <div class="divider clearboth"></div>
 
                                 <!-- Top countries by revenue chart -->
@@ -293,18 +264,16 @@ $( document ).ready(function() {
                             </div>
                            
 
-
-
                             <div class="chart-category pull-right no-border">
-                                <h2 class="chart-category-heading pull-left">Gynaecology Admission Discharge Diagnoses </h2>
+                                <h2 class="chart-category-heading pull-left">Gynaecology Admission Discharge Diagnosis </h2>
 
 
                                 <!-- Yearly filter for top performers by sales chart -->
                                 <select class="pull-right" id="top_performers_sales_year_filter">
                                     <option value="2014">Miscarriage</option>
                                     <option value="2013">Salpingitis</option>
-                                    <option value="2012">Oncology</option>
-                                    <option value="2011">Ectopic</option>
+                                    <option value="2012">Ectopic</option>
+                                    <option value="2011">Oncology</option>
                                 </select>
 
                                 <div class="divider clearboth"></div>
@@ -320,7 +289,7 @@ $( document ).ready(function() {
                             </div>
 
                             <div class="chart-category full-width">
-                                <h2 class="chart-category-heading pull-left">Monthly Sales</h2>
+                                <h2 class="chart-category-heading pull-left">Monthly Statistics</h2>
 
                                 <!-- Yearly filter for monthly sales chart -->
                                 <select class="pull-right" id="top_monthly_sales_year_filter">
@@ -348,15 +317,12 @@ $( document ).ready(function() {
                         <div class="chart-content pull-right">
 
 
-<!------------------------------------------------------------------------------------------------------------------------------------------------------>
-<!------------------------------------------------------------------------------------------------------------------------------------------------------>
 <!----------------------------------------------------------MY tab-------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------------------------------------------------------------>
 <!------------------------------------------------------------------------------------------------------------------------------------------------------>
 
 
                             <div class="chart-category pull-left">
-                                <h2 class="chart-category-heading pull-left">Survival Data</h2>
+                                <h2 class="chart-category-heading pull-left">Cervical Cancer Survival Data</h2>
 
                                 <!-- Yearly filter for survival chart -->
                                 <select class="pull-right" id="survival_data_tab_year_filter">
@@ -378,7 +344,7 @@ $( document ).ready(function() {
                             </div>
 
                         <div class="chart-category pull-right no-border">
-                            <h2 class="chart-category-heading pull-left">Survival Data</h2>
+                            <h2 class="chart-category-heading pull-left">Endometrial Cancer Survival Data</h2>
 
                             <!-- Yearly filter for survival chart -->
                             <select class="pull-left" id="test_data_tab_year_filter">
@@ -401,7 +367,7 @@ $( document ).ready(function() {
 
 
                         <div class="chart-category pull-left">
-                            <h2 class="chart-category-heading pull-left">Survival Data</h2>
+                            <h2 class="chart-category-heading pull-left">Fallopian Tube Cancer Survival Data</h2>
 
                             <!-- Yearly filter for survival chart -->
                             <select class="pull-right" id="test2_data_tab_year_filter">
@@ -423,7 +389,7 @@ $( document ).ready(function() {
                         </div>
 
                         <div class="chart-category pull-right no-border">
-                            <h2 class="chart-category-heading pull-left">Survival Data</h2>
+                            <h2 class="chart-category-heading pull-left">Vulva Cancer Survival Data</h2>
 
                             <!-- Yearly filter for survival chart -->
                             <select class="pull-left" id="test3_data_tab_year_filter">
@@ -444,11 +410,7 @@ $( document ).ready(function() {
 
                         </div>
 
-
-<!------------------------------------------------------------------------------------------------------------------------------------------------------>
-<!------------------------------------------------------------------------------------------------------------------------------------------------------>
 <!----------------------------------------------------------MY tab-------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------------------------------------------------------------>
 <!------------------------------------------------------------------------------------------------------------------------------------------------------>
 
                             <div class="chart-category pull-left">

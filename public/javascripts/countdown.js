@@ -1,3 +1,6 @@
+/**
+ * This function is used for the page countdown until the final demo for COS 301.
+ */
 $(function(){
 
 	var note = $('#note');
@@ -17,7 +20,8 @@ $(function(){
 
 			note.html(message);
 			if(days==0 & hours == 0 && minutes == 0 && seconds == 0){
-				window.location = "/splash"
+				window.location.replace("/splash");
+				exit();
 			}
 		}
 	});
