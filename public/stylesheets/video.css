@@ -1,0 +1,9 @@
+#vidframe{
+    overflow-x: hidden;
+}
+.area{
+    position: relative;
+    margin: 0px auto;
+    padding: 0px;
+
+}
