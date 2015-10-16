@@ -53,7 +53,7 @@ var writeNetworkToFile = function(JsonNetwork){
     console.log('done writing');
     //    myPercept = null
 
-}
+};
 
 
 var checkNumPatients = 0;
@@ -111,7 +111,7 @@ var trainMany = function(inputValuesArray, numPatients, callback){
     return callback(doneTraining);
     //will return output values when testing network
     //will return output values when testing network
-}
+};
 
 trainMany = meld.before(trainMany, function() {
     if(arguments[0].user != null)
@@ -193,7 +193,7 @@ var testNetwork = function(req, filename, callback){
 
         }
     });
-}
+};
 
 
 testNetwork = meld.before(testNetwork, function() {
@@ -210,7 +210,7 @@ var calculatePercentage = function(req, total, survive, die, callback){
         var allPercent = {
             percentSurvive: 0,
             percentDie : 0
-        }
+        };
         return callback(allPercent);
     }
     else{
@@ -221,7 +221,7 @@ var calculatePercentage = function(req, total, survive, die, callback){
             var allPercent = {
                 percentSurvive: percentSurvive,
                 percentDie : percentDie
-            }
+            };
 
             return callback(allPercent);
         }
@@ -229,13 +229,13 @@ var calculatePercentage = function(req, total, survive, die, callback){
             var allPercent = {
                 percentSurvive: 0,
                 percentDie : 0
-            }
+            };
 
             return callback(allPercent);
         }
     }
 
-}
+};
 
 calculatePercentage = meld.before(calculatePercentage, function() {
     if(arguments[0].user != null)
@@ -289,7 +289,7 @@ var trainNetwork = function(inputValuesArray, callback){
     return callback(checkOutput0);
     //will return output values when testing network
 
-}
+};
 
 
 trainNetwork = meld.before(trainNetwork, function() {
@@ -311,7 +311,7 @@ module.exports = {
     trainMany: trainMany,
     trainNetwork: trainNetwork,
     testNetwork: testNetwork
-}
+};
 
 
 

@@ -1,6 +1,9 @@
+/**
+ * This function will hide or show the password on the login page.
+ */
 $(function(){
   $('.hide-show').show();
-  $('.hide-show span').addClass('show password')
+  $('.hide-show span').addClass('show password');
   
   $('.hide-show span').click(function(){
     if( $(this).hasClass('show password') ) {

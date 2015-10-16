@@ -1,3 +1,6 @@
+/**
+ * This function is used for the page countdown until the final demo for COS 301.
+ */
 $(function(){
 
 	var note = $('#note');

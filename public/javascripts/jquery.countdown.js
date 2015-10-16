@@ -97,7 +97,7 @@
 	// Creates an animated transition between the two numbers
 	function switchDigit(position,number){
 		
-		var digit = position.find('.digit')
+		var digit = position.find('.digit');
 		
 		if(digit.is(':animated')){
 			return false;
@@ -127,7 +127,7 @@
 			.removeClass('static')
 			.animate({top:'2.5em',opacity:0},'fast',function(){
 				digit.remove();
-			})
+			});
 
 		replacement
 			.delay(100)

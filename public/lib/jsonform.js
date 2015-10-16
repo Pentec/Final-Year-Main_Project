@@ -3329,7 +3329,7 @@ formTree.prototype.validate = function(noErrorDisplay) {
 
   return {"errors":errors}
 
-}
+};
 
 formTree.prototype.submit = function(evt) {
 
