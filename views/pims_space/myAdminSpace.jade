@@ -47,9 +47,9 @@ block mainContent
                     div
                         ul.nav.nav-pills.nav-stacked.form-menu
                             li
-                                a(href='/#', tabindex='-1') Images
+                                a(href='/#', tabindex='-1' data-toggle="modal" data-target="#myModal") Image Overlay
                             li
-                                a(href='/#', tabindex='-1') Video
+                                a(href='/#', tabindex='-1') Video Overlay
                             li
                                 a(href='/docs/UserManual.pdf') User Manual
             .item
@@ -78,6 +78,50 @@ block mainContent
                 span.sr-only Previous
             a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
                 span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
-                span.sr-only Next
+                span.sr-only Next 
+
+                //Image tutorial overlay
+    #myModal.modal.fade(role='dialog')
+      .modal-dialog model-lg
+        // Modal content
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal') ×
+            h4.modal-title PIMS Tutorial
+          .modal-body
+            p PIMS Space.
+            img(src='images/TutImages/pimsAdminSpace.jpg')
+            br
+            br
+            p Add Users.
+            img(src='images/TutImages/addUser.jpg')
+            br
+            br
+            p Forms.
+            img(src='images/TutImages/forms.jpg')
+            br
+            br
+            p Profile.
+            img(src='images/TutImages/editProfile.jpg')
+            br
+            br
+            p Query.
+            img(src='images/TutImages/Query.jpg')
+            br
+            br
+            p Dashboard.
+            img(src='images/TutImages/Dashboard.jpg')
+            br
+            br
+            p Notifications.
+            img(src='images/TutImages/notifications.jpg')
+            br
+            br
+            p Predict.
+            img(src='images/TutImages/predict.jpg')
+            br
+            br
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Close       
     footer.text-center.center-block
         h2 Pentec PIMS &copy;
