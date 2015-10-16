@@ -614,9 +614,27 @@ router.post('/findSelectedQuery', function (req, res, next) {
         checkAdmission(period, stats, startDate, endDate);
     }
 
-
+    function checkPeriod(period, info){
+        if(period=='"Daily"')
+            return {
+                month: {$month: info},
+                day: {$dayOfMonth: info},
+                year: {$year: info}
+            };
+        else if(period=='"Monthly"'){
+            return {
+                month: {$month: info},
+                year: {$year: info}
+            };
+        }else{
+            return {
+                year: {$year: info}
+            };
+        }
+    }
     function checkEmergency(period, stats, startDate, endDate) {
-
+        var p = checkPeriod(period, "$ProcedureDate");
+        console.log(p)
         GS.aggregate(
             [
                 {
@@ -628,13 +646,14 @@ router.post('/findSelectedQuery', function (req, res, next) {
 
                 {
                     $group: {
-                        _id: {
-                            month: {$month: "$ProcedureDate"},
-                            day: {$dayOfMonth: "$ProcedureDate"},
-                            year: {$year: "$ProcedureDate"}
-                        }, count: {$sum: 1}, ourDate: {$first: "$ProcedureDate"}
+                        _id: p, count: {$sum: 1}, ourDate: {$first: "$ProcedureDate"}
                     }
 
+                },
+                {
+                    $sort: {
+                        "ourDate" : 1
+                    }
                 }
 
             ], function (err, myResult) {
@@ -649,14 +668,6 @@ router.post('/findSelectedQuery', function (req, res, next) {
 
                 }
                 console.log(arr);
-
-                arr.sort(function (a, b) {
-                    if (a.date < b.date)
-                        return -1;
-                    if (a.date > b.date)
-                        return 1;
-                    return 0;
-                });
                 var resBody = {myStatsArry: arr};
                 console.log(resBody);
                 res.json(resBody);
@@ -668,6 +679,7 @@ router.post('/findSelectedQuery', function (req, res, next) {
     }
 
     function checkElective(period, stats, startDate, endDate) {
+        var p = checkPeriod(period, "$ProcedureDate");
         GS.aggregate(
             [
                 {
@@ -679,13 +691,14 @@ router.post('/findSelectedQuery', function (req, res, next) {
 
                 {
                     $group: {
-                        _id: {
-                            month: {$month: "$ProcedureDate"},
-                            day: {$dayOfMonth: "$ProcedureDate"},
-                            year: {$year: "$ProcedureDate"}
-                        }, count: {$sum: 1}, ourDate: {$first: "$ProcedureDate"}
+                        _id: p, count: {$sum: 1}, ourDate: {$first: "$ProcedureDate"}
                     }
 
+                },
+                {
+                    $sort: {
+                        "ourDate" : 1
+                    }
                 }
 
             ], function (err, myResult) {
@@ -701,15 +714,6 @@ router.post('/findSelectedQuery', function (req, res, next) {
                 }
 
                 console.log(arrTwo);
-
-                arrTwo.sort(function (a, b) {
-                    if (a.date < b.date)
-                        return -1;
-                    if (a.date > b.date)
-                        return 1;
-                    return 0;
-                });
-
                 var resBody = {myStatsArry: arrTwo};
                 console.log(resBody);
                 res.json(resBody);
@@ -719,8 +723,8 @@ router.post('/findSelectedQuery', function (req, res, next) {
         );
     }
 
-
     function checkAdmission(period, stats, startDate, endDate) {
+        var p = checkPeriod(period, "$DateofAdmission");
 
 
         AD.aggregate(
@@ -728,13 +732,14 @@ router.post('/findSelectedQuery', function (req, res, next) {
                 {$match: {"DateofAdmission": {'$gte': new Date(startDate), '$lte': new Date(endDate)}}},
                 {
                     $group: {
-                        _id: {
-                            month: {$month: "$DateofAdmission"},
-                            day: {$dayOfMonth: "$DateofAdmission"},
-                            year: {$year: "$DateofAdmission"}
-                        }, count: {$sum: 1}, ourDate: {$first: "$DateofAdmission"}
+                        _id: p, count: {$sum: 1}, ourDate: {$first: "$DateofAdmission"}
                     }
 
+                },
+                {
+                    $sort: {
+                        "ourDate" : 1
+                    }
                 }
 
             ], function (err, myResult) {
@@ -750,14 +755,6 @@ router.post('/findSelectedQuery', function (req, res, next) {
 
                 }
                 console.log(arrThree);
-
-                arrThree.sort(function (a, b) {
-                    if (a.date < b.date)
-                        return -1;
-                    if (a.date > b.date)
-                        return 1;
-                    return 0;
-                });
                 var resBody = {myStatsArry: arrThree};
                 console.log(resBody);
                 res.json(resBody);
@@ -774,19 +771,21 @@ router.post('/findSelectedQuery', function (req, res, next) {
     }
 
     function checkHosPeriod(period, stats, startDate, endDate) {
-
+        var p = checkPeriod(period, "$DateofDischarge");
+        console.log(p);
         AD.aggregate(
             [
                 {$match: {"DateofDischarge": {'$gte': new Date(startDate), '$lte': new Date(endDate)}}},
                 {
                     $group: {
-                        _id: {
-                            month: {$month: "$DateofDischarge"},
-                            day: {$dayOfMonth: "$DateofDischarge"},
-                            year: {$year: "$DateofDischarge"}
-                        }, count: {$sum: 1}, ourDate: {$first: "$DateofDischarge"}
+                        _id: p, count: {$sum: 1}, ourDate: {$first: "$DateofDischarge"}
                     }
 
+                },
+                {
+                    $sort: {
+                        "ourDate" : 1
+                    }
                 }
 
             ], function (err, myResult) {
@@ -802,14 +801,6 @@ router.post('/findSelectedQuery', function (req, res, next) {
 
                 }
                 console.log(arrFour);
-
-                arrFour.sort(function (a, b) {
-                    if (a.date < b.date)
-                        return -1;
-                    if (a.date > b.date)
-                        return 1;
-                    return 0;
-                });
                 var resBody = {myStatsArry: arrFour};
                 console.log(resBody);
                 res.json(resBody);

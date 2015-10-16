@@ -55,11 +55,11 @@ block mainContent
                                 section
                                     select(id='TypeOfSearch').cs-select.cs-skin-elastic
                                         option(value='', disabled='', selected='') Select an Interval
-                                        option(value='none', data-class='nothing',  selected='none') None
-                                        option(value='none', data-class='day',  selected='day') Daily
-                                        option(value='week', data-class='week'  selected=week) Weekly
-                                        option(value='month', data-class='month' selected='monthly') Monthly
-                                        option(value='year', data-class='year' selected=year) Yearly
+                                        //option(value='none', data-class='nothing',  selected='none') None
+                                        option(value='none', data-class='day',  selected='Daily') Daily
+                                        //option(value='week', data-class='week'  selected=week) Weekly
+                                        option(value='month', data-class='month' selected='Monthly') Monthly
+                                        option(value='year', data-class='year' selected="Yearly") Yearly
                             div.form-group.input-daterange
                                 input#StartDate.form-control(type='text', name='startDate', placeholder='Date 1').date-custom
                                 i.glyphicon.glyphicon-calendar
