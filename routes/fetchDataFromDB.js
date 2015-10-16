@@ -129,6 +129,8 @@ AD.aggregate(
 			  
 		   ] , function(err, myResultt)
 		   {	
+		  
+	
 							arrPostOperative[0] = myResultt[0].count;
 AD.aggregate(
 		   [
@@ -210,8 +212,7 @@ AD.aggregate(
 			  
 		   ] , function(err, myResultt)
 		   {	
-		   
-	
+		  
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 				   arrPostOperative[7] = myResultt[0].count;
 				     arr[1] = arrPostOperative;			//Adding Post operative to array
@@ -429,7 +430,8 @@ AD.aggregate(
 					
 				GTN.find(  { "LastKnownVitalStatus.Dead" : { $exists : true }}, function(err, variableReturned)
 			{	
-				
+					
+						
 						GTNA[3] = variableReturned.length;
 				
 				
@@ -439,11 +441,174 @@ AD.aggregate(
 			
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX			
 		
+		
+		//Checking for Diagnosis
+			//Miscarriage
+	   AD.aggregate([ {$match:{ "Miscarriage.Threatening" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)
+			{	
+						//console.log(myvar[0].count);
+						ONEMiscarriage[0] = myvar[0].count;
+					
+	   AD.aggregate([ {$match:{ "Miscarriage.Complete" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)
+			{	
+				
+						ONEMiscarriage[1] = myvar[0].count;
+					
+		AD.aggregate([ {$match:{ "Miscarriage.Incomplete" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)
+			{	
+				
+						ONEMiscarriage[2] = myvar[0].count;
+					
+		AD.aggregate([ {$match:{ "Miscarriage.Septic" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)
+			{	
+				
+						ONEMiscarriage[3] = myvar[0].count;
+					
+				
+				arr[10] = ONEMiscarriage;
+				
+			// End of Miscarriage
+
+			//Salpingitis
+		AD.aggregate([ {$match:{ "Salpingitis.ASOI" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)
+			{	
+						TWOSalpingitis[0] = myvar[0].count;
+		AD.aggregate([ {$match:{ "Salpingitis.ASOII" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)
+			{	
+				
+						TWOSalpingitis[1] = myvar[0].count;
+						
+		AD.aggregate([ {$match:{ "Salpingitis.ASOIII" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)
+			{	
+				
+						TWOSalpingitis[2] = myvar[0].count;
+						
+		AD.aggregate([ {$match:{ "Salpingitis.ASOIV" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)
+			{	
+				
+						TWOSalpingitis[3] = myvar[0].count;
+					
+				
+				arr[11] = TWOSalpingitis;
+			// End of Salpingitis
+
+			//Ectopic
+		AD.aggregate([ {$match:{ "Ectopic.Ruptured" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)
+			{	
+				
+						THREEEctopic[0] = myvar[0].count;
+						
+		AD.aggregate([ {$match:{ "Ectopic.Unruptured" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)					
+			{	
+				
+						THREEEctopic[1] =myvar[0].count;
+					
+				
+				arr[12] = THREEEctopic;
+			// End of Ectopic
+
+			//Oncology
+			AD.aggregate([ {$match:{ "Oncology.Cervix" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)
+			{	
+				
+						FOUROncology[0] = myvar[0].count;
+			AD.aggregate([ {$match:{ "Oncology.Endometrium" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)
+			{	
+				
+						FOUROncology[1] = myvar[0].count;
+			AD.aggregate([ {$match:{ "Oncology.Ovarian" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)	
+			{	
+		
+						FOUROncology[2] = myvar[0].count;
+		AD.aggregate([ {$match:{ "Oncology.Vulva" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)	
+			{	
 			
+						FOUROncology[3] = myvar[0].count;
+		AD.aggregate([ {$match:{ "Oncology.Vagina" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)
+			{	
+		
+						FOUROncology[4] = myvar[0].count;
+		AD.aggregate([ {$match:{ "Oncology.ChorioGTD" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, myvar)
+			{	
+			
+						FOUROncology[5] = myvar[0].count;
+				
+				
+				arr[13] = FOUROncology;
+			// End of Oncology
+			
+			
+			//Check for each firm *************************************************************************************************************
+			//Miscarriage Threatening
+		AD.aggregate([ {$match:{ "Miscarriage.Threatening" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEthreatening[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Miscarriage.Threatening" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEthreatening[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Miscarriage.Threatening" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEthreatening[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Miscarriage.Threatening" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEthreatening[3] = resResult[0].count;
+					
+					arr[14] = ONEthreatening;
+					
+			//Miscarriage Complete	
+		AD.aggregate([ {$match:{ "Miscarriage.Complete" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEcomplete[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Miscarriage.Complete" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEcomplete[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Miscarriage.Complete" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEcomplete[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Miscarriage.Complete" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEcomplete[3] = resResult[0].count;
+					
+					arr[15] = ONEcomplete;
+
+			//Miscarriage Incomplete	
+		AD.aggregate([ {$match:{ "Miscarriage.Incomplete" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEincomplete[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Miscarriage.Incomplete" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEincomplete[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Miscarriage.Incomplete" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEincomplete[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Miscarriage.Incomplete" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEincomplete[3] = resResult[0].count;
+					
+					arr[16] = ONEincomplete;
+					
+			//Miscarriage Septic	
+		AD.aggregate([ {$match:{ "Miscarriage.Septic" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEseptic[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Miscarriage.Septic" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEseptic[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Miscarriage.Septic" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEseptic[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Miscarriage.Septic" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					ONEseptic[3] = resResult[0].count;
+					
+					arr[17] = ONEseptic;
+					
+					
 							  res.json(arr);
 							  console.log("POST response sent.");
 	
-			
+			});});});});   });});});});  });});});});   });});});});
+			});});});});  });});});})  ;});});});});  });});});});
 			});});});});  });});});})  ;});});});});  });});});}); });});});});  });});});}); });});});});
 			});});});});});});});
 		   });});});});});});});});});});});});});

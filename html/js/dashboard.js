@@ -82,25 +82,24 @@ function CollectDataFromClient(data)
             renderAt: 'top-sales-performers-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Performers',
-                    pYAxisName: 'Sales (US $ in thousands)',
-                    sYAxisName: 'Units Sold (In thousands)',
+                    numberPrefix: '',
+                    xAxisName: 'Firms',
+                    pYAxisName: 'Number of Patients',
+                    sYAxisName: '',
                     theme: 'management-3d'
                 },
                 categories: [{
                     category: []
                 }],
                 dataset: [{
-                    seriesName: 'Sales',
-                    renderAs: 'column3d',
+                    seriesName: 'G1',
+                    renderAs: 'line',
                     showValues: '0',
                     data: []
                 }, {
-                    seriesName: 'Units Sold',
+                    seriesName: 'G2',
                     renderAs: 'line',
                     showValues: '0',
-                    parentYAxis: 'S',
                     data: []
                 }]
             }
@@ -118,6 +117,7 @@ function CollectDataFromClient(data)
             dataSource: {
                 chart: {
                     yAxisName: 'Number',
+					xAxisName: 'Injuries',
                     numberPrefix: '',
                     theme: 'management-3d',
                     showValues: 0
@@ -137,42 +137,8 @@ function CollectDataFromClient(data)
             renderAt: 'top-revenues-countries-chart',
             dataSource: {
                 chart: {
-                    numberPrefix: '$',
-                    xAxisName: 'Countries',
-                    pYAxisName: 'Sales (US $ in thousands)',
-                    sYAxisName: 'Units Sold (In thousands)',
-                    theme: 'management-3d'
-                },
-                categories: [{
-                    category: []
-                }],
-                dataset: [{
-                    seriesName: 'Sales',
-                    renderAs: 'column3d',
-                    showValues: '0',
-                    data: []
-                }, {
-                    seriesName: 'Units Sold',
-                    renderAs: 'line',
-                    showValues: '0',
-                    parentYAxis: 'S',
-                    data: []
-                }]
-            }
-        },
-
-        // Properties for top products chart
-        topProductsSummary: {
-            type: 'mscolumn3dlinedy',
-            id: 'topProductsSummary',
-            width: '968',
-            height: '340',
-            dataFormat: 'json',
-            renderAt: 'top-products-chart',
-            dataSource: {
-                chart: {
                     numberPrefix: '',
-                    xAxisName: 'Products',
+                    xAxisName: 'Firms',
                     pYAxisName: 'Number of Patients',
                     sYAxisName: '',
                     theme: 'management-3d'
@@ -181,12 +147,15 @@ function CollectDataFromClient(data)
                     category: []
                 }],
                 dataset: [{
-                    seriesName: 'G1',
+                    seriesName: 'G3',
                     renderAs: 'line',
+                    showValues: '0',
                     data: []
                 }, {
-                    seriesName: 'G2',
+                    seriesName: 'Oncology',
                     renderAs: 'line',
+                    showValues: '0',
+                    parentYAxis: 'S',
                     data: []
                 }]
             }
@@ -1226,11 +1195,6 @@ function CollectDataFromClient(data)
         }
     };
 
-        // Config for Top Products Chart.
-        var topProductsSummaryChart,
-            topProductsSummaryChartConfig = chartConfig.topProductsSummary,
-            topProductsSummaryCategories = managementData.topProductsSummaryCategories,
-            topProductsSummaryData = managementData.topProductsSummaryData;
 
         // Config for Top Countries by Revenue Chart.
         var topRevenuesCountriesSummaryChart,
@@ -1265,11 +1229,8 @@ function CollectDataFromClient(data)
         topRevenuesCountriesSummaryChart = new FusionCharts(topRevenuesCountriesSummaryChartConfig);
         topRevenuesCountriesSummaryChart.render();
 
-        // Top Products Chart
-        chartDataSource.setCategories(topProductsSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(5, topProductsSummaryCategories[currentYear]));
-        chartDataSource.setDataSetData(topProductsSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(5, topProductsSummaryData[currentYear]));
-        topProductsSummaryChart = new FusionCharts(topProductsSummaryChartConfig);
-        topProductsSummaryChart.render();
+
+	
 
 
          /**
@@ -1296,30 +1257,8 @@ function CollectDataFromClient(data)
             topSalesPerformersChart.setJSONData(topSalesPerformersChartConfig.dataSource);
         });
 
-         /**
-           * Event Listeners for top products chart.
-          */
-
-        // Year filter
-        eventListeners.add('top_products_summary_year_filter', 'change', function() {
-            var year = dom.queryCurrentValue('top_products_summary_year_filter', this);
-            var numberOfProducts = dom.getElementValue('top_products_summary_number_filter');
-
-            chartDataSource.setCategories(topProductsSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(numberOfProducts, topProductsSummaryCategories[year]));
-            chartDataSource.setDataSetData(topProductsSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(numberOfProducts, topProductsSummaryData[year]));
-            topProductsSummaryChart.setJSONData(topProductsSummaryChartConfig.dataSource);
-        });
-
-        // Number filter.
-        eventListeners.add('top_products_summary_number_filter', 'change', function() {
-            var numberOfProducts = dom.queryCurrentValue('top_products_summary_number_filter', this);
-            var year = dom.getElementValue('top_products_summary_year_filter');
-
-            chartDataSource.setCategories(topProductsSummaryChartConfig.dataSource, dataHelpers.numberFilterCategories(numberOfProducts, topProductsSummaryCategories[year]));
-            chartDataSource.setDataSetData(topProductsSummaryChartConfig.dataSource, dataHelpers.numberFilterDataSet(numberOfProducts, topProductsSummaryData[year]));
-            topProductsSummaryChart.setJSONData(topProductsSummaryChartConfig.dataSource);
-        });
-
+       
+		
         /**
           * Event Listeners for top categories chart.
           */
@@ -1425,63 +1364,63 @@ function CollectDataFromClient(data)
         "2014": [{
             "data": {
                 "label": "Threatening",
-                "value": 1,
+                "value": globalData[10][0],
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Complete",
-                "value": 2,
+                "value": globalData[10][1],
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Incomplete",
-                "value": 3,
+                "value": globalData[10][2],
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Septic",
-                "value": 4,
+                "value": globalData[10][3],
                 "link": "#sales"
             }
         }],
         "2013": [{
             "data": {
                 "label": "ASO I",
-                "value": 1,
+                "value": globalData[11][0],
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "ASO II",
-                "value": 5,
+                "value": globalData[11][1],
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "ASO III",
-                "value": 7,
+                "value": globalData[11][2],
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "ASO IV",
-                "value": 9,
+                "value":globalData[11][3],
                 "link": "#sales"
             }
         }],
 		"2012": [{
             "data": {
                 "label": "Ruptured",
-                "value": 3,
+                "value": globalData[12][0],
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Unruptured",
-                "value": 6,
+                "value": globalData[12][1],
                 "link": "#sales"
             }
         }],
@@ -1489,38 +1428,38 @@ function CollectDataFromClient(data)
         "2011": [{
             "data": {
                 "label": "Cervix",
-                "value": 2,
+                "value": globalData[13][0],
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Endometrium",
-                "value": 4,
+                "value":  globalData[13][1],
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Ovarian",
-                "value": 4,
+                "value":  globalData[13][2],
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Vulva",
-                "value": 5,
+                "value":  globalData[13][3],
                 "link": "#sales"
             }
         }, {
             "data": {
                 "label": "Vagina",
-                "value":7,
+                "value": globalData[13][4],
                 "link": "#sales"
             }
         },
             {
                 "data": {
                     "label": "Chorio / GTD",
-                    "value": 8,
+                    "value":  globalData[13][5],
                     "link": "#sales"
                 }
             }]
@@ -2377,6 +2316,7 @@ function CollectDataFromClient(data)
 
         // Event Listeners for sales link
         eventListeners.add('sales-link', 'click', function(e) {
+			
             
 			dashboards.show('sales');
         });
