@@ -603,11 +603,211 @@ AD.aggregate(
 					
 					arr[17] = ONEseptic;
 					
+	//-----------------------------------------------------------------------------------------------------------------------------------------------
+			//Salpingitis ASOI
+		AD.aggregate([ {$match:{ "Salpingitis.ASOI" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOI[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Salpingitis.ASOI" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOI[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Salpingitis.ASOI" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOI[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Salpingitis.ASOI" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOI[3] = resResult[0].count;
 					
+					arr[18] = TWOASOI;
+					
+			//Salpingitis ASOII	
+		AD.aggregate([ {$match:{ "Salpingitis.ASOII" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOII[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Salpingitis.ASOII" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOII[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Salpingitis.ASOII" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOII[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Salpingitis.ASOII" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOII[3] = resResult[0].count;
+					
+					arr[19] = TWOASOII;
+
+			//Salpingitis ASOIII	
+		AD.aggregate([ {$match:{ "Salpingitis.ASOIII" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOIII[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Salpingitis.ASOIII" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOIII[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Salpingitis.ASOIII" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOIII[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Salpingitis.ASOIII" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOIII[3] = resResult[0].count;
+					
+					arr[20] = TWOASOIII;
+					
+			//Salpingitis ASOIV	
+		AD.aggregate([ {$match:{ "Salpingitis.ASOIV" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOIV[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Salpingitis.ASOIV" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOIV[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Salpingitis.ASOIV" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOIV[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Salpingitis.ASOIV" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					TWOASOIV[3] = resResult[0].count;
+					
+					arr[21] = TWOASOIV;
+					
+//-----------------------------------------------------------------------------------------------------------------------------------------------
+			//Ectopic Ruptured
+		AD.aggregate([ {$match:{ "Ectopic.Ruptured" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					THREERuptured[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Ectopic.Ruptured" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					THREERuptured[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Ectopic.Ruptured" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					THREERuptured[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Ectopic.Ruptured" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					THREERuptured[3] = resResult[0].count;
+					
+					arr[22] = THREERuptured;
+					
+			//Ectopic Unruptured
+		AD.aggregate([ {$match:{ "Ectopic.Unruptured" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					THREEUnruptured[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Ectopic.Unruptured" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					THREEUnruptured[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Ectopic.Unruptured" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					THREEUnruptured[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Ectopic.Unruptured" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					THREEUnruptured[3] = resResult[0].count;
+					
+					arr[23] = THREEUnruptured;
+
+		//-----------------------------------------------------------------------------------------------------------------------------------------------
+			//Oncology Cervix
+		AD.aggregate([ {$match:{ "Oncology.Cervix" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURCervix[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Oncology.Cervix" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURCervix[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Oncology.Cervix" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURCervix[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Oncology.Cervix" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURCervix[3] = resResult[0].count;
+					
+					arr[24] = FOURCervix;
+					
+			//Oncology Endometrium	
+		AD.aggregate([ {$match:{ "Oncology.Endometrium" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOUREndometrium[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Oncology.Endometrium" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOUREndometrium[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Oncology.Endometrium" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOUREndometrium[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Oncology.Endometrium" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOUREndometrium[3] = resResult[0].count;
+					
+					arr[25] = FOUREndometrium;
+
+			//Oncology Ovarian	
+		AD.aggregate([ {$match:{ "Oncology.Ovarian" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOUROvarian[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Oncology.Ovarian" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOUROvarian[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Oncology.Ovarian" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOUROvarian[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Oncology.Ovarian" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOUROvarian[3] = resResult[0].count;
+					
+					arr[26] = FOUROvarian;
+					
+			//Oncology Vulva	
+		AD.aggregate([ {$match:{ "Oncology.Vulva" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURVulva[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Oncology.Vulva" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURVulva[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Oncology.Vulva" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURVulva[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Oncology.Vulva" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURVulva[3] = resResult[0].count;
+					
+					arr[27] = FOURVulva;
+					
+		//Oncology Vagina
+		AD.aggregate([ {$match:{ "Oncology.Vagina" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURVagina[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Oncology.Vagina" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURVagina[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Oncology.Vagina" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURVagina[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Oncology.Vagina" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURVagina[3] = resResult[0].count;
+					
+					arr[28] = FOURVagina;
+					
+			//Oncology ChorioGTD	
+		AD.aggregate([ {$match:{ "Oncology.ChorioGTD" : true, "firm.G1" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURChorioGTD[0] = resResult[0].count;
+		AD.aggregate([ {$match:{ "Oncology.ChorioGTD" : true, "firm.G2" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURChorioGTD[1] = resResult[0].count;
+	    AD.aggregate([ {$match:{ "Oncology.ChorioGTD" : true, "firm.G3" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURChorioGTD[2] = resResult[0].count;
+	     AD.aggregate([ {$match:{ "Oncology.ChorioGTD" : true, "firm.ONC" : true}},{$group: {_id: null, count: {$sum: 1}}}], function(err, resResult)
+			{	
+					FOURChorioGTD[3] = resResult[0].count;
+					
+					arr[29] = FOURChorioGTD;
+					
+					
+				     	     //*******************************
 							  res.json(arr);
 							  console.log("POST response sent.");
+				             //*******************************
 	
-			});});});});   });});});});  });});});});   });});});});
+			});});});});   });});});}); });});});});   });});});});  });});});});   });});});});  //Oncology
+			});});});});   });});});});  //ectopic
+			});});});});   });});});});  });});});});   });});});}); //sal
+			});});});});   });});});});  });});});});   });});});}); //miscarriage
 			});});});});  });});});})  ;});});});});  });});});});
 			});});});});  });});});})  ;});});});});  });});});}); });});});});  });});});}); });});});});
 			});});});});});});});

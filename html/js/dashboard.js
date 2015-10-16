@@ -1473,351 +1473,351 @@ function CollectDataFromClient(data)
 
         "incomplete": [{
             "data": [{
-                "value": "77058.81000"
+                "value": globalData[16][0]
             }, {
-                "value": "166873.77000"
+                "value": globalData[16][1]
             }, {
-                "value": "152924.82000"
+                "value": globalData[16][2]
             }, {
-                "value": "152924.82000"
+                "value": globalData[16][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value": globalData[16][0]
             }, {
-                "value": "40"
+                "value": globalData[16][1]
             }, {
-                "value": "122"
+                "value": globalData[16][2]
             }, {
-                "value": "122"
+                "value": globalData[16][3]
             }]
         }],
 
 
         "complete": [{
             "data": [{
-                "value": "77058.81000"
+                "value": globalData[15][0]
             }, {
-                "value": "166873.77000"
+                "value": globalData[15][1]
             }, {
-                "value": "152924.82000"
+                "value": globalData[15][2]
             }, {
-                "value": "152924.82000"
+                "value": globalData[15][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value": globalData[15][0]
             }, {
-                "value": "40"
+                "value": globalData[15][1]
             }, {
-                "value": "122"
+                "value": globalData[15][2]
             }, {
-                "value": "122"
+                "value": globalData[15][3]
             }]
         }],
 
 
         "threatening": [{
             "data": [{
-                "value": 7
+                "value": globalData[14][0]
             }, {
-                "value": 5
+                "value": globalData[14][1]
             }, {
-                "value": 1
+                "value": globalData[14][2]
             }, {
-                "value": 2
+                "value": globalData[14][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value": globalData[14][0]
             }, {
-                "value": "40"
+                "value": globalData[14][1]
             }, {
-                "value": "122"
+                "value": globalData[14][2]
             }, {
-                "value": "122"
+                "value": globalData[14][3]
             }]
         }],
 
         "septic": [{
             "data": [{
-                "value": "77058.81000"
+                "value": globalData[17][0]
             }, {
-                "value": "166873.77000"
+                "value": globalData[17][1]
             }, {
-                "value": "152924.82000"
+                "value": globalData[17][2]
             }, {
-                "value": "152924.82000"
+                "value": globalData[17][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value": globalData[17][0]
             }, {
-                "value": "40"
+                "value": globalData[17][1]
             }, {
-                "value": "122"
+                "value": globalData[17][2]
             }, {
-                "value": "122"
+                "value": globalData[17][3]
             }]
         }],
 
         /////////Sal
         "aso_i": [{
             "data": [{
-                "value": "77058.81000"
+                "value":  globalData[18][0]
             }, {
-                "value": "166873.77000"
+                "value":  globalData[18][1]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[18][2]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[18][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value":  globalData[18][0]
             }, {
-                "value": "40"
+                "value":  globalData[18][1]
             }, {
-                "value": "122"
+                "value":  globalData[18][2]
             }, {
-                "value": "122"
+                "value":  globalData[18][3]
             }]
         }],
 
         "aso_ii": [{
             "data": [{
-                "value": "77058.81000"
+                "value":  globalData[19][0]
             }, {
-                "value": "166873.77000"
+                "value":  globalData[19][1]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[19][2]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[19][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value":  globalData[19][0]
             }, {
-                "value": "40"
+                "value":  globalData[19][1]
             }, {
-                "value": "122"
+                "value":  globalData[19][2]
             }, {
-                "value": "122"
+                "value":  globalData[19][3]
             }]
         }],
 
         "aso_iii": [{
             "data": [{
-                "value": "77058.81000"
+                "value":  globalData[20][0]
             }, {
-                "value": "166873.77000"
+                "value":  globalData[20][1]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[20][2]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[20][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value":  globalData[20][0]
             }, {
-                "value": "40"
+                "value":  globalData[20][1]
             }, {
-                "value": "122"
+                "value":  globalData[20][2]
             }, {
-                "value": "122"
+                "value":  globalData[20][3]
             }]
         }],
         "aso_iv": [{
             "data": [{
-                "value": "77058.81000"
+                "value":  globalData[21][0]
             }, {
-                "value": "166873.77000"
+                "value":  globalData[21][1]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[21][2]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[21][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value":  globalData[21][0]
             }, {
-                "value": "40"
+                "value":  globalData[21][1]
             }, {
-                "value": "122"
+                "value":  globalData[21][2]
             }, {
-                "value": "122"
+                "value":  globalData[21][3]
             }]
         }],
 
         ////Oncology
         "cervix": [{
             "data": [{
-                "value": "77058.81000"
+                "value":  globalData[24][0]
             }, {
-                "value": "166873.77000"
+                "value":  globalData[24][1]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[24][2]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[24][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value":  globalData[24][0]
             }, {
-                "value": "40"
+                "value":  globalData[24][1]
             }, {
-                "value": "122"
+                "value":  globalData[24][2]
             }, {
-                "value": "122"
+                "value":  globalData[24][3]
             }]
         }],
 
         "endometrium": [{
             "data": [{
-                "value": "77058.81000"
+                "value":  globalData[25][0]
             }, {
-                "value": "166873.77000"
+                "value":  globalData[25][1]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[25][2]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[25][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value":  globalData[25][0]
             }, {
-                "value": "40"
+                "value":  globalData[25][1]
             }, {
-                "value": "122"
+                "value":  globalData[25][2]
             }, {
-                "value": "122"
+                "value":  globalData[25][3]
             }]
         }],
 
         "ovarian": [{
             "data": [{
-                "value": "77058.81000"
+                "value":  globalData[26][0]
             }, {
-                "value": "166873.77000"
+                "value":  globalData[26][1]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[26][2]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[26][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value":  globalData[26][0]
             }, {
-                "value": "40"
+                "value":  globalData[26][1]
             }, {
-                "value": "122"
+                "value":  globalData[26][2]
             }, {
-                "value": "122"
+                "value":  globalData[26][3]
             }]
         }],
         "vulva": [{
             "data": [{
-                "value": "77058.81000"
+                "value":  globalData[27][0]
             }, {
-                "value": "166873.77000"
+                "value":  globalData[27][1]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[27][2]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[27][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value":  globalData[27][0]
             }, {
-                "value": "40"
+                "value":  globalData[27][1]
             }, {
-                "value": "122"
+                "value":  globalData[27][2]
             }, {
-                "value": "122"
+                "value":  globalData[27][3]
             }]
         }],
         "vagina": [{
             "data": [{
-                "value": "77058.81000"
+                "value":  globalData[28][0]
             }, {
-                "value": "166873.77000"
+                "value":  globalData[28][1]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[28][2]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[28][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value":  globalData[28][0]
             }, {
-                "value": "40"
+                "value":  globalData[28][1]
             }, {
-                "value": "122"
+                "value":  globalData[28][2]
             }, {
-                "value": "122"
+                "value":  globalData[28][3]
             }]
         }],
         "chorio_gtd": [{
             "data": [{
-                "value": "77058.81000"
+                "value":  globalData[29][0]
             }, {
-                "value": "166873.77000"
+                "value":  globalData[29][1]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[29][2]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[29][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value":  globalData[29][0]
             }, {
-                "value": "40"
+                "value":  globalData[29][1]
             }, {
-                "value": "122"
+                "value":  globalData[29][2]
             }, {
-                "value": "122"
+                "value":  globalData[29][3]
             }]
         }],
         "ruptured": [{
             "data": [{
-                "value": "77058.81000"
+                "value":  globalData[22][0]
             }, {
-                "value": "166873.77000"
+                "value":  globalData[22][1]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[22][2]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[22][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value":  globalData[22][0]
             }, {
-                "value": "40"
+                "value":  globalData[22][1]
             }, {
-                "value": "122"
+                "value":  globalData[22][2]
             }, {
-                "value": "122"
+                "value":  globalData[22][3]
             }]
         }],
         "unruptured":[{
             "data": [{
-                "value": "77058.81000"
+                "value":  globalData[23][0]
             }, {
-                "value": "166873.77000"
+                "value":  globalData[23][1]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[23][2]
             }, {
-                "value": "152924.82000"
+                "value":  globalData[23][3]
             }]
         }, {
             "data": [{
-                "value": "12"
+                "value":  globalData[23][0]
             }, {
-                "value": "40"
+                "value":  globalData[23][1]
             }, {
-                "value": "122"
+                "value":  globalData[23][2]
             }, {
-                "value": "122"
+                "value":  globalData[23][3]
             }]
         }]
 
