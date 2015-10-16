@@ -198,7 +198,7 @@ jsonform.fieldTemplate = function(inner) {
     '<% if (node.title && !elt.notitle) { %>' +
       '<label class="control-label" for="<%= node.id %>"><%= node.title %></label>' +
     '<% } %>' +
-    '<div class="control container-fluid">' +
+    '<div class="control-group container-fluid">' +
       '<% if (node.prepend || node.append) { %>' +
       '<div class="<% if (node.prepend) { %>input-prepend<% } %>' +
         '<% if (node.append) { %> input-append<% } %>">' +
@@ -2601,7 +2601,7 @@ formNode.prototype.generate = function () {
   });
   data.children = childrenhtml;
 
-  data.fieldHtmlClass = '';
+  data.fieldHtmlClass = 'form-control';
   if (this.ownerTree &&
       this.ownerTree.formDesc &&
       this.ownerTree.formDesc.params &&
