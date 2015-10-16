@@ -1,0 +1,23 @@
+extends index
+block extFiles
+    link(rel='stylesheet', href='/stylesheets/mySpaceStyles/adminPimsSpace.css')
+    link(rel='stylesheet', href='/stylesheets/video.css')
+    script(src='/libs/angular/angular.min.js')
+    link(rel='stylesheet', href="/libs/perfect-scrollbar/min/perfect-scrollbar.min.css")
+    script(src="/libs/perfect-scrollbar/min/perfect-scrollbar.min.js")
+    script(src='/javascripts/app.js')
+block mainContent
+    section#login
+        br
+        wbr
+        div.container-fluid
+            div.row
+                div.col-xs-4.col-xs-offset-4
+                    br
+                    wbr
+                    h1 PIMS Video Tutorial
+                    div(style='position:relative;padding-bottom:57.26%;padding-top:25px;height:0;')
+                        iframe(width='100%', height='100%', allowtransparency='true', mozallowfullscreen='', webkitallowfullscreen='', allowfullscreen='', style='background-color:transparent;position:absolute;top:0;left:0;', frameborder='0', src='https://www.ilosvideos.com/embedVideo/?v=8EaT0ohtEW4E')
+
+    footer.text-center.center-block
+        h2 Pentec PIMS &copy;

@@ -13,6 +13,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var submodules = "../sub-modules/";
 var userAuthentication = require('../controllers/authenticate.js');
+var userController = require('../controllers/userAuthControl');
 var dataNormalizerCervical = require('../controllers/dataNormalizers/dataNormalizerCervical.js');
 
 var nn = require(submodules + 'pims-neuralnetwork/testNN2.js');
@@ -105,6 +106,39 @@ router.get('/splash', function (req, res, next) {
     sess = req.session;
     res.render('splash', {title: 'Kalafong PIMS'});
 });
+
+//get Video Tutorial
+router.get('/video_tutorial', function (req, res, next) {
+    res.render('video_tutorial', {title: 'PIMS Video Tutorial'});
+});
+
+
+//get FormSubmitted page
+router.get('/FormSubmited', function (req, res, next) {
+    //sess = req.session;
+    res.render('FormSubmited', {title: 'FormSubmitted'});
+});
+
+//get FormSavedForLater page
+router.get('/FormSaved', function (req, res, next) {
+    //sess = req.session;
+    res.render('FormSaved', {title: 'FormSaved'});
+});
+
+//get mySubmittedForms page
+router.get('/mySubmittedForms', function (req, res, next) {
+    //sess = req.session;
+    res.render('mySubmittedForms', {title: 'mySubmittedForms'});
+});
+
+//get mySubmittedForms page
+router.get('/myIncompleteForms', function (req, res, next) {
+    //sess = req.session;
+    res.render('myIncompleteForms', {title: 'myIncompleteForms'});
+});
+
+
+
 
 router.get('/dataNormalizer', function (req, res, next) {
 
@@ -201,7 +235,7 @@ router.get('/login', function (req, res) {
     //user not logged in
     if (!req.user) {
         var sendData = {found: "hello"};
-        res.render('login', {
+        res.render('login/login', {
             title: 'PIMS Login Page',
             user: req.user,
             message: sess.messages,
@@ -215,6 +249,72 @@ router.get('/login', function (req, res) {
         login.checkAdmin(req.user.username, req.user.password, function(isAdmin)
         {
 
+            if(isAdmin)
+                {
+
+                    res.redirect('/myAdminSpace');
+                }
+                else
+                {
+                    res.redirect('/mySpace');
+                }
+        });
+    }
+});
+
+
+router.get('/loginR', function (req, res) {
+    sess = req.session;
+
+    //user not logged in
+    if (!req.user) {
+        var sendData = {found: "hello"};
+        res.render('login/rssLogin', {
+            title: 'PIMS Login Page',
+            user: req.user,
+            message: sess.messages,
+            errors: {},
+            send: sendData
+        });
+        sess.messages = null;
+
+    }
+    else if(req.user) {//user already logged in, may help sessions
+        login.checkAdmin(req.user.username, req.user.password, function(isAdmin)
+        {
+
+            if(isAdmin)
+                {
+
+                    res.redirect('/myAdminSpace');
+                }
+                else
+                {
+                    res.redirect('/mySpace');
+                }
+        });
+    }
+});
+
+router.get('/loginI', function (req, res) {
+    sess = req.session;
+
+    //user not logged in
+    if (!req.user) {
+        var sendData = {found: "hello"};
+        res.render('login/intLogin', {
+            title: 'PIMS Login Page',
+            user: req.user,
+            message: sess.messages,
+            errors: {},
+            send: sendData
+        });
+        sess.messages = null;
+
+    }
+    else if(req.user) {//user already logged in, may help sessions
+        login.checkAdmin(req.user.username, req.user.password, function(isAdmin)
+        {
             if(isAdmin)
                 {
 
@@ -292,9 +392,12 @@ router.post('/updateProfile', login.isLoggedIn, function (req, res) {
                 contact.username = req.body.username;
                 contact.email = req.body.email;
                 contact.surname = req.body.surname;
-                contact.department = req.body.department;
+                contact.department = req.body.department;//add hashing code here
                 if (req.body.password == req.body.confirmpassword && req.body.password != "") {
                     contact.password = req.body.confirmpassword;
+                    contact.passwordSalt = req.body.confirmpassword;
+                    contact.passwordHash = req.body.confirmpassword;
+
                 }
                 contact.save(function (err) {
                     res.redirect('editProfile');
@@ -317,19 +420,36 @@ router.post('/create', login.isLoggedIn, function (req, res) {
     sess = req.session;
 
     if (req.user) {
-        new User({
-            username: req.body.username,
-            surname: req.body.surname,
-            email: req.body.email,
-            user_rights: req.body.user_rights,
-            password: req.body.password,
-            department: req.body.department,
-            staff_type: req.body.staff_type
-        })
-            .save(function (err, users) {
-                console.log("New user added");
-                res.redirect('addUser');
+        var userN = req.body.username;
+        var pswd = req.body.password;
+
+
+        if(userN != "" || pswd != ""){//add new user
+            userController.saltHashGen(false, "", userN, pswd, function(hashed){
+                new User({
+                    username: userN,
+                    surname: req.body.surname,
+                    email: req.body.email,
+                    user_rights: req.body.user_rights,
+                    password: pswd,
+                    passwordSalt: hashed.sendSalt,
+                    passwordHash: hashed.sendHash,
+                    department: req.body.department,
+                    staff_type: req.body.staff_type
+                })
+                    .save(function (err, users) {
+                        console.log("New user added");
+                        res.redirect('/addUser');
+                    });
             });
+        }
+        else{
+            //send message for validation
+            console.log("empty fields");
+        }
+
+
+
     }
     else {
         res.redirect('/login');
@@ -832,6 +952,7 @@ router.post('/findPatient/sendEmail', login.isLoggedIn, function (req, res, next
 
 router.get('/neural', login.isLoggedIn, login.isAdmin, function (req, res, next) {
     res.render('pims_neuralnet/testAI', {title: "Synaptic Neural Network", active: "predict"});
+
 });
 
 router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function (req, res, next) {

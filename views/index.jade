@@ -80,6 +80,16 @@ block content
                     li.nobar.has-sub#settings
                         a(href='#')
                             img(alt="Settings" src='/images/settings.png' height="40px")
+                    li.sub.settings.dropdown
+                        a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Tutorial
+                            span.caret
+                        ul.dropdown-menu
+                            li
+                                a(href='/#', tabindex='-1') Images
+                            li
+                                a(href='/#', tabindex='-1') Video
+                            li
+                                a(href='/docs/UserManual.pdf') User Manual
                     if(!notAdmin)
                         if(active=="editProfile")
                             li.sub.settings.active

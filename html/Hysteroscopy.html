@@ -61,19 +61,23 @@
             },
             "P": {
                 "type": "number",
-                "title": "Parity"
+                "title": "Parity",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "G": {
                 "type": "number",
-                "title": "Gravidity"
+                "title": "Gravidity",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "M": {
                 "type": "number",
-                "title": "Miscarriage"
+                "title": "Miscarriage",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "E": {
                 "type": "number",
-                "title": "Ectopic pregnancy"
+                "title": "Ectopic pregnancy",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "HIV": {
                 "type": "object",
@@ -306,7 +310,8 @@
             "PainScoreOutOf10": {
                 "type": "string",
                 "require": true,
-                "title": "Pain score out of 10"
+                "title": "Pain score out of 10",
+                "enum": ["0", "1", "2", "3","4","5","6","7","8","9","10"]
             },
             "Comments": {
                 "type": "textarea",

@@ -13,9 +13,9 @@ $(function(){
        $(this).addClass('show password');
     }
   });
-	
-	$('form button[type="submit"]').on('click', function(){
-		$('.hide-show span').text('Show Password').addClass('show password');
-		$('.hide-show').parent().find('input[name="password"]').attr('type','password');
-	}); 
+  
+  $('form button[type="submit"]').on('click', function(){
+    $('.hide-show span').text('Show Password').addClass('show password');
+    $('.hide-show').parent().find('input[name="password"]').attr('type','password');
+  }); 
 });

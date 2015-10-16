@@ -133,6 +133,11 @@ function init(){
         rotate("activities");
 
     });
+    $("#statistics").click(function (event) {
+        event.preventDefault();
+        rotate("statistics");
+
+   });
     $(".options").mouseleave(function () {
         var recentlyClicked = lastClicked;
         $('.options.' + recentlyClicked).addClass("rotate");
