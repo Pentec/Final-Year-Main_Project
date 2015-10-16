@@ -5,6 +5,7 @@ block extFiles
    script(src="/libs/perfect-scrollbar/min/perfect-scrollbar.min.js")
    script(src='/javascripts/app.js')
    link(rel="stylesheet", href="/stylesheets/removeUser.css")
+   script(src="/javascripts/removeUser.js")
 block mainContent
    .area
       .container
@@ -13,17 +14,14 @@ block mainContent
                .page-header.mypageHeader
                   h3 Remove User
                .row
-                  .col-xs-8.col-xs-offset-2#warningdiv
-                     .alert.alert-danger
-                        button.close(data-dismiss="alert", type="button") x
-                        p= "User does not exist or could not be removed"
-               form.form-horizontal(role="form", name="addNewUser", method="post", action="/create")#signup-form
+                  .col-xs-8.col-xs-offset-2#notificationDiv
+               form.form-horizontal(role="form", name="addNewUser", method="post", action="/removeUser")#remove_user
                   .form-group
                      label.col-sm-2.control-label(for="username") Username
                      .col-sm-8
-                        input(type="text", name="username",value=username, placeholder="Please enter their username eg.John").form-control
+                        input(type="text", name="username",value=username, placeholder="Please enter their username eg.John")#username.form-control
                      .col-sm-2
-                        button.btn.btn.btn-custom(type='submit')
+                        button.btn.btn.btn-custom(type="Submit", value="submit", id="search" onclick="")
                            i.fa.fa-magnet
                            | Remove User
                   script.

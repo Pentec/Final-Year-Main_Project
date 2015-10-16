@@ -1656,24 +1656,27 @@ router.get("/userManual", login.isLoggedIn, function (req, res, next) {
 });
 
 /**
- * This function removes a user fromt the database.
+ * This function removes a user from the database.
  */
 router.post("/removeUser", login.isLoggedIn, login.isAdmin, function (req, res, next) {
-        req.body.username;
+        var username = req.body.username;
 
         User.findOne({username: username}, function (err, found) {
             if (err) {
                 console.log("DB error");
                 callback(err);
             }
-
             if (found) {
+                if(found.deleted){
+                    res.json({"found": false});
+                    return;
+                }
                 found.deleted = true;
-                found.save(err, function (callback) {
+                found.save(function (err) {
+                    console.log("Saving");
                     if (err)
                         throw new Error("Could not remove user");
                     res.json({"found": true});
-                    callback();
                 });
             } else {
                 res.json({"found": false});
