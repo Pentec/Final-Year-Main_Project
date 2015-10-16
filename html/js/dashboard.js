@@ -2335,6 +2335,17 @@ function CollectDataFromClient(data)
 
         // Event Listeners for kpi link
         eventListeners.add('kpi-link', 'click', function(e) {
+            $.ajax({
+                type: 'POST',
+                url: '/getSurvivalStats',
+                success: function (data, textStatus, jqXHR){
+                    var res = JSON.parse(jqXHR.responseText);
+                    console.log("This is what it looks like " + res.arrSend[0] );
+                    sendDataToGraph(res);
+                },
+                dataType: "json",
+                contentType: "application/json"
+            });
             dashboards.show('kpi');
         });
 
