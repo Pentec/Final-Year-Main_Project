@@ -12,7 +12,7 @@ router.post('/', function(req, res, next) {
     }
 
     else{
-        res.redirect('/myAdminSpace');
+        res.redirect('/FormSubmited');
     }
 
 });

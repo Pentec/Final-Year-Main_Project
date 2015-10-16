@@ -225,26 +225,31 @@
             },
             "P": {
                 "type": "number",
-                "title": "Parity"
+                "title": "Parity",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "G": {
                 "type": "number",
-                "title": "Gravidity"
+                "title": "Gravidity",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "M": {
                 "type": "number",
-                "title": "Miscarriage"
+                "title": "Miscarriage",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "E": {
                 "type": "number",
-                "title": "Ectopic pregnancy"
+                "title": "Ectopic pregnancy",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "HIV": {
                 "type": "object",
                 "properties": {
                     "HIVStatus": {
                         "type": "string",
-                        "title": "HIV Status"
+                        "title": "HIV Status",
+                        "enum": ["Negative", "Positive"]
                     },
                     "CD4": {
                         "type": "number",

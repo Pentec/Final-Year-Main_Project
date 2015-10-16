@@ -18,7 +18,8 @@ var managementData = {
     }, {
         "label": "ProcedureNotCompleted"
     }],
-    topProductsSummaryCategories: {
+
+    topRevenuesCountriesSummaryCategories: {
         "2014": {
             "all": [{
                 "label": "January"
@@ -40,99 +41,10 @@ var managementData = {
                 "label": "September"
             }, {
                 "label": "October"
-            }]
-        },
-        "2013": {
-            "all": [{
-                "label": "Côte de Blaye"
             }, {
-                "label": "Thüringer Rostbratwurst"
+                "label": "November"
             }, {
-                "label": "Mishi Kobe Niku"
-            }, {
-                "label": "Sir Rodney's Marmalade"
-            }, {
-                "label": "Carnarvon Tigers"
-            }, {
-                "label": "Raclette Courdavault"
-            }, {
-                "label": "Manjimup Dried Apples"
-            }, {
-                "label": "Tarte au sucre"
-            }, {
-                "label": "Ipoh Coffee"
-            }, {
-                "label": "Rössle Sauerkraut"
-            }]
-        },
-        "2012": {
-            "all": [{
-                "label": "Côte de Blaye"
-            }, {
-                "label": "Thüringer Rostbratwurst"
-            }, {
-                "label": "Mishi Kobe Niku"
-            }, {
-                "label": "Sir Rodney's Marmalade"
-            }, {
-                "label": "Carnarvon Tigers"
-            }, {
-                "label": "Raclette Courdavault"
-            }, {
-                "label": "Manjimup Dried Apples"
-            }, {
-                "label": "Tarte au sucre"
-            }, {
-                "label": "Ipoh Coffee"
-            }, {
-                "label": "Rössle Sauerkraut"
-            }]
-        }
-    },
-    topRevenuesCountriesSummaryCategories: {
-        "2014": {
-            "all": [{
-                "label": "USA"
-            }, {
-                "label": "Germany"
-            }, {
-                "label": "Brazil"
-            }, {
-                "label": "France"
-            }, {
-                "label": "UK"
-            }, {
-                "label": "Venezuela"
-            }, {
-                "label": "Italy"
-            }, {
-                "label": "Austria"
-            }, {
-                "label": "Mexico"
-            }, {
-                "label": "Denmark"
-            }, {
-                "label": "Portugal"
-            }, {
-                "label": "Canada"
-            }, {
-                "label": "Argentina"
-            }, {
-                "label": "Spain"
-            }, {
-                "label": "Finland"
-            }, {
-                "label": "Sweden"
-            }, {
-                "label": "Ireland"
-            }, {
-                "label": "Norway"
-            }, {
-                "label": "Belgium"
-            }, {
-                "label": "Switzerland"
-            }, {
-                "label": "Poland"
+                "label": "December"
             }]
         }
     },
@@ -164,24 +76,6 @@ var managementData = {
                     "value": "36230"
                 }, {
                     "value": "30879"
-                }, {
-                    "value": "28994"
-                }, {
-                    "value": "27561"
-                }, {
-                    "value": "24034"
-                }, {
-                    "value": "20330"
-                }, {
-                    "value": "18234"
-                }, {
-                    "value": "13974"
-                }, {
-                    "value": "13586"
-                }, {
-                    "value": "9974"
-                }, {
-                    "value": "5997"
                 }]
             }, {
                 "data": [{
@@ -220,262 +114,7 @@ var managementData = {
                 }, {
                     "tooltext": "Units sold in Canada : 1098",
                     "value": "1098"
-                }, {
-                    "tooltext": "Units sold in Argentina : 1180",
-                    "value": "1180"
-                }, {
-                    "tooltext": "Units sold in Spain : 784",
-                    "value": "784"
-                }, {
-                    "tooltext": "Units sold in Finland : 730",
-                    "value": "730"
-                }, {
-                    "tooltext": "Units sold in Sweden : 842",
-                    "value": "842"
-                }, {
-                    "tooltext": "Units sold in Ireland : 515",
-                    "value": "515"
-                }, {
-                    "tooltext": "Units sold in Norway : 526",
-                    "value": "526"
-                }, {
-                    "tooltext": "Units sold in Belgium : 372",
-                    "value": "372"
-                }, {
-                    "tooltext": "Units sold in Switzerland : 367",
-                    "value": "367"
-                }, {
-                    "tooltext": "Units sold in Poland : 309",
-                    "value": "309"
                 }]
-            }]
-        },
-        "2013": {
-            "all": [{
-                "data": [{
-                    "value": "212005"
-                }, {
-                    "value": "209957"
-                }, {
-                    "value": "134655"
-                }, {
-                    "value": "111059"
-                }, {
-                    "value": "79129"
-                }, {
-                    "value": "76909"
-                }, {
-                    "value": "55957"
-                }, {
-                    "value": "43679"
-                }, {
-                    "value": "35316"
-                }, {
-                    "value": "35260"
-                }, {
-                    "value": "28307"
-                }, {
-                    "value": "26507"
-                }, {
-                    "value": "24939"
-                }, {
-                    "value": "24289"
-                }, {
-                    "value": "24011"
-                }, {
-                    "value": "22495"
-                }, {
-                    "value": "19997"
-                }, {
-                    "value": "14604"
-                }, {
-                    "value": "14151"
-                }, {
-                    "value": "13143"
-                }, {
-                    "value": "6481"
-                }]
-            }, {
-                "data": [{
-                        "tooltext": "Units sold in USA : 7629",
-                        "value": "7629"
-                    }, {
-                        "tooltext": "Units sold in Germany : 6829",
-                        "value": "6829"
-                    }, {
-                        "tooltext": "Units sold in Brazil : 4486",
-                        "value": "4486"
-                    }, {
-                        "tooltext": "Units sold in Austria : 3712",
-                        "value": "3712"
-                    }, {
-                        "tooltext": "Units sold in France : 2937",
-                        "value": "2937"
-                    }, {
-                        "tooltext": "Units sold in UK : 3172",
-                        "value": "3172"
-                    }, {
-                        "tooltext": "Units sold in Venezuela : 2524",
-                        "value": "2524"
-                    }, {
-                        "tooltext": "Units sold in Sweden : 1719",
-                        "value": "1719"
-                    }, {
-                        "tooltext": "Units sold in Ireland : 866",
-                        "value": "866"
-                    }, {
-                        "tooltext": "Units sold in Italy : 1455",
-                        "value": "1455"
-                    }, {
-                        "tooltext": "Units sold in Canada : 1070",
-                        "value": "1070"
-                    }, {
-                        "tooltext": "Units sold in Spain : 1102",
-                        "value": "1102"
-                    }, {
-                        "tooltext": "Units sold in Denmark : 943",
-                        "value": "943"
-                    }, {
-                        "tooltext": "Units sold in Argentina : 850",
-                        "value": "850"
-                    }, {
-                        "tooltext": "Units sold in Mexico : 962",
-                        "value": "962"
-                    }, {
-                        "tooltext": "Units sold in Belgium : 996",
-                        "value": "996"
-                    }, {
-                        "tooltext": "Units sold in Switzerland : 797",
-                        "value": "797"
-                    }, {
-                        "tooltext": "Units sold in Finland : 593",
-                        "value": "593"
-                    }, {
-                        "tooltext": "Units sold in Portugal : 491",
-                        "value": "491"
-                    }, {
-                        "tooltext": "Units sold in Norway : 278",
-                        "value": "278"
-                    }, {
-                        "tooltext": "Units sold in Poland : 299",
-                        "value": "299"
-                    }
-
-                ]
-            }]
-        },
-        "2012": {
-            "all": [{
-                "data": [{
-                    "value": "128877"
-                }, {
-                    "value": "109842"
-                }, {
-                    "value": "54839"
-                }, {
-                    "value": "51742"
-                }, {
-                    "value": "41502"
-                }, {
-                    "value": "37860"
-                }, {
-                    "value": "27788"
-                }, {
-                    "value": "26767"
-                }, {
-                    "value": "26200"
-                }, {
-                    "value": "25198"
-                }, {
-                    "value": "24167"
-                }, {
-                    "value": "20302"
-                }, {
-                    "value": "14664"
-                }, {
-                    "value": "13500"
-                }, {
-                    "value": "10025"
-                }, {
-                    "value": "8191"
-                }, {
-                    "value": "7091"
-                }, {
-                    "value": "4036"
-                }, {
-                    "value": "2024"
-                }, {
-                    "value": "1996"
-                }, {
-                    "value": "1382"
-                }]
-            }, {
-                "data": [{
-                        "tooltext": "Units sold in USA : 5004",
-                        "value": "5004"
-                    }, {
-                        "tooltext": "Units sold in Germany : 4408",
-                        "value": "4408"
-                    }, {
-                        "tooltext": "Units sold in Austria : 2180",
-                        "value": "2180"
-                    }, {
-                        "tooltext": "Units sold in Brazil : 2055",
-                        "value": "2055"
-                    }, {
-                        "tooltext": "Units sold in France : 1582",
-                        "value": "1582"
-                    }, {
-                        "tooltext": "Units sold in Canada : 1372",
-                        "value": "1372"
-                    }, {
-                        "tooltext": "Units sold in Venezuela : 1430",
-                        "value": "1430"
-                    }, {
-                        "tooltext": "Units sold in UK : 1195",
-                        "value": "1195"
-                    }, {
-                        "tooltext": "Units sold in Denmark : 705",
-                        "value": "705"
-                    }, {
-                        "tooltext": "Units sold in Sweden : 802",
-                        "value": "802"
-                    }, {
-                        "tooltext": "Units sold in Ireland : 1003",
-                        "value": "1003"
-                    }, {
-                        "tooltext": "Units sold in Switzerland : 693",
-                        "value": "693"
-                    }, {
-                        "tooltext": "Units sold in Mexico : 551",
-                        "value": "551"
-                    }, {
-                        "tooltext": "Units sold in Finland : 546",
-                        "value": "546"
-                    }, {
-                        "tooltext": "Units sold in Belgium : 432",
-                        "value": "432"
-                    }, {
-                        "tooltext": "Units sold in Portugal : 370",
-                        "value": "370"
-                    }, {
-                        "tooltext": "Units sold in Italy : 361",
-                        "value": "361"
-                    }, {
-                        "tooltext": "Units sold in Spain : 80",
-                        "value": "80"
-                    }, {
-                        "tooltext": "Units sold in Norway : 69",
-                        "value": "69"
-                    }, {
-                        "tooltext": "Units sold in Argentina : 93",
-                        "value": "93"
-                    }, {
-                        "tooltext": "Units sold in Poland : 76",
-                        "value": "76"
-                    }
-
-                ]
             }]
         }
     },
@@ -483,65 +122,29 @@ var managementData = {
     topSalesPerformersSummaryCategories: {
         "2014": {
             "all": [{
-                "label": "Fuller"
+                "label": "January"
             }, {
-                "label": "Suyama"
+                "label": "February"
             }, {
-                "label": "Peacock"
+                "label": "March"
             }, {
-                "label": "Callahan"
+                "label": "April"
             }, {
-                "label": "Dodsworth"
+                "label": "May"
             }, {
-                "label": "Buchanan"
+                "label": "June"
             }, {
-                "label": "Davolio"
+                "label": "July"
             }, {
-                "label": "King"
+                "label": "August"
             }, {
-                "label": "Leverling"
-            }]
-        },
-        "2013": {
-            "all": [{
-                "label": "Davolio"
+                "label": "September"
             }, {
-                "label": "Fuller"
+                "label": "October"
             }, {
-                "label": "Leverling"
+                "label": "November"
             }, {
-                "label": "Callahan"
-            }, {
-                "label": "King"
-            }, {
-                "label": "Peacock"
-            }, {
-                "label": "Dodsworth"
-            }, {
-                "label": "Suyama"
-            }, {
-                "label": "Buchanan"
-            }]
-        },
-        "2012": {
-            "all": [{
-                "label": "Peacock"
-            }, {
-                "label": "Leverling"
-            }, {
-                "label": "Davolio"
-            }, {
-                "label": "Fuller"
-            }, {
-                "label": "King"
-            }, {
-                "label": "Callahan"
-            }, {
-                "label": "Buchanan"
-            }, {
-                "label": "Suyama"
-            }, {
-                "label": "Dodsworth"
+                "label": "December"
             }]
         }
     },
@@ -550,31 +153,40 @@ var managementData = {
             "all": [{
                 data: [{
                     "label": "Fuller",
-                    "value": "152924.82000"
+                    "value": "0"
                 }, {
                     "label": "Suyama",
-                    "value": "144772.94000"
+                    "value": "2"
                 }, {
                     "label": "Peacock",
-                    "value": "134881.25000"
+                    "value": "3"
                 }, {
                     "label": "Callahan",
-                    "value": "132725.65000"
+                    "value": "4"
                 }, {
                     "label": "Dodsworth",
-                    "value": "126226.60000"
+                    "value": "5"
                 }, {
                     "label": "Buchanan",
-                    "value": "125683.59000"
+                    "value": "6"
                 }, {
                     "label": "Davolio",
-                    "value": "117867.02000"
+                    "value": "7"
                 }, {
                     "label": "King",
-                    "value": "113017.48000"
+                    "value": "8"
                 }, {
                     "label": "Leverling",
-                    "value": "112227.94000"
+                    "value": "9"
+                }, {
+                    "label": "Davolio",
+                    "value": "10"
+                }, {
+                    "label": "King",
+                    "value": "11"
+                }, {
+                    "label": "Leverling",
+                    "value": "12"
                 }]
             }, {
                 "data": [{
@@ -604,317 +216,20 @@ var managementData = {
                 }, {
                     "tooltext": "Units Sold by Leverling : 3748",
                     "value": "3748"
-                }]
-            }]
-        },
-        "2013": {
-            "all": [{
-                "data": [{
-                    "label": "Davolio",
-                    "value": "174845.56000"
                 }, {
-                    "label": "Fuller",
-                    "value": "166873.77000"
+                    "tooltext": "Units Sold by Davolio : 4176",
+                    "value": "4176"
                 }, {
-                    "label": "Leverling",
-                    "value": "159897.55000"
+                    "tooltext": "Units Sold by King : 3784",
+                    "value": "3784"
                 }, {
-                    "label": "Callahan",
-                    "value": "159205.32000"
-                }, {
-                    "label": "King",
-                    "value": "148553.31000"
-                }, {
-                    "label": "Peacock",
-                    "value": "148496.39000"
-                }, {
-                    "label": "Dodsworth",
-                    "value": "124034.28000"
-                }, {
-                    "label": "Suyama",
-                    "value": "83300.29000"
-                }, {
-                    "label": "Buchanan",
-                    "value": "82871.38000"
-                }]
-            }, {
-                data: [{
-                    "tooltext": "Units Sold by Davolio : 5973",
-                    "value": "5973"
-                }, {
-                    "tooltext": "Units Sold by Fuller : 5379",
-                    "value": "5379"
-                }, {
-                    "tooltext": "Units Sold by Leverling : 5480",
-                    "value": "5480"
-                }, {
-                    "tooltext": "Units Sold by Callahan : 5529",
-                    "value": "5529"
-                }, {
-                    "tooltext": "Units Sold by King : 5351",
-                    "value": "5351"
-                }, {
-                    "tooltext": "Units Sold by Peacock : 5565",
-                    "value": "5565"
-                }, {
-                    "tooltext": "Units Sold by Dodsworth : 3866",
-                    "value": "3866"
-                }, {
-                    "tooltext": "Units Sold by Suyama : 3563",
-                    "value": "3563"
-                }, {
-                    "tooltext": "Units Sold by Buchanan : 3004",
-                    "value": "3004"
-                }]
-            }]
-        },
-        "2012": {
-            "all": [{
-                "data": [{
-                    "label": "Peacock",
-                    "value": "140305.00000"
-                }, {
-                    "label": "Leverling",
-                    "value": "104474.78000"
-                }, {
-                    "label": "Davolio",
-                    "value": "97253.38000"
-                }, {
-                    "label": "Fuller",
-                    "value": "77058.81000"
-                }, {
-                    "label": "King",
-                    "value": "71533.34000"
-                }, {
-                    "label": "Callahan",
-                    "value": "68158.44000"
-                }, {
-                    "label": "Buchanan",
-                    "value": "49164.65000"
-                }, {
-                    "label": "Suyama",
-                    "value": "46255.69000"
-                }, {
-                    "label": "Dodsworth",
-                    "value": "28592.00000"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Units Sold by Peacock : 5086",
-                    "value": "5086"
-                }, {
-                    "tooltext": "Units Sold by Leverling : 3853",
-                    "value": "3853"
-                }, {
-                    "tooltext": "Units Sold by Davolio : 3830",
-                    "value": "3830"
-                }, {
-                    "tooltext": "Units Sold by Fuller : 2748",
-                    "value": "2748"
-                }, {
-                    "tooltext": "Units Sold by King : 2243",
-                    "value": "2243"
-                }, {
-                    "tooltext": "Units Sold by Callahan : 2947",
-                    "value": "2947"
-                }, {
-                    "tooltext": "Units Sold by Buchanan : 1616",
-                    "value": "1616"
-                }, {
-                    "tooltext": "Units Sold by Suyama : 1786",
-                    "value": "1786"
-                }, {
-                    "tooltext": "Units Sold by Dodsworth : 898",
-                    "value": "898"
+                    "tooltext": "Units Sold by Leverling : 3748",
+                    "value": "3748"
                 }]
             }]
         }
     },
-    topProductsSummaryData: {
-        "2014": {
-            "all": [{
-                "data": [{
-                    "value": "263.50000"
-                }, {
-                    "value": "123.79000"
-                }, {
-                    "value": "97.00000"
-                }, {
-                    "value": "81.00000"
-                }, {
-                    "value": "62.50000"
-                }, {
-                    "value": "55.00000"
-                }, {
-                    "value": "53.00000"
-                }, {
-                    "value": "49.30000"
-                }, {
-                    "value": "46.00000"
-                }, {
-                    "value": "45.60000"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Côte de Blaye, Units sold : 618",
-                    "value": "618"
-                }, {
-                    "tooltext": "Thüringer Rostbratwurst, Units sold : 525",
-                    "value": "525"
-                }, {
-                    "tooltext": "Mishi Kobe Niku, Units sold : 625",
-                    "value": "625"
-                }, {
-                    "tooltext": "Sir Rodney's Marmalade, Units sold : 532",
-                    "value": "532"
-                }, {
-                    "tooltext": "Carnarvon Tigers, Units sold : 443",
-                    "value": "443"
-                }, {
-                    "tooltext": "Raclette Courdavault, Units sold : 641",
-                    "value": "641"
-                }, {
-                    "tooltext": "Manjimup Dried Apples, Units sold : 378",
-                    "value": "378"
-                }, {
-                    "tooltext": "Tarte au sucre, Units sold : 630",
-                    "value": "630"
-                }, {
-                    "tooltext": "Ipoh Coffee, Units sold : 406",
-                    "value": "406"
-                }, {
-                    "tooltext": "Rössle Sauerkraut, Units sold : 526",
-                    "value": "526"
-                }]
-            }]
-        },
-        "2013": {
-            "all": [{
-                "data": [{
-                    "value": "263.50000"
-                }, {
-                    "value": "123.79000"
-                }, {
-                    "value": "97.00000"
-                }, {
-                    "value": "81.00000"
-                }, {
-                    "value": "62.50000"
-                }, {
-                    "value": "55.00000"
-                }, {
-                    "value": "53.00000"
-                }, {
-                    "value": "49.30000"
-                }, {
-                    "value": "46.00000"
-                }, {
-                    "value": "45.60000"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Côte de Blaye, Units sold : 589",
-                    "value": "589"
-                }, {
-                    "tooltext": "Thüringer Rostbratwurst, Units sold : 720",
-                    "value": "720"
-                }, {
-                    "tooltext": "Mishi Kobe Niku, Units sold : 287",
-                    "value": "287"
-                }, {
-                    "tooltext": "Sir Rodney's Marmalade, Units sold : 385",
-                    "value": "385"
-                }, {
-                    "tooltext": "Carnarvon Tigers, Units sold : 556",
-                    "value": "556"
-                }, {
-                    "tooltext": "Raclette Courdavault, Units sold : 739",
-                    "value": "739"
-                }, {
-                    "tooltext": "Manjimup Dried Apples, Units sold : 752",
-                    "value": "752"
-                }, {
-                    "tooltext": "Tarte au sucre, Units sold : 757",
-                    "value": "757"
-                }, {
-                    "tooltext": "Ipoh Coffee, Units sold : 542",
-                    "value": "542"
-                }, {
-                    "tooltext": "Rössle Sauerkraut, Units sold : 376",
-                    "value": "376"
-                }]
-            }]
-        },
-        "2012": {
-            "all": [{
-                "data": [{
-                    "value": "263.50000"
-                }, {
-                    "value": "123.79000"
-                }, {
-                    "value": "97.00000"
-                }, {
-                    "value": "81.00000"
-                }, {
-                    "value": "62.50000"
-                }, {
-                    "value": "55.00000"
-                }, {
-                    "value": "53.00000"
-                }, {
-                    "value": "49.30000"
-                }, {
-                    "value": "46.00000"
-                }, {
-                    "value": "45.60000"
-                }]
-            }, {
-                "data": [{
-                    "tooltext": "Côte de Blaye, Units sold : 248",
-                    "value": "248"
-                }, {
-                    "tooltext": "Thüringer Rostbratwurst, Units sold : 267",
-                    "value": "267"
-                }, {
-                    "tooltext": "Mishi Kobe Niku, Units sold : 92",
-                    "value": "92"
-                }, {
-                    "tooltext": "Sir Rodney's Marmalade, Units sold : 136",
-                    "value": "136"
-                }, {
-                    "tooltext": "Carnarvon Tigers, Units sold : 261",
-                    "value": "261"
-                }, {
-                    "tooltext": "Raclette Courdavault, Units sold : 699",
-                    "value": "699"
-                }, {
-                    "tooltext": "Manjimup Dried Apples, Units sold : 331",
-                    "value": "331"
-                }, {
-                    "tooltext": "Tarte au sucre, Units sold : 470",
-                    "value": "470"
-                }, {
-                    "tooltext": "Ipoh Coffee, Units sold : 228",
-                    "value": "228"
-                }, {
-                    "tooltext": "Rössle Sauerkraut, Units sold : 346",
-                    "value": "346"
-                }]
-            }]
-        }
-    },
-	/*
-		PostOperativeComplications: {
-		None: {type: Boolean, title: 'None'},
-		BladderInjury: {type: Boolean, title: 'Bladder injury'},
-		BowelInjury: {type: Boolean, title: 'Bowel injury'},
-		UretericInjury: {type: Boolean, title: 'Ureteric injury'},
-		AnaestheticComplication: {type: Boolean, title: 'Anaesthetic complication'},
-		ProcedureNotCompleted: {type: Boolean, title: 'Procedure not completed'},
-		BRUBT: {type: Boolean, title: 'Bleeding requiring unplanned blood transfusion'},
-		VascularInjury: {type: Boolean, title: 'Vascular injury'}
-	},
-	*/
+
     topSalesCategoriesSummaryData: {
         "2014": {
             "all": [{
@@ -1083,7 +398,7 @@ var managementData = {
         },
 
 
-        ///Ectotic
+        //Ectotic
         "ruptured": {
             "name": 'Ruptured'
         },
