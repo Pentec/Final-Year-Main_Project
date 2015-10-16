@@ -138,8 +138,6 @@ router.get('/myIncompleteForms', function (req, res, next) {
 });
 
 
-
-
 router.get('/dataNormalizer', function (req, res, next) {
 
     //dataNormalizerCervical.getNormalizedData(req.body.firstname, req.body.surname);
@@ -186,7 +184,11 @@ router.get('/myAdminSpace', login.isLoggedIn, login.isAdmin, function (req, res,
     if (req.user) {
         login.checkAdmin(req.user.username, req.user.password, function (isAdmin) {
             if (isAdmin) {
-                res.render('pims_space/myAdminSpace', {title: 'My PIMS Space', active : 'home', notAdmin: !login.isAdmin});
+                res.render('pims_space/myAdminSpace', {
+                    title: 'My PIMS Space',
+                    active: 'home',
+                    notAdmin: !login.isAdmin
+                });
             }
             else {
                 res.redirect('/mySpace');
@@ -243,21 +245,17 @@ router.get('/login', function (req, res) {
             send: sendData
         });
         sess.messages = null;
-
     }
-    else if(req.user) {//user already logged in, may help sessions
-        login.checkAdmin(req.user.username, req.user.password, function(isAdmin)
-        {
+    else if (req.user) {//user already logged in, may help sessions
+        login.checkAdmin(req.user.username, req.user.password, function (isAdmin) {
 
-            if(isAdmin)
-                {
+            if (isAdmin) {
 
-                    res.redirect('/myAdminSpace');
-                }
-                else
-                {
-                    res.redirect('/mySpace');
-                }
+                res.redirect('/myAdminSpace');
+            }
+            else {
+                res.redirect('/mySpace');
+            }
         });
     }
 });
@@ -279,19 +277,16 @@ router.get('/loginR', function (req, res) {
         sess.messages = null;
 
     }
-    else if(req.user) {//user already logged in, may help sessions
-        login.checkAdmin(req.user.username, req.user.password, function(isAdmin)
-        {
+    else if (req.user) {//user already logged in, may help sessions
+        login.checkAdmin(req.user.username, req.user.password, function (isAdmin) {
 
-            if(isAdmin)
-                {
+            if (isAdmin) {
 
-                    res.redirect('/myAdminSpace');
-                }
-                else
-                {
-                    res.redirect('/mySpace');
-                }
+                res.redirect('/myAdminSpace');
+            }
+            else {
+                res.redirect('/mySpace');
+            }
         });
     }
 });
@@ -312,18 +307,15 @@ router.get('/loginI', function (req, res) {
         sess.messages = null;
 
     }
-    else if(req.user) {//user already logged in, may help sessions
-        login.checkAdmin(req.user.username, req.user.password, function(isAdmin)
-        {
-            if(isAdmin)
-                {
+    else if (req.user) {//user already logged in, may help sessions
+        login.checkAdmin(req.user.username, req.user.password, function (isAdmin) {
+            if (isAdmin) {
 
-                    res.redirect('/myAdminSpace');
-                }
-                else
-                {
-                    res.redirect('/mySpace');
-                }
+                res.redirect('/myAdminSpace');
+            }
+            else {
+                res.redirect('/mySpace');
+            }
         });
     }
 });
@@ -342,8 +334,8 @@ router.post('/login', login.postLogin, function (req, res, next) {
 
 router.get('/logout', function (req, res) {
 
-    if(req.isAuthenticated()){
-        logging.info("User ["+ req.user.username + "] is now logging out ");
+    if (req.isAuthenticated()) {
+        logging.info("User [" + req.user.username + "] is now logging out ");
         req.logout();
         req.session.messages = "Log out successful";
 
@@ -424,8 +416,8 @@ router.post('/create', login.isLoggedIn, function (req, res) {
         var pswd = req.body.password;
 
 
-        if(userN != "" || pswd != ""){//add new user
-            userController.saltHashGen(false, "", userN, pswd, function(hashed){
+        if (userN != "" || pswd != "") {//add new user
+            userController.saltHashGen(false, "", userN, pswd, function (hashed) {
                 new User({
                     username: userN,
                     surname: req.body.surname,
@@ -435,7 +427,8 @@ router.post('/create', login.isLoggedIn, function (req, res) {
                     passwordSalt: hashed.sendSalt,
                     passwordHash: hashed.sendHash,
                     department: req.body.department,
-                    staff_type: req.body.staff_type
+                    staff_type: req.body.staff_type,
+                    deleted: false
                 })
                     .save(function (err, users) {
                         console.log("New user added");
@@ -443,11 +436,10 @@ router.post('/create', login.isLoggedIn, function (req, res) {
                     });
             });
         }
-        else{
+        else {
             //send message for validation
             console.log("empty fields");
         }
-
 
 
     }
@@ -614,24 +606,25 @@ router.post('/findSelectedQuery', function (req, res, next) {
         checkAdmission(period, stats, startDate, endDate);
     }
 
-    function checkPeriod(period, info){
-        if(period=='"Daily"')
+    function checkPeriod(period, info) {
+        if (period == '"Daily"')
             return {
                 month: {$month: info},
                 day: {$dayOfMonth: info},
                 year: {$year: info}
             };
-        else if(period=='"Monthly"'){
+        else if (period == '"Monthly"') {
             return {
                 month: {$month: info},
                 year: {$year: info}
             };
-        }else{
+        } else {
             return {
                 year: {$year: info}
             };
         }
     }
+
     function checkEmergency(period, stats, startDate, endDate) {
         var p = checkPeriod(period, "$ProcedureDate");
         console.log(p);
@@ -652,7 +645,7 @@ router.post('/findSelectedQuery', function (req, res, next) {
                 },
                 {
                     $sort: {
-                        "ourDate" : 1
+                        "ourDate": 1
                     }
                 }
 
@@ -697,7 +690,7 @@ router.post('/findSelectedQuery', function (req, res, next) {
                 },
                 {
                     $sort: {
-                        "ourDate" : 1
+                        "ourDate": 1
                     }
                 }
 
@@ -738,7 +731,7 @@ router.post('/findSelectedQuery', function (req, res, next) {
                 },
                 {
                     $sort: {
-                        "ourDate" : 1
+                        "ourDate": 1
                     }
                 }
 
@@ -784,7 +777,7 @@ router.post('/findSelectedQuery', function (req, res, next) {
                 },
                 {
                     $sort: {
-                        "ourDate" : 1
+                        "ourDate": 1
                     }
                 }
 
@@ -1076,7 +1069,7 @@ router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function (req, res, n
             docs.forEach(function (doc) {
                 //console.log("hey " + doc.Name + " "+ doc.Surname);
                 //console.log('size '+ docs.length);
-                if(doc.Name != null && doc != null){
+                if (doc.Name != null && doc != null) {
                     dataNormalizerCervical.getNormalizedData(doc.Name, doc.Surname, function (array) {
                         if (array == null) {
                             throw new Error('Array empty');
@@ -1143,14 +1136,14 @@ router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function (req, res, n
             docs.forEach(function (doc) {
                 //console.log("hey " + doc.Name + " "+ doc.Surname);
                 //console.log('size '+ docs.length);
-                if(doc.Name != null && doc != null){
+                if (doc.Name != null && doc != null) {
                     dataNormalizerEndometrial.getNormalizedData(doc.Name, doc.Surname, function (array) {
                         if (array == null) {
                             throw new Error('Array empty');
                         }
                         else {
                             //console.log('fetching '+ array);
-                            nn.testNetwork(req,array, function (found) {
+                            nn.testNetwork(req, array, function (found) {
                                 if (found) {
                                     totalPatients = docs.length;
                                     if (found >= 0.143) {
@@ -1270,5 +1263,38 @@ router.get('/neuraltrain', function (req, res, next) {
 router.get("/userManual", login.isLoggedIn, function (req, res, next) {
     res.download('../Documentation/User_Manual/UserManual.pdf');
 });
+
+/**
+ * This function removes a user fromt the database.
+ */
+router.post("/removeUser", login.isLoggedIn, login.isAdmin, function (req, res, next) {
+        req.body.username;
+
+        User.findOne({username: username}, function (err, found) {
+            if (err) {
+                console.log("DB error");
+                callback(err);
+            }
+
+            if (found) {
+                found.deleted = true;
+                found.save(err, function (callback) {
+                    if (err)
+                        throw new Error("Could not remove user");
+                    res.json({"found": true});
+                    callback();
+                });
+            } else {
+                res.json({"found": false});
+            }
+
+        });
+    }
+);
+
+router.get("/removeUser", login.isLoggedIn, login.isAdmin, function (req, res, next) {
+        res.render('removeUser', {title: 'Remove User', active: "user"});
+    }
+);
 
 module.exports = router;

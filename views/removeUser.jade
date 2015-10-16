@@ -1,0 +1,31 @@
+extends index
+block extFiles
+   script(src='/libs/angular/angular.min.js')
+   link(rel='stylesheet', href="/libs/perfect-scrollbar/min/perfect-scrollbar.min.css")
+   script(src="/libs/perfect-scrollbar/min/perfect-scrollbar.min.js")
+   script(src='/javascripts/app.js')
+   link(rel="stylesheet", href="/stylesheets/removeUser.css")
+block mainContent
+   .area
+      .container
+         .col-xs-12
+            .form-wrap.panel
+               .page-header.mypageHeader
+                  h3 Remove User
+               .row
+                  .col-xs-8.col-xs-offset-2#warningdiv
+                     .alert.alert-danger
+                        button.close(data-dismiss="alert", type="button") x
+                        p= "User does not exist or could not be removed"
+               form.form-horizontal(role="form", name="addNewUser", method="post", action="/create")#signup-form
+                  .form-group
+                     label.col-sm-2.control-label(for="username") Username
+                     .col-sm-8
+                        input(type="text", name="username",value=username, placeholder="Please enter their username eg.John").form-control
+                     .col-sm-2
+                        button.btn.btn.btn-custom(type='submit')
+                           i.fa.fa-magnet
+                           | Remove User
+                  script.
+                     $('.area').perfectScrollbar();
+

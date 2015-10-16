@@ -37,7 +37,8 @@ var Users = new Schema({
         required: true
     },
 	department : String,
-	staff_type : String
+	staff_type : String,
+    deleted: Boolean
 
 });
 
