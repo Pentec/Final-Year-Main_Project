@@ -33,6 +33,7 @@ function CollectDataFromClient(data)
         ie6 = isIE6(),
         DOCUMENT = document;
 
+
     /**
      * Properties of all charts
      */
@@ -1533,10 +1534,10 @@ function CollectDataFromClient(data)
     // KPI Dashboard / Dashboard Tab 3
     dashboards.add('kpi', function() {
 
-        var survivalDataTabChart,
+        /*var survivalDataTabChart,
             survivalDataTabChartConfig = chartConfig.survivalDataTab,
             survivalDataTabCategories = managementData.survivalDataTabCategories,
-            survivalDataTabData = managementData.survivalDataTabData;
+            survivalDataTabData = managementData.survivalDataTabData;*/
 
         // Config for Cost of Inventory By Product Categories Chart
         var inventoryByProductCategoriesChart,
@@ -1589,12 +1590,12 @@ function CollectDataFromClient(data)
         costOfGoodsSoldChart = new FusionCharts(costOfGoodsSoldChartConfig);
         costOfGoodsSoldChart.render();
 
-        eventListeners.add('survival_data_tab_year_filter', 'change', function() {
+        /*eventListeners.add('survival_data_tab_year_filter', 'change', function() {
             var year = dom.queryCurrentValue('survival_data_tab_year_filter', this);
 
             chartDataSource.setData(survivalDataTabChartConfig.dataSource, survivalDataTabData[year]);
             survivalDataTabChart.setJSONData(survivalDataTabChartConfig.dataSource);
-        });
+        });*/
 
         /**
           * Year filter for inventory by categories chart.
@@ -1637,7 +1638,7 @@ function CollectDataFromClient(data)
            var year = dom.queryCurrentValue('customer_satisfaction_year_filter', this);
 
             chartDataSource.setData(customerSatisfactionChartConfig.dataSource, customerSatisfactionData[year]);
-            customerSatisfactionChart.setJSONData(customerSatisfactionChartConfig.dataSource); 
+            customerSatisfactionChart.setJSONData(customerSatisfactionChartConfig.dataSource);
         });
     });
 
@@ -1652,7 +1653,7 @@ function CollectDataFromClient(data)
         var ids = {
             summary: ['top_sales_performers_summary_year_filter', 'top_categories_summary_year_filter', 'top_revenues_country_year_filter', 'top_products_summary_year_filter', 'top_revenues_cities_summary_year_filter', 'top_customers_summary_year_filter'],
             sales: ['top_categories_sales_tab_year_filter', 'top_performers_sales_year_filter', 'top_monthly_sales_year_filter'],
-            kpi: ['survival_data_tab_year_filter', 'inventory_by_categories_year_filter', 'cost_of_goods_sold_year_filter', 'average_shipping_time_year_filter', 'customer_satisfaction_year_filter']
+            kpi: ['inventory_by_categories_year_filter', 'cost_of_goods_sold_year_filter', 'average_shipping_time_year_filter', 'customer_satisfaction_year_filter']
         };
 
 
@@ -1871,6 +1872,14 @@ function sendDataToGraph(surviveData){
             ie6 = isIE6(),
             DOCUMENT = document;
 
+        var chartProperties = {
+            "caption": "Survival Data for Cervical Cancer",
+            "numberprefix": "",
+            "xAxisName": "Number (Percentage)",
+            "yAxisName": "Patient Status",
+            theme: 'management-3d'
+        };
+
         /**
          * Properties of all charts
          */
@@ -1928,6 +1937,52 @@ function sendDataToGraph(surviveData){
                     data: []
                 }
 
+            },
+
+
+            endoCanDataTab: {
+                type: 'bar3d',
+                id: 'endoCanDataTab',
+                width: '473',
+                height: '340',
+                dataFormat: 'json',
+                renderAt: 'test-categories-tab-chart',//div to render at
+                dataSource: {
+                    chart: chartProperties,
+                    data: []
+                },
+                showDataLoadingMessage : true,
+                showChartLoadingMessage : true
+            },
+
+            fallTubeDataTab: {
+                type: 'bar3d',
+                id: 'fallTubeDataTab',
+                width: '473',
+                height: '340',
+                dataFormat: 'json',
+                renderAt: 'test2-categories-tab-chart',//div to render at
+                dataSource: {
+                    chart: chartProperties,
+                    data: []
+                },
+                showDataLoadingMessage : true,
+                showChartLoadingMessage : true
+            },
+
+            vulvCanDataTab: {
+                type: 'bar3d',
+                id: 'vulvCanDataTab',
+                width: '473',
+                height: '340',
+                dataFormat: 'json',
+                renderAt: 'test3-categories-tab-chart',//div to render at
+                dataSource: {
+                    chart: chartProperties,
+                    data: []
+                },
+                showDataLoadingMessage : true,
+                showChartLoadingMessage : true
             },
 
             // Properties for top sales performers chart
@@ -3460,7 +3515,6 @@ function sendDataToGraph(surviveData){
             var survivalDataTabChart,
                 survivalDataTabChartConfig = chartConfig.survivalDataTab,
                 survivalDataTabCategories = managementData.survivalDataTabCategories,
-            //survivalDataTabData = managementData.survivalDataTabData;
                 survivalDataTabData = {
                     //wil; feed data and years from DB
                     "2014": [{
@@ -3494,7 +3548,7 @@ function sendDataToGraph(surviveData){
                         },
                             {
                                 "label": "Alive",
-                                "value": surviveData.arrSend[0].toString(),
+                                "value": "150000",
                                 "link": "#sales"
                             },{
                                 "label": "Chemotherapy",
@@ -3507,6 +3561,165 @@ function sendDataToGraph(surviveData){
                             }, {
                                 "label": "Surgery",
                                 "value":  surviveData.stageOne[1].toString(),
+                                "link": "#sales"
+                            }]
+                    }],
+                    "2012": [{
+                        "data": [{
+                            "label": "Stage One Cancer",
+                            "value": "260000",
+                            "link": "#sales"
+                        },
+                            {
+                                "label": "Alive",
+                                "value": "250000",
+                                "link": "#sales"
+                            }, {
+                                "label": "Chemotherapy",
+                                "value": "190000",
+                                "link": "#sales"
+                            }, {
+                                "label": "Radiotherapy",
+                                "value": "45000",
+                                "link": "#sales"
+                            }, {
+                                "label": "Surgery",
+                                "value":  "15000",
+                                "link": "#sales"
+                            }]
+                    }]
+                };
+
+            // Config for Cost of Inventory By Product Categories Chart
+            var endoCanCategoriesChart,
+                endoCanCategoriesChartConfig = chartConfig.endoCanDataTab,
+                endoCanCategoriesCategories = managementData.inventoryByProductCategoriesCategories,
+                endoCanCategoriesData = {
+                    //wil; feed data and years from DB
+                    "2014": [{
+                        "data": [{
+                            "label": "Stage One Cancer",
+                            "value": "150000",
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive",
+                            "value": "145000",
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": "100000",
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": "20000",
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  "25000",
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2013": [{
+                        "data": [{
+                            "label": "Stage One Cancer",
+                            "value": "98000",
+                            "link": "#sales"
+                        },
+                            {
+                                "label": "Alive",
+                                "value": "90000",
+                                "link": "#sales"
+                            },{
+                                "label": "Chemotherapy",
+                                "value": "50000",
+                                "link": "#sales"
+                            }, {
+                                "label": "Radiotherapy",
+                                "value": "35000",
+                                "link": "#sales"
+                            }, {
+                                "label": "Surgery",
+                                "value":  "5000",
+                                "link": "#sales"
+                            }]
+                    }],
+                    "2012": [{
+                        "data": [{
+                            "label": "Stage One Cancer",
+                            "value": "145600",
+                            "link": "#sales"
+                        },
+                            {
+                                "label": "Alive",
+                                "value": "139000",
+                                "link": "#sales"
+                            }, {
+                                "label": "Chemotherapy",
+                                "value": "13000",
+                                "link": "#sales"
+                            }, {
+                                "label": "Radiotherapy",
+                                "value": "9000",
+                                "link": "#sales"
+                            }, {
+                                "label": "Surgery",
+                                "value":  "5600",
+                                "link": "#sales"
+                            }]
+                    }]
+                };
+
+
+
+            // Config for Average Shipping Time Chart
+            var fallTubeDataChart,
+                fallTubeDataChartConfig = chartConfig.fallTubeDataTab,
+                fallTubeData = {
+                    //wil; feed data and years from DB
+                    "2014": [{
+                        "data": [{
+                            "label": "Stage One Cancer",
+                            "value": "100000",
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive",
+                            "value": "80000",
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": "20000",
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": "0",
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  "0",
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2013": [{
+                        "data": [{
+                            "label": "Stage One Cancer",
+                            "value": "50000",
+                            "link": "#sales"
+                        },
+                            {
+                                "label": "Alive",
+                                "value": "50000",
+                                "link": "#sales"
+                            },{
+                                "label": "Chemotherapy",
+                                "value": "45000",
+                                "link": "#sales"
+                            }, {
+                                "label": "Radiotherapy",
+                                "value": "0",
+                                "link": "#sales"
+                            }, {
+                                "label": "Surgery",
+                                "value":  "5000",
                                 "link": "#sales"
                             }]
                     }],
@@ -3536,27 +3749,86 @@ function sendDataToGraph(surviveData){
                     }]
                 };
 
-            // Config for Cost of Inventory By Product Categories Chart
-            var inventoryByProductCategoriesChart,
-                inventoryByProductCategoriesChartConfig = chartConfig.inventoryByProductCategories,
-                inventoryByProductCategoriesCategories = managementData.inventoryByProductCategoriesCategories,
-                inventoryByProductCategoriesData = managementData.inventoryByProductCategoriesData;
 
-            // Config for Average Shipping Time Chart
-            var averageShippingTimeChart,
-                averageShippingTimeChartConfig = chartConfig.averageShippingTime,
-                averageShippingTimeData = managementData.averageShippingTimeData;
 
             // Config for Customer Satisfaction Chart
-            var customerSatisfactionChart,
-                customerSatisfactionChartConfig = chartConfig.customerSatisfaction,
-                customerSatisfactionData = managementData.customerSatisfactionData;
+            var vulvCanDataChart,
+                vulvCanDataChartConfig = chartConfig.vulvCanDataTab,
+                vulvCanData = {
+                    //wil; feed data and years from DB
+                    "2014": [{
+                        "data": [{
+                            "label": "Stage One Cancer",
+                            "value": "168000",
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive",
+                            "value": "167000",
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": "163000",
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": "3900",
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  "100",
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2013": [{
+                        "data": [{
+                            "label": "Stage One Cancer",
+                            "value": surviveData.stageOne[0].toString(),
+                            "link": "#sales"
+                        },
+                            {
+                                "label": "Alive",
+                                "value": surviveData.arrSend[0].toString(),
+                                "link": "#sales"
+                            },{
+                                "label": "Chemotherapy",
+                                "value": surviveData.stageOne[3].toString(),
+                                "link": "#sales"
+                            }, {
+                                "label": "Radiotherapy",
+                                "value": surviveData.stageOne[2].toString(),
+                                "link": "#sales"
+                            }, {
+                                "label": "Surgery",
+                                "value":  surviveData.stageOne[1].toString(),
+                                "link": "#sales"
+                            }]
+                    }],
+                    "2012": [{
+                        "data": [{
+                            "label": "Stage One Cancer",
+                            "value": "159600",
+                            "link": "#sales"
+                        },
+                            {
+                                "label": "Alive",
+                                "value": "159600",
+                                "link": "#sales"
+                            }, {
+                                "label": "Chemotherapy",
+                                "value": "9000",
+                                "link": "#sales"
+                            }, {
+                                "label": "Radiotherapy",
+                                "value": "600",
+                                "link": "#sales"
+                            }, {
+                                "label": "Surgery",
+                                "value":  "0",
+                                "link": "#sales"
+                            }]
+                    }]
+                };
 
-            // Config for Cost of Goods Sold Chart
-            var costOfGoodsSoldChart,
-                costOfGoodsSoldChartConfig = chartConfig.costOfGoodsSold,
-                costOfGoodsSoldCategories = managementData.costOfGoodsSoldCategories,
-                costOfGoodsSoldData = managementData.costOfGoodsSoldData;
 
 
             // Top Survival Chart
@@ -3565,27 +3837,23 @@ function sendDataToGraph(surviveData){
             survivalDataTabChart.render();
 
             // Inventory By Product Categories Chart
-            chartDataSource.setData(inventoryByProductCategoriesChartConfig.dataSource, inventoryByProductCategoriesData);
-            inventoryByProductCategoriesChart = new FusionCharts(inventoryByProductCategoriesChartConfig);
-            inventoryByProductCategoriesChart.render();
+            chartDataSource.setData(endoCanCategoriesChartConfig.dataSource, endoCanCategoriesData[currentYear]);//can select for drop down list here
+            endoCanCategoriesChart = new FusionCharts(endoCanCategoriesChartConfig);
+            endoCanCategoriesChart.render();
 
             // Average Shipping Chart
-            chartDataSource.setData(averageShippingTimeChartConfig.dataSource, averageShippingTimeData[currentYear], {
-                tooltipFormatter: dataHelpers.tooltipFormatters.averageShippingTimeChart
-            });
-            averageShippingTimeChart = new FusionCharts(averageShippingTimeChartConfig);
-            averageShippingTimeChart.render();
+            chartDataSource.setData(fallTubeDataChartConfig.dataSource, fallTubeData[currentYear]);
+            fallTubeDataChart = new FusionCharts(fallTubeDataChartConfig);
+            fallTubeDataChart.render();
+
+
+
 
             // Cusotmer Satisfaction Chart
-            chartDataSource.setData(customerSatisfactionChartConfig.dataSource, customerSatisfactionData[currentYear]);
-            customerSatisfactionChart = new FusionCharts(customerSatisfactionChartConfig);
-            customerSatisfactionChart.render();
+            chartDataSource.setData(vulvCanDataChartConfig.dataSource, vulvCanData[currentYear]);
+            vulvCanDataChart = new FusionCharts(vulvCanDataChartConfig);
+            vulvCanDataChart.render();
 
-            // Cost of Goods Sold Chart
-            chartDataSource.setCategories(costOfGoodsSoldChartConfig.dataSource, costOfGoodsSoldCategories);
-            chartDataSource.setDataSetData(costOfGoodsSoldChartConfig.dataSource, costOfGoodsSoldData[currentYear]);
-            costOfGoodsSoldChart = new FusionCharts(costOfGoodsSoldChartConfig);
-            costOfGoodsSoldChart.render();
 
             eventListeners.add('survival_data_tab_year_filter', 'change', function() {
                 var year = dom.queryCurrentValue('survival_data_tab_year_filter', this);
@@ -3594,48 +3862,26 @@ function sendDataToGraph(surviveData){
                 survivalDataTabChart.setJSONData(survivalDataTabChartConfig.dataSource);
             });
 
-            /**
-             * Year filter for inventory by categories chart.
-             */
-            eventListeners.add('inventory_by_categories_year_filter', 'change', function() {
-                chartDataSource.setData(inventoryByProductCategoriesChartConfig.dataSource, inventoryByProductCategoriesData);
+            eventListeners.add('test_data_tab_year_filter', 'change', function() {
+                var year = dom.queryCurrentValue('test_data_tab_year_filter', this);
 
-                inventoryByProductCategoriesChart.setJSONData(inventoryByProductCategoriesChartConfig.dataSource);
+                chartDataSource.setData(endoCanCategoriesChartConfig.dataSource, endoCanCategoriesData[year]);
+                endoCanCategoriesChart.setJSONData(endoCanCategoriesChartConfig.dataSource);
             });
 
-            /**
-             * Year filter for cost of goods sold chart.
-             */
-            eventListeners.add('cost_of_goods_sold_year_filter', 'change', function() {
-                var year = dom.queryCurrentValue('cost_of_goods_sold_year_filter', this);
+            eventListeners.add('test2_data_tab_year_filter', 'change', function() {
+                var year = dom.queryCurrentValue('test2_data_tab_year_filter', this);
 
-                chartDataSource.setCategories(costOfGoodsSoldChartConfig.dataSource, costOfGoodsSoldCategories);
-                chartDataSource.setDataSetData(costOfGoodsSoldChartConfig.dataSource, costOfGoodsSoldData[year]);
-
-                costOfGoodsSoldChart.setJSONData(costOfGoodsSoldChartConfig.dataSource);
+                chartDataSource.setData(fallTubeDataChartConfig.dataSource, fallTubeData[year]);
+                fallTubeDataChart.setJSONData(fallTubeDataChartConfig.dataSource);
             });
 
-            /**
-             * Year filter for average shipping time chart.
-             */
-            eventListeners.add('average_shipping_time_year_filter', 'change', function() {
-                var year = dom.queryCurrentValue('average_shipping_time_year_filter', this);
 
-                chartDataSource.setData(averageShippingTimeChartConfig.dataSource, averageShippingTimeData[year], {
-                    tooltipFormatter: dataHelpers.tooltipFormatters.averageShippingTimeChart
-                });
+            eventListeners.add('test3_data_tab_year_filter', 'change', function() {
+                var year = dom.queryCurrentValue('test3_data_tab_year_filter', this);
 
-                averageShippingTimeChart.setJSONData(averageShippingTimeChartConfig.dataSource);
-            });
-
-            /**
-             * Year filter for custom satisfaction chart.
-             */
-            eventListeners.add('customer_satisfaction_year_filter', 'change', function() {
-                var year = dom.queryCurrentValue('customer_satisfaction_year_filter', this);
-
-                chartDataSource.setData(customerSatisfactionChartConfig.dataSource, customerSatisfactionData[year]);
-                customerSatisfactionChart.setJSONData(customerSatisfactionChartConfig.dataSource);
+                chartDataSource.setData(vulvCanDataChartConfig.dataSource, vulvCanData[year]);
+                vulvCanDataChart.setJSONData(vulvCanDataChartConfig.dataSource);
             });
         });
 
@@ -3650,7 +3896,7 @@ function sendDataToGraph(surviveData){
             var ids = {
                 summary: ['top_sales_performers_summary_year_filter', 'top_categories_summary_year_filter', 'top_revenues_country_year_filter', 'top_products_summary_year_filter', 'top_revenues_cities_summary_year_filter', 'top_customers_summary_year_filter'],
                 sales: ['top_categories_sales_tab_year_filter', 'top_performers_sales_year_filter', 'top_monthly_sales_year_filter'],
-                kpi: ['survival_data_tab_year_filter', 'inventory_by_categories_year_filter', 'cost_of_goods_sold_year_filter', 'average_shipping_time_year_filter', 'customer_satisfaction_year_filter']
+                kpi: ['survival_data_tab_year_filter', 'test_data_tab_year_filter', 'test2_data_tab_year_filter', 'test3_data_tab_year_filter']
             };
 
 
