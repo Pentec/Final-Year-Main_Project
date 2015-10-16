@@ -60,5 +60,5 @@ module.exports.stream = {
     write: function(message, encoding){
         logger.info(message);
     }
-}
+};
 

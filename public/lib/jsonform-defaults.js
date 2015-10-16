@@ -254,7 +254,7 @@
               recSetObjKey(obj[k], keyparts, value);
             }
           }
-          return;
+
         }
         else {
           // "Normal" subkey

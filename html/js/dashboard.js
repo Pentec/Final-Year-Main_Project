@@ -596,7 +596,7 @@ function CollectDataFromClient(data)
             }
 
             var charts = getElementsByClassName('div', 'fusioncharts-container');
-            var chartsLength = charts.length
+            var chartsLength = charts.length;
 
             for (i = 0; i < chartsLength; i++) {
                 charts[i].style.position = '';
@@ -816,9 +816,8 @@ function CollectDataFromClient(data)
         self.hide = function() {
             dom.getById(self.config.renderAt + '-table').style.display = 'none';
         };
-    };
-
-    /**
+    }
+     /**
      * Consists of all the dashboards.
      */
     dashboards = {
@@ -2275,7 +2274,7 @@ function CollectDataFromClient(data)
         var pattern = /MSIE (\d+\.\d+);/;
 
         if (pattern.test(window.navigator.userAgent)) {
-            var ieversion = new Number(RegExp.$1)
+            var ieversion = Number(RegExp.$1);
 
             return ieversion;
         }

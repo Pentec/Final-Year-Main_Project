@@ -1,5 +1,5 @@
 var express = require('express');
-var submodules = "../../sub-modules/"
+var submodules = "../../sub-modules/";
 var models = require(submodules + 'pims-database/database');
 var AD = models.addmissionDischarge;
 var GS = models.gynaecologySurgery;

@@ -16,7 +16,7 @@ describe("update profile", function(){
 
     it("should modify profile details [surname]", function(done){
         User.findOne({username: "Leon"}, function(err, contact) {
-            contact.surname = "Snymanss"
+            contact.surname = "Snymanss";
             should.not.exist(err);
             contact.surname.should.equal("Snymanss");
 
@@ -26,7 +26,7 @@ describe("update profile", function(){
 
     it("should modify profile details [password]", function(done){
         User.findOne({username: "Leon"}, function(err, contact) {
-            contact.password = "leonSnyman"
+            contact.password = "leonSnyman";
             should.not.exist(err);
             contact.password.should.equal("leonSnyman");
 
@@ -36,7 +36,7 @@ describe("update profile", function(){
 
     it("should modify profile details [email]", function(done){
         User.findOne({username: "Leon"}, function(err, contact) {
-            contact.email = "rojo67@yahoo.com"
+            contact.email = "rojo67@yahoo.com";
             should.not.exist(err);
             contact.email.should.equal("rojo67@yahoo.com");
 
@@ -46,7 +46,7 @@ describe("update profile", function(){
 
     it("should modify profile details [user_rights]", function(done){
         User.findOne({username: "Leon"}, function(err, contact) {
-            contact.user_rights = 2
+            contact.user_rights = 2;
             should.not.exist(err);
             contact.user_rights.should.equal(2);
 

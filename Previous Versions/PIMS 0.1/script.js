@@ -10,7 +10,7 @@
 			}
         
         return true;
-    }
+    };
 
     var isEmpty = function isEmpty(data, alettxt)
     {
@@ -22,7 +22,7 @@
             return false;
         }
         return true;
-    }
+    };
   
  
     function reset()
@@ -53,7 +53,7 @@
             }   
         }
         return false;
-    }
+    };
 	
 	
 	function ready()

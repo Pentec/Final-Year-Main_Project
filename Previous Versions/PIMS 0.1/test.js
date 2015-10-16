@@ -61,7 +61,7 @@ test("isempty returns", function(){
  var lenght = 5;
  var msg = "patient name is empty";
 
-ok( typeof isEmpty === 'function',"isEmpty is a function")
+ok( typeof isEmpty === 'function',"isEmpty is a function");
 equal( isEmpty(lenght,msg), true, "empty string returned true")
 
-})
+});

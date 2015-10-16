@@ -36,7 +36,7 @@
           if (left == 0) {
             callback();
           }
-        }
+        };
         img.onerror = function() {
           console.log("Could not load "+href);
           left--;
@@ -98,8 +98,8 @@
         height = box.y + box.height;
         clone.setAttribute('transform', clone.getAttribute('transform').replace(/translate\(.*?\)/, ''));
 
-        var svg = document.createElementNS('http://www.w3.org/2000/svg','svg')
-        svg.appendChild(clone)
+        var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+        svg.appendChild(clone);
         clone = svg;
       }
 
@@ -125,7 +125,7 @@
         cb(uri);
       }
     });
-  }
+  };
 
   out$.saveSvgAsPng = function(el, name, options) {
     options = options || {};

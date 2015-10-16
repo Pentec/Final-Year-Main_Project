@@ -536,8 +536,8 @@ $.widget("ui.sortable", $.ui.mouse, {
           if(inst && inst != this && !inst.options.disabled) {
             queries.push([$.isFunction(inst.options.items) ? inst.options.items.call(inst.element) : $(inst.options.items, inst.element).not(".ui-sortable-helper").not('.ui-sortable-placeholder'), inst]);
           }
-        };
-      };
+        }
+      }
     }
 
     queries.push([$.isFunction(this.options.items) ? this.options.items.call(this.element, null, { options: this.options, item: this.currentItem }) : $(this.options.items, this.element).not(".ui-sortable-helper").not('.ui-sortable-placeholder'), this]);
@@ -546,8 +546,7 @@ $.widget("ui.sortable", $.ui.mouse, {
       queries[i][0].each(function() {
         items.push(this);
       });
-    };
-
+    }
     return $(items);
 
   },
@@ -561,10 +560,8 @@ $.widget("ui.sortable", $.ui.mouse, {
       for (var j=0; j < list.length; j++) {
         if(list[j] == this.items[i].item[0])
           this.items.splice(i,1);
-      };
-
-    };
-
+      }
+    }
   },
 
   _refreshItems: function(event) {
@@ -585,8 +582,8 @@ $.widget("ui.sortable", $.ui.mouse, {
             queries.push([$.isFunction(inst.options.items) ? inst.options.items.call(inst.element[0], event, { item: this.currentItem }) : $(inst.options.items, inst.element), inst]);
             this.containers.push(inst);
           }
-        };
-      };
+        }
+      }
     }
 
     for (var i = queries.length - 1; i >= 0; i--) {
@@ -604,9 +601,8 @@ $.widget("ui.sortable", $.ui.mouse, {
           width: 0, height: 0,
           left: 0, top: 0
         });
-      };
-    };
-
+      }
+    }
   },
 
   refreshPositions: function(fast) {
@@ -633,8 +629,7 @@ $.widget("ui.sortable", $.ui.mouse, {
       var p = t.offset();
       item.left = p.left;
       item.top = p.top;
-    };
-
+    }
     if(this.options.custom && this.options.custom.refreshContainers) {
       this.options.custom.refreshContainers.call(this);
     } else {
@@ -644,7 +639,7 @@ $.widget("ui.sortable", $.ui.mouse, {
         this.containers[i].containerCache.top = p.top;
         this.containers[i].containerCache.width = this.containers[i].element.outerWidth();
         this.containers[i].containerCache.height = this.containers[i].element.outerHeight();
-      };
+      }
     }
 
     return this;
@@ -675,8 +670,12 @@ $.widget("ui.sortable", $.ui.mouse, {
           if(className && !o.forcePlaceholderSize) return;
 
           //If the element doesn't have a actual height by itself (without styles coming from a stylesheet), it receives the inline height from the dragged item
-          if(!p.height()) { p.height(self.currentItem.innerHeight() - parseInt(self.currentItem.css('paddingTop')||0, 10) - parseInt(self.currentItem.css('paddingBottom')||0, 10)); };
-          if(!p.width()) { p.width(self.currentItem.innerWidth() - parseInt(self.currentItem.css('paddingLeft')||0, 10) - parseInt(self.currentItem.css('paddingRight')||0, 10)); };
+          if (!p.height()) {
+            p.height(self.currentItem.innerHeight() - parseInt(self.currentItem.css('paddingTop') || 0, 10) - parseInt(self.currentItem.css('paddingBottom') || 0, 10));
+          }
+          if (!p.width()) {
+            p.width(self.currentItem.innerWidth() - parseInt(self.currentItem.css('paddingLeft') || 0, 10) - parseInt(self.currentItem.css('paddingRight') || 0, 10));
+          }
         }
       };
     }
@@ -1009,9 +1008,8 @@ $.widget("ui.sortable", $.ui.mouse, {
           delayedTriggers.push((function(c) { return function(event) { c._trigger("receive", event, this._uiHash(this)); };  }).call(this, this.containers[i]));
           delayedTriggers.push((function(c) { return function(event) { c._trigger("update", event, this._uiHash(this));  }; }).call(this, this.containers[i]));
         }
-      };
-    };
-
+      }
+    }
     //Post events to containers
     for (var i = this.containers.length - 1; i >= 0; i--){
       if(!noPropagation) delayedTriggers.push((function(c) { return function(event) { c._trigger("deactivate", event, this._uiHash(this)); };  }).call(this, this.containers[i]));
@@ -1030,7 +1028,9 @@ $.widget("ui.sortable", $.ui.mouse, {
     if(this.cancelHelperRemoval) {
       if(!noPropagation) {
         this._trigger("beforeStop", event, this._uiHash());
-        for (var i=0; i < delayedTriggers.length; i++) { delayedTriggers[i].call(this, event); }; //Trigger all delayed events
+        for (var i = 0; i < delayedTriggers.length; i++) {
+          delayedTriggers[i].call(this, event);
+        } //Trigger all delayed events
         this._trigger("stop", event, this._uiHash());
       }
       return false;
@@ -1044,7 +1044,9 @@ $.widget("ui.sortable", $.ui.mouse, {
     if(this.helper[0] != this.currentItem[0]) this.helper.remove(); this.helper = null;
 
     if(!noPropagation) {
-      for (var i=0; i < delayedTriggers.length; i++) { delayedTriggers[i].call(this, event); }; //Trigger all delayed events
+      for (var i = 0; i < delayedTriggers.length; i++) {
+        delayedTriggers[i].call(this, event);
+      } //Trigger all delayed events
       this._trigger("stop", event, this._uiHash());
     }
 

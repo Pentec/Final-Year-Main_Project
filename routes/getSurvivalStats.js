@@ -16,7 +16,7 @@ router.post('/', function(req, res) {
                     var response = {
                         arrSend: arrSend,
                         stageOne: stageOne
-                    }
+                    };
 
                     res.json(response); //arrSend should be a json object
                     console.log("POST sent.   " + response.stageOne[2]);

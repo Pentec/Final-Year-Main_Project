@@ -34,7 +34,7 @@ var saltHashGen = function(saltDone, getSalt, username, pswd, callback){
                     var sendSaltHash = {
                         sendSalt: getSalt,
                         sendHash: hash.toString('hex').slice(0, config.saltBytes)
-                    }
+                    };
                     //console.log("salt in hashing "+ getSalt);
                     //console.log("hashing "+ hash.toString('hex').slice(0, config.saltBytes));
                     return callback(sendSaltHash);
@@ -74,7 +74,7 @@ var saltHashGen = function(saltDone, getSalt, username, pswd, callback){
                         var sendSaltHash = {
                             sendSalt: salt.toString('hex').slice(0, config.saltBytes),
                             sendHash: hash.toString('hex').slice(0, config.saltBytes)
-                        }
+                        };
                         //console.log("salting " + salt.toString('hex').slice(0, config.saltBytes));
                         //console.log("salting " + hash.toString('hex').slice(0, config.saltBytes));
                         return callback(sendSaltHash);
@@ -86,7 +86,7 @@ var saltHashGen = function(saltDone, getSalt, username, pswd, callback){
 
     }
 
-}
+};
 
 
 
@@ -97,10 +97,10 @@ var generateInitVector = function(){
 
     return initVector;
 
-}
+};
 
 
 module.exports = {
     saltHashGen: saltHashGen
 
-}
+};

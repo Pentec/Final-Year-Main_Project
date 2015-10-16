@@ -634,7 +634,7 @@ router.post('/findSelectedQuery', function (req, res, next) {
     }
     function checkEmergency(period, stats, startDate, endDate) {
         var p = checkPeriod(period, "$ProcedureDate");
-        console.log(p)
+        console.log(p);
         GS.aggregate(
             [
                 {

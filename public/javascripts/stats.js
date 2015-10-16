@@ -12,15 +12,24 @@ var bar = false;
  return x;
  };*/
 
+/**
+ * Initializes all functions on page load.
+ */
 $(document).ready(function () {
     init();
 });
 
+/**
+ * Resizes the graph in case a user modifies the page size.
+ */
 $(window).resize(function () {
     var tempData = $.extend(true, [], data);
     createLineGraph(tempData, yAxisName);
 });
 
+/**
+ * Sets up the graph wrapper to correct aspect ratio
+ */
 function pageSetup() {
     $(".graphbox").height($(".graphbox").width() * ratio);
     if ($(".graph-interaction").height() > $(".graphbox").height()) {
@@ -29,6 +38,11 @@ function pageSetup() {
     $(".graph-wrapper").height($(".graphbox").width() * ratio);
 }
 
+/**
+ * This function creates a line graph using the d3 library.
+ * @param data This is the data for the graph.
+ * @param yAxisName This is the actual axis name of the graph.
+ */
 function createLineGraph(data, yAxisName) {
     bar = false;
     pageSetup();
@@ -92,7 +106,7 @@ function createLineGraph(data, yAxisName) {
     }));
     var minMax = d3.extent(data, function (d) {
         return d.close;
-    })
+    });
     minMax[0] -= minMax[1] * 0.2;
     if (minMax[0] < 0)
         minMax[0] = 0;
@@ -130,6 +144,11 @@ function createLineGraph(data, yAxisName) {
     updateLineGraph(this.data, this.yAxisName);
 }
 
+/**
+ * This function creates a bar graph using the d3 library.
+ * @param data This is the data for the graph.
+ * @param yAxisName This is the actual axis name of the graph.
+ */
 function createBarGraph(data, yAxisName) {
     bar = true;
     pageSetup();
@@ -235,6 +254,11 @@ function createBarGraph(data, yAxisName) {
     updateBarGraph(this.data, this.yAxisName);
 }
 
+/**
+ * This function updates the current line graph with an animation
+ * @param data The new data to placed into the graph.
+ * @param yAxisName The new axis name for the graph.
+ */
 function updateLineGraph(data, yAxisName) {
     this.data = $.extend(true, [], data);
     this.yAxisName = yAxisName;
@@ -247,7 +271,7 @@ function updateLineGraph(data, yAxisName) {
     }));
     var minMax = d3.extent(data, function (d) {
         return d.close;
-    })
+    });
     minMax[0] -= minMax[1] * 0.2;
     if (minMax[0] < 0)
         minMax[0] = 0;
@@ -270,6 +294,11 @@ function updateLineGraph(data, yAxisName) {
     svg.select(".title").text(yAxisName);
 }
 
+/**
+ * This function updates the current bar graph with an animation
+ * @param data The new data to placed into the graph.
+ * @param yAxisName The new axis name for the graph.
+ */
 function updateBarGraph(data, yAxisName) {
     this.data = $.extend(true, [], data);
     this.yAxisName = yAxisName;
@@ -286,7 +315,7 @@ function updateBarGraph(data, yAxisName) {
     }));
     var minMax = d3.extent(data, function (d) {
         return d.close;
-    })
+    });
     minMax[0] -= minMax[1] * 0.2;
     minMax[0] = 0;
     minMax[1] += minMax[1] * 0.2;
@@ -324,15 +353,24 @@ function updateBarGraph(data, yAxisName) {
     svg.select(".title").text(yAxisName);
 }
 
+/**
+ * Submits all the current queries for the graphs.
+ */
 function submit() {
     $("#mainQuery").submit();
 }
 
+/**
+ * Predicts the direction in which the graph will go.
+ */
 function predict() {
     alert("Not implemented");
     //TODO Implement
 }
 
+/**
+ * Initializes the page
+ */
 function init() {
     $('.area').perfectScrollbar();
     [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function (el) {
@@ -370,6 +408,13 @@ function init() {
 
 }
 
+/**
+ * Performs all the AJAX queries for the graph.
+ * @param startDate Start date for the graph
+ * @param endDate End date for the graph
+ * @param period The interval period
+ * @param stats The type of statistics being retrieved
+ */
 function query(startDate, endDate, period, stats) {
     $.ajax({
         type: 'POST',
@@ -409,6 +454,9 @@ function query(startDate, endDate, period, stats) {
     });
 }
 
+/**
+ * Makes use of a library to save the graph as a PNG image
+ */
 function saveAsPNG() {
     saveSvgAsPng(document.getElementsByClassName("graphimage")[0], "Graph.png");
 }

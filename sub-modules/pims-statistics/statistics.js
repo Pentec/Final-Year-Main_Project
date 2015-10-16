@@ -125,7 +125,7 @@ var getCervicalStageOne = function(callback){
     });
 
 
-}
+};
 
 
 var getCervicalSurvival = function(callback){
@@ -162,7 +162,7 @@ var getCervicalSurvival = function(callback){
     });
 
 
-}
+};
 
 /**
  * Gets the particular cancer collection for which to get number of patients
@@ -205,7 +205,7 @@ var getNumPatients = function(cancerColl, callback){
     });
 
 
-}
+};
 
 var getSurgery = function(cancerColl, callback){
 
@@ -253,15 +253,15 @@ var getSurgery = function(cancerColl, callback){
 
     });
 
-}
+};
 
 var getNumRelasped  = function(cancerColl, callback){
 
-}
+};
 
 var getNumDead = function(){
 
-}
+};
 
 /**
  * @function queryDataYear
@@ -303,7 +303,7 @@ var queryDataYear = function(cancerColl, year, callback){
 
 
 
-}
+};
 
 /**
  * @function concatArrayDataAll
@@ -319,7 +319,7 @@ var concatArrayDataIndiv = function(patientID, callback){
     var graphArr = null;
 
     return graphArr;//concatenation of values for graph data
-}
+};
 
 /**
  * @function concatArrayDataAll
@@ -336,10 +336,10 @@ var concatArrayDataAll = function(patientID, callback){
     var graphArr = null;
 
     return graphArr;
-}
+};
 
 
 module.exports = {
     getCervicalSurvival: getCervicalSurvival,
     getCervicalStageOne: getCervicalStageOne
-}
+};

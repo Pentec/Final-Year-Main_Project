@@ -34,7 +34,7 @@ var authenticate = function(username, password, callback) {
 
     });
 
-}
+};
 
 var saveUser = function(callback){
     var tester = new User({
@@ -61,7 +61,7 @@ var saveUser = function(callback){
         }
     });
 
-}
+};
 
 /**
  *
@@ -109,7 +109,7 @@ var checkAdmin = function(username, password, callback) {
 
     });
 
-}
+};
 
 checkAdmin = meld.before(checkAdmin, function() {
     if(arguments[0].user != null)
@@ -442,7 +442,7 @@ var runUser = function() {
             found.save();
         });
 
-}
+};
 
 
 var checkValidPassword = function(username, password, callback){
@@ -464,14 +464,14 @@ var checkValidPassword = function(username, password, callback){
                         var send = {
                             hashed: true,
                             passHash: found.passwordHash
-                        }
+                        };
                         return callback(send); //and password hash value
                     }
                     else{
                         var send = {
                             hashed: false,
                             passHash: null
-                        }
+                        };
 
                         return callback(send);
                     }
@@ -487,7 +487,7 @@ var checkValidPassword = function(username, password, callback){
             var send = {
                 hashed: false,
                 passHash: null
-            }
+            };
 
             return callback(send);
         }
@@ -497,7 +497,7 @@ var checkValidPassword = function(username, password, callback){
 
 
 
-}
+};
 
 
 
@@ -510,4 +510,4 @@ module.exports = {
     isAdmin: isAdmin,
     verifyRecaptcha: verifyRecaptcha
 
-}
+};
