@@ -2,6 +2,7 @@
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
 
 \DeclareGraphicsExtensions{.png}
 
@@ -133,16 +134,202 @@ Contact your service provider(hosting site) to pull down the software
 \subsection{Systems Procedure Order}
 This section describes a brief overview of how a user can access the system, it shows perspectives from an adminstrative user as well as normal users. The sections that are discussed can be found in more detail in the next section.
 \subsection{Splash Page}
+	\begin{figure}[H]
+		\fbox{\includegraphics[width=1.0\textwidth]{Graphics/Screenshots/splash}}
+		\caption{The splash page.}
+  		\label{fig:splash1}
+	\end{figure}
+	\subsubsection{Description}
+		This section links users to different pages that they can access. A more detailed description of each component can be found below.
+	\subsubsection{Detailed Component Description}
+		\begin{enumerate}
+			\item \textbf{Research Assistants \& Senior Medical Students Link:} This is a link that will direct the user to a customized login page for research assistants and senior medical students.
+			\item \textbf{Administrative Staff Link:} This is a link that will direct the user to a customized login page for administrative staff.
+			\item \textbf{Medical Officer \& Medical Interns Link:} This is a link that will direct the user to a customized login page for medical officers and medical interns.
+			\item \textbf{Kalafong Hospital Link:} This link directly links users to the official University of Pretoria Kalafong hospital page.
+			\item \textbf{University of Pretoria Link: } This link directly links users to the official university of pretoria page.
+			\item \textbf{National Health Laboratory Service Link:} This is a link that will direct users to NHLS website.
+			\item \textbf{Home Affairs Link:} This is a link that will direct users to the home affairs website in order to allow users to check their life status.
+		\end{enumerate}
+	\subsubsection{Accessing user login}
+		\begin{enumerate}
+			\item Select the link that is relative to user's login. Eg. Research Assistants should click the Researh Assistants \& Senior Medical Students link.
+			\item More information on the login page in the login tutorial section\ldots
+		\end{enumerate}
 \subsection{Login}
-\subsection{Navbar}
-\subsection{Home Icons}
-\subsection{Fill Forms}
-\subsection{Statistics}
-\subsection{Add User}
-\subsection{Update Profile}
-\subsection{Logout}
+	\begin{figure}[H]
+		\fbox{\includegraphics[width=1.0\textwidth]{Graphics/Screenshots/loginMain}}
+		\caption{The login page.}
+  		\label{fig:login1}
+	\end{figure}
+	\subsubsection{Description}
+		This is the login page that all users must access before being able to access the main web page. Users must fill in their credentials and pass a security check to be able to access this page. More detailed information can be found below.
+	\subsubsection{Detailed Component Description}
+		\begin{enumerate}
+			\item \textbf{Username Input Box:} This is the input box in which users will enter in their username.
+			\item \textbf{Password Input Box:} This is the input box in which users will enter in their password.
+			\item \textbf{Show Password Button:} This button allows users to check their password text. Clicking this button will toggle between whether the password is shown or not.
+			\item \textbf{Login Button:} This is the button the users will click once they have filled in their information and passed the security check. This will link them to their relative my space page.
+			\item \textbf{Recaptcha: } This is the security check that is put in place. More information on how to use it is placed within the \textit{"How to Login"} section.
+		\end{enumerate}
+		\subsubsection{How to login}
+		\begin{enumerate}
+			\item Fill in username input box and confirm it is correct. NOTE: If the user login page does not look like the above do not panic. There are different themes for each user type. The other themes can be found at the bottom of the login section in figure \ref{fig:login2}.
+			\item Fill in password input box and confirm it is correct. The user can confirm the password is correct using the show password button.
+			\item Complete the security check for the recaptcha by clicking on the recaptcha checkbox.
+			\item If multiple logins have been made in succession, a user may be prompted to select certain images related to a theme. For example, below (Figure \ref{fig:recaptcha1}) the recaptcha is asking the user to select all images with street signs.
+			\begin{figure}[H]
+				\centerline{\fbox{\includegraphics[width=0.3\textwidth]{Graphics/Screenshots/recaptchaFill}}}
+				\caption{Recaptcha prompt.}
+  				\label{fig:recaptcha1}
+			\end{figure}
+			\item If the recaptcha security check is successful the checkbox will look like figure \ref{fig:recaptcha2}.
+			\begin{figure}[H]
+				\centerline{\fbox{\includegraphics[width=0.3\textwidth]{Graphics/Screenshots/recaptchaCorrect}}}
+				\caption{Passed recaptcha security check.}
+  				\label{fig:recaptcha2}
+			\end{figure}
+			\item The user will now be able to click the login button to redirect them to their MyPimsSpace page.
+		\end{enumerate}
+	\begin{figure}[H]
+		\fbox{\includegraphics[width=0.5\textwidth]{Graphics/Screenshots/loginI}}
+		\fbox{\includegraphics[width=0.5\textwidth]{Graphics/Screenshots/loginR}}
+		\caption{Other themed login pages.}
+  		\label{fig:login2}
+	\end{figure}
 \newpage
-
+\subsection{Admin Navbar}
+	\begin{figure}[H]
+		\fbox{\includegraphics[width=1.0\textwidth]{Graphics/Screenshots/navbar}}
+		\caption{The Admin Navbar.}
+  		\label{fig:navbar1}
+	\end{figure}
+	\subsubsection{Description} This is the navbar that administrative users will use to help them navigate through pages with ease. A more detailed description can be found below.
+	\subsubsection{Detailed Component Description}
+		\begin{enumerate}
+			\item \textbf{Logo:} This is the logo for the kalafong PIMS and if clicked willl link the user back to their MyPimsSpace page.
+			\item \textbf{Active tab:} This is the active tab and will identify to user the current page that are on using a dark blue line at the bottom of its tab. If clicked it will reload the current page. (NOTE: If tab has sub-tabs it willl behave as a Submenu tab).
+			\item \textbf{Submenu tab:} This is a submenu tab and when clicked willl reveal sub tabs that relate to the sub menu tab.
+			\item \textbf{Subtab:} Behave like regular tabs but do not underline when active, instead the Submenutab will be underlined.
+			\item \textbf{Dropdown tab: } This is a dropdown tab and when click willl display a dropdown menu much the like the one in figure \ref{fig:navbar1}.
+			\item \textbf{Regular tab: }  These tabs will link a user to the specified section. Eg. Predict will link the user to the prediction page.
+			\item \textbf{Settings tab:} This tab works similar to a submenu tab and can show all the optional settings for the specific user.
+			\item \textbf{Logout tab:} This tab is a regular tab but when clicked the user will be logged out and redirected to the splash page.
+		\end{enumerate}
+	\subsubsection{How to navigate a Subtab}
+		\begin{enumerate}
+			\item Click on the Submenu tab which willl reveal the Subtabs with an animation
+			\item Click on the subtab which is relevant to the page the user would like to access. Then the user will then be redirected to that page.
+			\begin{figure}[H]
+				\centerline{\fbox{\includegraphics[width=0.4\textwidth]{Graphics/Screenshots/activeNavbar}}}
+				\caption{Submenu tab with subtabs visible}
+  				\label{fig:navbar2}
+			\end{figure}
+		\end{enumerate}
+	\subsubsection{How to navigate a dropdown menu}
+		\begin{enumerate}
+			\item Click on the Submenu tab which willl reveal the dropdown menu.
+			\item Click on the dropdown tab which is relevant to the page the user would like to access. Then the user will then be redirected to that page.
+			\begin{figure}[H]
+				\centerline{\fbox{\includegraphics[width=0.4\textwidth]{Graphics/Screenshots/navbarDropdown}}}
+				\caption{Dropdown menu}
+  				\label{fig:navbar3}
+			\end{figure}
+		\end{enumerate}
+	\subsubsection{How to navigate a regular tab}
+		\begin{enumerate}
+			\item Click on the regular tab which is relevant to the page the user would like to access. Then the user will then be redirected to that page.
+		\end{enumerate}
+	\subsubsection{How to navigate the settings tab}
+		\begin{enumerate}
+			\item Click on the Settings tab which willl reveal the Subtabs with an animation
+			\item Click on the subtab which is relevant to the page the user would like to access. Then the user will then be redirected to that page.
+			\begin{figure}[H]
+				\centerline{\fbox{\includegraphics[width=0.4\textwidth]{Graphics/Screenshots/activeSettings}}}
+				\caption{Active settings menu}
+  				\label{fig:navbar3}
+			\end{figure}
+		\end{enumerate}
+	\subsubsection{How to Logout}
+		\begin{enumerate}
+			\item Click the logout tab and the user will be logged out.
+		\end{enumerate}
+\subsection {Regular User Navbar}
+	\begin{figure}[H]
+		\fbox{\includegraphics[width=1.0\textwidth]{Graphics/Screenshots/navbarUser}}
+		\caption{The User Navbar.}
+  		\label{fig:navbar4}
+	\end{figure}
+	\subsubsection{Description} This is the navbar that users will use to help them navigate through pages with ease. A more detailed description can be found below.
+	\subsubsection{Detailed Component Description}
+		\begin{enumerate}
+			\item \textbf{Logo:} This is the logo for the kalafong PIMS and if clicked willl link the user back to their MyPimsSpace page.
+			\item \textbf{Active tab:} This is the active tab and will identify to user the current page that are on using a dark blue line at the bottom of its tab. If clicked it will reload the current page. (NOTE: If tab has sub-tabs it willl behave as a Submenu tab).
+			\item \textbf{Dropdown tab: } This is a dropdown tab and when click willl display a dropdown menu much the like the one in figure \ref{fig:navbar1}.
+			\item \textbf{Settings tab:} This is a settings tab and when clicked willl reveal sub tabs that relate to the sub menu tab.
+			\item \textbf{Logout tab:} This tab is a regular tab but when clicked the user will be logged out and redirected to the splash page.
+		\end{enumerate}
+	\subsubsection{How to navigate a dropdown menu}
+		\begin{enumerate}
+			\item Click on the Submenu tab which willl reveal the dropdown menu.
+			\item Click on the dropdown tab which is relevant to the page the user would like to access. Then the user will then be redirected to that page.
+			\begin{figure}[H]
+				\centerline{\fbox{\includegraphics[width=0.4\textwidth]{Graphics/Screenshots/navbarDropdown}}}
+				\caption{Dropdown menu}
+  				\label{fig:navbar5}
+			\end{figure}
+		\end{enumerate}
+	\subsubsection{How to navigate a regular tab}
+		\begin{enumerate}
+			\item Click on the regular tab which is relevant to the page the user would like to access. Then the user will then be redirected to that page.
+		\end{enumerate}
+	\subsubsection{How to navigate the settings tab}
+		\begin{enumerate}
+			\item Click on the Settings tab which willl reveal the Subtabs with an animation
+			\item Click on the subtab which is relevant to the page the user would like to access. Then the user will then be redirected to that page.
+			\begin{figure}[H]
+				\centerline{\fbox{\includegraphics[width=0.4\textwidth]{Graphics/Screenshots/activeSettings}}}
+				\caption{Settings menu. NOTE: This is the admin's settings menu and edit profile is not included in the regular users setting's subtabs.}
+  				\label{fig:navbar6}
+			\end{figure}
+		\end{enumerate}
+	\subsubsection{How to Logout}
+		\begin{enumerate}
+			\item Click the logout tab and the user will be logged out.
+		\end{enumerate}
+\subsection{Home Icons}
+	\begin{figure}[H]
+		\fbox{\includegraphics[width=1.0\textwidth]{Graphics/Screenshots/icons}}
+		\caption{Admin \& User Home Icons}
+  		\label{fig:icons1}
+	\end{figure}
+	\begin{figure}[H]
+		\fbox{\includegraphics[width=1.0\textwidth]{Graphics/Screenshots/icons2}}
+		\caption{More Admin Home Icons}
+  		\label{fig:icons2}
+	\end{figure}
+	\subsubsection{Description} The home icons are put in place to ease up usability for users as well as provide an aesthetically pleasing way of navigating the web application. The animation in place is more aesthetic for a regular user as they have limited icons and thus can only navigate through the same set of icons.
+	\subsubsection{Detailed Component Description}
+		\begin{enumerate}
+			\item \textbf{Navigation Arrow:} This arrow is used to navigate through the home icons.
+			\item \textbf{Home icon:} This is used as a point of navigation, home icons can either be links or have have a submenu links.
+		\end{enumerate}
+	\subsubsection{How to navigate home icons}
+		\begin{enumerate}
+			\item By clicking the on the navigations arrows
+		\end{enumerate}
+		\begin{center} OR \end{center}
+		\begin{enumerate}
+			\item By clicking the left and right keyboard arrows
+		\end{enumerate}
+\subsection{Fill Forms}
+\subsection{Statistics Queries}
+\subsection{Statistics Dashboard}
+\subsection{Add User}
+\subsection{Remove User}
+\subsection{Update Profile}
+\subsection{Predict}
+\newpage
 
 
 \section{Using the System}
