@@ -19,8 +19,17 @@ var config = {
 
 
 //to be called when adding user and editing user
+// as well as hashing patient names and surnames
 //hashes password and stores in DB
 //stores the hash and salt value of password
+/**
+ *
+ * @param saltDone
+ * @param getSalt --> the salt value from the database
+ * @param username
+ * @param pswd
+ * @param callback
+ */
 var saltHashGen = function(saltDone, getSalt, username, pswd, callback){
 
     //pbkdf2 hashing algorithm
@@ -91,6 +100,88 @@ var saltHashGen = function(saltDone, getSalt, username, pswd, callback){
 
 
 
+
+//to be called when hashing patient names and surnames
+//hashes password and stores in DB
+//stores the hash and salt value of password
+/**
+ *
+ * @param saltDone
+ * @param getSaltFName --> to be used for validating already hashed content
+ * @param getSaltLName --> to be used for validating already hashed content
+ * @param patientName --> to get before putting in DB
+ * @param patientSurname  --> to get before putting in DB
+ * @param callback
+ */
+var saltHashGenPatients = function(saltDone, getSaltFName, getSaltLName, patientName, patientSurname, callback){
+
+    if(getSaltFName == "" && getSaltLName == ""){
+
+        //pbkdf2 hashing algorithm
+        crypto.randomBytes(config.saltBytes, function(err, saltFName){
+            if(err){
+                return callback(err)
+            }
+
+            crypto.pbkdf2(patientName, saltFName.toString('hex').slice(0, config.saltBytes), config.iterations, config.hashBytes, function(err, hashFName){
+                if(err){
+                    return callback(err);
+                }
+                if(!err){ //hash firstname
+
+                    if(patientName != "" || patientName != null){
+
+                        /*********************************hash surname******************************************/
+                        crypto.randomBytes(config.saltBytes, function(err, saltLName){
+                            if(err){
+                                return callback(err)
+                            }
+
+                            crypto.pbkdf2(patientSurname, saltLName.toString('hex').slice(0, config.saltBytes), config.iterations, config.hashBytes, function(err, hashLName){
+                                if(err){
+                                    return callback(err);
+                                }
+                                if(!err){ //hash surname
+
+                                    if(patientSurname != "" || patientSurname != null){//adding user; no username field needed
+                                        var sendSaltHash = {
+                                            sendSaltFName: saltFName.toString('hex').slice(0, config.saltBytes),
+                                            sendHashFName: hashFName.toString('hex').slice(0, config.saltBytes),
+                                            sendSaltLName: saltLName.toString('hex').slice(0, config.saltBytes),
+                                            sendHashLName: hashLName.toString('hex').slice(0, config.saltBytes)
+                                        };
+                                        console.log("salting FName " + saltFName.toString('hex').slice(0, config.saltBytes));
+                                        console.log("hashing FName " + hashFName.toString('hex').slice(0, config.saltBytes));
+                                        console.log("salting LName " + saltLName.toString('hex').slice(0, config.saltBytes));
+                                        console.log("hashing LName " + hashLName.toString('hex').slice(0, config.saltBytes));
+                                        return callback(sendSaltHash);
+
+                                    }
+                                    else{
+                                        return callback(null);
+                                    }
+                                }
+                            });
+                        });
+
+                    }
+                    else{
+                        return callback(null);
+                    }
+                }
+            });
+        });
+
+    }
+    else{
+        console.log("you cannot do that!!!!!");
+    }
+
+};
+
+
+
+
 var generateInitVector = function(){
     var initVector = crypto.randomBytes(Math.ceil(12/2)).toString('hex').slice(0, 12);
     console.log("Generating " + initVector);
@@ -100,7 +191,90 @@ var generateInitVector = function(){
 };
 
 
+
+//to be called when hashing patient names and surnames
+//hashes password and stores in DB
+//stores the hash and salt value of password
+/**
+ *
+ * @param saltDone
+ * @param getSaltFName --> to be used for validating already hashed content
+ * @param getSaltLName --> to be used for validating already hashed content
+ * @param patientName --> to get before putting in DB
+ * @param patientSurname  --> to get before putting in DB
+ * @param callback
+ */
+var saltHashGenPatients = function(saltDone, getSaltFName, getSaltLName, patientName, patientSurname, callback){
+
+    if(getSaltFName == "" && getSaltLName == ""){
+
+        //pbkdf2 hashing algorithm
+        crypto.randomBytes(config.saltBytes, function(err, saltFName){
+            if(err){
+                return callback(err)
+            }
+
+            crypto.pbkdf2(patientName, saltFName.toString('hex').slice(0, config.saltBytes), config.iterations, config.hashBytes, function(err, hashFName){
+                if(err){
+                    return callback(err);
+                }
+                if(!err){ //hash firstname
+
+                    if(patientName != "" || patientName != null){
+
+                        /*********************************hash surname******************************************/
+                        crypto.randomBytes(config.saltBytes, function(err, saltLName){
+                            if(err){
+                                return callback(err)
+                            }
+
+                            crypto.pbkdf2(patientSurname, saltLName.toString('hex').slice(0, config.saltBytes), config.iterations, config.hashBytes, function(err, hashLName){
+                                if(err){
+                                    return callback(err);
+                                }
+                                if(!err){ //hash surname
+
+                                    if(patientSurname != "" || patientSurname != null){//adding user; no username field needed
+                                        var sendSaltHash = {
+                                            sendSaltFName: saltFName.toString('hex').slice(0, config.saltBytes),
+                                            sendHashFName: hashFName.toString('hex').slice(0, config.saltBytes),
+                                            sendSaltLName: saltLName.toString('hex').slice(0, config.saltBytes),
+                                            sendHashLName: hashLName.toString('hex').slice(0, config.saltBytes)
+                                        };
+                                        console.log("salting FName " + saltFName.toString('hex').slice(0, config.saltBytes));
+                                        console.log("hashing FName " + hashFName.toString('hex').slice(0, config.saltBytes));
+                                        console.log("salting LName " + saltLName.toString('hex').slice(0, config.saltBytes));
+                                        console.log("hashing LName " + hashLName.toString('hex').slice(0, config.saltBytes));
+                                        return callback(sendSaltHash);
+
+                                    }
+                                    else{
+                                        return callback(null);
+                                    }
+                                }
+                            });
+                        });
+
+                    }
+                    else{
+                        return callback(null);
+                    }
+                }
+            });
+        });
+
+    }
+    else{
+        console.log("you cannot do that!!!!!");
+    }
+
+};
+
+
+
+
 module.exports = {
-    saltHashGen: saltHashGen
+    saltHashGen: saltHashGen,
+    saltHashGenPatients: saltHashGenPatients
 
 };

@@ -419,8 +419,14 @@ router.post('/create', login.isLoggedIn, function (req, res) {
     if (req.user) {
         var userN = req.body.username;
         var pswd = req.body.password;
+		var sur= req.body.surname;
+		var em = req.body.email;
+		var rights = req.body.user_rights;
+		var dep = req.body.department;
+		var staf = req.body.staff_type;
 
-
+	  
+		
         if (userN != "" || pswd != "") {//add new user
             userController.saltHashGen(false, "", userN, pswd, function (hashed) {
                 new User({
@@ -436,13 +442,14 @@ router.post('/create', login.isLoggedIn, function (req, res) {
                     deleted: false
                 })
                     .save(function (err, users) {
-                        console.log("New user added");
-                        res.redirect('/addUser');
+                        
+                        res.render('addUser',{title: 'Success',  message: "New user has been added"});
                     });
             });
         }
-        else {
+	else if(userN == "" || pswd == "" ||  sur  == "" || em   == "" ||rights  == "" || dep  == "" || staf  == "" ){
             //send message for validation
+			 res.render('addUser',{title: 'Error',  message: "Please fill in the empty fields"});
             console.log("empty fields");
         }
 
@@ -1690,5 +1697,32 @@ router.get("/removeUser", login.isLoggedIn, login.isAdmin, function (req, res, n
         res.render('removeUser', {title: 'Remove User', active: "user"});
     }
 );
+
+
+
+router.get("/testP", login.isLoggedIn, function (req, res, next) {
+
+    //how to call hashing function
+    //pass in user first name (e.g Tracy) and user surname (e.g Stevens)
+    //when saving or updating schema, save the salts and hashes to their respective fields
+    userController.saltHashGenPatients(false, "", "", "Tracy", "Stevens", function(patientSH){
+        if(patientSH != null){
+            console.log(" outing" + patientSH.sendSaltFName);
+            console.log(" outing" + patientSH.sendHashFName);
+            console.log(" outing" + patientSH.sendSaltLName);
+            console.log(" outing" + patientSH.sendHashLName);
+
+            //save hashes and salts to DB
+            //FOR EXAMPLE
+            //get collection and update fields
+            //coll.Name = patientSH.sendHashFName
+            //coll.NameSalt = patientSH.sendSaltFName
+            //coll.Surname = patientSH.sendHashLName
+            //coll.SurnameSalt = patientSH.sendSaltLName
+
+        }
+    });
+
+});
 
 module.exports = router;
