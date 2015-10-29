@@ -460,3 +460,40 @@ function query(startDate, endDate, period, stats) {
 function saveAsPNG() {
     saveSvgAsPng(document.getElementsByClassName("graphimage")[0], "Graph.png");
 }
+
+/**
+ * Saves the graph in a CSV file format.
+ */
+function saveAsCSV() {
+    var obj = JSON.stringify(data);
+    obj = 'data:text/csv;charset=utf-8,'+ 'sep=,\r\n' + ConvertToCSV(obj);
+    var encodedUri = encodeURI(obj);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "my_data.csv");
+
+    link.click();
+
+}
+
+/**
+ * Take a JSON object and converts it into a CSV string.
+ * @param objArray This is the json object to be converted
+ * @returns {string} This is the csv string that is returned
+ */
+function ConvertToCSV(objArray) {
+    var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+    var str = '';
+
+    for (var i = 0; i < array.length; i++) {
+        var line = '';
+        for (var index in array[i]) {
+            if (line != '') line += ','
+
+            line += array[i][index];
+        }
+
+        str += line + '\r\n';
+    }
+    return str;
+}
