@@ -427,6 +427,7 @@ Contact your service provider(hosting site) to pull down the software
 			\item \textbf{ICD 10 input box:} This is an input box where users will place the required information needed for that field. Unlike regular input boxes these input boxes allow users to add and remove boxes using the + and - icons.
 			\item \textbf{Submit button:} Users can click this button to submit the button once all information has been completed.
 		\end{enumerate}
+		
 	\subsubsection{How to fill forms}
 		\begin{enumerate}
 			\item Fill in all required information in all the input boxes and check boxes.
@@ -449,6 +450,20 @@ Contact your service provider(hosting site) to pull down the software
 			\item Add extra field if more codes are needed.
 			\item Repeat 1 and 2 as much as needed.
 		\end{enumerate}
+		\subsubsection{When to fill in forms}
+	If you would like to add a new patient you can select Forms on the menu tab.
+	
+	\subsubsection{How fill in forms works}
+	\begin{enumerate}
+			\item We wrote out a mongodb schema that reflected the fields required for each form  
+			\item We then used a JSON converter that converted our mongodb schema to a json object.
+			\item The converter then changed the json object into an html file which became the form. 
+			\item When the user clicks the submit button validation of the form gets computed and if the form passes validation we use post request to perform the add form functionality using the add function in mongodb.
+			\item  The form is then saved into the database and can be retrieved.
+		\end{enumerate}
+	
+
+
 \subsection{Statistics Queries}
 	\begin{figure}[H]
 		\centerline{\fbox{\includegraphics[width=1.0\textwidth]{Graphics/Screenshots/statsQuery}}}
@@ -571,6 +586,7 @@ Contact your service provider(hosting site) to pull down the software
 			\item Then respond with a message stating whether the user was successfully added or not.
 		\end{enumerate}
 \subsection{Remove User}
+
 	\begin{figure}[H]
 		\centerline{\fbox{\includegraphics[width=0.8\textwidth]{Graphics/Screenshots/removeUser}}}
 		\caption{The Remover User Form.}
@@ -587,6 +603,20 @@ Contact your service provider(hosting site) to pull down the software
 			\item Fill in a valid user name in the username input box.
 			\item Click on the remove user button.
 		\end{enumerate}
+	\subsubsection{When to remove user}
+	Administrative users may remove users if they have finished their term as interns or if they are misusing the system.
+	
+	\subsubsection{How is remove user achieved}
+	\begin{enumerate}
+			\item When the removed user button is clicked it invokes an a post action on the server side using the AJAX. 
+			\item That POST request queries the database collection to search for the user passed through the textbox.
+			\item If the entry is empty an error message is sent back as a response and is displayed on the client side which is the webpage, notifying the user. 
+			\item  If the entry is in the database, the users 'deleted' field/flag gets changed to true.
+			\item  The user is then notified that the user has been deleted.
+		\end{enumerate}
+		
+		
+		
 \subsection{Update Profile}
 	\begin{figure}[H]
 		\centerline{\fbox{\includegraphics[width=0.8\textwidth]{Graphics/Screenshots/profileInformation}}}
@@ -689,9 +719,6 @@ Contact your service provider(hosting site) to pull down the software
 \newpage
 
 
-
-
-
 \section{Troubleshooting}
 \subsection{Introduction}
 This section contains a series of tables that describe
@@ -715,9 +742,11 @@ do to try to solve the problem.
 Symptoms & Possible solution  & Graphical Errors\\
 \hline
 You press the login button and nothing happens & 1. You entered the wrong username/password combination. 1.1 Click show password to see what you have typed. 1.2 Recheck your email from admin to ensure you are using the correct username/password combination. 1.3 You have not clicked the recaptcha box.   & Refer to Troubleshooting figure 1\\ \hline
-Cannot add new user & 2. You have to fill all the textboxes & Refer to Troubleshooting figure 1\\ \hline
-Cannot edit profile    &Make sure you have internet connection & Refer to Troubleshooting figure 1 \\ \hline
-Cannot query statistics & Make sure you have selected an option for each dropdownlist. Ensure you have clicked the query button.  & Refer to Troubleshooting figure 1\\
+Cannot add new user & 2. You have to fill all the textboxes & Refer to Troubleshooting figure 2\\ \hline
+Cannot edit profile    & 3. Make sure you have internet connection & No reference figure \\ \hline
+Cannot query statistics & 4. Make sure you have selected an option for each dropdownlist. Ensure you have clicked the query button.  & Refer to Troubleshooting figure 3\\
+Cannot remove user & 5.User does not exist & Refer to Troubleshooting figure 4\\ \hline
+Cannot submit form & 6. Critical fields are not filled in. & Refer to Troubleshooting figure 5\\ \hline
 \hline
 \end{tabular}
 
@@ -727,14 +756,32 @@ Use these images in reference with the troubleshooting table.
 \begin{itemize}
 	\item Figure 1
 	\begin{figure}[H]
-        \centerline{\fbox{\includegraphics[width=0.5\textwidth]{Graphics/Troubleshooting/recapture}}}
-		\caption{Content Setting}
+        \centerline{\fbox{\includegraphics[width=0.5\textwidth]{Graphics/Troubleshooting/figure1}}}
+		\caption{Recapture error}
       \end{figure}
 	\item Figure 2
+	\begin{figure}[H]
+        \centerline{\fbox{\includegraphics[width=0.5\textwidth]{Graphics/Troubleshooting/figure2}}}
+		\caption{Adding a user error}
+      \end{figure}
 	
 	\item Figure 3
+	\begin{figure}[H]
+        \centerline{\fbox{\includegraphics[width=0.5\textwidth]{Graphics/Troubleshooting/figure3}}}
+		\caption{Inactive query button error}
+      \end{figure}
+      \item Figure 4
+	\begin{figure}[H]
+        \centerline{\fbox{\includegraphics[width=0.5\textwidth]{Graphics/Troubleshooting/figure4}}}
+		\caption{Remove user error}
+      \end{figure}
+	
+	\item Figure 5
+	\begin{figure}[H]
+        \centerline{\fbox{\includegraphics[width=0.5\textwidth]{Graphics/Troubleshooting/figure5}}}
+		\caption{Empty fields error}
+      \end{figure}
 \end{itemize}
-
 
 
 \end{document}
