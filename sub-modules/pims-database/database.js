@@ -759,7 +759,7 @@ var VaginalCancer = new Schema({
 
     NameSalt: {type: String, require: true, title: 'NameSalt'},
 
-    Surname: {type: String, require: true, title: 'Surname'},
+	Surname: {type: String, require: true, title: 'Surname'},
 
 	SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
 
@@ -1006,7 +1006,7 @@ var FallopianTubeCancer = new Schema({
 
 	NameSalt: {type: String, require: true, title: 'NameSalt'},
 
-    Surname: {type: String, require: true, title: 'Surname'},
+	Surname: {type: String, require: true, title: 'Surname'},
 
     SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
 
