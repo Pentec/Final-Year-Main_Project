@@ -430,7 +430,7 @@ router.post('/create', login.isLoggedIn, function (req, res) {
 
 
         if(userN != "" || pswd != ""){//add new user
-            userController.saltHashGen(false, "", userN, pswd, function(hashed){
+            userController.saltHashGen(false, "", userN, pswd, function(hashed){//hashing password
                 new User({
                     username: userN,
                     surname: req.body.surname,
@@ -1660,6 +1660,31 @@ router.get('/neuraltrain', function (req, res, next) {
 
 router.get("/userManual", login.isLoggedIn, function (req, res, next) {
     res.download('../Documentation/User_Manual/UserManual.pdf');
+});
+
+router.get("/testP", login.isLoggedIn, function (req, res, next) {
+
+    //how to call hashing function
+    //pass in user first name and user surname
+    //when saving or updating schema, save the salts and hashes to their respective fields
+    userController.saltHashGenPatients(false, "", "", "Tracy", "Stevens", function(patientSH){
+        if(patientSH != null){
+            console.log(" outing" + patientSH.sendSaltFName);
+            console.log(" outing" + patientSH.sendHashFName);
+            console.log(" outing" + patientSH.sendSaltLName);
+            console.log(" outing" + patientSH.sendHashLName);
+
+            //save hashes and salts to DB
+            //FOR EXAMPLE
+            //get collection and update fields
+            //coll.Name = patientSH.sendHashFName
+            //coll.NameSalt = patientSH.sendSaltFName
+            //coll.Surname = patientSH.sendHashLName
+            //coll.SurnameSalt = patientSH.sendSaltLName
+
+        }
+    });
+
 });
 
 module.exports = router;
