@@ -33,15 +33,20 @@ The scope is shown in the use case diagram below: \par
 	\subsubsection{Neural Network Training}
 	Patient data was analysed for possible risk factors for cancer susceptibility. These risk factors are:
 	\begin{itemize} %Lindelo you can add the paramters used and explain how you normalized each one with justifications
-		\item Age
-		\item Treatment type
-		\item 
-		\item
-		\item
-		\item
-		\item
-		\item
-		\item
+		\item Age - No normalization was required for this field. However, decimal scaling was used for the age. Patients are expected to be within the age range of [16 - 100] so the age is scaled-down to two decimal places.
+		\item HIV status - Is a binary field (either negative or positive). Negative HIV statuses were given the numerical equivalent of 0.9 while a positive status holds 0.1.
+		\item CD4 count (If HIV status is positive) - If the patient is HIV negative, the numerical values becomes 0.9998. Otherwise, decimal scaling (4 places down) is used since the CD4 range is 0 - 1500.  
+		\item Figo Stage - Since this value is neither binary nor numeric, the number of figo stages determines how the patient's stage is normalized. If there are n stages then the kth stage gets the numerical equivalent of : \(\frac{k-stage}{n}\)
+		\item Site of distant metastase - Same as the Figo stage. 
+		\item Histology - Also uses the same concept as Figo stage.
+		\item Differentiation - Also uses the same concept as Figo stage.
+		\item Primary treatment -  Also uses the same concept as Figo stage.
+		\item Type of surgery - Also uses the same concept as Figo stage.
+		\item Type of radiotherapy - Also uses the same concept as Figo stage.
+		\item Response to treatment - Also uses the same concept as Figo stage.
+		\item Relapse - Also uses the same concept as Figo stage.
+		\item Last known vital status - Also uses the same concept as Figo stage.
+		
 	\end{itemize}
 	
 	The Neural Network makes use of the back-propagation algorithm for the purpose of learning.
