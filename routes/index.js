@@ -419,8 +419,14 @@ router.post('/create', login.isLoggedIn, function (req, res) {
     if (req.user) {
         var userN = req.body.username;
         var pswd = req.body.password;
+		var sur= req.body.surname;
+		var em = req.body.email;
+		var rights = req.body.user_rights;
+		var dep = req.body.department;
+		var staf = req.body.staff_type;
 
-
+	  
+		
         if (userN != "" || pswd != "") {//add new user
             userController.saltHashGen(false, "", userN, pswd, function (hashed) {
                 new User({
@@ -436,13 +442,14 @@ router.post('/create', login.isLoggedIn, function (req, res) {
                     deleted: false
                 })
                     .save(function (err, users) {
-                        console.log("New user added");
-                        res.redirect('/addUser');
+                        
+                        res.render('addUser',{title: 'Success',  message: "New user has been added"});
                     });
             });
         }
-        else {
+	else if(userN == "" || pswd == "" ||  sur  == "" || em   == "" ||rights  == "" || dep  == "" || staf  == "" ){
             //send message for validation
+			 res.render('addUser',{title: 'Error',  message: "Please fill in the empty fields"});
             console.log("empty fields");
         }
 
