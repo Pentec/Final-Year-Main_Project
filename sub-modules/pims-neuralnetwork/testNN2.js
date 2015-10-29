@@ -183,18 +183,18 @@ var testNetwork = function(req, filename, callback){
                     shuffle: true
                 });
 
-                /*console.log("-----------------------------------------");
-                console.log(output);*/
+                console.log("----NN output-------------------------------------");
+                console.log(output);
                 //call chi squared here
                 //error should be calculated from observed - expected
 
-                getMeanSquareError(13, 0.72, 0.874656945, function(error){
+                /*getMeanSquareError(13, 0.72, 0.874656945, function(error){
                     confidenceFifty(100, error, function(interval){
                         console.log("pos " + interval.positive);
                         console.log("neg " + interval.negative);
                     });
 
-                });
+                });*/
 
                 return callback(output.error);
             }
