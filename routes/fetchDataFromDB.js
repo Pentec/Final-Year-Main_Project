@@ -13,9 +13,12 @@ var CC = models.cervicalCancer;
 var VUC = models.vulvaCancer;
 var VC = models.vaginalCancer;
 var GTN = models.gTNCancer;
+var login = require(submodules + 'pims-login/login');
+var sess;
 
 
-router.post('/', function(req, res) {
+router.post('/', login.isLoggedIn,function(req, res) {
+sess = req.session;
 
 var arr = [];
 var arrIntraOperative=[];
