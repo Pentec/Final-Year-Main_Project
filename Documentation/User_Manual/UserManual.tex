@@ -506,6 +506,15 @@ Contact your service provider(hosting site) to pull down the software
 		\begin{enumerate}
 			\item Choose either the bar or line graph from the Graph type selector
 		\end{enumerate}
+	\subsubsection{How the graphs are created:}
+		\begin{enumerate}
+			\item Initially the system will obtain the data based off the options select by the user in their query(See how to query statistics). It will send the information obtained in a JSON format and the system will determine what statistics will be needed to sent back to page. These requests and responses are all done on the same page through the use of AJAX.
+			\item Once the system has determined what needs to send back by querying the mongo database use an aggregate function, it will respond back using JSON formatted object.
+			\item The client side will then receive this information and sent it to a local javascript function that creates the graph
+			\item Initially the graph sets the margins. The margins of graph are created by working out the margins on the page based off of the screens resolution.
+			\item The data is then analysed to scale the x and y axes correctly.
+			\item The data is then finally passed into the graph and then the line or bar graphs are drawn.
+		\end{enumerate}
 \subsection{Statistics Dashboard}
 	\begin{figure}[H]
 		\centerline{\fbox{\includegraphics[width=1.0\textwidth]{Graphics/Screenshots/dashboard}}}
@@ -524,6 +533,13 @@ Contact your service provider(hosting site) to pull down the software
 	\subsubsection{How to select the top 5 of a specific graph.}
 		\begin{enumerate}
 			\item Click on the top selector and choose the top 5 from the dropdown list.
+		\end{enumerate}
+	\subsubsection{How the graphs are created in the dasboard}
+		\begin{enumerate}
+			\item On intitial page load, there are multiple ajax requests that post to specific server scripts.
+			\item These server scripts willl calll functions that will query the database using aggregation and/or count functions.
+			\item Once the data is obtained from the database the functions will respond back to their original ajax callees with arrays.
+			\item Upon AJAX success they will take these arrays and call the draw graph functions.
 		\end{enumerate}
 \subsection{Add User}
 	\begin{figure}[H]
@@ -546,6 +562,13 @@ Contact your service provider(hosting site) to pull down the software
 			\item Fill in the user's password
 			\item Fill in the user's department (Must be a valid department)
 			\item Fill in the user's staff type (Must be a valid staff type)
+		\end{enumerate}
+	\subsubsection{How add user works}
+		\begin{enumerate}
+			\item Initially the program will post all the values in object format to the server. 
+			\item These values willl be validated. Iif the values are invalid,  an error will be sent through a response and the client side will generate an appropriate error message.
+			\item Upon successful validation the system will insert all values into the database through a simple insert function.
+			\item Then respond with a message stating whether the user was successfully added or not.
 		\end{enumerate}
 \subsection{Remove User}
 	\begin{figure}[H]
