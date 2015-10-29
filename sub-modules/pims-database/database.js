@@ -460,9 +460,9 @@ var EndometrialCancer = new Schema({
 
     NameSalt: {type: String, require: true, title: 'NameSalt'},
 
-   Surname: {type: String, require: true, title: 'Surname'},
+    Surname: {type: String, require: true, title: 'Surname'},
 
-   SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
+	SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
 
     HospitalNumber: {type: String, require: true, title: 'Hospital Number'},
 
@@ -757,7 +757,7 @@ var VaginalCancer = new Schema({
 
     Name: {type: String, require: true, title: 'Name'},
 
-	NameSalt: {type: String, require: true, title: 'NameSalt'},
+    NameSalt: {type: String, require: true, title: 'NameSalt'},
 
 	Surname: {type: String, require: true, title: 'Surname'},
 
@@ -1008,7 +1008,7 @@ var FallopianTubeCancer = new Schema({
 
 	Surname: {type: String, require: true, title: 'Surname'},
 
-	SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
+    SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
 
     DateOfDiagnosis: {type: Date, require: true, title: 'Date of diagnosis'},
 
@@ -1295,9 +1295,9 @@ var VulvaCancer = new Schema({
 
     Name: {type: String, require: true, title: 'Name'},
 
-	NameSalt: {type: String, require: true, title: 'NameSalt'},
+    NameSalt: {type: String, require: true, title: 'NameSalt'},
 
-	Surname: {type: String, require: true, title: 'Surname'},
+    Surname: {type: String, require: true, title: 'Surname'},
 
 	SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
 
@@ -1537,9 +1537,9 @@ var OverianCancer = new Schema({
 
 	NameSalt: {type: String, require: true, title: 'NameSalt'},
 
-	Surname: {type: String, require: true, title: 'Surname'},
+    Surname: {type: String, require: true, title: 'Surname'},
 
-	SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
+    SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
 
     HospitalNumber: {type: String, require: true, title: 'Hospital Number'},
 
@@ -1813,9 +1813,9 @@ var GTNCancer = new Schema({
 
     Name: {type: String, require: true, title: 'Name'},
 
-	NameSalt: {type: String, require: true, title: 'NameSalt'},
+    NameSalt: {type: String, require: true, title: 'NameSalt'},
 
-	Surname: {type: String, require: true, title: 'Surname'},
+    Surname: {type: String, require: true, title: 'Surname'},
 
 	SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
 

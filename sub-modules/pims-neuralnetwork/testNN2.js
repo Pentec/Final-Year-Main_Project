@@ -185,6 +185,17 @@ var testNetwork = function(req, filename, callback){
 
                 /*console.log("-----------------------------------------");
                 console.log(output);*/
+                //call chi squared here
+                //error should be calculated from observed - expected
+
+                getMeanSquareError(13, 0.72, 0.874656945, function(error){
+                    confidenceFifty(100, error, function(interval){
+                        console.log("pos " + interval.positive);
+                        console.log("neg " + interval.negative);
+                    });
+
+                });
+
                 return callback(output.error);
             }
             else{
@@ -196,11 +207,75 @@ var testNetwork = function(req, filename, callback){
 };
 
 
+//will use if p value is satisfied or not
+var calcChiSquared = function(observed, expected){
+
+    return (Math.pow((observed - expected), 2)) / expected;
+
+}
+
+//return acceptable range for CI
+/**
+ *
+ * @param observed
+ * @param expected
+ * @param totalPatients --> in current collection
+ * @param error
+ * @param criticalValue
+ */
+var confidenceFifty = function(totalPatients, error, confidenceCallback){
+
+    //calculate the chi-squared value; given observed and expected
+    // use the error value as the std deviation
+    // df = n-1
+
+    var chiVal = calcChiSquared(0.56, 0.85677);
+    var critcalValue = 82.358; //at df=100
+    if(chiVal <= critcalValue){
+        //good stuff; survives
+
+        //now just check confidence interval
+        var positive = ((totalPatients - 1) * error) / (critcalValue * (totalPatients - 1));
+        var negative = -((totalPatients - 1) * error) / (critcalValue * (totalPatients - 1));
+
+        var range = {
+            positive: positive,
+            negative: negative
+        }
+
+        return confidenceCallback(null, range);
+    }
+    else if(chiVal > critcalValue){
+        //bad stuff; dies
+
+        //now just check confidence interval
+        var positive = ((totalPatients - 1) * error) / (critcalValue * (totalPatients - 1));
+        var negative = -((totalPatients - 1) * error) / (critcalValue * (totalPatients - 1));
+
+        var range = {
+            positive: positive,
+            negative: negative
+        }
+
+        return confidenceCallback(null, range);
+    }
+
+
+
+
+}
+
+
 testNetwork = meld.before(testNetwork, function() {
     if(arguments[0].user != null)
         logging.info("pims-neuralnetwork module | testNetwork service request | for User: [" + arguments[0].user.username +  "] | with Access rights [" + arguments[0].user.user_rights + "]");
 
 });
+
+
+var getMeanSquareError = function(totalIn, outNode, target, callback){
+    return Math.pow((target - outNode), 2) / totalIn;
+}
 
 var calculatePercentage = function(req, total, survive, die, callback){
     var percentSurvive = 0, percentDie = 0;
@@ -242,6 +317,8 @@ calculatePercentage = meld.before(calculatePercentage, function() {
         logging.info("pims-neuralnetwork module | calculatePercentage service request | for User: [" + arguments[0].user.username +  "] | with Access rights [" + arguments[0].user.user_rights + "]");
 
 });
+
+
 
 
 /**
@@ -300,6 +377,18 @@ trainNetwork = meld.before(trainNetwork, function() {
 
 
 
+
+var confidenceEighty = function(observed, expected){
+
+}
+
+var confidenceSeventy = function(observed, expected){
+
+}
+
+var confidenceSixty = function(observed, expected){
+
+}
 
 
 

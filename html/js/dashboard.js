@@ -2015,9 +2015,8 @@ function CollectDataFromClient(data)
         }, true);
     });
 
-    // KPI Dashboard / Dashboard Tab 3
+     //KPI Dashboard / Dashboard Tab 3
     dashboards.add('kpi', function() {
-       
 
        
     });
@@ -2160,7 +2159,7 @@ function CollectDataFromClient(data)
                 url: '/getSurvivalStats',
                 success: function (data, textStatus, jqXHR){
                     var res = JSON.parse(jqXHR.responseText);
-                    console.log("This is what it looks like " + res.arrSend[0] );
+                    console.log("This is what it looks like " + res[0][0].stages[0].patientNumber );
                     sendDataToGraph(res);
                 },
                 dataType: "json",
@@ -2186,9 +2185,16 @@ function CollectDataFromClient(data)
  alert ("Survival " + data);
  //call FusionCharts.ready()
  }*/
+/**
+ *
+ * @param surviveData
+ */
 function sendDataToGraph(surviveData){
 
-    console.log("Survival ");
+    console.log("Survival " + surviveData[0][0].stages[0].patientNumber);
+    /*console.log("Survival 2 " + surviveData[1][0].stages[1].patientNumber);
+    console.log("Survival 3 " + surviveData[2].stages[2].patientNumber);
+    console.log("Survival 4 " + surviveData[3].stages[3].patientNumber);*/
     //alert ("Survival " + surviveData.arrSend[0] + " just did it");
     //alert ("Survival " + surviveData.stageOne[0] + " just did it");
 
@@ -2244,7 +2250,7 @@ function sendDataToGraph(surviveData){
             DOCUMENT = document;
 
         var chartProperties = {
-            "caption": "Survival Data for Cervical Cancer",
+            "caption": "Survival Data for Cancer",
             "numberprefix": "",
             "xAxisName": "Number (Percentage)",
             "yAxisName": "Patient Status",
@@ -2348,6 +2354,51 @@ function sendDataToGraph(surviveData){
                 height: '340',
                 dataFormat: 'json',
                 renderAt: 'test3-categories-tab-chart',//div to render at
+                dataSource: {
+                    chart: chartProperties,
+                    data: []
+                },
+                showDataLoadingMessage : true,
+                showChartLoadingMessage : true
+            },
+
+            ovarianDataTab: {
+                type: 'bar3d',
+                id: 'ovarianDataTab',
+                width: '473',
+                height: '340',
+                dataFormat: 'json',
+                renderAt: 'ovarian-categories-tab-chart',//div to render at
+                dataSource: {
+                    chart: chartProperties,
+                    data: []
+                },
+                showDataLoadingMessage : true,
+                showChartLoadingMessage : true
+            },
+
+            vaginalDataTab: {
+                type: 'bar3d',
+                id: 'vaginalDataTab',
+                width: '473',
+                height: '340',
+                dataFormat: 'json',
+                renderAt: 'vaginal-categories-tab-chart',//div to render at
+                dataSource: {
+                    chart: chartProperties,
+                    data: []
+                },
+                showDataLoadingMessage : true,
+                showChartLoadingMessage : true
+            },
+
+            gtnDataTab: {
+                type: 'bar3d',
+                id: 'gtnDataTab',
+                width: '473',
+                height: '340',
+                dataFormat: 'json',
+                renderAt: 'gtn-categories-tab-chart',//div to render at
                 dataSource: {
                     chart: chartProperties,
                     data: []
@@ -3747,14 +3798,6 @@ function sendDataToGraph(surviveData){
              * Event listeners for top monthly sales chart.
              */
 
-            /* Survival filter.
-             eventListeners.add('survival_data_tab_year_filter', 'change', function() {
-             var year = dom.queryCurrentValue('survival_data_tab_year_filter', this);
-
-             chartDataSource.setData(survivalDataTabChartConfig.dataSource, survivalDataTabData[year]);
-             survivalDataTabChart.setJSONData(survivalDataTabChartConfig.dataSource);
-             });*/
-
             // Year filter.
             eventListeners.add('top_monthly_sales_year_filter', 'change', function() {
                 var year = dom.queryCurrentValue('top_monthly_sales_year_filter', this);
@@ -3801,160 +3844,315 @@ function sendDataToGraph(surviveData){
         // KPI Dashboard / Dashboard Tab 3
         dashboards.add('kpi', function() {
 
+            //                survivalDataTabCategories = managementData.survivalDataTabCategories,
             var survivalDataTabChart,
                 survivalDataTabChartConfig = chartConfig.survivalDataTab,
-                survivalDataTabCategories = managementData.survivalDataTabCategories,
                 survivalDataTabData = {
-                    //wil; feed data and years from DB
+                    //wil; feed data and years from DB(maybe)   surviveData[0].stages[0].patientNumber
                     "2014": [{
                         "data": [{
                             "label": "Stage One Cancer",
-                            "value": surviveData.stageOne[0].toString(),
+                            "value": surviveData[0][0].stages[0].patientNumber.toString(),
                             "link": "#sales"
                         }, {
-                            "label": "Alive",
-                            "value": surviveData.arrSend[0].toString(),
+                            "label": "Alive With Disease",
+                            "value": surviveData[0][0].stages[0].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[0][0].stages[0].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[0][0].stages[0].dead.toString(),
                             "link": "#sales"
                         }, {
                             "label": "Chemotherapy",
-                            "value": surviveData.stageOne[3].toString(),
+                            "value": surviveData[0][0].stages[0].chemoTherapy.toString(),
                             "link": "#sales"
                         }, {
                             "label": "Radiotherapy",
-                            "value": surviveData.stageOne[2].toString(),
+                            "value": surviveData[0][0].stages[0].radioTherapy.toString(),
                             "link": "#sales"
                         }, {
                             "label": "Surgery",
-                            "value":  surviveData.stageOne[1].toString(),
+                            "value":  surviveData[0][0].stages[0].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[0][0].stages[0].relapse.toString(),
                             "link": "#sales"
                         }]
                     }],
                     "2013": [{
                         "data": [{
-                            "label": "Stage One Cancer",
-                            "value": surviveData.stageOne[0].toString(),
+                            "label": "Stage Two Cancer",
+                            "value": surviveData[0][1].stages[1].patientNumber.toString(),
                             "link": "#sales"
-                        },
-                            {
-                                "label": "Alive",
-                                "value": "150000",
-                                "link": "#sales"
-                            },{
-                                "label": "Chemotherapy",
-                                "value": surviveData.stageOne[3].toString(),
-                                "link": "#sales"
-                            }, {
-                                "label": "Radiotherapy",
-                                "value": surviveData.stageOne[2].toString(),
-                                "link": "#sales"
-                            }, {
-                                "label": "Surgery",
-                                "value":  surviveData.stageOne[1].toString(),
-                                "link": "#sales"
-                            }]
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[0][1].stages[1].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[0][1].stages[1].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[0][1].stages[1].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[0][1].stages[1].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[0][1].stages[1].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[0][1].stages[1].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[0][1].stages[1].relapse.toString(),
+                            "link": "#sales"
+                        }]
                     }],
                     "2012": [{
                         "data": [{
-                            "label": "Stage One Cancer",
-                            "value": "260000",
+                            "label": "Stage Three Cancer",
+                            "value": surviveData[0][2].stages[2].patientNumber.toString(),
                             "link": "#sales"
-                        },
-                            {
-                                "label": "Alive",
-                                "value": "250000",
-                                "link": "#sales"
-                            }, {
-                                "label": "Chemotherapy",
-                                "value": "190000",
-                                "link": "#sales"
-                            }, {
-                                "label": "Radiotherapy",
-                                "value": "45000",
-                                "link": "#sales"
-                            }, {
-                                "label": "Surgery",
-                                "value":  "15000",
-                                "link": "#sales"
-                            }]
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[0][2].stages[2].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[0][2].stages[2].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[0][2].stages[2].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[0][2].stages[2].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[0][2].stages[2].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[0][2].stages[2].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[0][2].stages[2].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2011": [{
+                        "data": [{
+                            "label": "Stage Four Cancer",
+                            "value": surviveData[0][3].stages[3].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[0][3].stages[3].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[0][3].stages[3].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[0][3].stages[3].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[0][3].stages[3].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[0][3].stages[3].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[0][3].stages[3].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[0][3].stages[3].relapse.toString(),
+                            "link": "#sales"
+                        }]
                     }]
                 };
 
             // Config for Cost of Inventory By Product Categories Chart
+
+            //endoCanCategoriesCategories = managementData.inventoryByProductCategoriesCategories,
             var endoCanCategoriesChart,
                 endoCanCategoriesChartConfig = chartConfig.endoCanDataTab,
-                endoCanCategoriesCategories = managementData.inventoryByProductCategoriesCategories,
                 endoCanCategoriesData = {
                     //wil; feed data and years from DB
                     "2014": [{
                         "data": [{
                             "label": "Stage One Cancer",
-                            "value": "150000",
+                            "value": surviveData[1][0].stages[0].patientNumber.toString(),
                             "link": "#sales"
                         }, {
-                            "label": "Alive",
-                            "value": "145000",
+                            "label": "Alive With Disease",
+                            "value": surviveData[1][0].stages[0].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[1][0].stages[0].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[1][0].stages[0].dead.toString(),
                             "link": "#sales"
                         }, {
                             "label": "Chemotherapy",
-                            "value": "100000",
+                            "value": surviveData[1][0].stages[0].chemoTherapy.toString(),
                             "link": "#sales"
                         }, {
                             "label": "Radiotherapy",
-                            "value": "20000",
+                            "value": surviveData[1][0].stages[0].radioTherapy.toString(),
                             "link": "#sales"
                         }, {
                             "label": "Surgery",
-                            "value":  "25000",
+                            "value":  surviveData[1][0].stages[0].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Hormone Therapy",
+                            "value":  surviveData[1][0].stages[0].hormonalTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[1][0].stages[0].relapse.toString(),
                             "link": "#sales"
                         }]
                     }],
                     "2013": [{
                         "data": [{
-                            "label": "Stage One Cancer",
-                            "value": "98000",
+                            "label": "Stage Two Cancer",
+                            "value": surviveData[1][1].stages[1].patientNumber.toString(),
                             "link": "#sales"
-                        },
-                            {
-                                "label": "Alive",
-                                "value": "90000",
-                                "link": "#sales"
-                            },{
-                                "label": "Chemotherapy",
-                                "value": "50000",
-                                "link": "#sales"
-                            }, {
-                                "label": "Radiotherapy",
-                                "value": "35000",
-                                "link": "#sales"
-                            }, {
-                                "label": "Surgery",
-                                "value":  "5000",
-                                "link": "#sales"
-                            }]
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[1][1].stages[1].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[1][1].stages[1].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[1][1].stages[1].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[1][1].stages[1].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[1][1].stages[1].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[1][1].stages[1].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Hormone Therapy",
+                            "value":  surviveData[1][1].stages[1].hormonalTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[1][1].stages[1].relapse.toString(),
+                            "link": "#sales"
+                        }]
                     }],
                     "2012": [{
                         "data": [{
-                            "label": "Stage One Cancer",
-                            "value": "145600",
+                            "label": "Stage Three Cancer",
+                            "value": surviveData[1][2].stages[2].patientNumber.toString(),
                             "link": "#sales"
-                        },
-                            {
-                                "label": "Alive",
-                                "value": "139000",
-                                "link": "#sales"
-                            }, {
-                                "label": "Chemotherapy",
-                                "value": "13000",
-                                "link": "#sales"
-                            }, {
-                                "label": "Radiotherapy",
-                                "value": "9000",
-                                "link": "#sales"
-                            }, {
-                                "label": "Surgery",
-                                "value":  "5600",
-                                "link": "#sales"
-                            }]
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[1][2].stages[2].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[1][2].stages[2].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[1][2].stages[2].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[1][2].stages[2].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[1][2].stages[2].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[1][2].stages[2].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Hormone Therapy",
+                            "value":  surviveData[1][2].stages[2].hormonalTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[1][2].stages[2].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2011": [{
+                        "data": [{
+                            "label": "Stage Four Cancer",
+                            "value": surviveData[1][3].stages[3].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[1][3].stages[3].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[1][3].stages[3].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[1][3].stages[3].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[1][3].stages[3].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[1][3].stages[3].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[1][3].stages[3].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Hormone Therapy",
+                            "value":  surviveData[1][3].stages[3].hormonalTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[1][3].stages[3].relapse.toString(),
+                            "link": "#sales"
+                        }]
                     }]
                 };
 
@@ -3968,73 +4166,142 @@ function sendDataToGraph(surviveData){
                     "2014": [{
                         "data": [{
                             "label": "Stage One Cancer",
-                            "value": "100000",
+                            "value": surviveData[5][0].stages[0].patientNumber.toString(),
                             "link": "#sales"
                         }, {
-                            "label": "Alive",
-                            "value": "80000",
+                            "label": "Alive With Disease",
+                            "value": surviveData[5][0].stages[0].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[5][0].stages[0].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[5][0].stages[0].dead.toString(),
                             "link": "#sales"
                         }, {
                             "label": "Chemotherapy",
-                            "value": "20000",
+                            "value": surviveData[5][0].stages[0].chemoTherapy.toString(),
                             "link": "#sales"
                         }, {
                             "label": "Radiotherapy",
-                            "value": "0",
+                            "value": surviveData[5][0].stages[0].radioTherapy.toString(),
                             "link": "#sales"
                         }, {
                             "label": "Surgery",
-                            "value":  "0",
+                            "value":  surviveData[5][0].stages[0].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[5][0].stages[0].relapse.toString(),
                             "link": "#sales"
                         }]
                     }],
                     "2013": [{
                         "data": [{
-                            "label": "Stage One Cancer",
-                            "value": "50000",
+                            "label": "Stage Two Cancer",
+                            "value": surviveData[5][1].stages[1].patientNumber.toString(),
                             "link": "#sales"
-                        },
-                            {
-                                "label": "Alive",
-                                "value": "50000",
-                                "link": "#sales"
-                            },{
-                                "label": "Chemotherapy",
-                                "value": "45000",
-                                "link": "#sales"
-                            }, {
-                                "label": "Radiotherapy",
-                                "value": "0",
-                                "link": "#sales"
-                            }, {
-                                "label": "Surgery",
-                                "value":  "5000",
-                                "link": "#sales"
-                            }]
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[5][1].stages[1].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[5][1].stages[1].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[5][1].stages[1].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[5][1].stages[1].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[5][1].stages[1].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[5][1].stages[1].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[5][1].stages[1].relapse.toString(),
+                            "link": "#sales"
+                        }]
                     }],
                     "2012": [{
                         "data": [{
-                            "label": "Stage One Cancer",
-                            "value": surviveData.stageOne[0].toString(),
+                            "label": "Stage Three Cancer",
+                            "value": surviveData[5][2].stages[2].patientNumber.toString(),
                             "link": "#sales"
-                        },
-                            {
-                                "label": "Alive",
-                                "value": surviveData.arrSend[0].toString(),
-                                "link": "#sales"
-                            }, {
-                                "label": "Chemotherapy",
-                                "value": surviveData.stageOne[3].toString(),
-                                "link": "#sales"
-                            }, {
-                                "label": "Radiotherapy",
-                                "value": surviveData.stageOne[2].toString(),
-                                "link": "#sales"
-                            }, {
-                                "label": "Surgery",
-                                "value":  surviveData.stageOne[1].toString(),
-                                "link": "#sales"
-                            }]
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[5][2].stages[2].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[5][2].stages[2].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[5][2].stages[2].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[5][2].stages[2].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[5][2].stages[2].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[5][2].stages[2].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[5][2].stages[2].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2011": [{
+                        "data": [{
+                            "label": "Stage Four Cancer",
+                            "value": surviveData[5][3].stages[3].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[5][3].stages[3].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[5][3].stages[3].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[5][3].stages[3].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[5][3].stages[3].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[5][3].stages[3].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[5][3].stages[3].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[5][3].stages[3].relapse.toString(),
+                            "link": "#sales"
+                        }]
                     }]
                 };
 
@@ -4048,89 +4315,603 @@ function sendDataToGraph(surviveData){
                     "2014": [{
                         "data": [{
                             "label": "Stage One Cancer",
-                            "value": "168000",
+                            "value": surviveData[6][0].stages[0].patientNumber.toString(),
                             "link": "#sales"
                         }, {
-                            "label": "Alive",
-                            "value": "167000",
+                            "label": "Alive With Disease",
+                            "value": surviveData[6][0].stages[0].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[6][0].stages[0].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[6][0].stages[0].dead.toString(),
                             "link": "#sales"
                         }, {
                             "label": "Chemotherapy",
-                            "value": "163000",
+                            "value": surviveData[6][0].stages[0].chemoTherapy.toString(),
                             "link": "#sales"
                         }, {
                             "label": "Radiotherapy",
-                            "value": "3900",
+                            "value": surviveData[6][0].stages[0].radioTherapy.toString(),
                             "link": "#sales"
                         }, {
                             "label": "Surgery",
-                            "value":  "100",
+                            "value":  surviveData[6][0].stages[0].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[6][0].stages[0].relapse.toString(),
                             "link": "#sales"
                         }]
                     }],
                     "2013": [{
                         "data": [{
-                            "label": "Stage One Cancer",
-                            "value": surviveData.stageOne[0].toString(),
+                            "label": "Stage Two Cancer",
+                            "value": surviveData[6][1].stages[1].patientNumber.toString(),
                             "link": "#sales"
-                        },
-                            {
-                                "label": "Alive",
-                                "value": surviveData.arrSend[0].toString(),
-                                "link": "#sales"
-                            },{
-                                "label": "Chemotherapy",
-                                "value": surviveData.stageOne[3].toString(),
-                                "link": "#sales"
-                            }, {
-                                "label": "Radiotherapy",
-                                "value": surviveData.stageOne[2].toString(),
-                                "link": "#sales"
-                            }, {
-                                "label": "Surgery",
-                                "value":  surviveData.stageOne[1].toString(),
-                                "link": "#sales"
-                            }]
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[6][1].stages[1].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[6][1].stages[1].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[6][1].stages[1].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[6][1].stages[1].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[6][1].stages[1].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[6][1].stages[1].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[6][1].stages[1].relapse.toString(),
+                            "link": "#sales"
+                        }]
                     }],
                     "2012": [{
                         "data": [{
-                            "label": "Stage One Cancer",
-                            "value": "159600",
+                            "label": "Stage Three Cancer",
+                            "value": surviveData[6][2].stages[2].patientNumber.toString(),
                             "link": "#sales"
-                        },
-                            {
-                                "label": "Alive",
-                                "value": "159600",
-                                "link": "#sales"
-                            }, {
-                                "label": "Chemotherapy",
-                                "value": "9000",
-                                "link": "#sales"
-                            }, {
-                                "label": "Radiotherapy",
-                                "value": "600",
-                                "link": "#sales"
-                            }, {
-                                "label": "Surgery",
-                                "value":  "0",
-                                "link": "#sales"
-                            }]
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[6][2].stages[2].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[6][2].stages[2].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[6][2].stages[2].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[6][2].stages[2].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[6][2].stages[2].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[5][2].stages[2].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[6][2].stages[2].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2011": [{
+                        "data": [{
+                            "label": "Stage Four Cancer",
+                            "value": surviveData[6][3].stages[3].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[6][3].stages[3].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[6][3].stages[3].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[6][3].stages[3].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[6][3].stages[3].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[6][3].stages[3].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[6][3].stages[3].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[6][3].stages[3].relapse.toString(),
+                            "link": "#sales"
+                        }]
                     }]
                 };
 
 
 
-            // Top Survival Chart
+            var ovarianDataTabChart,
+                ovarianDataTabChartConfig = chartConfig.ovarianDataTab,
+                ovarianDataTabData = {
+                    //wil; feed data and years from DB(maybe)
+                    "2014": [{
+                        "data": [{
+                            "label": "Stage One Cancer",
+                            "value": surviveData[4][0].stages[0].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[4][0].stages[0].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[4][0].stages[0].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[4][0].stages[0].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[4][0].stages[0].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[4][0].stages[0].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[4][0].stages[0].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[4][0].stages[0].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2013": [{
+                        "data": [{
+                            "label": "Stage Two Cancer",
+                            "value": surviveData[4][1].stages[1].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[4][1].stages[1].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[4][1].stages[1].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[4][1].stages[1].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[4][1].stages[1].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[4][1].stages[1].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[4][1].stages[1].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[4][1].stages[1].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2012": [{
+                        "data": [{
+                            "label": "Stage Three Cancer",
+                            "value": surviveData[4][2].stages[2].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[4][2].stages[2].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[4][2].stages[2].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[4][2].stages[2].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[4][2].stages[2].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[4][2].stages[2].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[4][2].stages[2].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[4][2].stages[2].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2011": [{
+                        "data": [{
+                            "label": "Stage Four Cancer",
+                            "value": surviveData[4][3].stages[3].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[4][3].stages[3].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[4][3].stages[3].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[4][3].stages[3].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[4][3].stages[3].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[4][3].stages[3].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[4][3].stages[3].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[4][3].stages[3].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }]
+                };
+
+
+            var vaginalDataTabChart,
+                vaginalDataTabChartConfig = chartConfig.vaginalDataTab,
+                vaginalDataTabData = {
+                    //wil; feed data and years from DB(maybe)
+                    "2014": [{
+                        "data": [{
+                            "label": "Stage One Cancer",
+                            "value": surviveData[3][0].stages[0].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[3][0].stages[0].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[3][0].stages[0].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[3][0].stages[0].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[3][0].stages[0].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[3][0].stages[0].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[3][0].stages[0].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[3][0].stages[0].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2013": [{
+                        "data": [{
+                            "label": "Stage Two Cancer",
+                            "value": surviveData[3][1].stages[1].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[3][1].stages[1].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[3][1].stages[1].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[3][1].stages[1].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[3][1].stages[1].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[3][1].stages[1].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[3][1].stages[1].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[3][1].stages[1].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2012": [{
+                        "data": [{
+                            "label": "Stage Three Cancer",
+                            "value": surviveData[3][2].stages[2].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[3][2].stages[2].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[3][2].stages[2].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[3][2].stages[2].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[3][2].stages[2].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[3][2].stages[2].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[3][2].stages[2].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[3][2].stages[2].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2011": [{
+                        "data": [{
+                            "label": "Stage Four Cancer",
+                            "value": surviveData[3][3].stages[3].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[3][3].stages[3].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[3][3].stages[3].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[3][3].stages[3].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[3][3].stages[3].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[3][3].stages[3].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[3][3].stages[3].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[3][3].stages[3].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }]
+                };
+
+
+
+
+            var gtnDataTabChart,
+                gtnDataTabChartConfig = chartConfig.gtnDataTab,
+                gtnDataTabData = {
+                    //wil; feed data and years from DB(maybe)
+                    "2014": [{
+                        "data": [{
+                            "label": "Stage One Cancer",
+                            "value": surviveData[2][0].stages[0].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[2][0].stages[0].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[2][0].stages[0].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[2][0].stages[0].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[2][0].stages[0].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[2][0].stages[0].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[2][0].stages[0].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[2][0].stages[0].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2013": [{
+                        "data": [{
+                            "label": "Stage Two Cancer",
+                            "value": surviveData[2][1].stages[1].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[2][1].stages[1].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[2][1].stages[1].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[2][1].stages[1].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[2][1].stages[1].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[2][1].stages[1].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[2][1].stages[1].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[2][1].stages[1].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2012": [{
+                        "data": [{
+                            "label": "Stage Three Cancer",
+                            "value": surviveData[2][2].stages[2].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[2][2].stages[2].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[2][2].stages[2].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[2][2].stages[2].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[2][2].stages[2].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[2][2].stages[2].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[2][2].stages[2].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[2][2].stages[2].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }],
+                    "2011": [{
+                        "data": [{
+                            "label": "Stage Four Cancer",
+                            "value": surviveData[2][3].stages[3].patientNumber.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Alive With Disease",
+                            "value": surviveData[2][3].stages[3].aliveDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Alive With No Disease",
+                            "value": surviveData[2][3].stages[3].aliveNoDisease.toString(),
+                            "link": "#sales"
+                        },{
+                            "label": "Dead",
+                            "value": surviveData[2][3].stages[3].dead.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Chemotherapy",
+                            "value": surviveData[2][3].stages[3].chemoTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Radiotherapy",
+                            "value": surviveData[2][3].stages[3].radioTherapy.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Surgery",
+                            "value":  surviveData[2][3].stages[3].surgery.toString(),
+                            "link": "#sales"
+                        }, {
+                            "label": "Relapse",
+                            "value":  surviveData[2][3].stages[3].relapse.toString(),
+                            "link": "#sales"
+                        }]
+                    }]
+                };
+
+
+
+
+            // Cervical Survival Chart
             chartDataSource.setData(survivalDataTabChartConfig.dataSource, survivalDataTabData[currentYear]);
             survivalDataTabChart = new FusionCharts(survivalDataTabChartConfig);
             survivalDataTabChart.render();
 
-            // Inventory By Product Categories Chart
+            // Endometrial Survival Chart
             chartDataSource.setData(endoCanCategoriesChartConfig.dataSource, endoCanCategoriesData[currentYear]);//can select for drop down list here
             endoCanCategoriesChart = new FusionCharts(endoCanCategoriesChartConfig);
             endoCanCategoriesChart.render();
 
-            // Average Shipping Chart
+            // Fallopian Survival Chart
             chartDataSource.setData(fallTubeDataChartConfig.dataSource, fallTubeData[currentYear]);
             fallTubeDataChart = new FusionCharts(fallTubeDataChartConfig);
             fallTubeDataChart.render();
@@ -4138,10 +4919,28 @@ function sendDataToGraph(surviveData){
 
 
 
-            // Cusotmer Satisfaction Chart
+            // Vulva Chart
             chartDataSource.setData(vulvCanDataChartConfig.dataSource, vulvCanData[currentYear]);
             vulvCanDataChart = new FusionCharts(vulvCanDataChartConfig);
             vulvCanDataChart.render();
+
+
+            // Ovarian Cancer Chart
+            chartDataSource.setData(ovarianDataTabChartConfig.dataSource, ovarianDataTabData[currentYear]);
+            ovarianDataTabChart = new FusionCharts(ovarianDataTabChartConfig);
+            ovarianDataTabChart.render();
+
+
+            chartDataSource.setData(vaginalDataTabChartConfig.dataSource, vaginalDataTabData[currentYear]);
+            vaginalDataTabChart = new FusionCharts(vaginalDataTabChartConfig);
+            vaginalDataTabChart.render();
+
+            chartDataSource.setData(gtnDataTabChartConfig.dataSource, gtnDataTabData[currentYear]);
+            gtnDataTabChart = new FusionCharts(gtnDataTabChartConfig);
+            gtnDataTabChart.render();
+
+
+
 
 
             eventListeners.add('survival_data_tab_year_filter', 'change', function() {
@@ -4151,14 +4950,14 @@ function sendDataToGraph(surviveData){
                 survivalDataTabChart.setJSONData(survivalDataTabChartConfig.dataSource);
             });
 
-            eventListeners.add('test_data_tab_year_filter', 'change', function() {
+            eventListeners.add('test_data_tab_year_filter', 'change', function() {//endometrial
                 var year = dom.queryCurrentValue('test_data_tab_year_filter', this);
 
                 chartDataSource.setData(endoCanCategoriesChartConfig.dataSource, endoCanCategoriesData[year]);
                 endoCanCategoriesChart.setJSONData(endoCanCategoriesChartConfig.dataSource);
             });
 
-            eventListeners.add('test2_data_tab_year_filter', 'change', function() {
+            eventListeners.add('test2_data_tab_year_filter', 'change', function() {//fallopian
                 var year = dom.queryCurrentValue('test2_data_tab_year_filter', this);
 
                 chartDataSource.setData(fallTubeDataChartConfig.dataSource, fallTubeData[year]);
@@ -4166,12 +4965,38 @@ function sendDataToGraph(surviveData){
             });
 
 
-            eventListeners.add('test3_data_tab_year_filter', 'change', function() {
+            eventListeners.add('test3_data_tab_year_filter', 'change', function() { //vulva
                 var year = dom.queryCurrentValue('test3_data_tab_year_filter', this);
 
                 chartDataSource.setData(vulvCanDataChartConfig.dataSource, vulvCanData[year]);
                 vulvCanDataChart.setJSONData(vulvCanDataChartConfig.dataSource);
             });
+
+
+            eventListeners.add('ovarian_data_tab_year_filter', 'change', function() {
+                var year = dom.queryCurrentValue('ovarian_data_tab_year_filter', this);
+
+                chartDataSource.setData(ovarianDataTabChartConfig.dataSource, ovarianDataTabData[year]);
+                ovarianDataTabChart.setJSONData(ovarianDataTabChartConfig.dataSource);
+            });
+
+
+
+            eventListeners.add('vaginal_data_tab_year_filter', 'change', function() {
+                var year = dom.queryCurrentValue('vaginal_data_tab_year_filter', this);
+
+                chartDataSource.setData(survivalDataTabChartConfig.dataSource, vaginalDataTabData[year]);
+                vaginalDataTabChart.setJSONData(vaginalDataTabChartConfig.dataSource);
+            });
+
+            eventListeners.add('gtn_data_tab_year_filter', 'change', function() {
+                var year = dom.queryCurrentValue('gtn_data_tab_year_filter', this);
+
+                chartDataSource.setData(gtnDataTabChartConfig.dataSource, gtnDataTabData[year]);
+                gtnDataTabChart.setJSONData(gtnDataTabChartConfig.dataSource);
+            });
+
+
         });
 
 
@@ -4185,7 +5010,7 @@ function sendDataToGraph(surviveData){
             var ids = {
                 summary: ['top_sales_performers_summary_year_filter', 'top_categories_summary_year_filter', 'top_revenues_country_year_filter', 'top_products_summary_year_filter', 'top_revenues_cities_summary_year_filter', 'top_customers_summary_year_filter'],
                 sales: ['top_categories_sales_tab_year_filter', 'top_performers_sales_year_filter', 'top_monthly_sales_year_filter'],
-                kpi: ['survival_data_tab_year_filter', 'test_data_tab_year_filter', 'test2_data_tab_year_filter', 'test3_data_tab_year_filter']
+                kpi: ['survival_data_tab_year_filter', 'test_data_tab_year_filter', 'test2_data_tab_year_filter', 'gtn_data_tab_year_filter', 'ovarian_data_tab_year_filter', 'vaginal_data_tab_year_filter', 'test3_data_tab_year_filter']
             };
 
 
@@ -4311,8 +5136,8 @@ function sendDataToGraph(surviveData){
                     url: '/getSurvivalStats',
                     success: function (data, textStatus, jqXHR){
                         var res = JSON.parse(jqXHR.responseText);
-                        console.log("This is what it looks like " + res.arrSend[0] );
-                        //sendDataToGraph(res);
+                        console.log("This is what it looks like " + res[0][0].stages[0].patientNumber );
+                        sendDataToGraph(res);
                     },
                     dataType: "json",
                     contentType: "application/json"
