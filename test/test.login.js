@@ -106,36 +106,3 @@ describe("login user", function(){
 
 });
 
-
-
-describe("send notification to patient", function(){
-   it("findPatient should retrieve email address", function(done){
-       notification.findPatient("sue", function(err){
-           notification.Patient.findOne({patient_name: "sue"}, function(err, found){
-                found.email_address.should.equal("nodemailingtest@gmail.com");
-           });
-
-       });
-       done();
-   });
-
-
-    it("findPatient should return email address", function(done){
-       notification.findPatient("sue", function(found){
-           found.should.equal("nodemailingtest@gmail.com");
-       });
-       done();
-   });
-   
-   /*////.stats testing//////*/
-   	it('should pass', function(done){
-	done();
-	});
-	
-	it('should pass', function(done){
-		throw "don't pass";
-	});
-
-
-});
-
