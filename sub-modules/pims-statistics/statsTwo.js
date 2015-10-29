@@ -92,11 +92,6 @@ var deathCauseGTN = '{ "stages" : [' +
 var survivalsGTNObj = JSON.parse(survivalsGTN);
 var deathsGTNObj = JSON.parse(deathCauseGTN);
 
-console.log("Hello gtn");
-console.log(survivalsGTNObj.stages[1].patientNumber);
-survivalsGTNObj.stages[1].patientNumber = "101";
-console.log(survivalsGTNObj.stages[1].patientNumber);
-
 
 
 

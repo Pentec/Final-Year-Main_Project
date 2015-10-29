@@ -43,17 +43,6 @@ var deathCauseCerv = '{ "stages" : [' +
 var survivalsCervObj = JSON.parse(survivalsCervical);
 var deathsCervObj = JSON.parse(deathCauseCerv);
 
-console.log("Hello");
-console.log(survivalsCervObj.stages[1].patientNumber);
-//survivalsCervObj.stages[1].patientNumber = "100";
-console.log(survivalsCervObj.stages[1].patientNumber);
-//console.log(survivalsObj.stages[0].primaryTreatment[0].number);
-//console.log(survivalsObj.stages[0].primaryTreatment[0].treatment);
-//console.log(survivalsObj.stages[0].surgery);
-
-
-console.log("Hello 2");
-console.log(deathsCervObj.stages[1].cacx);
 
 
 //each row belongs to a different stage cancer
