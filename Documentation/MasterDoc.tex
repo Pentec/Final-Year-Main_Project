@@ -12,6 +12,8 @@
 \usepackage[nottoc]{tocbibind}
 \DeclareGraphicsExtensions{.png,.eps,.jpg}
 \usepackage{amsmath}
+\DeclareRobustCommand{\rchi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[2]{\raisebox{\depth}{$#1\chi$}} % inner command, used by \rchi
 
 \begin{document}
 %\title and intnro

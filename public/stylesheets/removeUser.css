@@ -48,6 +48,7 @@ form{
     display: inline-block;
     border-radius: 0;
     float: right;
+    min-width: 108px;
 }
 
 #warningdiv .alert{

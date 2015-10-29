@@ -7,6 +7,10 @@ block extFiles
         function recaptchaCallback() {
             $('#btn-login').removeAttr('disabled');
         };
+
+        function expCallback() {
+            grecaptcha.reset();
+        };
         $("#warningdiv").fadeTo(2000, 500).slideUp(500, function () {
             $("#warningdiv").alert('close');
         });
@@ -40,7 +44,7 @@ block content
                                    span Show Password
                             input.btn.btn-custom.btn-lg.btn-block#btn-login(type="submit", value="Log In" disabled)
                             div.form-group.recaptchaWrapper
-                                div.g-recaptcha(data-callback="recaptchaCallback" data-sitekey="6Lc9mAsTAAAAADbZqkl2r7pEenxsAccFzN540Anm").recaptcha
+                                div.g-recaptcha(data-callback="recaptchaCallback" data-sitekey="6Lc9mAsTAAAAADbZqkl2r7pEenxsAccFzN540Anm", data-theme="light", data-type="image", data-expired-callback="expCallback").recaptcha
     footer.text-center.center-block
         h2 Back to&nbsp;
         a(href="/splash") Home
