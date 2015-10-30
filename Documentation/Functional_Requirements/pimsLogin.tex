@@ -1,5 +1,5 @@
 \subsection{PIMS Login Module}
-This module is responsible for allowing a user to login into and Logout out of Pentec Patient Information Management System. A user should login with the credentials they were assigned upon registration. If the user is not assigned a user name then an exception is thrown and the user is redirected to the login page. \par 
+This module is responsible for allowing a user to login into and logout out of Pentec Patient Information Management System. A user should login with the credentials they were assigned upon registration. If the user is not assigned a user name then an exception is thrown and the user is redirected to the login page. \par 
 
 To avoid "Spambots", a reCAPTCHA challenge is used. 
 
@@ -32,5 +32,5 @@ The scope is shown in the use case diagram below: \par
 	\end{description}
 	
 		\item{\textbf{authenticateUser -- [priority: critical]}}
-	This use case makes sure that only registered users can use PIMS. It also manages the user rights so that users only access what's intended for them.
+	This use case makes sure that only registered users can use PIMS. It also manages the user rights so that users only access what's intended for them. If a normal user tries to access admin pages, then they are redirected to a page that applies to their access rights.
 \end{description}

@@ -3,25 +3,30 @@
 <head>
     <meta charset="utf-8" />
     <title>Cervical Cancer</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/formStyles.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jqueryUI/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jqueryUI/jquery-ui.theme.min.css" />
     <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jqueryUI/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/deps/underscore.js"></script>
     <script type="text/javascript" src="/deps/opt/jsv.js"></script>
     <script type="text/javascript" src="/lib/jsonform.js"></script>
     <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+    <script>
+        $(function(){
+            $('input[type="date"]').datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+    </script>
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<nav class = "navbar-fixed-top" id = "form-nav">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="/" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
-        </div>
-        <div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/editProfile">My PIMS Space</a></li>
-            </ul>
+            <a href="/myAdminSpace" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
         </div>
     </div>
 </nav>
@@ -41,32 +46,32 @@
 
  "Name": {
    "type": "string",
-   "require": true,
+   "required": true,
    "title": "Name"
  },
  "Surname": {
    "type": "string",
-   "require": true,
+   "required": true,
    "title": "Surname"
  },
  "HospitalNumber": {
    "type": "string",
-   "require": true,
+   "required": true,
    "title": "Hospital Number"
  },
  "ID": {
    "type": "number",
-   "require": true,
+   "required": true,
    "title": "ID number"
  },
  "DateOfBirth": {
    "type": "date",
-   "require": true,
+   "required": true,
    "title": "Date of Birth"
  },
  "DateOfDiagnosis": {
    "type": "date",
-   "require": true,
+   "required": true,
    "title": "Date of diagnosis"
  },
  "CellPhone": {
@@ -89,7 +94,9 @@
    "properties": {
      "HIVStatus": {
        "type": "string",
-       "title": "HIV Status"
+       "title": "HIV Status",
+         "enum": ["Negative", "Positive"]
+
      },
      "CD4": {
        "type": "number",
@@ -99,6 +106,7 @@
  },
  "figoStage": {
    "type": "object",
+     "title": "Figo Stage",
    "properties": {
      "Ia1": {
        "type": "boolean",
@@ -155,6 +163,7 @@
    "properties": {
      "tumorSize": {
        "type": "object",
+         "title": "Tumor Size",
        "properties": {
          "lessThan4": {
            "type": "boolean",
@@ -181,6 +190,7 @@
    "properties": {
      "useOfImagingDiagnosticTools": {
        "type": "object",
+         "title": "Use of imaging diagnostic tools",
        "properties": {
          "Yes": {
            "type": "boolean",
@@ -198,6 +208,7 @@
      },
      "ifYes": {
        "type": "object",
+         "title": "If yes to use of imaging diagnostic tools",
        "properties": {
          "MRI": {
            "type": "boolean",
@@ -229,6 +240,7 @@
  },
  "siteOfDistantMetastase": {
    "type": "object",
+     "title": "Site of distant metastase",
    "properties": {
      "Nil": {
        "type": "boolean",
@@ -266,6 +278,7 @@
  },
  "Histology": {
    "type": "object",
+     "title": "Histology",
    "properties": {
      "Squamous": {
        "type": "boolean",
@@ -295,6 +308,7 @@
  },
  "Differentiation": {
    "type": "object",
+     "title": "Differentiation",
    "properties": {
      "Well": {
        "type": "boolean",
@@ -312,6 +326,7 @@
  },
  "lymphovascularSpaceInvolvement": {
    "type": "object",
+     "title": "Lymphovascular space involvement",
    "properties": {
      "Absent": {
        "type": "boolean",
@@ -329,6 +344,7 @@
  },
  "primaryTreatment": {
    "type": "object",
+     "title": "Primary Treatment",
    "properties": {
      "Nil": {
        "type": "boolean",
@@ -379,6 +395,7 @@
  },
  "typeOfSurgery": {
    "type": "object",
+     "title": "Type of surgery",
    "properties": {
      "Conization": {
        "type": "boolean",
@@ -449,6 +466,7 @@
  },
  "typeOfRadiotherapy": {
    "type": "object",
+     "title": "Type of Radiotherapy",
    "properties": {
      "Intracavitary": {
        "type": "boolean",
@@ -488,9 +506,10 @@
  },
  "typeOfChemotherapy": {
    "type": "object",
+     "title": "Type of chemotherapy",
    "properties": {
      "Chemotherapy": {
-       "type": "string",
+       "type": "textarea",
        "title": "Specify type and drugs"
      },
      "DateStarted": {
@@ -507,6 +526,7 @@
  },
  "responseToTreatment": {
    "type": "object",
+     "title": "Response to treatment",
    "properties": {
      "Complete": {
        "type": "boolean",
@@ -544,6 +564,7 @@
    "properties": {
      "tumorSize": {
        "type": "object",
+         "title": "Tumor size (Surgical pathological evaluation)",
        "properties": {
          "lessThan4": {
            "type": "boolean",
@@ -563,6 +584,7 @@
  },
  "lymphnodeInvolvementAtSurgery": {
    "type": "object",
+     "title": "Lymphnode involvement at surgery",
    "properties": {
      "Notevaluated": {
        "type": "boolean",
@@ -584,6 +606,7 @@
  },
  "nodesInvolved": {
    "type": "object",
+     "title": "Nodes Involved",
    "properties": {
      "Onlypelvic": {
        "type": "boolean",
@@ -605,6 +628,7 @@
  },
  "numberOfNodesExamined": {
    "type": "object",
+     "title": "Number of nodes examined",
    "properties": {
      "Pelvic": {
        "type": "number",
@@ -618,6 +642,7 @@
  },
  "numberOfNodesPositive": {
    "type": "object",
+     "title": "Number of nodes positive",
    "properties": {
      "Pelvic": {
        "type": "number",
@@ -631,6 +656,7 @@
  },
  "Relapse": {
    "type": "object",
+     "title": "Relapse",
    "properties": {
      "Yes": {
        "type": "boolean",
@@ -653,6 +679,7 @@
  },
  "SiteOfRelapse": {
    "type": "object",
+     "title": "Site of Relapse",
    "properties": {
      "Local": {
        "type": "boolean",
@@ -674,6 +701,7 @@
  },
  "TreatmentAtRelapse": {
    "type": "object",
+     "title": "Treatment at relapse",
    "properties": {
      "Local": {
        "type": "boolean",
@@ -716,6 +744,7 @@
  },
  "lastKnownVitalStatus": {
    "type": "object",
+     "title": "Last known vital status",
    "properties": {
      "AliveUnknownDiseaseStatus": {
        "type": "boolean",
@@ -737,6 +766,7 @@
  },
  "causeOfDeath": {
    "type": "object",
+     "title": "Cause of death",
    "properties": {
      "CaCx": {
        "type": "boolean",

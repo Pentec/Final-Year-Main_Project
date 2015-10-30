@@ -3,25 +3,30 @@
 <head>
     <meta charset="utf-8" />
     <title>Fallopian Tube Cancer</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/formStyles.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jqueryUI/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jqueryUI/jquery-ui.theme.min.css" />
     <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jqueryUI/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/deps/underscore.js"></script>
     <script type="text/javascript" src="/deps/opt/jsv.js"></script>
     <script type="text/javascript" src="/lib/jsonform.js"></script>
     <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+    <script>
+        $(function(){
+            $('input[type="date"]').datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+    </script>
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<nav class = "navbar-fixed-top" id = "form-nav">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="/" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
-        </div>
-        <div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/editProfile">My PIMS Space</a></li>
-            </ul>
+            <a href="/myAdminSpace" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
         </div>
     </div>
 </nav>
@@ -40,42 +45,43 @@
         schema: {
             "HospitalNumber": {
                 "type": "string",
-                "require": true,
+                "required": true,
                 "title": "Hospital Number"
             },
             "DateOfBirth": {
                 "type": "date",
-                "require": true,
+                "required": true,
                 "title": "Date of Birth"
             },
             "Age": {
                 "type": "number",
-                "require": true,
+                "required": true,
                 "title": "Age"
             },
             "ID": {
                 "type": "number",
-                "require": true,
+                "required": true,
                 "title": "ID number"
             },
             "Name": {
                 "type": "string",
-                "require": true,
+                "required": true,
                 "title": "Name"
             },
             "Surname": {
                 "type": "string",
-                "require": true,
+                "required": true,
                 "title": "Surname"
             },
             "DateOfDiagnosis": {
                 "type": "date",
-                "require": true,
+                "required": true,
                 "title": "Date of diagnosis"
             },
             "HIVStatus": {
                 "type": "string",
-                "title": "HIV Status"
+                "title": "HIV Status",
+                "enum": ["Negative", "Positive"]
             },
             "CD4": {
                 "type": "number",
@@ -83,6 +89,7 @@
             },
             "figoStage": {
                 "type": "object",
+                "title": "Figo Stage",
                 "properties": {
                     "Ia": {
                         "type": "boolean",
@@ -132,6 +139,7 @@
             },
             "SiteOfDistantMatastases": {
                 "type": "object",
+                "title": "Site of distant metastase",
                 "properties": {
                     "PleuralEffusion": {
                         "type": "boolean",
@@ -157,6 +165,7 @@
             },
             "Histology": {
                 "type": "object",
+                "title": "Histology",
                 "properties": {
                     "Nohistology": {
                         "type": "boolean",
@@ -198,6 +207,7 @@
             },
             "Differentiation": {
                 "type": "object",
+                "title": "Differentiation",
                 "properties": {
                     "Well": {
                         "type": "boolean",
@@ -215,6 +225,7 @@
             },
             "TreatmentPerformed": {
                 "type": "object",
+                "title": "Treatment performed",
                 "properties": {
                     "Nil": {
                         "type": "boolean",
@@ -257,6 +268,7 @@
             },
             "TypeOfSurgery": {
                 "type": "object",
+                "title": "Type of surgery",
                 "properties": {
                     "USOwithoutLND": {
                         "type": "boolean",
@@ -307,6 +319,7 @@
             },
             "TypeofRadiotherapy": {
                 "type": "object",
+                "title": "Type of radiotherapy",
                 "properties": {
                     "Intracavitary": {
                         "type": "boolean",
@@ -354,6 +367,7 @@
             },
             "TypeofChemotherapy": {
                 "type": "object",
+                "title": "Type of chemotherapy",
                 "properties": {
                     "Type1": {
                         "type": "boolean",
@@ -437,6 +451,7 @@
             },
             "ResponseToTreatment": {
                 "type": "object",
+                "title": "Response to treatment",
                 "properties": {
                     "Complete": {
                         "type": "boolean",
@@ -471,6 +486,7 @@
             },
             "SPETumorSize": {
                 "type": "object",
+                "title": "Tumor Size",
                 "properties": {
                     "NoMacroscopicDisease": {
                         "type": "boolean",
@@ -496,6 +512,7 @@
             },
             "SPEtumorsizeAS": {
                 "type": "object",
+                "title": "Tumor size (after surgery)",
                 "properties": {
                     "NoMacroscopicResDisease": {
                         "type": "boolean",
@@ -525,6 +542,7 @@
             },
             "LymphNodeInvolvementAtSurgery": {
                 "type": "object",
+                "title": "Lymph node involvement at surgery",
                 "properties": {
                     "Notevaluated": {
                         "type": "boolean",
@@ -546,6 +564,7 @@
             },
             "Nodesinvolved": {
                 "type": "object",
+                "title": "Nodes involved",
                 "properties": {
                     "Onlypelvic": {
                         "type": "boolean",
@@ -567,6 +586,7 @@
             },
             "NumberOfNodesExamined": {
                 "type": "object",
+                "title": "Number of nodes examined",
                 "properties": {
                     "Pelvic": {
                         "type": "number",
@@ -580,6 +600,7 @@
             },
             "NumberOfNodesPositive": {
                 "type": "object",
+                "title": "Number of nodes positive",
                 "properties": {
                     "Pelvic": {
                         "type": "number",
@@ -593,6 +614,7 @@
             },
             "Cytology": {
                 "type": "object",
+                "title": "Cytology",
                 "properties": {
                     "NotEvaluated": {
                         "type": "boolean",
@@ -614,6 +636,7 @@
             },
             "SecondSurgery": {
                 "type": "object",
+                "title": "Second surgery",
                 "properties": {
                     "IntervalDebulking": {
                         "type": "boolean",
@@ -640,6 +663,7 @@
             },
             "StatusAtSecondSurgery": {
                 "type": "object",
+                "title": "Status at second surgery",
                 "properties": {
                     "CompleteRemission": {
                         "type": "boolean",
@@ -669,6 +693,7 @@
             },
             "StatusAfterSecondSurgery": {
                 "type": "object",
+                "title": "Status after second surgery",
                 "properties": {
                     "NoMacroscopicDiseaseLeft": {
                         "type": "boolean",
@@ -690,6 +715,7 @@
             },
             "Relapse": {
                 "type": "object",
+                "title": "Relapse",
                 "properties": {
                     "Yes": {
                         "type": "boolean",
@@ -712,6 +738,7 @@
             },
             "SiteOfRelapse": {
                 "type": "object",
+                "title": "Site of relapse",
                 "properties": {
                     "Local": {
                         "type": "boolean",
@@ -733,6 +760,7 @@
             },
             "TreatmentAtRelapse": {
                 "type": "object",
+                "title": "TreatmentAtRelapse",
                 "properties": {
                     "Local": {
                         "type": "boolean",
@@ -771,6 +799,7 @@
             },
             "LastKnownVitalStatus": {
                 "type": "object",
+                "title": "Last known vital status",
                 "properties": {
                     "AliveUnknownDiseaseStatus": {
                         "type": "boolean",
@@ -792,6 +821,7 @@
             },
             "CauseOfDeath": {
                 "type": "object",
+                "title": "Cause of death",
                 "properties": {
                     "FallTubeCa": {
                         "type": "boolean",

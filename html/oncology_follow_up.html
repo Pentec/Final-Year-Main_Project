@@ -3,20 +3,30 @@
 <head>
     <meta charset="utf-8" />
     <title>Oncology Follow-Up</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/formStyles.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jqueryUI/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jqueryUI/jquery-ui.theme.min.css" />
     <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jqueryUI/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/deps/underscore.js"></script>
     <script type="text/javascript" src="/deps/opt/jsv.js"></script>
     <script type="text/javascript" src="/lib/jsonform.js"></script>
     <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+    <script>
+        $(function(){
+            $('input[type="date"]').datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+    </script>
 </head>
 <body>
 
-<nav class="navbar navbar-fixed-top">
+<nav class = "navbar-fixed-top" id = "form-nav">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="/" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
+            <a href="/myAdminSpace" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
         </div>
     </div>
 </nav>
@@ -36,42 +46,42 @@
 
             "Name": {
                 "type": "string",
-                "require": true,
+                "required": true,
                 "title": "Name"
             },
             "HospitalNumber": {
                 "type": "string",
-                "require": true,
+                "required": true,
                 "title": "Hospital Number"
             },
             "DateOfVisit": {
                 "type": "date",
-                "require": true,
+                "required": true,
                 "title": "Date of visit"
             },
             "ExaminedByDr": {
                 "type": "string",
-                "require": true,
+                "required": true,
                 "title": "Examined by Dr."
             },
             "InitialDiagnosisAndStage": {
                 "type": "string",
-                "require": true,
+                "required": true,
                 "title": "Initial diagnosis and stage"
             },
             "DateDiagnosed": {
                 "type": "date",
-                "require": true,
+                "required": true,
                 "title": "Date diagnosed"
             },
             "Complaints": {
                 "type": "textarea",
-                "require": true,
+                "required": true,
                 "title": "Complaints"
             },
             "ClinicalFindings": {
                 "type": "textarea",
-                "require": true,
+                "required": true,
                 "title": "Clinical findings"
             },
             "AdditionalNotes": {
@@ -80,6 +90,7 @@
             },
             "Plan": {
                 "type": "object",
+                "title": "Plan",
                 "properties": {
                     "SpecialInvestigations": {
                         "type": "textarea",
@@ -105,6 +116,7 @@
             },
             "TimeFromPrimaryTreatment": {
                 "type": "object",
+                "title": "Time from primary treatment",
                 "properties": {
                     "months": {
                         "type": "number",
@@ -118,6 +130,7 @@
             },
             "LastKnownVitalStatusOfPatient": {
                 "type": "object",
+                "title": "Last known vital status of patient",
                 "properties": {
                     "AliveUnknownDiseaseStatus": {
                         "type": "boolean",
@@ -139,6 +152,7 @@
             },
             "Relapse": {
                 "type": "object",
+                "title": "Relapse",
                 "properties": {
                     "Yes": {
                         "type": "boolean",
@@ -156,6 +170,7 @@
             },
             "SiteOfRelapse": {
                 "type": "object",
+                "title": "Site of relapse",
                 "properties": {
                     "Local": {
                         "type": "boolean",
@@ -181,6 +196,7 @@
             },
             "TreatmentAtRelapse": {
                 "type": "object",
+                "title": "Treatment at relapse",
                 "properties": {
                     "Nil": {
                         "type": "boolean",

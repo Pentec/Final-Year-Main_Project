@@ -1,6 +1,10 @@
 /**
  * Created by Trevor on 2015/09/07.
  */
+
+/**
+ * Initializes all off the functions and listeners of the navbar.
+ */
 $(document).ready(function(){
     $(".has-sub a").click(function(event){
         event.preventDefault();

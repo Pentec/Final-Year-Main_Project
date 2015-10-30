@@ -14,9 +14,9 @@ block mainContent
                     div
                         ul.nav.nav-pills.nav-stacked.form-menu
                             li
-                                a(href='/#', tabindex='-1') Incomplete Form
+                                a(href='/myIncompleteForms', tabindex='-1') Incomplete Form
                             li
-                                a(href='/#', tabindex='-1') Submitted Forms
+                                a(href='/mySubmittedForms', tabindex='-1') Submitted Forms
                 a(href='#')#formIcon.hasOptions
                     img.link(src='images/mySpaceIcons/Forms.png')
                     h3  Forms
@@ -47,22 +47,31 @@ block mainContent
                     div
                         ul.nav.nav-pills.nav-stacked.form-menu
                             li
-                                a(href='/#', tabindex='-1') Video
+                                a(href='/#', tabindex='-1' data-toggle="modal" data-target="#myModal") Image Overlay
                             li
-                                a(href='/#', tabindex='-1') Overlay
+
+                                a(href='/video_tutorial', tabindex='-1') Video
+
                             li
-                                a(href='/#', tabindex='-1') User Manual
+                                a(href='/docs/UserManual.pdf') User Manual
             .item
                 a(href='editProfile')
                     img.link(src='images/mySpaceIcons/profile.png')
                     h3               Profile
-                a(href='stats')
+                a(href='#')#statistics.hasOptions
                     img.link(src='images/mySpaceIcons/stats.png')
                     h3             Statistics
+                div.options.statistics
+                    div
+                        ul.nav.nav-pills.nav-stacked.form-menu
+                            li
+                                a(href='/dash.html', tabindex='-1') Dashboard
+                            li
+                                a(href='/stats', tabindex='-1') Query           
                 a(href='addUser')
                     img.link(src='images/mySpaceIcons/AddUser.png')
                     h3             Add user
-                a(href='findPatient')
+                //a(href='findPatient')
                     img.link(src='images/mySpaceIcons/notifications.png')
                     h3            Notifications
             // Left and right controls
@@ -71,6 +80,9 @@ block mainContent
                 span.sr-only Previous
             a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
                 span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
-                span.sr-only Next
+                span.sr-only Next 
+
+                //Image tutorial overlay
+
     footer.text-center.center-block
         h2 Pentec PIMS &copy;

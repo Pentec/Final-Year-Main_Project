@@ -15240,12 +15240,8 @@ $.scrollWindowTo = function(pos, duration, cb) {
 
 }));
 
-/**
- * Main source
- */
-
-;(function(factory) {
-    if (typeof define === 'function' && define.amd) {
+(function (factory) {
+	if (typeof define === 'function' && define.amd) {
         // AMD
         define(['underscore', 'backbone'], factory);
     } else {

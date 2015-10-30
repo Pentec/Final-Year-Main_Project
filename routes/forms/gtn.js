@@ -3,13 +3,17 @@ var router = express.Router();
 var submitFunctions  = require('../../controllers/forms/submitForm');
 
 router.post('/', function(req, res, next) {
-    if(req.body.isNotCompeleted == true)
-    {
+
+      var success =  submitFunctions.submitGTN(req);
+
+    if(!success){
+        res.redirect('/gynae_surgery.html');
     }
-    else
-    {
-        submitFunctions.submitGTN(req);
+
+    else{
+        res.redirect('/FormSubmited');
     }
+
 
 });
   

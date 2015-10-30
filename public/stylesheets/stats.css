@@ -8,6 +8,7 @@
     overflow: hidden;
 }
 
+
 .graphbox {
     min-width: 1050px;
     width: 80%;
@@ -21,8 +22,8 @@
 }
 
 @media (max-width: 767px) {
-    .graph-box{
-        margin-top: 120px;
+    .graphbox{
+        margin-top: 45px;
     }
 }
 

@@ -3,20 +3,29 @@
 <head>
     <meta charset="utf-8" />
     <title>Gynaecology Data Collection Sheet</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/formStyles.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jqueryUI/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jqueryUI/jquery-ui.theme.min.css" />
     <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jqueryUI/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/deps/underscore.js"></script>
     <script type="text/javascript" src="/deps/opt/jsv.js"></script>
     <script type="text/javascript" src="/lib/jsonform.js"></script>
     <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+    <script>
+        $(function(){
+            $('input[type="date"]').datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+    </script>
 </head>
 <body>
 
-<nav class="navbar navbar-fixed-top">
+<nav class = "navbar-fixed-top" id = "form-nav">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="/" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
+            <a href="/myAdminSpace" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
         </div>
         <div  class = "nav navbar-nav">
             <li class="dropdown">
@@ -196,36 +205,37 @@
         schema: {
             "HospitalNumber": {
                 "type": "string",
-                "require": true,
+                "required": true,
                 "title": "Hospital Number"
             },
             "DateOfBirth": {
                 "type": "date",
-                "require": true,
+                "required": true,
                 "title": "Date of Birth"
             },
             "Age": {
                 "type": "number",
-                "require": true,
+                "required": true,
                 "title": "Age"
             },
             "Name": {
                 "type": "string",
-                "require": true,
+                "required": true,
                 "title": "Name"
             },
             "Surname": {
                 "type": "string",
-                "require": true,
+                "required": true,
                 "title": "Surname"
             },
             "DateofAdmission": {
                 "type": "date",
-                "require": true,
+                "required": true,
                 "title": "Date of Admission"
             },
             "firm": {
                 "type": "object",
+                "title": "Firm",
                 "properties": {
                     "G1": {
                         "type": "boolean",
@@ -265,26 +275,31 @@
             },
             "P": {
                 "type": "number",
-                "title": "Parity"
+                "title": "Parity",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "G": {
                 "type": "number",
-                "title": "Gravidity"
+                "title": "Gravidity",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "M": {
                 "type": "number",
-                "title": "Miscarriage"
+                "title": "Miscarriage",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "E": {
                 "type": "number",
-                "title": "Ectopic pregnancy"
+                "title": "Ectopic pregnancy",
+                "enum": [0, 1, 2, 3,4,5,6,7,8,9,10]
             },
             "HIV": {
                 "type": "object",
                 "properties": {
                     "HIVStatus": {
                         "type": "string",
-                        "title": "HIV Status"
+                        "title": "HIV Status",
+                        "enum": [ "Negative","Positive"]
                     },
                     "CD4": {
                         "type": "number",

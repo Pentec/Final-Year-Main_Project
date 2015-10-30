@@ -3,25 +3,30 @@
 <head>
     <meta charset="utf-8" />
     <title>Vulva Cancer Form</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/formStyles.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/deps/opt/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jqueryUI/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jqueryUI/jquery-ui.theme.min.css" />
     <script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jqueryUI/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/deps/underscore.js"></script>
     <script type="text/javascript" src="/deps/opt/jsv.js"></script>
     <script type="text/javascript" src="/lib/jsonform.js"></script>
     <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+    <script>
+        $(function(){
+            $('input[type="date"]').datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+    </script>
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<nav class = "navbar-fixed-top" id = "form-nav">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="/" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
-        </div>
-        <div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/editProfile">My PIMS Space</a></li>
-            </ul>
+            <a href="/myAdminSpace" class="nav navbar-brand"><img src="images/newlogo.png" width="100px" class="img-rounded"></a>
         </div>
     </div>
 </nav>
@@ -40,27 +45,27 @@
         schema: {
             "Name": {
                 "type": "string",
-                "require": true,
+                "required": true,
                 "title": "Name"
             },
             "Surname": {
                 "type": "string",
-                "require": true,
+                "required": true,
                 "title": "Surname"
             },
             "HospitalNumber": {
                 "type": "string",
-                "require": true,
+                "required": true,
                 "title": "Hospital Number"
             },
             "ID": {
                 "type": "number",
-                "require": true,
+                "required": true,
                 "title": "ID number"
             },
             "DateOfBirth": {
                 "type": "date",
-                "require": true,
+                "required": true,
                 "title": "Date of Birth"
             },
             "CellPhone": {
@@ -80,7 +85,7 @@
             },
             "DateOfDiagnosis": {
                 "type": "date",
-                "require": true,
+                "required": true,
                 "title": "Date of diagnosis"
             },
             "HIVStatus": {
@@ -102,6 +107,7 @@
             },
             "figoStage": {
                 "type": "object",
+                "title": "Figo stage",
                 "properties": {
                     "Ia": {
                         "type": "boolean",
@@ -135,6 +141,7 @@
             },
             "SiteOfDistantMetastase": {
                 "type": "object",
+                "title": "Site of distant metastase",
                 "properties": {
                     "Nil": {
                         "type": "boolean",
@@ -176,6 +183,7 @@
             },
             "Histology": {
                 "type": "object",
+                "title": "Histology",
                 "properties": {
                     "NilUnclassifiable": {
                         "type": "boolean",
@@ -217,6 +225,7 @@
             },
             "Differentiation": {
                 "type": "object",
+                "title": "Differentiation",
                 "properties": {
                     "Well": {
                         "type": "boolean",
@@ -238,6 +247,7 @@
             },
             "PrimaryTreatmentPerformed": {
                 "type": "object",
+                "title": "Primary treatment performed",
                 "properties": {
                     "Nil": {
                         "type": "boolean",
@@ -288,6 +298,7 @@
             },
             "typeOfSurgery": {
                 "type": "object",
+                "title": "Type of surgery",
                 "properties": {
                     "WideLocalExcisionWithLND": {
                         "type": "boolean",
@@ -327,13 +338,13 @@
                     },
                     "DateofSurgery": {
                         "type": "date",
-                        "require": true,
                         "title": "Date of Surgery"
                     }
                 }
             },
             "typeOfRadiotherapy": {
                 "type": "object",
+                "title": "Type of radiotherapy",
                 "properties": {
                     "Intracavitary": {
                         "type": "boolean",
@@ -357,38 +368,35 @@
                     },
                     "DateStarted": {
                         "type": "date",
-                        "require": true,
                         "title": "Date started"
                     },
                     "DateEnded": {
                         "type": "date",
-                        "require": true,
                         "title": "Date ended"
                     }
                 }
             },
             "typeOfChemotherapy": {
                 "type": "object",
+                "title": "Type of Chemotherapy",
                 "properties": {
                     "SpecifyTypeAndDrugs": {
-                        "type": "string",
-                        "require": true,
+                        "type": "textarea",
                         "title": "Specify type and drugs"
                     },
                     "DateStarted": {
                         "type": "date",
-                        "require": true,
                         "title": "Date started"
                     },
                     "DateEnded": {
                         "type": "date",
-                        "require": true,
                         "title": "Date ended"
                     }
                 }
             },
             "responseToTreatment": {
                 "type": "object",
+                "title": "Response to treatment",
                 "properties": {
                     "Complete": {
                         "type": "boolean",
@@ -423,6 +431,7 @@
             },
             "SurgicalPathologicalEvaluation": {
                 "type": "object",
+                "title": "Surgical pathological evaluation",
                 "properties": {
                     "MaximumTumorDiameterInMm": {
                         "type": "number",
@@ -436,6 +445,7 @@
             },
             "AssociatedLesions": {
                 "type": "object",
+                "title": "Associated lesions",
                 "properties": {
                     "None": {
                         "type": "boolean",
@@ -465,6 +475,7 @@
             },
             "HPVTest": {
                 "type": "object",
+                "title": "HPV Test",
                 "properties": {
                     "NotTested": {
                         "type": "boolean",
@@ -489,6 +500,7 @@
                 "properties": {
                     "SentinelNodeDetection": {
                         "type": "object",
+                        "title": "Sentinel node detection",
                         "properties": {
                             "NotPerformed": {
                                 "type": "boolean",
@@ -510,6 +522,7 @@
                     },
                     "HistologicallyProvenInvolvement": {
                         "type": "object",
+                        "title": "Histologically proven involvement",
                         "properties": {
                             "NotEvaluated": {
                                 "type": "boolean",
@@ -531,6 +544,7 @@
                     },
                     "NodesInvolved": {
                         "type": "object",
+                        "title": "Nodes involved",
                         "properties": {
                             "OnlyPelvic": {
                                 "type": "boolean",
@@ -552,6 +566,7 @@
                     },
                     "NumberOfNodesExamined": {
                         "type": "object",
+                        "title": "Number of nodes examined",
                         "properties": {
                             "Pelvic": {
                                 "type": "number",
@@ -565,6 +580,7 @@
                     },
                     "NumberOfNodesPositive": {
                         "type": "object",
+                        "title": "Number of nodes positive",
                         "properties": {
                             "Pelvic": {
                                 "type": "number",
@@ -578,6 +594,7 @@
                     },
                     "InguinalNodes_involvementCharacteristics": {
                         "type": "object",
+                        "title": "Inguinal nodes involvement characteristics",
                         "properties": {
                             "UnilateralIntracapsular": {
                                 "type": "boolean",
@@ -605,6 +622,7 @@
             },
             "Relapse": {
                 "type": "object",
+                "title": "Relapse",
                 "properties": {
                     "Yes": {
                         "type": "boolean",
@@ -620,13 +638,13 @@
                     },
                     "DateOfRelapseDiagnosis": {
                         "type": "date",
-                        "require": true,
                         "title": "Date of relapse diagnosis"
                     }
                 }
             },
             "SiteOfRelapse": {
                 "type": "object",
+                "title": "Site of relapse",
                 "properties": {
                     "Local": {
                         "type": "boolean",
@@ -648,6 +666,7 @@
             },
             "TreatmentAtRelapse": {
                 "type": "object",
+                "title": "Treatment at relapse",
                 "properties": {
                     "Nil": {
                         "type": "boolean",
@@ -685,11 +704,11 @@
             },
             "DateOfFolllowup": {
                 "type": "date",
-                "require": true,
                 "title": "Date of Follow-up"
             },
             "LastKnownVitalStatus": {
                 "type": "object",
+                "title": "Last known vital status",
                 "properties": {
                     "AliveUnknownDiseaseStatus": {
                         "type": "boolean",
@@ -711,6 +730,7 @@
             },
             "causeOfDeath": {
                 "type": "object",
+                "title": "Cause of death",
                 "properties": {
                     "VulvaCarcinoma": {
                         "type": "boolean",
@@ -734,7 +754,6 @@
                     },
                     "DateOfDeath": {
                         "type": "date",
-                        "require": true,
                         "title": "Date of Death"
                     }
                 }

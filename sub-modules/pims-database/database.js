@@ -211,7 +211,11 @@ var CervicalCancer = new Schema({
 
 	Name: {type: String, require: true, title: 'Name'},
 
+	NameSalt: {type: String, require: true, title: 'NameSalt'},
+
 	Surname: {type: String, require: true, title: 'Surname'},
+
+	SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
 
 	HospitalNumber: {type: String, require: true, title: 'Hospital Number'},
 
@@ -454,7 +458,11 @@ var EndometrialCancer = new Schema({
 
     Name: {type: String, require: true, title: 'Name'},
 
+    NameSalt: {type: String, require: true, title: 'NameSalt'},
+
     Surname: {type: String, require: true, title: 'Surname'},
+
+	SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
 
     HospitalNumber: {type: String, require: true, title: 'Hospital Number'},
 
@@ -749,7 +757,11 @@ var VaginalCancer = new Schema({
 
     Name: {type: String, require: true, title: 'Name'},
 
-    Surname: {type: String, require: true, title: 'Surname'},
+    NameSalt: {type: String, require: true, title: 'NameSalt'},
+
+	Surname: {type: String, require: true, title: 'Surname'},
+
+	SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
 
     HospitalNumber: {type: String, require: true, title: 'Hospital Number'},
 
@@ -992,7 +1004,11 @@ var FallopianTubeCancer = new Schema({
 
     Name: {type: String, require: true, title: 'Name'},
 
-    Surname: {type: String, require: true, title: 'Surname'},
+	NameSalt: {type: String, require: true, title: 'NameSalt'},
+
+	Surname: {type: String, require: true, title: 'Surname'},
+
+    SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
 
     DateOfDiagnosis: {type: Date, require: true, title: 'Date of diagnosis'},
 
@@ -1279,7 +1295,11 @@ var VulvaCancer = new Schema({
 
     Name: {type: String, require: true, title: 'Name'},
 
+    NameSalt: {type: String, require: true, title: 'NameSalt'},
+
     Surname: {type: String, require: true, title: 'Surname'},
+
+	SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
 
     HospitalNumber: {type: String, require: true, title: 'Hospital Number'},
 
@@ -1515,7 +1535,11 @@ var OverianCancer = new Schema({
 
     Name: {type: String, require: true, title: 'Name'},
 
+	NameSalt: {type: String, require: true, title: 'NameSalt'},
+
     Surname: {type: String, require: true, title: 'Surname'},
+
+    SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
 
     HospitalNumber: {type: String, require: true, title: 'Hospital Number'},
 
@@ -1719,7 +1743,7 @@ typeOfSurgery: {
     
     
         StatusAtSecondSurgery: {
-        CompleteRemission: {type: String, title: 'Complete remission'},
+        CompleteRemission: {type: Boolean, title: 'Complete remission'},
         MicroscopicDisease: {type: Boolean, title: 'Microscopic disease'},
         NoSingleImplantGrearterThan1cm: {type: Boolean, title: 'No single implant > 1cm'},
         ImplantsGreaterThan1cm :{type: Boolean, title: 'Implants > 1cm'},
@@ -1728,7 +1752,7 @@ typeOfSurgery: {
     },
     
 	StatusAfterSecondSurgery: {
-        NoMicroscopicDiseaseLeftAfterSurg: {type: String, title: 'No macroscopic disease left after surgery'},
+        NoMicroscopicDiseaseLeftAfterSurg: {type: Boolean, title: 'No macroscopic disease left after surgery'},
         MicroscopicDiseaseLeftBG1cm: {type: Boolean, title: 'Macroscopic disease <1cm left after surgery'},
 	    MicroscopicDiseaseLeftLT1cm: {type: Boolean, title: 'Macroscopic disease >1cm left after surgery'},
         Unknown: {type: Boolean, title: 'Unknown'}
@@ -1789,7 +1813,11 @@ var GTNCancer = new Schema({
 
     Name: {type: String, require: true, title: 'Name'},
 
+    NameSalt: {type: String, require: true, title: 'NameSalt'},
+
     Surname: {type: String, require: true, title: 'Surname'},
+
+	SurnameSalt: {type: String, require: true, title: 'SurnameSalt'},
 
     HospitalNumber: {type: String, require: true, title: 'Hospital Number'},
 

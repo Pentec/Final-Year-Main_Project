@@ -9,7 +9,7 @@ runApp.controller('AIControl', ['$scope',function($scope, $http){
     var getNNCanvas = function(){
         var htmlCanvas = document.getElementById('neuralCanvas'),
             context = htmlCanvas.getContext('2d');
-    }
+    };
 
     $scope.addNumber = function(){
         var res = 2 + 5;
@@ -92,11 +92,15 @@ runApp.config([
     }
 ]);
 
+/**
+ * Updates User Interface
+ * @param output Logs the output
+ */
 var updateUI = function(output){
     console.log("in function "+ output);
     alert('Hey there ' + output);
 
-}
+};
 
 
 $("#patientNeuralForm").on("submit", function (e) {

@@ -5,6 +5,8 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var Schema   = mongoose.Schema;
 
+var userController = require('../controllers/userAuthControl.js');
+
 
 var Users = new Schema({
 	username : {
@@ -18,16 +20,26 @@ var Users = new Schema({
         unique: true
     },
 	profile_pic	: String,
-	user_rights			: {
+	user_rights	: {
         type: Number,
         required: true
     },
-	password : {
-		type: String,
-		required: true
-	},
+    password : {
+        type: String,
+        required: true
+    },
+    passwordSalt : {
+        type: String,
+        required: true
+    },
+    passwordHash : {
+        type: String,
+        required: true
+    },
 	department : String,
-	staff_type : String
+	staff_type : String,
+    deleted: Boolean
+
 });
 
 
@@ -38,33 +50,36 @@ var Users = new Schema({
 Users.pre('save', function(callback){
    var user = this;
 
-	if(!user.isModified('password'))
-		return callback();
+	console.log('pre saving');
+    //password not modified, no need to rehash (for editing user information)
+    if(!user.isModified('passwordHash')){
+        callback();
+    }
+    else{
 
-	//Password change; hash it
-	bcrypt.genSalt(5, function(err,salt){
-	   if(err)
-		   return callback(err);
+        //password has changed, rehash it
+        userController.saltHashGen(false, "", user.username, user.passwordSalt, function(hashed){
+            if(hashed != null){
+                user.passwordSalt = hashed.sendSalt;
+                user.passwordHash = hashed.sendHash;
+                callback();
+            }
 
-		bcrypt.hash(user.password, salt, null, function(err, hash){
-		   if(err)
-			   return callback(err);
+        });
 
-		   user.password = hash;
-			callback;
-		});
-	});
+    }
 
 });
 
-//verify password, compares hash with plain text value
+
+/*verify password, compares hash with plain text value
 Users.methods.passwordValid = function(password, callback){
 	bcrypt.compare(password, this.password, function(err, isMatch){
         if(err)
             return callback(err);
 
         callback(null, isMatch);
-    });
-};
+    });//
+};*/
 
 module.exports.user = mongoose.model('users', Users);

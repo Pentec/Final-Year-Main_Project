@@ -12,6 +12,8 @@
 \usepackage[nottoc]{tocbibind}
 \DeclareGraphicsExtensions{.png,.eps,.jpg}
 \usepackage{amsmath}
+\DeclareRobustCommand{\rchi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[2]{\raisebox{\depth}{$#1\chi$}} % inner command, used by \rchi
 
 \begin{document}
 %\title and intnro
@@ -26,15 +28,12 @@
 \section{Application requirements and design}
 
 \input{./Functional_Requirements/pimsLogin}
-\newpage
+
 \input{./Functional_Requirements/pimsStats}
 \newpage
 \input{./Functional_Requirements/pimsAI}
 \newpage
-\input{./Functional_Requirements/pimsNeuralNetwork}
-\newpage
 \input{./Functional_Requirements/pimsNotification}
-\newpage
 \input{./Functional_Requirements/pimsSpace}
 
 

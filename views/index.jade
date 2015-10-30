@@ -38,6 +38,8 @@ block content
                                 a(href='#' role='button') Users
                         li.sub.usersub
                             a(href='/addUser') Add User
+                        li.sub.usersub
+                            a(href="/removeUser") Remove User
                     li#formtab.dropdown
                         a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Forms
                             span.caret
@@ -70,12 +72,26 @@ block content
                             a(href='\stats') Query
                         li.sub.statisticstab
                             a(href='\dash.html') Dashboard
-                        li#Predict
-                            a(Href='/neural') Predict
+                        if(active == 'predict')
+                            li#Predict.active
+                                a(Href='/neural') Predict
+                        else
+                            li#Predict
+                                a(Href='/neural') Predict
                 ul.nav.navbar-nav.navbar-right
                     li.nobar.has-sub#settings
                         a(href='#')
                             img(alt="Settings" src='/images/settings.png' height="40px")
+                    li.sub.settings.dropdown
+                        a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Tutorial
+                            span.caret
+                        ul.dropdown-menu
+                            li
+                                a(href='/#', tabindex='-1' data-toggle="modal" data-target="#myModal") Image Overlay
+                            li
+                                a(href='/video_tutorial', tabindex='-1') Video
+                            li
+                                a(href='/docs/UserManual.pdf') User Manual
                     if(!notAdmin)
                         if(active=="editProfile")
                             li.sub.settings.active
@@ -83,12 +99,54 @@ block content
                         else
                             li.sub.settings
                                 a(href="/editProfile") Edit Profile
-                    li.sub.settings
+                    li
                         a(href="/logout") Logout
 
 
                 //form.navbar-form.navbar-right.search-form(role='search')
                 //    input.form-control(type='text', placeholder='Search')
     div.content
+        #myModal.modal.fade(role='dialog')
+            .modal-dialog model-lg
+                // Modal content
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal') ×
+                        h4.modal-title PIMS Tutorial
+                    .modal-body
+                        p PIMS Space.
+                        img(src='images/TutImages/pimsAdminSpace.jpg')
+                        br
+                        br
+                        p Add Users.
+                        img(src='images/TutImages/addUser.jpg')
+                        br
+                        br
+                        p Forms.
+                        img(src='images/TutImages/forms.jpg')
+                        br
+                        br
+                        p Profile.
+                        img(src='images/TutImages/editProfile.jpg')
+                        br
+                        br
+                        p Query.
+                        img(src='images/TutImages/Query.jpg')
+                        br
+                        br
+                        p Dashboard.
+                        img(src='images/TutImages/Dashboard.jpg')
+                        br
+                        br
+                        p Notifications.
+                        img(src='images/TutImages/notifications.jpg')
+                        br
+                        br
+                        p Predict.
+                        img(src='images/TutImages/predict.jpg')
+                        br
+                        br
+                    .modal-footer
+                        button.btn.btn-default(type='button', data-dismiss='modal') Close
         block mainContent
             //a(href='#/neural/{{userID._id}}') Neural Network
