@@ -48,7 +48,7 @@ myPercept.project(myPerceptTest);
 //will test network on file
 var writeNetworkToFile = function(JsonNetwork){
     console.log('json ');
-    fs.writeFileSync("./lib/pims-neuralnetwork/trained/survive.json", JsonNetwork);
+    fs.writeFileSync("./sub-modules/pims-neuralnetwork/trained/survived.json", JsonNetwork);
 
     console.log('done writing');
     //    myPercept = null
@@ -73,6 +73,7 @@ var trainMany = function(inputValuesArray, numPatients, callback){
     //call activate and propagate
 
     console.log('in training ');
+    console.log('in training ');
     var checkOutput0 = 0;
     checkNumPatients++;
 
@@ -80,15 +81,16 @@ var trainMany = function(inputValuesArray, numPatients, callback){
 
         if(i + 1 == nTrials){
             checkOutput0 = myPercept.activate(inputValuesArray);
-            myPerceptTest.activate();
+            //myPerceptTest.activate();
             //first target says survival; second target says death
             myPercept.propagate(learningRate, [0.874656945, 0.127895525]);//back-propagate learning rate and target of 1; survive cancer;
             console.log('Done Hello 0 ' + i + "   " + checkOutput0);
-            doneTraining = false;
+            doneTraining = true;
         }
         else{
+            //console.log('in training ' + inputValuesArray);
             myPercept.activate(inputValuesArray);
-            myPerceptTest.activate();
+            //myPerceptTest.activate();
             myPercept.propagate(learningRate, [0.874656945, 0.267895525]);//back-propagate learning rate and target of 1; survive cancer;
             doneTraining = false;
         }
@@ -98,9 +100,9 @@ var trainMany = function(inputValuesArray, numPatients, callback){
     }
 
 
-    if(checkNumPatients + 1 == numPatients){
+    if(doneTraining){
         //write trained Network to JSON file
-        doneTraining = true;
+        //doneTraining = true;
         var exported = Perceptron.prototype.toJSON();
         writeNetworkToFile(JSON.stringify(exported, null, 4));//pretty print JSON
 
@@ -108,16 +110,16 @@ var trainMany = function(inputValuesArray, numPatients, callback){
 
     /*console.log('json ' + JSON.stringify(exported));
      console.log('json import ' + JSON.stringify(imported));*/
-    return callback(doneTraining);
+    return callback(checkOutput0);
     //will return output values when testing network
     //will return output values when testing network
 };
-
+/*
 trainMany = meld.before(trainMany, function() {
     if(arguments[0].user != null)
         logging.info("pims-neuralnetwork module | trainMany service request | for User: [" + arguments[0].user.username +  "] | with Access rights [" + arguments[0].user.user_rights + "]");
 
-});
+});*/
 
 
 
@@ -129,7 +131,7 @@ trainMany = meld.before(trainMany, function() {
  * @param filename
  */
 var testNetwork = function(req, filename, callback){
-    fs.readFile('./sub-modules/pims-neuralnetwork/trained/survive.json', 'utf8', function(err, data){
+    fs.readFile('./sub-modules/pims-neuralnetwork/trained/survived.json', 'utf8', function(err, data){
         if(err){
             throw err;
             return callback(false);
@@ -456,12 +458,12 @@ var trainNetwork = function(inputValuesArray, callback){
 
 };
 
-
+/*
 trainNetwork = meld.before(trainNetwork, function() {
     if(arguments[0].user != null)
         logging.info("pims-neuralnetwork module | trainNetwork service request | for User: [" + arguments[0].user.username +  "] | with Access rights [" + arguments[0].user.user_rights + "]");
 
-});
+});*/
 
 
 

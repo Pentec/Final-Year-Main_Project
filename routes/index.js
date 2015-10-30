@@ -1861,14 +1861,14 @@ router.get('/neuraltrain', function (req, res, next) {
     //var sendPatientName = {patient: req.body.patientNeural};
 
     //console.log('Hello' + sendPatientName.patient);
-    cervCan.find({}, function (err, docs) {
+    ovarianCancer.find({}, function (err, docs) {
         if (err) {
             throw err;
         }
         docs.forEach(function (doc) {
             console.log("hey " + doc.Name + " " + doc.Surname);
             //console.log('size '+ docs.length);
-            dataNormalizerCervical.getNormalizedData(doc.Name, doc.Surname, function (array) {
+            dataNormalizerOvarian.getNormalizedData(doc.Name, doc.Surname, function (array) {
                 if (array == null) {
                     res.render('pims_neuralnet/testAI', {
                         title: 'PIMS Neural Network',
@@ -1878,16 +1878,14 @@ router.get('/neuraltrain', function (req, res, next) {
                 else {
                     console.log('fetching ' + array);
                     //call train network
-                    /*nn.trainMany(req, array, docs.length,function(trained){
-                     if(trained){
-                     //propagate that NN is trained to UI
-                     //perhaps show how far training is; iterations maybe
-                     }
-                     else{
-                     //new Error(unable to train NN)
-                     //page 404
-                     }
-                     });*/
+                    nn.trainMany(req, array, docs.length,function(trained){
+                         if(trained){
+                             console.log("trained");
+                         }
+                         else{
+                             console.log("whoops!");
+                         }
+                     });
                 }
             });
 
