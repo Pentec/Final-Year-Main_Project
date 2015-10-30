@@ -2191,38 +2191,13 @@ function CollectDataFromClient(data)
  */
 function sendDataToGraph(surviveData){
 
-    console.log("Survival " + surviveData[0][0].stages[0].patientNumber);
+    //console.log("Survival " + surviveData[0][0].stages[0].patientNumber);
     /*console.log("Survival 2 " + surviveData[1][0].stages[1].patientNumber);
     console.log("Survival 3 " + surviveData[2].stages[2].patientNumber);
     console.log("Survival 4 " + surviveData[3].stages[3].patientNumber);*/
     //alert ("Survival " + surviveData.arrSend[0] + " just did it");
     //alert ("Survival " + surviveData.stageOne[0] + " just did it");
 
-    // Properties for survival chart
-    /*
-     //Redo like this
-     var chartProperties = {
-     "caption": "Survival Data for Cervical Cancer",
-     "numberprefix": "",
-     "xAxisName": "Number (Percentage)",
-     "yAxisName": "Patient Status",
-     theme: 'management-3d'
-     };
-     var survivalDataTab = new FusionCharts( {
-     type: 'bar3d',
-     id: 'survivalDataTab',
-     width: '473',
-     height: '340',
-     dataFormat: 'json',
-     renderAt: 'survival-categories-tab-chart',
-     dataSource: {
-     chart: chartProperties,
-     data: []
-     }
-
-     });
-
-     survivalDataTab.render();*/
 
     //call FusionCharts.ready()
 
@@ -2252,8 +2227,8 @@ function sendDataToGraph(surviveData){
         var chartProperties = {
             "caption": "Survival Data for Cancer",
             "numberprefix": "",
-            "xAxisName": "Number (Percentage)",
-            "yAxisName": "Patient Status",
+            "xAxisName": "Number of Patients",
+            "yAxisName": "Categories",
             theme: 'management-3d'
         };
 
@@ -2308,7 +2283,7 @@ function sendDataToGraph(surviveData){
                 dataSource: {
                     chart: {
                         numberPrefix: '',
-                        yAxisName: 'Patient Status (Percentage)',
+                        yAxisName: 'Categories',
                         theme: 'management-3d'
                     },
                     data: []
@@ -4778,10 +4753,6 @@ function sendDataToGraph(surviveData){
                             "value": surviveData[2][0].stages[0].chemoTherapy.toString(),
                             "link": "#sales"
                         }, {
-                            "label": "Radiotherapy",
-                            "value": surviveData[2][0].stages[0].radioTherapy.toString(),
-                            "link": "#sales"
-                        }, {
                             "label": "Surgery",
                             "value":  surviveData[2][0].stages[0].surgery.toString(),
                             "link": "#sales"
@@ -4811,10 +4782,6 @@ function sendDataToGraph(surviveData){
                         }, {
                             "label": "Chemotherapy",
                             "value": surviveData[2][1].stages[1].chemoTherapy.toString(),
-                            "link": "#sales"
-                        }, {
-                            "label": "Radiotherapy",
-                            "value": surviveData[2][1].stages[1].radioTherapy.toString(),
                             "link": "#sales"
                         }, {
                             "label": "Surgery",
@@ -4848,10 +4815,6 @@ function sendDataToGraph(surviveData){
                             "value": surviveData[2][2].stages[2].chemoTherapy.toString(),
                             "link": "#sales"
                         }, {
-                            "label": "Radiotherapy",
-                            "value": surviveData[2][2].stages[2].radioTherapy.toString(),
-                            "link": "#sales"
-                        }, {
                             "label": "Surgery",
                             "value":  surviveData[2][2].stages[2].surgery.toString(),
                             "link": "#sales"
@@ -4881,10 +4844,6 @@ function sendDataToGraph(surviveData){
                         }, {
                             "label": "Chemotherapy",
                             "value": surviveData[2][3].stages[3].chemoTherapy.toString(),
-                            "link": "#sales"
-                        }, {
-                            "label": "Radiotherapy",
-                            "value": surviveData[2][3].stages[3].radioTherapy.toString(),
                             "link": "#sales"
                         }, {
                             "label": "Surgery",

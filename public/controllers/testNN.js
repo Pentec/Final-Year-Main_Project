@@ -29,7 +29,8 @@ runApp.controller('AIControl', ['$scope',function($scope, $http){
         "Fallopian Tube Cancer",
         "Ovarian Cancer",
         "Vaginal Cancer",
-        "Vulva Cancer"
+        "Vulva Cancer",
+        "GTN Cancer"
     ];
 
 

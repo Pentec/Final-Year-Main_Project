@@ -98,10 +98,15 @@ block mainContent
                 div.container-fluid.ai
                     div.row.text-center#information
                         h2 Patient Mortality Prediction
+                        div.col-xs-4.col-xs-offset-4#errordiv
+                            if (error)
+                                .alert.alert-danger
+                                    button.close(data-dismiss="alert", type="button") x
+                                    p= error
                         div.col-md-6
                             p="Overall Patients"
                             br
-                            form.form-inline(novalidate, role="form", method="post", autocomplete="on", name="patientOverallForm", id="patientOverallForm", action="/neuralAll")
+                            form.form-inline(role="form", method="post", autocomplete="on", name="patientOverallForm", id="patientOverallForm", action="/neuralAll")
                                 div.form-group
                                     div.row.text-center
                                         label Choose a cancer type:
@@ -119,14 +124,14 @@ block mainContent
                                     |  Form
                         div.col-md-6
                             p="Individual Patients"
-                            form.form-inline(novalidate, role="form", method="post", autocomplete="on", name="patientNeuralForm", id="patientNeuralForm", action="/neuralOne")
+                            form.form-inline(role="form", method="post", autocomplete="on", name="patientNeuralForm", id="patientNeuralForm", action="/neuralOne")
                                 div.form-group
                                     label#instruct(for="searchNNP") Enter the ID or name of the patient:
                                     br
-                                    input.form-control(type="text", placeholder="Patient Name", id="patientNeural", name="patientNeural", data-ng-model="patient.name",autofocus required)
+                                    input.form-control(type="text", placeholder="Patient Name", id="patientNeural", name="patientNeural", data-ng-model="patient.name",autofocus, required)
                                     br
                                     br
-                                    input.form-control(type="text", placeholder="Patient Surname", id="patientSNameNeural", name="patientSNameNeural", data-ng-model="patient.sname",autofocus required)
+                                    input.form-control(type="text", placeholder="Patient Surname", id="patientSNameNeural", name="patientSNameNeural", data-ng-model="patient.sname",autofocus, required)
                                     br
                                     br
                                     div.row.text-center
@@ -150,14 +155,18 @@ block mainContent
                     div.row.text-center#NNDIv
                         div.col-md-8.col-md-offset-3
                             if(outcome == "Survive")
+                                p= "At 50% significance level."
+                                br
                                 p= patientName + " with " + formName + " is likely to " + outcome + " from cancer"
-                                br
                             if(outcome == "Die")
-                                p= patientName + " with " + formName + " is likely to " + outcome + " from cancer within an average of " + year
+                                p= "At 50% significance level."
                                 br
+                                p= patientName + " with " + formName + " is likely to " + outcome + " from cancer"
                             if(die || survive)
-                                p= die + " % of your patients with " + formName + " are likely to " + " die from cancer."
+                                p= "At 50% significance level."
+                                p= die + " % of your patients with " + formName + " are likely to " + " die from cancer"
                                 br
-                                p= survive + " % of your patients with " + formName + " are likely to " + " survive having cancer."
+                                p= survive + " % of your patients with " + formName + " are likely to " + " survive having cancer"
+
         script.
             $('.area').perfectScrollbar();

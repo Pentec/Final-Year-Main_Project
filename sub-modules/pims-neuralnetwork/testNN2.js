@@ -156,25 +156,25 @@ var testNetwork = function(req, filename, callback){
                  console.log('Testing NN' + tester);
                  */
 
-                /*var output = 0;
+                var outputcheck = 0;
                  for(var c = 0; c < 20000; c++){
 
                  if(c + 1 == 20000){
-                 output = imported.activate(filename);
-                 //imported.propagate(learningRate, [0.874656945, 0.127895525]);
-                 console.log("-----------------------------------------");
-                 console.log(output);
+                     outputcheck = imported.activate(filename);
+                     //imported.propagate(learningRate, [0.874656945, 0.127895525]);
+                     console.log("---NN checker--------------------------------------");
+                     console.log(outputcheck);
 
                  }
                  else{
-                 imported.activate(filename);
-                 //imported.propagate(learningRate, [0.874656945, 0.127895525]);
+                     imported.activate(filename);
+                     //imported.propagate(learningRate, [0.874656945, 0.127895525]);
                  }
 
                  //imported.activate(filename);
                  //myPercept.propagate(learningRate, [0.874656945, 0.127895525]);
 
-                 }*/
+                 }
                 var trainer = new Trainer(imported);
                 var output = trainer.test(testingSet, {
                     rate: .12,
@@ -183,20 +183,43 @@ var testNetwork = function(req, filename, callback){
                     shuffle: true
                 });
 
-                console.log("----NN output-------------------------------------");
-                console.log(output);
+                /*console.log("----NN output-------------------------------------");
+                console.log(output);*/
                 //call chi squared here
                 //error should be calculated from observed - expected
 
-                /*getMeanSquareError(13, 0.72, 0.874656945, function(error){
-                    confidenceFifty(100, error, function(interval){
-                        console.log("pos " + interval.positive);
-                        console.log("neg " + interval.negative);
+                getMeanSquareError(13, outputcheck, [0.874656945, 0.127895525], function(error){
+                    confidenceFifty(100, error.errorVal, error.observed, error.expected, function(interval){
+
+                        if(interval != null){
+                            /*console.log("pos " + interval.positive);
+                            console.log("neg " + interval.negative);
+                            console.log("error value " + error.errorVal);*/
+
+                            testConfidence(Math.abs(error.outError), interval, error.errorVal, function(conf){
+                                /*console.log("left " + conf.leftConfidence);
+                                console.log("right " + conf.rightConfidence);*/
+
+                                var combo = {
+                                    left:  conf.leftConfidence * 100,
+                                    right: conf.rightConfidence * 100,
+                                    thresh: error.errorVal
+                                }
+
+                                return callback(combo);
+
+                            })
+                        }
+                        else{
+                            console.log("oops");
+                            return callback(null);
+                        }
+
                     });
 
-                });*/
+                });
 
-                return callback(output.error);
+                //return callback(output.error);
             }
             else{
                 return callback(null);
@@ -208,9 +231,9 @@ var testNetwork = function(req, filename, callback){
 
 
 //will use if p value is satisfied or not
-var calcChiSquared = function(observed, expected){
+var calcChiSquared = function(observed, expected, callback){
 
-    return (Math.pow((observed - expected), 2)) / expected;
+    return callback((Math.pow((observed - expected), 2)) / expected);
 
 }
 
@@ -223,45 +246,75 @@ var calcChiSquared = function(observed, expected){
  * @param error
  * @param criticalValue
  */
-var confidenceFifty = function(totalPatients, error, confidenceCallback){
+var confidenceFifty = function(totalPatients, error, observed, expected, confidenceCallback){
 
     //calculate the chi-squared value; given observed and expected
     // use the error value as the std deviation
     // df = n-1
 
-    var chiVal = calcChiSquared(0.56, 0.85677);
-    var critcalValue = 82.358; //at df=100
-    if(chiVal <= critcalValue){
-        //good stuff; survives
+    var range = {};
 
-        //now just check confidence interval
-        var positive = ((totalPatients - 1) * error) / (critcalValue * (totalPatients - 1));
-        var negative = -((totalPatients - 1) * error) / (critcalValue * (totalPatients - 1));
+    //calcChiSquared(0.56, 0.85677, function(chiValcb){
+    calcChiSquared(observed, expected, function(chiValcb){
 
-        var range = {
-            positive: positive,
-            negative: negative
+        var critcalValue = 82.358; //at df=100
+        var chiVal = chiValcb;
+        if(chiVal <= critcalValue){
+            //good stuff; survives
+
+            //now just check confidence interval
+            var positive = ((totalPatients - 1) * error) / (critcalValue * (totalPatients - 1));
+            var negative = -((totalPatients - 1) * error) / (critcalValue * (totalPatients - 1));
+
+            var range = {
+                positive: positive,
+                negative: negative
+            };
+
+            return confidenceCallback(range);
+        }
+        else if(chiVal > critcalValue){
+            //bad stuff; dies
+
+            //now just check confidence interval
+            var positive = ((totalPatients - 1) * error) / (critcalValue * (totalPatients - 1));
+            var negative = -((totalPatients - 1) * error) / (critcalValue * (totalPatients - 1));
+
+            var range = {
+                positive: positive,
+                negative: negative
+            };
+
+            return confidenceCallback(range);
         }
 
-        return confidenceCallback(null, range);
-    }
-    else if(chiVal > critcalValue){
-        //bad stuff; dies
+    });
 
-        //now just check confidence interval
-        var positive = ((totalPatients - 1) * error) / (critcalValue * (totalPatients - 1));
-        var negative = -((totalPatients - 1) * error) / (critcalValue * (totalPatients - 1));
+}
 
-        var range = {
-            positive: positive,
-            negative: negative
-        }
+/**
+ *
+ * @param error (target - output)
+ * @param interval (50% confidence interval)
+ * @param mse
+ * @param confiCallback
+ */
+var testConfidence = function(error, interval, mse, confiCallback){
 
-        return confidenceCallback(null, range);
-    }
+    /*console.log("ilhkjv " + error);
+    console.log("ilhkjv negative " + Math.abs(interval.negative));
+    console.log("ilhkjv positive " + Math.abs(interval.positive));
+    console.log("ilhkjv mse " + mse);*/
 
+    var leftConfidence = (error - Math.abs(interval.negative)) * mse;
+    var rightConfidence = (error + Math.abs(interval.positive)) * mse;
 
+    var confiRange = {
+        leftConfidence: leftConfidence,
+        rightConfidence: rightConfidence
+    };
 
+    confiCallback(confiRange);
 
 }
 
@@ -273,8 +326,43 @@ testNetwork = meld.before(testNetwork, function() {
 });
 
 
+/**
+ * Gets the difference between the respectiv output nodes and their
+ * targets and whichever one has the smallest difference is returned
+ * @param totalIn
+ * @param outNode
+ * @param target
+ * @param callback
+ * @returns {number}
+ */
 var getMeanSquareError = function(totalIn, outNode, target, callback){
-    return Math.pow((target - outNode), 2) / totalIn;
+    var compounded = {};
+    /*conole.log("in getMeanSquareError  1 " + outNode + " " + target);
+    console.log("in getMeanSquareError  2 " + outNode + " " + target);*/
+    if(Math.abs(target[0] - outNode[0]) <= Math.abs(target[1] - outNode[1]))
+    {
+        compounded = {
+            observed: outNode[0],
+            expected: target[0],
+            errorVal: Math.pow(Math.abs(target[0] - outNode[0]), 2) / totalIn,
+            outError: target[0] - outNode[0]
+        };
+        return callback(compounded);
+    }
+
+    if(Math.abs(target[0] - outNode[0]) > Math.abs(target[1] - outNode[1]))
+    {
+        compounded = {
+            observed: outNode[1],
+            expected: target[1],
+            errorVal: Math.pow(Math.abs(target[1] - outNode[1]), 2) / totalIn,
+            outError: target[1] - outNode[1]
+        };
+        return callback(compounded);
+
+    }
+
+
 }
 
 var calculatePercentage = function(req, total, survive, die, callback){
@@ -374,21 +462,6 @@ trainNetwork = meld.before(trainNetwork, function() {
         logging.info("pims-neuralnetwork module | trainNetwork service request | for User: [" + arguments[0].user.username +  "] | with Access rights [" + arguments[0].user.user_rights + "]");
 
 });
-
-
-
-
-var confidenceEighty = function(observed, expected){
-
-}
-
-var confidenceSeventy = function(observed, expected){
-
-}
-
-var confidenceSixty = function(observed, expected){
-
-}
 
 
 

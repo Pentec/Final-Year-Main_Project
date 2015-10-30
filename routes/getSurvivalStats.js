@@ -16,7 +16,6 @@ router.post('/', function(req, res) {
         function(cervcb){//0
             stats.getCervicalSurvivals(function(cerv){
                 if(cerv){
-                    console.log("POST sent cerv.   " + cerv[0].stages[0].patientNumber);
                     cervcb(null, cerv);
                 }
             });
@@ -25,7 +24,6 @@ router.post('/', function(req, res) {
         function(endoCb){//1
             stats.getEndometrialSurvivals(function(endo){
                 if(endo){
-                    console.log("POST sent endo.   " + endo[0].stages[0].patientNumber);
                     endoCb(null, endo);
                 }
 
@@ -36,7 +34,6 @@ router.post('/', function(req, res) {
         function(gtnCb){//2
             statsTwo.getGTNSurvivals(function(gtn){
                 if(gtn){
-                    console.log("POST sent gtn.   " + gtn[0].stages[0].patientNumber);
                     gtnCb(null, gtn);
                 }
 
@@ -47,7 +44,6 @@ router.post('/', function(req, res) {
         function(vaginalCb){//3
             statsTwo.getVaginalSurvivals(function(vaginal){
                 if(vaginal){
-                    console.log("POST sent vaginal.   " + vaginal[0].stages[0].patientNumber);
                     vaginalCb(null, vaginal);
                 }
             });
@@ -56,7 +52,6 @@ router.post('/', function(req, res) {
         function(ovarianCb){//4
             stats.getOvarianSurvivals(function(ovarian){
                 if(ovarian){
-                    console.log("POST sent ovarian.   " + ovarian[1].stages[1].patientNumber);
                     ovarianCb(null, ovarian);
                 }
             });
@@ -65,7 +60,6 @@ router.post('/', function(req, res) {
         function(fallopianCb){//5
             stats.getFallopianSurvivals(function(fallopian){
                 if(fallopian){
-                    console.log("POST sent fallopian.   " + fallopian[1].stages[1].patientNumber);
                     fallopianCb(null, fallopian);
                 }
             })
@@ -74,7 +68,6 @@ router.post('/', function(req, res) {
         function(vulvaCb){//6
             statsTwo.getVulvaSurvivals(function(vulva){
                 if(vulva){
-                    console.log("POST sent vulva.   " + vulva[1].stages[1].patientNumber);
                     vulvaCb(null, vulva);
                 }
             })

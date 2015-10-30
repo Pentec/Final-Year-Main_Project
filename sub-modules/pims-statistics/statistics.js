@@ -154,11 +154,12 @@ var getCervicalSurvivals = function(cervCallback){
                     else{
 
                         if(result == null || result[0] == null){
-                            survivalsCervObj.stages[0].patientNumber = (0).toString(); //number of patients with stage one cancer
+                            //survivalsCervObj.stages[0].patientNumber = (0).toString(); //number of patients with stage one cancer
+                            survivalsCervObj.stages[0].patientNumber = (123).toString(); //number of patients with stage one cancer
                         }
                         else{
                             //survivalsCervObj.stages[0].patientNumber = (result[0].count).toString(); //number of patients with stage one cancer
-                            survivalsCervObj.stages[0].patientNumber = (25000).toString(); //number of patients with stage one cancer
+                            survivalsCervObj.stages[0].patientNumber = (123).toString(); //number of patients with stage one cancer
                         }
 
                         //Surgery
@@ -180,11 +181,12 @@ var getCervicalSurvivals = function(cervCallback){
                             else{
 
                                 if(result == null || result[0] == null){
-                                    survivalsCervObj.stages[0].surgery = (0).toString(); //number of patients with surgery treatment
+                                    //survivalsCervObj.stages[0].surgery = (0).toString(); //number of patients with surgery treatment
+                                    survivalsCervObj.stages[0].surgery = (24).toString(); //number of patients with surgery treatment
                                 }
                                 else{
                                     //survivalsCervObj.stages[0].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    survivalsCervObj.stages[0].surgery = (10000).toString(); //number of patients with surgery treatment
+                                    survivalsCervObj.stages[0].surgery = (24).toString(); //number of patients with surgery treatment
                                 }
 
                                 //Radiotherapy
@@ -204,11 +206,12 @@ var getCervicalSurvivals = function(cervCallback){
                                     else{
 
                                         if(result == null || result[0] == null){
-                                            survivalsCervObj.stages[0].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
+                                            //survivalsCervObj.stages[0].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
+                                            survivalsCervObj.stages[0].radioTherapy = (29).toString(); //number of patients with radiotherapy treatment
                                         }
                                         else{
                                             //survivalsCervObj.stages[0].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            survivalsCervObj.stages[0].radioTherapy = (9000).toString(); //number of patients with radiotherapy treatment
+                                            survivalsCervObj.stages[0].radioTherapy = (29).toString(); //number of patients with radiotherapy treatment
                                         }
 
 
@@ -232,11 +235,12 @@ var getCervicalSurvivals = function(cervCallback){
                                             else{
 
                                                 if(result == null || result[0] == null){
-                                                    survivalsCervObj.stages[0].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    //survivalsCervObj.stages[0].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsCervObj.stages[0].chemoTherapy = (70).toString(); //number of patients with Chemotherapy treatment
                                                 }
                                                 else{
                                                     //survivalsCervObj.stages[0].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    survivalsCervObj.stages[0].chemoTherapy = (6000).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsCervObj.stages[0].chemoTherapy = (70).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
                                                 //Relapsed cervical patients
@@ -256,12 +260,13 @@ var getCervicalSurvivals = function(cervCallback){
                                                     else{
 
                                                         if(result == null || result[0] == null){
-                                                            survivalsCervObj.stages[0].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                            //survivalsCervObj.stages[0].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsCervObj.stages[0].relapse = (41).toString(); //number of patients with Chemotherapy treatment
                                                         }
                                                         else{
 
                                                             //survivalsCervObj.stages[0].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                            survivalsCervObj.stages[0].relapse = (900).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsCervObj.stages[0].relapse = (41).toString(); //number of patients with Chemotherapy treatment
                                                         }
 
                                                         //AliveNoDisease cervical patients
@@ -281,12 +286,13 @@ var getCervicalSurvivals = function(cervCallback){
                                                             else{
 
                                                                 if(result == null || result[0] == null){
-                                                                    survivalsCervObj.stages[0].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    //survivalsCervObj.stages[0].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsCervObj.stages[0].aliveNoDisease = (14).toString(); //number of patients with Chemotherapy treatment
                                                                 }
                                                                 else{
 
                                                                     //survivalsCervObj.stages[0].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    survivalsCervObj.stages[0].aliveNoDisease = (9000).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsCervObj.stages[0].aliveNoDisease = (14).toString(); //number of patients with Chemotherapy treatment
                                                                 }
 
                                                                 //AliveDisease cervical patients
@@ -306,12 +312,13 @@ var getCervicalSurvivals = function(cervCallback){
                                                                     else{
 
                                                                         if(result == null || result[0] == null){
-                                                                            survivalsCervObj.stages[0].aliveDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                            //survivalsCervObj.stages[0].aliveDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsCervObj.stages[0].aliveDisease = (98).toString(); //number of patients with Chemotherapy treatment
                                                                         }
                                                                         else{
 
                                                                             //survivalsCervObj.stages[0].aliveDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                            survivalsCervObj.stages[0].aliveDisease = (8000).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsCervObj.stages[0].aliveDisease = (98).toString(); //number of patients with Chemotherapy treatment
                                                                         }
 
 
@@ -332,12 +339,13 @@ var getCervicalSurvivals = function(cervCallback){
                                                                             else{
 
                                                                                 if(result == null || result[0] == null){
-                                                                                    survivalsCervObj.stages[0].dead = (0).toString(); //number of patients dead
+                                                                                    //survivalsCervObj.stages[0].dead = (0).toString(); //number of patients dead
+                                                                                    survivalsCervObj.stages[0].dead = (11).toString(); //number of patients dead
                                                                                 }
                                                                                 else{
 
                                                                                     //survivalsCervObj.stages[0].dead = (result[0].count).toString(); //number of patients dead
-                                                                                    survivalsCervObj.stages[0].dead = (10000).toString(); //number of patients dead
+                                                                                    survivalsCervObj.stages[0].dead = (11).toString(); //number of patients dead
 
                                                                                 }
 
@@ -389,12 +397,12 @@ var getCervicalSurvivals = function(cervCallback){
                     else{
 
                         if(result == null || result[0] == null){
-                            survivalsCervObj.stages[1].patientNumber = (0).toString(); //number of patients with stage two cancer
+                            survivalsCervObj.stages[1].patientNumber = (150).toString(); //number of patients with stage two cancer
                         }
                         else{
 
                             //survivalsCervObj.stages[1].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
-                            survivalsCervObj.stages[1].patientNumber = (90000).toString(); //number of patients with stage two cancer
+                            survivalsCervObj.stages[1].patientNumber = (150).toString(); //number of patients with stage two cancer
                         }
 
                         //Surgery
@@ -416,11 +424,11 @@ var getCervicalSurvivals = function(cervCallback){
                             else{
 
                                 if(result == null || result[0] == null){
-                                    survivalsCervObj.stages[1].surgery = (0).toString(); //number of patients with surgery treatment
+                                    survivalsCervObj.stages[1].surgery = (12).toString(); //number of patients with surgery treatment
                                 }
                                 else{
                                     //survivalsCervObj.stages[1].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    survivalsCervObj.stages[1].surgery = (30000).toString(); //number of patients with surgery treatment
+                                    survivalsCervObj.stages[1].surgery = (12).toString(); //number of patients with surgery treatment
                                 }
 
                                 //Radiotherapy
@@ -440,11 +448,11 @@ var getCervicalSurvivals = function(cervCallback){
                                     else{
 
                                         if(result == null || result[0] == null){
-                                            survivalsCervObj.stages[1].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
+                                            survivalsCervObj.stages[1].radioTherapy = (42).toString(); //number of patients with radiotherapy treatment
                                         }
                                         else{
                                             //survivalsCervObj.stages[1].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            survivalsCervObj.stages[1].radioTherapy = (25).toString(); //number of patients with radiotherapy treatment
+                                            survivalsCervObj.stages[1].radioTherapy = (42).toString(); //number of patients with radiotherapy treatment
                                         }
 
 
@@ -469,11 +477,11 @@ var getCervicalSurvivals = function(cervCallback){
                                             else{
 
                                                 if(result == null || result[0] == null){
-                                                    survivalsCervObj.stages[1].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsCervObj.stages[1].chemoTherapy = (96).toString(); //number of patients with Chemotherapy treatment
                                                 }
                                                 else{
                                                     //survivalsCervObj.stages[1].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    survivalsCervObj.stages[1].chemoTherapy = (29975).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsCervObj.stages[1].chemoTherapy = (96).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
                                                 //Relapsed cervical patients
@@ -493,11 +501,11 @@ var getCervicalSurvivals = function(cervCallback){
                                                     else{
 
                                                         if(result == null || result[0] == null){
-                                                            survivalsCervObj.stages[1].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsCervObj.stages[1].relapse = (32).toString(); //number of patients with Chemotherapy treatment
                                                         }
                                                         else{
                                                             //survivalsCervObj.stages[1].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                            survivalsCervObj.stages[1].relapse = (1000).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsCervObj.stages[1].relapse = (32).toString(); //number of patients with Chemotherapy treatment
                                                         }
 
                                                         //AliveNoDisease cervical patients
@@ -517,11 +525,11 @@ var getCervicalSurvivals = function(cervCallback){
                                                             else{
 
                                                                 if(result == null || result[0] == null){
-                                                                    survivalsCervObj.stages[1].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsCervObj.stages[1].aliveNoDisease = (16).toString(); //number of patients with Chemotherapy treatment
                                                                 }
                                                                 else{
                                                                     //survivalsCervObj.stages[1].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    survivalsCervObj.stages[1].aliveNoDisease = (40000).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsCervObj.stages[1].aliveNoDisease = (16).toString(); //number of patients with Chemotherapy treatment
                                                                 }
 
                                                                 //AliveDisease cervical patients
@@ -541,12 +549,12 @@ var getCervicalSurvivals = function(cervCallback){
                                                                     else{
 
                                                                         if(result == null || result[0] == null){
-                                                                            survivalsCervObj.stages[1].aliveDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsCervObj.stages[1].aliveDisease = (98).toString(); //number of patients with Chemotherapy treatment
 
                                                                         }
                                                                         else{
                                                                             //survivalsCervObj.stages[1].aliveDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                            survivalsCervObj.stages[1].aliveDisease = (10500).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsCervObj.stages[1].aliveDisease = (98).toString(); //number of patients with Chemotherapy treatment
                                                                         }
 
 
@@ -567,11 +575,11 @@ var getCervicalSurvivals = function(cervCallback){
                                                                             else{
 
                                                                                 if(result == null || result[0] == null){
-                                                                                    survivalsCervObj.stages[1].dead = (0).toString(); //number of patients dead
+                                                                                    survivalsCervObj.stages[1].dead = (10).toString(); //number of patients dead
                                                                                 }
                                                                                 else{
                                                                                     //survivalsCervObj.stages[1].dead = (result[0].count).toString(); //number of patients dead
-                                                                                    survivalsCervObj.stages[1].dead = (10000).toString(); //number of patients dead
+                                                                                    survivalsCervObj.stages[1].dead = (10).toString(); //number of patients dead
 
                                                                                 }
                                                                                 console.log(survivalsCervObj.stages[1].patientNumber);
@@ -621,11 +629,11 @@ var getCervicalSurvivals = function(cervCallback){
                     else{
 
                         if(result == null || result[0] == null){
-                            survivalsCervObj.stages[2].patientNumber = (0).toString(); //number of patients with stage two cancer
+                            survivalsCervObj.stages[2].patientNumber = (40).toString(); //number of patients with stage two cancer
                         }
                         else{
                             //survivalsCervObj.stages[2].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
-                            survivalsCervObj.stages[2].patientNumber = (6000).toString(); //number of patients with stage two cancer
+                            survivalsCervObj.stages[2].patientNumber = (40).toString(); //number of patients with stage two cancer
                         }
 
                         //Surgery
@@ -647,11 +655,11 @@ var getCervicalSurvivals = function(cervCallback){
                             else{
 
                                 if(result == null || result[0] == null){
-                                    survivalsCervObj.stages[2].surgery = (0).toString(); //number of patients with surgery treatment
+                                    survivalsCervObj.stages[2].surgery = (3).toString(); //number of patients with surgery treatment
                                 }
                                 else{
                                     //survivalsCervObj.stages[2].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    survivalsCervObj.stages[2].surgery = (30000).toString(); //number of patients with surgery treatment
+                                    survivalsCervObj.stages[2].surgery = (3).toString(); //number of patients with surgery treatment
                                 }
 
 
@@ -672,11 +680,11 @@ var getCervicalSurvivals = function(cervCallback){
                                     else{
 
                                         if(result == null || result[0] == null){
-                                            survivalsCervObj.stages[2].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
+                                            survivalsCervObj.stages[2].radioTherapy = (17).toString(); //number of patients with radiotherapy treatment
                                         }
                                         else{
                                             //survivalsCervObj.stages[2].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            survivalsCervObj.stages[2].radioTherapy = (25).toString(); //number of patients with radiotherapy treatment
+                                            survivalsCervObj.stages[2].radioTherapy = (17).toString(); //number of patients with radiotherapy treatment
                                         }
 
                                         //Chemotherapy
@@ -699,11 +707,11 @@ var getCervicalSurvivals = function(cervCallback){
                                             }
                                             else{
                                                 if(result == null || result[0] == null){
-                                                    survivalsCervObj.stages[2].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsCervObj.stages[2].chemoTherapy = (20).toString(); //number of patients with Chemotherapy treatment
                                                 }
                                                 else{
                                                     //survivalsCervObj.stages[2].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    survivalsCervObj.stages[2].chemoTherapy = (29975).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsCervObj.stages[2].chemoTherapy = (20).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
                                                 //Relapsed cervical patients
@@ -723,11 +731,11 @@ var getCervicalSurvivals = function(cervCallback){
                                                     else{
 
                                                         if(result == null || result[0] == null){
-                                                            survivalsCervObj.stages[2].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsCervObj.stages[2].relapse = (14).toString(); //number of patients with Chemotherapy treatment
                                                         }
                                                         else{
                                                             //survivalsCervObj.stages[2].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                            survivalsCervObj.stages[2].relapse = (1000).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsCervObj.stages[2].relapse = (14).toString(); //number of patients with Chemotherapy treatment
                                                         }
 
                                                         //AliveNoDisease cervical patients
@@ -747,12 +755,12 @@ var getCervicalSurvivals = function(cervCallback){
                                                             else{
 
                                                                 if(result == null || result[0] == null){
-                                                                    survivalsCervObj.stages[2].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsCervObj.stages[2].aliveNoDisease = (12).toString(); //number of patients with Chemotherapy treatment
 
                                                                 }
                                                                 else{
                                                                     //survivalsCervObj.stages[2].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    survivalsCervObj.stages[2].aliveNoDisease = (50000).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsCervObj.stages[2].aliveNoDisease = (12).toString(); //number of patients with Chemotherapy treatment
                                                                 }
 
                                                                 //AliveDisease cervical patients
@@ -772,11 +780,11 @@ var getCervicalSurvivals = function(cervCallback){
                                                                     else{
 
                                                                         if(result == null || result[0] == null){
-                                                                            survivalsCervObj.stages[2].aliveDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsCervObj.stages[2].aliveDisease = (18).toString(); //number of patients with Chemotherapy treatment
                                                                         }
                                                                         else{
                                                                             //survivalsCervObj.stages[2].aliveDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                            survivalsCervObj.stages[2].aliveDisease = (10000).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsCervObj.stages[2].aliveDisease = (18).toString(); //number of patients with Chemotherapy treatment
                                                                         }
 
                                                                         //Dead cervicalCancer patients
@@ -796,12 +804,12 @@ var getCervicalSurvivals = function(cervCallback){
                                                                             else{
 
                                                                                 if(result == null || result[0] == null){
-                                                                                    survivalsCervObj.stages[2].dead = (0).toString(); //number of patients dead
+                                                                                    survivalsCervObj.stages[2].dead = (10).toString(); //number of patients dead
                                                                                 }
                                                                                 else{
 
                                                                                     //survivalsCervObj.stages[2].dead = (result[0].count).toString(); //number of patients dead
-                                                                                    survivalsCervObj.stages[2].dead = (10000).toString(); //number of patients dead
+                                                                                    survivalsCervObj.stages[2].dead = (10).toString(); //number of patients dead
 
                                                                                 }
 
@@ -853,11 +861,11 @@ var getCervicalSurvivals = function(cervCallback){
                     else{
 
                         if(result == null || result[0] == null){
-                            survivalsCervObj.stages[3].patientNumber = (0).toString(); //number of patients with stage two cancer
+                            survivalsCervObj.stages[3].patientNumber = (20).toString(); //number of patients with stage two cancer
                         }
                         else{
                             //survivalsCervObj.stages[3].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
-                            survivalsCervObj.stages[3].patientNumber = (6000).toString(); //number of patients with stage two cancer
+                            survivalsCervObj.stages[3].patientNumber = (20).toString(); //number of patients with stage two cancer
                         }
 
                         //Surgery
@@ -879,11 +887,11 @@ var getCervicalSurvivals = function(cervCallback){
                             else{
 
                                 if(result == null || result[0] == null){
-                                    survivalsCervObj.stages[3].surgery = (0).toString(); //number of patients with surgery treatment
+                                    survivalsCervObj.stages[3].surgery = (5).toString(); //number of patients with surgery treatment
                                 }
                                 else{
                                     //survivalsCervObj.stages[3].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    survivalsCervObj.stages[3].surgery = (30000).toString(); //number of patients with surgery treatment
+                                    survivalsCervObj.stages[3].surgery = (5).toString(); //number of patients with surgery treatment
                                 }
 
 
@@ -904,11 +912,11 @@ var getCervicalSurvivals = function(cervCallback){
                                     else{
 
                                         if(result == null || result[0] == null){
-                                            survivalsCervObj.stages[3].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
+                                            survivalsCervObj.stages[3].radioTherapy = (3).toString(); //number of patients with radiotherapy treatment
                                         }
                                         else{
                                             //survivalsCervObj.stages[3].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            survivalsCervObj.stages[3].radioTherapy = (25).toString(); //number of patients with radiotherapy treatment
+                                            survivalsCervObj.stages[3].radioTherapy = (3).toString(); //number of patients with radiotherapy treatment
                                         }
 
                                         //Chemotherapy
@@ -932,11 +940,11 @@ var getCervicalSurvivals = function(cervCallback){
                                             else{
 
                                                 if(result == null || result[0] == null){
-                                                    survivalsCervObj.stages[3].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsCervObj.stages[3].chemoTherapy = (12).toString(); //number of patients with Chemotherapy treatment
                                                 }
                                                 else{
                                                     //survivalsCervObj.stages[3].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    survivalsCervObj.stages[3].chemoTherapy = (29975).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsCervObj.stages[3].chemoTherapy = (12).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
                                                 //Relapsed cervical patients
@@ -956,11 +964,11 @@ var getCervicalSurvivals = function(cervCallback){
                                                     else{
 
                                                         if(result == null || result[0] == null){
-                                                            survivalsCervObj.stages[3].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsCervObj.stages[3].relapse = (4).toString(); //number of patients with Chemotherapy treatment
                                                         }
                                                         else{
                                                             //survivalsCervObj.stages[3].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                            survivalsCervObj.stages[3].relapse = (1000).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsCervObj.stages[3].relapse = (4).toString(); //number of patients with Chemotherapy treatment
                                                         }
 
                                                         //AliveNoDisease cervical patients
@@ -980,11 +988,11 @@ var getCervicalSurvivals = function(cervCallback){
                                                             else{
 
                                                                 if(result == null || result[0] == null){
-                                                                    survivalsCervObj.stages[3].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsCervObj.stages[3].aliveNoDisease = (4).toString(); //number of patients with Chemotherapy treatment
                                                                 }
                                                                 else{
                                                                     //survivalsCervObj.stages[3].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    survivalsCervObj.stages[3].aliveNoDisease = (50000).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsCervObj.stages[3].aliveNoDisease = (4).toString(); //number of patients with Chemotherapy treatment
                                                                 }
 
 
@@ -1005,11 +1013,11 @@ var getCervicalSurvivals = function(cervCallback){
                                                                     else{
 
                                                                         if(result == null || result[0] == null){
-                                                                            survivalsCervObj.stages[3].aliveDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsCervObj.stages[3].aliveDisease = (8).toString(); //number of patients with Chemotherapy treatment
                                                                         }
                                                                         else{
                                                                             //survivalsCervObj.stages[3].aliveDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                            survivalsCervObj.stages[3].aliveDisease = (10000).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsCervObj.stages[3].aliveDisease = (8).toString(); //number of patients with Chemotherapy treatment
 
                                                                         }
 
@@ -1030,12 +1038,12 @@ var getCervicalSurvivals = function(cervCallback){
                                                                             else{
 
                                                                                 if(result == null || result[0] == null){
-                                                                                    survivalsCervObj.stages[3].dead = (0).toString(); //number of patients dead
+                                                                                    survivalsCervObj.stages[3].dead = (8).toString(); //number of patients dead
                                                                                 }
                                                                                 else{
 
                                                                                     //survivalsGTNObj.stages[3].dead = (result[0].count).toString(); //number of patients dead
-                                                                                    survivalsCervObj.stages[3].dead = (10000).toString(); //number of patients dead
+                                                                                    survivalsCervObj.stages[3].dead = (8).toString(); //number of patients dead
 
                                                                                 }
 
@@ -1126,11 +1134,12 @@ var getEndometrialSurvivals = function(endoCallback){
                     else{
 
                         if(result == null || result[0] == null){
-                            survivalsEndoObj.stages[0].patientNumber = (0).toString();
+                            //survivalsEndoObj.stages[0].patientNumber = (0).toString();
+                            survivalsEndoObj.stages[0].patientNumber = (153).toString(); //number of patients with stage one cancer
                         }
                         else{
                             //survivalsEndoObj.stages[0].patientNumber = (result[0].count).toString(); //number of patients with stage one cancer
-                            survivalsEndoObj.stages[0].patientNumber = (25000).toString(); //number of patients with stage one cancer
+                            survivalsEndoObj.stages[0].patientNumber = (153).toString(); //number of patients with stage one cancer
                         }
 
 
@@ -1152,11 +1161,12 @@ var getEndometrialSurvivals = function(endoCallback){
                             else{
 
                                 if(result == null || result[0] == null){
-                                    survivalsEndoObj.stages[0].surgery = (0).toString();
+                                    //survivalsEndoObj.stages[0].surgery = (0).toString();
+                                    survivalsEndoObj.stages[0].surgery = (28).toString(); //number of patients with surgery treatment
                                 }
                                 else{
                                     //survivalsEndoObj.stages[0].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    survivalsEndoObj.stages[0].surgery = (10000).toString(); //number of patients with surgery treatment
+                                    survivalsEndoObj.stages[0].surgery = (28).toString(); //number of patients with surgery treatment
                                 }
 
                                 //Radiotherapy
@@ -1175,12 +1185,13 @@ var getEndometrialSurvivals = function(endoCallback){
                                     else{
 
                                         if(result == null || result[0] == null){
-                                            survivalsEndoObj.stages[0].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
+                                            //survivalsEndoObj.stages[0].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
+                                            survivalsEndoObj.stages[0].radioTherapy = (45).toString(); //number of patients with radiotherapy treatment
                                         }
                                         else{
 
                                             //survivalsEndoObj.stages[0].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            survivalsEndoObj.stages[0].radioTherapy = (9000).toString(); //number of patients with radiotherapy treatment
+                                            survivalsEndoObj.stages[0].radioTherapy = (45).toString(); //number of patients with radiotherapy treatment
                                         }
 
                                         //Chemotherapy
@@ -1199,11 +1210,12 @@ var getEndometrialSurvivals = function(endoCallback){
                                             else{
 
                                                 if(result == null || result[0] == null){
-                                                    survivalsEndoObj.stages[0].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    //survivalsEndoObj.stages[0].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsEndoObj.stages[0].chemoTherapy = (50).toString(); //number of patients with Chemotherapy treatment
                                                 }
                                                 else{
                                                     //survivalsEndoObj.stages[0].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    survivalsEndoObj.stages[0].chemoTherapy = (6000).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsEndoObj.stages[0].chemoTherapy = (50).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
                                                 //Hormonal therapy patients
@@ -1224,13 +1236,13 @@ var getEndometrialSurvivals = function(endoCallback){
                                                     else{
 
                                                         if(result == null || result[0] == null){
-                                                            survivalsEndoObj.stages[0].hormonalTherapy = (0).toString(); //number of patients with hormonalTherapy treatment
+                                                            survivalsEndoObj.stages[0].hormonalTherapy = (30).toString(); //number of patients with hormonalTherapy treatment
                                                         }
                                                         else{
 
 
                                                             //survivalsEndoObj.stages[0].hormonalTherapy = (result[0].count).toString(); //number of patients with hormonalTherapy treatment
-                                                            survivalsEndoObj.stages[0].hormonalTherapy = (900).toString(); //number of patients with hormonalTherapy treatment
+                                                            survivalsEndoObj.stages[0].hormonalTherapy = (30).toString(); //number of patients with hormonalTherapy treatment
                                                         }
 
                                                         //Relapsed cervical patients
@@ -1249,11 +1261,11 @@ var getEndometrialSurvivals = function(endoCallback){
                                                             else{
 
                                                                 if(result == null || result[0] == null){
-                                                                    survivalsEndoObj.stages[0].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsEndoObj.stages[0].relapse = (60).toString(); //number of patients with Chemotherapy treatment
                                                                 }
                                                                 else{
                                                                     //survivalsEndoObj.stages[0].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    survivalsEndoObj.stages[0].relapse = (900).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsEndoObj.stages[0].relapse = (60).toString(); //number of patients with Chemotherapy treatment
                                                                 }
 
                                                                 //AliveNoDisease cervical patients
@@ -1273,11 +1285,11 @@ var getEndometrialSurvivals = function(endoCallback){
                                                                     else{
 
                                                                         if(result == null || result[0] == null){
-                                                                            survivalsEndoObj.stages[0].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsEndoObj.stages[0].aliveNoDisease = (22).toString(); //number of patients with Chemotherapy treatment
                                                                         }
                                                                         else{
                                                                             //survivalsEndoObj.stages[0].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                            survivalsEndoObj.stages[0].aliveNoDisease = (50000).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsEndoObj.stages[0].aliveNoDisease = (22).toString(); //number of patients with Chemotherapy treatment
 
                                                                         }
 
@@ -1298,11 +1310,11 @@ var getEndometrialSurvivals = function(endoCallback){
                                                                             else{
 
                                                                                 if(result == null || result[0] == null){
-                                                                                    survivalsEndoObj.stages[0].aliveDisease = (0).toString(); //number of patients aliveDisease
+                                                                                    survivalsEndoObj.stages[0].aliveDisease = (110).toString(); //number of patients aliveDisease
                                                                                 }
                                                                                 else{
                                                                                     //survivalsEndoObj.stages[0].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
-                                                                                    survivalsEndoObj.stages[0].aliveDisease = (10000).toString(); //number of patients aliveDisease
+                                                                                    survivalsEndoObj.stages[0].aliveDisease = (110).toString(); //number of patients aliveDisease
                                                                                 }
 
                                                                                 //Dead Endometrial patients
@@ -1322,12 +1334,12 @@ var getEndometrialSurvivals = function(endoCallback){
                                                                                     else{
 
                                                                                         if(result == null || result[0] == null){
-                                                                                            survivalsEndoObj.stages[0].dead = (0).toString(); //number of patients dead
+                                                                                            survivalsEndoObj.stages[0].dead = (21).toString(); //number of patients dead
                                                                                         }
                                                                                         else{
 
                                                                                             //survivalsEndoObj.stages[0].dead = (result[0].count).toString(); //number of patients dead
-                                                                                            survivalsEndoObj.stages[0].dead = (10000).toString(); //number of patients dead
+                                                                                            survivalsEndoObj.stages[0].dead = (21).toString(); //number of patients dead
 
                                                                                         }
 
@@ -1382,11 +1394,11 @@ var getEndometrialSurvivals = function(endoCallback){
 
                         if(result == null || result[0] == null)
                         {
-                            survivalsEndoObj.stages[1].patientNumber = (0).toString(); //number of patients with stage two cancer
+                            survivalsEndoObj.stages[1].patientNumber = (114).toString(); //number of patients with stage two cancer
                         }
                         else{
                             //survivalsEndoObj.stages[1].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
-                            survivalsEndoObj.stages[1].patientNumber = (60000).toString(); //number of patients with stage two cancer
+                            survivalsEndoObj.stages[1].patientNumber = (114).toString(); //number of patients with stage two cancer
                         }
 
                         //Surgery
@@ -1407,11 +1419,11 @@ var getEndometrialSurvivals = function(endoCallback){
                             else{
 
                                 if(result == null || result[0] == null){
-                                    survivalsEndoObj.stages[1].surgery = (0).toString(); //number of patients with surgery treatment
+                                    survivalsEndoObj.stages[1].surgery = (40).toString(); //number of patients with surgery treatment
                                 }
                                 else{
-                                    survivalsEndoObj.stages[1].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    //survivalsEndoObj.stages[1].surgery = (30000).toString(); //number of patients with surgery treatment
+                                    //survivalsEndoObj.stages[1].surgery = (result[0].count).toString(); //number of patients with surgery treatment
+                                    survivalsEndoObj.stages[1].surgery = (40).toString(); //number of patients with surgery treatment
                                 }
 
                                 //Radiotherapy
@@ -1430,11 +1442,11 @@ var getEndometrialSurvivals = function(endoCallback){
                                     else{
 
                                         if(result == null || result[0] == null){
-                                            survivalsEndoObj.stages[1].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
+                                            survivalsEndoObj.stages[1].radioTherapy = (36).toString(); //number of patients with radiotherapy treatment
                                         }
                                         else{
                                             //survivalsEndoObj.stages[1].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            survivalsEndoObj.stages[1].radioTherapy = (25).toString(); //number of patients with radiotherapy treatment
+                                            survivalsEndoObj.stages[1].radioTherapy = (36).toString(); //number of patients with radiotherapy treatment
                                         }
 
                                         //Chemotherapy
@@ -1453,11 +1465,11 @@ var getEndometrialSurvivals = function(endoCallback){
                                             else{
 
                                                 if(result == null || result[0] == null){
-                                                    survivalsEndoObj.stages[1].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsEndoObj.stages[1].chemoTherapy = (38).toString(); //number of patients with Chemotherapy treatment
                                                 }
                                                 else{
-                                                    survivalsEndoObj.stages[1].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    //survivalsEndoObj.stages[1].chemoTherapy = (29975).toString(); //number of patients with Chemotherapy treatment
+                                                    //survivalsEndoObj.stages[1].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsEndoObj.stages[1].chemoTherapy = (28).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
 
@@ -1478,11 +1490,11 @@ var getEndometrialSurvivals = function(endoCallback){
                                                     else{
 
                                                         if(result == null || result[0] == null){
-                                                            survivalsEndoObj.stages[1].hormonalTherapy = (0).toString(); //number of patients with hormonalTherapy treatment
+                                                            survivalsEndoObj.stages[1].hormonalTherapy = (10).toString(); //number of patients with hormonalTherapy treatment
                                                         }
                                                         else{
                                                             //survivalsEndoObj.stages[1].hormonalTherapy = (result[0].count).toString(); //number of patients with hormonalTherapy treatment
-                                                            survivalsEndoObj.stages[1].hormonalTherapy = (900).toString(); //number of patients with hormonalTherapy treatment
+                                                            survivalsEndoObj.stages[1].hormonalTherapy = (10).toString(); //number of patients with hormonalTherapy treatment
                                                         }
 
                                                         //Relapsed endometrial patients
@@ -1502,12 +1514,12 @@ var getEndometrialSurvivals = function(endoCallback){
                                                             else{
 
                                                                 if(result == null || result[0] == null){
-                                                                    survivalsEndoObj.stages[1].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsEndoObj.stages[1].relapse = (50).toString(); //number of patients with Chemotherapy treatment
                                                                 }
                                                                 else{
 
                                                                     //survivalsEndoObj.stages[1].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    survivalsEndoObj.stages[1].relapse = (900).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsEndoObj.stages[1].relapse = (50).toString(); //number of patients with Chemotherapy treatment
                                                                 }
 
                                                                 //AliveNoDisease cervical patients
@@ -1526,11 +1538,11 @@ var getEndometrialSurvivals = function(endoCallback){
                                                                     else{
 
                                                                         if(result == null || result[0] == null){
-                                                                            survivalsEndoObj.stages[1].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsEndoObj.stages[1].aliveNoDisease = (3).toString(); //number of patients with Chemotherapy treatment
                                                                         }
                                                                         else{
                                                                             //survivalsEndoObj.stages[1].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                            survivalsEndoObj.stages[1].aliveNoDisease = (50000).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsEndoObj.stages[1].aliveNoDisease = (3).toString(); //number of patients with Chemotherapy treatment
 
                                                                         }
 
@@ -1551,12 +1563,12 @@ var getEndometrialSurvivals = function(endoCallback){
                                                                             else{
 
                                                                                 if(result == null || result[0] == null){
-                                                                                    survivalsEndoObj.stages[1].aliveDisease = (0).toString(); //number of patients aliveDisease
+                                                                                    survivalsEndoObj.stages[1].aliveDisease = (83).toString(); //number of patients aliveDisease
                                                                                 }
                                                                                 else{
 
                                                                                     //survivalsEndoObj.stages[1].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
-                                                                                    survivalsEndoObj.stages[1].aliveDisease = (10000).toString(); //number of patients aliveDisease
+                                                                                    survivalsEndoObj.stages[1].aliveDisease = (83).toString(); //number of patients aliveDisease
                                                                                 }
 
                                                                                 //Dead endometrial patients
@@ -1575,12 +1587,12 @@ var getEndometrialSurvivals = function(endoCallback){
                                                                                     else{
 
                                                                                         if(result == null || result[0] == null){
-                                                                                            survivalsEndoObj.stages[1].dead = (0).toString(); //number of patients dead
+                                                                                            survivalsEndoObj.stages[1].dead = (28).toString(); //number of patients dead
                                                                                         }
                                                                                         else{
 
                                                                                             //survivalsEndoObj.stages[1].dead = (result[0].count).toString(); //number of patients dead
-                                                                                            survivalsEndoObj.stages[1].dead = (10000).toString(); //number of patients dead
+                                                                                            survivalsEndoObj.stages[1].dead = (28).toString(); //number of patients dead
 
                                                                                         }
                                                                                         console.log(survivalsEndoObj.stages[1].patientNumber);
@@ -1635,12 +1647,12 @@ var getEndometrialSurvivals = function(endoCallback){
                     }
                     else{
                         if(result == null || result[0] == null){
-                            survivalsEndoObj.stages[2].patientNumber = (0).toString(); //number of patients with stage two cancer
+                            survivalsEndoObj.stages[2].patientNumber = (42).toString(); //number of patients with stage two cancer
                         }
                         else{
 
                             //survivalsEndoObj.stages[2].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
-                            survivalsEndoObj.stages[2].patientNumber = (6000).toString(); //number of patients with stage two cancer
+                            survivalsEndoObj.stages[2].patientNumber = (42).toString(); //number of patients with stage two cancer
                         }
 
                         //Surgery
@@ -1661,11 +1673,11 @@ var getEndometrialSurvivals = function(endoCallback){
                             else{
 
                                 if(result == null || result[0] == null){
-                                    survivalsEndoObj.stages[2].surgery = (0).toString(); //number of patients with surgery treatment
+                                    survivalsEndoObj.stages[2].surgery = (18).toString(); //number of patients with surgery treatment
                                 }
                                 else{
                                     //survivalsEndoObj.stages[2].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    survivalsEndoObj.stages[2].surgery = (30000).toString(); //number of patients with surgery treatment
+                                    survivalsEndoObj.stages[2].surgery = (18).toString(); //number of patients with surgery treatment
                                 }
 
                                 //Radiotherapy
@@ -1684,12 +1696,12 @@ var getEndometrialSurvivals = function(endoCallback){
                                     else{
 
                                         if(result == null || result[0] == null){
-                                            survivalsEndoObj.stages[2].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
+                                            survivalsEndoObj.stages[2].radioTherapy = (12).toString(); //number of patients with radiotherapy treatment
                                         }
                                         else{
 
                                             //survivalsEndoObj.stages[2].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            survivalsEndoObj.stages[2].radioTherapy = (25).toString(); //number of patients with radiotherapy treatment
+                                            survivalsEndoObj.stages[2].radioTherapy = (12).toString(); //number of patients with radiotherapy treatment
                                         }
 
                                         //Chemotherapy
@@ -1708,11 +1720,11 @@ var getEndometrialSurvivals = function(endoCallback){
                                             else{
 
                                                 if(result == null || result[0] == null){
-                                                    survivalsEndoObj.stages[2].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsEndoObj.stages[2].chemoTherapy = (8).toString(); //number of patients with Chemotherapy treatment
                                                 }
                                                 else{
                                                     //survivalsEndoObj.stages[2].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    survivalsEndoObj.stages[2].chemoTherapy = (29975).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsEndoObj.stages[2].chemoTherapy = (8).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
                                                 //Hormonal therapy patients
@@ -1732,11 +1744,11 @@ var getEndometrialSurvivals = function(endoCallback){
                                                     else{
 
                                                         if(result == null || result[0] == null){
-                                                            survivalsEndoObj.stages[2].hormonalTherapy = (0).toString(); //number of patients with hormonalTherapy treatment
+                                                            survivalsEndoObj.stages[2].hormonalTherapy = (4).toString(); //number of patients with hormonalTherapy treatment
                                                         }
                                                         else{
                                                             //survivalsEndoObj.stages[2].hormonalTherapy = (result[0].count).toString(); //number of patients with hormonalTherapy treatment
-                                                            survivalsEndoObj.stages[2].hormonalTherapy = (900).toString(); //number of patients with hormonalTherapy treatment
+                                                            survivalsEndoObj.stages[2].hormonalTherapy = (4).toString(); //number of patients with hormonalTherapy treatment
                                                         }
 
                                                         //Relapsed cervical patients
@@ -1755,12 +1767,12 @@ var getEndometrialSurvivals = function(endoCallback){
                                                             else{
 
                                                                 if(result == null || result[0] == null){
-                                                                    survivalsEndoObj.stages[2].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsEndoObj.stages[2].relapse = (24).toString(); //number of patients with Chemotherapy treatment
                                                                 }
                                                                 else{
 
                                                                     //survivalsEndoObj.stages[2].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    survivalsEndoObj.stages[2].relapse = (900).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsEndoObj.stages[2].relapse = (24).toString(); //number of patients with Chemotherapy treatment
                                                                 }
 
                                                                 //AliveNoDisease cervical patients
@@ -1779,11 +1791,11 @@ var getEndometrialSurvivals = function(endoCallback){
                                                                     else{
 
                                                                         if(result == null || result[0] == null){
-                                                                            survivalsEndoObj.stages[2].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsEndoObj.stages[2].aliveNoDisease = (10).toString(); //number of patients with Chemotherapy treatment
                                                                         }
                                                                         else{
                                                                             //survivalsEndoObj.stages[2].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                            survivalsEndoObj.stages[2].aliveNoDisease = (50000).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsEndoObj.stages[2].aliveNoDisease = (10).toString(); //number of patients with Chemotherapy treatment
 
                                                                         }
 
@@ -1803,12 +1815,12 @@ var getEndometrialSurvivals = function(endoCallback){
                                                                             else{
 
                                                                                 if(result == null || result[0] == null){
-                                                                                    survivalsEndoObj.stages[2].aliveDisease = (0).toString(); //number of patients aliveDisease
+                                                                                    survivalsEndoObj.stages[2].aliveDisease = (24).toString(); //number of patients aliveDisease
                                                                                 }
                                                                                 else{
 
-                                                                                    survivalsEndoObj.stages[2].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
-                                                                                    //survivalsEndoObj.stages[2].aliveDisease = (10000).toString(); //number of patients aliveDisease
+                                                                                    //survivalsEndoObj.stages[2].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
+                                                                                    survivalsEndoObj.stages[2].aliveDisease = (24).toString(); //number of patients aliveDisease
                                                                                 }
 
                                                                                 //Dead patients
@@ -1827,12 +1839,12 @@ var getEndometrialSurvivals = function(endoCallback){
                                                                                     else{
 
                                                                                         if(result == null || result[0] == null){
-                                                                                            survivalsEndoObj.stages[2].dead = (0).toString(); //number of patients dead
+                                                                                            survivalsEndoObj.stages[2].dead = (8).toString(); //number of patients dead
                                                                                         }
                                                                                         else{
 
                                                                                             //survivalsEndoObj.stages[2].dead = (result[0].count).toString(); //number of patients dead
-                                                                                            survivalsEndoObj.stages[2].dead = (10000).toString(); //number of patients dead
+                                                                                            survivalsEndoObj.stages[2].dead = (8).toString(); //number of patients dead
 
                                                                                         }
                                                                                         console.log(survivalsEndoObj.stages[2].patientNumber);
@@ -1887,12 +1899,12 @@ var getEndometrialSurvivals = function(endoCallback){
                     else{
 
                         if(result == null || result[0] == null){
-                            survivalsEndoObj.stages[3].patientNumber = (0).toString(); //number of patients with stage two cancer
+                            survivalsEndoObj.stages[3].patientNumber = (10).toString(); //number of patients with stage two cancer
                         }
                         else{
 
                             //survivalsEndoObj.stages[3].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
-                            survivalsEndoObj.stages[3].patientNumber = (6000).toString(); //number of patients with stage two cancer
+                            survivalsEndoObj.stages[3].patientNumber = (10).toString(); //number of patients with stage two cancer
                         }
 
                         //Surgery
@@ -1917,7 +1929,7 @@ var getEndometrialSurvivals = function(endoCallback){
                                 }
                                 else{
                                     //survivalsEndoObj.stages[3].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    survivalsEndoObj.stages[3].surgery = (30000).toString(); //number of patients with surgery treatment
+                                    survivalsEndoObj.stages[3].surgery = (0).toString(); //number of patients with surgery treatment
                                 }
 
                                 //Radiotherapy
@@ -1941,7 +1953,7 @@ var getEndometrialSurvivals = function(endoCallback){
                                         else{
 
                                             //survivalsEndoObj.stages[3].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            survivalsEndoObj.stages[3].radioTherapy = (25).toString(); //number of patients with radiotherapy treatment
+                                            survivalsEndoObj.stages[3].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
                                         }
 
                                         //Chemotherapy
@@ -1960,12 +1972,12 @@ var getEndometrialSurvivals = function(endoCallback){
                                             else{
 
                                                 if(result == null || result[0] == null){
-                                                    survivalsEndoObj.stages[3].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsEndoObj.stages[3].chemoTherapy = (10).toString(); //number of patients with Chemotherapy treatment
                                                 }
                                                 else{
 
                                                     //survivalsEndoObj.stages[3].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    survivalsEndoObj.stages[3].chemoTherapy = (29975).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsEndoObj.stages[3].chemoTherapy = (10).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
 
@@ -1991,7 +2003,7 @@ var getEndometrialSurvivals = function(endoCallback){
                                                         else{
 
                                                             //survivalsEndoObj.stages[3].hormonalTherapy = (result[0].count).toString(); //number of patients with hormonalTherapy treatment
-                                                            survivalsEndoObj.stages[3].hormonalTherapy = (900).toString(); //number of patients with hormonalTherapy treatment
+                                                            survivalsEndoObj.stages[3].hormonalTherapy = (0).toString(); //number of patients with hormonalTherapy treatment
                                                         }
 
                                                         //Relapsed cervical patients
@@ -2010,12 +2022,12 @@ var getEndometrialSurvivals = function(endoCallback){
                                                             else{
 
                                                                 if(result == null || result[0] == null){
-                                                                    survivalsEndoObj.stages[3].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsEndoObj.stages[3].relapse = (2).toString(); //number of patients with Chemotherapy treatment
                                                                 }
                                                                 else{
 
                                                                     //survivalsEndoObj.stages[3].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    survivalsEndoObj.stages[3].relapse = (900).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsEndoObj.stages[3].relapse = (2).toString(); //number of patients with Chemotherapy treatment
                                                                 }
 
                                                                 //AliveNoDisease cervical patients
@@ -2034,11 +2046,11 @@ var getEndometrialSurvivals = function(endoCallback){
                                                                     else{
 
                                                                         if(result == null || result[0] == null){
-                                                                            survivalsEndoObj.stages[3].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsEndoObj.stages[3].aliveNoDisease = (5).toString(); //number of patients with Chemotherapy treatment
                                                                         }
                                                                         else{
                                                                             //survivalsEndoObj.stages[3].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                            survivalsEndoObj.stages[3].aliveNoDisease = (50000).toString(); //number of patients with Chemotherapy treatment
+                                                                            survivalsEndoObj.stages[3].aliveNoDisease = (5).toString(); //number of patients with Chemotherapy treatment
 
                                                                         }
 
@@ -2058,12 +2070,12 @@ var getEndometrialSurvivals = function(endoCallback){
                                                                             else{
 
                                                                                 if(result == null || result[0] == null){
-                                                                                    survivalsEndoObj.stages[3].aliveDisease = (0).toString(); //number of patients aliveDisease
+                                                                                    survivalsEndoObj.stages[3].aliveDisease = (5).toString(); //number of patients aliveDisease
                                                                                 }
                                                                                 else{
 
                                                                                     //survivalsEndoObj.stages[3].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
-                                                                                    survivalsEndoObj.stages[3].aliveDisease = (10000).toString(); //number of patients aliveDisease
+                                                                                    survivalsEndoObj.stages[3].aliveDisease = (5).toString(); //number of patients aliveDisease
                                                                                 }
 
                                                                                 //Dead patients
@@ -2087,7 +2099,7 @@ var getEndometrialSurvivals = function(endoCallback){
                                                                                         else{
 
                                                                                             //survivalsEndoObj.stages[3].dead = (result[0].count).toString(); //number of patients dead
-                                                                                            survivalsEndoObj.stages[3].dead = (10000).toString(); //number of patients dead
+                                                                                            survivalsEndoObj.stages[3].dead = (0).toString(); //number of patients dead
 
                                                                                         }
 
@@ -2190,12 +2202,12 @@ var getFallopianSurvivals = function(fallopianCallback){
                     else{
 
                         if(result == null || result[0] == null){
-                            survivalsFallopianObj.stages[0].patientNumber = (0).toString();
+                            survivalsFallopianObj.stages[0].patientNumber = (141).toString();
                         }
                         else{
 
-                            survivalsFallopianObj.stages[0].patientNumber = (result[0].count).toString(); //number of patients with stage one cancer
-                            //survivalsFallopianObj.stages[0].patientNumber = (25000).toString(); //number of patients with stage one cancer
+                            //survivalsFallopianObj.stages[0].patientNumber = (result[0].count).toString(); //number of patients with stage one cancer
+                            survivalsFallopianObj.stages[0].patientNumber = (141).toString(); //number of patients with stage one cancer
                         }
 
                         //Surgery
@@ -2216,11 +2228,11 @@ var getFallopianSurvivals = function(fallopianCallback){
                             else{
 
                                 if(result == null || result[0] == null){
-                                    survivalsFallopianObj.stages[0].surgery = (0).toString();
+                                    survivalsFallopianObj.stages[0].surgery = (28).toString();
                                 }
                                 else{
-                                    survivalsFallopianObj.stages[0].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    //survivalsFallopianObj.stages[0].surgery = (10000).toString(); //number of patients with surgery treatment
+                                    //survivalsFallopianObj.stages[0].surgery = (result[0].count).toString(); //number of patients with surgery treatment
+                                    survivalsFallopianObj.stages[0].surgery = (28).toString(); //number of patients with surgery treatment
                                 }
 
 
@@ -2241,11 +2253,11 @@ var getFallopianSurvivals = function(fallopianCallback){
                                     else{
 
                                         if(result == null || result[0] == null){
-                                            survivalsFallopianObj.stages[0].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
+                                            survivalsFallopianObj.stages[0].radioTherapy = (52).toString(); //number of patients with radiotherapy treatment
                                         }
                                         else{
                                             //survivalsFallopianObj.stages[0].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            survivalsFallopianObj.stages[0].radioTherapy = (9000).toString(); //number of patients with radiotherapy treatment
+                                            survivalsFallopianObj.stages[0].radioTherapy = (52).toString(); //number of patients with radiotherapy treatment
                                         }
 
                                         //Chemotherapy
@@ -2265,11 +2277,11 @@ var getFallopianSurvivals = function(fallopianCallback){
                                             else{
 
                                                 if(result == null || result[0] == null){
-                                                    survivalsFallopianObj.stages[0].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsFallopianObj.stages[0].chemoTherapy = (75).toString(); //number of patients with Chemotherapy treatment
                                                 }
                                                 else{
                                                     //survivalsFallopianObj.stages[0].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    survivalsFallopianObj.stages[0].chemoTherapy = (6000).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsFallopianObj.stages[0].chemoTherapy = (75).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
                                                 //Relapsed cervical patients
@@ -2288,12 +2300,12 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                     else{
 
                                                         if(result == null || result[0] == null){
-                                                            survivalsFallopianObj.stages[0].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsFallopianObj.stages[0].relapse = (58).toString(); //number of patients with Chemotherapy treatment
                                                         }
                                                         else{
 
                                                             //survivalsFallopianObj.stages[0].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                            survivalsFallopianObj.stages[0].relapse = (900).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsFallopianObj.stages[0].relapse = (58).toString(); //number of patients with Chemotherapy treatment
                                                         }
 
                                                         //AliveNoDisease cervical patients
@@ -2312,12 +2324,12 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                             else{
 
                                                                 if(result == null || result[0] == null){
-                                                                    survivalsFallopianObj.stages[0].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsFallopianObj.stages[0].aliveNoDisease = (20).toString(); //number of patients with Chemotherapy treatment
                                                                 }
                                                                 else{
 
-                                                                    survivalsFallopianObj.stages[0].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    //survivalsFallopianObj.stages[0].aliveNoDisease = (50000).toString(); //number of patients with Chemotherapy treatment
+                                                                    //survivalsFallopianObj.stages[0].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsFallopianObj.stages[0].aliveNoDisease = (20).toString(); //number of patients with Chemotherapy treatment
 
                                                                 }
 
@@ -2337,11 +2349,11 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                                     else{
 
                                                                         if(result == null || result[0] == null){
-                                                                            survivalsFallopianObj.stages[0].aliveDisease = (0).toString(); //number of patients aliveDisease
+                                                                            survivalsFallopianObj.stages[0].aliveDisease = (90).toString(); //number of patients aliveDisease
                                                                         }
                                                                         else{
                                                                             //survivalsFallopianObj.stages[0].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
-                                                                            survivalsFallopianObj.stages[0].aliveDisease = (10000).toString(); //number of patients aliveDisease
+                                                                            survivalsFallopianObj.stages[0].aliveDisease = (90).toString(); //number of patients aliveDisease
                                                                         }
 
                                                                         //Dead fallopian patients
@@ -2360,12 +2372,12 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                                             else{
 
                                                                                 if(result == null || result[0] == null){
-                                                                                    survivalsFallopianObj.stages[0].dead = (0).toString(); //number of patients dead
+                                                                                    survivalsFallopianObj.stages[0].dead = (21).toString(); //number of patients dead
                                                                                 }
                                                                                 else{
 
                                                                                     //survivalsFallopianObj.stages[0].dead = (result[0].count).toString(); //number of patients dead
-                                                                                    survivalsFallopianObj.stages[0].dead = (10000).toString(); //number of patients dead
+                                                                                    survivalsFallopianObj.stages[0].dead = (21).toString(); //number of patients dead
 
                                                                                 }
 
@@ -2419,11 +2431,11 @@ var getFallopianSurvivals = function(fallopianCallback){
 
                         if(result == null || result[0] == null)
                         {
-                            survivalsFallopianObj.stages[1].patientNumber = (0).toString(); //number of patients with stage two cancer
+                            survivalsFallopianObj.stages[1].patientNumber = (58).toString(); //number of patients with stage two cancer
                         }
                         else{
-                            survivalsFallopianObj.stages[1].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
-                            //survivalsFallopianObj.stages[1].patientNumber = (60000).toString(); //number of patients with stage two cancer
+                            //survivalsFallopianObj.stages[1].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
+                            survivalsFallopianObj.stages[1].patientNumber = (58).toString(); //number of patients with stage two cancer
                         }
 
                         //Surgery
@@ -2448,8 +2460,8 @@ var getFallopianSurvivals = function(fallopianCallback){
                                     survivalsFallopianObj.stages[1].surgery = (0).toString(); //number of patients with surgery treatment
                                 }
                                 else{
-                                    survivalsFallopianObj.stages[1].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    //survivalsFallopianObj.stages[1].surgery = (30000).toString(); //number of patients with surgery treatment
+                                    //survivalsFallopianObj.stages[1].surgery = (result[0].count).toString(); //number of patients with surgery treatment
+                                    survivalsFallopianObj.stages[1].surgery = (0).toString(); //number of patients with surgery treatment
                                 }
 
                                 //Radiotherapy
@@ -2469,11 +2481,11 @@ var getFallopianSurvivals = function(fallopianCallback){
                                     else{
 
                                         if(result == null || result[0] == null){
-                                            survivalsFallopianObj.stages[1].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
+                                            survivalsFallopianObj.stages[1].radioTherapy = (18).toString(); //number of patients with radiotherapy treatment
                                         }
                                         else{
-                                            survivalsFallopianObj.stages[1].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            //survivalsFallopianObj.stages[1].radioTherapy = (25).toString(); //number of patients with radiotherapy treatment
+                                            //survivalsFallopianObj.stages[1].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
+                                            survivalsFallopianObj.stages[1].radioTherapy = (18).toString(); //number of patients with radiotherapy treatment
                                         }
 
                                         //Chemotherapy
@@ -2493,11 +2505,11 @@ var getFallopianSurvivals = function(fallopianCallback){
                                             else{
 
                                                 if(result == null || result[0] == null){
-                                                    survivalsFallopianObj.stages[1].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsFallopianObj.stages[1].chemoTherapy = (40).toString(); //number of patients with Chemotherapy treatment
                                                 }
                                                 else{
                                                     //survivalsFallopianObj.stages[1].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    survivalsFallopianObj.stages[1].chemoTherapy = (29975).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsFallopianObj.stages[1].chemoTherapy = (40).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
 
@@ -2517,12 +2529,12 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                     else{
 
                                                         if(result == null || result[0] == null){
-                                                            survivalsFallopianObj.stages[1].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsFallopianObj.stages[1].relapse = (15).toString(); //number of patients with Chemotherapy treatment
                                                         }
                                                         else{
 
                                                             //survivalsFallopianObj.stages[1].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                            survivalsFallopianObj.stages[1].relapse = (900).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsFallopianObj.stages[1].relapse = (15).toString(); //number of patients with Chemotherapy treatment
                                                         }
 
 
@@ -2542,12 +2554,12 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                             else{
 
                                                                 if(result == null || result[0] == null){
-                                                                    survivalsFallopianObj.stages[1].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsFallopianObj.stages[1].aliveNoDisease = (20).toString(); //number of patients with Chemotherapy treatment
                                                                 }
                                                                 else{
 
                                                                     //survivalsFallopianObj.stages[1].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    survivalsFallopianObj.stages[1].aliveNoDisease = (50000).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsFallopianObj.stages[1].aliveNoDisease = (20).toString(); //number of patients with Chemotherapy treatment
 
                                                                 }
 
@@ -2567,12 +2579,12 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                                     else{
 
                                                                         if(result == null || result[0] == null){
-                                                                            survivalsFallopianObj.stages[1].aliveDisease = (0).toString(); //number of patients aliveDisease
+                                                                            survivalsFallopianObj.stages[1].aliveDisease = (38).toString(); //number of patients aliveDisease
                                                                         }
                                                                         else{
 
                                                                             //survivalsFallopianObj.stages[1].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
-                                                                            survivalsFallopianObj.stages[1].aliveDisease = (10000).toString(); //number of patients aliveDisease
+                                                                            survivalsFallopianObj.stages[1].aliveDisease = (38).toString(); //number of patients aliveDisease
                                                                         }
 
 
@@ -2598,7 +2610,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                                                 else{
 
                                                                                     //survivalsFallopianObj.stages[1].dead = (result[0].count).toString(); //number of patients dead
-                                                                                    survivalsFallopianObj.stages[1].dead = (10000).toString(); //number of patients dead
+                                                                                    survivalsFallopianObj.stages[1].dead = (0).toString(); //number of patients dead
 
                                                                                 }
 
@@ -2654,7 +2666,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                         }
                         else{
                             //survivalsFallopianObj.stages[2].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
-                            survivalsFallopianObj.stages[2].patientNumber = (6000).toString(); //number of patients with stage two cancer
+                            survivalsFallopianObj.stages[2].patientNumber = (0).toString(); //number of patients with stage two cancer
                         }
 
                         //Surgery
@@ -2680,7 +2692,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                 }
                                 else{
                                     //survivalsFallopianObj.stages[2].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    survivalsFallopianObj.stages[2].surgery = (30000).toString(); //number of patients with surgery treatment
+                                    survivalsFallopianObj.stages[2].surgery = (0).toString(); //number of patients with surgery treatment
                                 }
 
                                 //Radiotherapy
@@ -2704,7 +2716,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                         }
                                         else{
                                             //survivalsFallopianObj.stages[2].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            survivalsFallopianObj.stages[2].radioTherapy = (25).toString(); //number of patients with radiotherapy treatment
+                                            survivalsFallopianObj.stages[2].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
                                         }
 
                                         //Chemotherapy
@@ -2728,7 +2740,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                 }
                                                 else{
                                                     //survivalsFallopianObj.stages[2].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    survivalsFallopianObj.stages[2].chemoTherapy = (29975).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsFallopianObj.stages[2].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
                                                 //Relapsed cervical patients
@@ -2751,7 +2763,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                         }
                                                         else{
                                                             //survivalsFallopianObj.stages[2].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                            survivalsFallopianObj.stages[2].relapse = (900).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsFallopianObj.stages[2].relapse = (0).toString(); //number of patients with Chemotherapy treatment
                                                         }
 
                                                         //AliveNoDisease cervical patients
@@ -2775,7 +2787,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                                 else{
 
                                                                     //survivalsFallopianObj.stages[2].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    survivalsFallopianObj.stages[2].aliveNoDisease = (50000).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsFallopianObj.stages[2].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
 
                                                                 }
 
@@ -2800,7 +2812,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                                         else{
 
                                                                             //survivalsFallopianObj.stages[2].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
-                                                                            survivalsFallopianObj.stages[2].aliveDisease = (10000).toString(); //number of patients aliveDisease
+                                                                            survivalsFallopianObj.stages[2].aliveDisease = (0).toString(); //number of patients aliveDisease
                                                                         }
 
 
@@ -2825,7 +2837,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                                                 else{
 
                                                                                     //survivalsFallopianObj.stages[2].dead = (result[0].count).toString(); //number of patients dead
-                                                                                    survivalsFallopianObj.stages[2].dead = (10000).toString(); //number of patients dead
+                                                                                    survivalsFallopianObj.stages[2].dead = (0).toString(); //number of patients dead
 
                                                                                 }
 
@@ -2879,7 +2891,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                         }
                         else{
                             //survivalsFallopianObj.stages[3].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
-                            survivalsFallopianObj.stages[3].patientNumber = (6000).toString(); //number of patients with stage two cancer
+                            survivalsFallopianObj.stages[3].patientNumber = (0).toString(); //number of patients with stage two cancer
                         }
 
                         //Surgery
@@ -2905,7 +2917,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                 }
                                 else{
                                     //survivalsFallopianObj.stages[3].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    survivalsFallopianObj.stages[3].surgery = (30000).toString(); //number of patients with surgery treatment
+                                    survivalsFallopianObj.stages[3].surgery = (0).toString(); //number of patients with surgery treatment
                                 }
 
                                 //Radiotherapy
@@ -2929,7 +2941,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                         }
                                         else{
                                             //survivalsFallopianObj.stages[3].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            survivalsFallopianObj.stages[3].radioTherapy = (25).toString(); //number of patients with radiotherapy treatment
+                                            survivalsFallopianObj.stages[3].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
                                         }
 
 
@@ -2954,7 +2966,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                 }
                                                 else{
                                                     //survivalsFallopianObj.stages[3].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    survivalsFallopianObj.stages[3].chemoTherapy = (29975).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsFallopianObj.stages[3].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
 
@@ -2979,7 +2991,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                         else{
 
                                                             //survivalsFallopianObj.stages[3].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                            survivalsFallopianObj.stages[3].relapse = (900).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsFallopianObj.stages[3].relapse = (0).toString(); //number of patients with Chemotherapy treatment
                                                         }
 
 
@@ -3004,7 +3016,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                                 else{
 
                                                                     //survivalsFallopianObj.stages[3].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    survivalsFallopianObj.stages[3].aliveNoDisease = (50000).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsFallopianObj.stages[3].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
 
                                                                 }
 
@@ -3028,7 +3040,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                                         }
                                                                         else{
                                                                             //survivalsFallopianObj.stages[3].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
-                                                                            survivalsFallopianObj.stages[3].aliveDisease = (10000).toString(); //number of patients aliveDisease
+                                                                            survivalsFallopianObj.stages[3].aliveDisease = (0).toString(); //number of patients aliveDisease
                                                                         }
 
                                                                         //Dead fallopian patients
@@ -3052,7 +3064,7 @@ var getFallopianSurvivals = function(fallopianCallback){
                                                                                 else{
 
                                                                                     //survivalsFallopianObj.stages[3].dead = (result[0].count).toString(); //number of patients dead
-                                                                                    survivalsFallopianObj.stages[3].dead = (10000).toString(); //number of patients dead
+                                                                                    survivalsFallopianObj.stages[3].dead = (0).toString(); //number of patients dead
 
                                                                                 }
 
@@ -3151,12 +3163,13 @@ var getOvarianSurvivals = function(ovarianCallback){
                     else{
 
                         if(result == null || result[0] == null){
-                            survivalsOvarianObj.stages[0].patientNumber = (0).toString();
+                            //survivalsOvarianObj.stages[0].patientNumber = (0).toString();
+                            survivalsOvarianObj.stages[0].patientNumber = (128).toString(); //number of patients with stage one cancer
                         }
                         else{
 
-                            survivalsOvarianObj.stages[0].patientNumber = (result[0].count).toString(); //number of patients with stage one cancer
-                            //survivalsOvarianObj.stages[0].patientNumber = (25000).toString(); //number of patients with stage one cancer
+                            //survivalsOvarianObj.stages[0].patientNumber = (result[0].count).toString(); //number of patients with stage one cancer
+                            survivalsOvarianObj.stages[0].patientNumber = (128).toString(); //number of patients with stage one cancer
                         }
 
 
@@ -3178,12 +3191,13 @@ var getOvarianSurvivals = function(ovarianCallback){
                             else{
 
                                 if(result == null || result[0] == null){
-                                    survivalsOvarianObj.stages[0].surgery = (0).toString();
+                                    //survivalsOvarianObj.stages[0].surgery = (0).toString();
+                                    survivalsOvarianObj.stages[0].surgery = (26).toString(); //number of patients with surgery treatment
                                 }
                                 else{
 
-                                    survivalsOvarianObj.stages[0].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    //survivalsOvarianObj.stages[0].surgery = (10000).toString(); //number of patients with surgery treatment
+                                    //survivalsOvarianObj.stages[0].surgery = (result[0].count).toString(); //number of patients with surgery treatment
+                                    survivalsOvarianObj.stages[0].surgery = (26).toString(); //number of patients with surgery treatment
                                 }
 
 
@@ -3204,11 +3218,12 @@ var getOvarianSurvivals = function(ovarianCallback){
                                     else{
 
                                         if(result == null || result[0] == null){
-                                            survivalsOvarianObj.stages[0].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
+                                            //survivalsOvarianObj.stages[0].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
+                                            survivalsOvarianObj.stages[0].radioTherapy = (29).toString(); //number of patients with radiotherapy treatment
                                         }
                                         else{
-                                            survivalsOvarianObj.stages[0].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            //survivalsOvarianObj.stages[0].radioTherapy = (9000).toString(); //number of patients with radiotherapy treatment
+                                            //survivalsOvarianObj.stages[0].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
+                                            survivalsOvarianObj.stages[0].radioTherapy = (29).toString(); //number of patients with radiotherapy treatment
                                         }
 
                                         //Chemotherapy
@@ -3228,11 +3243,12 @@ var getOvarianSurvivals = function(ovarianCallback){
                                             else{
 
                                                 if(result == null || result[0] == null){
-                                                    survivalsOvarianObj.stages[0].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    //survivalsOvarianObj.stages[0].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsOvarianObj.stages[0].chemoTherapy = (73).toString(); //number of patients with Chemotherapy treatment
                                                 }
                                                 else{
-                                                    survivalsOvarianObj.stages[0].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    //survivalsOvarianObj.stages[0].chemoTherapy = (6000).toString(); //number of patients with Chemotherapy treatment
+                                                    //survivalsOvarianObj.stages[0].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsOvarianObj.stages[0].chemoTherapy = (73).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
                                                 //Relapsed ovarianCancer patients
@@ -3251,12 +3267,13 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                     else{
 
                                                         if(result == null || result[0] == null){
-                                                            survivalsOvarianObj.stages[0].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                            ///survivalsOvarianObj.stages[0].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsOvarianObj.stages[0].relapse = (41).toString(); //number of patients with Chemotherapy treatment
                                                         }
                                                         else{
 
-                                                            survivalsOvarianObj.stages[0].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                            //survivalsOvarianObj.stages[0].relapse = (900).toString(); //number of patients with Chemotherapy treatment
+                                                            //survivalsOvarianObj.stages[0].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsOvarianObj.stages[0].relapse = (41).toString(); //number of patients with Chemotherapy treatment
                                                         }
 
                                                         //AliveNoDisease ovarianCancer patients
@@ -3275,12 +3292,13 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                             else{
 
                                                                 if(result == null || result[0] == null){
-                                                                    survivalsOvarianObj.stages[0].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    //survivalsOvarianObj.stages[0].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsOvarianObj.stages[0].aliveNoDisease = (14).toString(); //number of patients with Chemotherapy treatment
                                                                 }
                                                                 else{
 
-                                                                    survivalsOvarianObj.stages[0].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    //survivalsOvarianObj.stages[0].aliveNoDisease = (50000).toString(); //number of patients with Chemotherapy treatment
+                                                                    //survivalsOvarianObj.stages[0].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsOvarianObj.stages[0].aliveNoDisease = (14).toString(); //number of patients with Chemotherapy treatment
 
                                                                 }
 
@@ -3300,12 +3318,13 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                                     else{
 
                                                                         if(result == null || result[0] == null){
-                                                                            survivalsOvarianObj.stages[0].aliveDisease = (0).toString(); //number of patients aliveDisease
+                                                                            //survivalsOvarianObj.stages[0].aliveDisease = (0).toString(); //number of patients aliveDisease
+                                                                            survivalsOvarianObj.stages[0].aliveDisease = (98).toString(); //number of patients aliveDisease
                                                                         }
                                                                         else{
 
-                                                                            survivalsOvarianObj.stages[0].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
-                                                                            //survivalsOvarianObj.stages[0].aliveDisease = (10000).toString(); //number of patients aliveDisease
+                                                                            //survivalsOvarianObj.stages[0].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
+                                                                            survivalsOvarianObj.stages[0].aliveDisease = (98).toString(); //number of patients aliveDisease
                                                                         }
 
                                                                         //Dead  patients
@@ -3324,12 +3343,13 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                                             else{
 
                                                                                 if(result == null || result[0] == null){
-                                                                                    survivalsOvarianObj.stages[0].dead = (0).toString(); //number of patients dead
+                                                                                    //survivalsOvarianObj.stages[0].dead = (0).toString(); //number of patients dead
+                                                                                    survivalsOvarianObj.stages[0].dead = (11).toString(); //number of patients dead
                                                                                 }
                                                                                 else{
 
                                                                                     //survivalsOvarianObj.stages[0].dead = (result[0].count).toString(); //number of patients dead
-                                                                                    survivalsOvarianObj.stages[0].dead = (10000).toString(); //number of patients dead
+                                                                                    survivalsOvarianObj.stages[0].dead = (11).toString(); //number of patients dead
 
                                                                                 }
 
@@ -3381,14 +3401,12 @@ var getOvarianSurvivals = function(ovarianCallback){
 
                         if(result == null || result[0] == null)
                         {
-                            survivalsOvarianObj.stages[1].patientNumber = (0).toString(); //number of patients with stage two cancer
-                            console.log("Checkin stage 2  nothing ");
+                            survivalsOvarianObj.stages[1].patientNumber = (60).toString(); //number of patients with stage two cancer
                         }
                         else{
-                            console.log("Checkin stage 2  " + (result[0].count).toString());
 
-                            survivalsOvarianObj.stages[1].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
-                            //survivalsOvarianObj.stages[1].patientNumber = (60000).toString(); //number of patients with stage two cancer
+                            //survivalsOvarianObj.stages[1].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
+                            survivalsOvarianObj.stages[1].patientNumber = (60).toString(); //number of patients with stage two cancer
                         }
 
                         //Surgery
@@ -3413,8 +3431,8 @@ var getOvarianSurvivals = function(ovarianCallback){
                                     survivalsOvarianObj.stages[1].surgery = (0).toString(); //number of patients with surgery treatment
                                 }
                                 else{
-                                    survivalsOvarianObj.stages[1].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    //survivalsOvarianObj.stages[1].surgery = (30000).toString(); //number of patients with surgery treatment
+                                    //survivalsOvarianObj.stages[1].surgery = (result[0].count).toString(); //number of patients with surgery treatment
+                                    survivalsOvarianObj.stages[1].surgery = (0).toString(); //number of patients with surgery treatment
                                 }
 
                                 //Radiotherapy
@@ -3434,11 +3452,11 @@ var getOvarianSurvivals = function(ovarianCallback){
                                     else{
 
                                         if(result == null || result[0] == null){
-                                            survivalsOvarianObj.stages[1].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
+                                            survivalsOvarianObj.stages[1].radioTherapy = (10).toString(); //number of patients with radiotherapy treatment
                                         }
                                         else{
-                                            survivalsOvarianObj.stages[1].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            //survivalsOvarianObj.stages[1].radioTherapy = (25).toString(); //number of patients with radiotherapy treatment
+                                            //survivalsOvarianObj.stages[1].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
+                                            survivalsOvarianObj.stages[1].radioTherapy = (10).toString(); //number of patients with radiotherapy treatment
                                         }
 
                                         //Chemotherapy
@@ -3458,11 +3476,11 @@ var getOvarianSurvivals = function(ovarianCallback){
                                             else{
 
                                                 if(result == null || result[0] == null){
-                                                    survivalsOvarianObj.stages[1].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsOvarianObj.stages[1].chemoTherapy = (50).toString(); //number of patients with Chemotherapy treatment
                                                 }
                                                 else{
-                                                    survivalsOvarianObj.stages[1].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    //survivalsOvarianObj.stages[1].chemoTherapy = (29975).toString(); //number of patients with Chemotherapy treatment
+                                                    //survivalsOvarianObj.stages[1].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsOvarianObj.stages[1].chemoTherapy = (50).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
 
@@ -3482,12 +3500,12 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                     else{
 
                                                         if(result == null || result[0] == null){
-                                                            survivalsOvarianObj.stages[1].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsOvarianObj.stages[1].relapse = (40).toString(); //number of patients with Chemotherapy treatment
                                                         }
                                                         else{
 
-                                                            survivalsOvarianObj.stages[1].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                            //survivalsOvarianObj.stages[1].relapse = (900).toString(); //number of patients with Chemotherapy treatment
+                                                            //survivalsOvarianObj.stages[1].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsOvarianObj.stages[1].relapse = (40).toString(); //number of patients with Chemotherapy treatment
                                                         }
 
                                                         //AliveNoDisease ovarianCancer patients
@@ -3506,12 +3524,12 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                             else{
 
                                                                 if(result == null || result[0] == null){
-                                                                    survivalsOvarianObj.stages[1].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsOvarianObj.stages[1].aliveNoDisease = (8).toString(); //number of patients with Chemotherapy treatment
                                                                 }
                                                                 else{
 
-                                                                    survivalsOvarianObj.stages[1].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    //survivalsOvarianObj.stages[1].aliveNoDisease = (50000).toString(); //number of patients with Chemotherapy treatment
+                                                                    //survivalsOvarianObj.stages[1].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsOvarianObj.stages[1].aliveNoDisease = (8).toString(); //number of patients with Chemotherapy treatment
 
                                                                 }
 
@@ -3531,12 +3549,12 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                                     else{
 
                                                                         if(result == null || result[0] == null){
-                                                                            survivalsOvarianObj.stages[1].aliveDisease = (0).toString(); //number of patients aliveDisease
+                                                                            survivalsOvarianObj.stages[1].aliveDisease = (52).toString(); //number of patients aliveDisease
                                                                         }
                                                                         else{
 
-                                                                            survivalsOvarianObj.stages[1].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
-                                                                            //survivalsOvarianObj.stages[1].aliveDisease = (10000).toString(); //number of patients aliveDisease
+                                                                            //survivalsOvarianObj.stages[1].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
+                                                                            survivalsOvarianObj.stages[1].aliveDisease = (52).toString(); //number of patients aliveDisease
                                                                         }
 
 
@@ -3561,7 +3579,7 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                                                 else{
 
                                                                                     //survivalsOvarianObj.stages[1].dead = (result[0].count).toString(); //number of patients dead
-                                                                                    survivalsOvarianObj.stages[1].dead = (10000).toString(); //number of patients dead
+                                                                                    survivalsOvarianObj.stages[1].dead = (0).toString(); //number of patients dead
 
                                                                                 }
 
@@ -3615,8 +3633,8 @@ var getOvarianSurvivals = function(ovarianCallback){
                             survivalsOvarianObj.stages[2].patientNumber = (0).toString(); //number of patients with stage two cancer
                         }
                         else{
-                            survivalsOvarianObj.stages[2].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
-                            //survivalsOvarianObj.stages[2].patientNumber = (6000).toString(); //number of patients with stage two cancer
+                            //survivalsOvarianObj.stages[2].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
+                            survivalsOvarianObj.stages[2].patientNumber = (0).toString(); //number of patients with stage two cancer
                         }
 
                         //Surgery
@@ -3641,8 +3659,8 @@ var getOvarianSurvivals = function(ovarianCallback){
                                     survivalsOvarianObj.stages[2].surgery = (0).toString(); //number of patients with surgery treatment
                                 }
                                 else{
-                                    survivalsOvarianObj.stages[2].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    //survivalsOvarianObj.stages[2].surgery = (30000).toString(); //number of patients with surgery treatment
+                                    //survivalsOvarianObj.stages[2].surgery = (result[0].count).toString(); //number of patients with surgery treatment
+                                    survivalsOvarianObj.stages[2].surgery = (0).toString(); //number of patients with surgery treatment
                                 }
 
                                 //Radiotherapy
@@ -3665,8 +3683,8 @@ var getOvarianSurvivals = function(ovarianCallback){
                                             survivalsOvarianObj.stages[2].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
                                         }
                                         else{
-                                            survivalsOvarianObj.stages[2].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            //survivalsOvarianObj.stages[2].radioTherapy = (25).toString(); //number of patients with radiotherapy treatment
+                                            //survivalsOvarianObj.stages[2].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
+                                            survivalsOvarianObj.stages[2].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
                                         }
 
                                         //Chemotherapy
@@ -3689,8 +3707,8 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                     survivalsOvarianObj.stages[2].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
                                                 }
                                                 else{
-                                                    survivalsOvarianObj.stages[2].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    //survivalsOvarianObj.stages[2].chemoTherapy = (29975).toString(); //number of patients with Chemotherapy treatment
+                                                    //survivalsOvarianObj.stages[2].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsOvarianObj.stages[2].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
                                                 //Relapsed ovarianCancer patients
@@ -3713,8 +3731,8 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                         }
                                                         else{
 
-                                                            survivalsOvarianObj.stages[2].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                            //survivalsOvarianObj.stages[2].relapse = (900).toString(); //number of patients with Chemotherapy treatment
+                                                            //survivalsOvarianObj.stages[2].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsOvarianObj.stages[2].relapse = (0).toString(); //number of patients with Chemotherapy treatment
                                                         }
 
                                                         //AliveNoDisease ovarianCancer patients
@@ -3737,8 +3755,8 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                                 }
                                                                 else{
 
-                                                                    survivalsOvarianObj.stages[2].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    //survivalsOvarianObj.stages[2].aliveNoDisease = (50000).toString(); //number of patients with Chemotherapy treatment
+                                                                    //survivalsOvarianObj.stages[2].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsOvarianObj.stages[2].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
 
                                                                 }
 
@@ -3762,8 +3780,8 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                                         }
                                                                         else{
 
-                                                                            survivalsOvarianObj.stages[2].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
-                                                                            //survivalsOvarianObj.stages[2].aliveDisease = (10000).toString(); //number of patients aliveDisease
+                                                                            //survivalsOvarianObj.stages[2].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
+                                                                            survivalsOvarianObj.stages[2].aliveDisease = (0).toString(); //number of patients aliveDisease
                                                                         }
 
 
@@ -3787,8 +3805,8 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                                                 }
                                                                                 else{
 
-                                                                                    //survivalsOvarianObj.stages[2].dead = (result[0].count).toString(); //number of patients dead
-                                                                                    survivalsOvarianObj.stages[2].dead = (10000).toString(); //number of patients dead
+                                                                                    survivalsOvarianObj.stages[2].dead = (result[0].count).toString(); //number of patients dead
+                                                                                    //survivalsOvarianObj.stages[2].dead = (0).toString(); //number of patients dead
 
                                                                                 }
 
@@ -3841,11 +3859,11 @@ var getOvarianSurvivals = function(ovarianCallback){
                     else{
 
                         if(result == null || result[0] == null){
-                            survivalsOvarianObj.stages[3].patientNumber = (0).toString(); //number of patients with stage two cancer
+                            survivalsOvarianObj.stages[3].patientNumber = (3).toString(); //number of patients with stage two cancer
                         }
                         else{
-                            survivalsOvarianObj.stages[3].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
-                            //survivalsOvarianObj.stages[3].patientNumber = (6000).toString(); //number of patients with stage two cancer
+                            //survivalsOvarianObj.stages[3].patientNumber = (result[0].count).toString(); //number of patients with stage two cancer
+                            survivalsOvarianObj.stages[3].patientNumber = (3).toString(); //number of patients with stage two cancer
                         }
 
                         //Surgery
@@ -3870,8 +3888,8 @@ var getOvarianSurvivals = function(ovarianCallback){
                                     survivalsOvarianObj.stages[3].surgery = (0).toString(); //number of patients with surgery treatment
                                 }
                                 else{
-                                    survivalsOvarianObj.stages[3].surgery = (result[0].count).toString(); //number of patients with surgery treatment
-                                    //survivalsOvarianObj.stages[3].surgery = (30000).toString(); //number of patients with surgery treatment
+                                    //survivalsOvarianObj.stages[3].surgery = (result[0].count).toString(); //number of patients with surgery treatment
+                                    survivalsOvarianObj.stages[3].surgery = (0).toString(); //number of patients with surgery treatment
                                 }
 
                                 //Radiotherapy
@@ -3895,8 +3913,8 @@ var getOvarianSurvivals = function(ovarianCallback){
                                         }
                                         else{
 
-                                            survivalsOvarianObj.stages[3].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
-                                            //survivalsOvarianObj.stages[3].radioTherapy = (25).toString(); //number of patients with radiotherapy treatment
+                                            //survivalsOvarianObj.stages[3].radioTherapy = (result[0].count).toString(); //number of patients with radiotherapy treatment
+                                            survivalsOvarianObj.stages[3].radioTherapy = (0).toString(); //number of patients with radiotherapy treatment
                                         }
 
 
@@ -3917,12 +3935,12 @@ var getOvarianSurvivals = function(ovarianCallback){
                                             else{
 
                                                 if(result == null || result[0] == null){
-                                                    survivalsOvarianObj.stages[3].chemoTherapy = (0).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsOvarianObj.stages[3].chemoTherapy = (3).toString(); //number of patients with Chemotherapy treatment
                                                 }
                                                 else{
 
-                                                    survivalsOvarianObj.stages[3].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                    //survivalsOvarianObj.stages[3].chemoTherapy = (29975).toString(); //number of patients with Chemotherapy treatment
+                                                    //survivalsOvarianObj.stages[3].chemoTherapy = (result[0].count).toString(); //number of patients with Chemotherapy treatment
+                                                    survivalsOvarianObj.stages[3].chemoTherapy = (3).toString(); //number of patients with Chemotherapy treatment
                                                 }
 
                                                 //Relapsed ovarianCancer patients
@@ -3941,12 +3959,12 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                     else{
 
                                                         if(result == null || result[0] == null){
-                                                            survivalsOvarianObj.stages[3].relapse = (0).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsOvarianObj.stages[3].relapse = (1).toString(); //number of patients with Chemotherapy treatment
                                                         }
                                                         else{
 
-                                                            survivalsOvarianObj.stages[3].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                            //survivalsOvarianObj.stages[3].relapse = (900).toString(); //number of patients with Chemotherapy treatment
+                                                            //survivalsOvarianObj.stages[3].relapse = (result[0].count).toString(); //number of patients with Chemotherapy treatment
+                                                            survivalsOvarianObj.stages[3].relapse = (1).toString(); //number of patients with Chemotherapy treatment
                                                         }
 
                                                         //AliveNoDisease ovarianCancer patients
@@ -3965,12 +3983,12 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                             else{
 
                                                                 if(result == null || result[0] == null){
-                                                                    survivalsOvarianObj.stages[3].aliveNoDisease = (0).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsOvarianObj.stages[3].aliveNoDisease = (1).toString(); //number of patients with Chemotherapy treatment
                                                                 }
                                                                 else{
 
-                                                                    survivalsOvarianObj.stages[3].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
-                                                                    //survivalsOvarianObj.stages[3].aliveNoDisease = (50000).toString(); //number of patients with Chemotherapy treatment
+                                                                    //survivalsOvarianObj.stages[3].aliveNoDisease = (result[0].count).toString(); //number of patients with Chemotherapy treatment
+                                                                    survivalsOvarianObj.stages[3].aliveNoDisease = (1).toString(); //number of patients with Chemotherapy treatment
 
                                                                 }
 
@@ -3990,12 +4008,12 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                                     else{
 
                                                                         if(result == null || result[0] == null){
-                                                                            survivalsOvarianObj.stages[3].aliveDisease = (0).toString(); //number of patients aliveDisease
+                                                                            survivalsOvarianObj.stages[3].aliveDisease = (2).toString(); //number of patients aliveDisease
                                                                         }
                                                                         else{
 
-                                                                            survivalsOvarianObj.stages[3].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
-                                                                            //survivalsOvarianObj.stages[3].aliveDisease = (10000).toString(); //number of patients aliveDisease
+                                                                            //survivalsOvarianObj.stages[3].aliveDisease = (result[0].count).toString(); //number of patients aliveDisease
+                                                                            survivalsOvarianObj.stages[3].aliveDisease = (2).toString(); //number of patients aliveDisease
                                                                         }
 
                                                                         //Dead ovarianCancer patients
@@ -4019,7 +4037,7 @@ var getOvarianSurvivals = function(ovarianCallback){
                                                                                 else{
 
                                                                                     //survivalsOvarianObj.stages[3].dead = (result[0].count).toString(); //number of patients dead
-                                                                                    survivalsOvarianObj.stages[3].dead = (10000).toString(); //number of patients dead
+                                                                                    survivalsOvarianObj.stages[3].dead = (0).toString(); //number of patients dead
 
                                                                                 }
 
@@ -4059,7 +4077,6 @@ var getOvarianSurvivals = function(ovarianCallback){
 
             if (err) {
                 console.log(err);
-                console.log("ovary error");
                 return ovarianCallback(err);
                 //return res.send(400);
                 //winston log error too
@@ -4072,15 +4089,9 @@ var getOvarianSurvivals = function(ovarianCallback){
                 console.log("null");
 
                 //return res.send(400);
-                console.log("ovary null");
+                //console.log("ovary null");
                 return ovarianCallback(null);
             }
-
-            //console.log(results[0]);
-            //console.log(results[1]);
-            //console.log("Ovarian  " + results[2]);
-            //console.log("Ovarian  " + results[3]);
-            console.log("ovary not null");
             return ovarianCallback(results);
 
         });
