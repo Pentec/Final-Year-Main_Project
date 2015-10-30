@@ -946,14 +946,12 @@ router.post('/findPatient/sendEmail', login.isLoggedIn, function (req, res, next
 });
 
 
-//router.get('/neural', login.isLoggedIn, login.isAdmin, function (req, res, next) {
-router.get('/neural', function (req, res, next) {
+router.get('/neural', login.isLoggedIn, login.isAdmin, function (req, res, next) {
     res.render('pims_neuralnet/testAI', {title: "Synaptic Neural Network", active: "predict"});
 
 });
 
-//router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function (req, res, next) {
-router.post('/neuralOne', function (req, res, next) {
+router.post('/neuralOne', login.isLoggedIn, login.isAdmin, function (req, res, next) {
     var sendPatientName = {patient: req.body.patientNeural};
     var sendPatientSurname = {patientLname: req.body.patientSNameNeural};
     var sendCancerForm = {form: req.body.cancerforms};
@@ -1294,9 +1292,7 @@ router.post('/neuralOne', function (req, res, next) {
 
 });
 
-
-//router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function (req, res, next) {
-router.post('/neuralAll', function (req, res, next) {
+router.post('/neuralAll', login.isLoggedIn, login.isAdmin, function (req, res, next) {
     var sendCancerForm = {form: req.body.cancerforms};
     var getFormVal = (sendCancerForm.form).split(':');
     var totalPatients = 0;
